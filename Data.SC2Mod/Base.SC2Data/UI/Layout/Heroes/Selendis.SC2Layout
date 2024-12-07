@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+<Frame type="Frame" name="SelendisStacksFrameContainer">
+  <Anchor relative="$parent" />
+
+  <Frame type="Frame" name="ZealousRushStatusFrame">
+    <Anchor relative="$ancestor[@name=HeroUnitStatusParentFrame]/PlayerUnitNameLabel" />
+    <Frame type="Image" name="ZealousRushStatusBase">
+      <Anchor side="Bottom" relative="$parent" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+      <Texture val="@UI/Malfurion/RegrowthStatusBase" />
+      <Frame type="Frame" name="ZealousRushStatusCountdownFrame">
+        <Anchor relative="$parent" />
+        <Frame type="ProgressBar" name="CooldownBar">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Height val="48" />
+          <Width val="48" />
+          <Color val="00FF00" />
+          <Circular val="True" />
+          <CircularStart val="0" />
+          <CircularEndOffset val="360" />
+          <Frame type="Frame" name="FillImageContainer">
+            <Anchor relative="$parent" />
+            <Frame type="Image" name="FillImage">
+              <Anchor relative="$parent" />
+              <Texture val="@UI/Malfurion/RegrowthStatusBar" />
+              <TextureType val="Circular" />
+            </Frame>
+          </Frame>
+          <Frame type="Image" name="ZealousRushStatusCenterIcon">
+            <Anchor relative="$parent" offset="-12" />
+            <Texture val="Assets/Textures/Storm_UI_Marker_Selendis.dds" />
+            <Visible val="true" />
+            <IgnoreParentColor val="true" />
+            <ColorAdjustMode val="Colorize" />
+            <LightAdjustColor val="FFFFFF" />
+            <DarkAdjustColor val="5DFF2F" />
+          </Frame>
+        </Frame>
+      </Frame>
+    </Frame>
+  </Frame>
+  <Frame type="Frame" name="ZealousRushStacksFrame">
+    <Anchor relative="$parent"/>
+    <Frame type="Image" name="StacksFull">
+      <Anchor side="Top" relative="$parent" pos="Mid" offset="-6" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Texture val="Assets/Textures/Storm_UI_Marker_Selendis.dds" />
+    </Frame>
+  </Frame>
+  <StateGroup name="VisibilityController">
+    <DefaultState val="Hidden"/>
+    <State name="ShowAvailability">
+      <When type="AnimationState" frame="$this" Visibility="ShowAvailability" />
+      <Action type="SetProperty" frame="ZealousRushStacksFrame" Visible="True"/>
+      <Action type="SetProperty" frame="ZealousRushStatusFrame" Visible="False"/>
+    </State>
+    <State name="ShowCooldown">
+      <When type="AnimationState" frame="$this" Visibility="ShowCooldown" />
+      <Action type="SetProperty" frame="ZealousRushStacksFrame" Visible="False"/>
+      <Action type="SetProperty" frame="ZealousRushStatusFrame" Visible="True"/>
+    </State>
+    <State name="Hidden">
+      <When type="AnimationState" frame="$this" Visibility="Hidden" />
+      <Action type="SetProperty" frame="ZealousRushStacksFrame" Visible="False"/>
+      <Action type="SetProperty" frame="ZealousRushStatusFrame" Visible="False"/>
+    </State>
+  </StateGroup>
+</Frame>
+
+</Desc>

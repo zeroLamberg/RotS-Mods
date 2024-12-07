@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CCamera default="1" id="StormCamera">
+        <ZoomTableObserver index="0">
+            <Param index="ShadowClip" Modify="1" Value="55.000000"/>
+        </ZoomTableObserver>
+        <ZoomTableObserver index="1">
+            <Param index="ShadowClip" Modify="1" Value="65.000000"/>
+        </ZoomTableObserver>
+    </CCamera>
+    <CCamera id="BlizzardAllStars" parent="StormCamera">
+        <ZoomTable index="0">
+            <Param index="Pitch" Value="54.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-1.750000"/>
+        </ZoomTable>
+        <ZoomTable index="1">
+            <Param index="Pitch" Value="54.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-1.750000"/>
+        </ZoomTable>
+        <ZoomTable index="2">
+            <Param index="Distance" Value="24.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-1.000000"/>
+        </ZoomTable>
+        <ZoomTable index="3">
+            <Param index="Distance" Value="20.000000"/>
+            <Param index="Pitch" Value="42.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-0.250000"/>
+        </ZoomTable>
+        <ZoomTable index="4">
+            <Param index="Distance" Value="14.000000"/>
+            <Param index="HeightOffset" Modify="1"/>
+        </ZoomTable>
+        <ParamInitial index="FieldOfView" value="37.500000"/>
+        <ParamInitial index="FarClip" value="20000.000000"/>
+        <ParamInitial index="ShadowClip" value="50.000000"/>
+        <ParamInitial index="Distance" value="30.000000"/>
+        <ParamInitial index="Pitch" value="54.000000"/>
+        <ParamInitial index="HeightOffset" value="-1.750000"/>
+        <HeightMap value="Camera"/>
+        <MaxScrollRate index="Normal" value="68.500000"/>
+        <MaxScrollRate index="Follow" value="68.500000"/>
+        <TargetSmooth SmoothTimeMin="0.000000" SmoothTimeMax="0.000000" VelocityMax="80.000000"/>
+        <ScrollAccelerationPeriod index="Follow" value="0.000000"/>
+        <ScrollDecelerationPeriod index="Follow" value="0.000000"/>
+        <ForwardScale index="Follow" value="0.048000"/>
+        <StrafeScale index="Follow" value="0.048000"/>
+        <FollowOffsetUpdateBandX value="-4.000000,4.000000"/>
+        <FollowOffsetUpdateBandY value="-3.000000,3.000000"/>
+        <FollowResetDecayDuration value="2.000000"/>
+        <FollowResetDecayFactor value="0.700000"/>
+        <FollowResetJumpDelay value="1.000000"/>
+        <FollowResetJumpDistance value="17.000000"/>
+        <FollowResetTimeoutNormal value="6.000000"/>
+        <FollowResetTimeoutLeashed value="0.062500"/>
+        <FollowResetTimeoutUnleashed value="12.000000"/>
+        <FollowScrollLeash value="-9.500000,-10.000000,9.500000,10.000000"/>
+    </CCamera>
+    <CCamera id="BlizzardAllStarsCameraAdvanced" parent="StormCamera">
+        <ParamInitial index="FieldOfView" value="37.500000"/>
+        <ParamInitial index="FarClip" value="20000.000000"/>
+        <ParamInitial index="ShadowClip" value="50.000000"/>
+        <ParamInitial index="Distance" value="44.000000"/>
+        <ParamInitial index="Pitch" value="54.000000"/>
+        <ParamInitial index="HeightOffset" value="-1.750000"/>
+        <ZoomTable index="0">
+            <Param index="Distance" Value="44.000000"/>
+            <Param index="HeightOffset" Modify="1"/>
+        </ZoomTable>
+        <ZoomTable index="1">
+            <Param index="Distance" Value="34.000000"/>
+            <Param index="Pitch" Value="54.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-1.750000"/>
+        </ZoomTable>
+        <ZoomTable index="2">
+            <Param index="Distance" Value="30.000000"/>
+            <Param index="Pitch" Value="54.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-1.750000"/>
+        </ZoomTable>
+        <ZoomTable index="3">
+            <Param index="Distance" Value="24.000000"/>
+            <Param index="Pitch" Value="48.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-1.000000"/>
+        </ZoomTable>
+        <ZoomTable index="4">
+            <Param index="Distance" Value="20.000000"/>
+            <Param index="Pitch" Value="42.000000"/>
+            <Param index="HeightOffset" Modify="1" Value="-0.250000"/>
+        </ZoomTable>
+        <ZoomTable>
+            <Param index="Distance" Modify="1" Value="14.000000"/>
+            <Param index="Pitch" Modify="1" Value="40.000000"/>
+            <Param index="HeightOffset" Modify="1"/>
+        </ZoomTable>
+        <TargetSmooth SmoothTimeMin="0.000000" SmoothTimeMax="0.000000" VelocityMax="80.000000"/>
+        <MaxScrollRate index="Normal" value="68.500000"/>
+        <MaxScrollRate index="Follow" value="68.500000"/>
+        <ScrollAccelerationPeriod index="Follow" value="0.000000"/>
+        <ScrollDecelerationPeriod index="Follow" value="0.000000"/>
+        <ForwardScale index="Follow" value="0.048000"/>
+        <StrafeScale index="Follow" value="0.048000"/>
+        <FollowOffsetUpdateBandX value="-4.000000,4.000000"/>
+        <FollowOffsetUpdateBandY value="-3.000000,3.000000"/>
+        <FollowResetDecayDuration value="2.000000"/>
+        <FollowResetDecayFactor value="0.700000"/>
+        <FollowResetJumpDelay value="1.000000"/>
+        <FollowResetJumpDistance value="17.000000"/>
+        <FollowResetTimeoutNormal value="6.000000"/>
+        <FollowResetTimeoutLeashed value="0.062500"/>
+        <FollowResetTimeoutUnleashed value="12.000000"/>
+        <FollowScrollLeash value="-9.500000,-10.000000,9.500000,10.000000"/>
+        <HeightMap value="Camera"/>
+    </CCamera>
+</Catalog>

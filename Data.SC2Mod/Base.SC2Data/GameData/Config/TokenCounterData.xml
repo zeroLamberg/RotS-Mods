@@ -1,0 +1,1794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="TokenCounter">
+        <Fields>
+            <Id value="BehaviorTokenCounter"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Behavior"/>
+            <EditorColumn value="1"/>
+            <EditorText value="Name"/>
+        </Fields>
+        <Fields>
+            <Id value="Type"/>
+            <Type value="User"/>
+            <UserType value="TokenCounterType"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Fields Id="ConditionalEvents_CompareValue" Type="Int" Count="5"/>
+        <Fields>
+            <Id value="ConditionalEvents_Effect"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Effect"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields Id="Events_AtMax_Effect" Type="GameLink" GameLinkType="Effect"/>
+        <Fields Id="Events_AtMin_Effect" Type="GameLink" GameLinkType="Effect"/>
+        <Fields Id="Max" Type="Fixed" EditorColumn="3"/>
+        <Fields Id="DeltaEvents_Delta" Type="Int" Count="5"/>
+        <Fields>
+            <Id value="DeltaEvents_QuestEvent"/>
+            <Type value="User"/>
+            <UserType value="TokenCounterQuestEvent"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields>
+            <Id value="ConditionalEvents_QuestEvent"/>
+            <Type value="User"/>
+            <UserType value="TokenCounterQuestEvent"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields Id="Events_AtMin_QuestEvent" Type="User" UserType="TokenCounterQuestEvent"/>
+        <Fields Id="Events_AtMax_QuestEvent" Type="User" UserType="TokenCounterQuestEvent"/>
+        <Fields Id="Events_Increase_QuestEvent" Type="User" UserType="TokenCounterQuestEvent"/>
+        <Fields Id="Events_Decrease_QuestEvent" Type="User" UserType="TokenCounterQuestEvent"/>
+        <Fields>
+            <Id value="ConditionalEvents_IsUsed"/>
+            <Type value="User"/>
+            <UserType value="GenericTrueFalse"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields Id="Events_Decrease_Effect" Type="GameLink" GameLinkType="Effect"/>
+        <Fields Id="Events_Increase_Effect" Type="GameLink" GameLinkType="Effect"/>
+        <Fields>
+            <Id value="DeltaEvents_IsUsed"/>
+            <Type value="User"/>
+            <UserType value="GenericTrueFalse"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields>
+            <Id value="DeltaEvents_Effect"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Effect"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields Id="Option_ResetAtMax" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="ScoreValueLink" Type="GameLink" GameLinkType="ScoreValue"/>
+        <Fields Id="QuestType" Type="User" UserType="TokenCounterQuestType"/>
+        <Fields>
+            <Id value="IsQuest"/>
+            <Type value="User"/>
+            <UserType value="GenericTrueFalse"/>
+            <EditorColumn value="4"/>
+        </Fields>
+        <Fields Id="Option_SuppressQuestCompleteCheat" Type="User" UserType="GenericTrueFalse"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="TalentBribe">
+            <Fixed Fixed="100">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TalentBribe@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="TalentBribe@AddCharge">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="20">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="TalentGatheringPower">
+            <Fixed Fixed="15">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TalentGatheringPower@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="TalentGatheringPower@TokenCounterIncrementModifyPlayer">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestDecrease">
+                <Field Id="Events_Decrease_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="TalentRegenerationMaster">
+            <Fixed Fixed="30">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TalentRegenerationMaster@RewardModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <GameLink GameLink="TalentRegenerationMaster@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="TalentRegenerationMaster@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurEvolveMonstrosityMinionsAbsorbed">
+            <Fixed Fixed="40">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroAbathurEvolveMonstrosityStacks@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="DeltaEvents_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestDecrease">
+                <Field Id="Events_Decrease_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinPiercingLight">
+            <Fixed Fixed="15">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="AnduinPiercingLight@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="AnduinPiercingLight@IncreaseSpellPowerSet">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisProtectorOfAiur">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroArtanisProtectorOfAiur">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisProtectorOfAiur">
+                <Field Id="ScoreValueLink"/>
+            </GameLink>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisPrismaticAlignment">
+            <Fixed Fixed="20">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroArtanisPrismaticAlignment">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="10">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasFrostPresence">
+            <Fixed Fixed="20">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroArthasFrostPresence">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasFrostPresence@ConditionalReward1">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasFrostPresence@ConditionalReward2">
+                <Field Id="ConditionalEvents_Effect" Index="1"/>
+            </GameLink>
+            <Int Int="5">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="ConditionalEvents_CompareValue" Index="1"/>
+            </Int>
+            <Int Int="20">
+                <Field Id="ConditionalEvents_CompareValue" Index="2"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed" Index="1"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasObliterate">
+            <Fixed Fixed="20">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroArthasObliterate">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasObliterate@IncreaseTokenModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielIncreasingClarity">
+            <Fixed Fixed="25">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroAurielIncreasingClarity">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielIncreasingClarity@QuestIncreaseModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielIncreasingClarity@QuestRewardModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielRepeatedOffense">
+            <Fixed Fixed="6">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroAurielRepeatedOffense@QuestRewardModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielRepeatedOffense@QuestIncreaseModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielRepeatedOffense@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielReservoirOfHope">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroAurielReservoirOfHope@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielReservoirOfHope@QuestIncreaseModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingPixieCharm">
+            <Fixed Fixed="80">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="BrightwingPixieCharm">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingPixieCharm@AddCharge">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="20">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingPixieCharmArcaneFlare">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="BrightwingPixieCharm@ArcaneFlare">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingPixieCharm@ArcaneFlareQuestIncreaseModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingIntensiveWinds">
+            <Fixed Fixed="15">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="BrightwingIntensiveWinds@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingIntensiveWinds@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaInfiltrationMission">
+            <Fixed Fixed="5">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="DeltaInfiltrationMission@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="DeltaInfiltrationMission@ConditionalEvent1Modification">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloBlackSoulstone">
+            <Fixed Fixed="100">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroDiabloBlackSoulstone">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloBlackSoulstone@TokenIncreaseModifyPlayer">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloBlackSoulstone@TokenDecreaseModifyPlayer">
+                <Field Id="DeltaEvents_Effect" Index="1"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="-1">
+                <Field Id="DeltaEvents_Delta" Index="1"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestReset">
+                <Field Id="Events_Decrease_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloSoulsToTheFlame">
+            <Fixed Fixed="3">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroDiabloSoulsToTheFlame">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloBlackSoulstone@IncreaseQuestToken">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Option_ResetAtMax"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloDevastatingCharge">
+            <Fixed Fixed="3">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroDiabloDevastatingCharge@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCProgRock">
+            <Fixed Fixed="20">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="ETCProgRock@Progress">
+                <Field Id="ScoreValueLink"/>
+            </GameLink>
+            <GameLink GameLink="ETCProgRock@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadGatheringStorm">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroFalstadGatheringStorm@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadGatheringStorm@RewardModification">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadGatheringStorm@DeltaModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="30">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="UnlimitedTargetCount">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="ConditionalEvents_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadDishonorableDischarge">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroFalstadDishonorableDischarge@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadDishonorableDischarge@Quest30TokensReward">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadDishonorableDischarge@QuestIncreaseModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="30">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="50">
+                <Field Id="ConditionalEvents_CompareValue" Index="1"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="UnlimitedTargetCount">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestMilestone">
+                <Field Id="ConditionalEvents_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="DeltaEvents_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadFrequentFlyer">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroFalstadFrequentFlyer@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadFrequentFlyer">
+                <Field Id="ScoreValueLink"/>
+            </GameLink>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadAroundTheWorld">
+            <Fixed Fixed="8">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroFalstadAroundTheWorld@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadAroundTheWorld@ConditionalReward1">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadAroundTheWorld@ConditionalReward2">
+                <Field Id="ConditionalEvents_Effect" Index="1"/>
+            </GameLink>
+            <Int Int="3">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <Int Int="8">
+                <Field Id="ConditionalEvents_CompareValue" Index="1"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="[Default]">
+                <Field Id="Option_ResetAtMax"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadSonicBoom">
+            <Fixed Fixed="20">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroFalstadSonicBoom@IncrementTokenCounterModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadSonicBoom@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadSonicBoom@RewardModificationMaxed">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneIncendiaryElixir">
+            <Fixed Fixed="15">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="GreymaneIncendiaryElixir@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneIncendiaryElixir@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneIncendiaryElixir@MaxedModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneWizenedDuelistProgress">
+            <Fixed Fixed="5">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="GreymaneWizenedDuelist@ProgressTokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneWizenedDuelist@IncrementQuestTokenCounter">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Option_ResetAtMax"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneWizenedDuelistQuest">
+            <Fixed Fixed="30">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="GreymaneWizenedDuelist@QuestTokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneWizenedDuelist@QuestValue">
+                <Field Id="ScoreValueLink"/>
+            </GameLink>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestReset">
+                <Field Id="Events_AtMin_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaFingersOfFrost">
+            <Fixed Fixed="20">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroJainaFingersOfFrost@DeltaModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaFingersOfFrost@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="HeroJainaFrostbite">
+            <Fixed Fixed="12000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroJainaFrostbite@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaFrostbite@QuestMaxedSet">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaDivineFortress">
+            <Fixed Fixed="4">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="JohannaDivineFortress@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="JohannaDivineFortress@DeltaEvent1ModifyPlayer">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="JohannaDivineFortress@DeltaEvent2ModifyPlayer">
+                <Field Id="DeltaEvents_Effect" Index="1"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="-1">
+                <Field Id="DeltaEvents_Delta" Index="1"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Option_SuppressQuestCompleteCheat"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestReset">
+                <Field Id="Events_AtMin_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaLawsOfHope">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="JohannaLawsOfHope@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="JohannaLawsOfHope@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="10">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaSubdue">
+            <Fixed Fixed="1">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="JohannaSubdue@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganSharpenedBlades">
+            <Fixed Fixed="90">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="KerriganSharpenedBlades@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="KerriganSharpenedBlades@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="KerriganSharpenedBlades@QuestMaxedModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimInsight">
+            <Fixed Fixed="100">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="KharazimInsight">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="50">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="[Default]">
+                <Field Id="Option_ResetAtMax"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimBlazingFists">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="KharazimBlazingFists@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="KharazimBlazingFists@DeltaEvent1">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="KharazimBlazingFists@ConditionalEvent1Modification">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="150">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="UnlimitedTargetCount">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="ConditionalEvents_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionDeepRoots">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroMalfurionDeepRoots@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionDeepRoots@IncreaseTokenModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionVengefulRoots">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroMalfurionVengefulRoots@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionVengefulRoots@IncreaseTokenModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionVengefulRoots@ConditionalEvent1Modification">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="20">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="UnlimitedTargetCount">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="ConditionalEvents_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinStormbolt">
+            <Fixed Fixed="1">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="MuradinStormbolt@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="MuradinStormbolt@QuestCompleteModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Option_SuppressQuestCompleteCheat"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinPerfectStorm">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="MuradinPerfectStorm@QuestStackCount">
+                <Field Id="ScoreValueLink"/>
+            </GameLink>
+            <GameLink GameLink="MuradinPerfectStorm@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosSulfurasHungers">
+            <Fixed Fixed="75">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroRagnarosSulfurasHungers@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosSulfurasHungers@IncrementTokenModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosSulfurasHungers@RewardModification">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="25">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="ConditionalEvents_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosShiftingMeteor">
+            <Fixed Fixed="75">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroRagnarosShiftingMeteor@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosShiftingMeteor@RewardModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosCatchingFire">
+            <Fixed Fixed="15">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroRagnarosCatchingFire@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosCatchingFire@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisSolarCharge">
+            <Fixed Fixed="110">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroSelendisSolarCharge@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisSolarCharge">
+                <Field Id="ScoreValueLink"/>
+            </GameLink>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisJusticeIsDue">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroSelendisJusticeIsDue@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisJusticeIsDue@RewardModification1">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisJusticeIsDue@RewardModification2">
+                <Field Id="ConditionalEvents_Effect" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisJusticeIsDue@DeltaModification1">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="60">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <Int Int="120">
+                <Field Id="ConditionalEvents_CompareValue" Index="1"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="UnlimitedTargetCount">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed" Index="1"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="ConditionalEvents_QuestEvent" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisFaithBeforeFear">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroSelendisFaithBeforeFear@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisFaithBeforeFear@IncreaseTokenModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisFaithBeforeFear@RewardModification">
+                <Field Id="ConditionalEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="100">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="UnlimitedTargetCount">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="ConditionalEvents_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarSelfRepair">
+            <Fixed Fixed="1000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroTalandarSelfRepair@DeltaModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarSelfRepair@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarCauterizingBlast">
+            <Fixed Fixed="30">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="HeroTalandarCauterizingBlast@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarCauterizingBlast@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <Int Int="20">
+                <Field Id="ConditionalEvents_CompareValue"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="ConditionalEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusInTheRhythm">
+            <Fixed Fixed="10000">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TychusInTheRhythm@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="TychusInTheRhythm">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Unlimited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusMasterAssassin">
+            <Fixed Fixed="15">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TychusMasterAssassin@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="TychusMasterAssassin@QuestMaxedModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusHeavensDevils">
+            <Fixed Fixed="7">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TychusHeavensDevils@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="TychusHeavensDevils@IncrementTokenModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeLunarBlaze">
+            <Fixed Fixed="40">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TyrandeLunarBlaze@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeLunarBlaze@ModificationDeltaEvent1">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeShootingStar">
+            <Fixed Fixed="10">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="TyrandeShootingStar@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeShootingStar@ProcSet">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Option_ResetAtMax"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanGlobeOfAnnihilation">
+            <Fixed Fixed="400">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="AzmodanGlobeOfAnnihilation@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanGlobeOfAnnihilation@IncrementTokenCounterModification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestType" Instance="Quest">
+                <Field Id="QuestType"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanGreed">
+            <Fixed Fixed="200">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="AzmodanGreed@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanGreed@QuestMaxedModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanGluttony">
+            <Fixed Fixed="200">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="AzmodanGluttony@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanWrath">
+            <Fixed Fixed="200">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="AzmodanWrath@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakRegenerationMaster">
+            <Fixed Fixed="30">
+                <Field Id="Max"/>
+            </Fixed>
+            <GameLink GameLink="AnubarakRegenerationMaster@RewardModification">
+                <Field Id="Events_AtMax_Effect"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakRegenerationMaster@DeltaEvent1Modification">
+                <Field Id="DeltaEvents_Effect"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakRegenerationMaster@TokenCounter">
+                <Field Id="BehaviorTokenCounter"/>
+            </GameLink>
+            <Int Int="1">
+                <Field Id="DeltaEvents_Delta"/>
+            </Int>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsQuest"/>
+            </User>
+            <User Type="TokenCounterType" Instance="Limited">
+                <Field Id="Type"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestIncrease">
+                <Field Id="Events_Increase_QuestEvent"/>
+            </User>
+            <User Type="TokenCounterQuestEvent" Instance="QuestComplete">
+                <Field Id="Events_AtMax_QuestEvent"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="DeltaEvents_IsUsed"/>
+            </User>
+        </Instances>
+    </CUser>
+</Catalog>

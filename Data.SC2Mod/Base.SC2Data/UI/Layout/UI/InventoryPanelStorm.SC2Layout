@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Constant name="ContainerButtonGap" val="0"/>
+  <Constant name="ContainerPanelGap" val="-2"/>
+  <Constant name="InventoryButtonGap" val="-10"/>
+
+  <Frame type="Image" name="EmptyDynamicButtonImageTemplate">
+    <Texture val="@UI/HUD_BTN_BG_Ability_Inventory_Empty" />
+    <Alpha val="80" />
+    <Width val="102" />
+    <Height val="102" />
+    <RenderPriority val="10" />
+  </Frame>
+  
+  <Frame type="CommandButton" name="CommandButtonTemplate" template="CommandButtonStorm/DynamicButtonTemplate">
+    <Frame type="Frame" name="GameButtonProgressBar" template="GameButtonProgressBars/GameButtonProgressBarInventoryButton"/>
+    <Frame type="Frame" name="AttentionEffect">
+      <Anchor relative="$parent" offset="-5"/>
+      <Visible val="False"/>
+      <Animation name="EffectState">
+        <Event event="NoState" action="DirectionReverse,Play" frame="$InventoryAttentionAnimValidatorFrame" />
+      </Animation>
+      <Animation name="HealType">
+        <Event event="InvButtonAttentionHealing" action="DirectionForward,Play" frame="$InventoryAttentionAnimValidatorFrame" />
+      </Animation>
+      <Animation name="DamageType">
+        <Event event="InvButtonAttentionDamage" action="DirectionForward,Play" frame="$InventoryAttentionAnimValidatorFrame" />
+      </Animation>
+      <Animation name="ManaType">
+        <Event event="InvButtonAttentionMana" action="DirectionForward,Play" frame="$InventoryAttentionAnimValidatorFrame" />
+      </Animation>
+    </Frame>
+    <Frame type="Frame" name="ActiveEffect">
+      <Anchor relative="$parent" offset="-5"/>
+      <Animation name="EffectState">
+        <Event event="NoState" action="DirectionReverse,Play" frame="$InventoryActiveAnimValidatorFrame" />
+      </Animation>
+      <Animation name="HealType">
+        <Event event="InvButtonActiveHealing" action="DirectionForward,Play" frame="$InventoryActiveAnimValidatorFrame" />
+      </Animation>
+      <Animation name="DamageType">
+        <Event event="InvButtonActiveDamage" action="DirectionForward,Play" frame="$InventoryActiveAnimValidatorFrame" />
+      </Animation>
+      <Animation name="ManaType">
+        <Event event="InvButtonActiveMana" action="DirectionForward,Play" frame="$InventoryActiveAnimValidatorFrame" />
+      </Animation>
+    </Frame>
+    <Frame type="Frame" name="SelectedEffect">
+      <Anchor relative="$parent" />
+      <RenderPriority val="510"/>
+      <Visible val="False"/>
+      <Frame type="Image" name="SelectedEffectImage">
+        <Anchor side="Top" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Unclipped val="true" />
+        <SubpixelRendering val="True"/>
+        <Texture val="@UI/Storm_UI_HUD_HeroMechanic_Samuro_Hex_Health" />
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="SelectedEffectSpecial">
+      <Anchor relative="$parent" />
+      <RenderPriority val="510"/>
+      <Visible val="False"/>
+      <Frame type="Image" name="SelectedEffectImage">
+        <Anchor side="Top" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/$parent/NormalImage" pos="Mid" offset="0" />
+        <Unclipped val="true" />
+        <SubpixelRendering val="True"/>
+        <Texture val="@UI/Storm_UI_HUD_HeroMechanic_Samuro_Hex_Hover" />
+      </Frame>
+    </Frame>
+    <!--<StateGroup name="AttentionEffectStateGroup">
+      <State name="Hidden">
+
+        <Action type="SetProperty" frame="AttentionEffect" Visible="False"/>
+      </State>
+    </StateGroup>-->
+    <StateGroup name="ActiveEffectStateGroup">
+      <State name="Hidden">
+        <When type="Property" frame="NormalImage" Texture="assets\textures\storm_ui_icon_arthas_frostmournehungers_on.dds" index="0" operator="NotEqual"/>
+        <Action type="SetProperty" frame="ActiveEffect" Visible="False"/>
+      </State>
+    </StateGroup>
+    <!--<StateGroup name="SelectedEffectStateGroup">
+      <State name="Hidden">
+
+        <Action type="SetProperty" frame="SelectedEffect" Visible="False"/>
+      </State>
+    </StateGroup>
+    <StateGroup name="SelectedEffectSpecialStateGroup">
+      <State name="Hidden">
+
+        <Action type="SetProperty" frame="SelectedEffectSpecial" Visible="False"/>
+      </State>
+    </StateGroup>-->
+    <!--<StateGroup name="HideHotkeyStateGroup">
+      <State name="ArthasFrostmourneHungersActive">
+        <When type="Property" frame="ActiveEffect" Visible="True" />
+        <When type="Property" frame="NormalImage" Texture="assets\textures\storm_ui_icon_arthas_frostmournehungers_off.dds" index="0"/>
+        <Action type="SetProperty" frame="HotkeyFrame/HotkeyLabel" Visible="False"/>
+      </State>
+    </StateGroup>-->
+  </Frame>
+
+  <Frame type="InventoryPanel" name="InventoryPanelTemplate">
+    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+    <HideUnusedInventoryButtons val="True"/>
+    <UseAlertIcon val="False"/>
+    <ShowAgentInventory val="True"/>
+    <ShowForAllPlayers val="True"/>
+    <Handle val="InventoryPanel"/>
+    <Frame type="CommandTooltip" name="InventoryTooltipStorm" template="StandardTooltipStorm/InventoryCommandTooltipTemplateStorm">
+      <PositionFixed val="False"/>
+    </Frame>
+
+    <Frame type="SelectionUnitStatusPanel" name="InventoryUnitSelectionPanel">
+      <Anchor relative="$parent/AnchorFrame" />
+      <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+        <Anchor relative="$parent" />
+        <Frame type="UnitStatusValidatorAnimElement" name="AttentionValidatorElement">
+          <Handle val="InventoryAttentionAnimValidatorFrame" />
+          <Anchor relative="$parent" />
+          <Validator val="InvButtonAttentionDamage" />
+          <Validator val="InvButtonAttentionHealing" />
+          <Validator val="InvButtonAttentionMana" />
+        </Frame>
+        <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElement">
+          <Handle val="InventoryActiveAnimValidatorFrame" />
+          <Anchor relative="$parent" />
+          <Validator val="InvButtonActiveDamage" />
+          <Validator val="InvButtonActiveHealing" />
+          <Validator val="InvButtonActiveMana" />
+        </Frame>
+        <Frame type="UnitStatusValidatorAnimElement" name="SelectedValidatorElement">
+          <Handle val="InventorySelectedAnimValidatorFrame" />
+          <Anchor relative="$parent" />
+          <Validator val="InvButtonSelectedDefault" />
+        </Frame>
+        <Frame type="UnitStatusValidatorAnimElement" name="SelectedValidatorElementSpecial">
+          <Handle val="InventorySelectedAnimValidatorFrameSpecial" />
+          <Anchor relative="$parent" />
+          <Validator val="InvButtonSelectedSpecial" />
+        </Frame>
+      </Frame>
+    </Frame>
+
+    <Frame type="InventoryContainer" name="InventoryButtons">
+      <!--<Batch val="False"/>
+      <Anchor side="Top" relative="$GameUI" pos="Min" offset="0"/>
+      <Anchor side="Left" relative="$GameUI" pos="Min" offset="0"/>
+      <Anchor side="Right" relative="$GameUI" pos="Max" offset="0"/>
+      <Anchor side="Bottom" relative="$GameUI" pos="Max" offset="0"/>-->
+      <Height val="104"/>
+      <Width val="313"/>
+      <Anchor side="Top" relative="$parent/$parent/CommandPanel" pos="-0.1" offset="0"/>
+      <Anchor side="Left" relative="$parent/$parent/CommandPanel" pos="Mid" offset="-5"/>
+      <Anchor side="Right" relative="$parent/$parent/CommandPanel" pos="Mid" offset="0"/>
+      <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
+      <AcceptsMouse val="False"/>
+
+      <!--<StateGroup name="VisibilityStategroup">
+        <State name="Hidden">
+          <When type="Property" frame="Button00/NormalImage" Texture="" index="0" operator="Equal"/>
+          <When type="Property" frame="Button01/NormalImage" Texture="" index="0" operator="Equal"/>
+          <When type="Property" frame="Button02/NormalImage" Texture="" index="0" operator="Equal"/>
+          <When type="Property" frame="Button03/NormalImage" Texture="" index="0" operator="Equal"/>
+          <When type="Property" frame="Button04/NormalImage" Texture="" index="0" operator="Equal"/>
+          <When type="Property" frame="Button05/NormalImage" Texture="" index="0" operator="Equal"/>
+          <Action type="SetProperty" frame="$parent" HideUnusedInventoryButtons="True"/>
+        </State>
+        <State name="Default"/>
+      </StateGroup>-->
+
+      <StateGroup name="ActiveButton">
+        <DefaultState val="Default"/>
+        <State name="InventoryButton00">
+          <When type="Property" frame="$this/Button00" operator="Equal" Hovering="True"/>
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="True"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="InventoryButton00"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$InventoryPanel/InventoryButtons/Button00/NormalImage/@Texture}"/>
+        </State>
+        <State name="InventoryButton01">
+          <When type="Property" frame="$this/Button01" operator="Equal" Hovering="True"/>
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="True"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="InventoryButton01"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$InventoryPanel/InventoryButtons/Button01/NormalImage/@Texture}"/>
+        </State>
+        <State name="InventoryButton02">
+          <When type="Property" frame="$this/Button02" operator="Equal" Hovering="True"/>
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="True"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="InventoryButton02"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$InventoryPanel/InventoryButtons/Button02/NormalImage/@Texture}"/>
+        </State>
+        <State name="InventoryButton03">
+          <When type="Property" frame="$this/Button03" operator="Equal" Hovering="True"/>
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="True"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="InventoryButton03"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$InventoryPanel/InventoryButtons/Button03/NormalImage/@Texture}"/>
+        </State>
+        <State name="InventoryButton04">
+          <When type="Property" frame="$this/Button04" operator="Equal" Hovering="True"/>
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="True"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="InventoryButton04"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$InventoryPanel/InventoryButtons/Button04/NormalImage/@Texture}"/>
+        </State>
+        <State name="InventoryButton05">
+          <When type="Property" frame="$this/Button05" operator="Equal" Hovering="True"/>
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="True"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="InventoryButton05"/>
+          <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$InventoryPanel/InventoryButtons/Button05/NormalImage/@Texture}"/>
+        </State>
+        <State name="Default">
+          <Action type="SetState" frame="$Announcer" group="InventoryPanelState" state="False"/>
+        </State>
+      </StateGroup>
+
+      <Frame type="Image" name="EmptyInventoryButton00" template="InventoryPanelStorm/EmptyDynamicButtonImageTemplate">
+        <Anchor side="Bottom" relative="$CommandButton00" pos="Min" offset="20" />
+        <Anchor side="Left" relative="$CommandButton00" pos="Mid" offset="#DynamicButtonGap" />
+      </Frame>
+      <Frame type="Image" name="EmptyInventoryButton01" template="InventoryPanelStorm/EmptyDynamicButtonImageTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton00" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$CommandButton01" pos="Mid" offset="#DynamicButtonGap" />
+      </Frame>
+      <Frame type="Image" name="EmptyInventoryButton02" template="InventoryPanelStorm/EmptyDynamicButtonImageTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton01" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$CommandButton02" pos="Mid" offset="#DynamicButtonGap" />
+      </Frame>
+      <Frame type="Image" name="EmptyInventoryButton03" template="InventoryPanelStorm/EmptyDynamicButtonImageTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton02" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$CommandButton03" pos="Mid" offset="#DynamicButtonGap" />
+      </Frame>
+      <Frame type="Image" name="EmptyInventoryButton04" template="InventoryPanelStorm/EmptyDynamicButtonImageTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton03" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$CommandButton04" pos="Mid" offset="#DynamicButtonGap" />
+      </Frame>
+      <Frame type="Image" name="EmptyInventoryButton05" template="InventoryPanelStorm/EmptyDynamicButtonImageTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton04" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton04" pos="Max" offset="-9" />
+      </Frame>
+      <Frame type="CommandButton" name="Button00" template="InventoryPanelStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton00" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton00" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/EmptyInventoryButton00" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/EmptyInventoryButton00" pos="Mid" offset="0" />
+      </Frame>
+      <Frame type="CommandButton" name="Button01" template="InventoryPanelStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton01" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton01" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/EmptyInventoryButton01" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/EmptyInventoryButton01" pos="Mid" offset="0" />
+      </Frame>
+      <Frame type="CommandButton" name="Button02" template="InventoryPanelStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton02" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton02" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/EmptyInventoryButton02" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/EmptyInventoryButton02" pos="Mid" offset="0" />
+      </Frame>
+      <Frame type="CommandButton" name="Button03" template="InventoryPanelStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton03" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton03" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/EmptyInventoryButton03" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/EmptyInventoryButton03" pos="Mid" offset="0" />
+      </Frame>
+      <Frame type="CommandButton" name="Button04" template="InventoryPanelStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton04" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton04" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/EmptyInventoryButton04" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/EmptyInventoryButton04" pos="Mid" offset="0" />
+      </Frame>
+      <Frame type="CommandButton" name="Button05" template="InventoryPanelStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/EmptyInventoryButton05" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/EmptyInventoryButton05" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/EmptyInventoryButton05" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/EmptyInventoryButton05" pos="Mid" offset="0" />
+      </Frame>
+      <Frame type="Frame" name="ContainerSizeFrame">
+        <Anchor side="Top" relative="$parent/Button00" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/Button00" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/Button00" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent/Button05" pos="Max" offset="0"/>
+      </Frame>
+    </Frame>
+
+    <!-- This should be last so it always renders on top of all other inventory frames.-->
+    <Frame type="Image" name="Cursor">
+      <Anchor side="Top" relative="$parent" pos="Max" offset="0"/>
+      <Anchor side="Left" relative="$parent" pos="Max" offset="0"/>
+      <Width val="76"/>
+      <Height val="76"/>
+      <RenderPriority val="1024"/>
+      <LayerCount val="2"/>
+      <TextureType val="Normal" layer="0"/>
+      <Texture val="@UI/ButtonBorderNormal" layer="0"/>
+      <TextureType val="Normal" layer="1"/>
+      <ImageMaskTexture val="@UI/HUD_BTN_BG_Ability_AlphaMask" />
+    </Frame>
+  </Frame>
+</Desc>

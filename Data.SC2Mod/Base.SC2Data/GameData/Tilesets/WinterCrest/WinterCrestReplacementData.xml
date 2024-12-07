@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+  <CModel id="CoreKingsCrestDeath_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_KingsCrest_Core_RavenLord_Death\Storm_Building_KingsCrest_Core_RavenLord_Death.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath00_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_00.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath01_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_01.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath02_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_02.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath03_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_03.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath04_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_04.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath05_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_05.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath06_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_06.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath07_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_07.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath08_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_08.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath09_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_09.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath10_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_10.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath11_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_11.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath12_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_12.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath13_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_13.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath14_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_14.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath15_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_15.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath16_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_16.m3" />
+  </CModel>
+  <CModel id="StormKingsCrestWallDeath17_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall_Death\Storm_Building_WinterCrest_Wall_Death_17.m3" />
+  </CModel>
+  <CModel id="Storm_Doodad_KingsCrest_WinterCrest_Curtain">
+    <Model value="Assets\Doodads\Storm_Doodad_WinterCrest_Curtain\Storm_Doodad_WinterCrest_Curtain.m3" />
+  </CModel>
+  <CModel id="Storm_Doodad_KingsCrest_WinterCrest_CurtainLarge">
+    <Model value="Assets\Doodads\Storm_Doodad_WinterCrest_CurtainLarge\Storm_Doodad_WinterCrest_CurtainLarge.m3" />
+  </CModel>
+  <CModel id="TownGateBirthModel_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate_Birth\Storm_Building_WinterCrest_Gate_Birth.m3" />
+  </CModel>
+  <CModel id="TownGateDamaged_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate_Damage\Storm_Building_WinterCrest_Gate_Damage.m3" />
+  </CModel>
+  <CModel id="TownGateDamagedDeath00_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate_Damage\Storm_Building_WinterCrest_Gate_Damage_00.m3" />
+  </CModel>
+  <CModel id="TownGateDamagedDeath01_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate_Damage\Storm_Building_WinterCrest_Gate_Damage_01.m3" />
+  </CModel>
+  <CModel id="TownGateDamagedDeath02_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate_Damage\Storm_Building_WinterCrest_Gate_Damage_02.m3" />
+  </CModel>
+  <CModel id="TownGateDamagedDeath03_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate_Damage\Storm_Building_WinterCrest_Gate_Damage_03.m3" />
+  </CModel>
+  <CModel id="TownGateL2_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate\Storm_Building_WinterCrest_Gate.m3" />
+  </CModel>
+  <CModel id="TownGateL3_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Gate\Storm_Building_WinterCrest_Gate.m3" />
+  </CModel>
+  <CModel id="TownMoonwellKingsCrestDeath_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_ManaWell_Death\Storm_Building_WinterCrest_ManaWell_Death.m3" />
+  </CModel>
+  <CModel id="TownMoonwellL2_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_ManaWell\Storm_Building_WinterCrest_ManaWell.m3" />
+  </CModel>
+  <CModel id="TownMoonwellL2Red_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_ManaWell\Storm_Building_WinterCrest_ManaWell.m3" />
+  </CModel>
+  <CModel id="TownMoonwellL3_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_ManaWell\Storm_Building_WinterCrest_ManaWell.m3" />
+  </CModel>
+  <CModel id="TownMoonwellL3Red_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_ManaWell\Storm_Building_WinterCrest_ManaWell.m3" />
+  </CModel>
+  <CModel id="TownTowerKingsCrestDead_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Rubble\Storm_Building_WinterCrest_Tower_Rubble_00.m3" />
+  </CModel>
+  <CModel id="TownTowerKingsCrestDeath_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Rubble_Death\Storm_Building_WinterCrest_Tower_Rubble_Death_00.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrest_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower\Storm_Building_WinterCrest_Tower.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestBirthModel_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Birth\Storm_Building_WinterCrest_Tower_Birth_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestDamageHeavy_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageHeavy\Storm_Building_WinterCrest_Tower_DamageHeavy_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestDamageLight_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageLight\Storm_Building_WinterCrest_Tower_DamageLight_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestExplosionDamageHeavyBase_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Base\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Base_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestExplosionDamageHeavyTurret_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Turret\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Turret_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestExplosionDamageLightBase_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Base\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Base_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestExplosionDamageLightTurret_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Turret\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Turret_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestExplosionDeadBase_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Base\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Base_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL2KingsCrestExplosionDeadTurret_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Turret\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Turret_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrest_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower\Storm_Building_WinterCrest_Tower.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestBirthModel_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Birth\Storm_Building_WinterCrest_Tower_Birth_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestDamageHeavy_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageHeavy\Storm_Building_WinterCrest_Tower_DamageHeavy_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestDamageLight_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageLight\Storm_Building_WinterCrest_Tower_DamageLight_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestExplosionDamageHeavyBase_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Base\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Base_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestExplosionDamageHeavyTurret_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Turret\Storm_Building_WinterCrest_Tower_DamageHeavy_Explosion_Turret_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestExplosionDamageLightBase_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Base\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Base_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestExplosionDamageLightTurret_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Turret\Storm_Building_WinterCrest_Tower_DamageLight_Explosion_Turret_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestExplosionDeadBase_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Base\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Base_01.m3" />
+  </CModel>
+  <CModel id="TownTowerL3KingsCrestExplosionDeadTurret_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Turret\Storm_Building_WinterCrest_Tower_Rubble_Explosion_Turret_01.m3" />
+  </CModel>
+  <CModel id="WallRadial0_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall\Storm_Building_WinterCrest_Wall.m3" />
+  </CModel>
+  <CModel id="WallRadial1_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall\Storm_Building_WinterCrest_Wall.m3" />
+  </CModel>
+  <CModel id="WallRadial2_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall\Storm_Building_WinterCrest_Wall.m3" />
+  </CModel>
+  <CModel id="WallRadial3_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall\Storm_Building_WinterCrest_Wall.m3" />
+  </CModel>
+  <CModel id="WallRadial4_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall\Storm_Building_WinterCrest_Wall.m3" />
+  </CModel>
+  <CModel id="WallRadial5_WinterCrest">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Wall\Storm_Building_WinterCrest_Wall.m3" />
+  </CModel>
+  <CModel id="CaptureMacGuffinBeam_WinterCrest_Altar">
+    <Model value="Assets\Effects\Storm_FX_WinterCrest_Channel_Beam\Storm_FX_WinterCrest_Channel_Beam.m3" />
+  </CModel>
+  <CModel id="CaptureMacGuffinBeam_WinterCrest_Waygate">
+    <Model value="Assets\Effects\Storm_FX_RavenLordTributeCollection_Beam\Storm_FX_RavenLordTributeCollection_Beam.m3" />
+  </CModel>
+  <CModel id="NecroCoreBirthModel">
+    <Model value="Assets\Buildings\Storm_Building_WinterCrest_Core_Necro_Birth\Storm_Building_WinterCrest_Core_Necro_Birth.m3" />
+    <Events>
+      <Anim value="Stand,Work,End,00" />
+      <Name value="Doodad_Necro_Core_Build_Pt1" />
+      <Type value="Sound" />
+      <Time value="0.010000" />
+      <Payload value="Doodad_Necro_Core_Build_Pt1" />
+    </Events>
+  </CModel>
+</Catalog>

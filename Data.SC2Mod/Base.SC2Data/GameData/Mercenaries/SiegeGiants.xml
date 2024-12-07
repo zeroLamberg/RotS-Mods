@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="MercDefenderSiegeGiantDamage" parent="StormPhysical">
+        <Amount value="120"/>
+    </CEffectDamage>
+    <CEffectDamage id="MercLanerSiegeGiantDamage" parent="StormPhysical">
+        <Amount value="175"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="MercDefenderSiegeGiantMeleeCreatePersistent">
+        <ExpireDelay value="0.125"/>
+        <PeriodCount value="4"/>
+        <PeriodicValidator value="SiegeGiantMeleePeriodicValidatorCombine"/>
+        <PeriodicEffectArray value="MercDefenderSiegeModeMeleeAnimDummy"/>
+        <PeriodicEffectArray value="SiegeGiantsMeleeApplyTurningSuppression"/>
+        <PeriodicEffectArray value="MercDefenderSiegeGiantMeleeImpactPersistent"/>
+        <PeriodicEffectArray value="MercDefenderSiegeModeMeleeFinishDummy"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.875"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="MercLanerSiegeGiantMeleeCreatePersistent">
+        <ExpireDelay value="0.125"/>
+        <PeriodCount value="4"/>
+        <PeriodicValidator value="SiegeGiantMeleePeriodicValidatorCombine"/>
+        <PeriodicEffectArray value="MercDefenderSiegeModeMeleeAnimDummy"/>
+        <PeriodicEffectArray value="SiegeGiantsMeleeApplyTurningSuppression"/>
+        <PeriodicEffectArray value="MercLanerSiegeGiantMeleeImpactPersistent"/>
+        <PeriodicEffectArray value="MercDefenderSiegeModeMeleeFinishDummy"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.875"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="MercLanerSiegeGiantMeleeImpactPersistent">
+        <InitialEffect value="MercLanerSiegeGiantSearchArea"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="SiegeGiantsMeleeApplyTurningSuppression">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SiegeGiantMeleeSuppressTurning"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="MercDefenderSiegeGiantMeleeImpactPersistent">
+        <InitialEffect value="MercDefenderSiegeGiantSearchArea"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="MercDefenderSiegeGiantWeaponLaunchMissile">
+        <ValidatorArray value="CasterNotDead"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <LaunchEffect value="MercDefenderSiegeGiantRangedCreatePersistent"/>
+        <ImpactEffect value="MercDefenderSiegeGiantRangedImpactPersistent"/>
+        <AmmoUnit value="MercDefenderSiegeGiantAttackMissile"/>
+        <LaunchLocation Value="CasterUnit"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="MercDefenderSiegeGiantRangedCreatePersistent">
+        <ExpireDelay value="2"/>
+        <WhichLocation Effect="MercDefenderSiegeGiantWeaponLaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="MercDefenderSiegeGiantRangedImpactPersistent">
+        <InitialEffect value="MercDefenderSiegeGiantSearchArea"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="MercDefenderSiegeGiantSearchArea">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="MercDefenderSiegeGiantDamage"/>
+    </CEffectEnumArea>
+    <CEffectSwitch id="MercLanerSiegeGiantLaunchSwitch">
+        <CaseArray Validator="IsStructureTarget" Effect="MercLanerSiegeGiantWeaponLaunchMissileBuilding"/>
+        <CaseDefault value="MercLanerSiegeGiantWeaponLaunchMissileNormal"/>
+    </CEffectSwitch>
+    <CEffectLaunchMissile id="MercLanerSiegeGiantWeaponLaunchMissileBuilding">
+        <ImpactEffect value="MercLanerSiegeGiantDamage"/>
+        <AmmoUnit value="MercLanerSiegeGiantAttackMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="MercLanerSiegeGiantWeaponLaunchMissileNormal">
+        <ImpactLocation Value="TargetPoint"/>
+        <LaunchEffect value="MercLanerSiegeGiantRangedCreatePersistent"/>
+        <ImpactEffect value="MercLanerSiegeGiantRangedImpactPersistent"/>
+        <AmmoUnit value="MercLanerSiegeGiantAttackMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="MercLanerSiegeGiantRangedImpactPersistent">
+        <InitialEffect value="MercLanerSiegeGiantSearchArea"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="MercLanerSiegeGiantRangedCreatePersistent">
+        <ExpireDelay value="2"/>
+        <WhichLocation Effect="MercLanerSiegeGiantWeaponLaunchMissileNormal"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="MercDefenderSiegeGiantTauntProcSet">
+        <EffectArray value="MercDefenderSiegeGiantTauntDummy"/>
+        <EffectArray value="MercDefenderSiegeGiantTauntProcApplyBehavior"/>
+        <EffectArray value="MercDefenderSiegeGiantTauntProcApplyLookAtBehavior"/>
+    </CEffectSet>
+    <CEffectEnumArea id="MercDefenderSiegeGiantTauntProcSearch">
+        <SearchFilters value="Heroic,Visible;Item,Dead"/>
+        <AreaArray MaxCount="1" Radius="3" Effect="MercDefenderSiegeGiantTauntProcSet"/>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="MercDefenderSiegeGiantTauntProcSearchOffset">
+        <WhichLocation Value="SourceUnit"/>
+        <OffsetVectorEndLocation Value="SourceUnit"/>
+        <InitialEffect value="MercDefenderSiegeGiantTauntProcSearch"/>
+        <InitialOffset value="0,-2,0"/>
+    </CEffectCreatePersistent>
+    <CEffectModifyUnit id="MercDefenderSiegeGiantTauntDummy">
+        <ValidatorArray value="SourceHasJunglePassive"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="MercDefenderSiegeGiantTauntProcApplyBehavior">
+        <WhichUnit Value="Source"/>
+        <Behavior value="MercDefenderSiegeGiantTauntProc"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="MercDefenderSiegeGiantTauntProcApplyLookAtBehavior">
+        <WhichUnit Value="Source"/>
+        <Behavior value="MercDefenderSiegeGiantTauntProcLookAt"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="MercLanerSiegeGiantSearchArea">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="MercLanerSiegeGiantDamage"/>
+    </CEffectEnumArea>
+    <CActorUnit id="MercDefenderSiegeGiant" parent="StormMinionStandard" unitName="MercDefenderSiegeGiant">
+        <Aliases value="_MercDefenderSiegeGiant"/>
+        <On Terms="ActorCreation" Send="Create SiegeGiantBirthFX"/>
+        <On Terms="ActorCreation" Send="Create MercDefenderSiegeGiantBirthSound"/>
+        <On Terms="ActorCreation" Send="StatusSet AnimationVariation 0"/>
+        <On Terms="WeaponStart.MercDefenderSiegeGiant.AttackStart" Send="AnimPlay Attack Attack"/>
+        <On Terms="Effect.MercDefenderSiegeModeMeleeAnimDummy.Start" Send="AnimPlay Attack Attack,Inferior"/>
+        <!-- Birth Animation -->
+        <On Terms="ActorCreation" Send="$Birth DontResetOnUnhide 0.000000 -1.000000 1.000000 AsTimeScale"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart Cover IGNORE Stand,Cover Stand,Cover,End"/>
+        <!-- Post-Birth Animation -->
+        <On Terms="AnimDone; AnimName Birth; TextureGroupsGlobal ContainsAll luxoria" Send="AnimBracketStart Cover IGNORE Stand,Cover Stand,Cover,End"/>
+        <On Terms="AnimDone; AnimName Birth; !TextureGroupsGlobal ContainsAll luxoria" Send="AnimPlay BirthEnd Stand,Cover,Taunt,End 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
+        <!-- Sit Down/Stand Up AnimBracket -->
+        <On Terms="Behavior.JungleIdleState.On" Send="AnimBracketStart Cover Stand,Cover,Start Stand,Cover Stand,Cover,End"/>
+        <On Terms="Behavior.JungleIdleState.Off" Send="AnimBracketStop Cover"/>
+        <!--<On Terms="Behavior.JungleCreepSoftLeashing.Off" Send="AnimBracketStart Cover Stand,Cover,Start Stand,Cover Stand,Cover,End"/>
+        <On Terms="Behavior.JungleCreepHardLeashing.Off" Send="AnimBracketStart Cover Stand,Cover,Start Stand,Cover Stand,Cover,End"/>-->
+        <!-- Stand Up -->
+        <!--<On Terms="Behavior.JungleCreepPrepAggro.On" Send="AnimBracketStop Cover"/>-->
+        <On Terms="UnitDeath" Send="AnimBracketStart Depart Stand,Unpowered,Start Stand,Unpowered Stand,Unpowered,End 0 1.000000 AsTimeScale"/>
+        <!-- Something was reset, clear any previous Variation matchers -->
+        <On Terms="ActorCreation" Send="Create VariationMonitorCleanupDoodad"/>
+        <!-- Variation matchers -->
+        <On Terms="UnitDeathCustomize; ModelVariation 0" Send="Create ModelVariationStorer0"/>
+        <On Terms="UnitDeathCustomize; ModelVariation 1" Send="Create ModelVariationStorer1"/>
+        <On Terms="UnitDeathCustomize; ModelVariation 2" Send="Create ModelVariationStorer2"/>
+        <On Terms="UnitDeathCustomize; ModelVariation 3" Send="Create ModelVariationStorer3"/>
+        <On Terms="UnitDeathCustomize; IsStatus AnimationVariation 1" Send="Create ModelAnimationVariationStorer1"/>
+        <On Terms="Behavior.JungleCreepSoftLeashing.On" Send="StatusIncrement Resetting"/>
+        <On Terms="Behavior.JungleCreepHardLeashing.On" Send="StatusIncrement Resetting"/>
+        <On Terms="Behavior.JungleCreepSoftLeashing.Off" Send="TimerSet 3.500000 Resetting"/>
+        <On Terms="Behavior.JungleCreepHardLeashing.Off" Send="TimerSet 3.500000 Resetting"/>
+        <On Terms="TimerExpired; TimerName Resetting" Send="StatusSet Resetting 0"/>
+        <On Terms="Effect.MercDefenderSiegeGiantTauntDummy.Start" Send="AnimClear Fidget"/>
+        <On Terms="Effect.MercDefenderSiegeGiantTauntDummy.Start; !AnimPlaying Birth Birth" Send="AnimPlay TauntStart Stand,Cover,Taunt,Start DontResetOnUnhide -1.000000 -1.000000 1.000000 AsTimeScale"/>
+        <On Terms="AnimDone.*.Complete; AnimName TauntStart; ValidateUnit SourceHasJunglePassive" Send="AnimPlay Taunt Stand,Cover,Taunt DontResetOnUnhide -1.000000 -1.000000 1.000000 AsTimeScale"/>
+        <On Terms="AnimDone.*.Complete; AnimName Taunt; ValidateUnit SourceHasJunglePassive" Send="AnimPlay TauntEnd Stand,Cover,Taunt,End DontResetOnUnhide -1.000000 -1.000000 1.000000 AsTimeScale"/>
+        <On Terms="Behavior.JungleCreepPassive.Off" Send="AnimClear TauntStart"/>
+        <On Terms="Behavior.JungleCreepPassive.Off" Send="AnimClear Taunt"/>
+        <On Terms="Behavior.JungleCreepPassive.Off" Send="AnimClear TauntEnd"/>
+        <On Terms="Behavior.JungleCreepPassive.Off" Send="AnimClear Fidget"/>
+        <On Terms="Behavior.JungleCreepPassive.Off" Send="AnimClear BirthEnd"/>
+        <Remove Terms="WeaponStart.*.AttackStart" Send="AnimPlay Attack Attack"/>
+        <DeathArray index="Normal">
+            <AnimProps value="Unpowered"/>
+            <ModelLink value="MercSiegeGiantDefenderNonDeath"/>
+            <SoundLink value="Merc_SiegeTroll_Vox_Kneel"/>
+            <VoiceLink value=""/>
+        </DeathArray>
+        <DeathArray index="Blast" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Disintegrate" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Eat" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Electrocute" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Fire" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Freeze" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Morph" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <DeathArray index="Squish" AnimProps="Unpowered" ModelLink="MercSiegeGiantDefenderNonDeath"/>
+        <MinimapIconScale value="0.250000"/>
+        <MinimapIconBackground value="Assets\Textures\storm_ui_minimapicon_herobg.dds"/>
+        <MinimapIconBackgroundIsTeamColored value="1"/>
+        <MinimapIconBackgroundScale value="0.700000"/>
+        <DeathActorModel value="MercCoweringDefenderDeathModelPersistent"/>
+        <DeathActorModelLow value="MercCoweringDefenderDeathModelPersistent"/>
+        <ImpactSound value="UnitMercSiege_Impact"/>
+        <ModelFlags index="AnimationsDontResetOnUnhide" value="1"/>
+        <UnitIcon value="Assets\Textures\Storm_UI_Ingame_TargetinfoPanel_Unit_Cursedhollow_Merc_Siege.dds"/>
+        <HeroIcon value="Assets\Textures\Storm_UI_Ingame_TargetinfoPanel_Unit_Cursedhollow_Merc_Siege.dds"/>
+    </CActorUnit>
+    <CActorUnit id="MercLanerSiegeGiant" parent="StormMinionStandard" unitName="MercLanerSiegeGiant">
+        <On Terms="ActorCreation" Send="SetShowStatusBar"/>
+        <On Terms="ActorCreation" Send="Create MercLanerSiegeGiantBirthSound"/>
+        <On Terms="Behavior.MercLanerSiegeGiantStandupBirthDelay.Off" Send="SetShowStatusBar 1"/>
+        <On Terms="ActorCreation" Send="StatusSet AlternateModel 0"/>
+        <On Terms="WeaponStart.MercLanerSiegeGiant.AttackStart" Send="AnimPlay Attack Attack"/>
+        <On Terms="Effect.MercDefenderSiegeModeMeleeAnimDummy.Start" Send="AnimPlay Attack Attack,Inferior"/>
+        <On Terms="ActorCreation" Send="AnimPlay GetUp Stand,Unpowered,End 0 0.000000 -1.000000 1.000000 AsDuration"/>
+        <On Terms="Signal.*.VariationSet0" Send="ModelSwap MercLanerSiegeGiantNormal 0"/>
+        <On Terms="Signal.*.VariationSet1" Send="ModelSwap MercLanerSiegeGiantNormal 1"/>
+        <On Terms="Signal.*.VariationSet2" Send="ModelSwap MercLanerSiegeGiantNormal 2"/>
+        <On Terms="Signal.*.VariationSet3" Send="ModelSwap MercLanerSiegeGiantNormal 3"/>
+        <On Terms="UnitBirth; PlayerId 11 12" Send="AnimPlay Walk Walk RandomStartOffset"/>
+        <Remove Terms="WeaponStart.*.AttackStart" Send="AnimPlay Attack Attack"/>
+        <MinimapIconScale value="0.650000"/>
+        <Model value="MercLanerSiegeGiantNormal"/>
+        <BuildModel value="MercLanerSiegeGiantNormal"/>
+        <DeathArray index="Normal" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Blast" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Disintegrate" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Eat" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Electrocute" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Eviscerate" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Fire" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Freeze" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Impact" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Morph" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Silentkill" ModelLink="MercSiegeGiantDeath"/>
+        <DeathArray index="Squish" ModelLink="MercSiegeGiantDeath"/>
+        <PlacementModel value="MercLanerSiegeGiantNormal"/>
+        <MinimapIconBackgroundIsTeamColored value="1"/>
+        <MinimapIconIsTeamColored value="1"/>
+        <MinimapRenderPriority value="Merc"/>
+        <ImpactSound value="UnitMercSiege_Impact"/>
+        <UnitIcon value="Assets\Textures\Storm_UI_Ingame_TargetinfoPanel_Unit_Cursedhollow_Merc_Siege.dds"/>
+        <HeroIcon value="Assets\Textures\Storm_UI_Ingame_TargetinfoPanel_Unit_Cursedhollow_Merc_Siege.dds"/>
+    </CActorUnit>
+    <CActorSound id="MercLanerSiegeGiantBirthSound" parent="SoundOneShot">
+        <Sound value="Merc_SiegeTroll_Laner_Birth_Vox"/>
+    </CActorSound>
+    <CActorSound id="MercDefenderSiegeGiantKneelVox" parent="SoundOneShot">
+        <Sound value="Merc_SiegeTroll_Vox_Kneel"/>
+    </CActorSound>
+    <CActorModel id="SiegeGiantDamageImpactEffect" parent="StormModelAnimationStyleOneShot">
+        <Model value="MercSiegeGiantDamageImpact"/>
+    </CActorModel>
+    <CActorModel id="MercLanerSiegeGiantWarning" parent="StormModelAnimationStyleContinuous">
+        <On Terms="Effect.MercLanerSiegeGiantMeleeCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.MercLanerSiegeGiantMeleeCreatePersistent.Stop" Send="Destroy"/>
+        <On Terms="Effect.MercLanerSiegeGiantRangedCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.MercLanerSiegeGiantRangedCreatePersistent.Stop" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="TimerSet 1.000000 Destroy"/>
+        <On Terms="TimerExpired; TimerName Destroy" Send="Destroy"/>
+        <Model value="SiegeGiantMeleeWarning"/>
+    </CActorModel>
+    <CActorMissile id="MercLanerSiegeGiantAttackMissile" parent="StormMissileWithDeath" unitName="MercLanerSiegeGiantAttackMissile"/>
+    <CActorAction id="MercLanerSiegeGiantAttack" parent="StormGenericAttackHeroRangedPoint" effectImpact="MercLanerSiegeGiantRangedImpactPersistent" effectLaunch="MercLanerSiegeGiantWeaponLaunchMissileNormal">
+        <LaunchAttachQuery Methods="AMFilterWeaponRight"/>
+        <LaunchAssets Sound="Merc_Laner_SiegeGiant_Attack_Launch"/>
+        <LaunchSound value="MercLanerSiegeGiantAttackLaunchSound"/>
+        <ImpactMap index="None" Model="MercDefenderSiegeGiantAttackImpactRavenCourt" Sound="Merc_Laner_SiegeGiant_Attack_Impact"/>
+        <ImpactModel value="SiegeGiantRangedAttackImpactModel"/>
+    </CActorAction>
+    <CActorAction id="MercLanerSiegeGiantAttackBuilding" parent="StormGenericAttackHeroRanged" effectImpact="MercLanerSiegeGiantDamage" effectLaunch="MercLanerSiegeGiantWeaponLaunchMissileBuilding">
+        <LaunchAttachQuery Methods="AMFilterWeaponRight"/>
+        <LaunchAssets Sound="Merc_Laner_SiegeGiant_Attack_Launch"/>
+        <LaunchSound value="MercLanerSiegeGiantAttackLaunchSound"/>
+        <Missile value="MercLanerSiegeGiantAttackMissile"/>
+        <ImpactMap index="None" Model="MercDefenderSiegeGiantAttackImpactRavenCourt" Sound="Merc_Laner_SiegeGiant_Attack_Impact"/>
+        <ImpactModel value="SiegeGiantRangedAttackImpactModel"/>
+    </CActorAction>
+    <CActorAction id="MercLanerSiegeGiantAttackFakeMelee" parent="StormGenericAttackHeroRangedPoint" effectImpact="MercLanerSiegeGiantDamage" effectLaunch="MercLanerSiegeGiantFakeMeleeWeaponLaunchMissile">
+        <LaunchAttachQuery Methods="AMFilterWeaponRight"/>
+        <Missile value="MercLanerSiegeGiantAttackFakeMeleeInvisibleMissile"/>
+        <ImpactMap index="None" Model="MeleeHeroAttackImpact" Sound="MercLanerSiegeGiantAttackMeleeImpact"/>
+        <ImpactMap index="Shield" Sound="Merc_SiegeGiant_Garden_Melee_Impact" ModelReaction="MercLanerSiegeGiantAttackMeleeImpactReactionShield"/>
+    </CActorAction>
+    <CActorMissile id="MercLanerSiegeGiantAttackFakeMeleeInvisibleMissile" parent="StormMissileWithDeath" unitName="MercLanerSiegeGiantMeleeAttackInvisibleMissile">
+        <Model value="Invisible"/>
+    </CActorMissile>
+    <CActorSound id="MercLanerSiegeGiantAttackMeleeImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.MercDefenderSiegeGiantMeleeImpactPersistent.Start; At Effect" Send="Create"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Effect.MercLanerSiegeGiantMeleeImpactPersistent.Start; At Effect" Send="Create"/>
+        <Sound value="Merc_SiegeTroll_Attack2_Impact"/>
+    </CActorSound>
+    <CActorModel id="SiegeGiantRangedAttackImpactModel" parent="StormModelAnimationStyleOneShot">
+        <On Terms="ActorCreation" Send="Create MercLanerSiegeGiantAttackImpactSound"/>
+        <Model value="MercDefenderSiegeGiantAttackImpactGardens"/>
+    </CActorModel>
+    <CActorModel id="SiegeGiantBirthFX" parent="StormModelAnimationStyleOneShotUnit"/>
+    <CActorSound id="MercDefenderSiegeGiantIdleVOXSound" parent="SoundContinuous"/>
+    <CActorSound id="MercDefenderSiegeGiantBirthSound" parent="SoundOneShot">
+        <Sound value="StormNoSound"/>
+        <Layers>
+            <Sound value="Merc_SiegeTroll_Birth_Vox"/>
+            <PitchSource value="Actor"/>
+            <PlayDelaySource value="Actor"/>
+            <VolumeSource value="Actor"/>
+            <PlayDelay value="1500,1500"/>
+        </Layers>
+        <Layers>
+            <Sound value="Merc_SiegeTroll_Birth"/>
+            <PitchSource value="Actor"/>
+            <PlayDelaySource value="Actor"/>
+            <VolumeSource value="Actor"/>
+            <PlayDelay value="800,800"/>
+            <Volume value="-13.000000,-13.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorMissile id="MercDefenderSiegeGiantAttackMissile" parent="StormMissileWithDeath" unitName="MercDefenderSiegeGiantAttackMissile"/>
+    <CActorModel id="SiegeGiantMeleeImpact" parent="StormModelAnimationStyleOneShot">
+        <On Terms="Effect.MercDefenderSiegeModeMeleeFinishDummy.Start" Send="Create"/>
+        <Model value="SiegeGiantMeleeImpactFX"/>
+    </CActorModel>
+    <CActorModel id="SiegeGiantRangeWarning" parent="StormModelAnimationStyleContinuous">
+        <Flags index="VisionTestCenterOnly" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
+        <Model value="SiegeGiantMeleeWarning"/>
+    </CActorModel>
+    <CActorModel id="MercDefenderSiegeGiantWarning" parent="StormModelAnimationStyleContinuous">
+        <On Terms="Effect.MercDefenderSiegeGiantMeleeCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.MercDefenderSiegeGiantMeleeCreatePersistent.Stop" Send="Destroy"/>
+        <On Terms="Effect.MercDefenderSiegeGiantRangedCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.MercDefenderSiegeGiantRangedCreatePersistent.Stop" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="TimerSet 1.000000 Destroy"/>
+        <On Terms="TimerExpired; TimerName Destroy" Send="Destroy"/>
+        <Model value="SiegeGiantMeleeWarning"/>
+    </CActorModel>
+    <CActorAction id="MercDefenderSiegeGiantAttack" parent="StormGenericAttackHeroRangedPoint" effectImpact="MercDefenderSiegeGiantRangedImpactPersistent" effectLaunch="MercDefenderSiegeGiantWeaponLaunchMissile">
+        <LaunchAttachQuery Methods="AMFilterWeaponRight"/>
+        <LaunchAssets Sound="Merc_Defender_SiegeGiant_Attack_Launch"/>
+        <LaunchSound value="MercLanerSiegeGiantAttackLaunchSound"/>
+        <ImpactMap index="None" Model="MercDefenderSiegeGiantAttackImpactRavenCourt" Sound="Merc_Laner_SiegeGiant_Attack_Impact"/>
+        <ImpactModel value="SiegeGiantRangedAttackImpactModel"/>
+        <DamageSiteOps Ops="SOpAttachCenter"/>
+        <DamageMap index="None" Model="Invisible"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorSound id="MercDefenderSiegeGiantAttackImpactSound" parent="SoundOneShot">
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Sound value="Merc_Defender_SiegeGiant_Attack_Impact"/>
+    </CActorSound>
+    <CActorSound id="MercLanerSiegeGiantAttackImpactSound" parent="StormGenericAttackImpactSoundPoint">
+        <Sound value="Merc_SiegeTroll_Attack2_Impact"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Inherits index="Visibility" value="1"/>
+        <Host Subject="::Creator"/>
+    </CActorSound>
+    <CWeaponLegacy id="MercLanerSiegeGiant">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercLanerSiegeGiantDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Heroic"/>
+        <MinScanRange value="8"/>
+        <Range value="10"/>
+        <Cost>
+            <Cooldown TimeUse="1"/>
+        </Cost>
+        <Period value="2"/>
+        <DamagePoint value="0.5"/>
+        <Backswing value="0"/>
+        <Effect value="MercLanerSiegeGiantLaunchSwitch"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderSiegeGiant">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderSiegeGiantDamage"/>
+        <TargetFilters value="Visible;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden"/>
+        <AcquireFilters value="Visible;Neutral,Creep,NoMinionAggro,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Benign"/>
+        <MinScanRange value="10"/>
+        <Range value="7"/>
+        <Cost>
+            <Cooldown TimeUse="1"/>
+        </Cost>
+        <Period value="2"/>
+        <DamagePoint value="0.5"/>
+        <Backswing value="0"/>
+        <Effect value="MercDefenderSiegeGiantWeaponLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercLanerSiegeGiantMelee">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercLanerSiegeGiantDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="8"/>
+        <Range value="1"/>
+        <Marker Link="Weapon/MercLanerSiegeGiantWeapon"/>
+        <Cost>
+            <Cooldown Link="Weapon/MercLanerSiegeGiantWeapon" TimeUse="1"/>
+        </Cost>
+        <Period value="2"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="MercLanerSiegeGiantMeleeCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderSiegeGiantMelee">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderSiegeGiantDamage"/>
+        <TargetFilters value="Visible;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic,Benign"/>
+        <MinScanRange value="8"/>
+        <Range value="1"/>
+        <Marker Link="Weapon/MercDefenderSiegeGiantWeapon"/>
+        <Cost>
+            <Cooldown Link="Weapon/MercDefenderSiegeGiantWeapon" TimeUse="1"/>
+        </Cost>
+        <Period value="2"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="MercDefenderSiegeGiantMeleeCreatePersistent"/>
+    </CWeaponLegacy>
+    <!--1.25/1.875/2.5/3.125/3.75/3.75 x 5-->
+    <CAccumulatorVeterancyLevel id="SiegeGiantDefenderWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="1.25"/>
+        <Amount value="2.5"/>
+        <Amount value="3.75"/>
+        <Amount value="5"/>
+        <Amount value="6.25"/>
+        <Amount value="8.125"/>
+        <Amount value="10"/>
+        <Amount value="11.875"/>
+        <Amount value="13.75"/>
+        <Amount value="15.625"/>
+        <Amount value="18.125"/>
+        <Amount value="20.625"/>
+        <Amount value="23.125"/>
+        <Amount value="25.625"/>
+        <Amount value="28.125"/>
+        <Amount value="31.25"/>
+        <Amount value="34.375"/>
+        <Amount value="37.5"/>
+        <Amount value="40.625"/>
+        <Amount value="43.75"/>
+        <Amount value="47.5"/>
+        <Amount value="51.25"/>
+        <Amount value="55"/>
+        <Amount value="58.75"/>
+        <Amount value="62.5"/>
+        <Amount value="66.25"/>
+        <Amount value="70"/>
+        <Amount value="73.75"/>
+        <Amount value="77.5"/>
+        <Amount value="81.25"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorConstant id="SiegeGiantLanerWeaponDamageStructureBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <!--4/6/8/10/12/12 x5-->
+    <CAccumulatorVeterancyLevel id="SiegeGiantLanerWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="4"/>
+        <Amount value="8"/>
+        <Amount value="12"/>
+        <Amount value="16"/>
+        <Amount value="20"/>
+        <Amount value="26"/>
+        <Amount value="32"/>
+        <Amount value="38"/>
+        <Amount value="44"/>
+        <Amount value="50"/>
+        <Amount value="58"/>
+        <Amount value="66"/>
+        <Amount value="74"/>
+        <Amount value="82"/>
+        <Amount value="90"/>
+        <Amount value="100"/>
+        <Amount value="110"/>
+        <Amount value="120"/>
+        <Amount value="130"/>
+        <Amount value="140"/>
+        <Amount value="152"/>
+        <Amount value="164"/>
+        <Amount value="176"/>
+        <Amount value="188"/>
+        <Amount value="200"/>
+        <Amount value="212"/>
+        <Amount value="224"/>
+        <Amount value="236"/>
+        <Amount value="248"/>
+        <Amount value="260"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorSwitch id="SiegeGiantLanerWeaponDamageSwitch">
+        <CaseArray Validator="StormTargetIsStructure" Accumulator="SiegeGiantLanerWeaponDamageStructureBonus"/>
+    </CAccumulatorSwitch>
+    <CUnit id="MercLanerSiegeGiant" parent="StormMercLanerParent">
+        <LifeStart value="1800"/>
+        <LifeMax value="1800"/>
+        <Sight value="12"/>
+        <BehaviorArray Link="SiegeGiantMercScaling"/>
+        <BehaviorArray Link="MercLanerSiegeGiantStandupBirthDelay"/>
+        <WeaponArray Link="MercLanerSiegeGiantMelee"/>
+        <WeaponArray Link="MercLanerSiegeGiant"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.75"/>
+        <InnerRadius value="0.875"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+    </CUnit>
+    <CUnit id="MercDefenderSiegeGiant" parent="StormMercDefenderParent">
+        <LifeStart value="3000"/>
+        <LifeMax value="3000"/>
+        <BehaviorArray Link="SiegeGiantDefenderScaling"/>
+        <BehaviorArray Link="MercDefenderSiegeGiantTauntSearch"/>
+        <WeaponArray Link="MercDefenderSiegeGiantMelee"/>
+        <WeaponArray Link="MercDefenderSiegeGiant"/>
+        <Radius value="1.25"/>
+        <SeparationRadius value="0.75"/>
+        <InnerRadius value="0.875"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="100"/>
+            <ChanceArray index="Idle" value="0"/>
+        </Fidget>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+        <KillXP value="140"/>
+    </CUnit>
+    <CUnit id="MercDefenderSiegeGiantOrientDummy">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <Mover value="Fly"/>
+        <Speed value="30"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="4"/>
+        <Radius value="0"/>
+        <SubgroupPriority value="9"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="0"/>
+        <AcquireLeashRadius value="4"/>
+    </CUnit>
+    <CUnit id="MercLanerSiegeGiantAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="MercLanerSiegeGiantGuidanceMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="MercLanerSiegeGiantMeleeAttackInvisibleMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="HeroMissileSpeed70"/>
+    </CUnit>
+    <CUnit id="MercDefenderSiegeGiantAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="MercDefenderSiegeGiantGuidanceMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CBehaviorBuff id="MercLanerSiegeGiantStandupBirthDelay">
+        <Duration value="1"/>
+        <InitialEffect value="VariationCheckDummy"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="DisableWeapons" value="1"/>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="SuppressFidgeting" value="1"/>
+            <StateFlags index="Unselectable" value="1"/>
+            <StateFlags index="Unstoppable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeGiantMeleeSuppressTurning">
+        <Duration value="1.5"/>
+        <Modification>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="SiegeGiantMercScaling">
+        <XPFraction index="Kills" value="0"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="40"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="40"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="40"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="40"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="40"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="60"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="60"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="60"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="60"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="60"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="80"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="80"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="80"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="80"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="80"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="120"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <BehaviorFlags index="Permanent" value="1"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="SiegeGiantDefenderScaling">
+        <XPFraction index="Kills" value="0"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <VitalMaxArray index="Life" value="50"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="50"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="50"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="50"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="50"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="75"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="75"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="75"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="75"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="75"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="100"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="125"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="125"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="125"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="125"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="125"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification KillXPBonus="2">
+                <VitalMaxArray index="Life" value="150"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <BehaviorFlags index="Permanent" value="1"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="MercDefenderSiegeGiantTauntSearch">
+        <DisableValidatorArray value="SourceHasJunglePassive"/>
+        <Period value="0.75"/>
+        <PeriodicEffect value="MercDefenderSiegeGiantTauntProcSearchOffset"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MercDefenderSiegeGiantTauntProc">
+        <RemoveValidatorArray value="SourceHasJunglePassive"/>
+        <Duration value="10"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="MercDefenderSiegeGiantTauntSearch"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MercDefenderSiegeGiantTauntProcLookAt">
+        <Duration value="4"/>
+    </CBehaviorBuff>
+</Catalog>

@@ -1,0 +1,1372 @@
+include "TriggerLibs/NativeLib"
+include "LibCore_h"
+include "LibGame_h"
+include "LibUIUI_h"
+include "LibSAND_h"
+
+include "LibGlue_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Glue
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libGlue_InitLibraries () {
+    libNtve_InitVariables();
+    libCore_InitVariables();
+    libGame_InitVariables();
+    libUIUI_InitVariables();
+    libSAND_InitVariables();
+}
+
+// Variable Initialization
+bool libGlue_InitVariables_completed = false;
+
+void libGlue_InitVariables () {
+    int init_i1;
+    int init_j1;
+
+    if (libGlue_InitVariables_completed) {
+        return;
+    }
+
+    libGlue_InitVariables_completed = true;
+
+    libGlue_gv_glueBattleLobbyUI.lv_mainDialog = c_invalidDialogId;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer = -1;
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[init_i1] = PlayerGroupEmpty();
+    }
+    for (init_i1 = 0; init_i1 <= libGlue_gv_glueUIBattleLobbyContextMenuOptionsMaxCount; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOption[init_i1] = libGlue_ge_GlueUIBattleLobbyContextMenuOptions_None;
+    }
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionTeam = -1;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionSlot = -1;
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[init_i1][init_j1] = -1;
+        }
+    }
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButtonTimer = TimerCreate();
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButtonTimer = TimerCreate();
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyPanel = c_invalidDialogControlId;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapImage = c_invalidDialogControlId;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapNameLabel = c_invalidDialogControlId;
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPanel[init_i1] = c_invalidDialogControlId;
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamNameLabel[init_i1] = c_invalidDialogControlId;
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotNameLabel[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditButton[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditContextMenu[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitContainer[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitImage[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    for (init_i1 = 0; init_i1 <= libCore_gv_bALMaxTeams; init_i1 += 1) {
+        for (init_j1 = 0; init_j1 <= libCore_gv_bALMaxPlayersOnATeam; init_j1 += 1) {
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitTextureCoordsLabel[init_i1][init_j1] = c_invalidDialogControlId;
+        }
+    }
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu = c_invalidDialogControlId;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenuTitleLabel = c_invalidDialogControlId;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePanel = c_invalidDialogControlId;
+    for (init_i1 = 0; init_i1 <= libGlue_gv_glueUIBattleLobbyAttributeMaxCount; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[init_i1] = c_invalidDialogControlId;
+    }
+    for (init_i1 = 0; init_i1 <= libGlue_gv_glueUIBattleLobbyAttributeMaxCount; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[init_i1] = c_invalidDialogControlId;
+    }
+    for (init_i1 = 0; init_i1 <= libGlue_gv_glueUIBattleLobbyAttributeMaxCount; init_i1 += 1) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownNameLabel[init_i1] = c_invalidDialogControlId;
+    }
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton = c_invalidDialogControlId;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButton = c_invalidDialogControlId;
+}
+
+// Presets
+// Functions
+void libGlue_gf_GlueUpdatePlayerPortrait (int lp_player, playergroup lp_forPlayers, int lp_portraitSection) {
+    // Variable Declarations
+    int lv_team;
+    int lv_slot;
+
+    // Automatic Variable Declarations
+    int autoFD49369F_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoFD49369F_val = lp_portraitSection;
+    if (autoFD49369F_val == libGlue_ge_GluePortraitSection_BattleLobbySlot) {
+        lv_team = libGlue_gf_GlueBattleLobbyGetPlayerTeam(lp_player);
+        lv_slot = libGlue_gf_GlueBattleLobbyGetPlayerSlot(lp_player);
+        libNtve_gf_SetDialogItemImage(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitImage[lv_team][lv_slot], libGame_gv_players[lp_player].lv_avatarTextureImage, lp_forPlayers);
+        libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitTextureCoordsLabel[lv_team][lv_slot], StringToText(libGame_gv_players[lp_player].lv_avatarTextureCoords), lp_forPlayers);
+    }
+    else {
+    }
+}
+
+void libGlue_gf_GlueBattleLobbyAssignPlayerToSlot (int lp_player, int lp_team, int lp_slot, int lp_slotStatus) {
+    // Variable Declarations
+    int lv_previousTeam;
+    int lv_previousSlot;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_previousSlot = libGlue_gf_GlueBattleLobbyGetPlayerSlot(lp_player);
+    lv_previousTeam = libGlue_gf_GlueBattleLobbyGetPlayerTeam(lp_player);
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lp_team][lp_slot] = lp_player;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lp_team][lp_slot] = lp_slotStatus;
+    if ((lv_previousSlot >= 0) && (lv_previousTeam >= 0)) {
+        if ((lv_previousTeam == lp_team)) {
+            if ((lv_previousSlot == lp_slot)) {
+                return ;
+            }
+
+        }
+
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_previousTeam][lv_previousSlot] = -1;
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_previousTeam][lv_previousSlot] = libGlue_ge_GlueBattleLobbyUISlotStatus_Empty;
+    }
+
+}
+
+void libGlue_gf_GlueBattleLobbySwitchPlayerSlots (int lp_player1, int lp_player2) {
+    // Variable Declarations
+    int lv_player1Slot;
+    int lv_player1Team;
+    int lv_player1Status;
+    int lv_player2Slot;
+    int lv_player2Team;
+    int lv_player2Status;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player1Slot = libGlue_gf_GlueBattleLobbyGetPlayerSlot(lp_player1);
+    lv_player1Team = libGlue_gf_GlueBattleLobbyGetPlayerTeam(lp_player1);
+    lv_player1Status = libGlue_gf_GlueBattleLobbyGetPlayerStatus(lp_player1);
+    lv_player2Slot = libGlue_gf_GlueBattleLobbyGetPlayerSlot(lp_player2);
+    lv_player2Team = libGlue_gf_GlueBattleLobbyGetPlayerTeam(lp_player2);
+    lv_player2Status = libGlue_gf_GlueBattleLobbyGetPlayerStatus(lp_player2);
+
+    // Implementation
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_player1Team][lv_player1Slot] = lp_player2;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_player2Team][lv_player2Slot] = lp_player1;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_player1Team][lv_player1Slot] = lv_player2Status;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_player2Team][lv_player2Slot] = lv_player1Status;
+}
+
+void libGlue_gf_GlueBattleLobbyUpdateSlots () {
+    // Variable Declarations
+    int lv_itTeam;
+    int lv_itSlot;
+    int lv_itPlayer;
+    int lv_status;
+    int lv_itAttribute;
+
+    // Automatic Variable Declarations
+    const int auto496FACC4_ae = libCore_gv_bALMaxTeams;
+    const int auto496FACC4_ai = 1;
+    const int auto7F2B9447_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto7F2B9447_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itTeam = 1;
+    for ( ; ( (auto496FACC4_ai >= 0 && lv_itTeam <= auto496FACC4_ae) || (auto496FACC4_ai < 0 && lv_itTeam >= auto496FACC4_ae) ) ; lv_itTeam += auto496FACC4_ai ) {
+        PlayerGroupClear(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[lv_itTeam]);
+        lv_itSlot = 1;
+        for ( ; ( (auto7F2B9447_ai >= 0 && lv_itSlot <= auto7F2B9447_ae) || (auto7F2B9447_ai < 0 && lv_itSlot >= auto7F2B9447_ae) ) ; lv_itSlot += auto7F2B9447_ai ) {
+            lv_itPlayer = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot];
+            if ((GameIsOnline() == true) && (PlayerType(lv_itPlayer) == c_playerTypeUser) && (PlayerStatus(lv_itPlayer) != c_playerStatusActive)) {
+                libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot] = -1;
+                libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_itTeam][lv_itSlot] = libGlue_ge_GlueBattleLobbyUISlotStatus_Empty;
+            }
+
+            lv_status = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_itTeam][lv_itSlot];
+            if ((lv_status == libGlue_ge_GlueBattleLobbyUISlotStatus_Player)) {
+                libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotNameLabel[lv_itTeam][lv_itSlot], libGame_gf_StormGetPlayerName(lv_itPlayer), PlayerGroupAll());
+                PlayerGroupAdd(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[lv_itTeam], lv_itPlayer);
+                libGlue_gf_GlueUpdatePlayerPortrait(lv_itPlayer, PlayerGroupAll(), libGlue_ge_GluePortraitSection_BattleLobbySlot);
+            }
+            else if ((lv_status == libGlue_ge_GlueBattleLobbyUISlotStatus_AI)) {
+                libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotNameLabel[lv_itTeam][lv_itSlot], libGame_gf_StormGetPlayerName(lv_itPlayer), PlayerGroupAll());
+                PlayerGroupAdd(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[lv_itTeam], lv_itPlayer);
+            }
+            else if ((lv_status == libGlue_ge_GlueBattleLobbyUISlotStatus_Empty)) {
+                libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotNameLabel[lv_itTeam][lv_itSlot], StringToText("Empty Slot"), PlayerGroupAll());
+            }
+            libGlue_gf_GlueBattleLobbySendSlotStatusAnimationEvent(lv_itTeam, lv_itSlot, lv_status);
+        }
+    }
+}
+
+void libGlue_gf_GlueBattleLobbyUpdateHostUI () {
+    // Variable Declarations
+    int lv_itTeam;
+    int lv_itSlot;
+    int lv_itPlayer;
+    int lv_status;
+    int lv_itAttribute;
+    playergroup lv_hostPlayerGroup;
+
+    // Automatic Variable Declarations
+    const int auto24082A2B_ae = libCore_gv_bALMaxTeams;
+    const int auto24082A2B_ai = 1;
+    const int autoDDE07996_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int autoDDE07996_ai = 1;
+    const int auto2C57DA3B_ae = libGlue_gv_glueUIBattleLobbyAttributeMaxCount;
+    const int auto2C57DA3B_ai = 1;
+
+    // Variable Initialization
+    lv_hostPlayerGroup = PlayerGroupEmpty();
+
+    // Implementation
+    lv_hostPlayerGroup = libCore_gv_playerGroupFromPlayer[libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer];
+    lv_itTeam = 1;
+    for ( ; ( (auto24082A2B_ai >= 0 && lv_itTeam <= auto24082A2B_ae) || (auto24082A2B_ai < 0 && lv_itTeam >= auto24082A2B_ae) ) ; lv_itTeam += auto24082A2B_ai ) {
+        lv_itSlot = 1;
+        for ( ; ( (autoDDE07996_ai >= 0 && lv_itSlot <= autoDDE07996_ae) || (autoDDE07996_ai < 0 && lv_itSlot >= autoDDE07996_ae) ) ; lv_itSlot += autoDDE07996_ai ) {
+            lv_itPlayer = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot];
+            lv_status = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_itTeam][lv_itSlot];
+            DialogControlSetVisible(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditButton[lv_itTeam][lv_itSlot], PlayerGroupAll(), false);
+            if ((lv_status != libGlue_ge_GlueBattleLobbyUISlotStatus_Empty)) {
+                DialogControlSetVisible(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditButton[lv_itTeam][lv_itSlot], lv_hostPlayerGroup, true);
+            }
+
+            if ((lv_itPlayer == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer)) {
+                DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lv_itTeam][lv_itSlot], PlayerGroupAll(), "LobbyHost");
+            }
+            else {
+                DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lv_itTeam][lv_itSlot], PlayerGroupAll(), "NotLobbyHost");
+            }
+        }
+    }
+    lv_itAttribute = 1;
+    for ( ; ( (auto2C57DA3B_ai >= 0 && lv_itAttribute <= auto2C57DA3B_ae) || (auto2C57DA3B_ai < 0 && lv_itAttribute >= auto2C57DA3B_ae) ) ; lv_itAttribute += auto2C57DA3B_ai ) {
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute], PlayerGroupAll(), false);
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute], lv_hostPlayerGroup, true);
+    }
+    DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton, PlayerGroupAll(), false);
+    if ((TimerGetRemaining(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButtonTimer) <= 0.0)) {
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton, lv_hostPlayerGroup, true);
+    }
+
+    DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButton, PlayerGroupAll(), false);
+    if ((TimerGetRemaining(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButtonTimer) <= 0.0)) {
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButton, lv_hostPlayerGroup, true);
+    }
+
+}
+
+void libGlue_gf_GlueBattleLobbySendSlotStatusAnimationEvent (int lp_team, int lp_slot, int lp_status) {
+    // Automatic Variable Declarations
+    int auto6BEA9B90_val;
+
+    // Implementation
+    auto6BEA9B90_val = lp_status;
+    if (auto6BEA9B90_val == libGlue_ge_GlueBattleLobbyUISlotStatus_Empty) {
+        DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lp_team][lp_slot], PlayerGroupAll(), "Empty");
+    }
+    else if (auto6BEA9B90_val == libGlue_ge_GlueBattleLobbyUISlotStatus_AI) {
+        DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lp_team][lp_slot], PlayerGroupAll(), "NotEmpty");
+        DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lp_team][lp_slot], PlayerGroupAll(), "IsComputer");
+    }
+    else if (auto6BEA9B90_val == libGlue_ge_GlueBattleLobbyUISlotStatus_Player) {
+        DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lp_team][lp_slot], PlayerGroupAll(), "NotEmpty");
+        DialogControlSendAnimationEvent(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lp_team][lp_slot], PlayerGroupAll(), "IsHuman");
+    }
+    else {
+    }
+}
+
+void libGlue_gf_GlueBattleLobbySetPlayerHost (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer = lp_player;
+    SoundPlayForPlayer(SoundLink("UI_BNet_Progression_QuestGold", -1), c_maxPlayers, PlayerGroupSingle(lp_player), 100.0, 0.0);
+    TextExpressionSetToken("Param/Expression/lib_Glue_1E371B02", "A", PlayerName(lp_player));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_Glue_1E371B02"));
+}
+
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuUpdate (int lp_team, int lp_slot) {
+    // Variable Declarations
+    int lv_itSlot;
+    int lv_player;
+    int lv_enemyTeam;
+    int lv_setSlot;
+
+    // Automatic Variable Declarations
+    const int autoC9B5E75C_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int autoC9B5E75C_ai = 1;
+    int auto0C7CF852_val;
+
+    // Variable Initialization
+
+    // Implementation
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionTeam = lp_team;
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionSlot = lp_slot;
+    lv_enemyTeam = (3 - lp_team);
+    lv_player = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lp_team][lp_slot];
+    DialogControlRemoveAllItems(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu, PlayerGroupAll());
+    libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionClear();
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenuTitleLabel, libGame_gf_StormGetPlayerName(lv_player), PlayerGroupAll());
+    if ((lv_player != libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer) && (libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lp_team][lp_slot] == libGlue_ge_GlueBattleLobbyUISlotStatus_Player) && (PlayerStatus(lv_player) == c_playerStatusActive)) {
+        DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu, PlayerGroupAll(), StringToText("Set Host"));
+        libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetHost);
+    }
+
+    if ((PlayerGroupCount(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[lv_enemyTeam]) < libCore_gv_bALMaxPlayersOnATeam)) {
+        DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu, PlayerGroupAll(), StringToText("Swap Team"));
+        libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SwapTeams);
+    }
+
+    lv_itSlot = 1;
+    for ( ; ( (autoC9B5E75C_ai >= 0 && lv_itSlot <= autoC9B5E75C_ae) || (autoC9B5E75C_ai < 0 && lv_itSlot >= autoC9B5E75C_ae) ) ; lv_itSlot += autoC9B5E75C_ai ) {
+        if ((libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_enemyTeam][lv_itSlot] != libGlue_ge_GlueBattleLobbyUISlotStatus_Empty)) {
+            lv_player = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][lv_itSlot];
+            DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu, PlayerGroupAll(), (StringToText("Swap Team with ") + libGame_gf_StormGetPlayerName(lv_player)));
+            auto0C7CF852_val = lv_itSlot;
+            if (auto0C7CF852_val == 1) {
+                libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot1);
+            }
+            else if (auto0C7CF852_val == 2) {
+                libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot2);
+            }
+            else if (auto0C7CF852_val == 3) {
+                libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot3);
+            }
+            else if (auto0C7CF852_val == 4) {
+                libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot4);
+            }
+            else if (auto0C7CF852_val == 5) {
+                libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd(libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot5);
+            }
+            else {
+            }
+        }
+
+    }
+}
+
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionClear () {
+    // Variable Declarations
+    int lv_itOption;
+
+    // Automatic Variable Declarations
+    int auto346AB4AA_ae;
+    const int auto346AB4AA_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto346AB4AA_ae = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionsCurrent;
+    lv_itOption = 1;
+    for ( ; ( (auto346AB4AA_ai >= 0 && lv_itOption <= auto346AB4AA_ae) || (auto346AB4AA_ai < 0 && lv_itOption >= auto346AB4AA_ae) ) ; lv_itOption += auto346AB4AA_ai ) {
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOption[lv_itOption] = libGlue_ge_GlueUIBattleLobbyContextMenuOptions_None;
+    }
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionsCurrent = 0;
+}
+
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd (int lp_option) {
+    // Automatic Variable Declarations
+    // Implementation
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionsCurrent += 1;
+    if ((libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionsCurrent > libGlue_gv_glueUIBattleLobbyContextMenuOptionsMaxCount)) {
+        TriggerDebugOutput(1, StringExternal("Param/Value/lib_Glue_6191B5AD"), true);
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionsCurrent -= 1;
+        return ;
+    }
+
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOption[libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionsCurrent] = lp_option;
+}
+
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuSelectionUpdate (int lp_option) {
+    // Variable Declarations
+    int lv_enemyTeam;
+    int lv_itSlot;
+    int lv_itTeam;
+    int lv_targetPlayer;
+    int lv_player2;
+
+    // Automatic Variable Declarations
+    int autoE8275D01_val;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itSlot = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionSlot;
+    lv_itTeam = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOptionTeam;
+    lv_targetPlayer = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot];
+    lv_enemyTeam = (3 - lv_itTeam);
+    autoE8275D01_val = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostContextMenuOption[lp_option];
+    if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SwapTeams) {
+        libGlue_gf_GlueBattleLobbyAssignPlayerToSlot(lv_targetPlayer, lv_enemyTeam, libGlue_gf_GlueBattleLobbyGetFreeSlotOfTeam(lv_enemyTeam), libGlue_gf_GlueBattleLobbyGetPlayerStatus(lv_targetPlayer));
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetHost) {
+        libGlue_gf_GlueBattleLobbySetPlayerHost(lv_targetPlayer);
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot1) {
+        lv_player2 = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][1];
+        libGlue_gf_GlueBattleLobbySwitchPlayerSlots(lv_targetPlayer, lv_player2);
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot2) {
+        lv_player2 = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][2];
+        libGlue_gf_GlueBattleLobbySwitchPlayerSlots(lv_targetPlayer, lv_player2);
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot3) {
+        lv_player2 = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][3];
+        libGlue_gf_GlueBattleLobbySwitchPlayerSlots(lv_targetPlayer, lv_player2);
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot4) {
+        lv_player2 = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][4];
+        libGlue_gf_GlueBattleLobbySwitchPlayerSlots(lv_targetPlayer, lv_player2);
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot5) {
+        lv_player2 = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][5];
+        libGlue_gf_GlueBattleLobbySwitchPlayerSlots(lv_targetPlayer, lv_player2);
+    }
+    else if (autoE8275D01_val == libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SwapTeams) {
+        lv_player2 = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_enemyTeam][5];
+        libGlue_gf_GlueBattleLobbySwitchPlayerSlots(lv_targetPlayer, lv_player2);
+    }
+    else {
+    }
+    libGlue_gf_GlueBattleLobbyUpdateSlots();
+    libGlue_gf_GlueBattleLobbyUpdateHostUI();
+}
+
+void libGlue_gf_GlueBattleLobbyRefreshMapList (int lp_gameMode) {
+    // Variable Declarations
+    int lv_itMapIndex;
+    int lv_mapListCount;
+
+    // Automatic Variable Declarations
+    int autoFE79FD74_ae;
+    const int autoFE79FD74_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapListCount = 0;
+    autoFE79FD74_ae = libCore_gv_mapDataTotalMapCount;
+    lv_itMapIndex = 1;
+    for ( ; ( (autoFE79FD74_ai >= 0 && lv_itMapIndex <= autoFE79FD74_ae) || (autoFE79FD74_ai < 0 && lv_itMapIndex >= autoFE79FD74_ae) ) ; lv_itMapIndex += autoFE79FD74_ai ) {
+        if ((lp_gameMode == libCore_gv_mapData[lv_itMapIndex].lv_gameMode)) {
+            lv_mapListCount += 1;
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapList[lv_mapListCount] = lv_itMapIndex;
+        }
+
+    }
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapListCount = lv_mapListCount;
+}
+
+void libGlue_gf_GlueBattleLobbyShufflePlayers () {
+    int init_i;
+
+    // Variable Declarations
+    int lv_itPlayer;
+    int lv_itTeam;
+    int lv_itSlot;
+    playergroup lv_heroPlayers;
+    playergroup[libCore_gv_bALMaxTeams + 1] lv_loc_Team;
+    int lv_playerCount;
+    int lv_remainingPlayer;
+
+    // Automatic Variable Declarations
+    const int auto04CE9D66_ae = libCore_gv_bALMaxTeams;
+    const int auto04CE9D66_ai = 1;
+    int auto9F77803C_n;
+    int auto9F77803C_i;
+    const int autoF9FEEEBE_ae = libCore_gv_bALMaxTeams;
+    const int autoF9FEEEBE_ai = 1;
+    playergroup autoF3A64A05_g;
+
+    // Variable Initialization
+    lv_heroPlayers = PlayerGroupEmpty();
+    for (init_i = 0; init_i <= libCore_gv_bALMaxTeams; init_i += 1) {
+        lv_loc_Team[init_i] = PlayerGroupEmpty();
+    }
+    lv_remainingPlayer = -1;
+
+    // Implementation
+    SoundPlayForPlayer(SoundLink("UI_BNet_InviteSent", -1), c_maxPlayers, PlayerGroupSingle(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer), 100.0, 0.0);
+    lv_itTeam = 1;
+    for ( ; ( (auto04CE9D66_ai >= 0 && lv_itTeam <= auto04CE9D66_ae) || (auto04CE9D66_ai < 0 && lv_itTeam >= auto04CE9D66_ae) ) ; lv_itTeam += auto04CE9D66_ai ) {
+        libNtve_gf_AddPlayerGroupToPlayerGroup(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[lv_itTeam], lv_heroPlayers);
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPlayerGroup[lv_itTeam] = PlayerGroupEmpty();
+    }
+    lv_playerCount = PlayerGroupCount(lv_heroPlayers);
+    if ((ModI(lv_playerCount, libCore_gv_bALMaxTeams) != 0)) {
+        lv_remainingPlayer = libCore_gf_RandomPlayerFromPlayerGroup(lv_heroPlayers);
+        PlayerGroupRemove(lv_heroPlayers, lv_remainingPlayer);
+    }
+
+    auto9F77803C_n = (lv_playerCount / libCore_gv_bALMaxTeams);
+    for (auto9F77803C_i = 1; auto9F77803C_i <= auto9F77803C_n; auto9F77803C_i += 1) {
+        lv_itPlayer = libCore_gf_RandomPlayerFromPlayerGroup(lv_heroPlayers);
+        PlayerGroupAdd(lv_loc_Team[libGame_gv_teamOrderIndex_C], lv_itPlayer);
+        PlayerGroupRemove(lv_heroPlayers, lv_itPlayer);
+    }
+    libNtve_gf_AddPlayerGroupToPlayerGroup(lv_heroPlayers, lv_loc_Team[libGame_gv_teamChaosIndex_C]);
+    if ((lv_remainingPlayer >= 0)) {
+        PlayerGroupAdd(lv_loc_Team[RandomInt(libGame_gv_teamOrderIndex_C, libGame_gv_teamChaosIndex_C)], lv_remainingPlayer);
+    }
+
+    lv_itTeam = 1;
+    for ( ; ( (autoF9FEEEBE_ai >= 0 && lv_itTeam <= autoF9FEEEBE_ae) || (autoF9FEEEBE_ai < 0 && lv_itTeam >= autoF9FEEEBE_ae) ) ; lv_itTeam += autoF9FEEEBE_ai ) {
+        lv_itSlot = 0;
+        autoF3A64A05_g = lv_loc_Team[lv_itTeam];
+        lv_itPlayer = -1;
+        while (true) {
+            lv_itPlayer = PlayerGroupNextPlayer(autoF3A64A05_g, lv_itPlayer);
+            if (lv_itPlayer < 0) { break; }
+            lv_itSlot += 1;
+            if ((PlayerType(lv_itPlayer) == c_playerTypeUser)) {
+                libGlue_gf_GlueBattleLobbyAssignPlayerToSlot(lv_itPlayer, lv_itTeam, lv_itSlot, libGlue_ge_GlueBattleLobbyUISlotStatus_Player);
+            }
+            else {
+                libGlue_gf_GlueBattleLobbyAssignPlayerToSlot(lv_itPlayer, lv_itTeam, lv_itSlot, libGlue_ge_GlueBattleLobbyUISlotStatus_AI);
+            }
+        }
+    }
+    libGlue_gf_GlueBattleLobbyUpdateSlots();
+    libGlue_gf_GlueBattleLobbyUpdateHostUI();
+}
+
+int libGlue_gf_GlueBattleLobbyGetPlayerTeam (int lp_player) {
+    // Variable Declarations
+    int lv_itTeam;
+    int lv_itSlot;
+
+    // Automatic Variable Declarations
+    const int auto23079BB3_ae = libCore_gv_bALMaxTeams;
+    const int auto23079BB3_ai = 1;
+    const int auto8DC9258C_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto8DC9258C_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itTeam = 1;
+    for ( ; ( (auto23079BB3_ai >= 0 && lv_itTeam <= auto23079BB3_ae) || (auto23079BB3_ai < 0 && lv_itTeam >= auto23079BB3_ae) ) ; lv_itTeam += auto23079BB3_ai ) {
+        lv_itSlot = 1;
+        for ( ; ( (auto8DC9258C_ai >= 0 && lv_itSlot <= auto8DC9258C_ae) || (auto8DC9258C_ai < 0 && lv_itSlot >= auto8DC9258C_ae) ) ; lv_itSlot += auto8DC9258C_ai ) {
+            if ((libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot] == lp_player)) {
+                return lv_itTeam;
+            }
+
+        }
+    }
+    return -1;
+}
+
+int libGlue_gf_GlueBattleLobbyGetPlayerSlot (int lp_player) {
+    // Variable Declarations
+    int lv_itTeam;
+    int lv_itSlot;
+
+    // Automatic Variable Declarations
+    const int auto1FD1AA65_ae = libCore_gv_bALMaxTeams;
+    const int auto1FD1AA65_ai = 1;
+    const int auto9B6DC70B_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto9B6DC70B_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itTeam = 1;
+    for ( ; ( (auto1FD1AA65_ai >= 0 && lv_itTeam <= auto1FD1AA65_ae) || (auto1FD1AA65_ai < 0 && lv_itTeam >= auto1FD1AA65_ae) ) ; lv_itTeam += auto1FD1AA65_ai ) {
+        lv_itSlot = 1;
+        for ( ; ( (auto9B6DC70B_ai >= 0 && lv_itSlot <= auto9B6DC70B_ae) || (auto9B6DC70B_ai < 0 && lv_itSlot >= auto9B6DC70B_ae) ) ; lv_itSlot += auto9B6DC70B_ai ) {
+            if ((libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot] == lp_player)) {
+                return lv_itSlot;
+            }
+
+        }
+    }
+    return -1;
+}
+
+int libGlue_gf_GlueBattleLobbyGetPlayerStatus (int lp_player) {
+    // Variable Declarations
+    int lv_itTeam;
+    int lv_itSlot;
+
+    // Automatic Variable Declarations
+    const int auto62775455_ae = libCore_gv_bALMaxTeams;
+    const int auto62775455_ai = 1;
+    const int auto75151097_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto75151097_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itTeam = 1;
+    for ( ; ( (auto62775455_ai >= 0 && lv_itTeam <= auto62775455_ae) || (auto62775455_ai < 0 && lv_itTeam >= auto62775455_ae) ) ; lv_itTeam += auto62775455_ai ) {
+        lv_itSlot = 1;
+        for ( ; ( (auto75151097_ai >= 0 && lv_itSlot <= auto75151097_ae) || (auto75151097_ai < 0 && lv_itSlot >= auto75151097_ae) ) ; lv_itSlot += auto75151097_ai ) {
+            if ((libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayer[lv_itTeam][lv_itSlot] == lp_player)) {
+                return libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lv_itTeam][lv_itSlot];
+            }
+
+        }
+    }
+    return libGlue_ge_GlueBattleLobbyUISlotStatus_Empty;
+}
+
+int libGlue_gf_GlueBattleLobbyGetFreeSlotOfTeam (int lp_team) {
+    // Variable Declarations
+    int lv_itSlot;
+
+    // Automatic Variable Declarations
+    const int auto445E1F64_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto445E1F64_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itSlot = 1;
+    for ( ; ( (auto445E1F64_ai >= 0 && lv_itSlot <= auto445E1F64_ae) || (auto445E1F64_ai < 0 && lv_itSlot >= auto445E1F64_ae) ) ; lv_itSlot += auto445E1F64_ai ) {
+        if ((libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPlayerStatus[lp_team][lv_itSlot] == libGlue_ge_GlueBattleLobbyUISlotStatus_Empty)) {
+            return lv_itSlot;
+        }
+
+    }
+    return -1;
+}
+
+void libGlue_gf_GlueBattleLobbyAttributeUIUpdate () {
+    // Variable Declarations
+    int lv_itPlayer;
+    int lv_itAttribute;
+    playergroup lv_playerGroupExceptOfPlayer;
+
+    // Automatic Variable Declarations
+    const int autoF40B2BDC_ae = libGlue_gv_glueUIBattleLobbyAttributeMaxCount;
+    const int autoF40B2BDC_ai = 1;
+
+    // Variable Initialization
+    lv_playerGroupExceptOfPlayer = PlayerGroupEmpty();
+
+    // Implementation
+    lv_playerGroupExceptOfPlayer = libCore_gf_PlayerGroupExceptOfPlayer(PlayerGroupAll(), libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer);
+    lv_itAttribute = 1;
+    for ( ; ( (autoF40B2BDC_ai >= 0 && lv_itAttribute <= autoF40B2BDC_ae) || (autoF40B2BDC_ai < 0 && lv_itAttribute >= autoF40B2BDC_ae) ) ; lv_itAttribute += autoF40B2BDC_ai ) {
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute], PlayerGroupAll(), false);
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute], PlayerGroupSingle(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer), true);
+        if ((DialogControlGetItemCount(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer) > 0)) {
+            DialogControlSetVisible(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute], PlayerGroupAll(), true);
+            DialogControlSelectItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], lv_playerGroupExceptOfPlayer, DialogControlGetSelectedItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer));
+        }
+        else {
+            DialogControlSetVisible(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute], PlayerGroupAll(), false);
+        }
+    }
+}
+
+void libGlue_gf_GlueBattleLobbyAttributeUIFillData () {
+    // Variable Declarations
+    int lv_itAttribute;
+    int lv_itMap;
+    int lv_mapIndex;
+
+    // Automatic Variable Declarations
+    int auto8D1281D5_ae;
+    const int auto8D1281D5_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itAttribute = 1;
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownNameLabel[lv_itAttribute], StringExternal("Param/Value/lib_Glue_4235D4FA"), PlayerGroupAll());
+    auto8D1281D5_ae = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapListCount;
+    lv_itMap = 1;
+    for ( ; ( (auto8D1281D5_ai >= 0 && lv_itMap <= auto8D1281D5_ae) || (auto8D1281D5_ai < 0 && lv_itMap >= auto8D1281D5_ae) ) ; lv_itMap += auto8D1281D5_ai ) {
+        lv_mapIndex = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapList[lv_itMap];
+        DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), libCore_gv_mapData[lv_mapIndex].lv_mapName);
+    }
+    DialogControlSelectItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), 1);
+    lv_itAttribute = 4;
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownNameLabel[lv_itAttribute], StringExternal("Param/Value/lib_Glue_F64FE22A"), PlayerGroupAll());
+    DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), StringExternal("Param/Value/lib_Glue_59731697"));
+    DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), StringExternal("Param/Value/lib_Glue_9FC6242C"));
+    DialogControlSelectItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), 1);
+    lv_itAttribute = 5;
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownNameLabel[lv_itAttribute], StringExternal("Param/Value/lib_Glue_F8AE544D"), PlayerGroupAll());
+    DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), StringExternal("Param/Value/lib_Glue_A700985F"));
+    DialogControlAddItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), StringExternal("Param/Value/lib_Glue_79B616DF"));
+    if ((PlayerGroupCount(PlayerGroupActive()) <= libSAND_gv_sandboxAutoPlayerThreshold_C)) {
+        DialogControlSelectItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), 1);
+    }
+    else {
+        DialogControlSelectItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], PlayerGroupAll(), 2);
+    }
+}
+
+void libGlue_gf_GlueBattleLobbyUpdateMapInfo () {
+    // Variable Declarations
+    int lv_mapIndex;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_mapIndex = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedIndex;
+    libNtve_gf_SetDialogItemImage(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapImage, libCore_gv_mapData[lv_mapIndex].lv_backgroundImage, PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapNameLabel, libCore_gv_mapData[lv_mapIndex].lv_mapName, PlayerGroupAll());
+    SoundtrackStop(PlayerGroupAll(), c_soundtrackCategoryMusic, false);
+    SoundtrackPlay(PlayerGroupAll(), c_soundtrackCategoryMusic, libCore_gv_mapData[lv_mapIndex].lv_mapSelectionSoundtrack, c_soundtrackCueAny, c_soundtrackIndexAny, false);
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: #Include Glue
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_IncludeGlue_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_IncludeGlue_Init () {
+    libGlue_gt_IncludeGlue = TriggerCreate("libGlue_gt_IncludeGlue_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Initialize
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueInitialize_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_itPlayer;
+    int lv_itAttribute;
+
+    // Automatic Variable Declarations
+    playergroup auto18AEC1F5_g;
+    playergroup auto95783CA5_g;
+    int auto95783CA5_var;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libUIUI_gf_HSUIMuteUnmuteSoundChannelsNotUsedForHeroSelection(true);
+    auto18AEC1F5_g = PlayerGroupAll();
+    lv_itPlayer = -1;
+    while (true) {
+        lv_itPlayer = PlayerGroupNextPlayer(auto18AEC1F5_g, lv_itPlayer);
+        if (lv_itPlayer < 0) { break; }
+        CameraLockInput(lv_itPlayer, true);
+    }
+    CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
+    libNtve_gf_HideGameUI(false, PlayerGroupAll());
+    UISetWorldVisible(PlayerGroupAll(), false);
+    auto95783CA5_g = PlayerGroupAll();
+    auto95783CA5_var = -1;
+    while (true) {
+        auto95783CA5_var = PlayerGroupNextPlayer(auto95783CA5_g, auto95783CA5_var);
+        if (auto95783CA5_var < 0) { break; }
+        libCore_gv_playerGroupFromPlayer[auto95783CA5_var] = PlayerGroupSingle(auto95783CA5_var);
+    }
+    TriggerExecute(libUIUI_gt_PreloadPanelInitialization, true, true);
+    libUIUI_gf_PreloadPanelShowHidePanel(true);
+    TriggerExecute(libGlue_gt_GlueInitializeGlueUI, true, true);
+    TriggerExecute(libGame_gt_BankOpenBanks, true, true);
+    TriggerExecute(libGlue_gt_GlueStart, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueInitialize_Init () {
+    libGlue_gt_GlueInitialize = TriggerCreate("libGlue_gt_GlueInitialize_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Initialize Glue UI
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueInitializeGlueUI_Func (bool testConds, bool runActions) {
+    int init_i;
+
+    // Variable Declarations
+    int lv_itPlayer;
+    int lv_itTeam;
+    int lv_itSlot;
+    int[11] lv_panels;
+    int lv_itCurrentPanelLayer;
+    int lv_itAttribute;
+
+    // Automatic Variable Declarations
+    const int autoD5C29277_ae = libCore_gv_bALMaxTeams;
+    const int autoD5C29277_ai = 1;
+    const int auto46791437_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto46791437_ai = 1;
+    const int autoD8EB9098_ae = libGlue_gv_glueUIBattleLobbyAttributeMaxCount;
+    const int autoD8EB9098_ai = 1;
+
+    // Variable Initialization
+    for (init_i = 0; init_i <= 10; init_i += 1) {
+        lv_panels[init_i] = c_invalidDialogControlId;
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogCreate(500, 400, c_anchorCenter, 0, 0, true);
+    libGlue_gv_glueBattleLobbyUI.lv_mainDialog = DialogLastCreated();
+    DialogSetImageVisible(DialogLastCreated(), false);
+    DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), false);
+    DialogSetFullscreen(DialogLastCreated(), true);
+    DialogSetPosition(DialogLastCreated(), c_anchorCenter, 0, 0);
+    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "BattleLobbyPanel/BattleLobbyPanel");
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyPanel = DialogControlLastCreated();
+    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
+    lv_itCurrentPanelLayer += 1;
+    lv_panels[lv_itCurrentPanelLayer] = DialogControlLastCreated();
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeImage, "MapImage");
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapImage = DialogControlLastCreated();
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeLabel, "MapNameLabel");
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapNameLabel = DialogControlLastCreated();
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeListBox, libNtve_gf_ConvertStringToUILayoutFrameName("$BattleLobbyEditContextMenu"));
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu = DialogControlLastCreated();
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeLabel, libNtve_gf_ConvertStringToUILayoutFrameName("$BattleLobbyTitleLabel"));
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenuTitleLabel = DialogControlLastCreated();
+    lv_itTeam = 1;
+    for ( ; ( (autoD5C29277_ai >= 0 && lv_itTeam <= autoD5C29277_ae) || (autoD5C29277_ai < 0 && lv_itTeam >= autoD5C29277_ae) ) ; lv_itTeam += autoD5C29277_ai ) {
+        DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("Team" + IntToString(lv_itTeam))));
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamPanel[lv_itTeam] = DialogControlLastCreated();
+        lv_itCurrentPanelLayer += 1;
+        lv_panels[lv_itCurrentPanelLayer] = DialogControlLastCreated();
+        DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeLabel, "TeamNameLabel");
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamNameLabel[lv_itTeam] = DialogControlLastCreated();
+        lv_itSlot = 1;
+        for ( ; ( (auto46791437_ai >= 0 && lv_itSlot <= auto46791437_ae) || (auto46791437_ai < 0 && lv_itSlot >= auto46791437_ae) ) ; lv_itSlot += auto46791437_ai ) {
+            DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("Slot" + IntToString(lv_itSlot))));
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotPanel[lv_itTeam][lv_itSlot] = DialogControlLastCreated();
+            lv_itCurrentPanelLayer += 1;
+            lv_panels[lv_itCurrentPanelLayer] = DialogControlLastCreated();
+            DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeButton, "EditButton");
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditButton[lv_itTeam][lv_itSlot] = DialogControlLastCreated();
+            DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeLabel, "NameLabel");
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotNameLabel[lv_itTeam][lv_itSlot] = DialogControlLastCreated();
+            DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypePanel, "AvatarFrame/PortraitContainer");
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitContainer[lv_itTeam][lv_itSlot] = DialogControlLastCreated();
+            DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeImage, "AvatarFrame/PortraitContainer/PortraitFrame/UnlockableImage");
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitImage[lv_itTeam][lv_itSlot] = DialogControlLastCreated();
+            DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeLabel, "AvatarFrame/PortraitContainer/PortraitFrame/UnlockableImage/TextureCoords");
+            libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotAvatarPortraitTextureCoordsLabel[lv_itTeam][lv_itSlot] = DialogControlLastCreated();
+            lv_itCurrentPanelLayer -= 1;
+        }
+        lv_itCurrentPanelLayer -= 1;
+    }
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypePanel, "GameAttributesPanel");
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePanel = DialogControlLastCreated();
+    lv_itCurrentPanelLayer += 1;
+    lv_panels[lv_itCurrentPanelLayer] = DialogControlLastCreated();
+    lv_itAttribute = 1;
+    for ( ; ( (autoD8EB9098_ai >= 0 && lv_itAttribute <= autoD8EB9098_ae) || (autoD8EB9098_ai < 0 && lv_itAttribute >= autoD8EB9098_ae) ) ; lv_itAttribute += autoD8EB9098_ai ) {
+        DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("AttributePulldown" + IntToString(lv_itAttribute))));
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[lv_itAttribute] = DialogControlLastCreated();
+        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
+        lv_itCurrentPanelLayer += 1;
+        lv_panels[lv_itCurrentPanelLayer] = DialogControlLastCreated();
+        DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypePulldown, "Pulldown");
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute] = DialogControlLastCreated();
+        DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeLabel, "Label");
+        libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownNameLabel[lv_itAttribute] = DialogControlLastCreated();
+        lv_itCurrentPanelLayer -= 1;
+    }
+    lv_itCurrentPanelLayer -= 1;
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeButton, "StartGameButton");
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton = DialogControlLastCreated();
+    DialogControlSetEnabled(DialogControlLastCreated(), PlayerGroupAll(), false);
+    DialogControlHookup(lv_panels[lv_itCurrentPanelLayer], c_triggerControlTypeButton, "ShufflePlayersButton");
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButton = DialogControlLastCreated();
+    DialogControlSetEnabled(DialogControlLastCreated(), PlayerGroupAll(), false);
+    lv_itCurrentPanelLayer -= 1;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueInitializeGlueUI_Init () {
+    libGlue_gt_GlueInitializeGlueUI = TriggerCreate("libGlue_gt_GlueInitializeGlueUI_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Start
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueStart_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_HideGameUI(false, PlayerGroupAll());
+    UISetWorldVisible(PlayerGroupAll(), false);
+    TriggerExecute(libCore_gt_MapDataInitialize, true, true);
+    TriggerExecute(libGlue_gt_GlueInitializePlayers, true, true);
+    TriggerEnable(libGlue_gt_GlueDialogItemUsedChangeSelection, true);
+    TriggerEnable(libGlue_gt_GlueDialogItemUsedClicked, true);
+    TriggerEnable(libGlue_gt_GlueTimerPeriodicEvent, true);
+    TriggerEnable(libGlue_gt_GluePlayerLeft, true);
+    TimerStart(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButtonTimer, libGlue_gv_glueUIBattleLobbyStartGameTime, false, c_timeGame);
+    libGlue_gf_GlueBattleLobbyUpdateSlots();
+    libGlue_gf_GlueBattleLobbyRefreshMapList(libCore_ge_GameModes_Normal);
+    libGlue_gf_GlueBattleLobbyAttributeUIFillData();
+    libGlue_gf_GlueBattleLobbyAttributeUIUpdate();
+    libGlue_gf_GlueBattleLobbyUpdateHostUI();
+    libUIUI_gf_PreloadPanelShowHidePanel(false);
+    DialogSetVisible(libGlue_gv_glueBattleLobbyUI.lv_mainDialog, PlayerGroupAll(), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueStart_Init () {
+    libGlue_gt_GlueStart = TriggerCreate("libGlue_gt_GlueStart_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Initialize Players
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueInitializePlayers_Func (bool testConds, bool runActions) {
+    int init_i;
+
+    // Variable Declarations
+    int lv_itSlot;
+    int lv_itTeam;
+    int lv_itPlayer;
+    int lv_targetPlayer;
+    int lv_hostPlayer;
+    playergroup[libCore_gv_bALMaxTeams + 1] lv_loc_Team;
+
+    // Automatic Variable Declarations
+    const int autoC604C3EF_ae = libCore_gv_bALMaxTeams;
+    const int autoC604C3EF_ai = 1;
+    playergroup auto6E724B2F_g;
+    const int autoE2AD7659_ae = libCore_gv_bALMaxTeams;
+    const int autoE2AD7659_ai = 1;
+    const int auto794990A3_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto794990A3_ai = 1;
+    const int auto37620922_ae = libCore_gv_bALMaxTeams;
+    const int auto37620922_ai = 1;
+    const int autoF676E1BE_ae = libCore_gv_bALMaxTeams;
+    const int autoF676E1BE_ai = 1;
+    int auto8B0C48B9_ae;
+    const int auto8B0C48B9_ai = 1;
+
+    // Variable Initialization
+    for (init_i = 0; init_i <= libCore_gv_bALMaxTeams; init_i += 1) {
+        lv_loc_Team[init_i] = PlayerGroupEmpty();
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerExecute(libGame_gt_InitializeBanks, true, true);
+    TriggerExecute(libGame_gt_AvatarGrabberInitialization, true, true);
+    TriggerExecute(libGame_gt_BNetGrabberInitialization, true, true);
+    lv_hostPlayer = libGame_gf_MTMLLastPlayedMatchDataGetHost();
+    if ((libCore_gv_sYSIsGlue == true)) {
+        if ((libGame_gv_mTMLGameSetupData.lv_lastPlayedMatchIDIsValid == true)) {
+            libGame_gf_MTMLLastPlayedMatchDataAddPlayersToTeams();
+            lv_itTeam = 1;
+            for ( ; ( (auto37620922_ai >= 0 && lv_itTeam <= auto37620922_ae) || (auto37620922_ai < 0 && lv_itTeam >= auto37620922_ae) ) ; lv_itTeam += auto37620922_ai ) {
+                libNtve_gf_AddPlayerGroupToPlayerGroup(libGame_gv_mTMLGameSetupData.lv_teamPlayers[lv_itTeam], lv_loc_Team[lv_itTeam]);
+            }
+        }
+        else {
+            lv_itTeam = 1;
+            for ( ; ( (autoE2AD7659_ai >= 0 && lv_itTeam <= autoE2AD7659_ae) || (autoE2AD7659_ai < 0 && lv_itTeam >= autoE2AD7659_ae) ) ; lv_itTeam += autoE2AD7659_ai ) {
+                lv_itSlot = 1;
+                for ( ; ( (auto794990A3_ai >= 0 && lv_itSlot <= auto794990A3_ae) || (auto794990A3_ai < 0 && lv_itSlot >= auto794990A3_ae) ) ; lv_itSlot += auto794990A3_ai ) {
+                    lv_itPlayer += 1;
+                    if ((GameIsOnline() == false)) {
+                        PlayerGroupAdd(lv_loc_Team[lv_itTeam], lv_itPlayer);
+                    }
+                    else {
+                        lv_targetPlayer = PlayerGroupPlayer(PlayerGroupActive(), lv_itPlayer);
+                        if ((PlayerType(lv_targetPlayer) == c_playerTypeUser) && (PlayerStatus(lv_targetPlayer) == c_playerStatusActive)) {
+                            PlayerGroupAdd(lv_loc_Team[lv_itTeam], lv_itPlayer);
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+    else {
+        lv_itTeam = 1;
+        for ( ; ( (autoC604C3EF_ai >= 0 && lv_itTeam <= autoC604C3EF_ae) || (autoC604C3EF_ai < 0 && lv_itTeam >= autoC604C3EF_ae) ) ; lv_itTeam += autoC604C3EF_ai ) {
+            auto6E724B2F_g = libGame_gf_PlayersOnTeamHeroes(lv_itTeam, false);
+            lv_itPlayer = -1;
+            while (true) {
+                lv_itPlayer = PlayerGroupNextPlayer(auto6E724B2F_g, lv_itPlayer);
+                if (lv_itPlayer < 0) { break; }
+                if ((PlayerType(lv_itPlayer) == c_playerTypeUser) && (PlayerStatus(lv_itPlayer) == c_playerStatusActive)) {
+                    PlayerGroupAdd(lv_loc_Team[lv_itTeam], lv_itPlayer);
+                }
+
+            }
+        }
+    }
+    lv_itTeam = 1;
+    for ( ; ( (autoF676E1BE_ai >= 0 && lv_itTeam <= autoF676E1BE_ae) || (autoF676E1BE_ai < 0 && lv_itTeam >= autoF676E1BE_ae) ) ; lv_itTeam += autoF676E1BE_ai ) {
+        auto8B0C48B9_ae = PlayerGroupCount(lv_loc_Team[lv_itTeam]);
+        lv_itSlot = 1;
+        for ( ; ( (auto8B0C48B9_ai >= 0 && lv_itSlot <= auto8B0C48B9_ae) || (auto8B0C48B9_ai < 0 && lv_itSlot >= auto8B0C48B9_ae) ) ; lv_itSlot += auto8B0C48B9_ai ) {
+            lv_itPlayer = PlayerGroupPlayer(lv_loc_Team[lv_itTeam], lv_itSlot);
+            if ((PlayerType(lv_itPlayer) == c_playerTypeUser)) {
+                libGlue_gf_GlueBattleLobbyAssignPlayerToSlot(lv_itPlayer, lv_itTeam, lv_itSlot, libGlue_ge_GlueBattleLobbyUISlotStatus_Player);
+            }
+            else {
+                libGlue_gf_GlueBattleLobbyAssignPlayerToSlot(lv_itPlayer, lv_itTeam, lv_itSlot, libGlue_ge_GlueBattleLobbyUISlotStatus_AI);
+            }
+        }
+    }
+    libGlue_gf_GlueBattleLobbySetPlayerHost(lv_hostPlayer);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueInitializePlayers_Init () {
+    libGlue_gt_GlueInitializePlayers = TriggerCreate("libGlue_gt_GlueInitializePlayers_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Dialog Item Used (Clicked)
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueDialogItemUsedClicked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_itTeam;
+    int lv_itSlot;
+    int lv_itOption;
+
+    // Automatic Variable Declarations
+    const int autoE5B093F7_ae = libCore_gv_bALMaxTeams;
+    const int autoE5B093F7_ai = 1;
+    const int auto8B19717B_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto8B19717B_ai = 1;
+    const int autoB7CDFF59_ae = libGlue_gv_glueUIBattleLobbyAttributeMaxCount;
+    int autoB7CDFF59_var;
+    const int autoE4F9F1DE_ae = libCore_gv_bALMaxTeams;
+    const int autoE4F9F1DE_ai = 1;
+    const int auto3C5B976D_ae = libCore_gv_bALMaxPlayersOnATeam;
+    const int auto3C5B976D_ai = 1;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((libGlue_gv_glueBattleLobbyUI.lv_battleLobbySuppressPlayerInput[EventPlayer()] == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbySuppressPlayerInput[EventPlayer()] = true;
+    lv_itTeam = 1;
+    for ( ; ( (autoE5B093F7_ai >= 0 && lv_itTeam <= autoE5B093F7_ae) || (autoE5B093F7_ai < 0 && lv_itTeam >= autoE5B093F7_ae) ) ; lv_itTeam += autoE5B093F7_ai ) {
+        lv_itSlot = 1;
+        for ( ; ( (auto8B19717B_ai >= 0 && lv_itSlot <= auto8B19717B_ae) || (auto8B19717B_ai < 0 && lv_itSlot >= auto8B19717B_ae) ) ; lv_itSlot += auto8B19717B_ai ) {
+            if ((EventDialogControl() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditButton[lv_itTeam][lv_itSlot])) {
+                libGlue_gf_GlueBattleLobbyHostPlayerContextMenuUpdate(lv_itTeam, lv_itSlot);
+                Wait(0.0625, c_timeGame);
+                libGlue_gv_glueBattleLobbyUI.lv_battleLobbySuppressPlayerInput[EventPlayer()] = false;
+                return true;
+            }
+
+        }
+    }
+    if ((EventDialogControl() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton)) {
+        libGlue_gv_glueUILoadingStarted = true;
+        TriggerEnable(TriggerGetCurrent(), false);
+        TriggerEnable(libGlue_gt_GlueDialogItemUsedChangeSelection, false);
+        TriggerEnable(libGlue_gt_GluePlayerLeft, false);
+        DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton, PlayerGroupAll(), false);
+        autoB7CDFF59_var = 1;
+        for ( ; autoB7CDFF59_var <= autoB7CDFF59_ae; autoB7CDFF59_var += 1 ) {
+            DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldownFrame[autoB7CDFF59_var], PlayerGroupAll(), false);
+        }
+        lv_itTeam = 1;
+        for ( ; ( (autoE4F9F1DE_ai >= 0 && lv_itTeam <= autoE4F9F1DE_ae) || (autoE4F9F1DE_ai < 0 && lv_itTeam >= autoE4F9F1DE_ae) ) ; lv_itTeam += autoE4F9F1DE_ai ) {
+            lv_itSlot = 1;
+            for ( ; ( (auto3C5B976D_ai >= 0 && lv_itSlot <= auto3C5B976D_ae) || (auto3C5B976D_ai < 0 && lv_itSlot >= auto3C5B976D_ae) ) ; lv_itSlot += auto3C5B976D_ai ) {
+                DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyTeamSlotEditButton[lv_itTeam][lv_itSlot], PlayerGroupAll(), false);
+            }
+        }
+        libGame_gf_MTMLSetHostPlayer(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer);
+        libGame_gf_MTMLSetMapDataIndex(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedIndex);
+        libGame_gf_MTMLPrepareDataToTransfer();
+        libGame_gf_MTMLStoreBankDataAllPlayers();
+        Wait(1.0, c_timeGame);
+        libCore_gf_StormMapToMapLoad(libCore_gv_mapData[libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedIndex].lv_map, PlayerGroupEmpty(), PlayerGroupEmpty());
+    }
+
+    if ((EventDialogControl() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyShufflePlayersButton)) {
+        libGlue_gf_GlueBattleLobbyShufflePlayers();
+    }
+
+    Wait(0.0625, c_timeGame);
+    libGlue_gv_glueBattleLobbyUI.lv_battleLobbySuppressPlayerInput[EventPlayer()] = false;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueDialogItemUsedClicked_Init () {
+    libGlue_gt_GlueDialogItemUsedClicked = TriggerCreate("libGlue_gt_GlueDialogItemUsedClicked_Func");
+    TriggerEnable(libGlue_gt_GlueDialogItemUsedClicked, false);
+    TriggerAddEventDialogControl(libGlue_gt_GlueDialogItemUsedClicked, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Dialog Item Used (Change Selection)
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueDialogItemUsedChangeSelection_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_itOption;
+    int lv_itAttribute;
+    int lv_mapIndex;
+
+    // Automatic Variable Declarations
+    const int auto2A63575D_ae = libGlue_gv_glueUIBattleLobbyAttributeMaxCount;
+    const int auto2A63575D_ai = 1;
+    int auto47E400D3_val;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((EventPlayer() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((EventDialogControl() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyEditContextMenu)) {
+        libGlue_gf_GlueBattleLobbyHostPlayerContextMenuSelectionUpdate(DialogControlGetSelectedItem(EventDialogControl(), EventPlayer()));
+        return true;
+    }
+
+    lv_itAttribute = 1;
+    for ( ; ( (auto2A63575D_ai >= 0 && lv_itAttribute <= auto2A63575D_ae) || (auto2A63575D_ai < 0 && lv_itAttribute >= auto2A63575D_ae) ) ; lv_itAttribute += auto2A63575D_ai ) {
+        if ((EventDialogControl() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute])) {
+            auto47E400D3_val = lv_itAttribute;
+            if (auto47E400D3_val == 1) {
+                lv_mapIndex = DialogControlGetSelectedItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer);
+                if ((lv_mapIndex == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedDropdownIndex)) {
+                    return true;
+                }
+
+                libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedDropdownIndex = DialogControlGetSelectedItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer);
+                libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedIndex = libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapList[libGlue_gv_glueBattleLobbyUI.lv_battleLobbyMapSelectedDropdownIndex];
+                libGlue_gf_GlueBattleLobbyUpdateMapInfo();
+                libGlue_gf_GlueBattleLobbyAttributeUIUpdate();
+            }
+            else if (auto47E400D3_val == 4) {
+                if ((DialogControlGetSelectedItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer) == 1)) {
+                    libGame_gf_MTMLSetGameOption(libCore_ge_GameOptions_Preloading, true);
+                }
+                else {
+                    libGame_gf_MTMLSetGameOption(libCore_ge_GameOptions_Preloading, false);
+                }
+                libGlue_gf_GlueBattleLobbyAttributeUIUpdate();
+            }
+            else if (auto47E400D3_val == 5) {
+                if ((DialogControlGetSelectedItem(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyAttributePulldown[lv_itAttribute], libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer) == 1)) {
+                    libGame_gf_MTMLSetGameOption(libCore_ge_GameOptions_Sandbox, true);
+                }
+                else {
+                    libGame_gf_MTMLSetGameOption(libCore_ge_GameOptions_Sandbox, false);
+                }
+                libGlue_gf_GlueBattleLobbyAttributeUIUpdate();
+            }
+            else {
+            }
+            return true;
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueDialogItemUsedChangeSelection_Init () {
+    libGlue_gt_GlueDialogItemUsedChangeSelection = TriggerCreate("libGlue_gt_GlueDialogItemUsedChangeSelection_Func");
+    TriggerEnable(libGlue_gt_GlueDialogItemUsedChangeSelection, false);
+    TriggerAddEventDialogControl(libGlue_gt_GlueDialogItemUsedChangeSelection, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeSelectionChanged);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Timer Periodic Event
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueTimerPeriodicEvent_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TimerGetRemaining(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButtonTimer) > 0.0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton, TextTimeFormat(StringToText("<mintotal/>:<sec2/>"), FixedToInt(TimerGetRemaining(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButtonTimer))), PlayerGroupAll());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueTimerPeriodicEvent_Init () {
+    libGlue_gt_GlueTimerPeriodicEvent = TriggerCreate("libGlue_gt_GlueTimerPeriodicEvent_Func");
+    TriggerEnable(libGlue_gt_GlueTimerPeriodicEvent, false);
+    TriggerAddEventTimePeriodic(libGlue_gt_GlueTimerPeriodicEvent, 0.5, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Start Game Button Enabler
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GlueStartGameButtonEnabler_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(libGlue_gt_GlueTimerPeriodicEvent, false);
+    libNtve_gf_SetDialogItemText(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton, StringExternal("UI/BattleLobbyPanel/StartGameButton"), PlayerGroupAll());
+    DialogControlSetEnabled(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButton, PlayerGroupSingle(libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GlueStartGameButtonEnabler_Init () {
+    libGlue_gt_GlueStartGameButtonEnabler = TriggerCreate("libGlue_gt_GlueStartGameButtonEnabler_Func");
+    TriggerAddEventTimer(libGlue_gt_GlueStartGameButtonEnabler, libGlue_gv_glueBattleLobbyUI.lv_battleLobbyStartGameButtonTimer);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Glue - Player Left
+//--------------------------------------------------------------------------------------------------
+bool libGlue_gt_GluePlayerLeft_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_itPlayer;
+    playergroup lv_playerGroup;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_playerGroup = PlayerGroupEmpty();
+
+    // Conditions
+    if (testConds) {
+        if (!((libGlue_gv_glueUILoadingStarted == false))) {
+            return false;
+        }
+
+        if (!((PlayerGroupCount(PlayerGroupActive()) > 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((EventPlayer() == libGlue_gv_glueBattleLobbyUI.lv_battleLobbyHostPlayer)) {
+        libGlue_gf_GlueBattleLobbySetPlayerHost(PlayerGroupPlayer(PlayerGroupActive(), 1));
+    }
+
+    libGlue_gf_GlueBattleLobbyAttributeUIUpdate();
+    libGlue_gf_GlueBattleLobbyUpdateSlots();
+    libGlue_gf_GlueBattleLobbyUpdateHostUI();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGlue_gt_GluePlayerLeft_Init () {
+    libGlue_gt_GluePlayerLeft = TriggerCreate("libGlue_gt_GluePlayerLeft_Func");
+    TriggerEnable(libGlue_gt_GluePlayerLeft, false);
+    TriggerAddEventPlayerLeft(libGlue_gt_GluePlayerLeft, c_playerAny, c_gameResultUndecided);
+}
+
+void libGlue_InitTriggers () {
+    libGlue_gt_IncludeGlue_Init();
+    libGlue_gt_GlueInitialize_Init();
+    libGlue_gt_GlueInitializeGlueUI_Init();
+    libGlue_gt_GlueStart_Init();
+    libGlue_gt_GlueInitializePlayers_Init();
+    libGlue_gt_GlueDialogItemUsedClicked_Init();
+    libGlue_gt_GlueDialogItemUsedChangeSelection_Init();
+    libGlue_gt_GlueTimerPeriodicEvent_Init();
+    libGlue_gt_GlueStartGameButtonEnabler_Init();
+    libGlue_gt_GluePlayerLeft_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libGlue_InitLib_completed = false;
+
+void libGlue_InitLib () {
+    if (libGlue_InitLib_completed) {
+        return;
+    }
+
+    libGlue_InitLib_completed = true;
+
+    libGlue_InitLibraries();
+    libGlue_InitVariables();
+    libGlue_InitTriggers();
+}
+
+include "LibCore"
+include "LibGame"
+include "LibUIUI"
+include "LibSAND"
+

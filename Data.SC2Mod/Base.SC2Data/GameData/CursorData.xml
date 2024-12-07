@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!--SC2 Cursors -->
+    <CCursor id="Arrow">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <CCursor id="Arrow_Prot">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <!--Racial Cursors -->
+    <CCursor id="Arrow_Terr">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <CCursor id="Arrow_Zerg">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomLeft_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomLeft_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomRight_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomRight_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottom_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottom_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollLeft_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollLeft_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollRight_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollRight_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopLeft_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopLeft_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopRight_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopRight_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTop_Prot">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTop_Zerg">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Up.dds"/>
+    </CCursor>
+    <!--Game Cursors -->
+    <CCursor id="TargetInvalid">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Spell_Invalid.dds"/>
+    </CCursor>
+    <CCursor id="TargetNormal">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Spell_Base.dds"/>
+    </CCursor>
+    <CCursor id="TargetAllied">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Spell_Friendly.dds"/>
+    </CCursor>
+    <CCursor id="TargetEnemy">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Spell_Enemy.dds"/>
+    </CCursor>
+    <CCursor id="SelectNormal">
+        <Texture value="assets\Textures\Storm_UI_Cursor_Default_Friendly_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Friendly_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Friendly_64.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="SelectAllied">
+        <Texture value="assets\Textures\Storm_UI_Cursor_Default_Friendly_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Friendly_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Friendly_64.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="SelectEnemy">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Enemy_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Enemy_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Enemy_64.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopLeft">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTop">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopRight">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right_Up.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollLeft">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollRight">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomLeft">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Left_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottom">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Down.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomRight">
+        <Texture value="Assets\Textures\Cursor_InGame_EdgeScroll_Right_Down.dds"/>
+    </CCursor>
+    <CCursor id="AttackTargetInvalid">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Target_Invalid.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="AttackTargetNormal">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Target_Base.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="AttackTargetAllied">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Target_Friendly.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="AttackTargetEnemy">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Target_Enemy.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="Wait">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <CCursor id="Wait_Prot">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <CCursor id="Wait_Terr">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+    <CCursor id="Wait_Zerg">
+        <Texture value="Assets\Textures\Storm_UI_Cursor_Default_Base_32.dds"/>
+        <Texture16 value="Assets\Textures\Storm_UI_Cursor_Default_Base_16.dds"/>
+        <Texture64 value="Assets\Textures\Storm_UI_Cursor_Default_Base_64.dds"/>
+    </CCursor>
+</Catalog>

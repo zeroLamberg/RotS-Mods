@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUpgrade id="CreepColor">
+        <EffectArray Operation="Set" Reference="GameUI,Dflt,OverrideColors[Hostile].Value[Diffuse]" Value="0.0922745,0.000000,0.139960,1.000000"/>
+        <EffectArray Operation="Set" Reference="GameUI,Dflt,OverrideColors[Hostile].Value[Emissive]" Value="0.274510,0.000000,0.392157,1.000000"/>
+        <EffectArray Operation="Set" Reference="GameUI,Dflt,ColorBlindColors[Hostile].Value[Diffuse]" Value="0.235300,0.000000,0.356900,1.0000000"/>
+        <EffectArray Operation="Set" Reference="GameUI,Dflt,ColorBlindColors[Hostile].Value[Emissive]" Value="0.274510,0.176471,0.627451,1.000000"/>
+    </CUpgrade>
+    <CUpgrade id="HasTalentPoints">
+        <MaxLevel value="19"/>
+    </CUpgrade>
+    <CUpgrade id="IsHeroPlayer"/>
+    <CUpgrade id="IsOnChaosTeam"/>
+    <CUpgrade id="IsOnOrderTeam"/>
+    <CUpgrade id="IsPlayer00"/>
+    <CUpgrade id="IsPlayer02"/>
+    <CUpgrade id="IsPlayer03"/>
+    <CUpgrade id="IsPlayer04"/>
+    <CUpgrade id="IsPlayer05"/>
+    <CUpgrade id="IsPlayer06"/>
+    <CUpgrade id="IsPlayer07"/>
+    <CUpgrade id="IsPlayer08"/>
+    <CUpgrade id="IsPlayer09"/>
+    <CUpgrade id="IsPlayer10"/>
+    <CUpgrade id="IsPlayer11"/>
+    <CUpgrade id="IsPlayer01"/>
+    <CUpgrade id="IsPlayer12"/>
+    <CUpgrade id="GatesAreOpen"/>
+    <CUpgrade id="IsPlayer13"/>
+    <CUpgrade id="IsPlayer14"/>
+    <CUpgrade id="IsPlayer15"/>
+    <CUpgrade id="MinionsAreSpawning"/>
+</Catalog>

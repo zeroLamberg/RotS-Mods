@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    
+    <!--
+        @UI/Storm_UI_Tooltip_TopBorder=Assets\Textures\storm_ui_tooltip_topborder.dds
+        @UI/Storm_Generic_Background_Low=Assets\Textures\storm_ui_glues_standard_background_low.dds
+    -->
+
+    <Frame type="Image" name="StandardBorderTooltipGame">
+      <!--<Texture val="@@UI/StandardGameTooltip"/>
+      <TextureType val="Border"/>
+      <Tiled val="false"/>-->
+      <Texture val="@UI/StormTooltipFrame"/>
+      <TextureType val="HorizontalBorder"/>
+      <Tiled val="true"/>
+    </Frame>
+    
+    <Frame type="Image" name="TooltipFrameTemplate">
+      <Texture val="@UI/StormTooltipFrame"/>
+      <TextureType val="HorizontalBorder"/>
+      <Tiled val="true"/>
+    </Frame>
+
+    <Frame type="Image" name="TooltipBackgroundTemplate">
+      <Texture val="@UI/StormTooltipBackground"/>
+      <TextureType val="Nineslice"/>
+      <Tiled val="true"/>
+    </Frame>
+
+    <Frame type="Tooltip" name="StandardTooltip">
+      <Insets top="20" left="20" bottom="20" right="20"/>
+      <Frame type="Image" name="BackgroundImage" template="StandardTooltipStorm/TooltipBackgroundTemplate">
+        <Anchor relative="$parent"/>
+      </Frame>
+    </Frame>
+
+    <Frame type="Tooltip" name="StandardGameTooltip">
+      <Insets top="20" left="20" bottom="20" right="20"/>
+      <Frame type="Image" name="BackgroundImage" template="StandardTooltipStorm/TooltipBackgroundTemplate">
+        <Anchor relative="$parent"/>
+      </Frame>
+    </Frame>
+    
+    <Frame type="StandardTooltip" name="StandardTooltipTemplateStorm">
+      <MaxWidth val="480"/>
+      <Insets top="20" left="20" bottom="20" right="20"/>
+      <Frame type="BlurFrame" name="BackgroundImage">
+        <Visible val="False" />
+      </Frame>
+      <Frame type="Image" name="BackgroundLowImage">
+        <Anchor relative="$parent" offset="-5" />
+        <TextureType val="Normal" />
+        <Texture val="@UI/Storm_Generic_Background_Low" />
+      </Frame>
+      <Frame type="Image" name="TopBorder">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+        <Texture val="@UI/Storm_UI_Tooltip_TopBorder" />
+        <TextureType val="NineSlice" />
+        <Alpha val="255" />
+      </Frame>
+      <Frame type="Label" name="Label">
+        <Style val="StandardTooltip"/>
+        <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+        <Width val="425"/>
+      </Frame>
+    </Frame>
+
+    <Frame type="StandardTooltip" name="StandardStoryModeTooltipTemplate">
+      <MaxWidth val="480"/>
+      <Insets top="20" left="20" bottom="20" right="20"/>
+      <Frame type="Image" name="BackgroundImage" template="StandardTooltipStorm/TooltipBackgroundTemplate">
+        <Anchor relative="$parent"/>
+      </Frame>
+
+      <Frame type="Label" name="Label">
+        <Style val="StandardTooltip"/>
+        <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+        <Width val="450"/>
+      </Frame>
+    </Frame>
+    
+    <Frame type="ChatRecipientTooltip" name="ChatRecipientTooltipTemplate">
+      <Insets top="20" left="20" bottom="20" right="20"/>
+      <Frame type="Image" name="BackgroundImage" template="StandardTooltipStorm/TooltipBackgroundTemplate">
+        <Anchor relative="$parent"/>
+        
+        <Frame type="Image" name="FrameImage" template="StandardTooltipStorm/TooltipFrameTemplate">
+          <Anchor relative="$parent"/>
+        </Frame>
+      </Frame>
+
+      <Frame type="Label" name="Label">
+        <Style val="StandardTooltipDetails"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+      </Frame>
+    </Frame>
+    
+    <Frame type="TriggerDialogTooltip" name="ItemPreviewTooltip">
+      <FadeTime val="0"/>
+      <Frame type="Image" name="BackgroundImage" template="StandardTooltipStorm/TooltipBackgroundTemplate">
+        <Anchor relative="$parent"/>
+      </Frame>
+
+      <Frame type="Label" name="ItemDescriptionLabel">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+        <Width val="290"/>
+        <Text val=""/>
+      </Frame>
+
+      <Frame type="Frame" name="AnchorFrame">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/ItemDescriptionLabel" pos="Max" offset="20"/>
+        <Anchor side="Right" relative="$parent/ItemDescriptionLabel" pos="Max" offset="20"/>
+      </Frame>
+    </Frame>
+    
+    <Frame type="TriggerDialogTooltip" name="TriggerControlTooltipTemplate">
+      <Frame type="Image" name="BackgroundImage" template="StandardTooltipStorm/StandardBorderTooltipGame">
+        <Anchor relative="$parent"/>
+      </Frame>
+
+      <Frame type="Label" name="Label">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+        <Width val="150"/>
+        <Style val="StandardTooltipDetails"/>
+      </Frame>
+
+      <Frame type="Frame" name="AnchorFrame">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/Label" pos="Max" offset="15"/>
+        <Anchor side="Right" relative="$parent/Label" pos="Max" offset="15"/>
+      </Frame>
+    </Frame>
+    
+    <Frame type="MinimapPanelTooltip" name="MinimapPanelTooltipTemplate" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+      <Frame type="Label" name="TipLabel">
+        <Style val="StandardTooltip"/>
+        <RenderPriority val="600"/>
+        <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+        <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="0"/>
+      </Frame>
+    </Frame>
+
+    <Frame type="WorldTooltip" name="WorldTooltip" template="StandardTooltipStorm/StandardGameTooltip">
+        <MaxWidth val="350"/>
+
+        <!-- Note the left and right anchoring is deliberately 1 pixel smaller than the inherited insets value of 15.
+        This addresses a rounding error at certain resolutions that causes text to wrap incorrectly -->
+
+        <Frame type="Label" name="TipLabel">
+            <Style val="StandardTooltipHeader"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+        </Frame>
+
+        <Frame type="Label" name="SubTipLabel">
+            <Style val="StandardTooltip"/>
+            <Anchor side="Top" relative="$parent/TipLabel" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+        </Frame>
+    </Frame>
+    
+    <!-- Command Button Tooltip -->
+    <Frame type="Image" name="CommandResourceIconTemplate">
+        <Width val="24"/>
+        <Height val="24"/>
+        <TextureType val="Normal"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    <Frame type="Label" name="CommandResourceLabelTemplate">
+        <Height val="32"/>
+        <Style val="StandardTooltipDetails"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    <Frame type="Image" name="CommandVitalIconTemplate">
+        <Width val="24"/>
+        <Height val="24"/>
+        <TextureType val="Normal"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    <Frame type="Label" name="CommandVitalLabelTemplate">
+        <Height val="32"/>
+        <Style val="StandardTooltipDetails"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    
+    <Frame type="CommandTooltip" name="AbilityCommandTooltipTemplateStorm" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+        <!--<FadeTime val="22222222222222"/>-->
+        <FadeTime val="125"/>
+        <BatchText val="True"/>
+        <MaxWidth val="1200"/>
+        <MinWidth val="450"/>
+        <Width val="450"/>
+
+        <Frame type="Image" name="TipImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <TextureType val="Normal"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Top" relative="$parent/TipImage" pos="Max" offset="15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Style val="StandardTooltipHeader"/>
+            <Options val="Ellipsis | NoWrapping"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="HotkeyLabel">
+            <Anchor side="Top" relative="$parent/TipImage" pos="Max" offset="15"/>
+            <Anchor side="Left" relative="$this" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipHeader"/>
+            <Options val="Ellipsis | NoWrapping"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Frame" name="ResourceAnchorFrame">
+            <Anchor side="Top" relative="$parent/RequirementsLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="32"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon0" template="StandardTooltipStorm/CommandResourceIconTemplate">
+            <Anchor side="Top" relative="$parent/ResourceAnchorFrame" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceAnchorFrame" pos="Min" offset="0"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel0" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon0" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon0" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon1" template="StandardTooltipStorm/CommandResourceIconTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel0" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel1" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon1" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon1" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon2" template="StandardTooltipStorm/CommandResourceIconTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel1" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel2" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon2" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon2" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon3" template="StandardTooltipStorm/CommandResourceIconTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel2" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel3" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon3" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon3" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="SupplyIcon" template="StandardTooltipStorm/CommandResourceIconTemplate">
+            <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel3" pos="Max" offset="5"/>
+            <Texture val="@@UI/ResourceFrameSupplyIcon"/>
+        </Frame>
+
+        <Frame type="Label" name="SupplyLabel" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+            <Anchor side="Top" relative="$parent/SupplyIcon" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/SupplyIcon" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/SupplyIcon" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Frame" name="VitalAnchorFrame">
+            <Anchor side="Top" relative="$parent/ResourceAnchorFrame" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="24"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Image" name="VitalIcon0" template="StandardTooltipStorm/CommandVitalIconTemplate">
+            <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="4"/>
+            <Anchor side="Left" relative="$parent/VitalAnchorFrame" pos="Min" offset="0"/>
+            <Texture val="@@UI/ResourceIconLife"/>
+        </Frame>
+
+        <Frame type="Label" name="VitalLabel0" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+            <Anchor side="Top" relative="$parent/VitalIcon0" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VitalIcon0" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/VitalIcon0" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="VitalIcon1" template="StandardTooltipStorm/CommandVitalIconTemplate">
+            <Anchor side="Top" relative="$parent/VitalIcon0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/VitalLabel0" pos="Max" offset="5"/>
+            <Texture val="@@UI/ResourceIconShields"/>
+        </Frame>
+
+        <Frame type="Label" name="VitalLabel1" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+            <Anchor side="Top" relative="$parent/VitalIcon1" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VitalIcon1" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/VitalIcon1" pos="Max" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="VitalIcon2" template="StandardTooltipStorm/CommandVitalIconTemplate">
+            <Anchor side="Top" relative="$parent/VitalIcon1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/VitalLabel1" pos="Max" offset="5"/>
+            <Height val="14"/>
+            <Width val="14"/>
+            <!--<Texture val="@@UI/StormIconMana"/>-->
+            <Texture val="Assets\Textures\icon-energy-protoss.dds"/>
+        </Frame>
+        <!--
+        <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+            <Anchor side="Top" relative="$parent/VitalIcon2" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/VitalIcon2" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/VitalIcon2" pos="Max" offset="5"/>
+            <Style val="@@Storm_VitalLabel2"/>
+        </Frame>-->
+
+        <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="0"/>
+          <!--<Anchor side="Bottom" relative="$parent/VitalAnchorFrame" pos="Max" offset="0"/>-->
+          <Anchor side="Left" relative="$parent/VitalIcon2" pos="Max" offset="5"/>
+          <Style val="@@Storm_VitalLabel2"/>
+       </Frame>
+
+        <Frame type="Image" name="TimeIcon" template="StandardTooltipStorm/CommandVitalIconTemplate">
+            <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Max" offset="10"/>
+            <!--<Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="4"/>-->
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Texture val="@@UI/ResourceIconTime"/>
+        </Frame>
+
+        <Frame type="Label" name="TimeLabel">
+            <Anchor side="Top" relative="$parent/TimeIcon" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/TimeIcon" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/TimeIcon" pos="Max" offset="5"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="DurationLabel">
+            <Anchor side="Top" relative="$parent/TimeIcon" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+            <PreserveAnchorOffset val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="CooldownLabel">
+            <Anchor side="Top" relative="$parent/VitalLabel2" pos="Max" offset="5"/>
+            <!--<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>-->
+            <Anchor side="Left" relative="$parent/VitalLabel2" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="RangeLabel">
+            <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="RadiusLabel">
+            <Anchor side="Top" relative="$parent/RangeLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="RequirementsLabel">
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="TipLabel">
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <!--<Anchor side="Top" relative="$parent/RadiusLabel" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="20"/>-->
+            <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="5"/>
+            <Style val="StandardTooltip"/>
+            <CollapseLayout val="true"/>
+            <PreserveAnchorOffset val="True"/>
+        </Frame>
+
+        <Frame type="Label" name="AutocastLabel">
+            <Anchor side="Top" relative="$parent/TipLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Frame" name="AnchorFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AutocastLabel" pos="Min" offset="15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="30"/>
+            <PreserveAnchorOffset val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="InventoryLabel">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="5" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="StandardTooltipDetails"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="CommandTooltip" name="AbilityCommandTooltipTemplateStormdepr" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+      <!--<FadeTime val="22222222222222"/>-->
+      <FadeTime val="125"/>
+      <BatchText val="True"/>
+      <MaxWidth val="1200"/>
+      <MinWidth val="450"/>
+
+      <Frame type="Image" name="TipImage">
+          <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+          <TextureType val="Normal"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="NameLabel">
+          <Anchor side="Top" relative="$parent/TipImage" pos="Max" offset="15"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Style val="StandardTooltipHeader"/>
+          <Options val="Ellipsis | NoWrapping"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="HotkeyLabel">
+          <Anchor side="Top" relative="$parent/TipImage" pos="Max" offset="15"/>
+          <Anchor side="Left" relative="$this" pos="Max" offset="0"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipHeader"/>
+          <Options val="Ellipsis | NoWrapping"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Frame" name="ResourceAnchorFrame">
+          <Anchor side="Top" relative="$parent/RequirementsLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Height val="32"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon0" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceAnchorFrame" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceAnchorFrame" pos="Min" offset="0"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel0" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon0" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon1" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel0" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel1" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon1" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon2" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel1" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel2" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon2" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon2" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon3" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel2" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel3" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon3" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon3" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="SupplyIcon" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel3" pos="Max" offset="5"/>
+          <Texture val="@@UI/ResourceFrameSupplyIcon"/>
+      </Frame>
+
+      <Frame type="Label" name="SupplyLabel" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/SupplyIcon" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/SupplyIcon" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/SupplyIcon" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Frame" name="VitalAnchorFrame">
+          <Anchor side="Top" relative="$parent/ResourceAnchorFrame" pos="Max" offset="10"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Height val="24"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Image" name="VitalIcon0" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="4"/>
+          <Anchor side="Left" relative="$parent/VitalAnchorFrame" pos="Min" offset="0"/>
+          <Texture val="@@UI/ResourceIconLife"/>
+      </Frame>
+
+      <Frame type="Label" name="VitalLabel0" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/VitalIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalIcon0" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="VitalIcon1" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon0" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalLabel0" pos="Max" offset="5"/>
+          <Texture val="@@UI/ResourceIconShields"/>
+      </Frame>
+
+      <Frame type="Label" name="VitalLabel1" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/VitalIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalIcon1" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="VitalIcon2" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon1" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalLabel1" pos="Max" offset="5"/>
+          <Height val="14"/>
+          <Width val="14"/>
+          <!--<Texture val="@@UI/StormIconMana"/>-->
+          <Texture val="Assets\Textures\icon-energy-protoss.dds"/>
+      </Frame>
+      <!--
+      <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon2" pos="Min" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/VitalIcon2" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalIcon2" pos="Max" offset="5"/>
+          <Style val="@@Storm_VitalLabel2"/>
+      </Frame>-->
+
+      <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+        <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="0"/>
+        <!--<Anchor side="Bottom" relative="$parent/VitalAnchorFrame" pos="Max" offset="0"/>-->
+        <Anchor side="Left" relative="$parent/VitalIcon2" pos="Max" offset="5"/>
+        <Style val="@@Storm_VitalLabel2"/>
+     </Frame>
+
+      <Frame type="Image" name="TimeIcon" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Max" offset="10"/>
+          <!--<Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="4"/>-->
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Texture val="@@UI/ResourceIconTime"/>
+      </Frame>
+
+      <Frame type="Label" name="TimeLabel">
+          <Anchor side="Top" relative="$parent/TimeIcon" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/TimeIcon" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/TimeIcon" pos="Max" offset="5"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="DurationLabel">
+          <Anchor side="Top" relative="$parent/TimeIcon" pos="Max" offset="10"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+          <PreserveAnchorOffset val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="CooldownLabel">
+          <Anchor side="Top" relative="$parent/TipLabel" pos="Max" offset="23"/>
+          <Anchor side="Left" relative="$parent/TipLabel" pos="Min" offset="0"/>
+          <Style val="StandardTooltipInformation"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="RangeLabel">
+          <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="RadiusLabel">
+          <Anchor side="Top" relative="$parent/RangeLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="RequirementsLabel">
+          <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="TipLabel">
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <!--<Anchor side="Top" relative="$parent/RadiusLabel" pos="Max" offset="0"/>
+          <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="20"/>-->
+          <Anchor side="Top" relative="$parent/VitalLabel2" pos="Max" offset="5"/>
+          <Style val="StandardTooltip"/>
+          <CollapseLayout val="true"/>
+          <PreserveAnchorOffset val="True"/>
+      </Frame>
+
+      <Frame type="Label" name="AutocastLabel">
+          <Anchor side="Top" relative="$parent/TipLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Frame" name="AnchorFrame">
+          <!--<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/CooldownLabel" pos="Max" offset="15"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+          <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="30"/>-->
+          
+          <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+          <Anchor side="Bottom" relative="$parent/CooldownLabel" pos="Max" offset="25" />
+          <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+          <Anchor side="Right" relative="$parent/CooldownLabel" pos="Max" offset="40" />
+          <!--<PreserveAnchorOffset val="true"/>-->
+      </Frame>
+
+      <Frame type="Label" name="InventoryLabel">
+          <Anchor side="Top" relative="$parent/AnchorFrame" pos="5" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+    </Frame>
+
+    <Frame type="CommandTooltip" name="InventoryCommandTooltipTemplateStorm" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+      <!--<FadeTime val="22222222222222"/>-->
+      <FadeTime val="125"/>
+      <BatchText val="True"/>
+      <MaxWidth val="1200"/>
+      <MinWidth val="450"/>
+
+      <Frame type="Image" name="TipImage">
+          <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+          <TextureType val="Normal"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="NameLabel">
+          <Anchor side="Top" relative="$parent/TipImage" pos="Max" offset="15"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Style val="StandardTooltipHeader"/>
+          <Options val="Ellipsis | NoWrapping"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="HotkeyLabel">
+          <Anchor side="Top" relative="$parent/TipImage" pos="Max" offset="15"/>
+          <Anchor side="Left" relative="$this" pos="Max" offset="0"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipHeader"/>
+          <Options val="Ellipsis | NoWrapping"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Frame" name="ResourceAnchorFrame">
+          <Anchor side="Top" relative="$parent/RequirementsLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Height val="32"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon0" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceAnchorFrame" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceAnchorFrame" pos="Min" offset="0"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel0" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon0" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon1" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel0" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel1" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon1" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon2" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel1" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel2" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon2" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon2" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="ResourceIcon3" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel2" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Label" name="ResourceLabel3" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/ResourceIcon3" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceIcon3" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="SupplyIcon" template="StandardTooltipStorm/CommandResourceIconTemplate">
+          <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/ResourceLabel3" pos="Max" offset="5"/>
+          <Texture val="@@UI/ResourceFrameSupplyIcon"/>
+      </Frame>
+
+      <Frame type="Label" name="SupplyLabel" template="StandardTooltipStorm/CommandResourceLabelTemplate">
+          <Anchor side="Top" relative="$parent/SupplyIcon" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/SupplyIcon" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/SupplyIcon" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Frame" name="VitalAnchorFrame">
+          <Anchor side="Top" relative="$parent/ResourceAnchorFrame" pos="Max" offset="10"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Height val="24"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Image" name="VitalIcon0" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="4"/>
+          <Anchor side="Left" relative="$parent/VitalAnchorFrame" pos="Min" offset="0"/>
+          <Texture val="@@UI/ResourceIconLife"/>
+      </Frame>
+
+      <Frame type="Label" name="VitalLabel0" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/VitalIcon0" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalIcon0" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="VitalIcon1" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon0" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalLabel0" pos="Max" offset="5"/>
+          <Texture val="@@UI/ResourceIconShields"/>
+      </Frame>
+
+      <Frame type="Label" name="VitalLabel1" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/VitalIcon1" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalIcon1" pos="Max" offset="5"/>
+      </Frame>
+
+      <Frame type="Image" name="VitalIcon2" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon1" pos="Min" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalLabel1" pos="Max" offset="5"/>
+          <Height val="14"/>
+          <Width val="14"/>
+          <!--<Texture val="@@UI/StormIconMana"/>-->
+          <Texture val="Assets\Textures\icon-energy-protoss.dds"/>
+      </Frame>
+      <!--
+      <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalIcon2" pos="Min" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/VitalIcon2" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent/VitalIcon2" pos="Max" offset="5"/>
+          <Style val="@@Storm_VitalLabel2"/>
+      </Frame>-->
+
+      <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/CommandVitalLabelTemplate">
+        <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="0"/>
+        <!--<Anchor side="Bottom" relative="$parent/VitalAnchorFrame" pos="Max" offset="0"/>-->
+        <Anchor side="Left" relative="$parent/VitalIcon2" pos="Max" offset="5"/>
+        <Style val="@@Storm_VitalLabel2"/>
+     </Frame>
+
+      <Frame type="Image" name="TimeIcon" template="StandardTooltipStorm/CommandVitalIconTemplate">
+          <Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Max" offset="10"/>
+          <!--<Anchor side="Top" relative="$parent/VitalAnchorFrame" pos="Min" offset="4"/>-->
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Texture val="@@UI/ResourceIconTime"/>
+      </Frame>
+
+      <Frame type="Label" name="TimeLabel">
+          <Anchor side="Top" relative="$parent/TimeIcon" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent/TimeIcon" pos="Mid" offset="0"/>
+          <Anchor side="Left" relative="$parent/TimeIcon" pos="Max" offset="5"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="DurationLabel">
+          <Anchor side="Top" relative="$parent/TimeIcon" pos="Max" offset="10"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+          <PreserveAnchorOffset val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="CooldownLabel">
+        <Anchor side="Top" relative="$parent/TipLabel" pos="Max" offset="23"/>
+        <Anchor side="Left" relative="$parent/TipLabel" pos="Min" offset="0"/>
+        <Style val="StandardTooltipInformation"/>
+        <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="RangeLabel">
+          <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="RadiusLabel">
+          <Anchor side="Top" relative="$parent/RangeLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="RequirementsLabel">
+          <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Label" name="TipLabel">
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <!--<Anchor side="Top" relative="$parent/RadiusLabel" pos="Max" offset="0"/>
+          <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="20"/>-->
+          <Anchor side="Top" relative="$parent/VitalLabel2" pos="Max" offset="5"/>
+          <Style val="StandardTooltip"/>
+          <CollapseLayout val="true"/>
+          <PreserveAnchorOffset val="True"/>
+      </Frame>
+
+      <Frame type="Label" name="AutocastLabel">
+          <Anchor side="Top" relative="$parent/TipLabel" pos="Max" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+
+      <Frame type="Frame" name="AnchorFrame">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Bottom" relative="$parent/CooldownLabel" pos="Max" offset="25" />
+        <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/CooldownLabel" pos="Max" offset="40" />
+        <!--<PreserveAnchorOffset val="true"/>-->
+      </Frame>
+
+      <Frame type="Label" name="InventoryLabel">
+          <Anchor side="Top" relative="$parent/AnchorFrame" pos="5" offset="0"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+          <Style val="StandardTooltipDetails"/>
+          <CollapseLayout val="true"/>
+      </Frame>
+    </Frame>
+    
+    <!-- Abil Tooltip -->
+    <Frame type="Image" name="AbilResourceIconTemplate">
+        <Width val="32"/>
+        <Height val="32"/>
+        <TextureType val="Normal"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    <Frame type="Label" name="AbilResourceLabelTemplate">
+        <Width val="95"/>
+        <Style val="StandardTooltipDetails"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    <Frame type="Image" name="AbilVitalIconTemplate">
+        <Width val="23"/>
+        <Height val="23"/>
+        <TextureType val="Normal"/>
+        <CollapseLayout val="true"/>
+    </Frame>
+
+    <Frame type="Label" name="AbilVitalLabelTemplate">
+        <Width val="95"/>
+        <Style val="StandardTooltipDetails"/>
+        <CollapseLayout val="true"/>
+        <StateGroup name="Visibility">
+            <State name="Invisible">
+                <When type="Property" frame="$this" operator="Equal" Text="" />
+                <Action type="SetProperty" frame="$this" Visible="False" />
+            </State>
+            <State name="Visible">
+                <When type="Property" frame="$this" operator="NotEqual" Text="" />
+                <Action type="SetProperty" frame="$this" Visible="True" />
+            </State>
+        </StateGroup>
+    </Frame>
+
+    <Frame type="AbilTooltip" name="AbilTooltipTemplate" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+        <FadeTime val="222222222222222"/>
+        <MaxWidth val="475" />
+        <MinWidth val="475" />
+        <Width val="475" />
+        <Height val="450" />
+        <Frame type="Label" name="NameLabel">
+          <Anchor side="Top" relative="$parent" pos="Min" offset="30" />
+          <Anchor side="Left" relative="$parent" pos="Min" offset="30" />
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-30" />
+          <CollapseLayout val="true" />
+          <Style val="StandardTooltipHeader" />
+          <Options val="Ellipsis | NoWrapping" />
+        </Frame>
+        <Frame type="Label" name="VitalLabel0" template="StandardTooltipStorm/AbilVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="5" />
+          <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+        </Frame>
+        <Frame type="Label" name="VitalLabel1" template="StandardTooltipStorm/AbilVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalLabel0" pos="Max" offset="0" />
+          <Anchor side="Left" relative="$parent/VitalLabel0" pos="Min" offset="0" />
+        </Frame>
+        <Frame type="Label" name="VitalLabel2" template="StandardTooltipStorm/AbilVitalLabelTemplate">
+          <Anchor side="Top" relative="$parent/VitalLabel1" pos="Max" offset="0" />
+          <Anchor side="Left" relative="$parent/VitalLabel1" pos="Min" offset="0" />
+        </Frame>
+        <Frame type="Label" name="CooldownLabel">
+          <Anchor side="Top" relative="$parent/VitalLabel2" pos="Max" offset="0" />
+          <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="1" />
+          <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="0" />
+          <CollapseLayout val="true" />
+          <Style val="StandardTooltipDetails" />
+          <Options val="Ellipsis | NoWrapping" />
+        </Frame>
+        <Frame type="Label" name="DescriptionLabel">
+          <Anchor side="Top" relative="$parent/CooldownLabel" pos="Max" offset="8" />
+          <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="1" />
+          <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="0" />
+          <CollapseLayout val="true" />
+          <Style val="StandardTooltip" />
+        </Frame>
+        <Frame type="Frame" name="AnchorFrame">
+          <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+          <Anchor side="Bottom" relative="$parent/DescriptionLabel" pos="Max" offset="25" />
+          <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+          <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="0" />
+        </Frame>
+    </Frame>
+
+    <Frame type="StandardNameTooltip" name="StandardNameTooltipTemplateStorm" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+      <!--<FadeTime val="999999999999"/>-->
+      <!--<Width val="425"/>
+      <MinWidth val="425"/>
+      <MaxWidth val="425"/>
+      <MinWidth val="330"/>-->
+      <Frame type="Label" name="NameLabel">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="20" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20" />
+        <Anchor side="Right" relative="$parent/DescriptionLabel" pos="Max" offset="0" />
+        <CollapseLayout val="true" />
+        <Style val="StandardTooltipHeader" />
+        <Options val="Ellipsis | NoWrapping" />
+      </Frame>
+      <Frame type="Label" name="DescriptionLabel">
+        <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="8" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20" />
+        <!--<Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>-->
+        <AutoSizeClamps minWidth="330" maxWidth="450" />
+        <CollapseLayout val="true" />
+        <Style val="StandardTooltip" />
+      </Frame>
+      <Frame type="Frame" name="AnchorFrame">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Bottom" relative="$parent/DescriptionLabel" pos="Max" offset="25" />
+        <Anchor side="Right" relative="$parent/DescriptionLabel" pos="Max" offset="25" />
+      </Frame>
+      <Frame type="Label" name="Label">
+        <DescFlags val="CreationDeferred"/>
+      </Frame>
+    </Frame>
+
+    <Frame type="TriggerDialogTooltip" name="HeroSelectionTooltipTemplate" template="StandardTooltipStorm/StandardTooltipTemplateStorm">
+      <MaxWidth val="450" />
+      <MinWidth val="475" />
+      <!--<FadeTime val="99999999999"/>-->
+      <Insets top="0" left="0" bottom="0" right="0" />
+      <FadeTime val="0"/>
+      <Frame type="Label" name="NameLabel">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="20" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="20" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-20" />
+        <CollapseLayout val="true" />
+        <Style val="StandardTooltipHeader" />
+        <AutoSizeClamps minWidth="330" maxWidth="390" />
+      </Frame>
+      <Frame type="Label" name="InfoLabel">
+        <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="8" />
+        <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="0" />
+        <CollapseLayout val="true"/>
+        <PreserveAnchorOffset val="True"/>
+        <Style val="StandardTooltipDetails" />
+        <StateGroup name="Visibility">
+          <State name="Invisible">
+              <When type="Property" frame="$this" operator="Equal" Text="" />
+              <Action type="SetProperty" frame="$this" Visible="False" />
+          </State>
+          <State name="Visible">
+              <When type="Property" frame="$this" operator="NotEqual" Text="" />
+              <Action type="SetProperty" frame="$this" Visible="True" />
+          </State>
+        </StateGroup>
+      </Frame>
+      <Frame type="Label" name="DescriptionLabel">
+        <Anchor side="Top" relative="$parent/InfoLabel" pos="Max" offset="8" />
+        <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="0" />
+        <CollapseLayout val="true" />
+        <PreserveAnchorOffset val="True"/>
+        <Style val="StandardTooltip" />
+      </Frame>
+      <Frame type="Frame" name="AnchorFrame">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Bottom" relative="$parent/DescriptionLabel" pos="Max" offset="25" />
+        <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/NameLabel" pos="Max" offset="0" />
+      </Frame>
+      <Frame type="Label" name="Label">
+        <Visible val="False"/>
+      </Frame>
+    </Frame>
+
+    <Frame type="TriggerDialogTooltip" name="TalentsChoiceTooltip" template="StandardTooltipStorm/HeroSelectionTooltipTemplate">
+      <MaxWidth val="450" />
+      <MinWidth val="450" />
+      <Width val="450" />
+    </Frame>
+</Desc>

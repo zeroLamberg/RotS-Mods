@@ -1,0 +1,1042 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+<Frame type="Frame" name="HoverTargetTemplate">
+  <AcceptsMouse val="True"/>
+
+  <StateGroup name="HoveredState">
+    <DefaultState val="NotHovered"/>
+    <State name="Hovered">
+      <When type="Property" frame="$this" Hovering="True"/>
+    </State>
+    <State name="NotHovered"/>
+  </StateGroup>
+</Frame>
+
+<Frame type="Frame" name="HoverTargetForcedTemplate">
+  <AcceptsMouse val="True"/>
+
+  <StateGroup name="HoveredState">
+    <DefaultState val="NotHovered"/>
+    <State name="Hovered"/>
+    <State name="NotHovered"/>
+  </StateGroup>
+
+  <Animation name="OnMouseEnter">
+    <Event event="OnMouseEnter" action="Reset,Play" frame="$this"/>
+    <Controller type="State" end="Pause" frame="$this" stateGroup="HoveredState">
+      <Key type="Identifier" time="0.0" value="Hovered"/>
+    </Controller>
+  </Animation>
+
+  <Animation name="OnMouseExit">
+    <Event event="OnMouseExit" action="Reset,Play" frame="$this"/>
+    <Controller type="State" end="Pause" frame="$this" stateGroup="HoveredState">
+      <Key type="Identifier" time="0.0" value="NotHovered"/>
+    </Controller>
+  </Animation>
+</Frame>
+  
+<Frame type="CommandButton" name="CommandButtonTemplate" template="CommandButton/CommandButtonTemplate">
+  <TooltipFrame val="SecondaryCommandTooltip"/>
+  <ClickSound val=""/>
+</Frame>
+
+<Frame type="CommandPanel" name="CommandPanelTemplate" template="CommandPanel/CommandPanelTemplate">
+  <HideUnusedButtons val="True"/>
+  <DisplayCancelCommandCard val="False"/>
+  <UseGridHotkeys val="False"/>
+
+  <Frame type="CommandTooltip" name="SecondaryCommandTooltip" template="CommandButton/CommandTooltipTemplate">
+    <MinWidth val="300"/>
+    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-230"/>
+    <Anchor side="Right" relative="$parent" pos="Max" offset="-1340"/>
+    <Width val="300"/>
+  </Frame>
+
+  <Frame type="CommandButton" name="CommandButton00" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton01" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton02" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton03" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton04" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton05" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton06" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton07" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton08" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton09" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton10" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton11" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton12" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton13" template="PlayerAnnouncer/CommandButtonTemplate"/>
+  <Frame type="CommandButton" name="CommandButton14" template="PlayerAnnouncer/CommandButtonTemplate"/>
+</Frame>
+
+<Frame type="GameUI" name="GameUI" file="GameUI">
+  <Frame type="Frame" name="Announcer">
+    <Width val="1"/>
+    <Height val="1"/>
+    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+    <Anchor side="Right" relative="$parent" pos="Min" offset="0"/>
+    <!--<Anchor relative="$parent"/>-->
+    <Handle val="Announcer"/>
+    <Frame type="EditBox" name="Output">
+      <Visible val="False"/>
+      <Width val="250"/>
+      <Height val="150"/>
+      <UseAlternateTime val="True"/>
+      <Insets top="8" left="8" bottom="8" right="8" />
+      <HighlightColor val="#StandardEditBoxHighlightColor" />
+      <HighlightAlpha val="#StandardEditBoxHighlightAlpha" />
+      <MultiLine val="True"/>
+      <Frame type="Image" name="Image">
+        <Anchor relative="$parent" />
+        <Texture val="@UI/Storm_inputbox" />
+        <TextureType val="Nineslice" />
+      </Frame>
+      <Frame type="Frame" name="LabelContainerFrame">
+        <Anchor relative="$parent" />
+        <Frame type="Label" name="Label">
+          <Anchor relative="$parent" />
+          <Style val="StandardEditBoxLabel" />
+          <Options val="" />
+        </Frame>
+      </Frame>
+      <StateGroup name="IsEmpty">
+        <DefaultState val="Empty"/>
+        <State name="NotEmpty">
+          <When type="Property" frame="$this" operator="NotEqual" Text=""/>
+          <Action type="SendEvent" frame="$this" event="Clear"/>
+        </State>
+        <State name="Empty"/>
+      </StateGroup>
+      <Animation name="Clear">
+        <Event event="Clear" action="Restart,Play" frame="$this"/>
+        <Controller type="Property" end="Pause" frame="$this" property="Text">
+          <Key type="Property" time="0.0625" value=""/>
+        </Controller>
+      </Animation>
+    </Frame>
+
+    <Frame type="Label" name="UnitLink">
+      <Visible val="False"/>
+      <!--<Text val="{$GameUI/UnitFrame/@UnitLink}"/>-->
+    </Frame>
+    <Frame type="Label" name="UnitTag">
+      <Visible val="False"/>
+      <!--<Text val="{$GameUI/UnitFrame/@UnitTag}"/>-->
+    </Frame>
+    <Frame type="Label" name="VitalType">
+      <Visible val="False"/>
+      <Text val=""/>
+    </Frame>
+    <Frame type="Label" name="TopBarFrame">
+      <Visible val="False"/>
+      <Text val=""/>
+    </Frame>
+    <Frame type="Label" name="TopBarTeam">
+      <Visible val="False"/>
+      <Text val=""/>
+    </Frame>
+    <Frame type="Label" name="TopBarPlayerSlot">
+      <Visible val="False"/>
+      <Text val=""/>
+    </Frame>
+    <Frame type="Label" name="TopBarHeroIndex">
+      <Visible val="False"/>
+      <Text val=""/>
+    </Frame>
+
+    <Frame type="TextFormatFrame" name="TF_Buffer">
+      <FormatText val="%0%&#xA;%1%"/>
+      <RequiredReplacements val="2"/>
+      <Replacement index="0" val=""/>
+      <Replacement index="1" val="{$parent/TF_Final/@Text}"/>
+    </Frame>
+
+    <Frame type="TextFormatFrame" name="TF_Button">
+      <FormatText val=""/>
+    </Frame>
+    <Frame type="TextFormatFrame" name="TF_Texture">
+      <FormatText val=""/>
+    </Frame>
+    <Frame type="TextFormatFrame" name="TF_Final">
+      <FormatText val="%0%&#xA;%1%&#xA;%2%&#xA;%3%"/>
+      <Replacement index="0" val="{$parent/UnitTag/@Text}"/>
+      <Replacement index="1" val="{$parent/UnitLink/@Text}"/>
+      <Replacement index="2" val="{$parent/TF_Button/@Text}"/>
+      <Replacement index="3" val="{$parent/TF_Texture/@Text}"/>
+    </Frame>
+
+    <Frame type="TextFormatFrame" name="TF_Final_UnitStatus">
+      <FormatText val="%0%&#xA;%1%&#xA;%2%"/>
+      <Replacement index="0" val="{$parent/VitalType/@Text}"/>
+      <Replacement index="1" val="{$parent/UnitTag/@Text}"/>
+      <Replacement index="2" val="{$parent/UnitLink/@Text}"/>
+    </Frame>
+
+    <Frame type="TextFormatFrame" name="TF_Final_TopBar">
+      <FormatText val="%0%&#xA;%1%&#xA;%2%&#xA;%3%"/>
+      <Replacement index="0" val="{$parent/TopBarFrame/@Text}"/>
+      <Replacement index="1" val="{$parent/TopBarTeam/@Text}"/>
+      <Replacement index="2" val="{$parent/TopBarPlayerSlot/@Text}"/>
+      <Replacement index="3" val="{$parent/TopBarHeroIndex/@Text}"/>
+    </Frame>
+
+    <StateGroup name="ContextState">
+      <DefaultState val="None"/>
+      <State name="XPContribution">
+        <When type="StateGroup" frame="$this" XPContributionState="True" />
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="XPContribution"/>
+      </State>
+      <State name="InventoryPanel">
+        <When type="StateGroup" frame="$this" InventoryPanelState="True" />
+        <Action type="SetProperty" frame="$Announcer/TF_Buffer" Replacement="InventoryPanel" index="0"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$GameUI/UnitFrame/@UnitLink}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$GameUI/UnitFrame/@UnitTag}"/>
+      </State>
+      <State name="CommandPanel">
+        <When type="StateGroup" frame="$this" CommandPanelState="True" />
+        <Action type="SetProperty" frame="$Announcer/TF_Buffer" Replacement="CommandPanel" index="0"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$GameUI/UnitFrame/@UnitLink}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$GameUI/UnitFrame/@UnitTag}"/>
+      </State>
+      <State name="HealingFountain">
+        <When type="StateGroup" frame="$HealingFountainFrame" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealingFountainState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="HealingFountain"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$GameUI/UnitFrame/@UnitLink}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$GameUI/UnitFrame/@UnitTag}"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrame/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrame/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrame/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_NoEnergy">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameNoEnergy/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameNoEnergy/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameNoEnergy/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_NoEnergyNoShield">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameNoEnergyNoShield/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameNoEnergyNoShield/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameNoEnergyNoShield/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_Blinking">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameBlinking/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameBlinking/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameBlinking/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_Orange">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameOrange/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameOrange/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameOrange/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_Yellow">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameYellow/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameYellow/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameYellow/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_Pink">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFramePink/HealthBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="HealthBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFramePink/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFramePink/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Health"/>
+      </State>
+      <State name="UnitStatusFrameEnergyBar">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrame/EnergyBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="EnergyBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrame/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrame/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Energy"/>
+      </State>
+      <State name="UnitStatusFrameHealthBar_Blinking">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameBlinking/EnergyBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="EnergyBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameBlinking/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameBlinking/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Energy"/>
+      </State>
+      <State name="UnitStatusFrameEnergyBar_Orange">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameOrange/EnergyBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="EnergyBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameOrange/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameOrange/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Energy"/>
+      </State>
+      <State name="UnitStatusFrameEnergyBar_Yellow">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFrameYellow/EnergyBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="EnergyBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFrameYellow/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFrameYellow/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Energy"/>
+      </State>
+      <State name="UnitStatusFrameEnergyBar_Pink">
+        <When type="StateGroup" frame="$HeroStatsFrame/HeroUnitStatusFramePink/EnergyBar" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="EnergyBarState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/UnitLink" Text="{$HeroStatsFrame/HeroUnitStatusFramePink/@Unit}"/>
+        <Action type="SetProperty" frame="$Announcer/UnitTag" Text="{$HeroStatsFrame/HeroUnitStatusFramePink/@UnitTag}"/>
+        <Action type="SetProperty" frame="$Announcer/VitalType" Text="Energy"/>
+      </State>
+      <State name="Team1_HeroOverview1_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview1/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team1_HeroOverview1_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview1/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team1_HeroOverview1_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview1/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team1_HeroOverview1_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview1/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team1_HeroOverview1_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview1/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team1_HeroOverview1_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview1/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team1_HeroOverview2_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview2/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team1_HeroOverview2_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview2/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team1_HeroOverview2_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview2/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team1_HeroOverview2_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview2/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team1_HeroOverview2_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview2/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team1_HeroOverview2_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview2/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team1_HeroOverview3_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview3/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team1_HeroOverview3_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview3/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team1_HeroOverview3_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview3/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team1_HeroOverview3_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview3/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team1_HeroOverview3_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview3/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team1_HeroOverview3_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview3/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team1_HeroOverview4_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview4/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team1_HeroOverview4_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview4/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team1_HeroOverview4_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview4/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team1_HeroOverview4_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview4/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team1_HeroOverview4_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview4/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team1_HeroOverview4_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview4/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team1_HeroOverview5_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview5/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team1_HeroOverview5_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview5/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team1_HeroOverview5_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview5/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team1_HeroOverview5_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview5/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team1_HeroOverview5_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview5/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team1_HeroOverview5_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team1HeroOverview/HeroOverview5/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team2_HeroOverview1_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview1/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team2_HeroOverview1_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview1/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team2_HeroOverview1_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview1/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team2_HeroOverview1_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview1/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team2_HeroOverview1_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview1/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team2_HeroOverview1_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview1/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview1"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team2_HeroOverview2_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview2/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team2_HeroOverview2_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview2/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team2_HeroOverview2_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview2/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team2_HeroOverview2_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview2/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team2_HeroOverview2_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview2/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team2_HeroOverview2_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview2/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team2_HeroOverview3_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview3/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team2_HeroOverview3_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview3/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team2_HeroOverview3_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview3/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team2_HeroOverview3_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview3/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team2_HeroOverview3_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview3/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team2_HeroOverview3_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview3/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview3"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team2_HeroOverview4_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview4/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team2_HeroOverview4_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview4/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team2_HeroOverview4_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview4/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team2_HeroOverview4_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview4/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team2_HeroOverview4_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview4/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team2_HeroOverview4_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview4/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview4"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="Team2_HeroOverview5_Button">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview5/PartyAlertButton" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButton"/>
+      </State>
+      <State name="Team2_HeroOverview5_ButtonA">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview5/PartyAlertButtonA" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonA"/>
+      </State>
+      <State name="Team2_HeroOverview5_ButtonB">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview5/PartyAlertButtonB" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonB"/>
+      </State>
+      <State name="Team2_HeroOverview5_ButtonC">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview5/PartyAlertButtonC" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonC"/>
+      </State>
+      <State name="Team2_HeroOverview5_ButtonPet">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview5/PartyAlertButtonPet" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPet"/>
+      </State>
+      <State name="Team2_HeroOverview5_ButtonPetowner">
+        <When type="StateGroup" frame="$PartyFramePanel/Team2HeroOverview/HeroOverview5/PartyAlertButtonPetowner" HoveredStateGroup="True" />
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="True"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarFrame" Text="PartyPanel"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarTeam" Text="Team2"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarPlayerSlot" Text="HeroOverview5"/>
+        <Action type="SetProperty" frame="$Announcer/TopBarHeroIndex" Text="PartyAlertButtonPetowner"/>
+      </State>
+      <State name="None">
+        <Action type="SetState" frame="$this" group="HealingFountainState" state="False"/>
+        <Action type="SetState" frame="$this" group="HealthBarState" state="False"/>
+        <Action type="SetState" frame="$this" group="EnergyBarState" state="False"/>
+        <Action type="SetState" frame="$this" group="PartyFrameState" state="False"/>
+      </State>
+    </StateGroup>
+
+    <StateGroup name="CommandPanelState">
+      <DefaultState val="False"/>
+      <State name="True"/>
+      <State name="False"/>
+    </StateGroup>
+    <StateGroup name="InventoryPanelState">
+      <DefaultState val="False"/>
+      <State name="True"/>
+      <State name="False"/>
+    </StateGroup>
+    <StateGroup name="HealingFountainState">
+      <DefaultState val="False"/>
+      <State name="True"/>
+      <State name="False"/>
+    </StateGroup>
+    <StateGroup name="EnergyBarState">
+      <DefaultState val="False"/>
+      <State name="True"/>
+      <State name="False"/>
+    </StateGroup>
+    <StateGroup name="HealthBarState">
+      <DefaultState val="False"/>
+      <State name="True"/>
+      <State name="False"/>
+    </StateGroup>
+    <StateGroup name="PartyFrameState">
+      <DefaultState val="False"/>
+      <State name="True"/>
+      <State name="False"/>
+    </StateGroup>
+    <StateGroup name="XPContributionState">
+      <State name="True">
+        <When type="StateGroup" frame="$TopBarPanel/XPContributionHitTestFrame" HoveredStateGroup="True" />
+      </State>
+      <State name="False"/>
+    </StateGroup>
+
+    <Frame type="CommandPanel" name="CommandPanel" template="PlayerAnnouncer/CommandPanelTemplate">
+      <!--<Anchor side="Top" relative="$parent/Output" pos="Max" offset="0"/>
+      <Anchor side="Left" relative="$parent/Output" pos="Min" offset="0"/>-->
+      <Anchor relative="$parent" pos="Mid"/>
+      <Width val="250"/>
+      <Height val="250"/>
+      <Visible val="True"/>
+
+      <Animation name="PausedAnimation">
+        <Event event="OnShown" action="Reset,Play" frame="$GameUI/UIContainer/FullscreenLowerContainer/PausePanel"/>
+        <Controller type="Enabled" end="Pause" frame="$this">
+          <Key type="Bool" time="0.001" value="True"/>
+        </Controller>
+      </Animation>
+
+      <Frame type="CommandButton" name="CommandButton00">
+        <HotkeyUse val="HeroLeaderPanel"/>
+        <Animation name="SendEvent">
+          <Event event="Pushed" action="Reset,Play"/>
+          <Controller type="Event" end="Pause" frame="$HeroLeaderPanel/ToggleButton">
+            <Key type="Event" time="0.0" event="ControlClickRequest"/>
+          </Controller>
+        </Animation>
+      </Frame>
+
+      <Frame type="CommandButton" name="CommandButton01">
+        <HotkeyUse val="VideoRecord"/>
+        <!--<UseAlternateTime val="True"/>-->
+
+        <Animation name="SendEvent">
+          <Event event="Pushed" action="Reset,Play"/>
+          <Controller type="State" end="Pause" frame="$this" stateGroup="AnnouncerPressed">
+            <Key type="Identifier" time="0" value="Pressed"/>
+            <Key type="Identifier" time="0.0625" value="Default"/>
+          </Controller>
+        </Animation>
+
+        <StateGroup name="AvailableState">
+          <State name="Inactive">
+            <When type="StateGroup" frame="$Announcer" operator="Equal" ContextState="None"/>
+            <Action type="SetProperty" frame="$this" Ignored="True"/>
+          </State>
+          <State name="Default"/>
+        </StateGroup>
+
+        <StateGroup name="AnnouncerPressed">
+          <DefaultState val="Default"/>
+          <State name="Pressed"/>
+          <State name="Default"/>
+        </StateGroup>
+
+        <StateGroup name="AnnouncerPressedStates">
+          <DefaultState val="Default"/>
+          <State name="Pressed_Health">
+            <When type="StateGroup" frame="$Announcer" HealthBarState="True" />
+            <When type="StateGroup" frame="$this" AnnouncerPressed="Pressed" />
+            <Action type="SetProperty" frame="$Announcer/Output" Text="{$Announcer/TF_Final_UnitStatus/@Text}" undo="False"/>
+          </State>
+          <State name="Pressed_Energy">
+            <When type="StateGroup" frame="$Announcer" EnergyBarState="True" />
+            <When type="StateGroup" frame="$this" AnnouncerPressed="Pressed" />
+            <Action type="SetProperty" frame="$Announcer/Output" Text="{$Announcer/TF_Final_UnitStatus/@Text}" undo="False"/>
+          </State>
+          <State name="Pressed_HealingFountain">
+            <When type="StateGroup" frame="$Announcer" HealingFountainState="True" />
+            <When type="StateGroup" frame="$this" AnnouncerPressed="Pressed" />
+            <Action type="SetProperty" frame="$Announcer/Output" Text="{$Announcer/TF_Final_UnitStatus/@Text}" undo="False"/>
+          </State>
+          <State name="Pressed_XPContribution">
+            <When type="StateGroup" frame="$Announcer" XPContributionState="True" />
+            <When type="StateGroup" frame="$this" AnnouncerPressed="Pressed" />
+            <Action type="SetProperty" frame="$Announcer/Output" Text="{$Announcer/TopBarFrame/@Text}" undo="False"/>
+          </State>
+          <State name="Pressed_PartyFrame">
+            <When type="StateGroup" frame="$Announcer" PartyFrameState="True" />
+            <When type="StateGroup" frame="$this" AnnouncerPressed="Pressed" />
+            <Action type="SetProperty" frame="$Announcer/Output" Text="{$Announcer/TF_Final_TopBar/@Text}" undo="False"/>
+          </State>
+          <State name="Pressed">
+            <When type="StateGroup" frame="$this" AnnouncerPressed="Pressed" />
+            <Action type="SetProperty" frame="$Announcer/Output" Text="{$Announcer/TF_Buffer/@Text}" undo="False"/>
+          </State>
+          <State name="Default"/>
+        </StateGroup>
+
+      </Frame>
+
+      <Frame type="CommandButton" name="CommandButton02">
+        <HotkeyUse val="QuickHeroTalentTreeSelection"/>
+        <Animation name="SendEvent">
+          <Event event="Pushed" action="Reset,Play"/>
+          <Controller type="Event" end="Pause" frame="$GameUI_HeroTalentTreeSelectionToggleButton">
+            <Key type="Event" time="0.0" event="ControlClickRequest"/>
+          </Controller>
+        </Animation>
+      </Frame>
+
+    </Frame>
+  </Frame>
+</Frame>
+<!--
+<Frame type="InfoPanel" name="GameUI/UIContainer/ConsoleUIContainer/InfoPanel" file="GameUI">
+  <Handle val="GameUI_InfoPanel"/>
+</Frame>
+
+<Frame type="Frame" name="GameUI/UIContainer/ConsoleUIContainer/InfoPanel/UnitPanel" file="GameUI">
+  <Frame type="UnitWireframe" name="UnitWireframe" template="SB_Announcer/HoverTargetTemplate"/>
+  <Frame type="Label" name="LifeLabel" template="SB_Announcer/HoverTargetForcedTemplate"/>
+  <Frame type="Label" name="ShieldLabel" template="SB_Announcer/HoverTargetForcedTemplate"/>
+  <Frame type="Label" name="EnergyLabel" template="SB_Announcer/HoverTargetForcedTemplate"/>
+</Frame>
+
+<Frame type="ResourceFrame" name="GameUI/UIContainer/FullscreenUpperContainer/ResourcePanel/ResourceFrame" file="GameUI">
+  <Frame type="CountdownLabel" name="ResourceLabel0" template="SB_Announcer/HoverTargetForcedTemplate">
+      <AllowedButtons val="Middle | XButton1 | XButton2"/>
+  </Frame>
+</Frame>
+
+<Frame type="CommandPanel" name="GameUI/UIContainer/ConsoleUIContainer/CommandPanel" file="GameUI">
+  <Frame type="UnitFrame" name="UnitFrame">
+      <UseSelectionLeader val="True"/>
+  </Frame>
+
+  <StateGroup name="ActiveButton">
+      <DefaultState val="Default"/>
+      <State name="CommandButton00">
+          <When type="Property" frame="$this/CommandButton00" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton00"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton00/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton01">
+          <When type="Property" frame="$this/CommandButton01" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton01"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton01/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton02">
+          <When type="Property" frame="$this/CommandButton02" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton02"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton02/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton03">
+          <When type="Property" frame="$this/CommandButton03" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton03"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton03/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton04">
+          <When type="Property" frame="$this/CommandButton04" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton04"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton04/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton05">
+          <When type="Property" frame="$this/CommandButton05" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton05"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton05/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton06">
+          <When type="Property" frame="$this/CommandButton06" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton06"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton06/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton07">
+          <When type="Property" frame="$this/CommandButton07" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton07"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton07/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton08">
+          <When type="Property" frame="$this/CommandButton08" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton08"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton08/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton09">
+          <When type="Property" frame="$this/CommandButton09" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton09"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton09/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton10">
+          <When type="Property" frame="$this/CommandButton10" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton10"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton10/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton11">
+          <When type="Property" frame="$this/CommandButton11" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton11"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton11/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton12">
+          <When type="Property" frame="$this/CommandButton12" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton12"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton12/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton13">
+          <When type="Property" frame="$this/CommandButton13" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton13"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton13/NormalImage/@Texture}"/>
+      </State>
+      <State name="CommandButton14">
+          <When type="Property" frame="$this/CommandButton14" operator="Equal" Hovering="True"/>
+          <Action type="SetProperty" frame="TFT_Button" FormatText="CommandButton14"/>
+          <Action type="SetProperty" frame="TFT_Texture" FormatText="{$parent/CommandButton14/NormalImage/@Texture}"/>
+      </State>
+      <State name="Default"/>
+  </StateGroup>
+
+
+  <Frame type="TextFormatFrame" name="TFT_Button">
+      <FormatText val=""/>
+  </Frame>
+
+  <Frame type="TextFormatFrame" name="TFT_Texture">
+      <FormatText val=""/>
+  </Frame>
+
+  <Frame type="TextFormatFrame" name="TFT_Final">
+      <FormatText val="%0%&#xA;%1%&#xA;%2%&#xA;%3%&#xA;%4%&#xA;%5%"/>
+      <Replacement index="0" val="{$GameUI_CommandPanel/UnitFrame/@UnitLink}"/>
+      <Replacement index="1" val="{$GameUI_CommandPanel/UnitFrame/@UnitTag}"/>
+      <Replacement index="2" val="{$GameUI_CommandPanel/UnitFrame/@ActorUnitLink}"/>
+      <Replacement index="3" val="{$GameUI_CommandPanel/TFT_Card/@Text}"/>
+      <Replacement index="4" val="{$GameUI_CommandPanel/TFT_Button/@Text}"/>
+      <Replacement index="5" val="{$GameUI_CommandPanel/TFT_Texture/@Text}"/>
+  </Frame>
+</Frame>-->
+
+</Desc>

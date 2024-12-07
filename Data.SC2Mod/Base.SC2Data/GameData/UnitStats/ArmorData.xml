@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmor">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="1">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ConstantMultiply0dot01"/>
+            <AccumulatorArray value="UnitStatsPhysicalArmorCalculation"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorValueMaxPositive">
+        <MinAccumulation value="0"/>
+        <Operation value="Maximum"/>
+        <Parameters value="0">
+            <AccumulatorArray value="Perma25ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentHardenedShield@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentMercenaryLord@ArmorBuffSwitch"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentBlock@PhysicalArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnduinInnerFire@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnubarakTheTraitorKing@ActiveArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArtanisReactiveParry@PhysicalArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArtanisPsionicSynergy@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasIceboundFortitude@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasRime@PhysicalArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasFrozenOver@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAurielDiamondResolve@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAurielCelestialGuard@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDiabloSacrificialSoul@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCRockstar@BasicAbilityArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCRockstar@HeroicAbilityArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCBlockParty@Switch"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCShowStopper@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCBULLwark@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="GreymaneWorgenForm@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="GreymaneThickSkin@PhysicalArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroJainaFrostArmor@PhysicalArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="JohannaDivineFortress@PhysicalArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="KharazimEarthAlly@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="KharazimSixthSense@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroMalfurionTranquility@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinDwarfToss@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinDwarfBlock@PhysicalArmorBuffSwitch"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinUnstoppableForce@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinDwarvenCourage@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroRagnarosCatchingFire@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroRagnarosResilientFlame@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisExecutorsGuard@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisDefensivePose@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisForAiur@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroTalandarThunderousCharge@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroTalandarWillOfFenix@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusRelentlessSoldier@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusOdin@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusCanDoThisAllDay@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AzmodanHellforgedArmor@ArmorBuffArithmetic"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorValueMinNegative">
+        <MaxAccumulation value="0"/>
+        <Operation value="Minimum"/>
+        <Parameters value="0">
+            <AccumulatorArray value="TownHallAttackArmorReductionDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="CursedHollowCoreCurse@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAbathurEnvenomedNest@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasShatteredArmor@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAurielWrathOfHeaven@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="BrightwingCritterize@ArmorReductionArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="DeltaPriorityTarget@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="DeltaMarkedForDeath@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDiabloDevastatingCharge@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCHammeron@PhysicalArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroJainaNorthernExposure@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisDeftStrike@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TyrandeHuntersMark@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AzmodanBlackPool@ArmorDebuffArithmetic"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorSpecialCases"/>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorCalculation">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorValueMaxPositive"/>
+            <AccumulatorArray value="UnitStatsPhysicalArmorValueMinNegative"/>
+            <AccumulatorArray value="UnitStatsPhysicalArmorSpecialCases"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorCalculation">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorValueMaxPositive"/>
+            <AccumulatorArray value="UnitStatsSpellArmorValueMinNegative"/>
+            <AccumulatorArray value="UnitStatsSpellArmorSpecialCases"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorSpecialCases"/>
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorValueMaxPositive">
+        <MinAccumulation value="0"/>
+        <Operation value="Maximum"/>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentDampenMagic@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="WizardDefenderSpellShieldArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="WizardLanerSpellShieldArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="Perma25ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentHardenedShield@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentMercenaryLord@ArmorBuffSwitch"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TalentSpellShield@SpellArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnduinInnerFire@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnubarakHardenCarapace@SpellArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnubarakNerubianArmor@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnubarakLegionOfBeetles@BeetleSpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnubarakTheTraitorKing@PassiveSpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AnubarakTheTraitorKing@ActiveArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArtanisPsionicSynergy@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArtanisPhaseBulwark@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasIceboundFortitude@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasFrozenOver@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAurielDiamondResolve@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAurielCelestialGuard@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="BrightwingPixieDust@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDiabloSoulShield@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDiabloSacrificialSoul@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCRockstar@BasicAbilityArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCRockstar@HeroicAbilityArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCShowStopper@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ETCBULLwark@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="GreymaneWorgenForm@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="KerriganPsionicBarrier@SpellArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="LiMingForceArmor@SpellArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroMalfurionTranquility@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinDwarfToss@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinUnstoppableForce@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="MuradinDwarvenCourage@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroRagnarosFireWard@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroRagnarosCatchingFire@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroRagnarosResilientFlame@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisExecutorsGuard@ArmorArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisForAiur@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisPhaseAegis@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroTalandarThunderousCharge@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroTalandarWillOfFenix@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusRelentlessSoldier@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusOdin@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusNeosteelCoating@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TychusCanDoThisAllDay@ArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TyrandeKaldoreiResistance@SpellArmorBuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AzmodanHellforgedArmor@ArmorBuffArithmetic"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorValueMinNegative">
+        <MaxAccumulation value="0"/>
+        <Operation value="Minimum"/>
+        <Parameters value="0">
+            <AccumulatorArray value="TownHallAttackArmorReductionDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="CursedHollowCoreCurse@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAbathurEnvenomedNest@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroArthasShatteredArmor@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroAurielWrathOfHeaven@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="BrightwingCritterize@ArmorReductionArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="DeltaPriorityTarget@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="DeltaMarkedForDeath@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDiabloDevastatingCharge@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroFalstadBOOMerang@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroJainaNorthernExposure@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroSelendisDeftStrike@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroTalandarPurification@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="TyrandeHuntersMark@ArmorDebuffArithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="AzmodanBlackPool@ArmorDebuffArithmetic"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellArmor">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="1">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ConstantMultiply0dot01"/>
+            <AccumulatorArray value="UnitStatsSpellArmorCalculation"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+</Catalog>

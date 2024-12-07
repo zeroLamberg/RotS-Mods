@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+  <Frame type="Frame" name="HeroSpecificStackingBuffsPanelTemplate">
+    <Frame type="Frame" name="AnduinStacksFrameContainer" template="Anduin/AnduinStacksFrameContainer"/>
+    <Frame type="Frame" name="AzmodanStacksFrameContainer" template="Azmodan/AzmodanStacksFrameContainer"/>
+    <Frame type="Frame" name="DeltaStacksFrameContainer" template="Delta/DeltaStacksFrameContainer"/>
+    <Frame type="Frame" name="DiabloStacksFrameContainer" template="Diablo/DiabloStacksFrameContainer"/>
+    <Frame type="Frame" name="JainaStacksFrameContainer" template="Jaina/JainaStacksFrameContainer"/>
+    <Frame type="Frame" name="KerriganStacksFrameContainer" template="Kerrigan/KerriganStacksFrameContainer"/>
+    <Frame type="Frame" name="KharazimStacksFrameContainer" template="Kharazim/KharazimStacksFrameContainer"/>
+    <Frame type="Frame" name="LiMingStacksFrameContainer" template="LiMing/LiMingStacksFrameContainer"/>
+    <Frame type="Frame" name="MalfurionStacksFrameContainer" template="Malfurion/MalfurionStacksFrameContainerNEW"/>
+    <Frame type="Frame" name="RagnarosStacksFrameContainer" template="Ragnaros/RagnarosStacksFrameContainer"/>
+    <Frame type="Frame" name="SelendisStacksFrameContainer" template="Selendis/SelendisStacksFrameContainer"/>
+    <Frame type="Frame" name="TalandarStacksFrameContainer" template="Talandar/TalandarStacksFrameContainer"/>
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificStatusContainerTemplate">
+    <Frame type="SelectionUnitStatusPanel" name="ArtanisFrame" template="Artanis/ArtanisFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="ArthasFrame" template="Arthas/ArthasFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="AurielFrame" template="Auriel/AurielBestowHopeFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="AzmodanFrame" template="Azmodan/AzmodanFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="BrightwingFrame" template="Brightwing/BrightwingFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="DeltaFrame" template="Delta/DeltaFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="DiabloFrame" template="Diablo/DiabloFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="ETCFrame" template="ETC/ETCFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="GreymaneFrame" template="Greymane/GreymaneFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="JainaFrame" template="Jaina/JainaFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="KerriganFrame" template="Kerrigan/KerriganFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="LiMingFrame" template="LiMing/LiMingPowerHungryFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="MalfurionFrame" template="Malfurion/MalfurionFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="MuradinFrame" template="Muradin/MuradinFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="RagnarosFrame" template="Ragnaros/RagnarosMoltenPowerFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="TalandarFrame" template="Talandar/TalandarFrame"/>
+    <Frame type="SelectionUnitStatusPanel" name="TychusFrame" template="Tychus/TychusFrame"/>
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificCommandCardStatusContainerTemplate">
+    <Frame type="SelectionUnitStatusPanel" name="LiMingFrame" template="LiMing/LiMingFrame"/>
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificCommandButton00Template">
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificCommandButton01Template">
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificCommandButton02Template">
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificCommandButton03Template">
+  </Frame>
+
+  <Frame type="Frame" name="HeroSpecificCommandButton04Template">
+  </Frame>
+
+</Desc>

@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectUserData id="HeroGenericHealedTargetUpdate">
+        <Key value="Healed"/>
+        <Amount value="0">
+            <AccumulatorArray value="Healed"/>
+        </Amount>
+        <SourceKey value="Healed"/>
+        <Operation value="Set"/>
+        <ValidateMax value="65535"/>
+        <BehaviorScope Value="Target"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericHealedCasterUpdate">
+        <Key value="Healed"/>
+        <Amount value="0">
+            <AccumulatorArray value="Healed"/>
+        </Amount>
+        <SourceKey value="Healed"/>
+        <Operation value="Set"/>
+        <ValidateMax value="65535"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer01">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player1 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer01"/>
+        </Amount>
+        <SourceKey value="Player1 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer02">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player2 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer02"/>
+        </Amount>
+        <SourceKey value="Player2 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer03">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player3 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer03"/>
+        </Amount>
+        <SourceKey value="Player3 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer04">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player4 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer04"/>
+        </Amount>
+        <SourceKey value="Player4 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer05">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player5 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer05"/>
+        </Amount>
+        <SourceKey value="Player5 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer06">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player6 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer06"/>
+        </Amount>
+        <SourceKey value="Player6 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer07">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player7 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer07"/>
+        </Amount>
+        <SourceKey value="Player7 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer08">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player8 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer08"/>
+        </Amount>
+        <SourceKey value="Player8 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer09">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player9 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer09"/>
+        </Amount>
+        <SourceKey value="Player9 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer10">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player10 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer10"/>
+        </Amount>
+        <SourceKey value="Player10 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer11">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player11 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer11"/>
+        </Amount>
+        <SourceKey value="Player11 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer12">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player12 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer12"/>
+        </Amount>
+        <SourceKey value="Player12 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer13">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player13 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer13"/>
+        </Amount>
+        <SourceKey value="Player13 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer14">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player14 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer14"/>
+        </Amount>
+        <SourceKey value="Player14 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer15">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player15 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer15"/>
+        </Amount>
+        <SourceKey value="Player15 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValueActivatePersistent">
+        <EffectSuccess value="HeroGenericModifyHealReducedValueTargetPlayerEffectPersistent"/>
+        <BehaviorScope Value="Target"/>
+        <Key value="HeroGenericModifyHealReducedTargetValueActivatePersistent"/>
+        <SourceKey value="HeroGenericModifyHealReducedTargetValueActivatePersistent"/>
+        <Operation value="Set"/>
+        <ValidateMax value="65545"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValuePlayer00">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeCaster"/>
+        <Key value="Player0 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedCasterMultiplierOverPlayer00"/>
+        </Amount>
+        <SourceKey value="Player0 HealReducedValue"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedCasterValueActivatePersistent">
+        <EffectSuccess value="HeroGenericModifyHealReducedValueCasterPlayerEffectPersistent"/>
+        <Key value="HeroGenericModifyHealReducedCasterValueActivatePersistent"/>
+        <Amount value="0"/>
+        <SourceKey value="HeroGenericModifyHealReducedCasterValueActivatePersistent"/>
+        <Operation value="Set"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectCreatePersistent id="HeroGenericModifyHealReducedValueCasterPlayerEffectPersistent">
+        <ValidatorArray value="CasterLifeNotFull"/>
+        <WhichLocation Value="CasterUnit"/>
+        <InitialEffect value="HeroGenericSetHealReceivedCasterUnitStats"/>
+        <PeriodCount value="16"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer00"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer01"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer02"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer03"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer04"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer05"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer06"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer07"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer08"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer09"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer10"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer11"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer12"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer13"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer14"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedCasterValuePlayer15"/>
+        <FinalEffect value="HeroGenericHealedCasterUpdate"/>
+    </CEffectCreatePersistent>
+    <CEffectUserData id="HeroGenericSetHealReceivedCasterUnitStats">
+        <Key value="HealReceived"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculation"/>
+        </Amount>
+        <SourceKey value="HealReceived"/>
+        <Operation value="Set"/>
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer01">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player1 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer01"/>
+        </Amount>
+        <SourceKey value="Player1 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer02">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player2 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer02"/>
+        </Amount>
+        <SourceKey value="Player2 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer03">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player3 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer03"/>
+        </Amount>
+        <SourceKey value="Player3 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer04">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player4 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer04"/>
+        </Amount>
+        <SourceKey value="Player4 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer05">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player5 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer05"/>
+        </Amount>
+        <SourceKey value="Player5 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer07">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player7 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer07"/>
+        </Amount>
+        <SourceKey value="Player7 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer06">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player6 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer06"/>
+        </Amount>
+        <SourceKey value="Player6 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericSetHealReceivedTargetUnitStats">
+        <Key value="HealReceived"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculation"/>
+        </Amount>
+        <SourceKey value="HealReceived"/>
+        <Operation value="Set"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer09">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player9 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer09"/>
+        </Amount>
+        <SourceKey value="Player9 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer08">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player8 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer08"/>
+        </Amount>
+        <SourceKey value="Player8 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer10">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player10 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer10"/>
+        </Amount>
+        <SourceKey value="Player10 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer11">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player11 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer11"/>
+        </Amount>
+        <SourceKey value="Player11 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer12">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player12 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer12"/>
+        </Amount>
+        <SourceKey value="Player12 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer13">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player13 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer13"/>
+        </Amount>
+        <SourceKey value="Player13 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer14">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player14 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer14"/>
+        </Amount>
+        <SourceKey value="Player14 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer15">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player15 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer15"/>
+        </Amount>
+        <SourceKey value="Player15 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CEffectCreatePersistent id="HeroGenericModifyHealReducedValueTargetPlayerEffectPersistent">
+        <ValidatorArray value="TargetLifeNotFull"/>
+        <WhichLocation Value="TargetUnit"/>
+        <InitialEffect value="HeroGenericSetHealReceivedTargetUnitStats"/>
+        <PeriodCount value="16"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer00"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer01"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer02"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer03"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer04"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer05"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer06"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer07"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer08"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer09"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer10"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer11"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer12"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer13"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer14"/>
+        <PeriodicEffectArray value="HeroGenericModifyHealReducedTargetValuePlayer15"/>
+        <FinalEffect value="HeroGenericHealedTargetUpdate"/>
+    </CEffectCreatePersistent>
+    <CEffectUserData id="HeroGenericModifyHealReducedTargetValuePlayer00">
+        <ValidatorArray value="HeroGenericHealReceivedIsNegativeTarget"/>
+        <Key value="Player0 HealReducedValue"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth"/>
+            <AccumulatorArray value="UnitStatsHealReducedTargetMultiplierOverPlayer00"/>
+        </Amount>
+        <SourceKey value="Player0 HealReducedValue"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CEffectUserData>
+    <CAccumulatorUserData default="1" id="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <BehaviorScope Behavior="HeroGenericUserRecord"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData default="1" id="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetHealedValue">
+        <Parameters value="0">
+            <AccumulatorArray value="Healed"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealedTarget"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterHealedValue">
+        <Parameters value="0">
+            <AccumulatorArray value="Healed"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealedCaster"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsHealedTarget">
+        <Key value="Healed"/>
+        <BehaviorScope Value="Target"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealedCaster">
+        <Key value="Healed"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedCasterCalculation">
+        <MinAccumulation value="-99"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer00"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer01"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer02"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer03"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer04"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer05"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer06"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer07"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer08"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer09"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer10"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer11"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer12"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer13"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer14"/>
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer15"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer01" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player1 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer02" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player2 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer01Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player1 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer03" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player3 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer02Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player2 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer04Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player4 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer04" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player4 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer03Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player3 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer05Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player5 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer05" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player5 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer06Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player6 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer06" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player6 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer07Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player7 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer07" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player7 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer08Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player8 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer08" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player8 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer09Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player9 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer09" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player9 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer10Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player10 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer10" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player10 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer11Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player11 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer11" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player11 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer12Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player12 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer12" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player12 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer13Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player13 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer13" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player13 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer14Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player14 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer14" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player14 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer15Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player15 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer15" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player15 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedCasterCalculationNoLimit" parent="UnitStatsHealReceivedCasterCalculation">
+        <MinAccumulation value="-524288"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedCasterModifier">
+        <MinAccumulation value="0.01"/>
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0.01">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationMultiply"/>
+        </Parameters>
+        <Parameters value="1">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer00" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player0 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer00" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <Key value="Player0 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer00Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player0 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedCasterMultiplierPlayer00Negative" parent="UnitStatsHealReceivedCasterMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player0 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer01" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player1 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer01Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player1 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer02" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player2 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer02Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player2 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer03" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player3 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer03Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player3 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer04" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player4 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer04Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player4 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer05" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player5 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer05Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player5 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer06" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player6 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer06Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player6 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer07" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player7 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer07Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player7 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer08" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player8 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer08Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player8 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer09" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player9 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer09Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player9 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer10" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player10 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer10Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player10 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer11" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player11 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer11Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player11 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer12" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player12 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer12Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player12 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer13" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player13 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer13Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player13 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer14" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player14 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer14Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player14 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer15" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <Key value="Player15 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsHealReceivedTargetMultiplierPlayer15Negative" parent="UnitStatsHealReceivedTargetMultiplierPlayerParent">
+        <MaxAccumulation value="0"/>
+        <Key value="Player15 HealReceivedMultiplier"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterModifierForOriginalValue">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="100">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+        <Parameters value="100">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculation"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer00">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer00Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer01">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer01Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer02">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer02Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer03">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer03Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer04">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer04Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer05">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer05Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer06">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer06Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer07">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer07Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer08">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer08Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer09">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer09Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer10">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer10Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer11">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer11Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer12">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer12Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer13">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer13Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer14">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer14Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterMultiplierOverPlayer15">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterMultiplierPlayer15Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedCasterCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetOriginalValue">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetHealedValue"/>
+        </Parameters>
+        <Parameters value="1">
+            <AccumulatorArray value="UnitStatsHealReducedTargetModifierForOriginalValue"/>
+        </Parameters>
+        <Operation value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer00">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer00Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer02">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer02Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer03">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer03Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer04">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer04Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer05">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer05Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer06">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer06Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer07">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer07Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer08">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer08Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer09">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer09Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer10">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer10Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer11">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer11Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer12">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer12Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer13">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer13Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer14">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer14Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer15">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer15Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetModifierForOriginalValue">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="100">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+        <Parameters value="100">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculation"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedTargetCalculation">
+        <MinAccumulation value="-99"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer00"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer01"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer02"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer03"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer04"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer05"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer06"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer07"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer08"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer09"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer10"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer11"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer12"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer13"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer14"/>
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer15"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedTargetCalculationMultiply" parent="UnitStatsHealReceivedTargetCalculation">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedCasterCalculationMultiply" parent="UnitStatsHealReceivedCasterCalculation">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedTargetCalculationNoLimit" parent="UnitStatsHealReceivedTargetCalculation">
+        <MinAccumulation value="-524288"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterOriginalValue">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterHealedValue"/>
+        </Parameters>
+        <Parameters value="1">
+            <AccumulatorArray value="UnitStatsHealReducedCasterModifierForOriginalValue"/>
+        </Parameters>
+        <Operation value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetOriginalValueWithoutHealedValue">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValue"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetHealedValue"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterOriginalValueWithoutHealedValue">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValue"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealedCaster"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetOriginalValueWithoutHealedValueORMissingHealth">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedTargetOriginalValueWithoutHealedValue"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HealthCurrentMissing"/>
+        </Parameters>
+        <Operation value="Minimum"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedTargetMultiplierOverPlayer01">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetMultiplierPlayer01Negative"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationNoLimit"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReducedCasterOriginalValueWithoutHealedValueORMissingHealth">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsHealReducedCasterOriginalValueWithoutHealedValue"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HealthCurrentMissingCaster"/>
+        </Parameters>
+        <Operation value="Minimum"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealReceivedTargetModifier">
+        <MinAccumulation value="0.01"/>
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="0.01">
+            <AccumulatorArray value="UnitStatsHealReceivedTargetCalculationMultiply"/>
+        </Parameters>
+        <Parameters value="1">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+</Catalog>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CVoiceOver default="1" id="StormVoiceOverAnnouncer">
+        <Groups Id="Draft_Map"/>
+        <Groups Id="HeroSelect"/>
+        <Groups Id="HeroSelectPlayer"/>
+        <Groups Id="HeroSelect_Observer"/>
+        <Groups Id="CountdownRemain"/>
+        <Groups Id="Countdown10sec"/>
+        <Groups Id="Countdown5sec"/>
+        <Groups Id="Countdown4sec"/>
+        <Groups Id="Countdown3sec"/>
+        <Groups Id="Countdown2sec"/>
+        <Groups Id="Countdown1sec"/>
+        <Groups Id="GameStart"/>
+        <Groups Id="TalentUnlock"/>
+        <Groups Id="OutpostDestroy"/>
+        <Groups Id="OutpostDestroy_Red"/>
+        <Groups Id="OutpostDestroy_Blue"/>
+        <Groups Id="OutpostLost"/>
+        <Groups Id="KeepDestroy"/>
+        <Groups Id="KeepDestroy_Red"/>
+        <Groups Id="KeepDestroy_Blue"/>
+        <Groups Id="KeepLost"/>
+        <Groups Id="CastleAttackAlly"/>
+        <Groups Id="CastleAttack_Red"/>
+        <Groups Id="CastleAttack_Blue"/>
+        <Groups Id="EndingWin"/>
+        <Groups Id="EndingLose"/>
+        <Groups Id="Ending_Red"/>
+        <Groups Id="Ending_Blue"/>
+        <Groups Id="PlayerAbandon"/>
+        <Groups Id="PlayerRejoin"/>
+        <Groups Id="FirstBloodAlly"/>
+        <Groups Id="FirstBlood_Red"/>
+        <Groups Id="FirstBlood_Blue"/>
+        <Groups Id="DoubleKill"/>
+        <Groups Id="TripleKill"/>
+        <Groups Id="FourKill"/>
+        <Groups Id="MegaKill"/>
+        <Groups Id="TeamKill"/>
+        <Groups Id="TeamKill_Red"/>
+        <Groups Id="TeamKill_Blue"/>
+        <Groups Id="HeroKill"/>
+        <Groups Id="Kill_Observer"/>
+        <Groups Id="HeroSlain"/>
+        <Groups Id="SpreeStart"/>
+        <Groups Id="SpreeFirstUpgrade"/>
+        <Groups Id="SpreeSecondUpgrade"/>
+        <Groups Id="SpreeThirdUpgrade"/>
+        <Groups Id="SpreeMax"/>
+        <Groups Id="SpreeEnd"/>
+        <Groups Id="SpreeEnd_Ally"/>
+        <Groups Id="Gravestomp"/>
+        <Groups Id="Gravestomp_Observer"/>
+        <Groups Id="Revive"/>
+        <Groups Id="Revive_Observer"/>
+        <Groups Id="MVP"/>
+        <Groups Id="Epic"/>
+        <Groups Id="Legendary"/>
+    </CVoiceOver>
+    <CVoiceOver default="1" id="StormVoiceOverHero">
+        <Groups Id="IntroQuestion" SoundParent="HeroVO_3D_Intro"/>
+        <Groups Id="IntroRespond" SoundParent="HeroVO_3D_Intro"/>
+        <Groups Id="IntroBoast" SoundParent="HeroVO_3D_Intro"/>
+        <Groups Id="IntroAgree" SoundParent="HeroVO_3D_Intro"/>
+        <Groups Id="Revive" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Yes" SoundParent="HeroVO_2D_Low"/>
+        <Groups Id="Attack" SoundParent="HeroVO_2D_Medium"/>
+        <Groups Id="Ultimate1Used" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Ultimate1UsedAlly" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Ultimate1UsedEnemy" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Ultimate2Used" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Ultimate2UsedAlly" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Ultimate2UsedEnemy" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="LowMana" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Kill" SoundParent="HeroVO_2D_Critical"/>
+        <Groups Id="KillSpreeEnd" SoundParent="HeroVO_2D_Critical"/>
+        <Groups Id="Spec" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Healed" SoundParent="HeroVO_3D_Healed"/>
+        <Groups Id="LowLifeHeal" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Celebrate" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="MatchEnd" SoundParent="HeroVO_2D_Ending"/>
+        <Groups Id="Resurrected" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="No" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="TeamKilled" SoundParent="HeroVO_2D_Critical"/>
+        <Groups Id="Comeback" SoundParent="HeroVO_3D_High"/>
+        <Groups Id="WorthIt" SoundParent="HeroVO_2D_Critical"/>
+        <Groups Id="Pissed" SoundParent="HeroVO_2D_Pissed"/>
+        <Groups Id="UI_Lockin" SoundParent="HeroVO_2D_UI_Lockin"/>
+        <Groups Id="UI_ExLocked" SoundParent="HeroVO_2D_UI_Stomp"/>
+        <Groups Id="UI_ExPurchased" SoundParent="HeroVO_2D_UI_Stomp"/>
+        <Groups Id="UI_WaitLocked" SoundParent="HeroVO_2D_UI_Stomp"/>
+        <Groups Id="UI_WaitPurchased" SoundParent="HeroVO_2D_UI_Stomp"/>
+        <Groups Id="UI_Trial" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="UI_Purchase" SoundParent="HeroVO_2D_UI_Purchase"/>
+        <Groups Id="UI_Gift" SoundParent="HeroVO_2D_UI_Purchase"/>
+        <Groups Id="AI_Retreat" SoundParent="HeroVO_3D_High"/>
+        <Groups Id="AI_Heal" SoundParent="HeroVO_3D_High"/>
+        <Groups Id="AI_GoodJob" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="AI_Caution" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="AI_Attack" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="AI_Uhoh" SoundParent="HeroVO_3D_Critical"/>
+        <Groups Id="Ping_KillHero" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_AttackOutpost" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_AttackCastle" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_AttackTower" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_AttackMerc" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_DefendOutpost" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_DefendCastle" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_DefendTower" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_AssistMe" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="Ping_AssistHero" SoundParent="HeroVO_2D_High"/>
+        <Groups Id="VoiceLineOne" SoundParent="HeroVO_Voice_Line"/>
+        <Groups Id="VoiceLineTwo" SoundParent="HeroVO_Voice_Line"/>
+        <Groups Id="VoiceLineThree" SoundParent="HeroVO_Voice_Line"/>
+        <Groups Id="VoiceLineFour" SoundParent="HeroVO_Voice_Line"/>
+        <Groups Id="VoiceLineFive" SoundParent="HeroVO_Voice_Line"/>
+        <Groups Id="Taunt" SoundParent="HeroVO_3D_High"/>
+        <Groups Id="Laugh" SoundParent="Hero_Vox"/>
+        <Groups Id="VOPing_Danger" SoundParent="HeroVOPing_2D_High"/>
+        <Groups Id="VOPing_OnMyWay" SoundParent="HeroVOPing_2D_High"/>
+        <Groups Id="VOPing_Defend" SoundParent="HeroVOPing_2D_High"/>
+        <Groups Id="VOPing_AssistMe" SoundParent="HeroVOPing_2D_High"/>
+        <Groups Id="VOPing_EnemyMissing" SoundParent="HeroVOPing_2D_High"/>
+        <Groups Id="VOPing_Retreat" SoundParent="HeroVOPing_2D_High"/>
+    </CVoiceOver>
+    <CVoiceOver id="DragonKnight" parent="StormVoiceOverHero">
+        <Groups Id="VOX_Cheer" SoundParent="Hero_Vox"/>
+        <Groups Id="VOX_MellowGrowl" SoundParent="Hero_Vox"/>
+        <Groups Id="VOX_AngryGrowl" SoundParent="Hero_Vox"/>
+        <Groups Id="VOX_Attack" SoundParent="Hero_Vox"/>
+        <Groups Id="VOX_Casting" SoundParent="Hero_Vox"/>
+        <Groups Id="VOX_Pulled" SoundParent="Hero_Vox"/>
+        <Groups Id="VOX_GetHit" SoundParent="Hero_Vox"/>
+        <Groups Id="Death" SoundParent="Death"/>
+        <Lines Group="Revive"/>
+        <Lines Group="Yes"/>
+        <Lines Group="Yes" SoundIndex="1"/>
+        <Lines Group="Yes" SoundIndex="2"/>
+        <Lines Group="Yes" SoundIndex="3"/>
+        <Lines Group="Yes" SoundIndex="4"/>
+        <Lines Group="Yes" SoundIndex="5"/>
+        <Lines Group="Yes" SoundIndex="6"/>
+        <Lines Group="Yes" SoundIndex="7"/>
+        <Lines Group="Yes" SoundIndex="8"/>
+        <Lines Group="Attack"/>
+        <Lines Group="Attack" SoundIndex="1"/>
+        <Lines Group="Attack" SoundIndex="2"/>
+        <Lines Group="Attack" SoundIndex="3"/>
+        <Lines Group="Attack" SoundIndex="4"/>
+        <Lines Group="Attack" SoundIndex="5"/>
+        <Lines Group="Attack" SoundIndex="6"/>
+        <Lines Group="Ultimate1Used"/>
+        <Lines Group="Ultimate1Used" SoundIndex="1"/>
+        <Lines Group="Ultimate1Used" SoundIndex="2"/>
+        <Lines Group="Ultimate1Used" SoundIndex="3"/>
+        <Lines Group="Kill"/>
+        <Lines Group="Kill" SoundIndex="1"/>
+        <Lines Group="Kill" SoundIndex="2"/>
+        <Lines Group="Kill" SoundIndex="3"/>
+        <Lines Group="Kill" SoundIndex="4"/>
+        <Lines Group="No"/>
+        <Lines Group="No" SoundIndex="1"/>
+        <Lines Group="No" SoundIndex="2"/>
+        <Lines Group="Pissed"/>
+        <Lines Group="Pissed" SoundIndex="1"/>
+        <Lines Group="Pissed" SoundIndex="2"/>
+        <Lines Group="Pissed" SoundIndex="3"/>
+        <Lines Group="Pissed" SoundIndex="4"/>
+        <Lines Group="Pissed" SoundIndex="5"/>
+        <Lines Group="Pissed" SoundIndex="6"/>
+        <Lines Group="Pissed" SoundIndex="7"/>
+        <Lines Group="Pissed" SoundIndex="8"/>
+        <Lines Group="Pissed" SoundIndex="9"/>
+        <Lines Group="Pissed" SoundIndex="10"/>
+        <Lines Group="Ping_KillHero"/>
+        <Lines Group="Ping_AttackOutpost"/>
+        <Lines Group="Ping_AttackCastle"/>
+        <Lines Group="Ping_AttackTower"/>
+        <Lines Group="Ping_AttackMerc"/>
+        <Lines Group="Ping_DefendOutpost"/>
+        <Lines Group="Ping_DefendCastle"/>
+        <Lines Group="Ping_DefendTower"/>
+        <Lines Group="Ping_AssistMe"/>
+        <Lines Group="Ping_AssistHero"/>
+        <Lines Group="Taunt"/>
+        <Lines Group="Taunt" SoundIndex="1"/>
+        <Lines Group="Taunt" SoundIndex="2"/>
+        <Lines Group="Laugh"/>
+        <Lines Group="VOX_MellowGrowl"/>
+        <Lines Group="VOX_MellowGrowl" SoundIndex="1"/>
+        <Lines Group="VOX_MellowGrowl" SoundIndex="2"/>
+        <Lines Group="VOX_AngryGrowl"/>
+        <Lines Group="VOX_AngryGrowl" SoundIndex="1"/>
+        <Lines Group="VOX_AngryGrowl" SoundIndex="2"/>
+        <Lines Group="VOX_Attack"/>
+        <Lines Group="VOX_Attack" SoundIndex="1"/>
+        <Lines Group="VOX_Attack" SoundIndex="2"/>
+        <Lines Group="VOX_Attack" SoundIndex="3"/>
+        <Lines Group="VOX_Attack" SoundIndex="4"/>
+        <Lines Group="VOX_Casting"/>
+        <Lines Group="VOX_Casting" SoundIndex="1"/>
+        <Lines Group="VOX_Casting" SoundIndex="2"/>
+        <Lines Group="VOX_Casting" SoundIndex="3"/>
+        <Lines Group="VOX_Casting" SoundIndex="4"/>
+        <Lines Group="VOX_Pulled"/>
+        <Lines Group="VOX_Pulled" SoundIndex="1"/>
+        <Lines Group="VOX_GetHit"/>
+        <Lines Group="VOX_GetHit" SoundIndex="1"/>
+        <Lines Group="VOX_GetHit" SoundIndex="2"/>
+        <Lines Group="VOX_GetHit" SoundIndex="3"/>
+        <Lines Group="VOX_GetHit" SoundIndex="4"/>
+        <Lines Group="Death"/>
+        <Lines Group="Death" SoundIndex="1"/>
+        <Lines Group="Death" SoundIndex="2"/>
+        <Character value="DragonKnight"/>
+    </CVoiceOver>
+    <CVoiceOver id="KingsCrestMinion">
+        <Groups Id="Ready" SoundParent="CreepVO"/>
+        <Groups Id="Yes" SoundParent="CreepVO"/>
+        <Groups Id="Attack" SoundParent="CreepVO"/>
+        <Groups Id="Pissed" SoundParent="CreepVO"/>
+        <Groups Id="Death" SoundParent="CreepVO"/>
+        <Groups Id="VOX_MellowGrowl" SoundParent="StormVoice"/>
+        <Groups Id="VOX_AngryGrowl" SoundParent="StormVoice"/>
+        <Groups Id="VOX_Attack" SoundParent="StormVoice"/>
+        <Groups Id="VOX_Casting" SoundParent="StormVoice"/>
+        <Groups Id="VOX_Pulled" SoundParent="StormVoice"/>
+        <Groups Id="VOX_GetHit" SoundParent="StormVoice"/>
+        <Groups Id="Death" SoundParent="Death"/>
+        <Lines Group="Ready"/>
+        <Lines Group="Yes"/>
+        <Lines Group="Yes" SoundIndex="1"/>
+        <Lines Group="Yes" SoundIndex="2"/>
+        <Lines Group="Yes" SoundIndex="3"/>
+        <Lines Group="Yes" SoundIndex="4"/>
+        <Lines Group="Attack"/>
+        <Lines Group="Attack" SoundIndex="1"/>
+        <Lines Group="Attack" SoundIndex="2"/>
+        <Lines Group="Attack" SoundIndex="3"/>
+        <Lines Group="Attack" SoundIndex="4"/>
+        <Lines Group="Pissed"/>
+        <Lines Group="Pissed" SoundIndex="1"/>
+        <Lines Group="Pissed" SoundIndex="2"/>
+        <Lines Group="Pissed" SoundIndex="3"/>
+        <Lines Group="Pissed" SoundIndex="4"/>
+        <Lines Group="Pissed" SoundIndex="5"/>
+        <Lines Group="Death"/>
+    </CVoiceOver>
+</Catalog>

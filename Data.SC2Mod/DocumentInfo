@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocInfo>
+    <Flags>
+        <Value>PreloadNoTrigger</Value>
+    </Flags>
+    <Dependencies>
+        <Value>bnet:RotS (Dummy Mod)/0.0/459199,file:Mods\Resurgence of the Storm\Assets.SC2Mod</Value>
+        <Value>bnet:Warcraft III (Art Mod)/0.0/999,file:Mods/War3.SC2Mod</Value>
+        <Value>bnet:Void (Campaign)/0.0/999,file:Campaigns/Void.SC2Campaign</Value>
+    </Dependencies>
+    <HowToPlayBasic>
+        <ListType>
+            <Value>Plain</Value>
+        </ListType>
+    </HowToPlayBasic>
+    <HowToPlayAdvanced>
+        <ListType>
+            <Value>Plain</Value>
+        </ListType>
+    </HowToPlayAdvanced>
+    <Preload>
+        <Value>Bank;PlayerSettings</Value>
+        <Value>Bank;MetaData</Value>
+    </Preload>
+</DocInfo>

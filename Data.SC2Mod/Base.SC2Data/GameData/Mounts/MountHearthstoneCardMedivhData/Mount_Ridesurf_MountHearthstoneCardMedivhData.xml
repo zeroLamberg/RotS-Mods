@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="MountHearthstoneCardMedivh@Mount" parent="BaseMount">
+        <Model value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_Medivh\Storm_Mount_HearthstoneCard_Medivh.m3"/>
+        <RequiredAnims value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_RequiredAnims\Storm_Mount_HearthstoneCard_RequiredAnims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,Start,00"/>
+            <Name value="Mount_HearthstoneCard_Start"/>
+            <Type value="Sound"/>
+            <Time value="0.156000"/>
+            <Payload value="MountHearthstoneCard@Start"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Mount_HearthstoneCard_Stop"/>
+            <Type value="Sound"/>
+            <Time value="0.148000"/>
+            <Payload value="MountHearthstoneCard@Stop"/>
+        </Events>
+        <TextureDeclares Prefix="storm_mount_hearthstonecard_medivh_" Slot="main"/>
+    </CModel>
+    <CDataCollection id="MountHearthstoneCardMedivh">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Model,MountHearthstoneCardMedivh@Mount"/>
+    </CDataCollection>
+</Catalog>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="SelectionUnitStatusPanel" name="BrightwingFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+        <SpecificUnit val="BrightwingHero"/>
+
+        <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+
+            <Frame type="Image" name="MechanicTexture">
+                <Texture val="Assets\Textures\storm_ui_icon_brightwing_soothingmist.dds"/>
+            </Frame>
+
+            <Frame type="BehaviorIcon" name="SoothingMistTooltip" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+                <Behavior val="BrightwingSoothingMist@Cooldown"/>
+            </Frame>
+
+            <Frame type="UnitStatusBehaviorIcon" name="SoothingMistCountdownFrame" template="StandardHeroUITemplates/CircularBehaviorCountdownBarTemplate">
+                <Behavior val="BrightwingSoothingMist@Cooldown"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

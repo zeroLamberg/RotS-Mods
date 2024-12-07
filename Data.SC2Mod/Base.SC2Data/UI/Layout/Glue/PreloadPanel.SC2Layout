@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Frame type="Frame" name="PreloadPanelTemplate">
+    <Anchor relative="$parent" />
+    <RenderPriority val="900"/>
+    <AcceptsMouse val="True"/>
+    <Animation name="Rotate">
+      <Event event="OnShown" action="DirectionForward,Play" />
+      <Event event="OnHiddenCustom" action="DirectionReverse,Play" />
+      <Controller type="Fade" end="Pause">
+        <Key type="Curve" time="0" value="0" inout="Linear,Auto" />
+        <Key type="Curve" time="0.5" value="125" inout="Auto,Linear" />
+        <Key type="Curve" time="1" value="255" inout="Auto,Linear" />
+      </Controller>
+    </Animation>
+    <Frame type="Image" name="BackgroundImage">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Height val="1200"/>
+      <Width val="2134"/>
+      <Texture val="assets\textures\Storm_UI_Logo_Resurgence_Winterveil.dds"/>
+      <!--<Texture val="assets\textures\Storm_UI_Logo_Resurgence_PurpleIcon.dds"/>-->
+      <RenderPriority val="400"/>
+      <StateGroup name="NoImageBackground">
+        <State name="NoImage">
+          <When type="Property" frame="$this" Texture="" operator="Equal"/>
+          <Action type="SetProperty" frame="$this" Color="0,0,0"/>
+        </State>
+      </StateGroup>
+    </Frame>
+    <Frame type="Label" name="HeaderLabel">
+      <Anchor side="Top" relative="$parent/Spinner" pos="Mid" offset="0"/>
+      <Anchor side="Bottom" relative="$parent/Spinner" pos="Mid" offset="0"/>
+      <Anchor side="Left" relative="$parent/Spinner" pos="Max" offset="20"/>
+      <Style val="PreloadLoadingAssetsTitle"/>
+      <Text val="{$parent/FormatFrame/@Text}"/>
+    </Frame>
+    <Frame type="TextFormatFrame" name="FormatFrame">
+      <FormatText val="%0%: %1%/%2%"/>
+      <Replacement val="{$parent/PreloadingTitle/@Text}" index="0"/>
+      <Replacement val="{$parent/CurrentValue/@StringValue}" index="1"/>
+      <Replacement val="{$parent/MaxedValue/@StringValue}" index="2"/>
+    </Frame>
+    <Frame type="Label" name="PreloadingTitle">
+      <Visible val="False"/>
+    </Frame>
+    <Frame type="DataRefFrame" name="CurrentValue">
+      <Argument name="GalaxyVar" val="libGame_gv_preloadingCurrentValue"/>
+    </Frame>
+    <Frame type="DataRefFrame" name="MaxedValue">
+      <Argument name="GalaxyVar" val="libGame_gv_preloadingMaxedValue"/>
+    </Frame>
+    <Frame type="Image" name="Spinner">
+      <Height val="90" />
+      <Width val="90" />
+      <Texture val="@UI/Storm_UI_Common_Idle_Spinner" />
+      <LayerColor val="9887dc" />
+      <GlowColor val="0,0,0"/>
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+      <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+      <Animation name="Rotate">
+        <Event event="OnShown" action="DirectionForward,Play" />
+        <Controller type="Rotation" relative="False" end="Loop">
+          <Key type="Curve" time="0" value="0" inout="linear" />
+          <Key type="Curve" time="2" value="-360" inout="linear" />
+        </Controller>
+      </Animation>
+    </Frame>
+  </Frame>
+</Desc>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CGame id="Dflt">
+        <AcquireMovementLimit value="10"/>
+        <AcquireLeashRadius value="2.625"/>
+        <CreepDecaySound value="Storm_CreepDecay"/>
+        <CreepGrowSound value="Storm_CreepGrow"/>
+        <CalculateFullVision value="1"/>
+        <DamageMinimum value="0"/>
+        <TriggerLibs index="0" Id="SAND" IncludePath=""/>
+        <TriggerLibs Id="AIAI"/>
+        <TriggerLibs Id="Core"/>
+        <TriggerLibs Id="Game"/>
+        <TriggerLibs Id="GDHL"/>
+        <TriggerLibs Id="Sprt"/>
+        <TriggerLibs Id="MapM"/>
+        <TriggerLibs Id="Sond"/>
+        <TriggerLibs Id="UIUI"/>
+        <TriggerLibs Id="Glue"/>
+        <TriggerLibs Id="Meta"/>
+        <SmartCommandContinuous value="1"/>
+        <PathingConfig index="InvulnerableBuildingAsBlocker" value="1"/>
+        <AttackRevealTime value="0"/>
+        <DefaultPauseCountPerPlayer value="65535"/>
+        <UnlimitedPause value="1"/>
+        <AI index="0" removed="1"/>
+        <DamageCategories index="Normal" SupportedFilters="-;-"/>
+        <DamageCategories index="Enhanced" SupportedFilters="-;-"/>
+        <DamageCategories index="Fire" SupportedFilters="-;-"/>
+        <DamageCategories index="Cold" SupportedFilters="-;-"/>
+        <DamageCategories index="Lightning" SupportedFilters="-;-"/>
+        <DamageCategories index="Poison" SupportedFilters="-;-"/>
+        <DamageCategories index="Disease" SupportedFilters="-;-"/>
+        <DamageCategories index="Divine" SupportedFilters="-;-"/>
+        <DamageCategories index="Magic" SupportedFilters="-;-"/>
+        <DamageCategories index="Sonic" SupportedFilters="-;-"/>
+        <DamageCategories index="Acid" SupportedFilters="-;-"/>
+        <DamageCategories index="Force" SupportedFilters="-;-"/>
+        <DamageCategories index="Death" SupportedFilters="-;-"/>
+        <DamageCategories index="Mind" SupportedFilters="-;-"/>
+        <DamageCategories index="Plant" SupportedFilters="-;-"/>
+        <DamageCategories index="Defensive" SupportedFilters="-;-"/>
+        <DamageCategories index="Demolition" SupportedFilters="-;-"/>
+        <DamageCategories index="SlowPoison" SupportedFilters="-;-"/>
+        <DamageCategories index="SpiritLink" SupportedFilters="-;-"/>
+        <DamageCategories index="ShadowStrike" SupportedFilters="-;-"/>
+    </CGame>
+</Catalog>

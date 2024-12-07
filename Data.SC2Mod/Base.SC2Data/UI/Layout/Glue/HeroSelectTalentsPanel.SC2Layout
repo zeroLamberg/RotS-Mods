@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <Frame type="Frame" name="HeroSelectTalentsPanelTemplate" template="HeroSelectCustomizePanel/HeroSelectCustomizePanelTemplate">
+        <Height val="953"/>
+        <Width val="485"/>
+        <RenderPriority val="535"/>
+        <!--<Width val="525"/>
+        <RenderType val="LDR"/>-->
+        <VisibilityOnFade val="true"/>
+
+        <Frame type="BlurFrame" name="BlurBackground">
+            <Anchor relative="$parent/BorderImage"/>
+            <BlurAmount val="0.8"/>
+            <RenderPriority val="399"/>
+            <AcceptsMouse val="true"/>
+            
+            <Frame type="Image" name="LowImage">
+                <Anchor relative="$parent" />
+                <TextureType val="Normal"/>
+                <Texture val="@UI/Storm_Generic_Background_Low"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Left" relative="$parent" pos="Min" offset="25"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <!--<Height val="960"/>-->
+            <!--<Height val="772"/>-->
+            <Height val="805"/>
+            <RenderPriority val="400"/>
+            <TextureType val="Nineslice"/>
+            <Texture val="@UI/Storm_Generic_SmallPanel_Border"/>
+        </Frame>
+
+        <Frame type="Image" name="ArrowImage">
+            <Anchor side="Top" relative="$parent" pos="Max" offset="-47"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
+            <Unclipped val="true"/>
+            <RenderPriority val="401"/>
+            <Width val="140"/>
+            <Height val="72"/>
+            <Texture val="@UI/Storm_UI_Generic_SmallPanelArrow_Large_Mid"/>
+        </Frame>
+
+        <Frame type="Button" name="CloseButton" template="StandardTemplatesStorm/SmallPanelCloseButtonTemplate">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-6"/>
+            <Shortcut val="@UI/ScreenNavigationBack_Hotkey"/>
+            <Animation name="CloseAnimation">
+                <Event event="OnClick" action="Reset,Play" frame="$this"/>
+                <Controller type="Property" end="Pause" frame="$parent/$parent/TalentsButton" property="Toggled">
+                  <Key type="Property" time="0.0" value="False"/>
+                </Controller>
+              </Animation>
+        </Frame>
+        
+        <!--<Frame type="PurchaseInfoPanel" name="PurchaseInfoPanel">
+            <Alpha val="0"/>
+            <Visible val="false"/>
+        </Frame>
+        <Frame type="PurchaseCurrencySelectPanel" name="PurchaseCurrencySelectPanel">
+            <FrameHandlePrefix val="HeroSelectTalentsPanel"/>
+            <Visible val="false"/>
+        </Frame>-->
+
+        <Frame type="Frame" name="HeroContainerFrame" template="HeroSelectCustomizePanel/HeroContainerFrameTemplate">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="7"/>
+            <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="-14"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="110"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderLineImage">
+            <Anchor side="Top" relative="$parent/HeroContainerFrame" pos="Max" offset="-2"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-4"/>
+            <Alpha val="186"/>
+            <Color val="5c47b3"/>
+            <Height val="2"/>
+        </Frame>
+
+        <!--<Frame type="TalentTooltip" name="HeroTalentTooltip" template="StandardTooltipStorm/TalentTooltipTemplate"/>-->
+
+        <Frame type="Frame" name="TalentBuildSelection" template="TalentPicker/TalentBuildSelectionTemplate">
+            <Anchor side="Top" relative="$parent/BorderLineImage" pos="Max" offset="-40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-4"/>
+            <Height val="40"/>
+            <!--
+            <Frame Type="TalentBuildContextMenu" name="ContextMenu" template="StandardTemplates/StandardContextMenuTemplate" >
+                <UseAnchors val="true"/>
+                <Anchor side="Top" relative="$parent/ContextMenuButton" pos="Min" offset="-20"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            </Frame>-->
+
+            <Frame type="Button" name="ContextMenuButton" template="StandardTemplatesStorm/ContextMenuButtonTemplate">
+              <Anchor side="Top" relative="$parent" pos="Mid" offset="-3"/>
+              <Anchor side="Bottom" relative="$parent" pos="Mid" offset="-3"/>
+              <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+              <IgnoreParentColor val="true"/>
+              <ContextMenu val="$parent/ContextMenu"/>
+              <AllowedButtons val="Left"/>
+              <ContextMenuButtons val="Left"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="TalentTreePanel" template="HeroTalentTreePanel/HeroTalentTreePanelTemplate">
+            <Anchor side="Top" relative="$parent/BorderLineImage" pos="Max" offset="-1"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-8"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-4"/>
+
+            <Frame type="Frame" name="TierButtonsBackground">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+            </Frame>
+        </Frame>
+
+        <Animation name="SlideInSound">
+            <Event event="Show" action="DirectionForward,Play"/>
+            <Event event="Hide" action="DirectionReverse,Play"/>
+            <Controller type="Sound" end="Pause">
+                <Key type="Sound" time="0.00" sound="@UI_BNet_HeroDetailsOpen" direction="Forward"/>
+                <Key type="Sound" time="0.175" sound="@UI_BNet_HeroDetailsClose" direction="Reverse"/>
+            </Controller>
+        </Animation>
+    </Frame>
+</Desc>

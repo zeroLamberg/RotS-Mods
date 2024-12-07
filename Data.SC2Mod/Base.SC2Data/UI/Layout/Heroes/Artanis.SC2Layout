@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Frame type="SelectionUnitStatusPanel" name="ArtanisFrame">
+    <Anchor relative="$parent" />
+    <SpecificUnit val="HeroArtanis" />
+    <Frame type="Image" name="HealthIndicator">
+      <Anchor side="Bottom" relative="$parent/$parent/$parent/HeroConsolePanel/HeroStatsFrame/HeroUnitStatusFrame/HealthBar" pos="Mid" offset="0" />
+      <Anchor side="Left" relative="$parent/$parent/$parent/HeroConsolePanel/HeroStatsFrame/HeroUnitStatusFrame/HealthBar" pos="25%" offset="-15" />
+      <Texture val="Assets\Textures\storm_ui_hud_alexstrasza_marker.dds" />
+      <Unclipped val="True" />
+    </Frame>
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+      <Anchor relative="$parent" />
+      <Frame type="UnitStatusValidatorAnimElement" name="ArtanisFrameValidators">
+        <Anchor relative="$parent" />
+        <Validator val="IsDead" />
+        <Animation name="IsDead">
+          <Event event="Reset" action="Stop" />
+          <Event event="NoState" action="Stop" />
+          <Event event="IsDead" action="Restart, Play" />
+        </Animation>
+      </Frame>
+    </Frame>
+    <StateGroup name="StateGroup">
+      <State name="Dead">
+        <When type="AnimationState" frame="UnitStatusFrame0/ArtanisFrameValidators" UnitStatusValidatorState="IsDead" />
+        <Action type="SetProperty" frame="HealthIndicator" Texture="Assets\Textures\storm_ui_hud_alexstrasza_marker_dead.dds" />
+      </State>
+    </StateGroup>
+  </Frame>
+</Desc>

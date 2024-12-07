@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CPreloadModel id="UI_Cursor_Circle_Modern">
+        <Link value="Storm_UI_AOECursor_Modern"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_Circle_FantasyOld"/>
+    <CPreloadModel id="UI_Cursor_Circle_FantasyOld_TeamColored"/>
+    <CPreloadModel id="UI_Cursor_Circle_Fantasy_TeamColored">
+        <Link value="Storm_UI_AOECursor_Fantasy_TeamColor"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_Circle_SciFi">
+        <Link value="Storm_UI_AOECursor_SciFi"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_Circle_Modern_TeamColored">
+        <Link value="Storm_UI_AOECursor_Modern_TeamColor"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_Circle_SciFi_TeamColored">
+        <Link value="Storm_UI_AOECursor_SciFi_TeamColor"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_End_Fantasy_Low">
+        <Link value="Storm_UI_AOEStretchLine_End_Fantasy_Low"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_End_SciFi">
+        <Link value="Storm_UI_AOEStretchLine_End_Purifier"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_Mid_Fantasy_Low">
+        <Link value="Storm_UI_AOEStretchLine_Mid_Fantasy_Low"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_Start_Fantasy_Low">
+        <Link value="Storm_UI_AOEStretchLine_Start_Fantasy_Low"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_Start_SciFi">
+        <Link value="Storm_UI_AOEStretchLine_Start_SciFi"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_Start_Fantasy">
+        <Link value="Storm_UI_AOEStretchLine_Start_Fantasy"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_StartFade_Fantasy">
+        <Link value="Storm_UI_AOEStretchLine_StartFade_Fantasy"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_End_Fantasy">
+        <Link value="Storm_UI_AOEStretchLine_End_Fantasy"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_Mid_Fantasy">
+        <Link value="Storm_UI_AOEStretchLine_Mid_Fantasy"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_Cursor_StretchLine_Mid_SciFi">
+        <Link value="Storm_UI_AOEStretchLine_Mid_SciFi"/>
+    </CPreloadModel>
+    <CPreloadModel id="UI_RangeSplat"/>
+    <CPreloadModel id="UI_Cursor_Circle_Fantasy">
+        <Link value="Storm_UI_AOECursor_Fantasy"/>
+    </CPreloadModel>
+</Catalog>

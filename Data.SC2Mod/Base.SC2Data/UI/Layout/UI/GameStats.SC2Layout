@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+  <Frame type="CountdownLabel" name="CountdownLabelTemplate">
+    <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+    <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+    <Options val="Ellipsis | NoWrapping" />
+    <Style val="MVP_EndingNotice" />
+    <StartValue val="0" />
+    <TargetValue val="#GameEndCountdownStart" />
+    <IntegerBias val="Ceil" />
+    <CountdownText val="@UI/EndOfGameAwards/EndingSoon" />
+  </Frame>  
+  <Frame type="ProgressBar" name="ProgressBar">
+    <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+    <Anchor side="Right" relative="$parent/CountdownLabel" pos="Min" offset="0" />
+    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+    <Width val="70" />
+    <Height val="70" />
+    <MinValue val="0" />
+    <MaxValue val="1.0" />
+    <Circular val="True" />
+    <CircularStart val="360" />
+    <CircularEndOffset val="-360" />
+    <FillInset val="0.0" />
+    <Frame type="Frame" name="FillImageContainer">
+      <Anchor relative="$parent" />
+      <Frame type="Image" name="FillImage">
+        <Anchor relative="$parent" />
+        <Texture val="@UI/eom_timer" />
+        <TextureType layer="0" val="Circular" />
+      </Frame>
+    </Frame>
+  </Frame>
+
+  <Frame type="Frame" name="GameStatsPanelTemplate">
+    <Height val="300"/>
+    <Width val="650"/>
+    <Visible val="False"/>
+    <Alpha val="0"/>
+    <VisibilityOnFade val="True"/>
+    <Animation name="ToggleVisibility">
+      <Event event="OnShown" action="DirectionForward,Play" frame="$this" />
+      <Controller type="Fade" end="Pause">
+        <Key type="Curve" time="0" value="0" />
+        <Key type="Curve" time="1" value="255" />
+      </Controller>
+      <Controller type="Sound" end="Pause">
+        <Key type="Sound" time="0.0" sound="@UI_Game_StatsContainerAppears" direction="Forward" />
+        <Key type="Sound" time="0.175" sound="@UI_Game_StatsContainerHides" direction="Reverse" />
+      </Controller>
+    </Animation>
+    <Frame type="Image" name="Background">
+      <Anchor relative="$parent"/>
+      <Texture val="Assets\Textures\ui_console_helperbutton_background_imperial.dds"/>
+      <TextureType val="NineSlice"/>
+      <RenderPriority val="500"/>
+      <Visible val="True"/>
+    </Frame>
+    <Frame type="Image" name="BackTexture">
+      <Anchor side="Top" relative="$parent" pos="0" offset="4"/>
+      <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+      <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="-4"/>
+      <Alpha val="70"/>
+      <Color val="128,74,228"/>
+      <TextureType val="Normal"/>
+      <RenderPriority val="500"/>
+      <Visible val="True"/>
+    </Frame>
+    <Frame type="Label" name="Title">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Style val="ChallengeVictoryTitle"/>
+      <Width val="325"/>
+      <Text val="@UI/GameStats/Title"/>
+    </Frame>
+    <Frame type="Label" name="Description">
+      <Anchor side="Top" relative="$parent/Title" pos="Max" offset="0"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Width val="400"/>
+      <RenderPriority val="520" />
+      <Text val="@UI/GameStats/Description"/>
+      <Style val="HeroSelectPanelPurchaseError" />
+    </Frame>
+    <!--<Frame type="Frame" name="LinkBox">
+      <Anchor side="Top" relative="$parent/Description" pos="Max" offset="10" />
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Height val="54" />
+      <Width val="440" />
+      <Visible val="False"/>
+      <Frame type="Image" name="Image">
+        <Anchor relative="$parent" />
+        <Texture val="@UI/Storm_inputbox" />
+        <TextureType val="Nineslice" />
+      </Frame>
+      <Frame type="Frame" name="LabelContainerFrame">
+        <Anchor relative="$parent" />
+        <Frame type="Label" name="Label">
+          <Anchor relative="$parent" />
+          <Text val="Match0123456789012345678.SC2Bank"/>
+          <Style val="StandardEditBoxLabelCentered" />
+          <Options val="Ellipsis | IgnoreFormatTags" />
+        </Frame>
+      </Frame>
+    </Frame>
+    <Frame type="Label" name="ClipboardLabel">
+      <Anchor relative="$parent" pos="Mid"/>
+      <Width val="1"/>
+      <Height val="1"/>
+      <AcceptsMouse val="False"/>
+      <Text val="123"/>
+      <Visible val="False"/>
+    </Frame>
+    <Frame type="CopyClipboardButton" name="CopyButton" template="StandardTemplatesStorm/StandardButtonMiniTemplate">
+      <Anchor side="Top" relative="$parent/LinkBox" pos="Max" offset="0"/>
+      <Anchor side="Left" relative="$parent" pos="0" offset="0"/>
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+      <ClipboardText val="{$parent/ClipboardLabel/@Text}"/>
+      <ClickSound val="@UI_ActionButtonSelect"/>
+      <HoverSound val="@UI_HoverTick"/>
+      <NormalImage val="NormalImage" />
+      <AllowedButtons val="Left" />
+      <Visible val="False"/>
+      <Frame type="Image" name="SelectedBorder">
+        <Anchor relative="$parent" offset="2"/>
+        <Texture val="Assets\Textures\ui_console_tooltip_background_specialforces.dds"/>
+        <TextureType val="Border"/>
+        <RenderPriority val="200"/>
+        <Visible val="False"/>
+      </Frame>
+      <Frame type="Image" name="TextureBottom">
+        <Anchor relative="$parent" offset="2"/>
+        <Texture val="Assets\Textures\ui_battlenet_glue_coop_score_commander_nameplate.dds" layer="0" />
+        <DesaturateOnDisable val="true" />
+        <RenderPriority val="550" />
+        <TextureType val="Normal"/>
+        <Visible val="False"/>
+      </Frame>
+      <Frame type="Image" name="TextureTop">
+        <Anchor relative="$parent" offset="2"/>
+        <Texture val="Assets\Textures\ui_battlenet_glue_coop_score_commander_nameplate.dds" layer="0" />
+        <DesaturateOnDisable val="true" />
+        <RenderPriority val="550" />
+        <TextureType val="Normal"/>
+        <Visible val="False"/>
+        <RotationPosition val="MiddleCenter"/>
+        <Rotation val="180"/>
+      </Frame>
+      <Frame type="Label" name="Label">
+        <Text val="Copy"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="CopyPopup">
+      <Visible val="False"/>
+      <Anchor side="Bottom" relative="$parent/CopyButton" pos="Min" offset="10"/>
+      <Anchor side="Left" relative="$parent/CopyButton" pos="Min" offset="0"/>
+      <Anchor side="Right" relative="$parent/CopyButton" pos="Max" offset="0"/>
+      <Width val="200"/>
+      <Height val="40"/>
+      <Alpha val="0"/>
+      <Frame type="Label" name="Header">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Style val="BattlenetAlternateButton"/>
+        <Text val="Copied!"/>
+      </Frame>
+      <Animation name="Show">
+        <Event event="OnClick" action="Reset,Play" frame="$parent/CopyButton"/>
+        <Controller type="Fade" end="Pause">
+          <Key type="Curve" time="0" value="0" in="Slow"/>
+          <Key type="Curve" time="0.5" value="255" in="Slow"/>
+          <Key type="Curve" time="0.75" value="0" in="Slow"/>
+          <Key type="Curve" time="1" value="0" in="Slow"/>
+        </Controller>
+        <Controller type="Dimension" dimension="Width" relative="False" percentage="True" end="Pause">
+          <Key type="Curve" time="0" value="0"/>
+          <Key type="Curve" time="0.5" value="100"/>
+          <Key type="Curve" time="5" value="100"/>
+          <Key type="Curve" time="5.5" value="0"/>
+        </Controller>
+        <Controller type="Dimension" dimension="Height" relative="False" percentage="True" end="Pause">
+          <Key type="Curve" time="0" value="0"/>
+          <Key type="Curve" time="0.5" value="100"/>
+          <Key type="Curve" time="5" value="100"/>
+          <Key type="Curve" time="5.5" value="0"/>
+        </Controller>
+      </Animation>
+    </Frame>-->
+    <Frame type="Frame" name="SupportBox">
+      <Anchor side="Top" relative="$parent/Description" pos="Max" offset="10" />
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Height val="80" />
+      <Width val="360" />
+      <Frame type="Image" name="Image">
+        <Anchor relative="$parent" />
+        <Texture val="@UI/Storm_inputbox" />
+        <TextureType val="Nineslice" />
+      </Frame>
+    </Frame>
+    <Frame type="Button" name="GameOverExitButton" template="StandardTemplatesStorm/StandardButtonSmallTemplate">
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+      <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+      <Height val="60"/>
+      <Width val="160"/>
+      <Text val="@UI/GameStats/Exit"/>
+      <HoverSound val="@UI_HoverTick"/>
+      <Frame type="Label" name="Label">
+        <Anchor relative="$parent" offset="-8"/>
+      </Frame>
+      <Frame type="Frame" name="HitTestFrame">
+        <Anchor relative="$parent" offset="-8"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame1" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Left" relative="$parent/$parent/SupportBox" pos="Min" offset="15"/>
+        <Width val="160"/>
+        <Text val="@UI/Patreon"/>
+        <URL val="https://www.patreon.com/resurgenceofthestorm"/>
+        <HoverSound val="@UI_HoverTick"/>
+        <Tooltip val="{$this/@URL}"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame2" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Left" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent/$parent/SupportBox" pos="Max" offset="-15"/>
+        <Width val="160"/>
+        <Text val="@UI/Boosty"/>
+        <URL val="https://boosty.to/resurgenceofthestorm"/>
+        <HoverSound val="@UI_HoverTick"/>
+        <Tooltip val="{$this/@URL}"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame3" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Bottom" relative="$parent/$parent/GameOverExitButton" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/$parent/GameOverExitButton" pos="Max" offset="0"/>
+        <Width val="160"/>
+        <Text val="Report a Bug"/>
+        <URL val="https://discord.com/channels/748898705452564580/1191396425519599737"/>
+        <HoverSound val="@UI_HoverTick"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame4" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Bottom" relative="$parent/$parent/GameOverExitButton" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/$parent/WebsiteFrame3/WebsiteButton" pos="Max" offset="0"/>
+        <Width val="160"/>
+        <Text val="Feedback"/>
+        <URL val="https://discord.com/channels/748898705452564580/1191394542470041680"/>
+        <HoverSound val="@UI_HoverTick"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame5" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Bottom" relative="$parent/$parent/GameOverExitButton" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/$parent/WebsiteFrame4/WebsiteButton" pos="Max" offset="0"/>
+        <Width val="160"/>
+        <Text val="Suggestion"/>
+        <URL val="https://discord.com/channels/748898705452564580/1191394542470041680"/>
+        <HoverSound val="@UI_HoverTick"/>
+      </Frame>
+    </Frame>
+  </Frame>
+
+  
+  <Frame type="Frame" name="GameStatsPanelTemplate2">
+    <Height val="300"/>
+    <Width val="650"/>
+    <Visible val="False"/>
+    <Alpha val="0"/>
+    <VisibilityOnFade val="True"/>
+    <Animation name="ToggleVisibility">
+      <Event event="OnShown" action="DirectionForward,Play" frame="$this" />
+      <Controller type="Fade" end="Pause">
+        <Key type="Curve" time="0" value="0" />
+        <Key type="Curve" time="1" value="255" />
+      </Controller>
+      <Controller type="Sound" end="Pause">
+        <Key type="Sound" time="0.0" sound="@UI_Game_StatsContainerAppears" direction="Forward" />
+        <Key type="Sound" time="0.175" sound="@UI_Game_StatsContainerHides" direction="Reverse" />
+      </Controller>
+    </Animation>
+    <Frame type="Image" name="Background">
+      <Anchor relative="$parent"/>
+      <Texture val="Assets\Textures\ui_console_helperbutton_background_imperial.dds"/>
+      <TextureType val="NineSlice"/>
+      <RenderPriority val="500"/>
+      <Visible val="True"/>
+    </Frame>
+    <Frame type="Image" name="BackTexture">
+      <Anchor side="Top" relative="$parent" pos="0" offset="4"/>
+      <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+      <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="-4"/>
+      <Alpha val="70"/>
+      <Color val="128,74,228"/>
+      <TextureType val="Normal"/>
+      <RenderPriority val="500"/>
+      <Visible val="True"/>
+    </Frame>
+    <Frame type="Label" name="Title">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Style val="ChallengeVictoryTitle"/>
+      <Width val="325"/>
+      <Text val="@UI/GameStats/Title"/>
+    </Frame>
+    <Frame type="Label" name="Description">
+      <Anchor side="Top" relative="$parent/Title" pos="Max" offset="0"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Width val="400"/>
+      <RenderPriority val="520" />
+      <Text val="@UI/GameStats/Description"/>
+      <Style val="HeroSelectPanelPurchaseError" />
+    </Frame>
+    <Frame type="Frame" name="SupportBox">
+      <Anchor side="Top" relative="$parent/Description" pos="Max" offset="10" />
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Height val="80" />
+      <Width val="360" />
+      <Frame type="Image" name="Image">
+        <Anchor relative="$parent" />
+        <Texture val="@UI/Storm_inputbox" />
+        <TextureType val="Nineslice" />
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="Countdown">
+      <Anchor side="Top" relative="$parent/GameOverExitButton" pos="Mid" offset="0"/>
+      <Anchor side="Bottom" relative="$parent/GameOverExitButton" pos="Mid" offset="0" />
+      <Anchor side="Left" relative="$parent/GameOverExitButton" pos="Max" offset="0" />
+      <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+      <Height val="80" />
+      <RenderPriority val="910" />
+      <UseAlternateTime val="true" />
+      <Frame type="Image" name="ImageBack">
+        <Anchor relative="$parent/ProgressBar" />
+        <Texture val="@UI/eom_timer" />
+        <Alpha val="64" />
+      </Frame>
+      <Frame type="ProgressBar" name="ProgressBar">
+        <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+        <Width val="70" />
+        <Height val="70" />
+        <MinValue val="0" />
+        <Value val="0"/>
+        <MaxValue val="1" />
+        <Circular val="True" />
+        <CircularStart val="360" />
+        <CircularEndOffset val="-360" />
+        <FillInset val="1" />
+        <Frame type="Frame" name="FillImageContainer">
+          <Anchor relative="$parent" />
+          <Frame type="Image" name="FillImage">
+            <Anchor relative="$parent" />
+            <Texture val="@UI/eom_timer" />
+            <TextureType layer="0" val="Circular" />
+          </Frame>
+        </Frame>
+      </Frame>
+      <Frame type="Label" name="CountdownLabel">
+        <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/ProgressBar" pos="Max" offset="0"/>
+        <Options val="Ellipsis | NoWrapping" />
+        <Style val="MVP_EndingNotice" />
+        <Text val="@UI/EndOfGameAwards/EndingSoon"/>
+      </Frame>
+    </Frame>
+    <Frame type="Button" name="GameOverExitButton" template="StandardTemplatesStorm/StandardButtonSmallTemplate">
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+      <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+      <Height val="60"/>
+      <Width val="160"/>
+      <Text val="@UI/GameStats/Exit"/>
+      <HoverSound val="@UI_HoverTick"/>
+      <Frame type="Label" name="Label">
+        <Anchor relative="$parent" offset="-8"/>
+      </Frame>
+      <Frame type="Frame" name="HitTestFrame">
+        <Anchor relative="$parent" offset="-8"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame1" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Left" relative="$parent/$parent/SupportBox" pos="Min" offset="15"/>
+        <Width val="160"/>
+        <Text val="@UI/Patreon"/>
+        <URL val="https://www.patreon.com/resurgenceofthestorm"/>
+        <HoverSound val="@UI_HoverTick"/>
+        <Tooltip val="{$this/@URL}"/>
+      </Frame>
+    </Frame>
+    <Frame type="Frame" name="WebsiteFrame2" template="StandardTemplatesStorm/WebsiteButtonTemplateStorm">
+      <Anchor relative="$parent"/>
+      <Frame type="LaunchURLButton" name="WebsiteButton" template="StoreTemplates/BuyButtonSmallTemplate">
+        <Anchor side="Left" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/$parent/SupportBox" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent/$parent/SupportBox" pos="Max" offset="-15"/>
+        <Width val="160"/>
+        <Text val="@UI/Boosty"/>
+        <URL val="https://boosty.to/resurgenceofthestorm"/>
+        <HoverSound val="@UI_HoverTick"/>
+        <Tooltip val="{$this/@URL}"/>
+      </Frame>
+    </Frame>
+  </Frame>
+
+</Desc>

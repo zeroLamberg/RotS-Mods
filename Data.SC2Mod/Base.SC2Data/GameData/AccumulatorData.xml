@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorUserData default="1" id="StormUserDataGeneral">
+        <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
+    </CAccumulatorUserData>
+    <CAccumulator default="1" id="BaseAccumulator">
+        <MinAccumulation value="0"/>
+    </CAccumulator>
+    <CAccumulatorVitals default="1" id="BaseVitalAccumulator">
+        <MinAccumulation value="0"/>
+        <ApplicationRule value="Multiply"/>
+        <Ratio value="1"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="DamageModifierIncreasedDamageCreep100Modifier">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="DamageModifierIncreasedDamageCreep100">
+        <CaseArray Validator="TargetIsCreep" Accumulator="DamageModifierIncreasedDamageCreep100Modifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorVitals id="HeroGenericVitalFractionalDamageMultiply">
+        <MinAccumulation value="0"/>
+        <MaxAccumulation value="36.51"/>
+        <ApplicationRule value="Multiply"/>
+        <Ratio value="0.01"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+        <ClampToMaxVitalForFractionalDamage value="1"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HeroGenericVitalFractionalCurrentDamageMultiply">
+        <MinAccumulation value="0"/>
+        <MaxAccumulation value="36.51"/>
+        <ApplicationRule value="Multiply"/>
+        <Ratio value="0.01"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+        <ClampToMaxVitalForFractionalDamage value="1"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="Constant16Multiply">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="16"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="ConstantMultiply0dot08332">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="0.0832"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="DamageModifierIncreasedDamageMercenary100Percent">
+        <CaseArray Validator="StormTargetIsMercenary" Accumulator="DamageModifierIncreasedDamageMercenary100PercentModifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorConstant id="DamageModifierIncreasedDamageMercenary100PercentModifier">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="DamageModifierIncreasedDamageStructure100Percent">
+        <CaseArray Validator="TargetIsStructure" Accumulator="DamageModifierIncreasedDamageStructure100PercentModifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorSwitch id="DamageModifierIncreasedDamageMinion100Percent">
+        <CaseArray Validator="StormTargetIsLaneMinion" Accumulator="DamageModifierIncreasedDamageMinion100PercentModifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorSwitch id="DamageModifierIncreasedDamageMonster100Percent">
+        <CaseArray Validator="StormTargetIsMonster" Accumulator="DamageModifierIncreasedDamageMonster100PercentModifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorConstant id="DamageModifierIncreasedDamageSummon100PercentModifier">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="DamageModifierIncreasedDamageSummon100Percent">
+        <CaseArray Validator="TargetIsSummoned" Accumulator="DamageModifierIncreasedDamageSummon100PercentModifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorConstant id="DamageModifierIncreasedDamageStructure100PercentModifier">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="DamageModifierIncreasedDamageMinion100PercentModifier">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="DamageModifierIncreasedDamageMonster100PercentModifier">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="BossUnitSpellDamageScalingSwitch">
+        <CaseArray Validator="CasterisaGolemUnderworld" Accumulator="0"/>
+        <CaseArray Validator="CasterisaGolemUnderworldSummoned"/>
+        <CaseArray Validator="CasterisaGolemDefender" Accumulator="MercGraveGolemDefenderSpellDamageScaling"/>
+        <CaseArray Validator="CasterisaGolemLaner" Accumulator="MercGraveGolemLanerWeaponDamageScaling"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorUserData id="HeroGenericUserDataDefault"/>
+    <CAccumulatorUserData id="HeroGenericUserDataDefaultMultiply">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorUserData>
+    <!--0.05/ 0.06/ 0.06/ 0.07/ 0.07/ 0.07 x5-->
+    <CAccumulatorVeterancyLevel id="MercGraveGolemLanerSpellDamageScaling">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="0"/>
+        <Amount value="0.05"/>
+        <Amount value="0.1"/>
+        <Amount value="0.15"/>
+        <Amount value="0.2"/>
+        <Amount value="0.25"/>
+        <Amount value="0.31"/>
+        <Amount value="0.37"/>
+        <Amount value="0.43"/>
+        <Amount value="0.49"/>
+        <Amount value="0.55"/>
+        <Amount value="0.61"/>
+        <Amount value="0.67"/>
+        <Amount value="0.73"/>
+        <Amount value="0.79"/>
+        <Amount value="0.85"/>
+        <Amount value="0.92"/>
+        <Amount value="0.99"/>
+        <Amount value="1.06"/>
+        <Amount value="1.13"/>
+        <Amount value="1.2"/>
+        <Amount value="1.27"/>
+        <Amount value="1.34"/>
+        <Amount value="1.41"/>
+        <Amount value="1.48"/>
+        <Amount value="1.55"/>
+        <Amount value="1.62"/>
+        <Amount value="1.69"/>
+        <Amount value="1.76"/>
+        <Amount value="1.83"/>
+        <Amount value="1.89"/>
+    </CAccumulatorVeterancyLevel>
+    <!--10/ 15/ 20/ 25/ 30/ 30 x5-->
+    <CAccumulatorVeterancyLevel id="MercGraveGolemLanerWeaponDamageScaling">
+        <Amount value="0"/>
+        <Amount value="10"/>
+        <Amount value="20"/>
+        <Amount value="30"/>
+        <Amount value="40"/>
+        <Amount value="50"/>
+        <Amount value="65"/>
+        <Amount value="80"/>
+        <Amount value="95"/>
+        <Amount value="110"/>
+        <Amount value="125"/>
+        <Amount value="145"/>
+        <Amount value="165"/>
+        <Amount value="185"/>
+        <Amount value="205"/>
+        <Amount value="225"/>
+        <Amount value="250"/>
+        <Amount value="275"/>
+        <Amount value="300"/>
+        <Amount value="325"/>
+        <Amount value="350"/>
+        <Amount value="380"/>
+        <Amount value="410"/>
+        <Amount value="440"/>
+        <Amount value="470"/>
+        <Amount value="500"/>
+        <Amount value="530"/>
+        <Amount value="560"/>
+        <Amount value="590"/>
+        <Amount value="620"/>
+        <Amount value="650"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorSwitch id="GraveGolemDefenderWeaponDamageSwitch">
+        <CaseArray Validator="TargetIsSummoned" Accumulator="MercGraveGolemDefenderWeaponDamageSummonBonus"/>
+    </CAccumulatorSwitch>
+    <!--0.05/ 0.06/ 0.06/ 0.07/ 0.07/ 0.07 x5-->
+    <CAccumulatorVeterancyLevel id="MercGraveGolemDefenderSpellDamageScaling">
+        <Amount value="0"/>
+        <Amount value="0.05"/>
+        <Amount value="0.1"/>
+        <Amount value="0.15"/>
+        <Amount value="0.2"/>
+        <Amount value="0.25"/>
+        <Amount value="0.31"/>
+        <Amount value="0.37"/>
+        <Amount value="0.43"/>
+        <Amount value="0.49"/>
+        <Amount value="0.55"/>
+        <Amount value="0.61"/>
+        <Amount value="0.67"/>
+        <Amount value="0.73"/>
+        <Amount value="0.79"/>
+        <Amount value="0.85"/>
+        <Amount value="0.92"/>
+        <Amount value="0.99"/>
+        <Amount value="1.06"/>
+        <Amount value="1.13"/>
+        <Amount value="1.2"/>
+        <Amount value="1.27"/>
+        <Amount value="1.34"/>
+        <Amount value="1.41"/>
+        <Amount value="1.48"/>
+        <Amount value="1.55"/>
+        <Amount value="1.62"/>
+        <Amount value="1.69"/>
+        <Amount value="1.76"/>
+        <Amount value="1.83"/>
+        <Amount value="1.89"/>
+        <ApplicationRule value="AdditiveMultiply"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorConstant id="MercGraveGolemDefenderWeaponDamageSummonBonus">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorVitals id="CasterEnergyMaxAdd" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <VitalType value="Energy"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="ConstantMultiply0">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorConstant>
+    <CAccumulatorVitals id="EnergyPercentMax1" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Ratio value="0.01"/>
+        <VitalType value="Energy"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="EnergyPercentMax1Multiply" parent="EnergyPercentMax1">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthCurrent" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthCurrentCaster" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <!--1.1/1.65/2.2/2.75/3.3/3.3 x5-->
+    <CAccumulatorVeterancyLevel id="KnightLanerWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="1.1"/>
+        <Amount value="2.2"/>
+        <Amount value="3.3"/>
+        <Amount value="4.4"/>
+        <Amount value="5.5"/>
+        <Amount value="7.15"/>
+        <Amount value="8.8"/>
+        <Amount value="10.45"/>
+        <Amount value="12.1"/>
+        <Amount value="13.75"/>
+        <Amount value="15.95"/>
+        <Amount value="18.15"/>
+        <Amount value="20.35"/>
+        <Amount value="22.55"/>
+        <Amount value="24.75"/>
+        <Amount value="27.5"/>
+        <Amount value="30.25"/>
+        <Amount value="33"/>
+        <Amount value="35.75"/>
+        <Amount value="38.5"/>
+        <Amount value="41.8"/>
+        <Amount value="45.1"/>
+        <Amount value="48.4"/>
+        <Amount value="51.7"/>
+        <Amount value="55"/>
+        <Amount value="58.3"/>
+        <Amount value="61.6"/>
+        <Amount value="64.9"/>
+        <Amount value="68.2"/>
+        <Amount value="71.5"/>
+    </CAccumulatorVeterancyLevel>
+    <!--2/3/4/5/6/6 x5-->
+    <CAccumulatorVeterancyLevel id="MageDefenderWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="2"/>
+        <Amount value="4"/>
+        <Amount value="6"/>
+        <Amount value="8"/>
+        <Amount value="10"/>
+        <Amount value="13"/>
+        <Amount value="16"/>
+        <Amount value="19"/>
+        <Amount value="22"/>
+        <Amount value="25"/>
+        <Amount value="29"/>
+        <Amount value="33"/>
+        <Amount value="37"/>
+        <Amount value="41"/>
+        <Amount value="45"/>
+        <Amount value="50"/>
+        <Amount value="55"/>
+        <Amount value="60"/>
+        <Amount value="65"/>
+        <Amount value="70"/>
+        <Amount value="76"/>
+        <Amount value="82"/>
+        <Amount value="88"/>
+        <Amount value="94"/>
+        <Amount value="100"/>
+        <Amount value="106"/>
+        <Amount value="112"/>
+        <Amount value="118"/>
+        <Amount value="124"/>
+        <Amount value="130"/>
+    </CAccumulatorVeterancyLevel>
+    <!--2/3/4/5/6/6 x5-->
+    <CAccumulatorVeterancyLevel id="MageLanerWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="2"/>
+        <Amount value="4"/>
+        <Amount value="6"/>
+        <Amount value="8"/>
+        <Amount value="10"/>
+        <Amount value="13"/>
+        <Amount value="16"/>
+        <Amount value="19"/>
+        <Amount value="22"/>
+        <Amount value="25"/>
+        <Amount value="29"/>
+        <Amount value="33"/>
+        <Amount value="37"/>
+        <Amount value="41"/>
+        <Amount value="45"/>
+        <Amount value="50"/>
+        <Amount value="55"/>
+        <Amount value="60"/>
+        <Amount value="65"/>
+        <Amount value="70"/>
+        <Amount value="76"/>
+        <Amount value="82"/>
+        <Amount value="88"/>
+        <Amount value="94"/>
+        <Amount value="100"/>
+        <Amount value="106"/>
+        <Amount value="112"/>
+        <Amount value="118"/>
+        <Amount value="124"/>
+        <Amount value="130"/>
+    </CAccumulatorVeterancyLevel>
+    <!--4.5/ 6.75/ 9/ 11.25/ 13.5/ 13.5 x5-->
+    <CAccumulatorVeterancyLevel id="MercGraveGolemDefenderWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="4.5"/>
+        <Amount value="9"/>
+        <Amount value="13.5"/>
+        <Amount value="18"/>
+        <Amount value="22.5"/>
+        <Amount value="29.25"/>
+        <Amount value="36"/>
+        <Amount value="42.75"/>
+        <Amount value="49.5"/>
+        <Amount value="56.25"/>
+        <Amount value="65.25"/>
+        <Amount value="74.25"/>
+        <Amount value="83.25"/>
+        <Amount value="92.25"/>
+        <Amount value="101.25"/>
+        <Amount value="112.5"/>
+        <Amount value="123.75"/>
+        <Amount value="135"/>
+        <Amount value="146.25"/>
+        <Amount value="157.5"/>
+        <Amount value="171"/>
+        <Amount value="184.5"/>
+        <Amount value="198"/>
+        <Amount value="211.5"/>
+        <Amount value="225"/>
+        <Amount value="238.5"/>
+        <Amount value="252"/>
+        <Amount value="265.5"/>
+        <Amount value="279"/>
+        <Amount value="292.5"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorArithmetic id="Perma25ArmorArithmetic">
+        <Parameters value="25">
+            <AccumulatorArray value="Perma25ArmorStackCount"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="Perma25ArmorStackCount">
+        <ApplicationRule value="Multiply"/>
+        <Behavior value="Perma25Armor"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorVitals id="TargetEnergyMaxAdd" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <VitalType value="Energy"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="ConstantMultiplyMinus1">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="-1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorBehavior id="HeroGenericDeadBehaviorDurationRemaining">
+        <Behavior value="Dead"/>
+        <UnitSource Value="Target"/>
+        <Type value="DurationRemaining"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="TownHallAttackArmorReductionDebuffArithmetic">
+        <Parameters value="-10">
+            <AccumulatorArray value="TownHallAttackArmorReductionDebuffStackCount"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="TownHallAttackArmorReductionDebuffStackCount">
+        <ApplicationRule value="Multiply"/>
+        <Behavior value="TownHallAttackArmorReduction"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorConstant id="Constant0"/>
+    <CAccumulatorVitals id="CasterLifeMaxAdd" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="CasterLifeMaxMultiply" parent="BaseVitalAccumulator">
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="ConstantMultiply0dot01">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="0.01"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="CoreWeaponDamageBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorEffectAmount id="Absorbed">
+        <AmountType value="Absorbed"/>
+    </CAccumulatorEffectAmount>
+    <CAccumulatorEffectAmount id="AbsorbedMultiply" parent="Absorbed">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorEffectAmount>
+    <CAccumulatorEffectAmount id="Healed">
+        <AmountType value="Healed"/>
+        <Total value="1"/>
+    </CAccumulatorEffectAmount>
+    <CAccumulatorEffectAmount id="HealedMultiply" parent="Healed">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorEffectAmount>
+    <CAccumulatorVitals id="HealthCurrentMissing" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Missing value="1"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthCurrentMissingCaster" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Missing value="1"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentMax100Multiply" parent="BaseVitalAccumulator">
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentMax10Multiply" parent="BaseVitalAccumulator">
+        <Ratio value="0.1"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentMax1Multiply" parent="BaseVitalAccumulator">
+        <Ratio value="0.01"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <!--1/1.5/2/2.5/3/3 x5-->
+    <CAccumulatorVeterancyLevel id="KnightDefenderWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="1"/>
+        <Amount value="2"/>
+        <Amount value="3"/>
+        <Amount value="4"/>
+        <Amount value="5"/>
+        <Amount value="6.5"/>
+        <Amount value="8"/>
+        <Amount value="9.5"/>
+        <Amount value="11"/>
+        <Amount value="12.5"/>
+        <Amount value="14.5"/>
+        <Amount value="16.5"/>
+        <Amount value="18.5"/>
+        <Amount value="20.5"/>
+        <Amount value="22.5"/>
+        <Amount value="25"/>
+        <Amount value="27.5"/>
+        <Amount value="30"/>
+        <Amount value="32.5"/>
+        <Amount value="35"/>
+        <Amount value="38"/>
+        <Amount value="41"/>
+        <Amount value="44"/>
+        <Amount value="47"/>
+        <Amount value="50"/>
+        <Amount value="53"/>
+        <Amount value="56"/>
+        <Amount value="59"/>
+        <Amount value="62"/>
+        <Amount value="65"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorBehavior id="StructureAmmoDisableArmorStackCount">
+        <Behavior value="StructureAmmoDisabler"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorConstant id="StructureAmmoDisableArmorConstant">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="-50"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="StructureDamageSummonedBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="-0.5"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="StructureDamageSwitch">
+        <CaseArray Validator="StormTargetIsStructure" Accumulator="StructureDamageStructureBonus"/>
+        <CaseArray Validator="StormTargetIsSummoned" Accumulator="StructureDamageSummonedBonus"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorSwitch id="CoreWeaponDamageSwitch">
+        <CaseArray Validator="StormTargetIsStructure" Accumulator="CoreWeaponDamageBonus"/>
+        <CaseArray Validator="StormTargetIsSummoned" Accumulator="CoreWeaponDamageBonus"/>
+        <CaseArray Validator="StormTargetIsLaneMinion" Accumulator="CoreWeaponDamageBonus"/>
+        <CaseArray Validator="StormTargetIsMercenary" Accumulator="CoreWeaponDamageBonus"/>
+        <CaseArray Validator="StormTargetIsMonster" Accumulator="CoreWeaponDamageBonus"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorSwitch id="UnitStatsPhysicalArmorSwitch">
+        <CaseArray Validator="TargetNotSelf" Accumulator="UnitStatsPhysicalArmor"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorSwitch id="UnitStatsSpellArmorSwitch">
+        <CaseArray Validator="TargetNotSelf" Accumulator="UnitStatsSpellArmor"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorBehavior id="WizardLanerSpellShieldArmorBehavior">
+        <ApplicationRule value="Multiply"/>
+        <Behavior value="WizardLanerSpellShield"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="WizardLanerSpellShieldArmorArithmetic">
+        <Parameters value="20">
+            <AccumulatorArray value="WizardLanerSpellShieldArmorBehavior"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="WizardDefenderSpellShieldArmorBehavior">
+        <ApplicationRule value="Multiply"/>
+        <Behavior value="WizardDefenderSpellShield"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="WizardDefenderSpellShieldArmorArithmetic">
+        <Parameters value="20">
+            <AccumulatorArray value="WizardDefenderSpellShieldArmorBehavior"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorConstant id="Constant0dot1Multiply">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="0.1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="ConstantMultiply0dot25">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="0.25"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="Constant0dot5Multiply">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="0.5"/>
+    </CAccumulatorConstant>
+    <CAccumulatorEffectAmount id="DamageInherited">
+        <AmountType value="DamageInherited"/>
+    </CAccumulatorEffectAmount>
+    <CAccumulatorEffectAmount id="DamageInheritedMultiply" parent="DamageInherited">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorEffectAmount>
+    <CAccumulatorConstant id="DefenderWeaponDamageModifier" parent="BaseAccumulator">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="0.5"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="DefenderWeaponDamageSwitch">
+        <CaseArray Validator="StormCasterIsMercenaryDefender" Accumulator="DefenderWeaponDamageModifier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorVitals id="HealthPercentCurrent1" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Ratio value="0.01"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentCurrent10" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Ratio value="0.1"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentCurrent100" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentCurrent100Multiply" parent="HealthPercentCurrent100">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentCurrent10Multiply" parent="HealthPercentCurrent10">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentCurrent1Multiply" parent="HealthPercentCurrent1">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentMax1" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Ratio value="0.01"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentMax10" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <Ratio value="0.1"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="HealthPercentMax100" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="StructureDamageStructureBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="RegenGlobeNotManaUserSwitch">
+        <CaseArray Validator="TargetNotManaUser" Accumulator="RegenGlobeNotManaUserManaRegenMultiplier"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorConstant id="RegenGlobeNotManaUserManaRegenMultiplier">
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorConstant>
+    <CAccumulatorVitals id="CasterLifeCurrentAdd" parent="BaseVitalAccumulator">
+        <ApplicationRule value="Add"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="CasterLifeCurrentMultiply" parent="BaseVitalAccumulator">
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
+    <CAccumulatorConstant id="Constant1Add">
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="ConstantMultiply1">
+        <ApplicationRule value="Multiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <!--5 x 0.1/0.15/0.2/0.25/0.35/0.35-->
+    <CAccumulatorVeterancyLevel id="MeleeMinionWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="0.1"/>
+        <Amount value="0.2"/>
+        <Amount value="0.3"/>
+        <Amount value="0.4"/>
+        <Amount value="0.5"/>
+        <Amount value="0.65"/>
+        <Amount value="0.8"/>
+        <Amount value="0.95"/>
+        <Amount value="1.1"/>
+        <Amount value="1.25"/>
+        <Amount value="1.45"/>
+        <Amount value="1.65"/>
+        <Amount value="1.85"/>
+        <Amount value="2.05"/>
+        <Amount value="2.25"/>
+        <Amount value="2.5"/>
+        <Amount value="2.75"/>
+        <Amount value="3"/>
+        <Amount value="3.25"/>
+        <Amount value="3.5"/>
+        <Amount value="3.85"/>
+        <Amount value="4.2"/>
+        <Amount value="4.55"/>
+        <Amount value="4.9"/>
+        <Amount value="5.25"/>
+        <Amount value="5.6"/>
+        <Amount value="5.95"/>
+        <Amount value="6.3"/>
+        <Amount value="6.65"/>
+        <Amount value="7"/>
+    </CAccumulatorVeterancyLevel>
+    <!--5 x 0.25/0.375/0.5/0.625/0.875/0.875-->
+    <CAccumulatorVeterancyLevel id="RangedMinionWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="0.25"/>
+        <Amount value="0.5"/>
+        <Amount value="0.75"/>
+        <Amount value="1"/>
+        <Amount value="1.25"/>
+        <Amount value="1.625"/>
+        <Amount value="2"/>
+        <Amount value="2.375"/>
+        <Amount value="2.75"/>
+        <Amount value="3.125"/>
+        <Amount value="3.625"/>
+        <Amount value="4.125"/>
+        <Amount value="4.625"/>
+        <Amount value="5.125"/>
+        <Amount value="5.625"/>
+        <Amount value="6.25"/>
+        <Amount value="6.875"/>
+        <Amount value="7.5"/>
+        <Amount value="8.125"/>
+        <Amount value="8.75"/>
+        <Amount value="9.625"/>
+        <Amount value="10.5"/>
+        <Amount value="11.375"/>
+        <Amount value="12.25"/>
+        <Amount value="13.125"/>
+        <Amount value="14"/>
+        <Amount value="14.875"/>
+        <Amount value="15.75"/>
+        <Amount value="16.625"/>
+        <Amount value="17.5"/>
+    </CAccumulatorVeterancyLevel>
+    <!--5 x 0.04/0.06/0.08/1.0/1.4/1.4-->
+    <CAccumulatorVeterancyLevel id="WizardMinionWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="0.4"/>
+        <Amount value="0.8"/>
+        <Amount value="1.2"/>
+        <Amount value="1.6"/>
+        <Amount value="2"/>
+        <Amount value="2.6"/>
+        <Amount value="3.2"/>
+        <Amount value="3.8"/>
+        <Amount value="4.4"/>
+        <Amount value="5"/>
+        <Amount value="5.8"/>
+        <Amount value="6.6"/>
+        <Amount value="7.4"/>
+        <Amount value="8.2"/>
+        <Amount value="9.6"/>
+        <Amount value="10.6"/>
+        <Amount value="11.6"/>
+        <Amount value="12.6"/>
+        <Amount value="13.6"/>
+        <Amount value="14.6"/>
+        <Amount value="16"/>
+        <Amount value="17.4"/>
+        <Amount value="18.8"/>
+        <Amount value="20.2"/>
+        <Amount value="21.6"/>
+        <Amount value="23"/>
+        <Amount value="24.4"/>
+        <Amount value="25.8"/>
+        <Amount value="27.2"/>
+        <Amount value="28.6"/>
+    </CAccumulatorVeterancyLevel>
+    <!--5 x 11/15/19/23/28/28-->
+    <CAccumulatorVeterancyLevel id="CatapultMinionWeaponDamageScaling" parent="BaseAccumulator">
+        <Amount value="0"/>
+        <Amount value="11"/>
+        <Amount value="22"/>
+        <Amount value="33"/>
+        <Amount value="44"/>
+        <Amount value="55"/>
+        <Amount value="70"/>
+        <Amount value="85"/>
+        <Amount value="100"/>
+        <Amount value="130"/>
+        <Amount value="145"/>
+        <Amount value="164"/>
+        <Amount value="183"/>
+        <Amount value="202"/>
+        <Amount value="221"/>
+        <Amount value="240"/>
+        <Amount value="263"/>
+        <Amount value="286"/>
+        <Amount value="309"/>
+        <Amount value="332"/>
+        <Amount value="355"/>
+        <Amount value="383"/>
+        <Amount value="411"/>
+        <Amount value="439"/>
+        <Amount value="467"/>
+        <Amount value="495"/>
+        <Amount value="523"/>
+        <Amount value="551"/>
+        <Amount value="579"/>
+        <Amount value="607"/>
+        <Amount value="635"/>
+    </CAccumulatorVeterancyLevel>
+    <CAccumulatorConstant id="CatapultMinionWeaponDamageStructureBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="FootmanMinionWeaponDamageMercenaryBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="-0.75"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="RangedMinionWeaponDamageMercenaryBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="0.8"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="WizardMinionWeaponDamageMercenaryBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="RangedMinionWeaponDamageMinionBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="0.8"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="FootmanMinionWeaponDamageMonsterBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="-0.75"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="WizardMinionWeaponDamageMinionBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="RangedMinionWeaponDamageMonsterBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="0.8"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="FootmanMinionWeaponDamageStructureBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="2"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="CatapultMinionWeaponDamageSwitch">
+        <CaseArray Validator="TargetIsStructure" Accumulator="CatapultMinionWeaponDamageStructureBonus"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorConstant id="FootmanMinionWeaponDamageMinionBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="-0.75"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="WizardMinionWeaponDamageMonsterBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="1"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="RangedMinionWeaponDamageStructureBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="2"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="FootmanMinionWeaponDamageSwitch">
+        <CaseArray Validator="StormTargetIsStructure" Accumulator="FootmanMinionWeaponDamageStructureBonus"/>
+        <CaseArray Validator="StormTargetIsLaneMinion" Accumulator="FootmanMinionWeaponDamageMinionBonus"/>
+        <CaseArray Validator="StormTargetIsMercenaryLaner" Accumulator="FootmanMinionWeaponDamageMercenaryBonus"/>
+        <CaseArray Validator="StormTargetIsMonster" Accumulator="FootmanMinionWeaponDamageMonsterBonus"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorConstant id="WizardMinionWeaponDamageStructureBonus" parent="BaseAccumulator">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Amount value="2"/>
+    </CAccumulatorConstant>
+    <CAccumulatorSwitch id="RangedMinionWeaponDamageSwitch">
+        <CaseArray Validator="StormTargetIsStructure" Accumulator="RangedMinionWeaponDamageStructureBonus"/>
+        <CaseArray Validator="StormTargetIsLaneMinion" Accumulator="RangedMinionWeaponDamageMinionBonus"/>
+        <CaseArray Validator="StormTargetIsMercenaryLaner" Accumulator="RangedMinionWeaponDamageMercenaryBonus"/>
+        <CaseArray Validator="StormTargetIsMonster" Accumulator="RangedMinionWeaponDamageMonsterBonus"/>
+    </CAccumulatorSwitch>
+    <CAccumulatorSwitch id="WizardMinionWeaponDamageSwitch">
+        <CaseArray Validator="StormTargetIsStructure" Accumulator="WizardMinionWeaponDamageStructureBonus"/>
+        <CaseArray Validator="StormTargetIsLaneMinion" Accumulator="WizardMinionWeaponDamageMinionBonus"/>
+        <CaseArray Validator="StormTargetIsMercenaryLaner" Accumulator="WizardMinionWeaponDamageMercenaryBonus"/>
+        <CaseArray Validator="StormTargetIsMonster" Accumulator="WizardMinionWeaponDamageMonsterBonus"/>
+    </CAccumulatorSwitch>
+</Catalog>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+<Frame type="SelectionUnitStatusPanel" name="DeltaFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+  <SpecificUnit val="DeltaHero"/>
+
+  <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+
+    <!--<Frame type="Image" name="ChromeRingImage">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="100" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="40" />
+    </Frame>-->
+
+    <Frame type="Image" name="MechanicTexture">
+      <Anchor side="Top" relative="$parent/ChromeRingImage" pos="Min" offset="12" />
+      <Anchor side="Left" relative="$parent/ChromeRingImage" pos="Min" offset="10" />
+      <Height val="62"/>
+      <Width val="62"/>
+      <Texture val="@UI/delta_weapon_gauss"/>
+    </Frame>
+
+    <!--<Frame type="BehaviorIcon" name="Tooltip" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+      <Behavior val="DeltaWeaponGaussRifle@WeaponEquipped"/>
+    </Frame>-->
+
+    <Frame type="Frame" name="CircularHeroUIEffects">
+      <DescFlags val="CreationDeferred"/>
+    </Frame>
+    <Frame type="Frame" name="UpperBarFrame">
+      <DescFlags val="CreationDeferred"/>
+    </Frame>
+    <Frame type="Frame" name="BottomBarFrame">
+      <DescFlags val="CreationDeferred"/>
+    </Frame>
+    <Frame type="UnitStatusValidatorAnimElement" name="UnitStatusValidatorAnimElement">
+      <Validator val="DeltaWeaponGaussRifle@TargetHasWeaponEquipped"/>
+      <Validator val="DeltaWeaponPlasmaCoil@TargetHasWeaponEquipped"/>
+      <Validator val="DeltaWeaponSniper@TargetHasWeaponEquipped"/>
+      <Animation name="GaussRifle">
+        <Event event="DeltaWeaponGaussRifle@TargetHasWeaponEquipped" action="Reset,Play" />
+        <Controller type="Property" end="Pause" frame="$parent/MechanicTexture" property="Texture">
+          <Key type="Property" time="0.0" value="@UI/delta_weapon_gauss"/>
+        </Controller>
+        <!--<Controller type="Property" end="Pause" frame="$parent/Tooltip" property="Behavior">
+          <Key type="Property" time="0.0" value="DeltaWeaponGaussRifle@WeaponEquipped"/>
+        </Controller>-->
+      </Animation>
+      <Animation name="PlasmaCoil">
+        <Event event="DeltaWeaponPlasmaCoil@TargetHasWeaponEquipped" action="Reset,Play" />
+        <Controller type="Property" end="Pause" frame="$parent/MechanicTexture" property="Texture">
+          <Key type="Property" time="0.0" value="@UI/delta_weapon_plasma"/>
+        </Controller>
+        <!--<Controller type="Property" end="Pause" frame="$parent/Tooltip" property="Behavior">
+          <Key type="Property" time="0.0" value="DeltaWeaponPlasmaCoil@WeaponEquipped"/>
+        </Controller>-->
+      </Animation>
+      <Animation name="DeltaWeaponSniper">
+        <Event event="DeltaWeaponSniper@TargetHasWeaponEquipped" action="Reset,Play" />
+        <Controller type="Property" end="Pause" frame="$parent/MechanicTexture" property="Texture">
+          <Key type="Property" time="0.0" value="@UI/delta_weapon_sniper"/>
+        </Controller>
+        <!--<Controller type="Property" end="Pause" frame="$parent/Tooltip" property="Behavior">
+          <Key type="Property" time="0.0" value="DeltaWeaponSniper@WeaponEquipped"/>
+        </Controller>-->
+      </Animation>
+    </Frame>
+    <Frame type="UnitStatusBehaviorIcon" name="UnitStatusWeaponCDIcon">
+      <Anchor relative="$parent" />
+      <Behavior val="DeltaHero@WeaponDummyUI" />
+      <AcceptsMouse val="False" />
+      <Frame type="BehaviorIcon" name="BehaviorIcon">
+        <Anchor relative="$parent" />
+        <AcceptsMouse val="False" />
+        <Frame type="ProgressBar" name="CooldownBar">
+          <Anchor side="Top" relative="$parent/$parent/$parent/ChromeRingImage" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent/$parent/$parent/ChromeRingImage" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent/$parent/$parent/ChromeRingImage" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent/$parent/$parent/ChromeRingImage" pos="Mid" offset="0" />
+          <MinValue val="0" />
+          <MaxValue val="1" />
+          <Value val="0" />
+          <Circular val="true" />
+          <CircularStart val="0" />
+          <CircularEndOffset val="-360" />
+          <FillInset val="0.0" />
+          <Height val="108" />
+          <Width val="108" />
+          <Frame type="Frame" name="FillImageContainer">
+            <Anchor relative="$parent" />
+            <Frame type="Image" name="FillImage">
+              <Anchor relative="$parent" />
+              <Texture val="@UI/Storm_UI_HeroUI_Greymane_CountDownCircle" layer="0" />
+              <TextureType layer="0" val="Circular" />
+            </Frame>
+          </Frame>
+        </Frame>
+        <!--<Frame type="Frame" name="TooltipAnchorFrame">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+          <Tooltip val="@UI/BeastFocusActive" />
+          <TooltipFrame val="StandardTooltipStorm"/>
+          <TooltipAnchorPosition val="TopCenter" />
+          <AcceptsMouse val="true" />
+        </Frame>-->
+      </Frame>
+    </Frame>
+
+  </Frame>
+
+</Frame>
+
+<Frame type="Frame" name="DeltaStacksFrameContainer">
+  <Anchor relative="$parent" />
+  <Frame type="UnitStatusBehaviorIcon" name="CanisterBehaviorIcon">  
+    <Anchor relative="$parent" />
+    <Behavior val="DeltaWeaponSniper@WeaponEquipped" />
+    <CollapseLayout val="true" />
+    <VisibleToAlly val="False"/>
+    <VisibleToEnemy val="False"/>
+    <VisibleToOwner val="True"/>
+    <Frame type="BehaviorIcon" name="BehaviorIcon">
+      <Anchor relative="$parent" />
+      <AcceptsMouse val="false" />
+      <RenderType val="Offscreen"/>
+      <MinStackCountDisplayed val="1"/>
+    </Frame>
+    <Frame type="Image" name="Stacking">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-10" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Texture val="Assets/Textures/Storm_UI_Markers_Delta_Canister.png"/>
+      <Width val="51"/>
+      <Height val="35"/>
+      <AcceptsMouse val="False"/>
+      <SubpixelRendering val="True"/>
+      <SnapToDevicePixels val="True"/>
+    </Frame>
+  </Frame>
+  <Frame type="UnitStatusBehaviorIcon" name="PlasmaBehaviorIcon">  
+    <Anchor relative="$parent" />
+    <Behavior val="DeltaWeaponPlasmaCoil@WeaponEquipped" />
+    <CollapseLayout val="true" />
+    <VisibleToAlly val="False"/>
+    <VisibleToEnemy val="False"/>
+    <VisibleToOwner val="True"/>
+    <Frame type="BehaviorIcon" name="BehaviorIcon">
+      <Anchor relative="$parent" />
+      <AcceptsMouse val="false" />
+      <RenderType val="Offscreen"/>
+      <MinStackCountDisplayed val="1"/>
+    </Frame>
+    <Frame type="Image" name="Stacking">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-10" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Texture val="Assets/Textures/Storm_UI_Markers_Delta_Plasma.png"/>
+      <Width val="51"/>
+      <Height val="35"/>
+      <SubpixelRendering val="True"/>
+      <SnapToDevicePixels val="True"/>
+    </Frame>
+  </Frame>
+  <Frame type="UnitStatusBehaviorIcon" name="GaussBehaviorIcon">  
+    <Anchor relative="$parent" />
+    <Behavior val="DeltaWeaponGaussRifle@WeaponEquipped" />
+    <CollapseLayout val="true" />
+    <VisibleToAlly val="False"/>
+    <VisibleToEnemy val="False"/>
+    <VisibleToOwner val="True"/>
+    <Frame type="BehaviorIcon" name="BehaviorIcon">
+      <Anchor relative="$parent" />
+      <AcceptsMouse val="false" />
+      <RenderType val="Offscreen"/>
+      <MinStackCountDisplayed val="1"/>
+    </Frame>
+    <Frame type="Image" name="Stacking">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-10" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Texture val="Assets/Textures/Storm_UI_Markers_Delta_Gauss.png"/>
+      <Width val="51"/>
+      <Height val="35"/>
+      <SubpixelRendering val="True"/>
+      <SnapToDevicePixels val="True"/>
+    </Frame>
+  </Frame>
+</Frame>
+
+</Desc>

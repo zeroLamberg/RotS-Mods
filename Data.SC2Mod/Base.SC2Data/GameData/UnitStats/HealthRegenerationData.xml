@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorArithmetic id="UnitStatsVitalRegen@LifeArithmetic">
+        <Parameters value="0.2082">
+            <AccumulatorArray value="HealthPercentMax1Multiply"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorSwitch id="UnitStatsVitalRegen@HealthTargetTypeSwitch">
+        <CaseArray Validator="HeroAbathur@TargetIsAbathur" Accumulator="HeroAbathur@HealthRegen"/>
+        <CaseArray Validator="AnduinHero@IsAnduin" Accumulator="AnduinHero@HealthRegen"/>
+        <CaseArray Validator="AnubarakHero@TargetIsAnubarak" Accumulator="AnubarakHero@HealthRegen"/>
+        <CaseArray Validator="HeroArtanis@TargetIsArtanis" Accumulator="HeroArtanis@HealthRegen"/>
+        <CaseArray Validator="HeroArthas@TargetIsArthas" Accumulator="HeroArthas@HealthRegen"/>
+        <CaseArray Validator="HeroAuriel@TargetIsAuriel" Accumulator="HeroAuriel@HealthRegen"/>
+        <CaseArray Validator="AzmodanHero@TargetIsAzmodan" Accumulator="AzmodanHero@HealthRegen"/>
+        <CaseArray Validator="BrightwingHero@TargetIsBrightwing" Accumulator="BrightwingHero@HealthRegen"/>
+        <CaseArray Validator="DeltaHero@TargetIsDelta" Accumulator="DeltaHero@HealthRegen"/>
+        <CaseArray Validator="HeroDiablo@TargetIsDiablo" Accumulator="HeroDiablo@HealthRegen"/>
+        <CaseArray Validator="ETCHero@TargetIsETC" Accumulator="ETCHero@HealthRegen"/>
+        <CaseArray Validator="HeroFalstad@TargetIsFalstad" Accumulator="HeroFalstad@HealthRegen"/>
+        <CaseArray Validator="GreymaneHero@TargetIsGreymane" Accumulator="GreymaneHero@HealthRegen"/>
+        <CaseArray Validator="HeroJaina@TargetIsJaina" Accumulator="HeroJaina@HealthRegen"/>
+        <CaseArray Validator="JohannaHero@TargetIsJohanna" Accumulator="JohannaHero@HealthRegen"/>
+        <CaseArray Validator="KerriganHero@TargetIsKerrigan" Accumulator="KerriganHero@HealthRegen"/>
+        <CaseArray Validator="KharazimHero@TargetIsKharazim" Accumulator="KharazimHero@HealthRegen"/>
+        <CaseArray Validator="LiMingHero@TargetIsLiMing" Accumulator="LiMingHero@HealthRegen"/>
+        <CaseArray Validator="HeroMalfurion@TargetIsMalfurion" Accumulator="HeroMalfurion@HealthRegen"/>
+        <CaseArray Validator="MuradinHero@TargetIsMuradin" Accumulator="MuradinHero@HealthRegen"/>
+        <CaseArray Validator="HeroRagnaros@TargetIsRagnaros" Accumulator="HeroRagnaros@HealthRegen"/>
+        <CaseArray Validator="HeroSelendis@TargetIsSelendis" Accumulator="HeroSelendis@HealthRegen"/>
+        <CaseArray Validator="HeroTalandar@TargetIsTalandar" Accumulator="HeroTalandar@HealthRegen"/>
+        <CaseArray Validator="TychusHero@TargetIsTychus" Accumulator="TychusHero@LifeRegenRate"/>
+        <CaseArray Validator="TyrandeHero@TargetIsTyrande" Accumulator="TyrandeHero@HealthRegen"/>
+    </CAccumulatorSwitch>
+    <CDataCollection id="UnitStatsVitalRegen">
+        <DataRecord Entry="Accumulator,UnitStatsVitalRegen@HealthTargetTypeSwitch"/>
+        <DataRecord Entry="Accumulator,UnitStatsVitalRegen@LifeArithmetic"/>
+    </CDataCollection>
+</Catalog>

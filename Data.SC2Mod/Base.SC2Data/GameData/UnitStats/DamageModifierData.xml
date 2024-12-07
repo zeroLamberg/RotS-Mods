@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalDamageMultiplierArithmetic">
+        <Parameters value="0">
+            <AccumulatorArray value="ConstantMultiply0dot01"/>
+            <AccumulatorArray value="UnitStatsPhysicalDamageMultiplier"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalDamageMultiplierArithmeticAdditiveMultiply" parent="UnitStatsPhysicalDamageMultiplierArithmetic">
+        <ApplicationRule value="AdditiveMultiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsPhysicalDamageMultiplier" parent="StormUserDataGeneral">
+        <Key value="PhysicalDamageMultiplier"/>
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsSpellDamageMultiplierArithmetic">
+        <Parameters value="0">
+            <AccumulatorArray value="ConstantMultiply0dot01"/>
+            <AccumulatorArray value="UnitStatsSpellDamageMultiplier"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellDamageMultiplierArithmeticAdditiveMultiply" parent="UnitStatsSpellDamageMultiplierArithmetic">
+        <ApplicationRule value="AdditiveMultiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsSpellDamageMultiplier" parent="StormUserDataGeneral">
+        <Key value="SpellDamageMultiplier"/>
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+</Catalog>

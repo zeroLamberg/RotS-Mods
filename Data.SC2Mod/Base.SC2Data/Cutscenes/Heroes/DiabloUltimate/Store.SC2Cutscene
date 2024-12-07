@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CutsceneState cutsceneVersion="1.300000">
+    <CCutsceneNodeActor guid="9611291343068401050" filter="Variation1" name="HeroDiabloUltimate (Var1)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelUltimate" shadowBox="0" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="5697829460642958746" duration="190540" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="11457629502228729242" name="Animation Layer">
+            <CCutsceneElementAnim guid="9010591163376214477" start="75458" duration="3000" anim="Stun" priority="5" originalDuration="1667" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="4877855097000858261" start="85458" duration="2067" anim="Stand Ready Start S" priority="3" originalDuration="2067" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="7411250361717266337" start="87525" duration="7200" anim="Stand Ready S" priority="3" originalDuration="1333" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="8703788677076396863" start="99458" duration="142" anim="Stand Start Ready" priority="4" originalDuration="733" blendOutTime="250" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="6546145295488981934" start="99600" duration="5000" anim="Stand Dance" priority="7" originalDuration="5000" blendOutTime="300" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="9460669545185891490" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="5123209754019714210" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="5322715176806995106" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36152.667969,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8929466645691847842" start="105458" value="1.000000" time="105458.000000" curveInValue="70805.328125,1.000000" curveOutValue="105519.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6330578808146056354" start="105641" value="0.000000" time="105641.000000" curveInValue="105580.000000,0.333333" curveOutValue="106122.000000,0.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="7660402407314739150" start="107084" value="0.000000" time="107084.000000" curveInValue="106603.000000,0.000000" curveOutValue="107092.000000,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="5526170268669963595" start="107108" value="1.000000" time="107108.000000" curveInValue="107100.000000,0.666667" curveOutValue="107109.000000,1.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeAnimLayer guid="12794913271944139938" name="Animation Layer">
+            <CCutsceneElementAnim guid="7913509668174517410" duration="190540" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="2000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeConversation guid="10489693037584226640" filter="NotPurchased" name="Conversation Locked">
+            <CCutsceneElementConversation guid="6443488739629503423" start="7225" duration="3529" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_ExLocked" facialGroup="Default" facialAnim="" assetDuration="3529" onlyPlayIfLocal="1"/>
+            <CCutsceneElementConversation guid="6543419103329640110" start="67253" duration="2830" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_WaitLocked" facialGroup="Default" facialAnim="" assetDuration="2830" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+        <CCutsceneNodeConversation guid="11332458349403347280" filter="Purchased" name="Conversation Purchased">
+            <CCutsceneElementConversation guid="6096611099749662778" start="4984" duration="2241" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_ExPurchased" facialGroup="Default" facialAnim="" assetDuration="2241" onlyPlayIfLocal="1"/>
+            <CCutsceneElementConversation guid="6052100030387842501" start="61406" duration="5847" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_WaitPurchased" facialGroup="Default" facialAnim="" assetDuration="5847" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+        <CCutsceneNodeConversation guid="9560233589847884131" name="Conversation Purchase">
+            <CCutsceneElementConversation guid="7440419697603877843" start="100698" duration="2476" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_Purchase" facialGroup="Diablo_UI_Purchase00" facialAnim="Diablo_UI_Purchase00" assetDuration="2476" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeActor guid="11526503565883773898" filter="Variation2" name="HeroDiabloUltimate (Var2)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelUltimate" variation="1" shadowBox="0" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="5987904742452794314" duration="190540" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="10353141680555070410" name="Animation Layer">
+            <CCutsceneElementAnim guid="5977438654476751818" start="75458" duration="3000" anim="Stun" priority="5" originalDuration="1667" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="7938533516537926602" start="85458" duration="2067" anim="Stand Ready Start S" priority="3" originalDuration="2067" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="8057277070075925450" start="87525" duration="7200" anim="Stand Ready S" priority="3" originalDuration="1333" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="8561163771408978890" start="99458" duration="142" anim="Stand Start Ready" priority="4" originalDuration="733" blendOutTime="250" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="5944232424065373130" start="99600" duration="5000" anim="Stand Dance" priority="7" originalDuration="5000" blendOutTime="300" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="10632018421094978506" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="6040740811652895690" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8531772799101342666" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36152.667969,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="9181909489119826890" start="105458" value="1.000000" time="105458.000000" curveInValue="70805.328125,1.000000" curveOutValue="105519.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6548371504697349066" start="105641" value="0.000000" time="105641.000000" curveInValue="105580.000000,0.333333" curveOutValue="106122.000000,0.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="5142280013206688714" start="107084" value="0.000000" time="107084.000000" curveInValue="106603.000000,0.000000" curveOutValue="107092.000000,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="7586792651526411210" start="107108" value="1.000000" time="107108.000000" curveInValue="107100.000000,0.666667" curveOutValue="107109.000000,1.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeAnimLayer guid="12350131023122961354" name="Animation Layer">
+            <CCutsceneElementAnim guid="6502599806295643082" duration="190540" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="2000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeConversation guid="10850233296949253066" filter="NotPurchased" name="Conversation Locked">
+            <CCutsceneElementConversation guid="6053633032165168074" start="7225" duration="3529" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_ExLocked" facialGroup="Default" facialAnim="" assetDuration="3529" onlyPlayIfLocal="1"/>
+            <CCutsceneElementConversation guid="7480830680143139786" start="67253" duration="2830" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_WaitLocked" facialGroup="Default" facialAnim="" assetDuration="2830" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+        <CCutsceneNodeConversation guid="13113794526387278794" filter="Purchased" name="Conversation Purchased">
+            <CCutsceneElementConversation guid="6350129094352868298" start="4984" duration="2241" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_ExPurchased" facialGroup="Default" facialAnim="" assetDuration="2241" onlyPlayIfLocal="1"/>
+            <CCutsceneElementConversation guid="6132248534457947082" start="61406" duration="5847" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_WaitPurchased" facialGroup="Default" facialAnim="" assetDuration="5847" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+        <CCutsceneNodeConversation guid="12290950213484843978" name="Conversation Purchase">
+            <CCutsceneElementConversation guid="8125968114128425930" start="100698" duration="2476" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_Purchase" facialGroup="Diablo_UI_Purchase00" facialAnim="Diablo_UI_Purchase00" assetDuration="2476" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeActor guid="11210554961891771188" filter="Variation3" name="HeroDiabloUltimate (Var3)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelUltimate" variation="2" shadowBox="0" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="7720940728776213300" duration="190540" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="12157471456817398580" name="Animation Layer">
+            <CCutsceneElementAnim guid="7056963098624475956" start="75458" duration="3000" anim="Stun" priority="5" originalDuration="1667" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="5361351108705731380" start="85458" duration="2067" anim="Stand Ready Start S" priority="3" originalDuration="2067" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="6927054464067912500" start="87525" duration="7200" anim="Stand Ready S" priority="3" originalDuration="1333" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="7271094147775021876" start="99458" duration="142" anim="Stand Start Ready" priority="4" originalDuration="733" blendOutTime="250" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="7377715027271041844" start="99600" duration="5000" anim="Stand Dance" priority="7" originalDuration="5000" blendOutTime="300" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="12629671190815654708" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="8344364105193046836" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="9008268871224607540" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36152.667969,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="7846893792942441268" start="105458" value="1.000000" time="105458.000000" curveInValue="70805.328125,1.000000" curveOutValue="105519.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6771702679473046324" start="105641" value="0.000000" time="105641.000000" curveInValue="105580.000000,0.333333" curveOutValue="106122.000000,0.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8644197786466468660" start="107084" value="0.000000" time="107084.000000" curveInValue="106603.000000,0.000000" curveOutValue="107092.000000,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6292996959079580468" start="107108" value="1.000000" time="107108.000000" curveInValue="107100.000000,0.666667" curveOutValue="107109.000000,1.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeAnimLayer guid="11154114264079090484" name="Animation Layer">
+            <CCutsceneElementAnim guid="6406841651444925236" duration="190540" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="2000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeConversation guid="10239861588145029940" filter="NotPurchased" name="Conversation Locked">
+            <CCutsceneElementConversation guid="8440000519930200884" start="7225" duration="3529" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_ExLocked" facialGroup="Default" facialAnim="" assetDuration="3529" onlyPlayIfLocal="1"/>
+            <CCutsceneElementConversation guid="7146867321159369524" start="67253" duration="2830" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_WaitLocked" facialGroup="Default" facialAnim="" assetDuration="2830" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+        <CCutsceneNodeConversation guid="12992861167327986484" filter="Purchased" name="Conversation Purchased">
+            <CCutsceneElementConversation guid="7575264826894402356" start="4984" duration="2241" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_ExPurchased" facialGroup="Default" facialAnim="" assetDuration="2241" onlyPlayIfLocal="1"/>
+            <CCutsceneElementConversation guid="7450717011602916148" start="61406" duration="5847" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_WaitPurchased" facialGroup="Default" facialAnim="" assetDuration="5847" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+        <CCutsceneNodeConversation guid="10725820361545171764" name="Conversation Purchase">
+            <CCutsceneElementConversation guid="8357907219409093428" start="100698" duration="2476" conversationLink="" conversationLine="" soundLink="HeroDiabloDX@UI_Purchase" facialGroup="Diablo_UI_Purchase00" facialAnim="Diablo_UI_Purchase00" assetDuration="2476" onlyPlayIfLocal="1"/>
+        </CCutsceneNodeConversation>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeActor guid="11984319091174346138" name="Hero Generic - Storm Stun" position="0.000000,0.000000,3.570387" scale="0.600000,0.600000,0.600000" modelLink="StandardStun" shadowBox="0" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="6773184921035935130" start="75458" duration="3000"/>
+        <CCutsceneNodeAnimLayer guid="12247123703315369370" name="Animation Layer">
+            <CCutsceneElementAnim guid="5632192748223270298" start="75458" duration="1666" anim="Birth" priority="7" originalDuration="1666" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="6506622633417706906" start="77124" duration="1065" anim="Stand" priority="3" originalDuration="1667" looping="1" fullMatchLegacy="1"/>
+            <CCutsceneElementAnim guid="7331002096480751002" start="78189" duration="666" anim="Death" priority="11" originalDuration="666" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAttachment guid="12639802312600546203" name="Attachment">
+            <CCutsceneElementAttachment guid="9129831390495861659" duration="190540" lockedToEnd="1" attachGuid="9611291343068401050" attachName="Ref_Overhead" offsetX="0.000000" offsetY="0.000000" offsetZ="-0.800000" rotationX="0.000000" rotationY="0.000000" rotationZ="0.000000"/>
+        </CCutsceneNodeAttachment>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeSound guid="11693262824001612036" name="UI_Store_Spun_Dizzy_Effect" position="0.000000,0.000000,0.980367" soundLink="UI_Store_Spun_Dizzy_Effect" mode="4294967295" assetDuration="2201" speakerMixLFE="0.000000" speakerMixBackLeft="0.000000" speakerMixBackRight="0.000000" speakerMixSideLeft="0.000000" speakerMixSideRight="0.000000">
+        <CCutsceneElementObject guid="5506927840788326660" start="75468" duration="2201"/>
+    </CCutsceneNodeSound>
+    <CCutsceneNodeSound guid="12375753737479485260" name="HeroDiabloDX@UI_VOX_Spun" soundLink="HeroDiabloDX@UI_VOX_Spun" mode="4294967295" assetDuration="822" speakerMixCenter="0.000000" speakerMixLFE="0.000000" speakerMixBackLeft="0.000000" speakerMixBackRight="0.000000" speakerMixSideLeft="0.000000" speakerMixSideRight="0.000000">
+        <CCutsceneElementObject guid="6823230806168532812" start="75468" duration="895"/>
+    </CCutsceneNodeSound>
+</CutsceneState>

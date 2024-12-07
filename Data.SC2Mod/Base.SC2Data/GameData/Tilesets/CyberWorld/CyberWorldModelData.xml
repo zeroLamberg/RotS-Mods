@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="StormCyberworldStartingPlatform" parent="Doodad">
+        <Model value="Assets\Doodads\Storm_Doodad_Cyberworld_PortalBase\Storm_Doodad_Cyberworld_PortalBase.m3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_Arch" parent="Doodad"/>
+    <CModel id="Storm_Doodad_CyberWorld_StreetLights" parent="Doodad">
+        <VariationCount value="9"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_Structures" parent="Doodad">
+        <VariationCount value="18"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_Walls_Long" parent="Doodad">
+        <VariationCount value="7"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_Tower" parent="Doodad">
+        <VariationCount value="11"/>
+        <SquibTypeDefault value="Rock"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_CliffAttachments" parent="Doodad">
+        <VariationCount value="5"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_Trim" parent="Doodad">
+        <VariationCount value="25"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_Trim_old" parent="Doodad">
+        <VariationCount value="25"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_CyberFlash" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_CyberWorld_UndergroundReactorRings" parent="Doodad"/>
+</Catalog>

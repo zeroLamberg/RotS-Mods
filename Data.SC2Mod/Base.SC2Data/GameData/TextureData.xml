@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CTexture default="1" id="HeroTexture"/>
+    <CTexture default="1" id="MainSlotTexture" parent="HeroTexture">
+        <Slot value="main"/>
+    </CTexture>
+    <CTexture default="1" id="Generic01SlotTexture" parent="HeroTexture">
+        <Slot value="generic01"/>
+    </CTexture>
+    <CTexture default="1" id="Generic02SlotTexture" parent="HeroTexture">
+        <Slot value="generic02"/>
+    </CTexture>
+    <CTexture default="1" id="Generic03SlotTexture" parent="HeroTexture">
+        <Slot value="generic03"/>
+    </CTexture>
+    <CTexture default="1" id="Generic04SlotTexture" parent="HeroTexture">
+        <Slot value="generic04"/>
+    </CTexture>
+    <CTexture id="gold_reflection" parent="HeroTexture"/>
+    <CTexture id="silver_reflection" parent="HeroTexture"/>
+    <CTexture id="silver_reflection_Purple2" parent="HeroTexture"/>
+    <CTexture id="Storm_RainbowB" parent="Generic01SlotTexture"/>
+    <CTexture id="Storm_RainbowC" parent="Generic01SlotTexture"/>
+    <CTexture id="Storm_CloversA" parent="Generic02SlotTexture"/>
+    <CTexture id="Storm_OrangeSliceA" parent="Generic02SlotTexture"/>
+    <CTexture id="Black" parent="Generic01SlotTexture"/>
+    <CTexture id="Storm_UI_AOEConeCenter_Large_Fantasy" parent="MainSlotTexture"/>
+</Catalog>

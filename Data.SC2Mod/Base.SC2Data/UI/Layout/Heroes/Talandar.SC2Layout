@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+<Frame type="SelectionUnitStatusPanel" name="TalandarFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+  <SpecificUnit val="HeroTalandar"/>
+
+  <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+
+    <Frame type="Image" name="MechanicTexture">
+      <Texture val="Assets\Textures\storm_ui_icon_talandar_solaritecore.dds"/>
+    </Frame>
+
+    <Frame type="BehaviorIcon" name="SolariteCoreTooltip" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+      <Behavior val="HeroTalandarSolariteCore@CarryBehavior"/>
+    </Frame>
+
+    <Frame type="UnitStatusBehaviorIcon" name="SolariteCoreCountdownFrame" template="StandardHeroUITemplates/CircularBehaviorCountdownBarTemplate">
+      <Behavior val="HeroTalandarSolariteCore@Cooldown"/>
+    </Frame>
+  </Frame>
+
+</Frame>
+
+<Frame type="Frame" name="TalandarStacksFrameContainer">
+  <Anchor relative="$parent" />
+  <Frame type="Frame" name="TheBladeOfArtanisStacksFrame" template="UnitStatusStackingElements/StackingBehaviorTemplate">
+    <Frame type="ProgressBar" name="StacksProgressBar">
+      <Width val="56"/>
+      <MaxValue val="2"/>
+    </Frame>
+    <Frame type="Image" name="Stacking">
+        <Texture val="Assets\Textures\storm_ui_markers_valla_basic_stack.dds"/>
+    </Frame>
+    <Frame type="Image" name="StacksFull">
+        <Texture val="Assets\Textures\storm_ui_markers_valla_basic_stack_full.dds"/>
+    </Frame>
+  </Frame>
+  
+  <Frame type="Frame" name="EndlessTempestStacksFrame">
+    <Anchor relative="$parent" />
+    <Visible val="False"/>
+    <Frame type="Image" name="StacksFull">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-3"/>
+      <Anchor side="Right" relative="$parent" pos="Max" offset="7"/>
+      <Texture val="Assets\Textures\storm_ui_marker_kerrigan.dds" />
+    </Frame>
+  </Frame>
+</Frame>
+
+</Desc>

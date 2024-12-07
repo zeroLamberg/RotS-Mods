@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSoundtrack id="Amb_2D_Debug" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_DebugMap_Loop"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Amb_2D_Gluescreen" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_GlueScreen_Loop"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="AshenvaleAmbientNight">
+        <CueArray>
+            <MasterLayer Sound="Amb_2D_CyberWorld1_LP"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Heroes_Delta" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Heroes_Delta"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Ambience_Tutorial_Nexus_Platform">
+        <CueArray>
+            <MasterLayer Sound="Amb_2D_Nexus_Platform_Loop"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Docks" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Docks"/>
+        </CueArray>
+        <Delay value="20,40"/>
+        <Next value="Storm_Music_Kings_Crest"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Dragonknight" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dragonknight_Active"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_GhostShip_Start" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_GhostShip_BombarbStart"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Mines_Golems_Event" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_HauntedMines_GolemActive"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_HauntedMines" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_HauntedMines"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_RavenKing_Start_Event" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_RavenKing_CurseStart"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Ravens_Court" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Ravens_Court"/>
+        </CueArray>
+        <Delay value="20,40"/>
+        <Select value="Shuffle"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Kings_Crest" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dragonshire"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_RavenKing_Cursed" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_RavenKing_CurseActive"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Ravens_CourtLooping" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Ravens_Court"/>
+        </CueArray>
+        <Delay value="20,40"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Stinger_Defeat">
+        <CueArray>
+            <MasterLayer Sound="MX_Stinger_Defeat"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Stinger_GameEnds">
+        <CueArray>
+            <MasterLayer Sound="MX_Stinger_Victory"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Stinger_Victory">
+        <CueArray>
+            <MasterLayer Sound="MX_Stinger_Victory"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Symphony">
+        <CueArray>
+            <MasterLayer Sound="MX_Heroes_Symphony"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Alt1" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Alt"/>
+        </CueArray>
+        <Delay value="5,15"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Cutscene_Core" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Cutscene_Core"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Cutscene_End" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Cutscene_End"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Cutscene_Ghoul" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Cutscene_Ghoul"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Cutscene_Intro" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Cutscene_Intro"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Cutscene_Stitches" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Cutscene_Stitches"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Storm_Music_Tutorial_Main" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Tutorial_Main"/>
+        </CueArray>
+        <Delay value="5,15"/>
+    </CSoundtrack>
+    <CSoundtrack id="CyberworldAmbientDay" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_CyberWorld1_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="CyberworldAmbientNight" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_CyberWorld1_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="DockAmbientDay" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_Docks_LP"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="KingsCrestAmbientDay" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_Gardens_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="KingsCrestAmbientNight" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_KingsCrest_Night_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="LuxoriaAmbientDay" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_Desert_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="LuxoriaAmbientNight" parent="Ambience_Map">
+        <CueArray index="0">
+            <MasterLayer Sound="Amb_2D_KingsCrest_Night_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Stinger_MercCampTaken_Ally" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MercCampTaken_Ally"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Stinger_MercCampTaken_Enemy" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MercCampTaken_Enemy"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Stinger_TownDestroyed_Ally" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Stinger_TownDestroyed_Ally"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Stinger_TownDestroyed_Enemy" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Stinger_TownDestroyed_Enemy"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Ambient_Underworld_Mines">
+        <CueArray>
+            <MasterLayer Sound="Amb_2D_Underworld_Mines"/>
+        </CueArray>
+    </CSoundtrack>
+    <!-- Liberty Data                                                                   -->
+    <CSoundtrack id="Ambience_Aiur" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Castanar" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Haven" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Liberty" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Char" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_MarSara" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Monlyth" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_PortZion" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Redstone" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_SteppesOfWar" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_ToxicWastes" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Typhon" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Tyrador" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Ulaan" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Valhalla" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Starmap_Jotun" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Starmap_MarSara" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Starmap_Redstone" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Agria" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Avernus" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_BelShir" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_BraxisAlpha" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Korhal" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Meinhoff" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_NewFolsom" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Shakuras" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Tarsonis" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Xil" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_ZhakulDas" parent="Ambience_Map"/>
+    <CSoundtrack id="Music_EndCreditsA1" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="Music_EndCreditsA1"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+        <Next value="Music_EndCreditsB1"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_LibertyIntro" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_GlueScreen_Intro"/>
+        </CueArray>
+        <Next value="Music_LibertyLoop"/>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_LibertyStartup" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_GlueScreen_Intro"/>
+        </CueArray>
+        <Next value="Music_LibertyLoop"/>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ProtLow" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GameMusicProt"/>
+        </CueArray>
+        <Delay value="120,180"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_TerrLow" parent="Music">
+        <!--
+        <CueArray>
+            <MasterLayer Sound="TerranLowIntensityMusicMaster"/>
+            <SlaveLayers>
+                <Sections Sound="TerranLowIntensityMusicMiddleSection" Start="325124"/>
+                <Sections Sound="TerranLowIntensityMusicEndSection" Start="1302240"/>
+            </SlaveLayers>
+        </CueArray>
+        -->
+        <CueArray>
+            <MasterLayer Sound="GameMusicTerr"/>
+        </CueArray>
+        <Delay value="120,180"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ZergLow" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GameMusicZerg"/>
+        </CueArray>
+        <Delay value="120,180"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Dead" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dead"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+        <Flags index="Instant" value="1"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Dragonshire_LVL_1" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dragonshire_LVL_1"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Dragonshire_LVL_10" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dragonshire_LVL_10"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Dragonshire_LVL_20" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dragonshire_LVL_20"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Dragonshire_Intro" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Dragonshire_Intro"/>
+        </CueArray>
+        <Delay value="20,40"/>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Brawl_LockIn" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Brawl_LockIn"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Heroes_Toys18" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Heroes_Toys18"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+        <Next value="Storm_Music_Symphony"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Heroes_Mecha19" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Heroes_Mecha19"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+        <Next value="MX_Homescreen_Loop"/>
+    </CSoundtrack>
+    <CSoundtrack id="MX_Homescreen_Loop" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Homescreen_Loop"/>
+        </CueArray>
+    </CSoundtrack>
+</Catalog>

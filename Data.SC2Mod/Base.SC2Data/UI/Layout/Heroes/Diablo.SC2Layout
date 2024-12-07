@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+<Frame type="SelectionUnitStatusPanel" name="DiabloFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+  <SpecificUnit val="HeroDiablo"/>
+
+  <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+
+    <Frame type="Image" name="MechanicTexture">
+      <Texture val="Assets\Textures\storm_ui_icon_diablo_blacksoulstone_var1.dds"/>
+    </Frame>
+
+    <Frame type="BehaviorIcon" name="SoulstoneTooltip" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+      <Behavior val="HeroDiabloBlackSoulstone"/>
+    </Frame>
+
+    <Frame type="UnitStatusBehaviorIcon" name="SoulstoneLargeCounterLabel" template="StandardHeroUITemplates/LargeCounterLabelTemplate">
+      <Behavior val="HeroDiabloBlackSoulstone"/>
+      
+      <Frame type="BehaviorIcon" name="BehaviorIcon">
+        <MinStackCountDisplayed val="0"/>
+      </Frame>
+
+      <Frame type="Label" name="CounterLabel">
+        <Text val=""/>
+      </Frame>
+
+    </Frame>
+
+  </Frame>
+</Frame>
+
+<Frame type="Frame" name="DiabloStacksFrameContainer">
+  <Anchor relative="$parent" />
+  <Frame type="UnitStatusBehaviorIcon" name="BehaviorStackCount">  
+    <Anchor relative="$parent" />
+    <Behavior val="HeroDiabloLifeLeech@StackCount" />
+    <CollapseLayout val="true" />
+    <VisibleToAlly val="False"/>
+    <VisibleToEnemy val="False"/>
+    <VisibleToOwner val="True"/>
+    <Frame type="BehaviorIcon" name="BehaviorIcon">
+      <Anchor relative="$parent" />
+      <AcceptsMouse val="false" />
+      <RenderType val="Offscreen"/>
+      <MinStackCountDisplayed val="0"/>
+    </Frame>
+    <StateGroup name="StackCount">
+      <State name="1">
+        <When type="Property" frame="$this/BehaviorIcon" CurrentStackCount="1"/>
+        <Action type="SetProperty" frame="$this/Stacking" Visible="True"/>
+        <Action type="SetProperty" frame="$this/StacksFull" Visible="False"/>
+      </State>
+      <State name="2">
+        <When type="Property" frame="$this/BehaviorIcon" CurrentStackCount="2"/>
+        <Action type="SetProperty" frame="$this/Stacking" Visible="False"/>
+        <Action type="SetProperty" frame="$this/StacksFull" Visible="True"/>
+      </State>
+    </StateGroup>
+    <Frame type="Image" name="Stacking">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-8" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="-2" />
+      <Texture val="Assets\Textures\storm_ui_markers_valla_basic_stack.dds"/>
+      <Width val="20"/>
+      <ScaleWithTexCoords val="true"/>
+      <TextureCoords top="0.0" left="0.0" bottom="1.0" right="0.5"/>
+    </Frame>
+    <Frame type="Image" name="StacksFull">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-8" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="-11" />
+      <Texture val="Assets\Textures\storm_ui_markers_valla_basic_stack_full.dds"/>
+    </Frame>
+  </Frame>
+</Frame>
+
+</Desc>

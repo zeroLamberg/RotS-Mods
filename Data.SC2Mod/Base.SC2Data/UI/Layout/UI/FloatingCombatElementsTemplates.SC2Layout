@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+	<Constant name="SpeedFast" val="1.25"/>
+	<Constant name="SpeedSlow" val="0.75"/>
+	
+	<Animation name="PopAnimationBase">
+    <Controller type="Dimension" dimension="Width" relative="False" percentage="True" end="Pause">
+			<Key type="Curve" time="0" value="20" inout="Linear" />
+			<Key type="Curve" time=".1" value="200" inOut="Fast,Fast" />
+			<Key type="Curve" time=".3" value="100" inout="Slow,Linear" />
+			<Key type="Curve" time=".4" value="100" inout="Slow,Linear" />
+			<Key type="Curve" time=".7" value="0" inout="Linear" />
+		  </Controller>
+		  <Controller type="Dimension" dimension="Height" relative="False" percentage="True" end="Pause">
+			<Key type="Curve" time="0" value="20" inout="Linear" />
+			<Key type="Curve" time=".1" value="200" inOut="Fast,Fast" />
+			<Key type="Curve" time=".3" value="100" inout="Slow,Linear" />
+			<Key type="Curve" time=".4" value="100" inout="Slow,Linear" />
+			<Key type="Curve" time=".7" value="0" inout="Linear" />
+		  </Controller>
+		<Controller type="Fade" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.100" value="255"/>
+			<Key type="Curve" time="0.500" value="255"/>
+			<Key type="Curve" time="0.700" value="0"/>
+		</Controller>
+	</Animation>
+	
+	<Animation name="PopAnimation" template="FloatingCombatElementsTemplates/PopAnimationBase">
+		<Event event="EventAnimate" action="Play" frame="$parent"/>
+	</Animation>
+	<Animation name="PopAnimationFast" template="FloatingCombatElementsTemplates/PopAnimationBase" speed="#SpeedFast">
+		<Event event="EventAnimateFast" action="Play" frame="$parent"/>
+	</Animation>
+	<Animation name="PopAnimationSlow" template="FloatingCombatElementsTemplates/PopAnimationBase" speed="#SpeedSlow">
+		<Event event="EventAnimateSlow" action="Play" frame="$parent"/>
+	</Animation>
+	
+	<Frame type="Frame" name="Translator">
+		<Anchor relative="$parent"/>
+		<UseAlternateTime val="true"/>
+		<Animation name="TranslateHorizontal">
+			<Event event="EventAnimate" frame="$parent" action="Play"/>
+			<Event event="EventAnimateFast" frame="$parent" action="Play"/>
+			<Event event="EventAnimateSlow" frame="$parent" action="Play"/>
+		</Animation>
+ 		<Animation name="TranslateVertical">
+			<Event event="EventAnimate" frame="$parent" action="Play"/>
+		</Animation>
+ 		<Animation name="TranslateVerticalFast" speed="#SpeedFast">
+			<Event event="EventAnimateFast" frame="$parent" action="Play"/>
+		</Animation>
+ 		<Animation name="TranslateVerticalSlow" speed="#SpeedSlow">
+			<Event event="EventAnimateSlow" frame="$parent" action="Play"/>
+		</Animation>
+	</Frame>
+	
+	<!-- HORIZONTAL POSITIVE TRANSLATIONS -->
+	<Animation name="AnimationH00">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="43"/>
+			<Key type="Curve" time="0.800" value="50"/>
+			<Key type="Curve" time="0.950" value="55"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH01">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="48"/>
+			<Key type="Curve" time="0.800" value="55"/>
+			<Key type="Curve" time="0.950" value="60"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH02">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="53"/>
+			<Key type="Curve" time="0.800" value="60"/>
+			<Key type="Curve" time="0.950" value="65"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH03">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="58"/>
+			<Key type="Curve" time="0.800" value="65"/>
+			<Key type="Curve" time="0.950" value="70"/>
+		</Controller>
+	</Animation>
+	
+	<!-- HORIZONTAL NEGATIVE TRANSLATIONS -->
+	<Animation name="AnimationH04">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="-43"/>
+			<Key type="Curve" time="0.800" value="-50"/>
+			<Key type="Curve" time="0.950" value="-55"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH05">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="-48"/>
+			<Key type="Curve" time="0.800" value="-55"/>
+			<Key type="Curve" time="0.950" value="-60"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH06">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="-53"/>
+			<Key type="Curve" time="0.800" value="-60"/>
+			<Key type="Curve" time="0.950" value="-65"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH07">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.650" value="-58"/>
+			<Key type="Curve" time="0.800" value="-65"/>
+			<Key type="Curve" time="0.950" value="-70"/>
+		</Controller>
+	</Animation>
+	
+	<!-- HORIZONTAL NETURAL TRANSLATIONS -->
+	<Animation name="AnimationH08">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.800" value="-15"/>
+			<Key type="Curve" time="0.950" value="-20"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH09">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.800" value="15"/>
+			<Key type="Curve" time="0.950" value="20"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH10">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.800" value="-20"/>
+			<Key type="Curve" time="0.950" value="-25"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationH11">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.800" value="20"/>
+			<Key type="Curve" time="0.950" value="25"/>
+		</Controller>
+	</Animation>
+	
+	<!-- HORIZONTAL NULL TRANSLATION -->
+	<Animation name="AnimationH12">
+		<Controller type="Anchor" side="Left" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+		</Controller>
+	</Animation>
+	
+	<!-- VERTICAL TRANSLATIONS -->
+	<Animation name="AnimationV00">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-34"/>
+			<Key type="Curve" time="0.500" value="-40"/>
+			<Key type="Curve" time="0.750" value="-34"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationV01">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-44"/>
+			<Key type="Curve" time="0.500" value="-50"/>
+			<Key type="Curve" time="0.750" value="-44"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationV02">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-54"/>
+			<Key type="Curve" time="0.500" value="-60"/>
+			<Key type="Curve" time="0.750" value="-54"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationV03">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-64"/>
+			<Key type="Curve" time="0.500" value="-70"/>
+			<Key type="Curve" time="0.750" value="-64"/>
+		</Controller>
+	</Animation>
+	
+	<!-- VERTICAL STATUS -->
+	<Animation name="AnimationV04">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.425" value="-35"/>
+			<Key type="Curve" time="1.000" value="-35"/>
+			<Key type="Curve" time="1.500" value="-35"/>
+		</Controller>
+	</Animation>
+	
+	<!-- VERTICAL TRANSLATIONS SLOW -->
+	<Animation name="AnimationSlowV00">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-34"/>
+			<Key type="Curve" time="0.500" value="-40"/>
+			<Key type="Curve" time="0.650" value="-40"/>
+			<Key type="Curve" time="0.850" value="-34"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationSlowV01">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-44"/>
+			<Key type="Curve" time="0.500" value="-50"/>
+			<Key type="Curve" time="0.650" value="-50"/>
+			<Key type="Curve" time="0.850" value="-44"/>
+		</Controller>
+	</Animation>
+	<Animation name="AnimationSlowV02">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-54"/>
+			<Key type="Curve" time="0.500" value="-60"/>
+			<Key type="Curve" time="0.650" value="-60"/>
+			<Key type="Curve" time="0.850" value="-54"/>
+		</Controller>
+	</Animation>
+  <Animation name="AnimationSlowV03">
+		<Controller type="Anchor" side="Top" relative="true" frame="$parent/TextAnchor" end="Pause">
+			<Key type="Curve" time="0.000" value="0"/>
+			<Key type="Curve" time="0.400" value="-64"/>
+			<Key type="Curve" time="0.500" value="-70"/>
+			<Key type="Curve" time="0.650" value="-70"/>
+			<Key type="Curve" time="0.850" value="-64"/>
+		</Controller>
+	</Animation>
+	
+	
+	<!-- HORIZONTAL POSITIVE TRANSLATIONS -->
+	<Frame type="Frame" name="H00" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH00"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH00" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH00" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H01" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH01"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH01" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH01" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H02" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH02"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH02" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH02" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H03" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH03"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH03" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH03" speed="#SpeedSlow"/>
+	</Frame>
+	
+	<!-- HORIZONTAL NEGATIVE TRANSLATIONS -->
+	<Frame type="Frame" name="H04" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH04"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH04" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH04" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H05" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH05"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH05" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH05" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H06" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH06"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH06" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH06" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H07" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH07"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH07" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH07" speed="#SpeedSlow"/>
+	</Frame>
+	
+	<!-- HORIZONTAL NETURAL TRANSLATIONS -->
+	<Frame type="Frame" name="H08" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH08"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH08" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH08" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H09" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH09"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH09" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH09" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H10" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH10"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH10" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH10" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="H11" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH11"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH11" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH11" speed="#SpeedSlow"/>
+	</Frame>
+	
+	<!-- HORIZONTAL NULL TRANSLATION -->
+	<Frame type="Frame" name="H12" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateHorizontal" template="FloatingCombatElementsTemplates/AnimationH12"/>
+		<Animation name="TranslateHorizontalFast" template="FloatingCombatElementsTemplates/AnimationH12" speed="#SpeedFast"/>
+		<Animation name="TranslateHorizontalSlow" template="FloatingCombatElementsTemplates/AnimationH12" speed="#SpeedSlow"/>
+	</Frame>
+	
+	<!-- VERTICAL TRANSLATIONS -->
+	<Frame type="Frame" name="V00" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateVertical" template="FloatingCombatElementsTemplates/AnimationV00"/>
+		<Animation name="TranslateVerticalFast" template="FloatingCombatElementsTemplates/AnimationV00" speed="#SpeedFast"/>
+		<Animation name="TranslateVerticalSlow" template="FloatingCombatElementsTemplates/AnimationSlowV00" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="V01" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateVertical" template="FloatingCombatElementsTemplates/AnimationV01"/>
+		<Animation name="TranslateVerticalFast" template="FloatingCombatElementsTemplates/AnimationV01" speed="#SpeedFast"/>
+		<Animation name="TranslateVerticalSlow" template="FloatingCombatElementsTemplates/AnimationSlowV01" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="V02" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateVertical" template="FloatingCombatElementsTemplates/AnimationV02"/>
+		<Animation name="TranslateVerticalFast" template="FloatingCombatElementsTemplates/AnimationV02" speed="#SpeedFast"/>
+		<Animation name="TranslateVerticalSlow" template="FloatingCombatElementsTemplates/AnimationSlowV02" speed="#SpeedSlow"/>
+	</Frame>
+	<Frame type="Frame" name="V03" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateVertical" template="FloatingCombatElementsTemplates/AnimationV03"/>
+		<Animation name="TranslateVerticalFast" template="FloatingCombatElementsTemplates/AnimationV03" speed="#SpeedFast"/>
+		<Animation name="TranslateVerticalSlow" template="FloatingCombatElementsTemplates/AnimationSlowV03" speed="#SpeedSlow"/>
+	</Frame>
+	
+	<!-- VERTICAL STATUS -->
+	<Frame type="Frame" name="V04" template="FloatingCombatElementsTemplates/Translator">
+		<Animation name="TranslateVertical" template="FloatingCombatElementsTemplates/AnimationV04"/>
+		<Animation name="TranslateVerticalFast" template="FloatingCombatElementsTemplates/AnimationV04" speed="#SpeedFast"/>
+		<Animation name="TranslateVerticalSlow" template="FloatingCombatElementsTemplates/AnimationV04" speed="#SpeedSlow"/>
+	</Frame>
+
+
+
+
+
+
+
+
+
+
+  <!-- CUSTOM STUFF-->
+  <Frame type="Frame" name="C_Translator">
+		<Anchor relative="$parent"/>
+		<UseAlternateTime val="true"/>
+
+    <!-- HORIZONTAL POSITIVE TRANSLATIONS -->
+    <!-- H00-->
+		<Animation name="H00" template="FloatingCombatElementsTemplates/AnimationH00">
+			<Event event="EventAnimateH00" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H00Fast" template="FloatingCombatElementsTemplates/AnimationH00" speed="#SpeedFast">
+      <Event event="EventAnimateFastH00" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H00Slow" template="FloatingCombatElementsTemplates/AnimationH00" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH00" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H01-->
+		<Animation name="H01" template="FloatingCombatElementsTemplates/AnimationH01">
+			<Event event="EventAnimateH01" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H01Fast" template="FloatingCombatElementsTemplates/AnimationH01" speed="#SpeedFast">
+      <Event event="EventAnimateFastH01" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H01Slow" template="FloatingCombatElementsTemplates/AnimationH01" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH01" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H02-->
+		<Animation name="H02" template="FloatingCombatElementsTemplates/AnimationH02">
+			<Event event="EventAnimateH02" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H02Fast" template="FloatingCombatElementsTemplates/AnimationH02" speed="#SpeedFast">
+      <Event event="EventAnimateFastH02" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H02Slow" template="FloatingCombatElementsTemplates/AnimationH02" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH02" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H03-->
+		<Animation name="H03" template="FloatingCombatElementsTemplates/AnimationH03">
+			<Event event="EventAnimateH03" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H03Fast" template="FloatingCombatElementsTemplates/AnimationH03" speed="#SpeedFast">
+      <Event event="EventAnimateFastH03" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H03Slow" template="FloatingCombatElementsTemplates/AnimationH03" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH03" frame="$parent" action="Play"/>
+    </Animation>
+
+    <!-- HORIZONTAL NEGATIVE TRANSLATIONS -->
+    <!-- H04-->
+		<Animation name="H04" template="FloatingCombatElementsTemplates/AnimationH04">
+			<Event event="EventAnimateH04" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H04Fast" template="FloatingCombatElementsTemplates/AnimationH04" speed="#SpeedFast">
+      <Event event="EventAnimateFastH04" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H04Slow" template="FloatingCombatElementsTemplates/AnimationH04" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH04" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H05-->
+		<Animation name="H05" template="FloatingCombatElementsTemplates/AnimationH05">
+      <Event event="EventAnimateH05" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H05Fast" template="FloatingCombatElementsTemplates/AnimationH05" speed="#SpeedFast">
+      <Event event="EventAnimateFastH05" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H05Slow" template="FloatingCombatElementsTemplates/AnimationH05" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH05" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H06-->
+		<Animation name="H06" template="FloatingCombatElementsTemplates/AnimationH06">
+			<Event event="EventAnimateH06" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H06Fast" template="FloatingCombatElementsTemplates/AnimationH06" speed="#SpeedFast">
+      <Event event="EventAnimateFastH06" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H06Slow" template="FloatingCombatElementsTemplates/AnimationH06" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH06" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H07-->
+		<Animation name="H07" template="FloatingCombatElementsTemplates/AnimationH07">
+			<Event event="EventAnimateH07" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H07Fast" template="FloatingCombatElementsTemplates/AnimationH07" speed="#SpeedFast">
+      <Event event="EventAnimateFastH07" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H07Slow" template="FloatingCombatElementsTemplates/AnimationH07" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH07" frame="$parent" action="Play"/>
+    </Animation>
+    
+	  <!-- HORIZONTAL NETURAL TRANSLATIONS -->
+    <!-- H08-->
+		<Animation name="H08" template="FloatingCombatElementsTemplates/AnimationH08">
+			<Event event="EventAnimateH08" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H08Fast" template="FloatingCombatElementsTemplates/AnimationH08" speed="#SpeedFast">
+      <Event event="EventAnimateFastH08" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H08Slow" template="FloatingCombatElementsTemplates/AnimationH08" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH08" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H09-->
+		<Animation name="H09" template="FloatingCombatElementsTemplates/AnimationH09">
+			<Event event="EventAnimateH09" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H09Fast" template="FloatingCombatElementsTemplates/AnimationH09" speed="#SpeedFast">
+      <Event event="EventAnimateFastH09" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H09Slow" template="FloatingCombatElementsTemplates/AnimationH09" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH09" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H10-->
+		<Animation name="H10" template="FloatingCombatElementsTemplates/AnimationH10">
+			<Event event="EventAnimateH10" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H10Fast" template="FloatingCombatElementsTemplates/AnimationH10" speed="#SpeedFast">
+      <Event event="EventAnimateFastH10" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H10Slow" template="FloatingCombatElementsTemplates/AnimationH10" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH10" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- H11-->
+		<Animation name="H11" template="FloatingCombatElementsTemplates/AnimationH11">
+			<Event event="EventAnimateH11" frame="$parent" action="Play"/>
+		</Animation>
+    <Animation name="H11Fast" template="FloatingCombatElementsTemplates/AnimationH11" speed="#SpeedFast">
+      <Event event="EventAnimateFastH11" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H11Slow" template="FloatingCombatElementsTemplates/AnimationH11" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH11" frame="$parent" action="Play"/>
+    </Animation>
+	
+    <!-- HORIZONTAL NULL TRANSLATION -->
+    <!-- H12-->
+		<Animation name="H12" template="FloatingCombatElementsTemplates/AnimationH12">
+      <Event event="EventAnimateH12" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H12Fast" template="FloatingCombatElementsTemplates/AnimationH12" speed="#SpeedFast">
+      <Event event="EventAnimateFastH12" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="H12Slow" template="FloatingCombatElementsTemplates/AnimationH12" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowH12" frame="$parent" action="Play"/>
+    </Animation>
+	
+    <!-- VERTICAL TRANSLATIONS -->
+    <!-- V00-->
+		<Animation name="V00" template="FloatingCombatElementsTemplates/AnimationV00">
+      <Event event="EventAnimateV00" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V00Fast" template="FloatingCombatElementsTemplates/AnimationV00" speed="#SpeedFast">
+      <Event event="EventAnimateFastV00" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V00Slow" template="FloatingCombatElementsTemplates/AnimationSlowV00" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowV00" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- V01-->
+		<Animation name="V01" template="FloatingCombatElementsTemplates/AnimationV01">
+      <Event event="EventAnimateV01" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V01Fast" template="FloatingCombatElementsTemplates/AnimationV01" speed="#SpeedFast">
+      <Event event="EventAnimateFastV01" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V01Slow" template="FloatingCombatElementsTemplates/AnimationSlowV01" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowV01" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- V02-->
+		<Animation name="V02" template="FloatingCombatElementsTemplates/AnimationV02">
+      <Event event="EventAnimateV02" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V02Fast" template="FloatingCombatElementsTemplates/AnimationV02" speed="#SpeedFast">
+      <Event event="EventAnimateFastV02" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V02Slow" template="FloatingCombatElementsTemplates/AnimationSlowV02" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowV02" frame="$parent" action="Play"/>
+    </Animation>
+    <!-- V03-->
+		<Animation name="V03" template="FloatingCombatElementsTemplates/AnimationV03">
+      <Event event="EventAnimateV03" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V03Fast" template="FloatingCombatElementsTemplates/AnimationV03" speed="#SpeedFast">
+      <Event event="EventAnimateFastV03" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V03Slow" template="FloatingCombatElementsTemplates/AnimationSlowV03" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowV03" frame="$parent" action="Play"/>
+    </Animation>
+
+    <!-- VERTICAL STATUS -->
+    <!-- V04-->
+		<Animation name="V04" template="FloatingCombatElementsTemplates/AnimationV04">
+      <Event event="EventAnimateV04" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V04Fast" template="FloatingCombatElementsTemplates/AnimationV04" speed="#SpeedFast">
+      <Event event="EventAnimateFastV04" frame="$parent" action="Play"/>
+    </Animation>
+    <Animation name="V04Slow" template="FloatingCombatElementsTemplates/AnimationV04" speed="#SpeedSlow">
+      <Event event="EventAnimateSlowV04" frame="$parent" action="Play"/>
+    </Animation>
+	</Frame>
+</Desc>

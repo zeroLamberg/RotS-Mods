@@ -1,0 +1,337 @@
+include "TriggerLibs/NativeLib"
+include "LibCore_h"
+include "LibGame_h"
+include "LibMapM_h"
+include "LibUIUI_h"
+
+include "LibSprt_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Support
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libSprt_InitLibraries () {
+    libNtve_InitVariables();
+    libCore_InitVariables();
+    libGame_InitVariables();
+    libMapM_InitVariables();
+    libUIUI_InitVariables();
+}
+
+// Variable Initialization
+bool libSprt_InitVariables_completed = false;
+
+void libSprt_InitVariables () {
+    if (libSprt_InitVariables_completed) {
+        return;
+    }
+
+    libSprt_InitVariables_completed = true;
+
+    libSprt_gv_dEBUGAdminTeam = PlayerGroupEmpty();
+    libSprt_gv_dEBUGDeathRecapEnabled = true;
+    libSprt_gv_dEBUGXPBoostMultiplier = 2.0;
+    libSprt_gv_dEBUGXPPassiveBoostMultiplier = 1.0;
+    libSprt_gv_dEBUGXPSourceStructure = true;
+    libSprt_gv_dEBUGXPSourceMinion = true;
+    libSprt_gv_dEBUGXPSourceHero = true;
+    libSprt_gv_dEBUGXPSourceCreep = true;
+    libSprt_gv_dEBUGCombatTextEnabled = true;
+    libSprt_gv_dEBUGDebugMessagesEnabled = true;
+    libSprt_gv_dEBUGMapTextEnabled = true;
+}
+
+// Functions
+void libSprt_gf_DEBUGCleanUpHeroForPlayer (int lp_player) {
+    // Variable Declarations
+    unit lv_itUnit;
+    int lv_wasAI;
+
+    // Automatic Variable Declarations
+    unitgroup auto359F8C30_g;
+    int auto359F8C30_u;
+    unitgroup autoC38C9247_g;
+    int autoC38C9247_u;
+
+    // Variable Initialization
+
+    // Implementation
+    libGame_gf_StormResetHeroTalentsForPlayer(lp_player);
+    libGame_gf_LevelUpResetHeroStats(libGame_gv_players[lp_player].lv_heroUnit);
+    libUIUI_gf_FullscreenOverlaysShowHideDeathOverlay(false, lp_player);
+    if ((TimerGetRemaining(libGame_gv_players[lp_player].lv_respawnTimer) > 0.0)) {
+        TimerPause(libGame_gv_players[lp_player].lv_respawnTimer, true);
+        TimerPause(libGame_gv_players[lp_player].lv_respawnSoundCueTimer, true);
+    }
+
+    UnitClearSelection(lp_player);
+    PathDestroy(libGame_gv_players[lp_player].lv_path);
+    UnitSetCustomValue(libGame_gv_players[lp_player].lv_heroUnit, libGame_gf_CustomValueIndex(libGame_ge_CustomValueIndexes_HeroIsSwappingIndex), 1.0);
+    UnitGroupRemove(libGame_gv_heroes, libGame_gv_players[lp_player].lv_heroUnit);
+    UnitRemove(libGame_gv_players[lp_player].lv_heroUnit);
+    auto359F8C30_g = libGame_gv_players[lp_player].lv_heroUnitGroup;
+    auto359F8C30_u = UnitGroupCount(auto359F8C30_g, c_unitCountAll);
+    for (;; auto359F8C30_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(auto359F8C30_g, auto359F8C30_u);
+        if (lv_itUnit == null) { break; }
+        UnitRemove(lv_itUnit);
+    }
+    autoC38C9247_g = UnitGroup(null, lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoC38C9247_u = UnitGroupCount(autoC38C9247_g, c_unitCountAll);
+    for (;; autoC38C9247_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(autoC38C9247_g, autoC38C9247_u);
+        if (lv_itUnit == null) { break; }
+        if ((UnitGetType(lv_itUnit) != "PlayerInteraction@InteractionUnit")) {
+            UnitKill(lv_itUnit);
+        }
+
+    }
+    libGame_gv_players[lp_player].lv_heroUnit = null;
+    UnitGroupClear(libGame_gv_players[lp_player].lv_heroUnitGroup);
+}
+
+trigger auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_Trigger = null;
+int auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_heroIndex;
+int auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_skinIndex;
+int auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_mountIndex;
+fixed auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_xP;
+int auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_player;
+int auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_debugMenuTriggeringPlayer;
+
+void libSprt_gf_DEBUGSpawnorSwapHeroForPlayer (int lp_heroIndex, int lp_skinIndex, int lp_mountIndex, fixed lp_xP, int lp_player, int lp_debugMenuTriggeringPlayer) {
+    auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_heroIndex = lp_heroIndex;
+    auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_skinIndex = lp_skinIndex;
+    auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_mountIndex = lp_mountIndex;
+    auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_xP = lp_xP;
+    auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_player = lp_player;
+    auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_debugMenuTriggeringPlayer = lp_debugMenuTriggeringPlayer;
+
+    if (auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_Trigger == null) {
+        auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_Trigger = TriggerCreate("auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_TriggerFunc");
+    }
+
+    TriggerExecute(auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_Trigger, false, false);
+}
+
+bool auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_TriggerFunc (bool testConds, bool runActions) {
+    int lp_heroIndex = auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_heroIndex;
+    int lp_skinIndex = auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_skinIndex;
+    int lp_mountIndex = auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_mountIndex;
+    fixed lp_xP = auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_xP;
+    int lp_player = auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_player;
+    int lp_debugMenuTriggeringPlayer = auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_lp_debugMenuTriggeringPlayer;
+
+    // Variable Declarations
+    unitgroup lv_cameraGroup;
+    point lv_cameraCenter;
+    int lv_itPlayer;
+    unit lv_itUnit;
+    bool lv_wasAI;
+    int lv_itManualSpawnHero;
+    bool lv_isManualSpawn;
+    int lv_isManualSpawnIndex;
+    int lv_index;
+    int lv_itTier;
+    unit lv_sconceUnit;
+    int lv_loadout;
+
+    // Automatic Variable Declarations
+    int auto7D814270_ae;
+    int auto7D814270_var;
+    const int autoFC61554C_ae = libGame_gv_moonwellMaxMoonwellCount;
+    int autoFC61554C_var;
+    const int auto2D98ADA9_ae = libCore_gv_dataHeroesMaxTalentTiers;
+    int auto2D98ADA9_var;
+
+    // Variable Initialization
+    lv_cameraGroup = UnitGroupEmpty();
+
+    // Implementation
+    if ((libGame_gf_PlayerIsHeroPlayer(lp_debugMenuTriggeringPlayer) == true)) {
+        lv_cameraCenter = CameraGetTarget(lp_debugMenuTriggeringPlayer);
+    }
+
+    lv_loadout = libGame_gf_LoadoutGetPlayerVariationForHero(lp_player, lp_heroIndex);
+    libGame_gf_LoadoutSkinsStoreSkinOfHeroForPlayer(lp_heroIndex, lv_loadout, lp_skinIndex, true, lp_player);
+    libGame_gf_LoadoutMountsStoreMountOfHeroForPlayer(lp_heroIndex, lv_loadout, lp_mountIndex, true, lp_player);
+    libGame_gv_players[lp_player].lv_suppressLevelUpFXAndTeamXPTracking = true;
+    libSprt_gf_DEBUGCleanUpHeroForPlayer(lp_player);
+    auto7D814270_ae = libMapM_gv_jungleNumberOfCreepCamps;
+    auto7D814270_var = 1;
+    for ( ; auto7D814270_var <= auto7D814270_ae; auto7D814270_var += 1 ) {
+        if ((libMapM_gv_jungleCreepCamps[auto7D814270_var].lv_capturingPlayer == lp_player)) {
+        }
+
+    }
+    UIFlyerHelperOverride(libCore_gv_playerGroupFromPlayer[lp_player], libNtve_ge_FlyerHelperDisplay_c_flyerDisplayAll);
+    autoFC61554C_var = 1;
+    for ( ; autoFC61554C_var <= autoFC61554C_ae; autoFC61554C_var += 1 ) {
+        if ((libGame_gv_moonwellTextTags[lp_player][autoFC61554C_var] != c_textTagNone)) {
+            libNtve_gf_SendActorMessageToUnit(libGame_gv_moonwellTextTagsUnit[lp_player][autoFC61554C_var], "Signal MoonwellReset");
+            TextTagDestroy(libGame_gv_moonwellTextTags[lp_player][autoFC61554C_var]);
+            UnitGroupRemove(libGame_gv_moonwellTextTagsUnitGroup[lp_player], libGame_gv_moonwellTextTagsUnit[lp_player][autoFC61554C_var]);
+            libGame_gv_moonwellTextTags[lp_player][autoFC61554C_var] = c_textTagNone;
+            libGame_gv_moonwellTextTagsUnit[lp_player][autoFC61554C_var] = null;
+        }
+
+    }
+    UIFlyerHelperClearOverride(libCore_gv_playerGroupFromPlayer[lp_player]);
+    if ((lv_isManualSpawn == true)) {
+    }
+    else {
+        lv_index = lp_player;
+        if (((libSprt_gv_dEBUGSpawnAtCamera == false) || (libGame_gf_PlayerIsHeroPlayer(lp_debugMenuTriggeringPlayer) == false))) {
+            libGame_gf_SpawnHero(lp_player, lp_heroIndex, libGame_gv_players[lp_player].lv_spawnPoint);
+        }
+        else {
+            libGame_gv_players[lp_player].lv_cameraCenterPoint = lv_cameraCenter;
+            libGame_gf_SpawnHero(lp_player, lp_heroIndex, libGame_gv_players[lp_player].lv_cameraCenterPoint);
+        }
+        libUIUI_gv_uIPartyFrameMaxLevelForTeam[libGame_gf_TeamNumberOfPlayer(lp_player)] = 0;
+        libGame_gf_GrantXPToPlayer(lp_xP, lp_player, libGame_ge_XPSource_Debug);
+    }
+    libGame_gf_ReloadTrackedHeroesForTeam(libGame_gf_TeamNumberOfPlayer(lp_player));
+    libGame_gf_SendEventDebugHeroSwapped(lp_player);
+    Wait(0.125, c_timeGame);
+    libGame_gv_players[lp_player].lv_suppressLevelUpFXAndTeamXPTracking = false;
+    if ((lv_wasAI == true)) {
+    }
+    else {
+        if (((TimerGetRemaining(libGame_gv_openTheGatesTimer) == 0.0))) {
+            UnitBehaviorRemove(libGame_gv_players[lp_player].lv_heroUnit, "HeroGenericPregameAbilitySuppression", 1);
+        }
+
+    }
+    if ((libCore_gv_sYSIsSandbox == true)) {
+        libUIUI_gf_UIPartyFrameTalentAdvantageUpdate();
+    }
+
+    if ((GameIsOnline() == false) && (PlayerType(lp_player) != c_playerTypeUser)) {
+        auto2D98ADA9_var = 1;
+        for ( ; auto2D98ADA9_var <= auto2D98ADA9_ae; auto2D98ADA9_var += 1 ) {
+            if ((libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lp_player, auto2D98ADA9_var) == true)) {
+                libGame_gf_TalentChoicesChooseTalentForPlayer(auto2D98ADA9_var, 1, lp_player);
+                Wait(0.5, c_timeGame);
+            }
+            else {
+                break;
+            }
+        }
+    }
+
+    return true;
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: #Include Support
+//--------------------------------------------------------------------------------------------------
+bool libSprt_gt_IncludeSupport_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libSprt_gt_IncludeSupport_Init () {
+    libSprt_gt_IncludeSupport = TriggerCreate("libSprt_gt_IncludeSupport_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: DEBUG - Win
+//--------------------------------------------------------------------------------------------------
+bool libSprt_gt_DEBUGWin_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((GameIsOnline() == true)) {
+        TriggerEnable(TriggerGetCurrent(), false);
+        return true;
+    }
+
+    UnitKill(libGame_gv_teams[libGame_gf_EnemyTeamNumberOfPlayer(EventPlayer())].lv_core);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libSprt_gt_DEBUGWin_Init () {
+    libSprt_gt_DEBUGWin = TriggerCreate("libSprt_gt_DEBUGWin_Func");
+    TriggerAddEventChatMessage(libSprt_gt_DEBUGWin, c_playerAny, "-win", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: DEBUG - Get All Unit Behaviors
+//--------------------------------------------------------------------------------------------------
+bool libSprt_gt_DEBUGGetAllUnitBehaviors_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_unit;
+    string lv_itBehavior;
+    int lv_number;
+
+    // Automatic Variable Declarations
+    unit auto5FDEC7EE_u;
+    int auto5FDEC7EE_i;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((GameIsOnline() == true)) {
+        TriggerEnable(TriggerGetCurrent(), false);
+        return true;
+    }
+
+    lv_unit = UnitGroupUnit(UnitGroupSelected(EventPlayer()), 1);
+    TriggerDebugOutput(1, StringToText("======= Behaviors ========="), true);
+    auto5FDEC7EE_u = lv_unit;
+    auto5FDEC7EE_i = 1;
+    for ( ; auto5FDEC7EE_i <= UnitBehaviorCountAll(auto5FDEC7EE_u) ; auto5FDEC7EE_i += BoolToInt(lv_itBehavior == UnitBehaviorGet(auto5FDEC7EE_u, auto5FDEC7EE_i)) ) {
+        lv_itBehavior = UnitBehaviorGet(auto5FDEC7EE_u, auto5FDEC7EE_i);
+        lv_number += 1;
+        TextExpressionSetToken("Param/Expression/lib_Sprt_2B67C521", "B", IntToText(lv_number));
+        TextExpressionSetToken("Param/Expression/lib_Sprt_2B67C521", "A", libCore_gf_ConvertCatalogEntryToText(lv_itBehavior));
+        TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_Sprt_2B67C521"), true);
+    }
+    TriggerDebugOutput(1, StringToText("======= End Behaviors ========="), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libSprt_gt_DEBUGGetAllUnitBehaviors_Init () {
+    libSprt_gt_DEBUGGetAllUnitBehaviors = TriggerCreate("libSprt_gt_DEBUGGetAllUnitBehaviors_Func");
+    TriggerAddEventChatMessage(libSprt_gt_DEBUGGetAllUnitBehaviors, c_playerAny, "-beh", true);
+}
+
+void libSprt_InitTriggers () {
+    libSprt_gt_IncludeSupport_Init();
+    libSprt_gt_DEBUGWin_Init();
+    libSprt_gt_DEBUGGetAllUnitBehaviors_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libSprt_InitLib_completed = false;
+
+void libSprt_InitLib () {
+    if (libSprt_InitLib_completed) {
+        return;
+    }
+
+    libSprt_InitLib_completed = true;
+
+    libSprt_InitLibraries();
+    libSprt_InitVariables();
+    libSprt_InitTriggers();
+}
+
+include "LibCore"
+include "LibGame"
+include "LibMapM"
+include "LibUIUI"
+

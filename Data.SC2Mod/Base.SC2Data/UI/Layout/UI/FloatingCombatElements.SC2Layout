@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+	<Frame type="Frame" name="FloatingTextFrame">
+		<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+		<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+		<Height val="400"/>
+		<Width val="400"/>
+		<UseAlternateTime val="True"/>
+		<RenderPriority val="900"/>
+		<Batch val="True"/>
+		
+		<Frame type="Frame" name="TextAnchor">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="170"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="100"/>
+			<Height val="75"/>
+			<Width val="200"/>
+		</Frame>
+
+    <Frame type="Frame" name="Frame" template="FloatingCombatElementsTemplates/C_Translator"/>
+		
+		<Frame type="Image" name="CritImage">
+			<Anchor side="Top" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+			<Anchor side="Left" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+			<Anchor side="Bottom" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+
+			<Texture val="@UI/Storm_UI_InGame_FCT_Crit" />
+			<SubpixelRendering val="True"/>
+			<BlendMode val="Add"/>
+			<ColorAdjustMode val="Colorize"/>
+			<AdjustmentColor val="ff0000"/>
+			<UseAlternateTime val="True"/>
+			<RenderPriority val="511"/>
+			<Visible val="False"/>
+			
+			<Animation name="PopAnimation" template="FloatingCombatElementsTemplates/PopAnimation"/>
+			<Animation name="PopAnimationFast" template="FloatingCombatElementsTemplates/PopAnimationFast"/>
+			<Animation name="PopAnimationSlow" template="FloatingCombatElementsTemplates/PopAnimationSlow"/>
+		</Frame>
+		
+		<Frame type="Label" name="DisplayText">
+			<Anchor side="Top" relative="$parent/TextAnchor" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent/TextAnchor" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent/TextAnchor" pos="Max" offset="0"/>
+			<Anchor side="Bottom" relative="$parent/TextAnchor" pos="Max" offset="0"/>
+			
+			<SubpixelRendering val="True"/>
+			<ScaleText val="True"/>
+			<RenderPriority val="600"/>
+			<UseAlternateTime val="True"/>
+		
+			<Animation name="PopAnimation" template="FloatingCombatElementsTemplates/PopAnimation"/>
+			<Animation name="PopAnimationFast" template="FloatingCombatElementsTemplates/PopAnimationFast"/>
+			<Animation name="PopAnimationSlow" template="FloatingCombatElementsTemplates/PopAnimationSlow"/>
+		</Frame>
+
+    <StateGroup name="FloatingCombatStates">
+      <State name="AbilityStateCritical">
+        <When type="AnimationState" frame="$this" FloatingCombatStates="AbilityStateCritical" />
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_Ability_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="e400ff" />
+      </State>
+      <State name="HealStateCritical">
+        <When type="AnimationState" frame="$this" FloatingCombatStates="HealStateCritical" />
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_Heal_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="1eff00" />
+      </State>
+      <State name="PercentStateCritical">
+        <When type="AnimationState" frame="$this" FloatingCombatStates="PercentStateCritical" />
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_Heal_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="ffee00" />
+      </State>
+      <State name="ShieldStateCritical">
+        <When type="AnimationState" frame="$this" FloatingCombatStates="ShieldStateCritical" />
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_Shield_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="00baff" />
+      </State>
+      <State name="ManaStateCritical">
+        <When type="AnimationState" frame="$this" FloatingCombatStates="ManaStateCritical" />
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_Mana_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="0030ff" />
+      </State>
+      <State name="XPStateCritical">
+        <When type="AnimationState" frame="$this" FloatingCombatStates="XPStateCritical" />
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_XP_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="ff6c00" />
+      </State>
+      <State name="BasicStateCritical">
+        <When type="Property" frame="Frame2" Text="FCT_Basic_Crit" />
+        <!--<When type="AnimationState" frame="$this" FloatingCombatStates="BasicStateCritical" />-->
+        <!--<Action type="SetProperty" frame="DisplayText" style="FCT_Basic_Crit" />-->
+        <Action type="SetProperty" frame="CritImage" visible="True" />
+        <Action type="SetProperty" frame="CritImage" AdjustmentColor="ff0000" />
+      </State>
+    </StateGroup>
+    
+  </Frame>
+
+	<Frame type="Frame" name="FloatingQuestFrame">
+		<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+		<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+		<Height val="500"/>
+		<Width val="200"/>
+    <Batch val="True"/>
+		<UseAlternateTime val="True"/>
+
+		<Frame type="Frame" name="TextAnchor">
+			<Anchor relative="$parent"/>
+		</Frame>
+
+		<Frame type="Label" name="DisplayText">
+			<Anchor side="Top" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+			<Anchor side="Left" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+			<Anchor side="Right" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+			<Anchor side="Bottom" relative="$parent/TextAnchor" pos="Mid" offset="0"/>
+
+			<SubpixelRendering val="True"/>
+			<ScaleText val="True"/>
+			<RenderPriority val="513"/>
+
+      <Width val="500" />
+      <Height val="200" />
+      <Text val="1" />
+      <Style val="FCT_Quest_Lesser" />
+		</Frame>
+
+		<Frame type="Frame" name="QuestProgressImageFrame">
+			<Anchor side="Top" relative="$parent/TextAnchor" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent/TextAnchor" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent/TextAnchor" pos="Max" offset="0"/>
+			<Anchor side="Bottom" relative="$parent/TextAnchor" pos="Max" offset="0"/>
+			<Visible val="True" />
+			<RenderPriority val="510"/>
+			<Frame type="Image" name="QuestSparkle1Image">
+        <Anchor side="Bottom" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <BlendMode val="Add" />
+        <Texture val="@UI/Storm_UI_Global_Sparkle_Orange" />
+        <Animation name="SparkleTrailAnim">
+          <Event event="OnCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnQuestCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnRepeat" action="Stop" frame="$parent/$parent" />
+          <Controller type="Anchor" side="Bottom" end="Pause">
+            <Key type="Curve" time="0" value="45" />
+            <Key type="Curve" time="1" value="60" />
+          </Controller>
+          <Controller type="Dimension" dimension="Height" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time="1" value="10" />
+          </Controller>
+          <Controller type="Dimension" dimension="Width" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time="1" value="10" />
+          </Controller>
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0" value="0" />
+            <Key type="Curve" time=".1" value="0" />
+            <Key type="Curve" time=".2" value="255" />
+            <Key type="Curve" time=".6" value="255" />
+            <Key type="Curve" time="1" value="0" />
+          </Controller>
+        </Animation>
+      </Frame>
+      <Frame type="Image" name="QuestSparkle2Image">
+        <Anchor side="Bottom" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="-10" />
+        <Anchor side="Right" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="-10" />
+        <BlendMode val="Add" />
+        <Texture val="@UI/Storm_UI_Global_Sparkle_Orange" />
+        <Animation name="SparkleTrailAnim">
+          <Event event="OnCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnQuestCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnRepeat" action="Stop" frame="$parent/$parent" />
+          <Controller type="Anchor" side="Bottom" end="Pause">
+            <Key type="Curve" time="0" value="20" />
+            <Key type="Curve" time=".3" value="20" />
+            <Key type="Curve" time="1.3" value="50" />
+          </Controller>
+          <Controller type="Dimension" dimension="Height" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".3" value="100" />
+            <Key type="Curve" time="1.3" value="10" />
+          </Controller>
+          <Controller type="Dimension" dimension="Width" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".3" value="100" />
+            <Key type="Curve" time="1.3" value="10" />
+          </Controller>
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0" value="0" />
+            <Key type="Curve" time=".2" value="0" />
+            <Key type="Curve" time=".3" value="255" />
+            <Key type="Curve" time=".7" value="255" />
+            <Key type="Curve" time="1.3" value="0" />
+          </Controller>
+        </Animation>
+      </Frame>
+      <Frame type="Image" name="QuestSparkle3Image">
+        <Anchor side="Bottom" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="10" />
+        <Anchor side="Right" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="10" />
+        <BlendMode val="Add" />
+        <Texture val="@UI/Storm_UI_Global_Sparkle_Orange" />
+        <Animation name="SparkleTrailAnim">
+          <Event event="OnCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnQuestCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnRepeat" action="Stop" frame="$parent/$parent" />
+          <Controller type="Anchor" side="Bottom" end="Pause">
+            <Key type="Curve" time="0" value="10" />
+            <Key type="Curve" time=".5" value="10" />
+            <Key type="Curve" time="1.5" value="40" />
+          </Controller>
+          <Controller type="Dimension" dimension="Height" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".5" value="100" />
+            <Key type="Curve" time="1.5" value="10" />
+          </Controller>
+          <Controller type="Dimension" dimension="Width" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".5" value="100" />
+            <Key type="Curve" time="1.5" value="10" />
+          </Controller>
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0" value="0" />
+            <Key type="Curve" time=".4" value="0" />
+            <Key type="Curve" time=".5" value="255" />
+            <Key type="Curve" time=".9" value="255" />
+            <Key type="Curve" time="1.4" value="0" />
+          </Controller>
+        </Animation>
+      </Frame>
+      <Frame type="Image" name="QuestSparkle4Image">
+        <Anchor side="Bottom" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="-5" />
+        <Anchor side="Right" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="-5" />
+        <BlendMode val="Add" />
+        <Texture val="@UI/Storm_UI_Global_Sparkle_Orange" />
+        <Animation name="SparkleTrailAnim">
+          <Event event="OnCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnQuestCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnRepeat" action="Stop" frame="$parent/$parent" />
+          <Controller type="Anchor" side="Bottom" end="Pause">
+            <Key type="Curve" time="0" value="0" />
+            <Key type="Curve" time=".7" value="0" />
+            <Key type="Curve" time="1.7" value="30" />
+          </Controller>
+          <Controller type="Dimension" dimension="Height" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".7" value="100" />
+            <Key type="Curve" time="1.7" value="10" />
+          </Controller>
+          <Controller type="Dimension" dimension="Width" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".7" value="100" />
+            <Key type="Curve" time="1.7" value="10" />
+          </Controller>
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0" value="0" />
+            <Key type="Curve" time=".6" value="0" />
+            <Key type="Curve" time=".7" value="255" />
+            <Key type="Curve" time="1" value="255" />
+            <Key type="Curve" time="1.5" value="0" />
+          </Controller>
+        </Animation>
+      </Frame>
+      <Frame type="Image" name="QuestSparkle5Image">
+        <Anchor side="Bottom" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="5" />
+        <Anchor side="Right" relative="$parent/QuestProgressContainerImage" pos="Mid" offset="5" />
+        <BlendMode val="Add" />
+        <Texture val="@UI/Storm_UI_Global_Sparkle_Orange" />
+        <Animation name="SparkleTrailAnim">
+          <Event event="OnCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnQuestCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnRepeat" action="Stop" frame="$parent/$parent" />
+          <Controller type="Anchor" side="Bottom" end="Pause">
+            <Key type="Curve" time="0" value="-25" />
+            <Key type="Curve" time=".9" value="-25" />
+            <Key type="Curve" time="1.9" value="5" />
+          </Controller>
+          <Controller type="Dimension" dimension="Height" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".9" value="100" />
+            <Key type="Curve" time="1.9" value="10" />
+          </Controller>
+          <Controller type="Dimension" dimension="Width" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" />
+            <Key type="Curve" time=".9" value="100" />
+            <Key type="Curve" time="1.9" value="10" />
+          </Controller>
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0" value="0" />
+            <Key type="Curve" time=".8" value="0" />
+            <Key type="Curve" time=".9" value="255" />
+            <Key type="Curve" time="1.3" value="255" />
+            <Key type="Curve" time="1.9" value="0" />
+          </Controller>
+        </Animation>
+      </Frame>
+			<Frame type="Image" name="QuestProgressContainerImage">
+        <Anchor side="Top" relative="$parent/$parent/DisplayText" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent/$parent/DisplayText" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/$parent/DisplayText" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent/$parent/DisplayText" pos="Mid" offset="0" />
+        <Texture val="@UI/Storm_UI_Quest_Indicator_Frame" />
+        <Animation name="Scale">
+          <Event event="OnCreation" action="Restart,Play" frame="$parent/$parent" />
+          <Event event="OnQuestCreation" action="Reset, Play" frame="$parent/$parent" />
+          <Event event="OnRepeat" action="Stop" frame="$parent/$parent" />
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0" value="255" />
+            <Key type="Curve" time=".7" value="255" />
+            <Key type="Curve" time="1" value="0" />
+          </Controller>
+          <Controller type="Dimension" dimension="Width" relative="False" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" inout="Linear" />
+            <Key type="Curve" time=".1" value="100" inOut="Fast,Fast" />
+            <Key type="Curve" time=".2" value="150" inOut="Fast,Fast" />
+            <Key type="Curve" time=".3" value="100" inout="Slow,Linear" />
+            <Key type="Curve" time=".4" value="100" inout="Slow,Linear" />
+            <Key type="Curve" time=".7" value="100" inout="Linear" />
+            <Key type="Curve" time="1" value="100" inout="Linear" />
+          </Controller>
+          <Controller type="Dimension" dimension="Height" relative="False" percentage="True" end="Pause">
+            <Key type="Curve" time="0" value="100" inout="Linear" />
+            <Key type="Curve" time=".1" value="100" inOut="Fast,Fast" />
+            <Key type="Curve" time=".2" value="150" inOut="Fast,Fast" />
+            <Key type="Curve" time=".3" value="100" inout="Slow,Linear" />
+            <Key type="Curve" time=".4" value="100" inout="Slow,Linear" />
+            <Key type="Curve" time=".7" value="100" inout="Linear" />
+            <Key type="Curve" time="1" value="100" inout="Linear" />
+          </Controller>
+        </Animation>
+			</Frame>
+      <Frame type="Image" name="QuestProgressImage">
+        <Anchor side="Top" relative="$parent/QuestProgressContainerImage" pos="Min" offset="20" />
+        <Anchor side="Left" relative="$parent/QuestProgressContainerImage" pos="Max" offset="-24" />
+        <Width val="16" />
+        <Height val="32" />
+        <Texture val="@UI/Storm_UI_Quest_Indicator_Icon" />
+      </Frame>
+    </Frame>
+    <Animation name="QuestFadeOut">
+      <Event event="OnQuestCreation" action="Restart,Play" />
+      <Controller type="Dimension" dimension="Width" relative="False" percentage="True" end="Pause" frame="DisplayText">
+        <Key type="Curve" time="0" value="100" inout="Linear" />
+        <Key type="Curve" time=".1" value="200" inOut="Slow,Fast" />
+        <Key type="Curve" time=".3" value="100" inout="Slow,Linear" />
+        <Key type="Curve" time=".5" value="100" inOut="Slow,Slow" />
+        <Key type="Curve" time=".7" value="50" inout="Linear" />
+      </Controller>
+      <Controller type="Dimension" dimension="Height" relative="False" percentage="True" end="Pause" frame="DisplayText">
+        <Key type="Curve" time="0" value="100" inout="Linear" />
+        <Key type="Curve" time=".1" value="200" inOut="Slow,Fast" />
+        <Key type="Curve" time=".3" value="100" inout="Slow,Linear" />
+        <Key type="Curve" time=".5" value="100" inOut="Slow,Slow" />
+        <Key type="Curve" time=".7" value="50" inout="Linear" />
+      </Controller>
+      <Controller name="Fade" type="Fade" end="Pause">
+        <Key type="Curve" time="0" value="0" inout="Linear" />
+        <Key type="Curve" time=".1" value="255" inout="Slow,Linear" />
+        <Key type="Curve" time=".5" value="255" inout="Linear,Slow" />
+        <Key type="Curve" time=".7" value="0" inout="Linear" />
+      </Controller>
+      <Controller type="Anchor" side="Top" end="Pause" frame="DisplayText">
+        <Key type="Curve" time="0" value="0" />
+        <Key type="Curve" time="1" value="-100" />
+      </Controller>
+      <Controller type="Anchor" side="Bottom" end="Pause" frame="DisplayText">
+        <Key type="Curve" time="0" value="0" />
+        <Key type="Curve" time="1" value="-100" />
+      </Controller>
+    </Animation>
+  </Frame>
+
+</Desc>

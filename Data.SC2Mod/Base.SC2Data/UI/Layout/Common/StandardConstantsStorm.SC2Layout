@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Constant name="StandardProgressBorder" val="35,125,255"/>
+    <Constant name="StandardProgressFill" val="110,170,255"/>
+    <Constant name="StandardBorder" val="35a1fc"/>
+    <Constant name="StandardEditBoxHighlightColor" val="007FFF"/>
+    <Constant name="StandardEditBoxHighlightAlpha" val="64"/>
+
+    <Constant name="ColorStormHeroXP" val="a630f2"/>
+    <Constant name="ColorStormBorderDark" val="999999"/>
+
+    <Constant name="CommandButtonColorNormal" val="110,170,255"/>
+    <Constant name="CommandButtonColorExecuting" val="cfabff"/>
+    <Constant name="CommandButtonColorNormalBorder" val="255,255,255"/>
+    <Constant name="CommandButtonColorExecutingBorder" val="255,255,255"/>
+    <Constant name="CommandButtonColorDisabled" val="77,77,77"/>
+    <Constant name="CommandButtonColorEnergy" val="65,55,94"/>
+    <Constant name="ColorUnitWireframeShields" val="0, 128, 255"/>
+    <Constant name="ColorGroupSelectionBorderNormal" val="35,125,255"/>
+    <Constant name="ColorGroupSelectionBorderSubgroup" val="110,170,255"/>
+    <Constant name="DesaturationColor" val="a0a0a0"/>
+    <Constant name="ColorButtonIconDisabled" val="383458"/>
+    <Constant name="EditBoxInputTimeout" val="300"/>
+
+    <Constant name="NEUTRAL_PlayerID" val="0"/>
+    <Constant name="HOSTILE_PlayerID" val="15"/>
+
+    <Constant name="DRefPrecision" val="&lt;d ref=&quot;%0%&quot; precision=&quot;2&quot;/&gt;"/>
+    
+    <!-- Artifact Colors -->
+    <Constant name="AttributeColorOffense" val="150,0,0"/>
+    <Constant name="AttributeColorDefense" val="0,150,0"/>
+    <Constant name="AttributeColorUtility" val="150,0,150"/>
+</Desc>

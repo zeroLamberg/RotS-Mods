@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CutsceneState cutsceneVersion="1.300000">
+    <CCutsceneNodeDirector guid="12807086377179234238" name="Director" interactive="1" waitForResources="1">
+        <CCutsceneNodeActiveCamera guid="12321606097495605182" name="Active Camera">
+            <CCutsceneElementActiveCamera guid="6165937812135952318" cameraIndex="0" objectGuid="13090137787276148670"/>
+        </CCutsceneNodeActiveCamera>
+        <CCutsceneNodeBookmark guid="13482569382903365566" name="Start">
+            <CCutsceneElementBookmark guid="8684814038204628926" start="1" bookmarkName="Stand Start" pauseWhenHit="1"/>
+            <CCutsceneElementBookmark guid="7082618415902572478" start="3000" bookmarkName="Stand End" jumpToBookmarkWhenHit="Stand Start"/>
+        </CCutsceneNodeBookmark>
+        <CCutsceneNodeActiveLight guid="12804425821033021374" name="Active Light">
+            <CCutsceneElementActiveLight guid="4873114714298859454" lightGUID="0" lightID="StormLightMiniPortraitBase" lightIndex="0" blendTime="0"/>
+        </CCutsceneNodeActiveLight>
+    </CCutsceneNodeDirector>
+    <CCutsceneNodeCamera guid="13090137787276148670" name="Game Camera" position="0.514381,-13.567455,1.157936" scale="0.104020,0.104020,0.104020" fov="27.799999" nearClip="0.100000" farClip="660.000000" shadowClip="0.000300" depthOfField="0.000000" focalDepth="8.000000" falloffStart="0.000300" falloffEnd="8.000000" falloffStartNear="0.000000" falloffEndNear="0.000000" doftype="0.000000" roll="0.000000" verticalFOV="1" distance="12.511759" pitch="4.182992" yaw="-178.387268" heightOffset="18.981758">
+        <CCutsceneElementObject guid="8296669361104699326" duration="3000" lockedToEnd="1"/>
+    </CCutsceneNodeCamera>
+    <CCutsceneNodeActor guid="12885098316307840958" name="Hero Delta" scale="10.000000,10.000000,10.000000" finderTag="Hero" modelLink="DeltaSkinUltimate@Hero" enablePhysics="0" shadowBox="0" teamColorDiffuse="0.000000,0.258700,1.000000,1.000000" teamColorEmissive="0.000000,0.258824,1.000000,1.000000">
+        <CCutsceneElementObject guid="7620001464097914814" duration="3000" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="10514924677049302974" name="Animation Layer">
+            <CCutsceneElementAnim guid="5224182368956530622" duration="3000" anim="Stand" priority="3" originalDuration="3333" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="11035574603653056843" name="Animation Layer">
+            <CCutsceneElementAnim guid="5999322018519976267" duration="3000" anim="Work B" priority="13" originalDuration="1000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="13512329736767791638" name="Animation Layer">
+            <CCutsceneElementAnim guid="4631262968451818006" duration="3000" anim="Cover A" priority="14" originalDuration="1000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+    </CCutsceneNodeActor>
+</CutsceneState>

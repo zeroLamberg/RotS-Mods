@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Constant name="RenderPriorityTown_Ally" val="512" />
+  <Constant name="RenderPriorityTown_Enemy" val="513" />
+  <Constant name="RenderPriorityTown_Owner" val="514" />
+  <Constant name="RenderPriorityObjective_Ally" val="520" />
+  <Constant name="RenderPriorityObjective_Enemy" val="521" />
+  <Constant name="RenderPriorityObjective_Owner" val="522" />
+  <Constant name="RenderPriorityHero_Ally" val="530" />
+  <Constant name="RenderPriorityHero_Enemy" val="531" />
+  <Constant name="RenderPriorityHero_Summon" val="532" />
+  <Constant name="RenderPriorityHero_Owner" val="533" />
+  <Constant name="RenderPriorityMapMonster_Ally" val="540" />
+  <Constant name="RenderPriorityMapMonster_Enemy" val="541" />
+  <Constant name="RenderPriorityMapMonster_Owner" val="542" />
+  <Frame type="UnitStatusFrame" name="UnitStatusMinimapBaseIconTemplate">
+    <Width val="32" />
+    <Height val="32" />
+    <BatchImages val="True"/>
+    <Frame type="Frame" name="AttachPointFrame">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="22" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="16" />
+      <Height val="2" />
+      <Width val="2" />
+      <Visible val="False" />
+    </Frame>
+    <Frame type="UnitFrame" name="UnitFrame">
+      <Anchor relative="$parent"/>
+      <UnitTag val="{$parent/@UnitTag}"/>
+      <Frame type="Label" name="IconPath">
+        <Visible val="False"/>
+        <Text val="{$parent/@ActorUnitLink[MinimapIcon]}"/>
+      </Frame>
+    </Frame>
+    <Frame type="UnitStatusColor" name="UnitStatusColor">
+      <ColorStyle val="Primary"/>
+      <StateGroup name="UnitStatusFrame_ColorUpdate" template="StandardTemplatesStorm/UnitStatusFrame_ColorUpdate"/>
+    </Frame>
+  </Frame>
+  <Frame type="UnitStatusFrame" name="UnitStatusMinimapIconFrameTemplate" template="MinimapUnitStatus/UnitStatusMinimapBaseIconTemplate">
+    <!--<Frame type="UnitStatusMinimapIcon" name="UnitStatusMinimapIcon">
+      <Frame type="Image" name="IconImage">
+        <Texture val="{$parent/@MinimapIcon}" layer="0" />
+      </Frame>
+    </Frame>-->
+  </Frame>
+  <Frame type="UnitStatusFrame" name="UnitStatusMinimapHealthIconTemplate" template="MinimapUnitStatus/UnitStatusMinimapBaseIconTemplate">
+    <Frame type="UnitStatusHealthBar" name="IconHealthBar" template="UnitStatus/UnitStatusHealthBarTemplate">
+      <Anchor relative="$parent" offset="0" />
+      <Tiled val="True" />
+      <Expansion val="Up" />
+      <ReductionColor val="#ReductionColor" />
+      <ReductionShown val="true" />
+      <IncreaseDuration val="#LifeIncreaseDuration" />
+      <DecreaseDuration val="#LifeLossDuration" />
+    </Frame>
+    <Frame type="Image" name="BackgroundImage">
+      <Anchor relative="$parent" />
+      <DesaturateOnDisable val="False"/>
+      <RenderPriority val="510"/>
+      <ColorAdjustMode val="Colorize"/>
+      <DarkAdjustColor val="59,59,59"/>
+    </Frame>
+  </Frame>
+  <Frame type="UnitStatusFrame" name="UnitStatusTownIconTemplate" template="MinimapUnitStatus/UnitStatusMinimapHealthIconTemplate">
+    <Frame type="UnitStatusShieldedHealthBar" name="IconHealthBar">
+      <Texture val="Assets\Textures\Storm_UI_MinimapIcon_Town_Fill.dds" />
+    </Frame>
+    <Frame type="Image" name="BackgroundImage">
+      <Texture val="Assets\Textures\Storm_UI_MinimapIcon_Town_Outline.dds"/>
+    </Frame>
+    <Frame type="Image" name="MoonWellIcon">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Width val="32" />
+      <Height val="32" />
+      <Texture val="@UI/Minimap_Town_Moonwell" />
+      <Color val="{$parent/UnitStatusColor/@Color}" />
+      <DesaturateOnDisable val="False"/>
+    </Frame>
+    <Frame type="UnitStatusValidatorAnimElement" name="MinimapHeroIconPulseBehaviorList">
+      <Anchor relative="$parent" />
+      <Validator val="MoonwellLeft" />
+      <Validator val="MoonwellRight" />
+      <Validator val="MoonwellNone" />
+      <Animation name="MoonwellLeft">
+        <Event event="MoonwellLeft" action="Restart, Play" />
+        <Controller type="State" end="Pause" frame="$parent" stateGroup="MoonwellIndicator">
+          <Key type="Identifier" time="0.0" value="Left"/>
+        </Controller>
+      </Animation>
+      <Animation name="MoonwellRight">
+        <Event event="MoonwellRight" action="Restart, Play" />
+        <Controller type="State" end="Pause" frame="$parent" stateGroup="MoonwellIndicator">
+          <Key type="Identifier" time="0.0" value="Right"/>
+        </Controller>
+      </Animation>
+      <Animation name="MoonwellNone">
+        <Event event="MoonwellNone" action="Restart, Play" />
+        <Controller type="State" end="Pause" frame="$parent" stateGroup="MoonwellIndicator">
+          <Key type="Identifier" time="0.0" value="None"/>
+        </Controller>
+      </Animation>
+    </Frame>
+    <StateGroup name="MoonwellIndicator">
+      <DefaultState val="None" />
+      <State name="None">
+        <Action type="SetProperty" frame="MoonWellIcon" visible="False" />
+      </State>
+      <State name="Left">
+        <Action type="SetProperty" frame="MoonWellIcon" visible="True" />
+        <Action type="SetProperty" frame="MoonWellIcon" texture="@UI/Minimap_Town_Moonwell_Left" />
+      </State>
+      <State name="Right">
+        <Action type="SetProperty" frame="MoonWellIcon" visible="True" />
+        <Action type="SetProperty" frame="MoonWellIcon" texture="@UI/Minimap_Town_Moonwell_Right" />
+      </State>
+    </StateGroup>
+  </Frame>
+  <Frame type="UnitStatusFrame" name="MinimapTownIcon" template="MinimapUnitStatus/UnitStatusTownIconTemplate">
+    <AllyRenderPriority val="#RenderPriorityTown_Ally" />
+    <EnemyRenderPriority val="#RenderPriorityTown_Enemy" />
+    <OwnerRenderPriority val="#RenderPriorityTown_Owner" />
+    <!--<Frame type="UnitStatusMinimapIcon" name="UnitStatusMinimapIcon">
+      <Frame type="Image" name="HoverGlowImage">
+        <Anchor relative="$parent" offset="0" />
+        <RenderPriority val="500" />
+        <Visible val="False" />
+        <Texture val="@UI/Minimap_Town_Glow2" />
+        <ColorAdjustMode val="Colorize" />
+        <DarkAdjustColor val="{$parent/@Color}" />
+      </Frame>
+    </Frame>-->
+  </Frame>
+  <Frame type="UnitStatusFrame" name="MinimapMoonwellIcon" template="MinimapUnitStatus/UnitStatusMinimapBaseIconTemplate">
+    <AllyRenderPriority val="#RenderPriorityTown_Ally" />
+    <EnemyRenderPriority val="#RenderPriorityTown_Enemy" />
+    <OwnerRenderPriority val="#RenderPriorityTown_Owner" />
+    <Frame type="UnitStatusValidatorAnimElement" name="MinimapHeroIconPulseBehaviorList">
+      <Anchor relative="$parent" />
+      <Validator val="MoonwellSelf" />
+      <Validator val="MoonwellNone" />
+      <Animation name="MoonwellSelf">
+        <Event event="MoonwellSelf" action="Restart, Play" />
+        <Controller type="Visibility" end="Pause" frame="$parent/BackgroundImage">
+          <Key type="Bool" time="0.0" value="True"/>
+        </Controller>
+      </Animation>
+      <Animation name="MoonwellNone">
+        <Event event="MoonwellNone" action="Restart, Play" />
+        <Controller type="Visibility" end="Pause" frame="$parent/BackgroundImage">
+          <Key type="Bool" time="0.0" value="False"/>
+        </Controller>
+      </Animation>
+    </Frame>
+    <Frame type="Image" name="BackgroundImage">
+      <Anchor relative="$parent" />
+      <DesaturateOnDisable val="False"/>
+      <Texture val="@UI/Minimap_Town_Moonwell"/>
+      <Color val="{$parent/UnitStatusColor/@Color}" />
+      <Visible val="False"/>
+    </Frame>
+  </Frame>
+  <Frame type="UnitStatusFrame" name="MinimapCoreIcon" template="MinimapUnitStatus/UnitStatusMinimapHealthIconTemplate">
+    <AllyRenderPriority val="#RenderPriorityTown_Ally" />
+    <EnemyRenderPriority val="#RenderPriorityTown_Enemy" />
+    <OwnerRenderPriority val="#RenderPriorityTown_Owner" />
+    <Frame type="UnitStatusHealthBar" name="IconHealthBar">
+      <Texture val="Assets\Textures\Storm_UI_MinimapIcon_Core_Fill.dds" />
+    </Frame>
+    <Frame type="Image" name="BackgroundImage">
+      <Texture val="Assets\Textures\Storm_UI_MinimapIcon_Core_Outline.dds"/>
+    </Frame>
+  </Frame>
+  <Frame type="UnitStatusFrame" name="MinimapHeroIcon" template="MinimapUnitStatus/UnitStatusMinimapIconFrameTemplate">
+    <AllyRenderPriority val="#RenderPriorityHero_Ally" />
+    <EnemyRenderPriority val="#RenderPriorityHero_Enemy" />
+    <OwnerRenderPriority val="#RenderPriorityHero_Owner" />
+    <Frame type="Frame" name="Frame">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Height val="32"/>
+      <Width val="32"/>
+      <Unclipped val="True"/>
+      <BatchImages val="True"/>
+      <Frame type="Image" name="Background">
+        <Anchor relative="$parent" pos="Mid"/>
+        <Texture val="Assets\Textures\UI_MinimapIcon_HeroBG.dds"/>
+        <Color val="{$ancestor[@type=UnitStatusFrame]/UnitStatusColor/@Color}" />
+        <DesaturateOnDisable val="False"/>
+        <RenderPriority val="513"/>
+        <SnapToDevicePixels val="True"/>
+        <SubpixelRendering val="True"/>
+        <Frame type="Image" name="UnitIconImage">
+          <Anchor relative="$parent" pos="Mid" offset="-2"/>
+          <Texture val="{$ancestor[@type=UnitStatusFrame]/UnitFrame/IconPath/@Text}"/>
+          <IgnoreParentColor val="true" />
+          <DesaturateOnDisable val="False"/>
+          <SnapToDevicePixels val="True"/>
+          <SubpixelRendering val="True"/>
+          <StateGroup name="VisibilityStateGroup">
+            <State name="Hidden">
+              <When type="Property" frame="$this" Texture="" operator="Equal" />
+              <Action type="SetProperty" frame="$this" Visible="False"/>
+            </State>
+          </StateGroup>
+        </Frame>
+      </Frame>
+    </Frame>
+    <!--<Frame type="UnitStatusMinimapIcon" name="UnitStatusMinimapIcon">
+      <FacingOffset val="45.0" />
+      <Frame type="Image" name="IconImage">
+        <SubpixelRendering val="true" />
+        <TextureCoords top="-.075" left="-.075" bottom="1.075" right="1.075" layer="0" />
+        <TextureCoordRotation val="{$parent/@Facing}" layer="1" />
+      </Frame>
+    </Frame>
+    <Frame type="UnitStatusValidatorAnimElement" name="MinimapHeroIconPulseBehaviorList">
+      <Anchor relative="$parent" />
+      <Validator val="ZuljinHeadhunterTargetHasRevealBuff" />
+      <Animation name="ZuljinHeadhunterTargetHasRevealBuff">
+        <Event event="Reset" action="Stop" />
+        <Event event="NoState" action="stop" />
+        <Event event="ZuljinHeadhunterTargetHasRevealBuff" action="Restart, Play" />
+        <Controller type="Visibility" end="Pause" frame="$parent/MinimapHeroIconBorderImage">
+          <Key type="Bool" time="0" value="True" />
+        </Controller>
+        <Controller type="Visibility" end="Pause" frame="$parent/MinimapHeroIconBorderPulse">
+          <Key type="Bool" time="0" value="True" />
+        </Controller>
+      </Animation>
+    </Frame>
+    <Frame type="Image" name="MinimapHeroIconBorderImage">
+      <Anchor side="Top" relative="$parent/UnitStatusMinimapIcon" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent/UnitStatusMinimapIcon" pos="Min" offset="0" />
+      <Anchor side="Right" relative="$parent/UnitStatusMinimapIcon" pos="Max" offset="0" />
+      <Anchor side="Bottom" relative="$parent/UnitStatusMinimapIcon" pos="Max" offset="0" />
+      <Visible val="False" />
+      <BlendMode val="Normal" />
+      <ColorAdjustMode val="Colorize" />
+      <LightAdjustColor val="af8fff" />
+      <Texture val="@UI/UI_GenFX_CircleInnerGlow" />
+      <Unclipped val="true" />
+      <RenderPriority val="1" />
+      <Animation name="HexagonBorder">
+        <Event event="OnShown" action="Restart, Play" />
+        <Controller type="Fade" end="Pause">
+          <Key type="Curve" time="0" value="0" />
+          <Key type="Curve" time=".29" value="0" inout="Linear" />
+          <Key type="Curve" time=".3" value="255" inout="Linear" />
+          <Key type="Curve" time="3.5" value="255" inout="Slow,Linear" />
+          <Key type="Curve" time="4" value="0" inout="Slow,Linear" />
+        </Controller>
+        <Controller type="Visibility" end="Pause">
+          <Key type="Bool" time="4" value="False" />
+        </Controller>
+      </Animation>
+    </Frame>
+    <Frame type="Image" name="MinimapHeroIconBorderPulse">
+      <Anchor side="Top" relative="$parent/UnitStatusMinimapIcon" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent/UnitStatusMinimapIcon" pos="Min" offset="0" />
+      <Anchor side="Right" relative="$parent/UnitStatusMinimapIcon" pos="Max" offset="0" />
+      <Anchor side="Bottom" relative="$parent/UnitStatusMinimapIcon" pos="Max" offset="0" />
+      <Visible val="False" />
+      <BlendMode val="Normal" />
+      <ColorAdjustMode val="Colorize" />
+      <LightAdjustColor val="af8fff" />
+      <Texture val="@UI/UI_GenFX_CircleInnerGlow" />
+      <Unclipped val="true" />
+      <RenderPriority val="1" />
+      <Animation name="Pulse1">
+        <Event event="OnShown" action="Restart, Play" />
+        <Controller type="Dimension" dimension="Height" end="Pause" unclipped="True" percentage="false" relative="False">
+          <Key type="Curve" time="0" value="96" inout="Linear" />
+          <Key type="Curve" time=".3" value="30" inout="Slow,Linear" />
+          <Key type="Curve" time="1" value="96" inout="Slow,Linear" />
+        </Controller>
+        <Controller type="Dimension" dimension="Width" end="Pause" unclipped="True" percentage="false" relative="False">
+          <Key type="Curve" time="0" value="110" inout="Linear" />
+          <Key type="Curve" time=".3" value="34" inout="Slow,Linear" />
+          <Key type="Curve" time="1" value="110" inout="Slow,Linear" />
+        </Controller>
+        <Controller type="Fade" end="Pause">
+          <Key type="Curve" time="0" value="0" />
+          <Key type="Curve" time=".3" value="168" inout="Linear" />
+          <Key type="Curve" time=".31" value="0" inout="Linear" />
+          <Key type="Curve" time=".32" value="63" inout="Linear" />
+          <Key type="Curve" time="1" value="0" inout="Linear" />
+        </Controller>
+        <Controller type="Visibility" end="Pause">
+          <Key type="Bool" time="4" value="False" />
+        </Controller>
+      </Animation>
+    </Frame>-->
+  </Frame>
+  <Frame type="UnitStatusFrame" name="MinimapLargeMinionIcon" template="MinimapUnitStatus/UnitStatusMinimapIconFrameTemplate">
+    <VisibleToEnemy val="False" />
+    <VisibleToAlly val="False" />
+    <OwnerRenderPriority val="#RenderPriorityHero_Summon" />
+    <Frame type="Frame" name="Frame">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+      <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+      <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+      <Height val="32"/>
+      <Width val="32"/>
+      <Unclipped val="True"/>
+      <BatchImages val="True"/>
+      <Frame type="Image" name="Background">
+        <Anchor relative="$parent" pos="Mid"/>
+        <Texture val="Assets\Textures\UI_MinimapIcon_HeroBG.dds"/>
+        <Color val="{$ancestor[@type=UnitStatusFrame]/UnitStatusColor/@Color}" />
+        <DesaturateOnDisable val="False"/>
+        <RenderPriority val="513"/>
+        <SnapToDevicePixels val="True"/>
+        <SubpixelRendering val="True"/>
+        <Frame type="Image" name="UnitIconImage">
+          <Anchor relative="$parent" pos="Mid" offset="-2"/>
+          <Texture val="{$ancestor[@type=UnitStatusFrame]/UnitFrame/IconPath/@Text}"/>
+          <Color val="{$ancestor[@type=UnitStatusFrame]/UnitStatusColor/@Color}" />
+          <IgnoreParentColor val="true" />
+          <DesaturateOnDisable val="False"/>
+          <SnapToDevicePixels val="True"/>
+          <SubpixelRendering val="True"/>
+          <StateGroup name="VisibilityStateGroup">
+            <State name="Hidden">
+              <When type="Property" frame="$this" Texture="" operator="Equal" />
+              <Action type="SetProperty" frame="$this" Visible="False"/>
+            </State>
+          </StateGroup>
+        </Frame>
+      </Frame>
+    </Frame>
+    <!--<Frame type="UnitStatusMinimapIcon" name="UnitStatusMinimapIcon">
+      <FacingOffset val="45.0" />
+      <Frame type="Image" name="IconImage">
+        <SubpixelRendering val="true" />
+        <TextureCoords top="-.075" left="-.075" bottom="1.075" right="1.075" layer="0" />
+        <TextureCoordRotation val="{$parent/@Facing}" layer="1" />
+      </Frame>
+    </Frame>-->
+  </Frame>
+  <Frame type="UnitStatusFrame" name="MinimapMapMonsterIcon" template="MinimapUnitStatus/UnitStatusMinimapIconFrameTemplate">
+    <AllyRenderPriority val="#RenderPriorityMapMonster_Ally" />
+    <EnemyRenderPriority val="#RenderPriorityMapMonster_Enemy" />
+    <OwnerRenderPriority val="#RenderPriorityMapMonster_Owner" />
+    <RenderPriority val="512" />
+    <!--<Frame type="UnitStatusMinimapIcon" name="UnitStatusMinimapIcon">
+      <Frame type="Image" name="IconImage">
+        <Texture val="{$parent/@MinimapIcon}" layer="0" />
+        <Color val="{$parent/@Color}" layer="0" />
+        <LayerColor val="FFFFFF" layer="1" />
+      </Frame>
+    </Frame>-->
+  </Frame>
+</Desc>

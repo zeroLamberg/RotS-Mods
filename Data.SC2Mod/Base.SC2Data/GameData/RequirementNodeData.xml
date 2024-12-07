@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirementConst id="10"/>
+    <CRequirementConst id="15"/>
+    <CRequirementConst id="40">
+        <Tooltip value=""/>
+        <Value value="40"/>
+    </CRequirementConst>
+    <CRequirementConst id="5"/>
+    <CRequirementAnd id="And"/>
+    <CRequirementAnd id="AndEqCountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit0">
+        <OperandArray value="EqCountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit0"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndEqCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0EqCountBehaviorStormCategory RootCompleteOnlyAtUnit0">
+        <OperandArray value="EqCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0"/>
+        <OperandArray value="EqCountBehaviorStormCategory RootCompleteOnlyAtUnit0"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndNotOrCountBehaviorUltimate1UnlockedCompleteOnlyAtUnitCountBehaviorUltimate2UnlockedCompleteOnlyAtUnitCountBehaviorUltimate3UnlockedCompleteOnlyAtUnit">
+        <OperandArray value="NotOrCountBehaviorUltimate1UnlockedCompleteOnlyAtUnitCountBehaviorUltimate2UnlockedCompleteOnlyAtUnitCountBehaviorUltimate3UnlockedCompleteOnlyAtUnit"/>
+    </CRequirementAnd>
+    <CRequirementCountBehavior id="CountBehaviorAlias MercenaryLordBuffCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Alias MercenaryLordBuff" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorCategorySuppressVisibilityCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CategorySuppressVisibility" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorDeadCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Dead" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorDeadQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Dead" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHallOfStormsProtectionBuffCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HallOfStormsProtectionBuff" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHasMapMechanicInstantAbilityCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HasMapMechanicInstantAbility" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbility2CompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HasMapMechanicTargetAbility2" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbility2SnowBrawlCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HasMapMechanicTargetAbility2SnowBrawl" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbilityCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HasMapMechanicTargetAbility" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbilitySnowBrawlCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HasMapMechanicTargetAbilitySnowBrawl" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HeroGenericMount@Mounted" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSJCloakedMineCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory MercenaryLordBuff" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSJCloakedMineQueuedOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="SJCloakedMine"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorMountedFlyerCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="MountedFlyer" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory AbnormalDeathCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory AbnormalDeath" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory AbnormalRespawnCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory AbnormalRespawn" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory DamageReductionCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory DebuffAbilityPower" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory DebuffSpellPowerCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory DebuffSpellPower" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory DodgeCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Dodge" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory EatenCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Eaten" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory FlailingBackwardCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory FlailingBackward" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory FlailingCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Flailing" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory FlailingForwardCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory FlailingForward" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory HallOfStormsKnockbackIgnoreFXCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory HallOfStormsKnockbackIgnoreFX" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory HallOfStormsKnockbackImmunityCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory HallOfStormsKnockbackImmunity" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory HealReceivedModifyingCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory HealReceivedModifying" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory HealReductionCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory HealReduction" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory HideNameplateCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory HideNameplate" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory HostileStasisRemoved" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory ImmunedToAllyDisplacementCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory ImmunedToAllyDisplacement" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory ImmunedToEnemyDisplacementCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory ImmunedToEnemyDisplacement" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory KnockedOutCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory KnockedOut" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="StormCategory MapMechanicAbility" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory MindControlCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory MindControl" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory PermanentMaxHealthCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory PermanentMaxHealth" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory PhysicalArmorCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SpellArmor" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory PolymorphCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Polymorph" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory ProtectedCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Protected" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory PseudoStructureCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory PseudoStructure" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory RootCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Root" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory ShieldCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Shield" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SilenceCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Silence" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SpecialDeathStateCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SpecialDeathState" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SpellArmorCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SpellArmor" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory StackingComboMarkerCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory StackingComboMarker" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory StasisAirCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory StasisAir" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory StasisCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Stasis" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory StunCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Stun" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SuppressCollision" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SuppressInventory" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SuppressUltimateChargeCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SuppressUltimateCharge" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory SuppressVisibilityCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory SuppressVisibility" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory TauntCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Taunt" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory TipableKnockbackCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory TipableKnockback" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory UnreducibleCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory Unreducible" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorUltimate1UnlockedCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Ultimate1Unlocked" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorUltimate2UnlockedCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Ultimate2Unlocked" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorUltimate3UnlockedCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Ultimate3Unlocked" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountUpgrade id="CountUpgradeGatesAreOpenCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="GatesAreOpen" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeHasTalentPointsCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HasTalentPoints" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsHeroPlayerCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsHeroPlayer" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsOnChaosTeamCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsOnChaosTeam" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsOnOrderTeamCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsOnOrderTeam" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer00CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer00" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer01CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer01" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer02CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer02" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer03CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer03" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer04CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer04" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer05CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer05" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer06CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer06" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer07CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer07" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer08CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer08" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer09CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer09" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer10CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer10" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer11CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer11" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer12CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer12" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer13CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer13" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer14CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer14" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeIsPlayer15CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="IsPlayer15" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeMinionsAreSpawningCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="MinionsAreSpawning" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementEq id="EqCountBehaviorCategorySuppressVisibilityCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorCategorySuppressVisibilityCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorDeadQueuedOrBetterAtUnit0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountBehaviorDeadQueuedOrBetterAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorDeadCompleteOnlyAtUnit1">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountBehaviorDeadCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorHallOfStormsProtectionBuffCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorHallOfStormsProtectionBuffCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorMountedFlyerCompleteOnlyAtUnit1">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountBehaviorMountedFlyerCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorDeadCompleteOnlyAtUnit0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountBehaviorDeadCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorStormCategory RootCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory RootCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorUltimate1UnlockedCompleteOnlyAtUnit1">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountBehaviorUltimate1UnlockedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsOnChaosTeamCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsOnChaosTeamCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsOnOrderTeamCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsOnOrderTeamCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer00CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer00CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer01CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer01CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer02CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer02CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer03CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer03CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer04CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer04CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer05CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer05CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer06CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer06CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer07CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer07CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer08CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer08CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer09CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer09CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer10CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer10CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer11CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer11CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer12CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer12CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer13CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer13CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer14CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer14CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeIsPlayer15CompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeIsPlayer15CompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementGT id="GTCountBehaviorAlias MercenaryLordBuffCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorAlias MercenaryLordBuffCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorSJCloakedMineCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorSJCloakedMineCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory AbnormalDeathCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory AbnormalDeathCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory AbnormalRespawnCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory AbnormalRespawnCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory DamageReductionCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory DamageReductionCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory DebuffSpellPowerCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory DebuffSpellPowerCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory DodgeCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory DodgeCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory EatenCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory EatenCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory FlailingBackwardCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory FlailingBackwardCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory FlailingCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory FlailingCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory FlailingForwardCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory FlailingForwardCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory HallOfStormsKnockbackIgnoreFXCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory HallOfStormsKnockbackIgnoreFXCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory HallOfStormsKnockbackImmunityCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory HallOfStormsKnockbackImmunityCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory HealReceivedModifyingCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory HealReceivedModifyingCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory HealReductionCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory HealReductionCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory HideNameplateCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory HideNameplateCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory ImmunedToAllyDisplacementCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory ImmunedToAllyDisplacementCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory ImmunedToEnemyDisplacementCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory ImmunedToEnemyDisplacementCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory KnockedOutCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory KnockedOutCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory MindControlCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory MindControlCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory PermanentMaxHealthCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory PermanentMaxHealthCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory PhysicalArmorCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory PhysicalArmorCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory PolymorphCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory PolymorphCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory ProtectedCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory ProtectedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory PseudoStructureCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory PseudoStructureCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory RootCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory RootCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory ShieldCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory ShieldCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SilenceCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SilenceCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SpecialDeathStateCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SpecialDeathStateCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SpellArmorCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SpellArmorCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory StackingComboMarkerCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory StackingComboMarkerCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory StasisAirCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory StasisAirCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory StasisCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory StasisCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory StunCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory StunCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SuppressUltimateChargeCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SuppressUltimateChargeCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory SuppressVisibilityCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory SuppressVisibilityCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory TauntCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory TauntCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory TipableKnockbackCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory TipableKnockbackCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory UnreducibleCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory UnreducibleCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeHasTalentPointsCompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeHasTalentPointsCompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGTE id="GTECountBehaviorUltimate3UnlockedCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorUltimate3UnlockedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorUltimate2UnlockedCompleteOnlyAtUnit1">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountBehaviorUltimate2UnlockedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementLTE id="LTECountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementLTE>
+    <CRequirementNot id="NotOrCountBehaviorUltimate1UnlockedCompleteOnlyAtUnitCountBehaviorUltimate2UnlockedCompleteOnlyAtUnitCountBehaviorUltimate3UnlockedCompleteOnlyAtUnit">
+        <OperandArray index="0" value="OrCountBehaviorUltimate1UnlockedCompleteOnlyAtUnitCountBehaviorUltimate2UnlockedCompleteOnlyAtUnitCountBehaviorUltimate3UnlockedCompleteOnlyAtUnit"/>
+    </CRequirementNot>
+    <CRequirementOr id="Or"/>
+    <CRequirementOr id="OrCountBehaviorUltimate1UnlockedCompleteOnlyAtUnitCountBehaviorUltimate2UnlockedCompleteOnlyAtUnitCountBehaviorUltimate3UnlockedCompleteOnlyAtUnit">
+        <OperandArray value="CountBehaviorUltimate1UnlockedCompleteOnlyAtUnit"/>
+        <OperandArray value="CountBehaviorUltimate2UnlockedCompleteOnlyAtUnit"/>
+        <OperandArray value="CountBehaviorUltimate3UnlockedCompleteOnlyAtUnit"/>
+    </CRequirementOr>
+    <CRequirementConst id="2"/>
+    <CRequirementConst id="20"/>
+</Catalog>

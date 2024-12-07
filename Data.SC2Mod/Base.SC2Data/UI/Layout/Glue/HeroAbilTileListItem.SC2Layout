@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <Frame type="Frame" name="HeroSelectAbilityVariationsSelectorButtonListTemplate">
+      <Height val="34" />
+      <Visible val="False"/>
+      <Anchor side="Left" relative="SelectorButton1" pos="Min" offset="0"/>
+      <Frame type="Button" name="SelectorButton1" template="StandardTemplatesStorm/StandardPipButtonTemplate">
+        <Anchor side="Top" relative="$parent/SelectorButton4" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/SelectorButton2" pos="Min" offset="7"/>
+        <CollapseLayout val="true" />
+        <Toggled val="True"/>
+        <Frame type="Label" name="PageNumberLabel">
+          <Text val="1" />
+        </Frame>
+      </Frame>
+      <Frame type="Button" name="SelectorButton2" template="StandardTemplatesStorm/StandardPipButtonTemplate">
+        <Anchor side="Top" relative="$parent/SelectorButton4" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/SelectorButton3" pos="Min" offset="7"/>
+        <CollapseLayout val="true" />
+        <Frame type="Label" name="PageNumberLabel">
+          <Text val="2" />
+        </Frame>
+      </Frame>
+      <Frame type="Button" name="SelectorButton3" template="StandardTemplatesStorm/StandardPipButtonTemplate">
+        <Anchor side="Top" relative="$parent/SelectorButton4" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/SelectorButton4" pos="Min" offset="7"/>
+        <CollapseLayout val="true" />
+        <Frame type="Label" name="PageNumberLabel">
+          <Text val="3" />
+        </Frame>
+      </Frame>
+      <Frame type="Button" name="SelectorButton4" template="StandardTemplatesStorm/StandardPipButtonTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Frame type="Label" name="PageNumberLabel">
+          <Text val="4" />
+        </Frame>
+        <CollapseLayout val="true" />
+      </Frame>
+			<!--<StateGroup name="VisibilityState">
+				<State name="Visibly">
+					<When type="Property" frame="SelectorButton1" Visible="False" />
+					<When type="Property" frame="SelectorButton2" Visible="False" />
+					<When type="Property" frame="SelectorButton3" Visible="False" />
+					<When type="Property" frame="SelectorButton4" Visible="False" />
+					<Action type="SetProperty" frame="$this" Visible="False"/>
+				</State>
+			</StateGroup>-->
+    </Frame>
+    
+    <Frame type="Frame" name="HeroSelectAbilTileListItemTemplate">
+        <Height val="105"/>
+        <CollapseLayout val="True"/>
+        <AcceptsMouseTooltip val="True"/>
+        <!--<Tooltip val="Please, work"/>
+        <TooltipFrame val="HeroSelectionTooltipTemplate"/>-->
+        <TooltipAnchorPosition val="MiddleRight"/>
+
+        <Frame type="Frame" name="AbilityVariationsSelectorButtonList" template="HeroAbilTileListItem/HeroSelectAbilityVariationsSelectorButtonListTemplate">
+          <Anchor side="Bottom" relative="$parent" pos="Max" offset="-1"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderLineImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Alpha val="186"/>
+            <Color val="5c47b3"/>
+            <Height val="2"/>
+        </Frame>
+
+        <Frame type="Image" name="IconImage">
+            <Anchor side="Top" relative="$parent/IconFrame" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/IconFrame" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/IconFrame" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/IconFrame" pos="Mid" offset="0"/>
+            <Width val="66"/>
+            <Height val="66"/>
+            <ScaleWidthToTexture val="true"/>
+            <TextureType val="Normal"/>
+            <ImageMaskTexture val="@UI/HUD_BTN_BG_Ability_AlphaMask"/>
+        </Frame>
+        
+        <Frame type="Image" name="IconFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Width val="100"/>
+            <Height val="100"/>
+            <Texture val="@UI/Storm_UI_InGame_AbilityButtonBorder"/>
+        </Frame>
+
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Top" relative="$parent/IconFrame" pos="Min" offset="8"/><!--offset="12"-->
+            <Anchor side="Left" relative="$parent/IconFrame" pos="Max" offset="-2"/>
+            <Anchor side="Right" relative="$parent/HotKeyFrame/HotkeyBorderImage" pos="Min" offset="0"/>
+            <Options val="NoWrapping"/>
+            <Style val="TalentName"/>
+            <Text val="JUST TEST TEXT"/>
+        </Frame>
+        
+        <Frame type="Label" name="DescriptionLabel">
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="-2"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="1"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Style val="TalentDescription"/>
+            <Text val="JUST TEST TEXT"/>
+        </Frame>
+
+        <Frame type="Frame" name="HotkeyFrame" template="StandardTemplatesStorm/HeroAbilHotkeyFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-3"/>
+        </Frame>
+        
+    </Frame>
+
+		<Frame type="Frame" name="HeroSelectBasicAbilTileListItemTemplate" template="HeroAbilTileListItem/HeroSelectAbilTileListItemTemplate">
+			<Frame type="Frame" name="HotkeyFrame">
+				<StateGroup name="HeroAbilHotkeyFrame">
+					<DefaultState val="HotkeyAbility"/>
+				</StateGroup>
+			</Frame>
+		</Frame>
+
+		<Frame type="Frame" name="HeroSelectHeroAbilTileListItemTemplate" template="HeroAbilTileListItem/HeroSelectAbilTileListItemTemplate">
+			<Frame type="Frame" name="HotkeyFrame">
+				<StateGroup name="HeroAbilHotkeyFrame">
+					<DefaultState val="HotkeyHeroic"/>
+				</StateGroup>
+			</Frame>
+		</Frame>
+
+		<Frame type="Frame" name="HeroSelectActiveAbilTileListItemTemplate" template="HeroAbilTileListItem/HeroSelectAbilTileListItemTemplate">
+			<Frame type="Frame" name="HotkeyFrame">
+				<StateGroup name="HeroAbilHotkeyFrame">
+					<DefaultState val="HotkeyActive"/>
+				</StateGroup>
+			</Frame>
+		</Frame>
+
+		<Frame type="Frame" name="HeroSelectPassiveAbilTileListItemTemplate" template="HeroAbilTileListItem/HeroSelectAbilTileListItemTemplate">
+			<Frame type="Frame" name="HotkeyFrame">
+				<StateGroup name="HeroAbilHotkeyFrame">
+					<DefaultState val="HotkeyPassive"/>
+				</StateGroup>
+			</Frame>
+		</Frame>
+    
+    <Frame type="Frame" name="StoreHeroAbilTileListItemTemplate" template="HeroAbilTileListItem/HeroSelectHeroAbilTileListItemTemplate">
+        <CollapseLayout val="True"/>
+        <Frame type="Image" name="BorderLineImage">
+           <Visible val="False"/>
+        </Frame>
+
+        <Frame type="Image" name="IconFrame">
+            <Width val="118"/>
+            <Height val="118"/>
+        </Frame>
+
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+            <Style val="StandardHeroAbilityNameLabel"/>
+        </Frame>
+        
+        <Frame type="Label" name="DescriptionLabel">
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="-2"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/NameLabel" pos="Min" offset="1"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Style val="StandardHeroAbilityDescLabel"/>
+        </Frame>
+
+        <Frame type="Frame" name="HotkeyFrame" template="StandardTemplatesStorm/LeftAlignedHotkeyFrame">
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/NameLabel" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+        
+    </Frame>
+</Desc>

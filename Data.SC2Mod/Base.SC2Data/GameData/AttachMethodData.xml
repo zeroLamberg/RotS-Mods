@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAttachMethodFilter id="AMFilterWeapon00FullMatch">
+        <Keys Keyword="Weapon" Index="0"/>
+        <Logic value="FullMatch"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterMoria">
+        <Keys Keyword="Moria"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterAiur">
+        <Keys Keyword="Aiur"/>
+    </CAttachMethodFilter>
+    <CAttachMethodArcTest id="AMArcTestWeaponNarrow">
+        <Tests index="ActionAcquisition" value="1"/>
+        <Type value="FallbackToClosestOnArc"/>
+    </CAttachMethodArcTest>
+    <CAttachMethodFilter id="AMFilterHandLeft">
+        <Keys Keyword="Hand"/>
+        <Keys Keyword="Left"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterHandRight">
+        <Keys Keyword="Hand"/>
+        <Keys Keyword="Right"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterShieldLeft">
+        <Keys Keyword="Shield"/>
+        <Keys Keyword="Left"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterShieldRight">
+        <Keys Keyword="Shield"/>
+        <Keys Keyword="Right"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterWeapon04">
+        <Keys Keyword="Weapon" Index="4"/>
+        <Keys Keyword="Weapon" Index="4"/>
+    </CAttachMethodFilter>
+    <CAttachMethodPattern id="AMPatternGhostShipPort">
+        <Keyword value="SetB"/>
+        <Base value="::RollingIndex"/>
+        <Driver value="BattleshipBombardLaunchMissileLong"/>
+    </CAttachMethodPattern>
+    <CAttachMethodPattern id="AMPatternGhostShipStarboard">
+        <Keyword value="SetA"/>
+        <Base value="::RollingIndex"/>
+        <Driver value="BattleshipBombardLaunchMissileLongStarboard"/>
+    </CAttachMethodPattern>
+    <CAttachMethodReduction id="AMReductionForBodySquibs">
+        <PassChanceEach value="50.000000"/>
+    </CAttachMethodReduction>
+    <CAttachMethodFilter id="FilterAttacher0">
+        <Keys Keyword="Attacher" Index="0"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="FilterAttacher1">
+        <Keys Keyword="Attacher" Index="1"/>
+    </CAttachMethodFilter>
+    <CAttachMethodPattern id="PatternUnderworldRangedMinion">
+        <Keyword value="Weapon"/>
+        <Base value="::RollingIndex"/>
+        <Driver value="UnderworldRangedMinionWeaponLaunchMissile"/>
+    </CAttachMethodPattern>
+    <CAttachMethodFilter id="AMFilterMacGuffinAdditional">
+        <Keys Keyword="MacGuffin" Index="1"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterMacGuffin">
+        <Keys Keyword="MacGuffin" Index="0"/>
+    </CAttachMethodFilter>
+</Catalog>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="Config">
+        <Fields Id="Mount" Type="User" UserType="Mount"/>
+        <Fields Id="Announcer" Type="User" UserType="Announcer"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Default">
+            <User Type="Mount" Instance="HearthstoneCard">
+                <Field Id="Mount"/>
+            </User>
+            <User Type="Announcer" Instance="Default">
+                <Field Id="Announcer"/>
+            </User>
+        </Instances>
+        <Instances Id="Random"/>
+    </CUser>
+</Catalog>

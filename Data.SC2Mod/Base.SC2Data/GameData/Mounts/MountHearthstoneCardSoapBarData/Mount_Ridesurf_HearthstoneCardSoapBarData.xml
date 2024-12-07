@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorEventMacroRunnable id="MountHearthstoneCardSoapBar@Macro">
+        <Do Send="StatusSet KillRibbonsOnDeath 1"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountHearthstoneCardSoapBarVar1@Macro">
+        <Do Send="StatusSet KillRibbonsOnDeath 1"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar1@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar1@Norm"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar1@Spec"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar1@SoapBarColor"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountHearthstoneCardSoapBarVar2@Macro">
+        <Do Send="StatusSet KillRibbonsOnDeath 1"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar2@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar2@Norm"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar2@Spec"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar2@SoapBarColor"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountHearthstoneCardSoapBarVar3@Macro">
+        <Do Send="StatusSet KillRibbonsOnDeath 1"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar3@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar3@Norm"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar3@Spec"/>
+        <Do Send="TextureSelectById MountHearthstoneCardSoapBarVar3@SoapBarColor"/>
+    </CActorEventMacroRunnable>
+    <CModel id="MountHearthstoneCardSoapBar@Mount" parent="BaseMount">
+        <Model value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_SoapBar\Storm_Mount_HearthstoneCard_SoapBar.m3"/>
+        <RequiredAnims value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_SoapBar_RequiredAnims\Storm_Mount_HearthstoneCard_SoapBar_RequiredAnims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,Start,00"/>
+            <Name value="Mount_HearthstoneCardSoapBar_Start"/>
+            <Type value="Sound"/>
+            <Time value="0.156000"/>
+            <Payload value="MountHearthstoneCardSoapBar@Start"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Mount_HearthstoneCardSoapBar_Stop"/>
+            <Type value="Sound"/>
+            <Time value="0.148000"/>
+            <Payload value="MountHearthstoneCardSoapBar@Stop"/>
+        </Events>
+        <TextureDeclares Prefix="Storm_Mount_HearthstoneCard_SoapBar" Slot="main">
+            <Adaptions TriggerOnSubstring="Color" Slot="generic01"/>
+        </TextureDeclares>
+    </CModel>
+    <CSkin default="1" id="MountHearthstoneCardSoapBarCommon">
+        <ModelGroups Name="SoapBarModels">
+            <Models value="MountHearthstoneCardSoapBar@Mount"/>
+        </ModelGroups>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardSoapBarVar1" parent="MountHearthstoneCardSoapBarCommon">
+        <ModelMacroRun Models="SoapBarModels" Macro="MountHearthstoneCardSoapBarVar1@Macro"/>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardSoapBarVar2" parent="MountHearthstoneCardSoapBarCommon">
+        <ModelMacroRun Models="SoapBarModels" Macro="MountHearthstoneCardSoapBarVar2@Macro"/>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardSoapBarVar3" parent="MountHearthstoneCardSoapBarCommon">
+        <ModelMacroRun Models="SoapBarModels" Macro="MountHearthstoneCardSoapBarVar3@Macro"/>
+    </CSkin>
+    <CTexture id="MountHearthstoneCardSoapBarVar1@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var1_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar1@Norm" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var1_Norm.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar1@Spec" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var1_Spec.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar1@SoapBarColor" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBarColor_Var1.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar2@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var2_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar2@Norm" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var2_Norm.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar2@Spec" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var2_Spec.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar2@SoapBarColor" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBarColor_Var2.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar3@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var3_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar3@Norm" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var3_Norm.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar3@Spec" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBar_Var3_Spec.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardSoapBarVar3@SoapBarColor" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_SoapBarColor_Var3.dds"/>
+    </CTexture>
+    <CSound id="MountHearthstoneCardSoapBar@Idle_Loop" parent="_FX_Hero_Movement">
+        <AssetArray File="assets\sounds\mounts\mount_hearthstonecard_loop_movement.ogg" FacialGroup=""/>
+        <LoopCount value="-1"/>
+        <MixerPriority value="75"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="1539"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="2178" Volume="-96.000000"/>
+        <Pitch value="-1.000000,-1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-34.000000,-34.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Summon" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_03.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Dismiss" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Dismiss_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Dismiss_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Dismiss_03.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-5.000000,-5.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Move_Loop" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_MoveLoop_01.ogg" FacialGroup=""/>
+        <LoopCount value="-1"/>
+        <MixerPriority value="75"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="1539"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="2178" Volume="-96.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-14.000000,-14.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Start" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Start_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Start_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Start_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Start_04.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-14.000000,-12.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Stop" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_05.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-15.000000,-13.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Store_Birth" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_03.ogg" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="0.000000,0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Store_Idle" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Stop_05.ogg" FacialGroup=""/>
+        <Chance value="50"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-8.000000,-8.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardSoapBar@Store_Purchase" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SoapBar\Mount_SoapBar_Summon_03.ogg" FacialGroup=""/>
+        <ResourcePriority value="16"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CDataCollection id="MountHearthstoneCardSoapBar">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardSoapBar@Macro"/>
+        <DataRecord Entry="Model,MountHearthstoneCardSoapBar@Store"/>
+        <DataRecord Entry="Model,MountHearthstoneCardSoapBar@Mount"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Dismiss"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Idle_Loop"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Move_Loop"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Start"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Stop"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Store_Birth"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Summon"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Store_Idle"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardSoapBar@Store_Purchase"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardSoapBarVar1">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardSoapBarVar1@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardSoapBarVar1"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar1@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar1@Norm"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar1@Spec"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar1@SoapBarColor"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardSoapBarVar2">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardSoapBarVar2@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardSoapBarVar2"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar2@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar2@Norm"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar2@Spec"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar2@SoapBarColor"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardSoapBarVar3">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardSoapBarVar3@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardSoapBarVar3"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar3@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar3@Norm"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar3@Spec"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardSoapBarVar3@SoapBarColor"/>
+    </CDataCollection>
+</Catalog>

@@ -1,0 +1,3796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="Hero">
+        <Fields>
+            <Id value="Skins"/>
+            <Type value="User"/>
+            <UserType value="Skin"/>
+            <Count value="6"/>
+        </Fields>
+        <Fields>
+            <Id value="Role"/>
+            <Type value="User"/>
+            <UserType value="HeroRole"/>
+            <EditorColumn value="5"/>
+        </Fields>
+        <Fields Id="PairedPortrait" Type="Image" Count="2"/>
+        <Fields Id="PairedName" Type="Text" Count="2"/>
+        <Fields Id="Mount Scaling Override" Type="Fixed"/>
+        <Fields Id="Default Mount" Type="User" UserType="Mount"/>
+        <Fields>
+            <Id value="Mount Category Array"/>
+            <Type value="User"/>
+            <UserType value="MountMountCategory"/>
+            <Count value="10"/>
+        </Fields>
+        <Fields>
+            <Id value="Abilities"/>
+            <Type value="User"/>
+            <UserType value="Ability"/>
+            <Count value="16"/>
+        </Fields>
+        <Fields Id="IsPaired" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Universe" Type="User" UserType="HeroUniverse"/>
+        <Fields Id="UsesMount" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Func_HeroIncrement" Type="String"/>
+        <Fields Id="Func_HeroDecrement" Type="String"/>
+        <Fields>
+            <Id value="TalentTier1"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields>
+            <Id value="TalentTier2"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields>
+            <Id value="TalentTier3"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields>
+            <Id value="TalentTier4"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields>
+            <Id value="TalentTier5"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields>
+            <Id value="TalentTier6"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields>
+            <Id value="TalentTier7"/>
+            <Type value="User"/>
+            <UserType value="Talent"/>
+            <Count value="7"/>
+        </Fields>
+        <Fields Id="TalentHeroicTier" Type="Int"/>
+        <Fields Id="TalentTierLevel" Type="Int" Count="7"/>
+        <Fields Id="HeroLevelScalingEffect" Type="GameLink" GameLinkType="Effect"/>
+        <Fields>
+            <Id value="QuestDataTokenCounterInstance"/>
+            <Type value="User"/>
+            <UserType value="TokenCounter"/>
+            <EditorColumn value="6"/>
+        </Fields>
+        <Fields Id="QuestDataButton" Type="GameLink" GameLinkType="Button"/>
+        <Fields>
+            <Id value="HeroUnit"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Unit"/>
+            <EditorColumn value="3"/>
+        </Fields>
+        <Fields>
+            <Id value="HeroUnit_Alternate"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Unit"/>
+            <Count value="3"/>
+        </Fields>
+        <Fields Id="VOArray" Type="User" UserType="VOArray"/>
+        <Fields Id="IsFlyer" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Portrait_PartyFrame" Type="Image"/>
+        <Fields Id="Portrait_HeroSelectDraft" Type="Image"/>
+        <Fields Id="Portrait_HeroSelectButton" Type="Image"/>
+        <Fields Id="Portrait_DeathRecap" Type="Image"/>
+        <Fields Id="Description" Type="Text"/>
+        <Instances Id="[Default]">
+            <Fixed Fixed="-1">
+                <Field Id="Mount Scaling Override"/>
+            </Fixed>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_HeroID.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_HeroID.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_HeroID.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_HeroID.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <Int Int="1">
+                <Field Id="TalentTierLevel"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="TalentTierLevel" Index="1"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="TalentTierLevel" Index="2"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="TalentTierLevel" Index="3"/>
+            </Int>
+            <Int Int="13">
+                <Field Id="TalentTierLevel" Index="4"/>
+            </Int>
+            <Int Int="16">
+                <Field Id="TalentTierLevel" Index="5"/>
+            </Int>
+            <Int Int="20">
+                <Field Id="TalentTierLevel" Index="6"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="TalentHeroicTier"/>
+            </Int>
+        </Instances>
+        <Instances Id="Abathur">
+            <GameLink GameLink="HeroAbathur@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathur">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <Image Image="assets\textures\ui_targetportrait_hero_abathur.dds">
+                <Field Id="PairedPortrait"/>
+            </Image>
+            <Image Image="assets\textures\storm_ui_icon_abathur_symbiote.dds">
+                <Field Id="PairedPortrait" Index="1"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Abathur.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Abathur.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Abathur.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Abathur.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroAbathurHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroAbathurHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <Text Text="UserData/Hero/Abathur_PairedName">
+                <Field Id="PairedName"/>
+            </Text>
+            <Text Text="UserData/Hero/Abathur_PairedName_001">
+                <Field Id="PairedName" Index="1"/>
+            </Text>
+            <User Type="HeroRole" Instance="Support">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Ability" Instance="AbathurSymbiote">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="AbathurToxicNest">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsPaired"/>
+            </User>
+            <User Type="Ability" Instance="AbathurDeepTunnel">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="AbathurLocustStrain">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="AbathurSymbioteStab">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="AbathurSymbioteSpikeBurst">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="AbathurSymbioteCarapace">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Ability" Instance="AbathurUltimateEvolution">
+                <Field Id="Abilities" Index="7"/>
+            </User>
+            <User Type="Ability" Instance="AbathurEvolveMonstrosity">
+                <Field Id="Abilities" Index="8"/>
+            </User>
+            <User Type="Talent" Instance="AbathurPressurizedGlands">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurEnvenomedNest">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurReinforcedCarapace">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurSurvivalInstinct">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AbathurAdrenalOverload">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurNeedlespine">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurProlificDispersal">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurVileNest">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="AbathurNetworkedCarapace">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] CalldownMULE">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurUltimateEvolution">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="AbathurEvolveMonstrosity">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurSpatialEfficiency">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="AbathurSomaTransference">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurBombardStrain">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurEnvenomedSpikes">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="AbathurAdrenalineBoost">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurVolatileMutation">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurLocustBrood">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AbathurEvolutionaryLink">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="AbathurEvolutionComplete">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AbathurHivemind">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AbathurLocustNest">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AbathurBoltOfTheSwarm">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Skin" Instance="AbathurBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="Skin" Instance="AbathurUltimate">
+                <Field Id="Skins" Index="1"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="VOArray" Instance="Abathur">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="AbathurRegenerativeMicrobes">
+                <Field Id="TalentTier2" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="Anduin">
+            <GameLink GameLink="AnduinHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="AnduinHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Anduin.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Anduin.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Anduin.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Anduin.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroAnduinHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroAnduinHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroRole" Instance="Healer">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="AnduinFlashHeal">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="AnduinDivineStar">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="AnduinChastise">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="AnduinLeapOfFaith">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AnduinEvenhandedBlessings">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinPowerWordShield">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinLightwell">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinBlessedHands">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinMoralCompass">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinSurgeOfLight">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinBindingHeal">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="AnduinBlessedRecovery">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinDesperatePrayer">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinHolyWordSalvation">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Ability" Instance="AnduinHolyWordSalvation">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="AnduinLightbomb">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="AnduinLightbomb">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinSpeedOfThePious">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="AnduinPushForward">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinEnchantBootsLionsSpeed">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinRenew">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="AnduinHolyNova">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinGlyphOfFaith">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinInnerFocus">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AnduinLightOfStormwind">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="AnduinInnerFire">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnduinCensure">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnduinVariansLegacy">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Skin" Instance="AnduinBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="VOArray" Instance="Anduin">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="AnduinPiercingLight">
+                <Field Id="TalentTier2" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AnduinLayOnHands">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+        </Instances>
+        <Instances Id="Anubarak">
+            <GameLink GameLink="AnubarakHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Anubarak.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Anubarak.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Anubarak.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Anubarak.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroAnubarakHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroAnubarakHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="HeroRole" Instance="Tank">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Ability" Instance="AnubarakImpale">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="AnubarakHardenCarapace">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="AnubarakBurrowCharge">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="AnubarakScarabHost">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakNerubianArmor">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakLegionOfBeetles">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakRegenerationMaster">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakBedOfBarbs">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakShedExoskeleton">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakUnderking">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakChitinousPlating">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakSubterraneanShield">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakLeechingScarabs">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakLocustSwarm">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakCocoon">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="AnubarakLocustSwarm">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="AnubarakCocoon">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakUrticatingSpines">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakBurningBeetles">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakAcidDrenchedMandibles">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakEpicenter">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakDebilitation">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakBeetleJuiced">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakHiveMaster">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakCryptweave">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AnubarakTheTraitorKing">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Rewind">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Anubarak">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Mount" Instance="AnubarakWings">
+                <Field Id="Default Mount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="AnubarakWings">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="Skin" Instance="AnubarakBase">
+                <Field Id="Skins"/>
+            </User>
+        </Instances>
+        <Instances Id="Artanis">
+            <GameLink GameLink="HeroArtanis">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanis@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Artanis.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Artanis.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Artanis.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Artanis.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroArtanisIncrementHeroCount">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroArtanisDecrementHeroCount">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Ability" Instance="ArtanisBladeDash">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="ArtanisTwinBlades">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="ArtanisPhasePrism">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="ArtanisSuppressionPulse">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="ArtanisPurifierBeam">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Skin" Instance="ArtanisBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="Skin" Instance="ArtanisUltimate">
+                <Field Id="Skins" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="ArtanisShieldOverload">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisReactiveParry">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisAmateurOpponent">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisPrismaticAlignment">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisProtectorOfAiur">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisPsionicSynergy">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisShieldBattery">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisShieldSurge">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisSolariteReaper">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="HeroRole" Instance="Bruiser">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisGravitonVortex">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisFinalCut">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisSuppressionPulse">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisPurifierBeam">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisTemplarsZeal">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisTripleStrike">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisPhaseBulwark">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisTitanKiller">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisForceOfWill">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisPlasmaBurn">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisOrbitalBombardment">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisTargetPurified">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisZealotCharge">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisChronoSurge">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisStrengthInUnity">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="ArtanisBladesOfATemplar">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Artanis">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Arthas">
+            <GameLink GameLink="HeroArthas@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthas">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Arthas.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Arthas.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Arthas.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Arthas.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroArthasHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroArthasHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroRole" Instance="Tank">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="ArthasDeathCoil">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="ArthasHowlingBlast">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="ArthasIceboundFortitude">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="ArthasFrozenTempest">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="ArthasChillingCoil">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasFrostPresence">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasRime">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArthasDeathlord">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="ArthasFrostmourneHungers">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasRuneTap">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArthasFrozenOver">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="ArthasColdHeart">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasDeathsAdvance">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="ArthasRemorselessWinter">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="ArthasRemorselessWinter">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="ArthasSummonSindragosa">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="ArthasSummonSindragosa">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="ArthasShatteredArmor">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="ArthasBlindingSleet">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasAsphyxiate">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArthasUnholyEndurance">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="ArthasChillOfDeath">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasPestilence">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArthasObliterate">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="ArthasSnapFreeze">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="ArthasAbsoluteZero">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ArthasEndlessWinter">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ArthasAntiMagicShell">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Skin" Instance="ArthasBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="VOArray" Instance="Arthas">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Auriel">
+            <GameLink GameLink="HeroAuriel">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroAuriel@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Auriel.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Auriel.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Auriel.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Auriel.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroAurielDecrementHeroCount">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroAurielIncrementHeroCount">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="HeroRole" Instance="Healer">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="Diablo">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Skin" Instance="AurielBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="Ability" Instance="AurielSacredSweep">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="AurielRayOfHeaven">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="AurielDetainmentStrike">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="AurielBestowHope">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="AurielResurrect">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="AurielCrystalAegis">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="AurielIncreasingClarity">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="AurielSearingLight">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielRepeatedOffense">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AurielRadiantAngel">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="AurielHeavyBurden">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielCelestialGuard">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AurielGlimmerOfHope">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="AurielInnerPeace">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielEmpathicLink">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AurielResurrect">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="AurielCrystalAegis">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielBlindingFlash">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="AurielRighteousAssault">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielPiercingLash">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AurielReservoirOfHope">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="AurielWillOfHeaven">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielWrathOfHeaven">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AurielLightSpeed">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="AurielDiamondResolve">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AurielBurstingLight">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AurielShieldOfHope">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Auriel">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="AurielEnergizedCord">
+                <Field Id="TalentTier3" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AurielAngelicFlight">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="Azmodan">
+            <GameLink GameLink="AzmodanHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanGlobeOfAnnihilation">
+                <Field Id="QuestDataButton"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Azmodan.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Azmodan.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Azmodan.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Azmodan.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroAzmodanHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroAzmodanHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="Diablo">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="TokenCounter" Instance="AzmodanGlobeOfAnnihilation">
+                <Field Id="QuestDataTokenCounterInstance"/>
+            </User>
+            <User Type="Ability" Instance="AzmodanGlobeOfAnnihilation">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="AzmodanSummonDemonWarrior">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="AzmodanAllShallBurn">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="AzmodanSummonDemonLieutenant">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanGreed">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanGluttony">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanWrath">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanArmyOfHell">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanHellforgedArmor">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanBattleborn">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanArtOfChaos">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanBombardment">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanMasterOfDestruction">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="AzmodanDemonicInvasion">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanDemonicInvasion">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanTideOfSin">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="AzmodanTideOfSin">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanBrutishVanguard">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanCydaeasKiss">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanChainOfCommand">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanTotalAnnihilation">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanHellRift">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanTrample">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanSiegebreaker">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanBlackPool">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanPride">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="AzmodanSinsGrasp">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="MountMountCategory" Instance="AzmodanFireFeet">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="Mount" Instance="AzmodanFireFeet">
+                <Field Id="Default Mount"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Skin" Instance="AzmodanBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="VOArray" Instance="Azmodan">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Brightwing">
+            <GameLink GameLink="BrightwingHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_faeriedragon.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_faeriedragon.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_faeriedragon.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_faeriedragon.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroBrightwingHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroBrightwingHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="HeroRole" Instance="Healer">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingGreaterPolymorph">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingArcaneFlare">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingPolymorph">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingPixieDust">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingPhaseShift">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingHyperShift">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingPixieCharm">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingSoothingMist">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingDreamShot">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingUnstableAnomaly">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingMagicSpit">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingStickyFlare">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingPeekaboo">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingCriticalMist">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingEmeraldWind">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="BrightwingBlinkHeal">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingEmeraldWind">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingBlinkHeal">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingPixieBoost">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingSafetyDust">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingPixiePower">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingCritterize">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingHush">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingPhaseOut">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingInvisibleFriends">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingIntensiveWinds">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingSpeedyDragon">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="BrightwingFaerieProtector">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Brightwing">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Skin" Instance="BrightwingBase">
+                <Field Id="Skins"/>
+            </User>
+        </Instances>
+        <Instances Id="Delta">
+            <GameLink GameLink="DeltaHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="DeltaHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Delta.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Delta.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Delta.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Delta.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroDeltaHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroDeltaHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Ability" Instance="DeltaTheGriffinsArsenal">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="DeltaCleanShot">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="DeltaPriorityTarget">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="DeltaFade">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="DeltaFlashbang">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="DeltaExclusionZone">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="DeltaSprint">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaEmpathicBond">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="DeltaOnTheChase">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaGhost">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaInfiltrationMission">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DeltaHigravBoots">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DeltaDangerClose">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="DeltaDesperateMeasures">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaClusterCharge">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DeltaExclusionZone">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="DeltaFlashbang">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaPrecognition">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="DeltaRapidReload">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaLockdownRound">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DeltaSpecialOperations">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="DeltaMindBlast">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaUltraGrenade">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="DeltaSharpshooter">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DeltaDoubleCharge">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DeltaExtremePrejudice">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="DeltaNuclearStrike">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Skin" Instance="DeltaBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="VOArray" Instance="Delta">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="DeltaMarkedForDeath">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Skin" Instance="DeltaUltimate">
+                <Field Id="Skins" Index="1"/>
+            </User>
+        </Instances>
+        <Instances Id="Diablo">
+            <GameLink GameLink="HeroDiablo">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiablo@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloBlackSoulstone">
+                <Field Id="QuestDataButton"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Diablo.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Diablo.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Diablo.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Diablo.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroDiabloHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroDiabloHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Mount" Instance="DiabloRun">
+                <Field Id="Default Mount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridenone">
+                <Field Id="Mount Category Array" Index="4"/>
+            </User>
+            <User Type="Skin" Instance="DiabloBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="Skin" Instance="DiabloUltimate">
+                <Field Id="Skins" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="DiabloShadowCharge">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="DiabloFireStomp">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="DiabloOverpower">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="DiabloBlackSoulstone">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="DiabloApocalypse">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="HeroUniverse" Instance="Diablo">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="MountMountCategory" Instance="DiabloRun">
+                <Field Id="Mount Category Array" Index="5"/>
+            </User>
+            <User Type="HeroRole" Instance="Tank">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Talent" Instance="DiabloFeastOnFear">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Ability" Instance="DiabloLightningBreath">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="DiabloDevilsDue">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloSoulShield">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloSacrificialSoul">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloSoulsToTheFlame">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloSoulDevourer">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloEternalFlames">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="DiabloMalevolence">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloSpeedDemon">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloApocalypse">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="DiabloLightningBreath">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloDevastatingCharge">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="DiabloHellfire">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloCruelty">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloDomination">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="DiabloDebilitatingFlames">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloOverpoweringNightmare">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloTerrify">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="DiabloHellstorm">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="DiabloLordOfTerror">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="DiabloHellgate">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="TokenCounter" Instance="DiabloBlackSoulstone">
+                <Field Id="QuestDataTokenCounterInstance"/>
+            </User>
+            <User Type="Talent" Instance="DiabloTantrum">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="DiabloLifeLeech">
+                <Field Id="TalentTier2" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Diablo">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="ETC">
+            <GameLink GameLink="ETCHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="ETCHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_ETC.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_ETC.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_ETC.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_ETC.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroETCHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroETCHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="HeroRole" Instance="Tank">
+                <Field Id="Role"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="ETCPowerslide">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="ETCFaceMelt">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="ETCGuitarSolo">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="ETCRockstar">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="ETCGuitarHero">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="ETCProgRock">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ETCBlockParty">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ETCCrowdSurfer">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="ETCLoudSpeakers">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ETCSpeedMetal">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ETCPinballWizard">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="ETCHammeron">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ETCEchoPedal">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ETCStageDive">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="ETCMoshPit">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="ETCStageDive">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="ETCMoshPit">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="ETCMicCheck">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="ETCEncore">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ETCFaceSmelt">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ETCShowStopper">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="ETCAggressiveShredding">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ImposingPresence">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ETCCrowdPleaser">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="ETCTourBus">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="ETCHeaviestMetal">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="ETCDeathMetal">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] BoltOfTheStorm">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Skin" Instance="ETCBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="VOArray" Instance="ETC">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="ETCBULLwark">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="Falstad">
+            <GameLink GameLink="HeroFalstad">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstad@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Falstad.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Falstad.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_gryphon_rider.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Falstad.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroFalstadHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroFalstadHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Ability" Instance="FalstadHammerang">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="FalstadBOOMerang">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="FalstadBarrelRoll">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="FalstadTailwind">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Skin" Instance="FalstadBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="Ability" Instance="FalstadHinterlandBlast">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="FalstadMightyGust">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Ability" Instance="FalstadFlight">
+                <Field Id="Abilities" Index="7"/>
+            </User>
+            <User Type="Talent" Instance="FalstadGatheringStorm">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadDishonorableDischarge">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadSonicBoom">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadStaticShield">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadUpdraft">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadHammerGains">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadSecretWeapon">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="FalstadBOOMerang">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadChargedUp">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadMightyGust">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="FalstadHinterlandBlast">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadThunderstrikes">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="FalstadFlowRider">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadSustainedWinds">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadCripplingHammer">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="FalstadAfterburner">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadAerieGusts">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadWindTunnel">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="FalstadCallOfTheWildhammer">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="FalstadBOOM">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadSwiftwingsFrenzy">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Skin" Instance="FalstadUltimate">
+                <Field Id="Skins" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="FalstadLightningRod">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Skin" Instance="FalstadStormLord">
+                <Field Id="Skins" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="FalstadFrequentFlyer">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="FalstadEpicMount">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="FalstadAroundTheWorld">
+                <Field Id="TalentTier3" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsFlyer"/>
+            </User>
+            <User Type="VOArray" Instance="Falstad">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Greymane">
+            <GameLink GameLink="GreymaneHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneHero@LevelScalingEffect">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partypanel_btn_genngreymane.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_genngreymane.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_genngreymane.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_genngreymane.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <Image Image="assets\Textures\UI_Targetportrait_Hero_Genngreymane.dds">
+                <Field Id="PairedPortrait" Index="1"/>
+            </Image>
+            <Image Image="assets\Textures\UI_Targetportrait_Hero_Pairedswap_Genngreymane.dds">
+                <Field Id="PairedPortrait"/>
+            </Image>
+            <String String="libGDHL_gt_HeroGreymaneHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroGreymaneHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <Text Text="UserData/Hero/Greymane_PairedName">
+                <Field Id="PairedName"/>
+            </Text>
+            <Text Text="UserData/Hero/Greymane_PairedName_001">
+                <Field Id="PairedName" Index="1"/>
+            </Text>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneGilneanCocktail">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneInnerBeast">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneDarkflight">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsPaired"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneCurseOfTheWorgen">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneRazorSwipe">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneDisengage">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneWolfheart">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="GreymanePerfectAim">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneViciousness">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneThickSkin">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneEyesInTheDark">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneInsatiable">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneQuicksilverBullets">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneIncendiaryElixir">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneWizenedDuelist">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneGoForTheThroat">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneGoForTheThroat">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Ability" Instance="GreymaneCursedBullet">
+                <Field Id="Abilities" Index="7"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneCursedBullet">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneRunningWild">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneUnfetteredAssault">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneOnTheProwl">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneEagerWolf">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneExecutioner">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneAlphaKiller">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneUnleashed">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneGilneanRoulette">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneHuntersBlunderbuss">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="GreymaneToothAndClaw">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Greymane">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Skin" Instance="GreymaneBase">
+                <Field Id="Skins"/>
+            </User>
+        </Instances>
+        <Instances Id="Jaina">
+            <GameLink GameLink="HeroJaina@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="HeroJaina">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaFrostbite">
+                <Field Id="QuestDataButton"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Jaina.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Jaina.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Jaina.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Jaina.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroJainaHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroJainaHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="JainaImprovedIceBlock">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="JainaFrostbolt">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="JainaBlizzard">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="JainaConeOfCold">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="JainaFrostbite">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="JainaRingOfFrost">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="JainaWaterElemental">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="JainaDeepChill">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="JainaFingersOfFrost">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaArcaneIntellect">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JainaFrostShards">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="JainaPerfectIceBlock">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaIcefuryWand">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JainaStormFront">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="JainaIceBarrier">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaFrostArmor">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JainaRingOfFrost">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="JainaWaterElemental">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaIceLance">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="JainaIceFloes">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaIcyVeins">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JainaFrigidBolt">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="JainaSnowstorm">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaNorthernExposure">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JainaNumbingBlast">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="JainaColdSnap">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="JainaWintermute">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JainaSplinterfrost">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JainaIceBlink">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="TokenCounter" Instance="HeroJainaFrostbite">
+                <Field Id="QuestDataTokenCounterInstance"/>
+            </User>
+            <User Type="Skin" Instance="JainaBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="VOArray" Instance="Jaina">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Johanna">
+            <GameLink GameLink="JohannaHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="JohannaHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_johanna.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_johanna.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_johanna.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_johanna.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_JohannaHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_JohannaHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="HeroRole" Instance="Tank">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="Diablo">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Ability" Instance="JohannaPunish">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="JohannaCondemn">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="JohannaShieldGlare">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="JohannaIronSkin">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="JohannaZealousGlare">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaDivineFortress">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaLawsOfHope">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaSubdue">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaEternalRetaliation">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaHoldYourGround">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaSinsExposed">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="JohannaConviction">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaSteedCharge">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaBlessedShield">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaFallingSword">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Ability" Instance="JohannaFallingSword">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="JohannaBlessedShield">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="JohannaRoar">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="JohannaHolyFury">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaBlessedHammer">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaShrinkingVacuum">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="JohannaHolyRenewal">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaBlessedMomentum">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaHeavensFury">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="JohannaRadiatingFaith">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="JohannaIndestructible">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="JohannaBlindedByTheLight">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Johanna">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Skin" Instance="JohannaBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="Kerrigan">
+            <GameLink GameLink="KerriganHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="KerriganHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Kerrigan.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Kerrigan.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Kerrigan.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Kerrigan.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroKerriganHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroKerriganHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="HeroRole" Instance="AssassinMelee">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Ability" Instance="KerriganRavage">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="KerriganImpalingBlades">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="KerriganPrimalGrasp">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="KerriganAssimilation">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="KerriganSummonUltralisk">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="KerriganMaelstrom">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="KerriganSiphoningImpact">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganAssimilationMastery">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganFuryOfTheSwarm">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganSharpenedBlades">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganKineticFulmination">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganPsionicPulse">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganQueenOfBlades">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="KerriganBoundlessFury">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganBladedMomentum">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganSummonUltralisk">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="KerriganMaelstrom">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganPsionicBarrier">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="KerriganVolatilePower">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganChrysalis">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganMountingPotency">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="KerriganPainfulSpikes">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganUnbridledEnergy">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganTorrasque">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="KerriganOmegastorm">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KerriganAssimilationBlades">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KerriganPsionicShift">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Skin" Instance="KerriganBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="VOArray" Instance="Kerrigan">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Kharazim">
+            <GameLink GameLink="KharazimHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="KharazimHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_monk.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_monk.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_monk.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_monk.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroKharazimHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroKharazimHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="HeroRole" Instance="Healer">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="Diablo">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Talent" Instance="KharazimTranscendence">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimIronFists">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimInsight">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KharazimAirAlly">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KharazimSpiritAlly">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="KharazimEarthAlly">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimBlazingFists">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KharazimBlindingSpeed">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="KharazimHeavenlyZeal">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimDivinePalm">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="KharazimSevenSidedStrike">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimSixthSense">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimQuicksilver">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="KharazimWayoftheHundredFists">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimCleansingTouch">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="KharazimEchoofHeaven">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalentSpellShield">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KharazimFistsofLegend">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="KharazimPeacefulRepose">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="KharazimElevenSidedStrike">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="KharazimInnerSanctuary">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="KharazimEpiphany">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="KharazimRadiantDash">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="KharazimBreathofHeaven">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="KharazimDeadlyReach">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="KharazimPickYourTrait">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="KharazimDivinePalm">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="KharazimSevenSidedStrike">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Skin" Instance="KharazimBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="VOArray" Instance="Kharazim">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMing">
+            <GameLink GameLink="LiMingHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="LiMingHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_wizard.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_wizard.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_wizard.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_wizard.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroLiMingHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroLiMingHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="Diablo">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Ability" Instance="LiMingMagicMissiles">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="LiMingArcaneOrb">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="LiMingTeleport">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="LiMingCriticalMass">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="LiMingDisintegrate">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="LiMingWaveOfForce">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="LiMingForceArmor">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingAetherWalker">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingPowerHungry">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="LiMingChargedBlast">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="LiMingZeisVengeance">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingDominance">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="LiMingTriumvirate">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingSeeker">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="LiMingCalamity">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="LiMingDisintegrate">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="LiMingWaveOfForce">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingIllusionist">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="LiMingCannoneer">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingGlassCannon">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="LiMingFireflies">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="LiMingMirrorball">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingDiamondSkin">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="LiMingArcaneOrbit">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="LiMingTemporalFlux">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="LiMingRepulsion">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="LiMingTalRashasElements">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="LiMingEssOfJohan">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="VOArray" Instance="LiMing">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Skin" Instance="LiMingBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="LiMingArchonPurePower">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+        </Instances>
+        <Instances Id="Malfurion">
+            <GameLink GameLink="HeroMalfurion">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurion@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Malfurion.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Malfurion.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Malfurion.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Malfurion.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroMalfurionHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroMalfurionHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroRole" Instance="Healer">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionMoonBeam">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionVengefulRoots">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionDeepRoots">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionNaturesSwiftness">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionHinderingMoonfire">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionEmeraldDreams">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionNaturesCure">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionWildGrowth">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionShandosClarity">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionLifebloom">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionTranquility">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionTwilightDream">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionTenaciousRoots">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionCelestialAlignment">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionLunarShower">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionYserasGift">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionNaturesBalance">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionRestfulGlade">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionSerenity">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionAstralCommunion">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Skin" Instance="MalfurionBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="MalfurionRegrowth">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="MalfurionMoonfire">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="MalfurionEntanglingRoots">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="MalfurionInnervate">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="MalfurionTranquility">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="MalfurionTwilightDream">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionElunesGrace">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionStranglingVines">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Malfurion">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="MalfurionWildshapeHare">
+                <Field Id="TalentTier3" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="Muradin">
+            <GameLink GameLink="MuradinHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="MuradinHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="MuradinStormbolt">
+                <Field Id="QuestDataButton"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Muradin.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Muradin.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Muradin.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Muradin.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroMuradinHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroMuradinHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="HeroRole" Instance="Tank">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Ability" Instance="MuradinStormbolt">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="MuradinThunderclap">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="MuradinDwarfToss">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="MuradinSecondWind">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="MuradinPerfectStorm">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinDwarfBlock">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinThirdWind">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="TokenCounter" Instance="MuradinStormbolt">
+                <Field Id="QuestDataTokenCounterInstance"/>
+            </User>
+            <User Type="Talent" Instance="MuradinSledgehammer">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="MuradinReverberation">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinThunderBurn">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="MuradinAvatar">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="MuradinAvatar">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="MuradinHeavyImpact">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="MuradinGiveEmTheAxe">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinBash">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="MuradinHaymaker">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="MuradinHaymaker">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinThunderStrike">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="MuradinHealingStatic">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinBronzebeardRage">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ImposingPresence">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinDwarfLaunch">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="MuradinStoneform">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="MuradinStoneform">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="MuradinUnstoppableForce">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="MuradinGrandSlam">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="MuradinDwarvenCourage">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Rewind">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Muradin">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Skin" Instance="MuradinBase">
+                <Field Id="Skins"/>
+            </User>
+        </Instances>
+        <Instances Id="Ragnaros">
+            <GameLink GameLink="HeroRagnaros">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnaros@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosMoltenCore">
+                <Field Id="HeroUnit_Alternate"/>
+            </GameLink>
+            <Image Image="assets\Textures\UI_Targetportrait_Hero_Ragnaros.dds">
+                <Field Id="PairedPortrait"/>
+            </Image>
+            <Image Image="assets\textures\storm_ui_icon_ragnaros_moltencore.dds">
+                <Field Id="PairedPortrait" Index="1"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Ragnaros.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Ragnaros.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Ragnaros.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Ragnaros.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroRagnarosHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroRagnarosHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <Text Text="UserData/Hero/Ragnaros_PairedName">
+                <Field Id="PairedName"/>
+            </Text>
+            <Text Text="UserData/Hero/Ragnaros_PairedName_001">
+                <Field Id="PairedName" Index="1"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Mount" Instance="RagnarosWake">
+                <Field Id="Default Mount"/>
+            </User>
+            <User Type="MountMountCategory" Instance="RagnarosWake">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosEmpowerSulfuras">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosLivingMeteor">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosSulfurasSmash">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosBlastWave">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosMoltenCore">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosMoltenSwing">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosMeteorShower">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosExplosiveRune">
+                <Field Id="Abilities" Index="7"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsPaired"/>
+            </User>
+            <User Type="Skin" Instance="RagnarosBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="HeroRole" Instance="Bruiser">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosSulfurasHungers">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosShiftingMeteor">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosEngulfingFlame">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosFireWard">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosSlowBurn">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosHeatwave">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosHandOfRagnaros">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosMoltenPower">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosSulfurasSmash">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosBlisteringAttacks">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosLavaWave">
+                <Field Id="Abilities" Index="8"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosLavaWave">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosCauterizeWounds">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosTemperedFlame">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosMoltenReprieve">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosGiantScorcher">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosMeteorBomb">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosBlastEcho">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosFlamesOfSulfuron">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosLavaSurge">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosHeroicDifficulty">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosSubmerge">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="RagnarosMoltenCoreReturn">
+                <Field Id="Abilities" Index="9"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosRaidTime">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosCatchingFire">
+                <Field Id="TalentTier2" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosResilientFlame">
+                <Field Id="TalentTier5" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="RagnarosFirelordsFury">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="VOArray" Instance="Ragnaros">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Selendis">
+            <GameLink GameLink="HeroSelendis">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendis@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Selendis.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Selendis.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Selendis.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Selendis.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroSelendisHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroSelendisHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroRole" Instance="AssassinMelee">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Skin" Instance="SelendisBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="Ability" Instance="SelendisSolarLance">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="SelendisZealousRush">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="SelendisDecisiveBlow">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="SelendisExecutorsGuard">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="SelendisPsionicSurge">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="SelendisGoldenArmada">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Talent" Instance="SelendisSolarCharge">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisJusticeIsDue">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisDeftStrike">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisShieldDynamo">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisFaithBeforeFear">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisLastStand">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisTrialByFire">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="SelendisTemplarsFury">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisAnanPokahl">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisGoldenArmada">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="SelendisPsionicSurge">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisDefensivePose">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="SelendisCripplingBlow">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisPhaseAegis">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisSeveringSlash">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisCutThrough">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="SelendisPeerlessCombatant">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisUnwaveringResolve">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="SelendisVictoryAgainstAllOdds">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="SelendisResurgence">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="SelendisTractorBeam">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="SelendisForAiur">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="VOArray" Instance="Selendis">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Talandar">
+            <Fixed Fixed="1.3498">
+                <Field Id="Mount Scaling Override"/>
+            </Fixed>
+            <GameLink GameLink="HeroTalandar">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandar@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Talandar.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Talandar.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Talandar.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Talandar.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroTalandarHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroTalandarHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroRole" Instance="Bruiser">
+                <Field Id="Role"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="Skin" Instance="TalandarBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="Ability" Instance="TalandarThunderousCharge">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="TalandarWhirlwind">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="TalandarSolarBlast">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="TalandarSolariteCore">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="TalandarShieldOvercharge">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="TalandarPurification">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Ability" Instance="TalandarBattleArena">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="Talent" Instance="TalandarOverdrive">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarSelfRepair">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarShieldOvercharge">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="TalandarPurification">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarBattleArena">
+                <Field Id="TalentTier4" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarSolarRadiance">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarPhaseRepeaters">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarSuppressionProcedure">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarCauterizingBlast">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarAdvancedCapacitors">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarSubjugation">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="TalandarCuttingEdge">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarUnconquered">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="TalandarConductivePlating">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarTheBladeOfArtanis">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarAkhundelar">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="TalandarEndlessTempest">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarWillOfFenix">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarReconstruction">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="TalandarCommencingPurification">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TalandarHungerForBattle">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TalandarGigablast">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="TalandarCybrossVengeance">
+                <Field Id="TalentTier7" Index="4"/>
+            </User>
+            <User Type="Ability" Instance="TalandarRecharge">
+                <Field Id="Abilities" Index="7"/>
+            </User>
+            <User Type="VOArray" Instance="Talandar">
+                <Field Id="VOArray"/>
+            </User>
+        </Instances>
+        <Instances Id="Tychus">
+            <GameLink GameLink="TychusHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <GameLink GameLink="TychusHero@LevelScalingEffect">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <Image Image="assets\Textures\UI_Targetportrait_Hero_Tychus.dds">
+                <Field Id="PairedPortrait"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_icon_tychus_commandeerodin.dds">
+                <Field Id="PairedPortrait" Index="1"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Tychus.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Tychus.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Tychus.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Tychus.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroTychusHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroTychusHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <Text Text="UserData/Hero/Tychus_PairedName">
+                <Field Id="PairedName"/>
+            </Text>
+            <Text Text="UserData/Hero/Tychus_PairedName_001">
+                <Field Id="PairedName" Index="1"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="HeroUniverse" Instance="StarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="HeroRole" Instance="AssassinRanged">
+                <Field Id="Role"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebeast">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="TychusOverkill">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="TychusFragGrenade">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="TychusRunAndGun">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TychusDash">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TychusQuarterback">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="TychusConcussionGrenade">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TychusPressTheAdvantage">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="Ability" Instance="TychusMinigun">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="TychusInTheRhythm">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="TychusTheBiggerTheyAre">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TychusMasterAssassin">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TychusHeavensDevils">
+                <Field Id="TalentTier2" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="TychusMeltingPoint">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="TychusCombatTactician">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TychusRelentlessSoldier">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="TychusLaserDrill">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="TychusOdin">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="TychusLaserDrill">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="TychusOdin">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="TychusSprayNPray">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="TychusCollateralDamage">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TychusThatsTheStuff">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TychusArmorPiercingRounds">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="TychusTitanGrenade">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TychusSizzlinAttacks">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TychusBigRedButton">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="TychusFocusingDiodes">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TychusCanDoThisAllDay">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TychusBobAndWeave">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="Skin" Instance="TychusBase">
+                <Field Id="Skins"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsPaired"/>
+            </User>
+            <User Type="Ability" Instance="TychusOdinAnnihilate">
+                <Field Id="Abilities" Index="6"/>
+            </User>
+            <User Type="Ability" Instance="TychusOdinRagnarokMissiles">
+                <Field Id="Abilities" Index="7"/>
+            </User>
+            <User Type="Ability" Instance="TychusOdinThrusters">
+                <Field Id="Abilities" Index="8"/>
+            </User>
+            <User Type="Talent" Instance="TychusABadBadMan">
+                <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Tychus">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="Talent" Instance="TychusNeosteelCoating">
+                <Field Id="TalentTier5" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="Tyrande">
+            <GameLink GameLink="TyrandeHero@LevelScalingModification">
+                <Field Id="HeroLevelScalingEffect"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\storm_ui_ingame_partyframe_Tyrande.dds">
+                <Field Id="Portrait_PartyFrame"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_glues_draft_portrait_Tyrande.dds">
+                <Field Id="Portrait_HeroSelectDraft"/>
+            </Image>
+            <Image Image="Assets\Textures\storm_ui_ingame_heroselect_btn_Tyrande.dds">
+                <Field Id="Portrait_HeroSelectButton"/>
+            </Image>
+            <Image Image="Assets\Textures\ui_targetportrait_hero_Tyrande.dds">
+                <Field Id="Portrait_DeathRecap"/>
+            </Image>
+            <String String="libGDHL_gt_HeroTyrandeHeroCountIncrement">
+                <Field Id="Func_HeroIncrement"/>
+            </String>
+            <String String="libGDHL_gt_HeroTyrandeHeroCountDecrement">
+                <Field Id="Func_HeroDecrement"/>
+            </String>
+            <User Type="HeroRole" Instance="Healer">
+                <Field Id="Role"/>
+            </User>
+            <User Type="HeroUniverse" Instance="WarCraft">
+                <Field Id="Universe"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="UsesMount"/>
+            </User>
+            <User Type="Ability" Instance="TyrandeLightOfElune">
+                <Field Id="Abilities"/>
+            </User>
+            <User Type="Ability" Instance="TyrandeSentinel">
+                <Field Id="Abilities" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="TyrandeLunarFlare">
+                <Field Id="Abilities" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="TyrandeHuntersMark">
+                <Field Id="Abilities" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeRanger">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeLunarBlaze">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeTrueshotAura">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeEverlastingLight">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeMoonlitArrows">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeElunesChosen">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeKaldoreiResistance">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeRangersMark">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeMarkOfMending">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Ability" Instance="TyrandeShadowstalk">
+                <Field Id="Abilities" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeShadowstalk">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeStarfall">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Ability" Instance="TyrandeStarfall">
+                <Field Id="Abilities" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeQuickeningBlessing">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeHarshMoonlight">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeHuntressFury">
+                <Field Id="TalentTier5" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeCelestialAttunement">
+                <Field Id="TalentTier6"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeEmpower">
+                <Field Id="TalentTier6" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeDarnassianArchery">
+                <Field Id="TalentTier6" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeEyesOfTheHuntress">
+                <Field Id="TalentTier7"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeCelestialWrath">
+                <Field Id="TalentTier7" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeShootingStar">
+                <Field Id="TalentTier7" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="TyrandeIcebladeArrows">
+                <Field Id="TalentTier7" Index="3"/>
+            </User>
+            <User Type="VOArray" Instance="Tyrande">
+                <Field Id="VOArray"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ride">
+                <Field Id="Mount Category Array" Index="1"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridebike">
+                <Field Id="Mount Category Array" Index="2"/>
+            </User>
+            <User Type="MountMountCategory" Instance="Ridesurf">
+                <Field Id="Mount Category Array" Index="3"/>
+            </User>
+            <User Type="Skin" Instance="TyrandeBase">
+                <Field Id="Skins"/>
+            </User>
+        </Instances>
+        <Instances Id="TestHero">
+            <GameLink GameLink="HeroTestHero">
+                <Field Id="HeroUnit"/>
+            </GameLink>
+            <User Type="Talent" Instance="[Generic] Block">
+                <Field Id="TalentTier1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] DampenMagic">
+                <Field Id="TalentTier1" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] RegenerationMaster">
+                <Field Id="TalentTier1" Index="2"/>
+            </User>
+            <User Type="HeroRole" Instance="Bruiser">
+                <Field Id="Role"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ScoutingDrone">
+                <Field Id="TalentTier1" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Bribe">
+                <Field Id="TalentTier1" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] GatheringPower">
+                <Field Id="TalentTier2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] FocusedAttack">
+                <Field Id="TalentTier2" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] AmplifiedHealing">
+                <Field Id="TalentTier2" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] HealingWard">
+                <Field Id="TalentTier2" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Envenom">
+                <Field Id="TalentTier2" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] VampiricAssault">
+                <Field Id="TalentTier2" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] BattleMomentum">
+                <Field Id="TalentTier3"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] FollowThrough">
+                <Field Id="TalentTier3" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] CalldownMULE">
+                <Field Id="TalentTier3" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ProtectiveShield">
+                <Field Id="TalentTier2" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] MercenaryLord">
+                <Field Id="TalentTier1" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ImposingPresence">
+                <Field Id="TalentTier3" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Cleanse">
+                <Field Id="TalentTier3" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] FirstAid">
+                <Field Id="TalentTier3" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Clairvoyance">
+                <Field Id="TalentTier3" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] AntiHealer">
+                <Field Id="TalentTier4"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] HardenedFocus">
+                <Field Id="TalentTier4" Index="1"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ShieldBreaker">
+                <Field Id="TalentTier4" Index="2"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] GladiatorsMedallion">
+                <Field Id="TalentTier1" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] ShrinkRay">
+                <Field Id="TalentTier4" Index="6"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] BoltOfTheStorm">
+                <Field Id="TalentTier4" Index="3"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] FuryOfTheStorm">
+                <Field Id="TalentTier4" Index="4"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] GlassCannon">
+                <Field Id="TalentTier4" Index="5"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] Enrage">
+                <Field Id="TalentTier5"/>
+            </User>
+            <User Type="Talent" Instance="[Generic] IceBlock">
+                <Field Id="TalentTier5" Index="1"/>
+            </User>
+        </Instances>
+    </CUser>
+</Catalog>

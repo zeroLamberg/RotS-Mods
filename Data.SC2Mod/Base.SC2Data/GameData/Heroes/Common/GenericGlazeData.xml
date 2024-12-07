@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="GlazeUnstoppableHoly">
+        <Model value="Assets\Effects\Glaze\Storm_Glaze_Unstoppable_Holy\Storm_Glaze_Unstoppable_Holy.m3"/>
+    </CModel>
+    <CModel id="GlazeCorruptedTangentSpace">
+        <Model value="Assets\Effects\Glaze\Glaze_Corrupted_TangentSpace\Glaze_Corrupted_TangentSpace.m3"/>
+    </CModel>
+    <CModel id="GlazeFireTangentSpace">
+        <Model value="Assets\Effects\Glaze\Glaze_Fire_WorldSpace\Glaze_Fire_WorldSpace.m3"/>
+    </CModel>
+</Catalog>

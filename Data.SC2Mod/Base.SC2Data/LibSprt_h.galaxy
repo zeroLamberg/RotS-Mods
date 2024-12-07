@@ -1,0 +1,51 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Support
+//--------------------------------------------------------------------------------------------------
+// Constants
+const string libSprt_gv_performanceTestFPSLogFile = "FPS_Log";
+
+// Variable Declarations
+bool libSprt_gv_performanceTestPerformanceTestRunning;
+playergroup libSprt_gv_dEBUGAdminTeam;
+bool libSprt_gv_dEBUGHelpTextTagsEnabled;
+bool libSprt_gv_dEBUGTooltipsEnabled;
+bool libSprt_gv_dEBUGMinionTooltipsEnabled;
+bool libSprt_gv_dEBUGDeathRecapEnabled;
+bool libSprt_gv_dEBUGBonusMinionXP;
+bool libSprt_gv_dEBUGXPTextEnabled;
+bool libSprt_gv_dEBUGXPBoostEnable;
+fixed libSprt_gv_dEBUGXPBoostMultiplier;
+bool libSprt_gv_dEBUGXPPassiveBalancerEnable;
+fixed libSprt_gv_dEBUGXPPassiveBoostMultiplier;
+bool libSprt_gv_dEBUGXPSourceStructure;
+bool libSprt_gv_dEBUGXPSourceMinion;
+bool libSprt_gv_dEBUGXPSourceHero;
+bool libSprt_gv_dEBUGXPSourceCreep;
+int libSprt_gv_dEBUGXPBoostTeam;
+int libSprt_gv_dEBUGXPPassiveBoostTeam;
+bool libSprt_gv_dEBUGSelectionEnabled;
+bool libSprt_gv_dEBUGTalentDebugEnabled;
+bool libSprt_gv_dEBUGCombatTextEnabled;
+bool libSprt_gv_dEBUGHeroSelectWait;
+bool libSprt_gv_dEBUGHeroMimic;
+bool libSprt_gv_dEBUG60SecondPauseOnOff;
+bool libSprt_gv_dEBUGDebugMessagesEnabled;
+bool libSprt_gv_dEBUGCinematicsModeEnabled;
+bool libSprt_gv_dEBUGMapTextEnabled;
+fixed libSprt_gv_debug_GameTimeDelta;
+bool libSprt_gv_dEBUGSpawnAtCamera;
+
+// Function Declarations
+void libSprt_gf_DEBUGCleanUpHeroForPlayer (int lp_player);
+void libSprt_gf_DEBUGSpawnorSwapHeroForPlayer (int lp_heroIndex, int lp_skinIndex, int lp_mountIndex, fixed lp_xP, int lp_player, int lp_debugMenuTriggeringPlayer);
+
+// Trigger Declarations
+trigger libSprt_gt_IncludeSupport;
+trigger libSprt_gt_DEBUGWin;
+trigger libSprt_gt_DEBUGGetAllUnitBehaviors;
+
+// Library Initialization
+void libSprt_InitVariables ();
+

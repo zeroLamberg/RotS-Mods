@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CScoreValueCustom default="1" id="StatScoreValue"/>
+    <CScoreValueCustom id="DeadHeroLastKnownHealth"/>
+    <CScoreValueCustom id="DeadHeroLastKnownShields"/>
+    <CScoreValueCustom id="ExperienceContributionPassive" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="ExperienceContributionMinions" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="ExperienceContributionMercenaries" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="ExperienceContributionHeroes" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="ExperienceContributionStructures" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="ExperienceContribution" parent="BaseScoreValue">
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="CarriedMechanic" parent="BaseScoreValue">
+        <Icon value="Assets\Textures\scorescreen_Icons_Doubloons.dds"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot1" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot2" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot3" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot4" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot5" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot6" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot7" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot8" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot9" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroLeaderboardPlayerFromSlot10" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HeroicAbilityCooldown" parent="BaseScoreValue">
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="PhysicalDamage" parent="BaseScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Flags index="PerformanceMeasure" value="1"/>
+        <UniqueTag value="PDmg"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="SpellDamage" parent="BaseScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Flags index="PerformanceMeasure" value="1"/>
+        <UniqueTag value="SpDm"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="OnFireHighlightHeroDamageBoolean" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="OnFireHighlightKillsBoolean" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="OnFireHighlightAssistsBoolean" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="OnFireHighlightSiegeDamageBoolean" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="OnFireHighlightRoleSpecificBoolean" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="OnFireHighlightXPContributionBoolean" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="CreepDamage" parent="StatScoreValue">
+        <UniqueTag value="CDmg"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="SelfHealing" parent="StatScoreValue">
+        <UniqueTag value="SHel"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="SiegeDamage" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <UniqueTag value="SgDm"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="HeroDamage" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <UniqueTag value="HDmg"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="MinionDamage" parent="StatScoreValue">
+        <UniqueTag value="MDmg"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="StructureDamage" parent="StatScoreValue">
+        <UniqueTag value="SDmg"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="SummonDamage" parent="StatScoreValue">
+        <UniqueTag value="SmnD"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="SoloKill" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Flags index="ProfileStat" value="1"/>
+        <UniqueTag value="SOLK"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="Assists" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Flags index="ProfileStat" value="1"/>
+        <UniqueTag value="ASST"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="Deaths" parent="StatScoreValue">
+        <Flags index="TriggerAchievement" value="1"/>
+        <Flags index="ProfileStat" value="1"/>
+        <Sort value="Descending"/>
+        <UniqueTag value="DTHS"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="Healing" parent="StatScoreValue">
+        <Icon value="Assets\Textures\storm_ui_play_filter_support-on.dds"/>
+        <Flags index="TriggerAchievement" value="1"/>
+        <UniqueTag value="Heal"/>
+        <Type value="Fixed"/>
+    </CScoreValueCustom>
+    <CScoreValueCustom id="MapMechanics" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="KillStreak" parent="BaseScoreValue"/>
+</Catalog>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <!--Standard Templates-->
+    <Include path="UI/Layout/Common/StandardConstantsStorm.SC2Layout"/>
+    <Include path="UI/Layout/Common/CollectionConstants.SC2Layout" />
+    <Include path="UI/Layout/Common/StandardTemplatesStorm.SC2Layout"/>
+    <Include path="UI/Layout/Common/StandardAnimationTemplatesStorm.SC2Layout"/>
+    <Include path="UI/Layout/Common/AvatarFrameTemplates.SC2Layout" />
+    <Include path="UI/Layout/Common/StandardTooltipStorm.SC2Layout"/>
+    <Include path="UI/Layout/Common/StandardHeroUITemplates.SC2Layout" />
+    <Include path="UI/Layout/Common/StoreTemplates.SC2Layout" />
+    <Include path="UI/Layout/Common/CollectionTemplatesStorm.SC2Layout" />
+    <!--Glue-->
+    <Include path="UI/Layout/Glue/PreloadPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroStandardTemplate.SC2Layout"/>
+    <Include path="UI/Layout/Glue/TalentPicker.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectTileList.SC2Layout"/>
+    <Include path="UI/Layout/Glue/ProductPurchasePanel2.SC2Layout" />
+    <Include path="UI/Layout/Glue/BuyPanel.SC2Layout" />
+    <Include path="UI/Layout/Glue/HeroTalentTreePanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectCustomizePanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroAbilTileListItem.SC2Layout"/>
+    <Include path="UI/Layout/Glue/PairedHeroTileList.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectChangeHeroPanel.SC2Layout" />
+    <Include path="UI/Layout/Glue/HeroSelectLoadoutTemplates.SC2Layout" />
+    <Include path="UI/Layout/Glue/HeroSelectLoadoutAnnouncerPacksPanel.SC2Layout" />
+    <Include path="UI/Layout/Glue/HeroSelectLoadoutSkinsPanel.SC2Layout" />
+    <Include path="UI/Layout/Glue/HeroSelectLoadoutMountsPanel.SC2Layout" />
+    <Include path="UI/Layout/Glue/HeroSelectLoadoutPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectAbilitiesPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectTalentsPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroDraftTemplates.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/HeroSelectionIngame.SC2Layout"/>
+    <Include path="UI/Layout/Glue/BattleLobbyPanel.SC2Layout"/>
+    <!-- Unit Status required for Hero Layouts-->
+    <Include path="UI/Layout/UI/UnitStatusStackingElements.SC2Layout"/>
+    <!-- Hero Layouts-->
+    <Include path="UI/Layout/Heroes/Anduin.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Artanis.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Arthas.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Auriel.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Azmodan.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Brightwing.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Delta.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Diablo.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/ETC.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Greymane.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Jaina.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Kerrigan.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Kharazim.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/LiMing.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Malfurion.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Muradin.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Ragnaros.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Selendis.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Talandar.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/Tychus.SC2Layout"/>
+    <Include path="UI/Layout/Heroes/HeroSpecific.SC2Layout"/>
+    <!-- Unit Status Stuff -->
+    <Include path="UI/Layout/UI/UnitStatusUnitTracking.SC2Layout"/>
+    <Include path="UI/Layout/UI/UnitStatus.SC2Layout"/>
+    <Include path="UI/Layout/UI/MinimapUnitStatus.SC2Layout"/>
+    <!---->
+    <Include path="UI/Layout/UI/FloatingCombatElementsTemplates.SC2Layout"/>
+    <Include path="UI/Layout/UI/FloatingCombatElements.SC2Layout"/>
+    <Include path="UI/Layout/UI/JungleCampInfoPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/DamageFlashPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/GameStatsPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/GameNotifications.SC2Layout"/>
+    <Include path="UI/Layout/UI/PortraitPanelStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/BehaviorBarStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/SharedOnFireVFX.SC2Layout" />
+    <Include path="UI/Layout/UI/HeroConsole.SC2Layout"/>
+    <Include path="UI/Layout/UI/TargetInfoPanelUnitStatusTemplate.SC2Layout" />
+    <Include path="UI/Layout/UI/TargetInfoPanel.SC2Layout" />
+    <Include path="UI/Layout/UI/ChannelBarsStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/DirectiveDisplay.SC2Layout"/>
+    <Include path="UI/Layout/UI/PingPanelStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/MenuBarStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/GameButtonStorm.SC2Layout"/>	
+    <Include path="UI/Layout/UI/GameButtonProgressBars.SC2Layout"/>	
+    <Include path="UI/Layout/UI/CommandButtonStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/CommandPanelStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/InventoryPanelStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/MinimapPanelStorm.SC2Layout"/>
+    <Include path="UI/Layout/UI/ConsolePanelStorm.SC2Layout"/>
+    
+    <Include path="UI/Layout/UI/ControlGroupPanelStorm.StormLayout" />
+    
+    <Include path="UI/Layout/UI/MapMechanicPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/MapMechanicHelpPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/TopBar.SC2Layout"/>
+    <Include path="UI/Layout/UI/PartyFrame.SC2Layout"/>
+    <Include path="UI/Layout/UI/TopPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/KillLog.SC2Layout"/>
+    <Include path="UI/Layout/UI/DeathRecap.SC2Layout"/>
+    <Include path="UI/Layout/UI/HeroLeaderPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/GameOverSplash.SC2Layout" />
+    <Include path="UI/Layout/UI/TutorialUI.SC2Layout" />
+    <Include path="UI/Layout/UI/GameStats.SC2Layout" />
+    <Include path="UI/Layout/UI/GameInfo.SC2Layout" />
+    <Include path="UI/Layout/UI/FullScreenOverlayImages.SC2Layout"/>
+    <Include path="UI/Layout/UI/FullscreenOverlayImagesRework.SC2Layout" />
+    <Include path="UI/Layout/UI/ObserverPanelStorm.SC2Layout" />
+    <!--<Include path="UI/Layout/UI/ObserverPreviewFrame.StormLayout" />
+    <Include path="UI/Layout/UI/PlayFromHerePanel.StormLayout" />-->
+    <Include path="UI/Layout/UI/ReplayPanelStorm.SC2Layout" />
+    <Include path="UI/Layout/UI/MyChatBar.SC2Layout" />
+    <Include path="UI/Layout/UI/HeroTalentTreeSelectionPanel.SC2Layout" />
+    <Include path="UI/Layout/UI/PlayerAnnouncer.SC2Layout" />
+    <Include path="UI/Layout/UI/InGameBoostCutsceneFrame.SC2Layout" />
+    <!--Always Last-->
+    <Include path="UI/Layout/UI/GameUITooltips.SC2Layout"/>
+    <Include path="UI/Layout/UI/GameUIStorm.SC2Layout"/>
+</Desc>

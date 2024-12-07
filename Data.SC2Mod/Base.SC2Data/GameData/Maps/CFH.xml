@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectSet id="TowerCFHApplySetOriginal">
+        <ValidatorArray value="TargetInWeaponRange"/>
+        <ValidatorArray value="TowerCFHFocusedUnitListCountis0"/>
+        <EffectArray value="TowerCFHIssueAttackOrder"/>
+        <EffectArray value="TowerCFHAddToFocusList"/>
+        <EffectArray value="TowerCFHApplyFocusedTarget"/>
+    </CEffectSet>
+    <CEffectSet id="TowerCFHApplySetTrigger">
+        <EffectArray value="TowerCFHIssueAttackOrder"/>
+        <EffectArray value="TowerCFHAddToFocusList"/>
+        <EffectArray value="TowerCFHApplyFocusedTarget"/>
+    </CEffectSet>
+    <CEffectClearTrackedUnits id="TowerCFHClearTrackedUnits">
+        <BehaviorLink value="TowerCFHFocusedTargetTracker"/>
+    </CEffectClearTrackedUnits>
+    <CEffectSet id="TowerCFHFocusedTargetRemovedDummyEffect"/>
+    <CEffectRemoveTrackedUnit id="TowerCFHRemoveFromTargetedList">
+        <BehaviorLink value="TowerCFHFocusedTargetTracker"/>
+        <TrackedUnit Value="Source"/>
+    </CEffectRemoveTrackedUnit>
+    <CEffectApplyBehavior id="TowerCFHApplyDamageResponse">
+        <Behavior value="TowerCFHDamageResponse"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="TowerCFHApplyDamageResponseBasicAttack">
+        <Behavior value="TowerCFHDamageResponseBasicAttack"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="TowerCFHApplyFocusedTarget">
+        <WhichUnit Value="Source"/>
+        <Behavior value="TowerCFHFocusedTarget"/>
+    </CEffectApplyBehavior>
+    <CEffectAddTrackedUnit id="TowerCFHAddToFocusList">
+        <BehaviorLink value="TowerCFHFocusedTargetTracker"/>
+        <TrackedUnit Value="Source"/>
+    </CEffectAddTrackedUnit>
+    <CEffectIssueOrder id="TowerCFHIssueAttackOrder">
+        <WhichUnit Value="Caster"/>
+        <Abil value="attack"/>
+        <CmdFlags index="Preempt" value="1"/>
+        <Target Value="SourceUnit"/>
+    </CEffectIssueOrder>
+    <CEffectEnumTrackedUnits id="TowerCFHUpdateNearbyHeroList">
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <BehaviorLink value="AllHeroicUnitsTrackingBehavior"/>
+        <Effect value="TowerCFHApplyDamageResponseSet"/>
+        <TrackedUnitFilters value="Heroic,Visible;Player,Ally,Neutral,Armored,Dead,Hidden,Invulnerable"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectSet id="TowerCFHApplyDamageResponseSet">
+        <EffectArray value="TowerCFHApplyDamageResponse"/>
+        <EffectArray value="TowerCFHApplyDamageResponseBasicAttack"/>
+        <ValidatorArray value="TargetInWeaponRange"/>
+    </CEffectSet>
+    <CEffectSet id="TowerCFHApplySet">
+        <ValidatorArray value="TargetInWeaponRange"/>
+        <ValidatorArray value="TowerCFHFocusedUnitListCountis0"/>
+        <ValidatorArray value="TargetNotInvulnerable"/>
+        <ValidatorArray value="TargetNotHidden"/>
+        <ValidatorArray value="TargetNotDead"/>
+        <ValidatorArray value="TargetIsNotIgnoredByTowers"/>
+        <EffectArray value="TowerCFHAddToFocusList"/>
+    </CEffectSet>
+    <CValidatorLocationCompareRange id="TowerCFHWithinRange">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LE"/>
+        <Range value="7.75"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorCompareTrackedUnitsCount id="TowerCFHFocusedUnitListCountis0">
+        <BehaviorLink value="TowerCFHFocusedTargetTracker"/>
+    </CValidatorCompareTrackedUnitsCount>
+    <CValidatorIsUnitTracked id="TowerCFHFocusedUnitTrackedSource">
+        <Find value="1"/>
+        <BehaviorLink value="TowerCFHFocusedTargetTracker"/>
+        <TrackedUnit Value="Source"/>
+    </CValidatorIsUnitTracked>
+    <CValidatorIsUnitTracked id="TowerCFHFocusedUnitTrackedTarget">
+        <Find value="1"/>
+        <BehaviorLink value="TowerCFHFocusedTargetTracker"/>
+        <TrackedUnit Value="Target"/>
+    </CValidatorIsUnitTracked>
+    <CBehaviorBuff id="TowerCFHDamageResponse">
+        <DisableValidatorArray value="CasterNotStunned"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="0.125"/>
+        <DamageResponse Handled="TowerCFHApplySet" Location="Attacker">
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ValidatorArray value="TargetIsEnemyHero"/>
+            <ProvideCategories index="Enhancement" value="1"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TowerCFHDamageResponseBasicAttack">
+        <DisableValidatorArray value="CasterNotStunned"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="0.125"/>
+        <DamageResponse Handled="TowerCFHApplySet" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ExcludeEffectArray value=""/>
+            <ValidatorArray value="TargetIsEnemyHero"/>
+            <ValidatorArray value="TargetNotEvading"/>
+            <ProvideCategories index="Enhancement" value="1"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TowerCFHFocusedTarget">
+        <RemoveValidatorArray value="TowerCFHFocusedUnitTrackedSource"/>
+        <MaxStackCountPerCaster value="1"/>
+        <FinalEffect value="TowerCFHFocusedTargetRemovedDummyEffect"/>
+    </CBehaviorBuff>
+    <CBehaviorUnitTracker id="TowerCFHFocusedTargetTracker">
+        <TrackingValidatorArray value="TargetInWeaponRange"/>
+        <TrackingValidatorArray value="TargetNotInvulnerable"/>
+        <TrackingValidatorArray value="TargetNotHidden"/>
+        <TrackingValidatorArray value="TargetNotDead"/>
+        <TrackingValidatorArray value="TargetIsNotIgnoredByTowers"/>
+        <TrackingValidatorArray value="BehaviorStateCasterHasNotSupppressAttack"/>
+        <MaxTrackedUnits value="1"/>
+    </CBehaviorUnitTracker>
+    <CBehaviorBuff id="TowerCFHUpdateNearbyHeroes">
+        <DisableValidatorArray value="TowerCFHFocusedUnitListCountis0"/>
+        <DisableValidatorArray value="BehaviorStateCasterHasNotSupppressAttack"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="TowerCFHUpdateNearbyHeroList"/>
+    </CBehaviorBuff>
+</Catalog>

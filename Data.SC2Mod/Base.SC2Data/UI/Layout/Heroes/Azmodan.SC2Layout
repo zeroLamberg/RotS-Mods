@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+  <Frame type="Frame" name="AzmodanStacksFrameContainer">
+    <Anchor relative="$parent" />
+    <Frame type="Frame" name="AzmodanWrathStacksFrame" template="UnitStatusStackingElements/StackingBehaviorTemplate">
+      <Frame type="Image" name="StacksFull">
+        <Texture val="@UI/Stacks/Azmodan"/>
+      </Frame>
+    </Frame>
+  </Frame>
+
+  <Frame type="SelectionUnitStatusPanel" name="AzmodanFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+    <SpecificUnit val="AzmodanHero"/>
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+      <Frame type="Image" name="MechanicTexture">
+        <Texture val="Assets\Textures\storm_ui_icon_azmodan_globeofannihilation.dds"/>
+      </Frame>
+      <Frame type="BehaviorIcon" name="Tooltip" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+        <Behavior val="AzmodanGlobeOfAnnihilation@TokenCounter"/>
+      </Frame>
+      <Frame type="UnitStatusBehaviorIcon" name="LargeCounterLabel" template="StandardHeroUITemplates/LargeCounterLabelTemplate">
+        <Behavior val="AzmodanGlobeOfAnnihilation@TokenCounter"/>
+        <Frame type="BehaviorIcon" name="BehaviorIcon">
+          <MinStackCountDisplayed val="0"/>
+        </Frame>
+        <Frame type="Label" name="CounterLabel">
+          <Text val=""/>
+        </Frame>
+      </Frame>
+    </Frame>
+  </Frame>
+  
+</Desc>

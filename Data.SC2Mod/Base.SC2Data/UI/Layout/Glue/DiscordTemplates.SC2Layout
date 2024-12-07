@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+     <Frame type="Frame" name="CopyButtonTemplate">
+		<Width val="288"/>
+		<Height val="152"/>
+
+		<Frame type="CopyClipboardButton" name="DiscordButton">
+          <ClickSound val="@UI_ActionButtonSelect"/>
+          <HoverSound val="@UI_HoverTick"/>
+          <Width val="200" />
+          <Height val="60" />
+          <NormalImage val="NormalImage" />
+          <AllowedButtons val="Left" />
+          <Frame type="Image" name="SelectedBorder">
+            <Anchor relative="$parent" offset="2"/>
+            <Texture val="Assets\Textures\ui_console_tooltip_background_specialforces.dds"/>
+            <TextureType val="Border"/>
+            <RenderPriority val="200"/>
+            <Visible val="False"/>
+          </Frame>
+          <Frame type="Image" name="NormalImage">
+            <LayerCount val="1" />
+            <Texture val="Assets\Textures\ui_battlenet_glue_campaign_subselectionbutton_selected.dds" layer="0" />
+            <DescFlags val="Internal" />
+            <DesaturateOnDisable val="true" />
+            <RenderPriority val="540" />
+            <TextureType val="Normal"/>
+          </Frame>
+          <Frame type="Image" name="TextureBottom">
+            <Anchor relative="$parent" offset="2"/>
+            <Texture val="Assets\Textures\ui_battlenet_glue_coop_score_commander_nameplate.dds" layer="0" />
+            <DesaturateOnDisable val="true" />
+            <RenderPriority val="550" />
+            <TextureType val="Normal"/>
+            <Visible val="True"/>
+          </Frame>
+          <Frame type="Image" name="TextureTop">
+            <Anchor relative="$parent" offset="2"/>
+            <Texture val="Assets\Textures\ui_battlenet_glue_coop_score_commander_nameplate.dds" layer="0" />
+            <DesaturateOnDisable val="true" />
+            <RenderPriority val="550" />
+            <TextureType val="Normal"/>
+            <Visible val="True"/>
+            <RotationPosition val="MiddleCenter"/>
+            <Rotation val="180"/>
+          </Frame>
+          <Frame type="Label" name="ButtonText">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="16"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+           
+            <Style val="BattleReportPanelSelectHeading"/>
+            <Color val="255,255,255"/>
+            <Width val="150"/>
+            <Text val="Copy Link"/>
+          </Frame>
+        </Frame>
+    </Frame>
+    	
+    <Frame type="Frame" name="DiscordTemplate">
+        <Visible val="False"/>
+        <Height val="220"/>
+        <Width val="450"/>
+
+        <Frame type="Image" name="Background">
+            <Anchor relative="$parent"/>
+            <Texture val="Assets\Textures\ui_console_helperbutton_background_imperial.dds"/>
+            <TextureType val="NineSlice"/>
+            <RenderPriority val="500"/>
+        </Frame>
+        <Frame type="Image" name="BackTexture">
+            <Anchor side="Top" relative="$parent" pos="0" offset="6"/>
+            <Anchor side="Left" relative="$parent" pos="1.0" offset="2"/>
+            <Anchor side="Right" relative="$parent" pos="Min" offset="0"/>
+            <Height val="208"/>
+            <Width val="440"/>
+            <Alpha val="70"/>
+            <Texture val="assets\textures\discord_raynor.dds"/>
+            <TextureType val="Normal"/>
+            <RenderPriority val="500"/>
+        </Frame>
+        <Frame type="Image" name="DownTexture">
+            <Anchor side="Top" relative="$parent" pos="0.4" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="1.0" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Min" offset="0"/>
+            <Height val="36"/>
+            <Width val="450"/>
+            <Alpha val="100"/>
+            <Texture val="Assets\Textures\ui_battlenet_glue_coop_mutators_backgroundarrow.dds"/>
+            <TextureType val="Normal"/>
+            <RenderPriority val="500"/>
+        </Frame>
+
+
+        <Frame type="EditBox" name="LinkBox">
+       
+            <Anchor side="Top" relative="$parent" pos="Min" offset="68"/>
+            <Anchor side="Left" relative="$parent" pos="0.5" offset="25"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Text val="discord.gg/My7DbaPexj"/>
+            <Style val="AISurrenderTitleAlt"/>
+            <Color val="255,255,255"/>
+            <Width val="300"/>
+           
+            <Width val="300"/>
+            <Height val="50"/>
+        </Frame>
+        <Frame type="Image" name="EditBoxBorder">
+            <Width val="325"/>
+            <Height val="50"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="55"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="65"/>
+            <Texture val="Assets\Textures\ui_console_tooltip_background_specialforces.dds"/>
+            <TextureType val="Border"/>
+            <RenderPriority val="500"/>
+            <Visible val="True"/>
+        </Frame>
+
+       
+        <Frame type="Label" name="Title">
+       
+            <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+           
+            <Style val="ChallengeVictoryTitle"/>
+            <Width val="325"/>
+            <Text val="Join us on Discord!"/>
+        </Frame>
+
+        <Frame type="Button" name="Close">
+            <NormalImage val="NormalImage" />
+            <RenderPriority val="570" />
+            <Height val ="30"/>
+            <Width val="30"/>
+            <Anchor side="Top" relative="$parent" pos="0" offset="3"/>
+            <Anchor side="Left" relative="$parent" pos="1.325" offset="40"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Frame type="Image" name="NormalImage">
+                <Height val ="30"/>
+                <Width val="30"/>
+                <Texture val="Assets\Textures\ui_glues_bluebuttons_extendedxpcloseicon.dds"/>
+                <DescFlags val="Internal" />
+                <DesaturateOnDisable val="true" />
+                <TextureType val="Normal"/>
+            </Frame>
+        </Frame>
+								
+        <Frame type="CopyClipboardButton" name="DiscordButton" template="Discord/CopyButtonTemplate/DiscordButton">
+            <ClipboardText val="discord.gg/My7DbaPexj"/>
+            <Anchor side="Top" relative="$parent" pos="0.5" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="0" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>   
+        </Frame>
+    </Frame>
+</Desc>

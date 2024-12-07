@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorEffectTreeUserData id="UnitStatsSpellLeech@ValueGT0Target" parent="StormGeneralData">
+        <Compare value="GT"/>
+        <Key value="SpellLeech"/>
+    </CValidatorEffectTreeUserData>
+    <CValidatorEffectTreeUserData id="UnitStatsSpellLeech@ValueGT0Caster" parent="StormGeneralData">
+        <Compare value="GT"/>
+        <Key value="SpellLeech"/>
+        <BehaviorScope Value="Caster"/>
+    </CValidatorEffectTreeUserData>
+    <CValidatorEffectTreeUserData id="UnitStatsPhysicalLeech@ValueGT0Caster" parent="StormGeneralData">
+        <Compare value="GT"/>
+        <Key value="PhysicalLeech"/>
+        <BehaviorScope Value="Caster"/>
+    </CValidatorEffectTreeUserData>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalLeech@CalculatedCaster">
+        <Parameters value="0.01">
+            <AccumulatorArray value="DamageInheritedMultiply"/>
+            <AccumulatorArray value="UnitStatsPhysicalLeech@UserDataCaster"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsPhysicalLeech@UserData" parent="StormUserDataGeneral">
+        <MinAccumulation value="0"/>
+        <Key value="PhysicalLeech"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsPhysicalLeech@UserDataCaster" parent="UnitStatsPhysicalLeech@UserData">
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsSpellLeech@CalculatedCaster">
+        <Parameters value="0.01">
+            <AccumulatorArray value="DamageInheritedMultiply"/>
+            <AccumulatorArray value="UnitStatsSpellLeech@UserDataCaster"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsSpellLeech@UserData" parent="StormUserDataGeneral">
+        <MinAccumulation value="0"/>
+        <Key value="SpellLeech"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsSpellLeech@UserDataCaster" parent="UnitStatsSpellLeech@UserData">
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+    <CDataCollection id="UnitStatsSpellLeech">
+        <DataRecord Entry="Accumulator,UnitStatsSpellLeech@UserData"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellLeech@UserDataCaster"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellLeech@CalculatedCaster"/>
+    </CDataCollection>
+    <CDataCollection id="UnitStatsPhysicalLeech">
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@UserData"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@UserDataCaster"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@CalculatedCaster"/>
+    </CDataCollection>
+</Catalog>

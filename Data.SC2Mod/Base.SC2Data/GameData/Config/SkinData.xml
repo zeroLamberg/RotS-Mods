@@ -1,0 +1,1462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="Skin">
+        <Fields>
+            <Id value="VariationSkinLink"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Skin"/>
+            <Count value="10"/>
+        </Fields>
+        <Fields>
+            <Id value="VariationUpgradeLink"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Upgrade"/>
+            <Count value="10"/>
+        </Fields>
+        <Fields Id="DefaultMount" Type="User" UserType="Mount"/>
+        <Fields>
+            <Id value="FeatureArray"/>
+            <Type value="User"/>
+            <UserType value="SkinFeature"/>
+            <Count value="5"/>
+        </Fields>
+        <Fields Id="VODefinition" Type="String"/>
+        <Fields Id="Event" Type="User" UserType="Event"/>
+        <Fields>
+            <Id value="AdditionalMountCategoryArray"/>
+            <Type value="User"/>
+            <UserType value="MountMountCategory"/>
+            <Count value="3"/>
+        </Fields>
+        <Fields>
+            <Id value="VariationIsUsed"/>
+            <Type value="User"/>
+            <UserType value="GenericTrueFalse"/>
+            <Count value="10"/>
+        </Fields>
+        <Fields Id="VariationName" Type="Text" Count="10"/>
+        <Fields Id="VariationInfo" Type="Text" Count="10"/>
+        <Fields Id="VariationAdditionalSearchText" Type="Text" Count="10"/>
+        <Fields Id="VariationReleaseDate" Type="String" Count="10"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="AbathurBase">
+            <GameLink GameLink="AbathurSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/AbathurBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsEnabled"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurUltimate">
+            <GameLink GameLink="AbathurSkinUltimate">
+                <Field Id="VariationSkinLink"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinUltimate">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinUltimate">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinUltimate">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinUltimateVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinUltimateVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="AbathurSkinUltimateVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/AbathurUltimate_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurUltimate_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurUltimate_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurUltimate_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/AbathurUltimate_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsEnabled"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinBase">
+            <GameLink GameLink="AnduinSkinBaseVar4">
+                <Field Id="VariationSkinLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar3">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar2">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar1">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar4">
+                <Field Id="VariationUpgradeLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AnduinSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/AnduinBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationName_004">
+                <Field Id="VariationName" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationAdditionalSearchText_004">
+                <Field Id="VariationAdditionalSearchText" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/AnduinBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="4"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakBase">
+            <GameLink GameLink="AnubarakSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/AnubarakBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/AnubarakBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AnubarakBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/AnubarakBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisBase">
+            <GameLink GameLink="ArtanisSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinBaseVar3">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/ArtanisBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisUltimate">
+            <GameLink GameLink="ArtanisSkinUltimate">
+                <Field Id="VariationSkinLink"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinUltimate">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinUltimate">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinUltimateVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="ArtanisSkinUltimateVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationAdditionalSearchText">
+                <Field Id="VariationAdditionalSearchText"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/ArtanisUltimate_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasBase">
+            <GameLink GameLink="ArthasSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="ArthasSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="ArthasSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <Text Text="UserData/Skin/ArthasBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/ArthasBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielBase">
+            <GameLink GameLink="AurielSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="AurielSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="AurielSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/AurielBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/AurielBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/AurielBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/AurielBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/AurielBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingBase">
+            <GameLink GameLink="BrightwingSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/BrightwingBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/BrightwingBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaBase">
+            <GameLink GameLink="DeltaSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinBaseVar4">
+                <Field Id="VariationUpgradeLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinBaseVar5">
+                <Field Id="VariationUpgradeLink" Index="5"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinBaseVar6">
+                <Field Id="VariationUpgradeLink" Index="6"/>
+            </GameLink>
+            <Text Text="UserData/Skin/DeltaBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaBase_VariationName_004">
+                <Field Id="VariationName" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaBase_VariationName_005">
+                <Field Id="VariationName" Index="5"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaBase_VariationName_006">
+                <Field Id="VariationName" Index="6"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="4"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="5"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="6"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaUltimate">
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimateVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimateVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimateVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimateVar4">
+                <Field Id="VariationUpgradeLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimateVar5">
+                <Field Id="VariationUpgradeLink" Index="5"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimateVar6">
+                <Field Id="VariationUpgradeLink" Index="6"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink" Index="5"/>
+            </GameLink>
+            <GameLink GameLink="DeltaSkinUltimate">
+                <Field Id="VariationSkinLink" Index="6"/>
+            </GameLink>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName_004">
+                <Field Id="VariationName" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName_005">
+                <Field Id="VariationName" Index="5"/>
+            </Text>
+            <Text Text="UserData/Skin/DeltaUltimate_VariationName_006">
+                <Field Id="VariationName" Index="6"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="6"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="5"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="4"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloBase">
+            <GameLink GameLink="DiabloSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DiabloSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="DiabloSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/DiabloBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationAdditionalSearchText">
+                <Field Id="VariationAdditionalSearchText"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloUltimate">
+            <GameLink GameLink="DiabloSkinUltimateVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DiabloSkinUltimateVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="DiabloSkinUltimate">
+                <Field Id="VariationSkinLink"/>
+            </GameLink>
+            <GameLink GameLink="DiabloSkinUltimate">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="DiabloSkinUltimate">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationAdditionalSearchText">
+                <Field Id="VariationAdditionalSearchText"/>
+            </Text>
+            <Text Text="UserData/Skin/DiabloUltimate_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCBase">
+            <GameLink GameLink="ETCSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="ETCSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="ETCSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="ETCSkinBaseVar3">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/ETCBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/ETCBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/ETCBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/ETCBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/ETCBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadBase">
+            <GameLink GameLink="HeroFalstad@BaseDarkIron">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstad@BaseNordic">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstad@BaseIronforge">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <Text Text="UserData/Skin/FalstadBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsEnabled"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadUltimate">
+            <GameLink GameLink="FalstadSkinUltimate">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinUltimate">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinUltimateVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinUltimateVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinUltimate">
+                <Field Id="VariationSkinLink"/>
+            </GameLink>
+            <Text Text="UserData/Skin/FalstadUltimate_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadUltimate_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadUltimate_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadUltimate_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadStormLord">
+            <GameLink GameLink="FalstadSkinStormLord">
+                <Field Id="VariationSkinLink"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinStormLord">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinStormLord">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinStormLordVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="FalstadSkinStormLordVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/FalstadStormLord_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadStormLord_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadStormLord_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/FalstadStormLord_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsEnabled"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneBase">
+            <GameLink GameLink="GreymaneSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/GreymaneBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/GreymaneBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaBase">
+            <GameLink GameLink="JainaSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="JainaSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="JainaSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/JainaBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/JainaBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaBase">
+            <GameLink GameLink="JohannaSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="JohannaSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="JohannaSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="JohannaSkinBaseVar4">
+                <Field Id="VariationUpgradeLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="JohannaSkinBaseVar5">
+                <Field Id="VariationUpgradeLink" Index="5"/>
+            </GameLink>
+            <GameLink GameLink="JohannaSkinBaseVar4">
+                <Field Id="VariationSkinLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="JohannaSkinBaseVar5">
+                <Field Id="VariationSkinLink" Index="5"/>
+            </GameLink>
+            <Text Text="UserData/Skin/JohannaBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/JohannaBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/JohannaBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/JohannaBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/JohannaBase_VariationName_004">
+                <Field Id="VariationName" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/JohannaBase_VariationName_005">
+                <Field Id="VariationName" Index="5"/>
+            </Text>
+            <Text Text="UserData/Skin/JohannaBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="4"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="5"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganBase">
+            <GameLink GameLink="KerriganSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="KerriganSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="KerriganSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/KerriganBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/KerriganBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimBase">
+            <GameLink GameLink="KharazimSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="KharazimSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="KharazimSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="KharazimSkinBaseVar4">
+                <Field Id="VariationUpgradeLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="KharazimSkinBaseVar4">
+                <Field Id="VariationSkinLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="KharazimSkinBaseVar3">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/KharazimBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationAdditionalSearchText_004">
+                <Field Id="VariationAdditionalSearchText" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/KharazimBase_VariationName_004">
+                <Field Id="VariationName" Index="4"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="4"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingBase">
+            <GameLink GameLink="LiMingSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="LiMingSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="LiMingSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <Text Text="UserData/Skin/LiMingBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/LiMingBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/LiMingBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/LiMingBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/LiMingBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/LiMingBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/LiMingBase_VariationAdditionalSearchText_003">
+                <Field Id="VariationAdditionalSearchText" Index="3"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionBase">
+            <GameLink GameLink="MalfurionSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="MalfurionSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <Text Text="UserData/Skin/MalfurionBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/MalfurionBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/MalfurionBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/MalfurionBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/MalfurionBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/MalfurionBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsEnabled"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinBase">
+            <GameLink GameLink="MuradinSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="MuradinSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/MuradinBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/MuradinBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/MuradinBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/MuradinBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/MuradinBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/MuradinBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosBase">
+            <GameLink GameLink="HeroRagnaros@BaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnaros@BaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/RagnarosBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/RagnarosBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/RagnarosBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/RagnarosBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/RagnarosBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/RagnarosBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisBase">
+            <Text Text="UserData/Skin/SelendisBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarBase">
+            <GameLink GameLink="TalandarSkinBaseVar5">
+                <Field Id="VariationSkinLink" Index="5"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar5">
+                <Field Id="VariationUpgradeLink" Index="5"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar1">
+                <Field Id="VariationSkinLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar2">
+                <Field Id="VariationSkinLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar3">
+                <Field Id="VariationSkinLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar4">
+                <Field Id="VariationSkinLink" Index="4"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar3">
+                <Field Id="VariationUpgradeLink" Index="3"/>
+            </GameLink>
+            <GameLink GameLink="TalandarSkinBaseVar4">
+                <Field Id="VariationUpgradeLink" Index="4"/>
+            </GameLink>
+            <Text Text="UserData/Skin/TalandarBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/TalandarBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/TalandarBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/TalandarBase_VariationName_003">
+                <Field Id="VariationName" Index="3"/>
+            </Text>
+            <Text Text="UserData/Skin/TalandarBase_VariationName_004">
+                <Field Id="VariationName" Index="4"/>
+            </Text>
+            <Text Text="UserData/Skin/TalandarBase_VariationName_005">
+                <Field Id="VariationName" Index="5"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="5"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="4"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusBase">
+            <GameLink GameLink="TychusSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <GameLink GameLink="TychusSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <Text Text="UserData/Skin/TychusBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/TychusBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/TychusBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/TychusBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/TychusBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/TychusBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeBase">
+            <GameLink GameLink="TyrandeSkinBaseVar2">
+                <Field Id="VariationUpgradeLink" Index="2"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeSkinBaseVar1">
+                <Field Id="VariationUpgradeLink" Index="1"/>
+            </GameLink>
+            <Text Text="UserData/Skin/TyrandeBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <Text Text="UserData/Skin/TyrandeBase_VariationInfo">
+                <Field Id="VariationInfo"/>
+            </Text>
+            <Text Text="UserData/Skin/TyrandeBase_VariationName_001">
+                <Field Id="VariationName" Index="1"/>
+            </Text>
+            <Text Text="UserData/Skin/TyrandeBase_VariationName_002">
+                <Field Id="VariationName" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/TyrandeBase_VariationAdditionalSearchText_002">
+                <Field Id="VariationAdditionalSearchText" Index="2"/>
+            </Text>
+            <Text Text="UserData/Skin/TyrandeBase_VariationAdditionalSearchText_001">
+                <Field Id="VariationAdditionalSearchText" Index="1"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="1"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed" Index="2"/>
+            </User>
+        </Instances>
+
+        <Instances Id="AzmodanBase">
+            <Text Text="UserData/Skin/AzmodanBase_VariationName">
+                <Field Id="VariationName"/>
+            </Text>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="VariationIsUsed"/>
+            </User>
+        </Instances>
+    </CUser>
+</Catalog>

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="PhysicsImpactDustLarge">
+        <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Radius value="-1.000000"/>
+        <SelectionRadius value="0.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="GenericImpactMetalMedium" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_Impact_Mech_Med\Storm_FX_Impact_Mech_Med.m3"/>
+    </CModel>
+    <CModel id="PhysicsImpactDustLight">
+        <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
+        <SelectionRadius value="0.000000"/>
+        <Radius value="-1.000000"/>
+        <ShadowRadius value="0.000000"/>
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel id="PhysicsImpactDustMedium">
+        <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
+        <SelectionRadius value="0.000000"/>
+        <Radius value="-1.000000"/>
+        <ShadowRadius value="0.000000"/>
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel id="PhysicsImpactDustMassive">
+        <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
+        <SelectionRadius value="0.000000"/>
+        <Radius value="-1.000000"/>
+        <ShadowRadius value="0.000000"/>
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dirt_Light">
+        <Model value="Assets\Effects\Physics\Storm_FX_PhysicsImpact_Dirt_Light\Storm_FX_PhysicsImpact_Dirt_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dirt_Medium">
+        <Model value="Assets\Effects\Physics\Storm_FX_PhysicsImpact_Dirt_Medium\Storm_FX_PhysicsImpact_Dirt_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dirt_Large">
+        <Model value="Assets\Effects\Physics\Storm_FX_PhysicsImpact_Dirt_Large\Storm_FX_PhysicsImpact_Dirt_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dirt_Massive">
+        <Model value="Assets\Effects\Physics\Storm_FX_PhysicsImpact_Dirt_Massive\Storm_FX_PhysicsImpact_Dirt_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dust_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Dust_Light\Storm_Effect_PhysicsImpact_Dust_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dust_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Dust_Medium\Storm_Effect_PhysicsImpact_Dust_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dust_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Dust_Large\Storm_Effect_PhysicsImpact_Dust_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Dust_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Dust_Massive\Storm_Effect_PhysicsImpact_Dust_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sand_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sand_Light\Storm_Effect_PhysicsImpact_Sand_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sand_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sand_Medium\Storm_Effect_PhysicsImpact_Sand_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sand_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sand_Large\Storm_Effect_PhysicsImpact_Sand_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sand_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sand_Massive\Storm_Effect_PhysicsImpact_Sand_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Rock_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Rock_Light\Storm_Effect_PhysicsImpact_Rock_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Rock_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Rock_Medium\Storm_Effect_PhysicsImpact_Rock_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Rock_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Rock_Large\Storm_Effect_PhysicsImpact_Rock_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Rock_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Rock_Massive\Storm_Effect_PhysicsImpact_Rock_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Flesh_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Flesh_Light\Storm_Effect_PhysicsImpact_Flesh_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Flesh_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Flesh_Medium\Storm_Effect_PhysicsImpact_Flesh_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Flesh_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Flesh_Large\Storm_Effect_PhysicsImpact_Flesh_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Flesh_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Flesh_Massive\Storm_Effect_PhysicsImpact_Flesh_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sparks_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sparks_Light\Storm_Effect_PhysicsImpact_Sparks_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sparks_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sparks_Medium\Storm_Effect_PhysicsImpact_Sparks_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sparks_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sparks_Large\Storm_Effect_PhysicsImpact_Sparks_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Sparks_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sparks_Massive\Storm_Effect_PhysicsImpact_Sparks_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Creep_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Creep_Light\Storm_Effect_PhysicsImpact_Creep_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Creep_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Creep_Medium\Storm_Effect_PhysicsImpact_Creep_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Creep_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Creep_Large\Storm_Effect_PhysicsImpact_Creep_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Creep_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Creep_Massive\Storm_Effect_PhysicsImpact_Creep_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Lava_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Lava_Light\Storm_Effect_PhysicsImpact_Lava_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Lava_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Lava_Medium\Storm_Effect_PhysicsImpact_Lava_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Lava_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Lava_Large\Storm_Effect_PhysicsImpact_Lava_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Lava_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Lava_Massive\Storm_Effect_PhysicsImpact_Lava_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Snow_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Light\Storm_Effect_PhysicsImpact_Snow_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Snow_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Medium\Storm_Effect_PhysicsImpact_Snow_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Snow_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Large\Storm_Effect_PhysicsImpact_Snow_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PhysicsImpact_Snow_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Massive\Storm_Effect_PhysicsImpact_Snow_Massive.m3"/>
+    </CModel>
+    <CSound id="Impact_GetHit_VS_Flesh" parent="_FX_Hero_Attack_Impact">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh12.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh13.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh14.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh15.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh16.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh17.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh18.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh19.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh20.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Impact_GetHit_VS_Stone" parent="_FX_Hero_Attack_Impact">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_12.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Impact_GetHit_VS_Wood" parent="_FX_Hero_Attack_Impact">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood12.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood13.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood14.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood15.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood16.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood17.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood18.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood19.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Large_Dry_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace01.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace02.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace03.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace04.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace05.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace06.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace07.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace08.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace09.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace10.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-9.000000,-8.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Large_Energy_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_01.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_02.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_03.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_04.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_05.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_06.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_07.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_08.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_09.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_10.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_11.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_12.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-9.000000,-8.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Small_Energy_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Stone_12.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-8.000000,-7.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Large_Wood_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood01.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood02.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood03.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood04.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood05.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood06.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood07.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood08.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood09.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood10.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood11.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood12.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood13.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood14.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood15.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood16.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood17.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood18.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood19.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-9.000000,-8.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Large_Mech_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech01.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech02.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech03.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech04.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech05.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech06.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech07.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech08.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech09.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech10.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech11.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech12.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech13.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech14.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech15.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-9.000000,-8.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Small_Wood_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood12.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood13.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood14.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood15.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood16.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood17.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood18.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Wood19.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-8.000000,-7.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Small_Mech_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech12.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech13.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech14.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Mech15.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-8.000000,-7.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Small_Wet_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh12.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh13.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh14.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh15.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh16.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh17.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh18.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh19.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh20.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-8.000000,-7.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Small_Dry_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Carapace10.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-8.000000,-7.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Small_Metal_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor07.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor08.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor09.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor10.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor11.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor12.wav" FacialGroup=""/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-14.000000,-14.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Large_Wet_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh01.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh02.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh03.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh04.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh05.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh06.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh07.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh08.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh09.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh10.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh11.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh12.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh13.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh14.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh15.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh16.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh17.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh18.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh19.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Flesh20.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-9.000000,-8.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+    <CSound id="Pet_Large_Metal_Impact" parent="_FX_Hero_Attack_GetHit">
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor01.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor02.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor03.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor04.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor05.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor06.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor07.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor08.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor09.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor10.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor11.ogg"/>
+        <AssetArray File="Assets\Sounds\Impact_FX\Impact_GetHit_Vs_Armor12.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-9.000000,-8.000000"/>
+        <VolumeRolloffPoints index="0" Distance="5.000000" Volume="-0.080000"/>
+    </CSound>
+</Catalog>

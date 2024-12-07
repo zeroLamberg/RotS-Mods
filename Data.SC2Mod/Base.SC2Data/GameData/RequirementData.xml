@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="CanUseMapMechanicInstantAbility">
+        <NodeArray index="Use" Link="CountBehaviorHasMapMechanicInstantAbilityCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountBehaviorHasMapMechanicInstantAbilityCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CanUseMapMechanicTargetAbility">
+        <NodeArray index="Use" Link="CountBehaviorHasMapMechanicTargetAbilityCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountBehaviorHasMapMechanicTargetAbilityCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CanUseMapMechanicTargetAbility2">
+        <NodeArray index="Use" Link="CountBehaviorHasMapMechanicTargetAbility2CompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountBehaviorHasMapMechanicTargetAbility2CompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CanUseMapMechanicTargetAbilitySnowBrawl">
+        <NodeArray index="Use" Link="CountBehaviorHasMapMechanicTargetAbilitySnowBrawlCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountBehaviorHasMapMechanicTargetAbilitySnowBrawlCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CanUseMapMechanicTargetAbility2SnowBrawl">
+        <NodeArray index="Use" Link="CountBehaviorHasMapMechanicTargetAbility2SnowBrawlCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountBehaviorHasMapMechanicTargetAbility2SnowBrawlCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer00">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer00CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryMapMechanicAbility">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="NoMapMechanicAbilityBehaviors">
+        <NodeArray index="Show" Link="LTECountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryTipableKnockback">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory TipableKnockbackCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryHallOfStormsKnockbackIgnoreFX">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory HallOfStormsKnockbackIgnoreFXCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryHallOfStormsKnockbackImmunity">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory HallOfStormsKnockbackImmunityCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="HeroGenericInventoryUsageDisplacement">
+        <NodeArray index="Use" Link="AndEqCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0EqCountBehaviorStormCategory RootCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryProtected">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory ProtectedCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryRoot">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory RootCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySuppressCollision">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryDebuffSpellPower">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory DebuffSpellPowerCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryPhysicalArmor">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory PhysicalArmorCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySpellArmor">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SpellArmorCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySuppressUltimateCharge">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SuppressUltimateChargeCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryDamageReduction">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory DamageReductionCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryEaten">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory EatenCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryAbnormalRespawn">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory AbnormalRespawnCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryAbnormalDeath">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory AbnormalDeathCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="HeroGenericInventoryUsage">
+        <NodeArray index="Use" Link="EqCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryPolymorph">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory PolymorphCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryStun">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory StunCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySilence">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SilenceCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryStasis">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory StasisCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryShield">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory ShieldCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="HasTalentPoints">
+        <NodeArray index="Use" Link="GTCountUpgradeHasTalentPointsCompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer01">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer01CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer02">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer02CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer03">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer03CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer04">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer04CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer05">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer05CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer06">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer06CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer07">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer07CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer08">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer08CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer09">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer09CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer10">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer10CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer13">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer13CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer14">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer14CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer15">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer15CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CategoryPreset">
+        <NodeArray index="Use" Link="GTCountBehaviorSJCloakedMineCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryHealReceivedModifying">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory HealReceivedModifyingCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryFlailingBackward">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory FlailingBackwardCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryFlailingForward">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory FlailingForwardCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryFlailing">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory FlailingCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySuppressInventory">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryUnreducible">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory UnreducibleCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryTaunt">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory TauntCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySuppressVisibility">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SuppressVisibilityCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryStasisAir">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory StasisAirCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryStackingComboMarker">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory StackingComboMarkerCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryPseudoStructure">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory PseudoStructureCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryPermanentMaxHealth">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory PermanentMaxHealthCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryMindControl">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory MindControlCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryKnockedOut">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory KnockedOutCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryImmunedToEnemyDisplacement">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory ImmunedToEnemyDisplacementCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryImmunedToAllyDisplacement">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory ImmunedToAllyDisplacementCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryHostileStasisRemoved">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryHideNameplate">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory HideNameplateCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryHealReduction">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory HealReductionCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategoryDodge">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory DodgeCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="IsHeroPlayer">
+        <NodeArray index="Use" Link="CountUpgradeIsHeroPlayerCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer12">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer12CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="Hidden">
+        <NodeArray index="Show" Link="0"/>
+    </CRequirement>
+    <CRequirement id="GatesAreOpen">
+        <NodeArray index="Show" Link="CountUpgradeGatesAreOpenCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="MinionsAreSpawning">
+        <NodeArray index="Show" Link="CountUpgradeMinionsAreSpawningCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="OnChaosTeam">
+        <NodeArray index="Use" Link="EqCountUpgradeIsOnChaosTeamCompleteOnly1"/>
+        <NodeArray index="Show" Link="EqCountUpgradeIsOnChaosTeamCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="CasterIsPlayer11">
+        <NodeArray index="Use" Link="EqCountUpgradeIsPlayer11CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="OnOrderTeam">
+        <NodeArray index="Use" Link="EqCountUpgradeIsOnOrderTeamCompleteOnly1"/>
+        <NodeArray index="Show" Link="EqCountUpgradeIsOnOrderTeamCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="HeroHasNoDeadBehavior">
+        <NodeArray index="Use" Link="EqCountBehaviorDeadQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="HeroGenericMount@NotMounted">
+        <NodeArray index="Show" Link="AndEqCountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="HasNoTotalInvis">
+        <NodeArray index="Show" Link="EqCountBehaviorCategorySuppressVisibilityCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="HeroGenericMount@IsMounted">
+        <NodeArray index="Show" Link="EqCountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="HeroHasDeadBehavior">
+        <NodeArray index="Use" Link="EqCountBehaviorDeadCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="Disabled">
+        <NodeArray index="Use" Link="0"/>
+    </CRequirement>
+    <CRequirement id="HallOfStormsHasNoProtection">
+        <NodeArray index="Use" Link="EqCountBehaviorHallOfStormsProtectionBuffCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StormCategorySpecialDeathState">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SpecialDeathStateCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="Ultimate1Unlocked">
+        <NodeArray index="Show" Link="EqCountBehaviorUltimate1UnlockedCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="Ultimate3Unlocked">
+        <NodeArray index="Show" Link="GTECountBehaviorUltimate3UnlockedCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="UltimateNotUnlocked">
+        <NodeArray index="Show" Link="AndNotOrCountBehaviorUltimate1UnlockedCompleteOnlyAtUnitCountBehaviorUltimate2UnlockedCompleteOnlyAtUnitCountBehaviorUltimate3UnlockedCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="Ultimate2Unlocked">
+        <NodeArray index="Show" Link="GTECountBehaviorUltimate2UnlockedCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="NotIncapacitated">
+        <NodeArray index="Use" Link="EqCountBehaviorDeadCompleteOnlyAtUnit0"/>
+    </CRequirement>
+</Catalog>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorEventMacroRunnable id="MountHearthstoneCardCookieBiteVar1@Macro">
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar1@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar1@CookieBiteCrumb_Diff"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountHearthstoneCardCookieBiteVar2@Macro">
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar2@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar2@CookieBiteCrumb_Diff"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountHearthstoneCardCookieBiteVar3@Macro">
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar3@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar3@CookieBiteCrumb_Diff"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountHearthstoneCardCookieBiteVar4@Macro">
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar4@Diff"/>
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar4@Norm"/>
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar4@Spec"/>
+        <Do Send="TextureSelectById MountHearthstoneCardCookieBiteVar4@CookieBiteCrumb_Diff"/>
+    </CActorEventMacroRunnable>
+    <CModel id="MountHearthstoneCardCookieBite@Mount" parent="BaseMount">
+        <Model value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_CookieBite\Storm_Mount_HearthstoneCard_CookieBite.m3"/>
+        <RequiredAnims value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_RequiredAnims\Storm_Mount_HearthstoneCard_RequiredAnims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,Start,00"/>
+            <Name value="Mount_CookieBite_Start"/>
+            <Type value="Sound"/>
+            <Time value="0.156000"/>
+            <Payload value="MountHearthstoneCardCookieBite@Start"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Mount_CookieBite_Stop"/>
+            <Type value="Sound"/>
+            <Time value="0.148000"/>
+            <Payload value="MountHearthstoneCardCookieBite@Stop"/>
+        </Events>
+        <TextureDeclares Prefix="Storm_Mount_HearthstoneCard_CookieBite_" Slot="main"/>
+        <TextureDeclares Prefix="Storm_Mount_HearthstoneCard_CookieBiteCrumb_" Slot="generic01"/>
+    </CModel>
+    <CModel id="MountHearthstoneCardCookieBite@StoreFX" parent="BuffFX">
+        <Model value="Assets\Effects\Storm_FX_HearthstoneCard_CookieBite_Store\Storm_FX_HearthstoneCard_CookieBite_Store.m3"/>
+    </CModel>
+    <CSkin default="1" id="MountHearthstoneCardCookieBiteCommon">
+        <ModelGroups Name="CoockieBiteModels">
+            <Models value="MountHearthstoneCardCookieBite@Mount"/>
+        </ModelGroups>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardCookieBiteVar1" parent="MountHearthstoneCardCookieBiteCommon">
+        <ModelMacroRun Models="CoockieBiteModels" Macro="MountHearthstoneCardCookieBiteVar1@Macro"/>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardCookieBiteVar2" parent="MountHearthstoneCardCookieBiteCommon">
+        <ModelMacroRun Models="CoockieBiteModels" Macro="MountHearthstoneCardCookieBiteVar2@Macro"/>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardCookieBiteVar3" parent="MountHearthstoneCardCookieBiteCommon">
+        <ModelMacroRun Models="CoockieBiteModels" Macro="MountHearthstoneCardCookieBiteVar3@Macro"/>
+    </CSkin>
+    <CSkin id="MountHearthstoneCardCookieBiteVar4" parent="MountHearthstoneCardCookieBiteCommon">
+        <ModelMacroRun Models="CoockieBiteModels" Macro="MountHearthstoneCardCookieBiteVar4@Macro"/>
+    </CSkin>
+    <CTexture id="MountHearthstoneCardCookieBiteVar1@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBite_Var1_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar1@CookieBiteCrumb_Diff" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBiteCrumb_Var1_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar2@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBite_Var2_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar2@CookieBiteCrumb_Diff" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBiteCrumb_Var2_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar3@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBite_Var3_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar3@CookieBiteCrumb_Diff" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBiteCrumb_Var3_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar4@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBite_Var4_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar4@Norm" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBite_Var4_Norm.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar4@Spec" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBite_Var4_Spec.dds"/>
+    </CTexture>
+    <CTexture id="MountHearthstoneCardCookieBiteVar4@CookieBiteCrumb_Diff" parent="Generic01SlotTexture">
+        <File value="Assets\Textures\Storm_Mount_HearthstoneCard_CookieBiteCrumb_Var4_Diff.dds"/>
+    </CTexture>
+    <CSound id="MountHearthstoneCardCookieBite@Stand_Loop" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SnowFlake\Mount_Snowflake_Loop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_SnowFlake\Mount_Snowflake_Loop_01.ogg" FacialGroup=""/>
+        <LoopCount value="-1"/>
+        <MixerPriority value="75"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="1539"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="2178" Volume="-96.000000"/>
+        <Pitch value="1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-40.000000,-34.000000"/>
+        <VolumeRolloffPoints index="1" Distance="18.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Summon" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Summon_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Summon_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Summon_03.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-7.000000,-7.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Dismiss" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Dismiss_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Dismiss_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Dismiss_03.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,-1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-7.000000,-7.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Move_Loop" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Move_Loop_01.ogg" FacialGroup=""/>
+        <LoopCount value="-1"/>
+        <MixerPriority value="75"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="1539"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="2178" Volume="-96.000000"/>
+        <Pitch value="0.000000,3.000000"/>
+        <ResourcePriority value="16"/>
+        <SustainFade index="1" Time="1200"/>
+        <Volume value="-13.000000,-7.000000"/>
+        <VolumeRolloffPoints index="1" Distance="18.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Start" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_05.ogg" FacialGroup=""/>
+        <Chance value="20"/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-14.000000,-14.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Stop" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_05.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-15.000000,-15.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Store_Birth" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Summon_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Summon_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Summon_03.ogg" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="0.000000,0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Store_Idle" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_StartStop_05.ogg" FacialGroup=""/>
+        <Chance value="50"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-8.000000,-8.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountHearthstoneCardCookieBite@Store_Purchase" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Dismiss_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Dismiss_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Cookie\Mount_Cookie_Dismiss_03.ogg" FacialGroup=""/>
+        <ResourcePriority value="16"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CDataCollection id="MountHearthstoneCardCookieBite">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Model,MountHearthstoneCardCookieBite@Mount"/>
+        <DataRecord Entry="Model,MountHearthstoneCardCookieBite@StoreFX"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Stand_Loop"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Summon"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Dismiss"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Move_Loop"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Start"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Stop"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Store_Birth"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Store_Idle"/>
+        <DataRecord Entry="Sound,MountHearthstoneCardCookieBite@Store_Purchase"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardCookieBiteVar1">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardCookieBiteVar1@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardCookieBiteVar1"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar1@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar1@CookieBiteCrumb_Diff"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardCookieBiteVar2">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardCookieBiteVar2@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardCookieBiteVar2"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar2@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar2@CookieBiteCrumb_Diff"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardCookieBiteVar3">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardCookieBiteVar3@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardCookieBiteVar3"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar3@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar3@CookieBiteCrumb_Diff"/>
+    </CDataCollection>
+    <CDataCollection id="MountHearthstoneCardCookieBiteVar4">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountHearthstoneCardCookieBiteVar4@Macro"/>
+        <DataRecord Entry="Skin,MountHearthstoneCardCookieBiteVar4"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar4@Diff"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar4@Norm"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar4@Spec"/>
+        <DataRecord Entry="Texture,MountHearthstoneCardCookieBiteVar4@CookieBiteCrumb_Diff"/>
+    </CDataCollection>
+</Catalog>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="EffectSourceButton">
+        <Fields>
+            <Id value="Effect_Link"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Effect"/>
+            <EditorColumn value="1"/>
+            <EditorText value="Name"/>
+        </Fields>
+        <Fields>
+            <Id value="Button_Link"/>
+            <Type value="GameLink"/>
+            <GameLinkType value="Button"/>
+            <EditorColumn value="2"/>
+            <EditorText value="Name"/>
+        </Fields>
+        <Instances Id="[Default]"/>
+        <Instances Id="GuardTowerL1WeaponDamage">
+            <GameLink GameLink="GuardTowerL1WeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="GuardTowerL2WeaponDamage">
+            <GameLink GameLink="GuardTowerL2WeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="GuardTowerL3WeaponDamage">
+            <GameLink GameLink="GuardTowerL3WeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TownHallL1WeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="TownHallL1WeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TownHallL2WeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="TownHallL2WeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="TownHallL3WeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="TownHallL3WeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="CoreWeaponWeaponDamage">
+            <GameLink GameLink="KingsCoreWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="FootmanMinionWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="FootmanMinionWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="WizardMinionWeaponDamage">
+            <GameLink GameLink="WizardMinionWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="ArcherMinionWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="RangedMinionWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="CatapultMinionWeaponDamage">
+            <GameLink GameLink="CatapultMinionWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercLanerMeleeKnightWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="MercLanerMeleeKnightDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercLanerRangedMageWeaponDamage">
+            <GameLink GameLink="MercLanerRangedMageWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercDefenderMeleeKnightWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="MercDefenderMeleeKnightDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercDefenderRangedMageWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="MercDefenderRangedMageDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercDefenderSiegeGiantWeaponDamage">
+            <GameLink GameLink="MercDefenderSiegeGiantDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercLanerSiegeGiantWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="MercLanerSiegeGiantDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercDefenderGraveGolemWeaponDamage">
+            <GameLink GameLink="OgreKingJungleWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MercLanerGraveGolemWeaponDamage">
+            <GameLink GameLink="BasicAttack">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="OgreKingLanerWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="GraveGolemBindingRootsPeriodicDamage">
+            <GameLink GameLink="BindingRootsPeriodicDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="GraveGolemBindingRootsImpactDamage">
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="BindingRootsImpactDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="GraveGolemBindingRootsSustainedDamage">
+            <GameLink GameLink="BindingRootsSustainedDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="UnderworldBossRootsImpactDamage">
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="UnderworldBossRootsImpactDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="UnderworldBossRootsPeriodicDamage">
+            <GameLink GameLink="UnderworldBossRootsPeriodicDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="UnderworldSummonedBossRootsImpactDamage">
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="UnderworldSummonedBossRootsImpactDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="UnderworldSummonedBossRootsPeriodicDamage">
+            <GameLink GameLink="UnderworldSummonedBossRootsPeriodicDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="GraveGolemBindingRoots">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="GraveGolemMegaStunDamage">
+            <GameLink GameLink="GraveGolemMegaStun">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="GraveGolemMegaStunDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="UnderworldBossStunDamage">
+            <GameLink GameLink="UnderworldBossStunDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="GraveGolemMegaStun">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="UnderworldSummonedBossMegaStunDamage">
+            <GameLink GameLink="GraveGolemMegaStun">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="UnderworldSummonedBossStunDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="HardPackSnowballDamage">
+            <GameLink GameLink="MapMechanicAbilitySnowBrawl">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="HardPackSnowballDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="MapMechanicAbility2SnowBrawl">
+            <GameLink GameLink="HeavySnowballDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+            <GameLink GameLink="MapMechanicAbility2SnowBrawl">
+                <Field Id="Button_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="WorldEnderSnowballDamage">
+            <GameLink GameLink="SnowBrawlColossalSnowball">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="WorldEnderSnowballDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+        <Instances Id="SnowmanWeaponDamage">
+            <GameLink GameLink="SnowmanWeapon">
+                <Field Id="Button_Link"/>
+            </GameLink>
+            <GameLink GameLink="SnowmanWeaponDamage">
+                <Field Id="Effect_Link"/>
+            </GameLink>
+        </Instances>
+    </CUser>
+</Catalog>

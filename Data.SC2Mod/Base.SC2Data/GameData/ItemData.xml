@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CItem default="1">
+        <Flags index="CanDrop" value="0"/>
+        <Flags index="EnabledWhileDead" value="1"/>
+    </CItem>
+    <CItemAbil default="1">
+        <Flags index="CanDrop" value="0"/>
+        <Flags index="EnabledWhileDead" value="1"/>
+        <Requirements value="HeroGenericInventoryUsage"/>
+    </CItemAbil>
+    <CItemEffect default="1">
+        <Flags index="CanDrop" value="0"/>
+        <Flags index="EnabledWhileDead" value="1"/>
+    </CItemEffect>
+</Catalog>

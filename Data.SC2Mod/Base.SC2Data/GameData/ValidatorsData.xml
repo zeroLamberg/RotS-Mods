@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorCombine id="CasterandTargetNotDeadTargetIsVisibleAndNotCloakedOrIsRevealedAndNotInStasisAndNotInvulnerableAndNotPossessed">
+        <Type value="And"/>
+        <CombineArray value="CasterNotDeadAndTargetNotDead"/>
+        <CombineArray value="TargetIsVisible"/>
+        <CombineArray value="NotCloakedOrIsRevealed"/>
+        <CombineArray value="TargetNotStasis"/>
+        <CombineArray value="TargetNotInvulnerable"/>
+        <CombineArray value="SylvanasTargetUnPossessed"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TargetNotImmuneToFriendlyAbilitiesOrIsDVaMech">
+        <CombineArray value="TargetNotImmuneToFriendlyAbilities"/>
+        <CombineArray value="DVaTargetIsMech"/>
+    </CValidatorCombine>
+</Catalog>

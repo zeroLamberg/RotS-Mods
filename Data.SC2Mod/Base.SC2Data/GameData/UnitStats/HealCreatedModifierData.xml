@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorArithmetic id="UnitStatsHealCreatedMultiplierArithmetic">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="ConstantMultiply0dot01"/>
+            <AccumulatorArray value="UnitStatsHealCreatedMultiplierUserData"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsHealCreatedMultiplierArithmeticAdditiveMultiply" parent="UnitStatsHealCreatedMultiplierArithmetic">
+        <ApplicationRule value="AdditiveMultiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsHealCreatedMultiplierUserData" parent="StormUserDataGeneral">
+        <Key value="HealCreatedMultiplier"/>
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+</Catalog>

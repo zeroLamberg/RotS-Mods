@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRace id="Neut">
+        <DefaultConsoleSkin value="ConsoleProtoss_Default"/>
+    </CRace>
+    <CRace id="Prot">
+        <DefaultConsoleSkin value="ConsoleProtoss_Default"/>
+    </CRace>
+    <CRace id="Terr">
+        <DefaultConsoleSkin value="ConsoleProtoss_Default"/>
+    </CRace>
+    <CRace id="Zerg">
+        <DefaultConsoleSkin value="ConsoleProtoss_Default"/>
+    </CRace>
+</Catalog>

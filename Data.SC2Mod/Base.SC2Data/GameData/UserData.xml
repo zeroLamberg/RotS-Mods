@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="AbilityPaired">
+        <Instances Id="[Default]"/>
+        <Instances Id="Paired1"/>
+        <Instances Id="Paired2"/>
+    </CUser>
+    <CUser id="AbilitySlot">
+        <Fields Id="HotkeyString" Type="String"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Basic1">
+            <String String="UI/Hotkey/CommandButton00">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Basic2">
+            <String String="UI/Hotkey/CommandButton01">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Basic3">
+            <String String="UI/Hotkey/CommandButton02">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Heroic">
+            <String String="UI/Hotkey/CommandButton03">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Trait">
+            <String String="UI/Hotkey/CommandButton04">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Mount">
+            <String String="UI/Hotkey/CommandButton08">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Hearthstone">
+            <String String="UI/Hotkey/CommandButton09">
+                <Field Id="HotkeyString"/>
+            </String>
+        </Instances>
+        <Instances Id="Active"/>
+        <Instances Id="Passive"/>
+    </CUser>
+    <CUser id="AbilityType">
+        <Instances Id="[Default]"/>
+        <Instances Id="Basic"/>
+        <Instances Id="Trait"/>
+        <Instances Id="Heroic"/>
+        <Instances Id="Active"/>
+        <Instances Id="Passive"/>
+    </CUser>
+    <CUser id="AnnouncerCollectionCategory">
+        <Instances Id="[Default]"/>
+        <Instances Id="Nexus">
+            <Text Text="UserData/AnnouncerCollectionCategory/Nexus_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="StarCraft">
+            <Text Text="UserData/AnnouncerCollectionCategory/StarCraft_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="WarCraft">
+            <Text Text="UserData/AnnouncerCollectionCategory/WarCraft_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Diablo">
+            <Text Text="UserData/AnnouncerCollectionCategory/Diablo_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Overwatch">
+            <Text Text="UserData/AnnouncerCollectionCategory/Overwatch_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Fields Id="Name" Type="Text"/>
+    </CUser>
+    <CUser id="CatalogType">
+        <Instances Id="[Default]"/>
+        <Instances Id="Actor"/>
+        <Instances Id="Button"/>
+        <Instances Id="Model"/>
+        <Instances Id="Sound"/>
+    </CUser>
+    <CUser id="Event">
+        <Instances Id="[Default]"/>
+        <Instances Id="WIP"/>
+        <Instances Id="EternalConflict"/>
+        <Instances Id="HallowsEnd"/>
+        <Instances Id="WinterVeil"/>
+        <Instances Id="LunarFestival"/>
+        <Instances Id="MachinesofWar"/>
+        <Instances Id="HallowsEnd2016"/>
+        <Instances Id="OverwatchCrossPromo"/>
+        <Instances Id="WoWCrossPromo"/>
+        <Instances Id="WinterVeil2016"/>
+        <Instances Id="ObeytheCall"/>
+        <Instances Id="PachimariMania"/>
+        <Instances Id="HallowsEnd2017"/>
+        <Instances Id="DragonsoftheNexus"/>
+        <Instances Id="WinterVeil2017"/>
+    </CUser>
+    <CUser id="HeroUniverse">
+        <Fields Id="Name" Type="Text"/>
+        <Fields Id="Icon" Type="Image"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="WarCraft">
+            <Image Image="assets\Textures\UI_Glues_Store_GameIcon_Wow.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/HeroUniverse/WarCraft_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="StarCraft">
+            <Image Image="assets\Textures\UI_Glues_Store_GameIcon_SC2.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/HeroUniverse/StarCraft_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Diablo">
+            <Image Image="assets\Textures\UI_Glues_Store_GameIcon_D3.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/HeroUniverse/Diablo_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Nexus">
+            <Image Image="assets\Textures\UI_Glues_Store_GameIcon_Nexus.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/HeroUniverse/Nexus_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Overwatch">
+            <Image Image="assets\Textures\UI_Glues_Store_GameIcon_Ow.dds">
+                <Field Id="Icon"/>
+            </Image>
+            <Text Text="UserData/HeroUniverse/Overwatch_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="TokenCounterQuestType">
+        <Instances Id="[Default]"/>
+        <Instances Id="Quest"/>
+        <Instances Id="Gambit"/>
+    </CUser>
+    <CUser id="TokenCounterTargetAmountChangeEvent"/>
+    <CUser id="TokenCounterType">
+        <Instances Id="[Default]"/>
+        <Instances Id="Limited"/>
+        <Instances Id="Unlimited"/>
+        <Instances Id="UnlimitedTargetCount"/>
+    </CUser>
+    <CUser id="TokenCounterQuestEvent">
+        <Instances Id="[Default]"/>
+        <Instances Id="QuestIncrease"/>
+        <Instances Id="QuestDecrease"/>
+        <Instances Id="QuestComplete"/>
+        <Instances Id="QuestReset"/>
+        <Instances Id="QuestMilestone"/>
+    </CUser>
+    <CUser id="SkinFeature">
+        <Instances Id="[Default]"/>
+        <Instances Id="Themed Abilities"/>
+        <Instances Id="Themed Mount"/>
+    </CUser>
+    <CUser id="MountCollectionCategory">
+        <Fields Id="Name" Type="Text"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Unique">
+            <Text Text="UserData/MountCollectionCategory/Unique_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="SeasonalEvents">
+            <Text Text="UserData/MountCollectionCategory/SeasonalEvents_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Beast">
+            <Text Text="UserData/MountCollectionCategory/Beast_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Horse">
+            <Text Text="UserData/MountCollectionCategory/Horse_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Mechanical">
+            <Text Text="UserData/MountCollectionCategory/Mechanical_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Magical">
+            <Text Text="UserData/MountCollectionCategory/Magical_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="MountMountCategory">
+        <Instances Id="[Default]"/>
+        <Instances Id="Ride"/>
+        <Instances Id="Ridebeast"/>
+        <Instances Id="Ridebike"/>
+        <Instances Id="Ridesurf"/>
+        <Instances Id="Ridenone"/>
+        <Instances Id="AnubarakWings"/>
+        <Instances Id="DiabloRun"/>
+        <Instances Id="RagnarosWake"/>
+        <Instances Id="AzmodanFireFeet"/>
+    </CUser>
+    <CUser id="TalentType">
+        <Instances Id="[Default]"/>
+        <Instances Id="Ability"/>
+        <Instances Id="Passive"/>
+        <Instances Id="Active"/>
+    </CUser>
+    <CUser id="HeroRole">
+        <Fields>
+            <Id value="Name"/>
+            <Type value="Text"/>
+            <EditorColumn value="1"/>
+            <EditorText value="Name"/>
+        </Fields>
+        <Fields Id="RoleImage" Type="Image" EditorColumn="2"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="AssassinMelee">
+            <Image Image="assets\Textures\Storm_UI_Play_RandomHero_Button_Icon_Active_Melee.dds">
+                <Field Id="RoleImage"/>
+            </Image>
+            <Text Text="UserData/HeroRole/AssassinMelee_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="AssassinRanged">
+            <Image Image="assets\Textures\Storm_UI_Play_RandomHero_Button_Icon_Active_Ranged.dds">
+                <Field Id="RoleImage"/>
+            </Image>
+            <Text Text="UserData/HeroRole/AssassinRanged_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Bruiser">
+            <Image Image="assets\Textures\Storm_UI_Play_RandomHero_Button_Icon_Active_Bruiser.dds">
+                <Field Id="RoleImage"/>
+            </Image>
+            <Text Text="UserData/HeroRole/Bruiser_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Tank">
+            <Image Image="assets\Textures\Storm_UI_Play_RandomHero_Button_Icon_Active_Tank.dds">
+                <Field Id="RoleImage"/>
+            </Image>
+            <Text Text="UserData/HeroRole/Tank_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Healer">
+            <Image Image="assets\Textures\Storm_UI_Play_RandomHero_Button_Icon_Active_Healer.dds">
+                <Field Id="RoleImage"/>
+            </Image>
+            <Text Text="UserData/HeroRole/Healer_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Support">
+            <Image Image="assets\Textures\Storm_UI_Play_RandomHero_Button_Icon_Active_Support.dds">
+                <Field Id="RoleImage"/>
+            </Image>
+            <Text Text="UserData/HeroRole/Support_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+        <Instances Id="Specialist">
+            <Text Text="UserData/HeroRole/Specialist_Name">
+                <Field Id="Name"/>
+            </Text>
+        </Instances>
+    </CUser>
+    <CUser id="GenericTrueFalse">
+        <Fields Id="True/Flase" Type="Int"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="True">
+            <Int Int="1">
+                <Field Id="True/Flase"/>
+            </Int>
+        </Instances>
+    </CUser>
+    <CUser id="VODefinition">
+        <Fields>
+            <Id value="GroupArray"/>
+            <Type value="User"/>
+            <UserType value="VODefinitionGroup"/>
+            <Count value="8"/>
+        </Fields>
+        <Fields Id="GroupIntroArray" Type="User"/>
+        <Fields Id="HeroIntroArray" Type="User"/>
+        <Fields Id="UnitKillInteractionArray" Type="User"/>
+    </CUser>
+    <CUser id="VODefinitionGroup">
+        <Instances Id="[Default]"/>
+        <Instances Id="Zerg"/>
+        <Instances Id="Starcraft"/>
+        <Instances Id="Protoss"/>
+        <Instances Id="Terran"/>
+        <Instances Id="Evil"/>
+        <Instances Id="Taldarim"/>
+        <Instances Id="Demon"/>
+        <Instances Id="Angel"/>
+        <Instances Id="Good"/>
+        <Instances Id="DragonAspect"/>
+        <Instances Id="RedDragonflight"/>
+        <Instances Id="Dragon"/>
+        <Instances Id="Warcraft"/>
+        <Instances Id="Undead"/>
+        <Instances Id="Scourge"/>
+        <Instances Id="D2Hero"/>
+        <Instances Id="Mortal"/>
+        <Instances Id="Diablo"/>
+        <Instances Id="Nephalem"/>
+        <Instances Id="Horadrim"/>
+        <Instances Id="OverwatchTaskForce"/>
+        <Instances Id="Overwatch"/>
+        <Instances Id="Alliance"/>
+        <Instances Id="Human"/>
+        <Instances Id="Horde"/>
+        <Instances Id="Legion"/>
+        <Instances Id="Daelaam"/>
+        <Instances Id="Templar"/>
+        <Instances Id="BloodElf"/>
+        <Instances Id="Pandaren"/>
+        <Instances Id="Dwarf"/>
+        <Instances Id="Older"/>
+        <Instances Id="Twilight"/>
+        <Instances Id="Ogre"/>
+        <Instances Id="BronzeDragonflight"/>
+        <Instances Id="Gnome"/>
+        <Instances Id="BlackDragonflight"/>
+        <Instances Id="Dryad"/>
+        <Instances Id="Nature"/>
+        <Instances Id="Orc"/>
+        <Instances Id="Wildhammer"/>
+        <Instances Id="Dominion"/>
+        <Instances Id="UED"/>
+        <Instances Id="Blackwatch"/>
+        <Instances Id="Worgen"/>
+        <Instances Id="OldHorde"/>
+        <Instances Id="Junkers"/>
+        <Instances Id="Tauren"/>
+        <Instances Id="Blizzard"/>
+        <Instances Id="Watchers"/>
+        <Instances Id="Forsaken"/>
+        <Instances Id="Bronzebeard"/>
+        <Instances Id="Murloc"/>
+        <Instances Id="Raiders"/>
+        <Instances Id="Elemental"/>
+        <Instances Id="MechaStorm"/>
+        <Instances Id="Invader"/>
+        <Instances Id="Infested"/>
+        <Instances Id="Goblin"/>
+        <Instances Id="Raider"/>
+        <Instances Id="Paladin"/>
+        <Instances Id="Scarlet"/>
+        <Instances Id="Draenei"/>
+        <Instances Id="Nerazim"/>
+        <Instances Id="Troll"/>
+        <Instances Id="Scientist"/>
+        <Instances Id="Negative"/>
+        <Instances Id="Positive"/>
+    </CUser>
+    <CUser id="MapVOEvent">
+        <Fields Id="Value" Type="Int" EditorColumn="2">
+            <Flags index="Modifiable" value="1"/>
+            <Flags index="ConvState" value="1"/>
+        </Fields>
+        <Instances Id="[Default]"/>
+        <Instances Id="Fort Destroyed (Ally)"/>
+        <Instances Id="Fort Lost (Enemy)"/>
+        <Instances Id="Keep Destroyed (Ally)"/>
+        <Instances Id="Keep Lost (Enemy)"/>
+        <Instances Id="Raven - Event First"/>
+        <Instances Id="Raven - Event Repeat"/>
+        <Instances Id="Raven - Tribute Spawn"/>
+        <Instances Id="Raven - Left Team Cursed"/>
+        <Instances Id="Raven - Right Team Cursed"/>
+        <Instances Id="Raven - Curse Ends"/>
+        <Instances Id="Gardens Fort Destroyed - Night"/>
+        <Instances Id="Gardens Fort Lost - Night"/>
+        <Instances Id="Gardens Keep Destroyed - Night"/>
+        <Instances Id="Gardens Keep Lost - Night"/>
+        <Instances Id="Blackheart - Treasure First"/>
+        <Instances Id="Blackheart - Treasure Spawn"/>
+        <Instances Id="Blackheart - Rare Treasure Spawn"/>
+        <Instances Id="Blackheart - Ship Spawns"/>
+        <Instances Id="Blackheart - Ship Attack Left"/>
+        <Instances Id="Blackheart - Ship Attack Right"/>
+        <Instances Id="Blackheart - Ship Attack"/>
+        <Instances Id="Blackheart - Ship Attack Ends"/>
+        <Instances Id="DS - Shrines Charge First"/>
+        <Instances Id="DS - Shrines Charge Repeat"/>
+        <Instances Id="DS - Shrines Spawn First"/>
+        <Instances Id="DS - Shrines Spawn Repeat"/>
+        <Instances Id="DS - Shrines Taken - Left"/>
+        <Instances Id="DS - Shrines Taken - Right"/>
+        <Instances Id="DS - Dragon - Left"/>
+        <Instances Id="DS - Dragon - Right"/>
+        <Instances Id="DS - Dragon Death"/>
+        <Instances Id="Gardens - Night Soon First"/>
+        <Instances Id="Gardens - Night Soon Repeat"/>
+        <Instances Id="Gardens - Night Begins First"/>
+        <Instances Id="Gardens - Night Begins Repeat"/>
+        <Instances Id="Gardens - Night Ends"/>
+        <Instances Id="Gardens - 100 Seeds - Day"/>
+        <Instances Id="Gardens - 100 Seeds - Night"/>
+        <Instances Id="Gardens - Plant Spawned Left - Night"/>
+        <Instances Id="Gardens - Plant Spawned Right - Night"/>
+        <Instances Id="Gardens - Plant Spawned Left - Day"/>
+        <Instances Id="Gardens - Plant Spawned Right - Day"/>
+        <Instances Id="Gardens - Plant Killed Left - Night"/>
+        <Instances Id="Gardens - Plant Killed Right - Night"/>
+        <Instances Id="Gardens - Plant Killed Left - Day"/>
+        <Instances Id="Gardens - Plant Killed Right - Day"/>
+        <Instances Id="Gardens - Plant Waiting - Day"/>
+        <Instances Id="Gardens - Plant Waiting 2 - Day"/>
+        <Instances Id="Gardens - Plant Waiting 3 - Day"/>
+        <Instances Id="Gardens - Plant Waiting - Night"/>
+        <Instances Id="Gardens - Plant Waiting 2 - Night"/>
+        <Instances Id="Gardens - Plant Waiting 3 - Night"/>
+        <Instances Id="Gardens - Plant Lost - Day"/>
+        <Instances Id="Gardens - Plant Lost - Night"/>
+        <Instances Id="Mines - Caverns Open First"/>
+        <Instances Id="Mines - Caverns Open Repeat"/>
+        <Instances Id="Mines - Undead Spawn"/>
+        <Instances Id="Mines - Undead Cleared"/>
+        <Instances Id="Mines - Golem First - Left Strong"/>
+        <Instances Id="Mines - Golem First - Right Strong"/>
+        <Instances Id="Mines - Golem First - Equal"/>
+        <Instances Id="Mines - Golem Repeat - Left Strong"/>
+        <Instances Id="Mines - Golem Repeat - Right Strong"/>
+        <Instances Id="Mines - Golem Repeat - Equal"/>
+        <Instances Id="Mines - Golem Observer"/>
+        <Instances Id="Mines - Golems Killed"/>
+	<!-- Towers of Doom -->
+        <Instances Id="Bell Towers Activating"/>
+        <Instances Id="Bell Towers Activating First"/>
+        <Instances Id="Bell Towers Active"/>
+        <Instances Id="Bell Towers Active First"/>
+        <Instances Id="Raven Lord Tower Captured"/>
+        <Instances Id="Necromancer Tower Captured"/>
+        <Instances Id="Bell Tower Captured First"/>
+        <Instances Id="Bell Tower Lost First"/>
+        <Instances Id="Bombardment Against Raven"/>
+        <Instances Id="Bombardment Against Necro"/>
+        <Instances Id="RavenTowers Firing"/>
+        <Instances Id="NecroTowers Firing"/>
+        <Instances Id="Teleporter Activated"/>
+        <Instances Id="Observer Bell Tower Captured Red"/>
+        <Instances Id="Observer Bell Tower Captured Blue"/>
+        <Instances Id="Observer Bell Tower Lost Red"/>
+        <Instances Id="Observer Bell Tower Lost Blue"/>
+        <Instances Id="Observer Six Towers Taken Red"/>
+        <Instances Id="Observer Six Towers Taken Blue"/>
+        <Instances Id="Observer Red Team Towers Firing"/>
+        <Instances Id="Observer Blue Team Towers Firing"/>
+        <Instances Id="Horseman Spawn First"/>
+        <Instances Id="Horseman Spawn"/>
+        <Instances Id="Horseman Fight"/>
+        <Instances Id="Horseman Defeat"/>
+        <Instances Id="Horseman Defeat - Necromancer"/>
+        <Instances Id="Horseman Defeat - Raven Lord"/>
+        <Instances Id="Bark - Necro"/>
+        <Instances Id="Bark - Raven"/>
+        <Instances Id="Bark - Response to Necro"/>
+        <Instances Id="Bark - Response to Raven"/>
+        <Instances Id="Response to Necro Firing"/>
+        <Instances Id="Response to Raven Firing"/>
+        <Instances Id="Forts Upgrade"/>
+	<!-- Towers of Doom - End -->
+        <Instances Id="Seasonal Event - SpawnFirst"/>
+        <Instances Id="Seasonal Event - SpawnRepeat"/>
+        <Instances Id="Seasonal Event - CompleteFirst"/>
+        <Instances Id="Seasonal Event - CompleteRepeat"/>
+        <Instances Id="Seasonal Event - Failure"/>
+        <Instances Id="Seasonal Event - SpawnFirst - NO SCV"/>
+    </CUser>
+</Catalog>

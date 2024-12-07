@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="Announcer">
+        <Fields Id="Preview Hidden" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Preview Image" Type="Image"/>
+        <Fields Id="Preview Sound" Type="GameLink" GameLinkType="Sound"/>
+        <Fields Id="SkinEntry" Type="GameLink" GameLinkType="Skin"/>
+        <Fields Id="Name" Type="Text"/>
+        <Fields Id="Collection Category" Type="User" UserType="AnnouncerCollectionCategory"/>
+        <Fields Id="SearchText" Type="Text"/>
+        <Fields Id="Description" Type="Text"/>
+        <Fields Id="Event" Type="User" UserType="Event"/>
+        <Fields Id="ReleaseDate" Type="String"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="Default">
+            <GameLink GameLink="Announcer_Default@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_Default.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/Default_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="Nexus">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+        <Instances Id="ProtossFemale">
+            <GameLink GameLink="Announcer_ProtossFemale">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <Image>
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/ProtossFemale_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="StarCraft">
+                <Field Id="Collection Category"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Preview Hidden"/>
+            </User>
+        </Instances>
+        <Instances Id="RavenLord">
+            <GameLink GameLink="Announcer_RavenLord">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <GameLink GameLink="Announcer_RavenLord@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_RavenLord.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/RavenLord_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="Nexus">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+        <Instances Id="Abathur">
+            <GameLink GameLink="Announcer_Abathur">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <GameLink GameLink="Announcer_Abathur@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_Abathur.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/Abathur_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="StarCraft">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+        <Instances Id="Diablo">
+            <GameLink GameLink="Announcer_Diablo@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <GameLink GameLink="Announcer_Diablo">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_Diablo.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/Diablo_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="Diablo">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+        <Instances Id="Falstad">
+            <GameLink GameLink="Announcer_Falstad">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <GameLink GameLink="Announcer_Falstad@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_Falstad.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/Falstad_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="WarCraft">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+        <Instances Id="Malfurion">
+            <GameLink GameLink="Announcer_Malfurion">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <GameLink GameLink="Announcer_Malfurion@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_Malfurion.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/Malfurion_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="WarCraft">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+        <Instances Id="Arthas">
+            <GameLink GameLink="Announcer_Arthas@Preview">
+                <Field Id="Preview Sound"/>
+            </GameLink>
+            <GameLink GameLink="Announcer_Arthas">
+                <Field Id="SkinEntry"/>
+            </GameLink>
+            <Image Image="assets\Textures\Storm_UI_Announcer_Arthas.dds">
+                <Field Id="Preview Image"/>
+            </Image>
+            <Text Text="UserData/Announcer/Arthas_Name">
+                <Field Id="Name"/>
+            </Text>
+            <User Type="AnnouncerCollectionCategory" Instance="WarCraft">
+                <Field Id="Collection Category"/>
+            </User>
+        </Instances>
+    </CUser>
+</Catalog>

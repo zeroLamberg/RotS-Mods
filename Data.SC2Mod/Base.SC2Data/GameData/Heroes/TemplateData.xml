@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectApplyBehavior id="TemplateDashAbility@ApplyRushingBehavior">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TemplateDashAbility@RushingBehavior"/>
+    </CEffectApplyBehavior>
+    <CEffectCancelOrder id="TemplateDashAbility@CancelOrder">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+        <AbilCmd value="TemplateDashAbility@Approach,Execute"/>
+    </CEffectCancelOrder>
+    <CEffectSet id="TemplateDashAbility@RefreshOrderSet">
+        <ValidatorArray value="TemplateDashAbility@TargetPointNotWalkable"/>
+        <EffectArray value="TemplateDashAbility@CancelOrder"/>
+        <EffectArray value="TemplateDashAbility@IssueApproachOrder"/>
+    </CEffectSet>
+    <CEffectSet id="TemplateDashAbility@FinalSet">
+        <EffectArray value="TemplateDashAbility@RemoveRushingBehavior"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="TemplateDashAbility@IssueApproachOrder">
+        <WhichUnit Value="Caster"/>
+        <Abil value="TemplateDashAbility@Approach"/>
+        <CmdFlags index="Preempt" value="1"/>
+        <Player Value="Caster"/>
+        <Target Effect="TemplateDashAbility@CastSet" Value="TargetPoint"/>
+    </CEffectIssueOrder>
+    <CEffectCreatePersistent id="TemplateDashAbility@DashPersistent">
+        <TimeScaleSource Value="Caster"/>
+        <InitialEffect value="TemplateDashAbility@CastSet"/>
+        <ExpireDelay value="0.0625"/>
+        <FinalEffect value="TemplateDashAbility@FinalSet"/>
+        <PeriodicValidator value="CasterNotDazedOrDeadOrRootedOrStasisOrStunnedExceptTimeStop"/>
+        <ExpireEffect value="TemplateDashAbility@CancelOrder"/>
+        <PeriodCount value="8"/>
+        <PeriodicEffectArray value="TemplateDashAbility@RefreshOrderSet"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="TemplateDashAbility@InitialPersistent">
+        <WhichLocation Value="CasterPoint"/>
+        <TimeScaleSource Value="Caster"/>
+        <InitialEffect value="TemplateDashAbility@DashPersistent"/>
+        <InitialOffset value="0,-7,0"/>
+    </CEffectCreatePersistent>
+    <CEffectRemoveBehavior id="TemplateDashAbility@RemoveRushingBehavior">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="TemplateDashAbility@RushingBehavior"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="TemplateDashAbility@CastSet">
+        <EffectArray value="TemplateDashAbility@ApplyRushingBehavior"/>
+        <EffectArray value="TemplateDashAbility@IssueApproachOrder"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CAbilEffectTarget id="TemplateDashAbility" parent="StormSkillshotDashParent">
+        <Effect value="TemplateDashAbility@InitialPersistent"/>
+        <Cost>
+            <Cooldown Location="Unit" TimeUse="1"/>
+        </Cost>
+        <UninterruptibleArray index="Approach" value="0"/>
+        <UninterruptibleArray index="Finish" value="0"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="TemplateDashAbility"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="TemplateDashAbility@Approach" parent="StormApproachParent">
+        <CmdButtonArray index="Execute" DefaultButtonFace="TemplateDashAbility"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="TemplateTalentItem">
+        <CmdButtonArray index="Execute" DefaultButtonFace="TemplateTalentItem"/>
+    </CAbilEffectInstant>
+    <CValidatorPlayerTalent id="TemplateTalent" parent="PlayerTalent"/>
+    <CValidatorPlayerTalent id="TemplateTalentItem" parent="PlayerTalent"/>
+    <CValidatorLocationPathable id="TemplateDashAbility@TargetPointNotWalkable">
+        <WhichLocation Effect="TemplateDashAbility@DashPersistent"/>
+        <Find value="0"/>
+        <Types index="Building" value="0"/>
+    </CValidatorLocationPathable>
+    <CButton id="TemplateDashAbility"/>
+    <CButton id="TemplateTalent" parent="StormButtonParentHideInfo"/>
+    <CButton id="TemplateTalentItem" parent="StormButtonParentHideInfo"/>
+    <CTalent id="TemplateTalent"/>
+    <CTalent id="TemplateTalentItem"/>
+    <CActorUnit id="TemplateTalentItem" parent="StormItemBase" unitName="TemplateTalentItem"/>
+    <CSound id="TemplateHeroVO@AI_Attack" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@AI_Caution" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@AI_GoodJob" parent="HeroVO_3D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@AI_Heal" parent="HeroVO_3D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@AI_OnMyWay" parent="HeroVO_3D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@AI_Retreat" parent="HeroVO_3D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@AI_Uhoh" parent="HeroVO_3D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Celebrate" parent="HeroVO_3D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOX_Cheer" parent="Hero_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Comeback" parent="HeroVO_3D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@KillSpreeEnd" parent="HeroVO_2D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOX_GetHitSmall" parent="Hero_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOX_GetHitLarge" parent="Hero_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_ExLocked" parent="HeroVO_2D_UI_Stomp">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_ExPurchased" parent="HeroVO_2D_UI_Stomp">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_Gift" parent="HeroVO_2D_UI_Purchase">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_Purchase" parent="HeroVO_2D_UI_Purchase">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_Trial" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_WaitLocked" parent="HeroVO_2D_UI_Stomp">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_WaitPurchased" parent="HeroVO_2D_UI_Stomp">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Social_Goodbye" parent="HeroVO_3D_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Social_Hello" parent="HeroVO_3D_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Social_Sorry" parent="HeroVO_3D_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Social_Thanks" parent="HeroVO_3D_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Social_WellPlayed" parent="HeroVO_3D_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Healed" parent="HeroVO_3D_Healed">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@IntroAgree" parent="HeroVO_3D_Intro">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@IntroBoast" parent="HeroVO_3D_Intro">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@IntroQuestion" parent="HeroVO_3D_Intro">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@IntroRespond" parent="HeroVO_3D_Intro">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Kill" parent="HeroVO_2D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Laugh" parent="Hero_Vox">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@No" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_AssistHero" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_AssistMe" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_AttackCastle" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_Attack" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_KillHero" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_AttackMerc" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_AttackOutpost" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_AttackTower" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_Capture" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_Collect" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DefendCastle" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_Defend" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DefendStructure" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DefendThing" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DefendOutpost" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DefendTower" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DestroyStructure" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_DestroyThing" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_EnemyMissing" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_Transport" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Ping_TurnIn" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Pissed" parent="HeroVO_2D_Pissed">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Resurrected" parent="HeroVO_3D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Revive" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@Spec" parent="HeroVO_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@TeamKilled" parent="HeroVO_2D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@UI_Lockin" parent="HeroVO_2D_UI_Lockin">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOPing_AssistMe" parent="HeroVOPing_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOPing_Danger" parent="HeroVOPing_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOPing_Defend" parent="HeroVOPing_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOPing_EnemyMissing" parent="HeroVOPing_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOPing_OnMyWay" parent="HeroVOPing_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@VOPing_Retreat" parent="HeroVOPing_2D_High">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CSound id="TemplateHeroVO@WorthIt" parent="HeroVO_2D_Critical">
+        <AssetArray File="Assets\Sounds\Generic\Test_NoSound.ogg"/>
+    </CSound>
+    <CDataCollectionAbil id="TemplateDashAbility">
+        <EditorCategories value="StormDataGroup:Template"/>
+        <DataRecord Entry="Abil,TemplateDashAbility@Approach"/>
+        <DataRecord Entry="Abil,TemplateDashAbility"/>
+        <DataRecord Entry="Behavior,TemplateDashAbility@RushingBehavior"/>
+        <DataRecord Entry="Button,TemplateDashAbility"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@ApplyRushingBehavior"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@CancelOrder"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@RefreshOrderSet"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@IssueApproachOrder"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@FinalSet"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@RemoveRushingBehavior"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@CastSet"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@DashPersistent"/>
+        <DataRecord Entry="Effect,TemplateDashAbility@InitialPersistent"/>
+        <DataRecord Entry="Validator,TemplateDashAbility@TargetPointNotWalkable"/>
+    </CDataCollectionAbil>
+    <CDataCollection id="TemplateTalent">
+        <DataRecord Entry="Button,TemplateTalent"/>
+        <DataRecord Entry="Talent,TemplateTalent"/>
+        <DataRecord Entry="Validator,TemplateTalent"/>
+        <EditorCategories value="StormDataGroup:Template"/>
+    </CDataCollection>
+    <CDataCollection id="TemplateTalentItem">
+        <DataRecord Entry="Abil,TemplateTalentItem"/>
+        <DataRecord Entry="Actor,TemplateTalentItem"/>
+        <DataRecord Entry="Button,TemplateTalentItem"/>
+        <DataRecord Entry="Item,TemplateTalentItem"/>
+        <DataRecord Entry="Talent,TemplateTalentItem"/>
+        <DataRecord Entry="Unit,TemplateTalentItem"/>
+        <DataRecord Entry="Validator,TemplateTalentItem"/>
+        <EditorCategories value="StormDataGroup:Template"/>
+    </CDataCollection>
+    <CDataCollection id="TemplateHeroVO">
+        <EditorCategories value="StormDataGroup:Template"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_Attack"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_Caution"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_GoodJob"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_Heal"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_OnMyWay"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_Retreat"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@AI_Uhoh"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Celebrate"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOX_Cheer"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Comeback"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@KillSpreeEnd"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOX_GetHitSmall"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOX_GetHitLarge"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_ExLocked"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_ExPurchased"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_Gift"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_Purchase"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_Trial"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_WaitLocked"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_WaitPurchased"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Social_Goodbye"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Healed"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@IntroAgree"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@IntroBoast"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@IntroQuestion"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@IntroRespond"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Kill"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Laugh"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@No"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_AssistHero"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_AssistMe"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_AttackCastle"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_Attack"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_KillHero"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_AttackMerc"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_AttackOutpost"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_AttackTower"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_Capture"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_Collect"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DefendCastle"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_Defend"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DefendStructure"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DefendThing"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DefendOutpost"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DefendTower"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DestroyStructure"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_DestroyThing"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_EnemyMissing"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_Transport"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Ping_TurnIn"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Pissed"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Resurrected"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Revive"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Spec"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@TeamKilled"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@UI_Lockin"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOPing_AssistMe"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOPing_Danger"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOPing_Defend"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOPing_EnemyMissing"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOPing_OnMyWay"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@VOPing_Retreat"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@WorthIt"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Social_Hello"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Social_Sorry"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Social_Thanks"/>
+        <DataRecord Entry="Sound,TemplateHeroVO@Social_WellPlayed"/>
+    </CDataCollection>
+    <CItemAbil id="TemplateTalentItem"/>
+    <CUnit id="TemplateTalentItem" parent="ITEM"/>
+    <CBehaviorBuff id="TemplateDashAbility@RushingBehavior">
+        <Alignment value="Positive"/>
+        <TechAliasArray value="StormCategory SuppressCollision"/>
+        <Duration value="0.5"/>
+        <Period value="0.0625"/>
+        <Modification MoveSpeedMaximum="14" MoveSpeedMinimum="14">
+            <ModifyFlags index="OrdersUninterruptible" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="LineMovement" value="1"/>
+        </Modification>
+        <RemoveValidatorArray value="StormCategoryCasterHasNotSpecialDeathState"/>
+        <RemoveValidatorArray value="CasterNotDazedOrDeadOrRootedOrStasisOrStunnedExceptTimeStop"/>
+    </CBehaviorBuff>
+</Catalog>

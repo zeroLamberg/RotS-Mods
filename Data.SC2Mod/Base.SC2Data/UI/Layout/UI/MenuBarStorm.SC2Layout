@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Button" name="MenuBarHelpButtonTemplate">
+        <Width val="64"/>
+        <Height val="77"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_BNet_Generic_01"/>
+        <RenderPriority val="660"/>    
+
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@UI/HUD_BTN_Help_Normal" layer="0"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+            <LayerCount val="1"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@UI/HUD_BTN_Help_Hover" layer="0"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+            <LayerCount val="1"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-9"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="Icon">
+            <Anchor side="Top" relative="$parent/NormalImage" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/NormalImage" pos="Mid" offset="-1500"/>
+            <Anchor side="Left" relative="$parent/NormalImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/NormalImage" pos="Mid" offset="-1500"/>
+            <Width val="1"/>
+            <Height val="1"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="MenuBarTalentButtonTemplate">
+        <Width val="64"/>
+        <Height val="77"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_BNet_Generic_01"/>
+        <Tooltip val="@UI/Tooltip/TalentPanel"/>
+        <RenderPriority val="660"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@UI/HUD_BTN_Talents_Normal" layer="0"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@UI/HUD_BTN_Talents_Hover" layer="0"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-9"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="SocialButton" name="MenuBarSocialButtonTemplate">
+        <Width val="85"/>
+        <Height val="60"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_BNet_Generic_01"/>
+        <RenderPriority val="660"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@UI/HUD_BTN_Social_Normal" layer="0"/>
+            <StateCount val="1"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@UI/HUD_BTN_Social_Hover" layer="0"/>
+            <StateCount val="1"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="CountLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-2"/>
+            <Width val="25"/>
+            <Height val="20"/>
+            <Style val="IdleButtonCharge"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="13"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Button" name="MenuBarMenuButtonTemplate">
+        <Width val="89"/>
+        <Height val="77"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <ClickSound val="@UI_BNet_Generic_01"/>
+        <TooltipFrame val="StormStandardTooltip"/>
+        <RenderPriority val="660"/>
+
+        <Frame type="Label" name="MenuLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-1500"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-1500"/>
+            <Style val="@@@MenuBarButton"/>
+            <Text val="@UI/Menu"/>
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@UI/HUD_BTN_Menu_Normal" layer="0"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+            <LayerCount val="1"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@UI/HUD_BTN_Menu_Hover" layer="0"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+            <LayerCount val="1"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-9"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="MenuBar" name="MenuBarTemplate">
+        <Frame type="SystemInfoTooltip" name="SystemInfoTooltip" template="SystemInfoPanel/SystemInfoTooltipTemplate"/>
+
+        <Frame type="Image" name="MenuBarBackgroundImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-1500"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-1500"/>
+            <Texture val="@@@UI/Game_Console_MenuBar_Background"/>
+        </Frame>
+
+        <Frame type="Button" name="TalentsButton" template="MenuBarStorm/MenuBarTalentButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/HelpButton" pos="Min" offset="0"/>
+        </Frame>
+
+        <Frame type="Button" name="HelpButton" template="MenuBarStorm/MenuBarHelpButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/MenuButton" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$this" pos="Max" offset="0"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="SocialButton" name="SocialButton" template="MenuBarStorm/MenuBarSocialButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-1500"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-70"/>
+        </Frame>
+
+        <Frame type="Button" name="MenuButton" template="MenuBarStorm/MenuBarMenuButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <TooltipFrame val="SystemInfoTooltip"/>
+        </Frame>
+    </Frame>
+</Desc>

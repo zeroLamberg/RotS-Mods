@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectUserData id="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced" parent="StormModifyGeneralData">
+        <ValidatorArray value="IsHeroAndNotVehicleAndNotHallucination"/>
+        <ValidatorArray value="CasterIsHeroPlayer"/>
+        <Key value="Player PhysicalArmorEnhancedDamage"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
+        </Amount>
+        <SourceKey value="Player PhysicalArmorEnhancedDamage"/>
+        <Operation value="Add"/>
+        <TechAliasArray value="StormFlag OverridePlayerIndex"/>
+    </CEffectUserData>
+    <CEffectUserData id="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated" parent="StormModifyGeneralData">
+        <ValidatorArray value="IsHeroAndNotVehicleAndNotHallucination"/>
+        <ValidatorArray value="CasterIsHeroPlayer"/>
+        <Key value="Player PhysicalArmorMitigatedDamage"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
+        </Amount>
+        <SourceKey value="Player PhysicalArmorMitigatedDamage"/>
+        <Operation value="Add"/>
+        <TechAliasArray value="StormFlag OverridePlayerIndex"/>
+    </CEffectUserData>
+    <CEffectUserData id="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced" parent="StormModifyGeneralData">
+        <ValidatorArray value="IsHeroAndNotVehicleAndNotHallucination"/>
+        <ValidatorArray value="CasterIsHeroPlayer"/>
+        <Key value="Player SpellArmorEnhancedDamage"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
+        </Amount>
+        <SourceKey value="Player SpellArmorEnhancedDamage"/>
+        <Operation value="Add"/>
+        <Chance value="0"/>
+        <TechAliasArray value="StormFlag OverridePlayerIndex"/>
+    </CEffectUserData>
+    <CEffectUserData id="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated" parent="StormModifyGeneralData">
+        <ValidatorArray value="IsHeroAndNotVehicleAndNotHallucination"/>
+        <ValidatorArray value="CasterIsHeroPlayer"/>
+        <Key value="Player SpellArmorMitigatedDamage"/>
+        <Amount value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
+        </Amount>
+        <SourceKey value="Player SpellArmorMitigatedDamage"/>
+        <Operation value="Add"/>
+        <Chance value="0"/>
+        <TechAliasArray value="StormFlag OverridePlayerIndex"/>
+    </CEffectUserData>
+    <!--100 * damage / (100 - armor )-->
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorModifiedDamage@Calculation">
+        <Parameters value="100">
+            <AccumulatorArray value="DamageInheritedMultiply"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorModifiedDamage@ModifiedArmor"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorModifiedDamage@ModifiedArmor">
+        <Parameters value="100">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellArmor"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <!--(100 * damage / (100 - armor ) ) - damage-->
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced">
+        <MaxAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorModifiedDamage@StoreValueNoBounds"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <!--(100 * damage / (100 - armor ) ) - damage-->
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorModifiedDamage@StoreValueNoBounds"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <!--(100 * damage / (100 - armor ) ) - damage-->
+    <CAccumulatorArithmetic id="UnitStatsSpellArmorModifiedDamage@StoreValueNoBounds">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellArmorModifiedDamage@Calculation"/>
+        </Parameters>
+        <Parameters value="-1">
+            <AccumulatorArray value="DamageInheritedMultiply"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <!--(100 * damage / (100 - armor ) ) - damage-->
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueNoBounds"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <!--100 * damage / (100 - armor )-->
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorModifiedDamage@Calculation">
+        <Parameters value="100">
+            <AccumulatorArray value="DamageInheritedMultiply"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorModifiedDamage@ModifiedArmor"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorModifiedDamage@ModifiedArmor">
+        <Parameters value="100">
+            <AccumulatorArray value="ConstantMultiply1"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmor"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <!--(100 * damage / (100 - armor ) ) - damage-->
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced">
+        <MaxAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueNoBounds"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <!--(100 * damage / (100 - armor ) ) - damage-->
+    <CAccumulatorArithmetic id="UnitStatsPhysicalArmorModifiedDamage@StoreValueNoBounds">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalArmorModifiedDamage@Calculation"/>
+        </Parameters>
+        <Parameters value="-1">
+            <AccumulatorArray value="DamageInheritedMultiply"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CDataCollection id="UnitStatsSpellArmorModifiedDamage">
+        <DataRecord Entry="Effect,UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
+        <DataRecord Entry="Effect,UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellArmorModifiedDamage@Calculation"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellArmorModifiedDamage@ModifiedArmor"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellArmorModifiedDamage@StoreValueNoBounds"/>
+    </CDataCollection>
+    <CDataCollection id="UnitStatsPhysicalArmorModifiedDamage">
+        <DataRecord Entry="Effect,UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
+        <DataRecord Entry="Effect,UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalArmorModifiedDamage@Calculation"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalArmorModifiedDamage@ModifiedArmor"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalArmorModifiedDamage@StoreValueNoBounds"/>
+    </CDataCollection>
+</Catalog>

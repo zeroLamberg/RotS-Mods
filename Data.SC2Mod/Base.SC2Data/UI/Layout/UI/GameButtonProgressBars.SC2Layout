@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+<Frame type="SelectionUnitStatusPanel" name="GameButtonProgressBarCountdownTemplate">
+  <Anchor relative="$parent" />
+  <SpecificUnit val="_HERO_NAME_" />
+  <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+    <Anchor relative="$parent" />
+    <Frame type="UnitStatusBehaviorIcon" name="UnitStatusBehaviorIcon">
+      <Anchor relative="$parent" />
+      <Behavior val="_BEHAVIOR_NAME_" />
+      <AcceptsMouse val="False" />
+      <Frame type="BehaviorIcon" name="BehaviorIcon">
+        <Anchor relative="$parent" />
+        <AcceptsMouse val="False" />
+        <Frame type="ProgressBar" name="CooldownBar">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Height val="120" />
+          <Width val="120" />
+          <AcceptsMouse val="False" />
+          <MinValue val="0" />
+          <MaxValue val="2" />
+          <Value val="0" />
+          <Circular val="True" />
+          <CircularStart val="0" />
+          <CircularEndOffset val="360" />
+          <FillInset val="0.0" />
+          <Frame type="Frame" name="FillImageContainer">
+            <Anchor relative="$parent" />
+            <Frame type="Image" name="FillImage">
+              <Anchor relative="$parent" />
+              <SubpixelRendering val="True" />
+              <ColorAdjustMode val="Colorize" />
+              <AdjustmentColor val="00FFDD" />
+              <RenderPriority val="510" />
+              <Texture val="@UI/Storm_UI_InGame_AbilityButton_Active_Add" />
+              <BlendMode val="Normal" />
+              <TextureType val="Circular" />
+            </Frame>
+          </Frame>
+        </Frame>
+      </Frame>
+    </Frame>
+  </Frame>
+</Frame>
+
+<Frame type="Frame" name="GameButtonProgressBarQ">
+  <Anchor relative="$parent" />
+</Frame>
+
+<Frame type="Frame" name="GameButtonProgressBarW">
+  <Anchor relative="$parent" />
+  <!--        Falstad         -->
+  <Frame type="SelectionUnitStatusPanel" name="FalstadThunderstrikesTailwind" template="GameButtonProgressBars/GameButtonProgressBarCountdownTemplate">
+    <SpecificUnit val="HeroFalstad" />
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+      <Frame type="UnitStatusBehaviorIcon" name="UnitStatusBehaviorIcon">
+        <Behavior val="HeroFalstadThunderstrikes@DummyTailwind" />
+        <Frame type="BehaviorIcon" name="BehaviorIcon">
+          <Frame type="ProgressBar" name="CooldownBar">
+            <Frame type="Frame" name="FillImageContainer">
+              <Frame type="Image" name="FillImage">
+                <AdjustmentColor val="249ac9" />
+              </Frame>
+            </Frame>
+          </Frame>
+        </Frame>
+      </Frame>
+    </Frame>
+  </Frame>
+</Frame>
+
+<Frame type="Frame" name="GameButtonProgressBarE">
+  <Anchor relative="$parent" />
+    <!--        Talandar         -->
+    <Frame type="SelectionUnitStatusPanel" name="TalandarAbilityEChannel" template="GameButtonProgressBars/GameButtonProgressBarCountdownTemplate">
+      <SpecificUnit val="HeroTalandar" />
+      <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+        <Frame type="UnitStatusBehaviorIcon" name="UnitStatusBehaviorIcon">
+          <Behavior val="HeroTalandarSolarBlast@Channel" />
+          <Frame type="BehaviorIcon" name="BehaviorIcon">
+            <Frame type="ProgressBar" name="CooldownBar">
+              <Frame type="Frame" name="FillImageContainer">
+                <Frame type="Image" name="FillImage">
+                  <AdjustmentColor val="ffc400" />
+                </Frame>
+              </Frame>
+            </Frame>
+          </Frame>
+        </Frame>
+      </Frame>
+    </Frame>
+</Frame>
+
+<Frame type="Frame" name="GameButtonProgressBarR">
+  <Anchor relative="$parent" />
+
+  <!--<Frame type="SelectionUnitStatusPanel" name="TracerPulseBombChargeButtonOverrideFrame">
+    <Anchor relative="$parent" />
+    <SpecificUnit val="HeroTalandar" />
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+      <Anchor relative="$parent" />
+      <AcceptsMouse val="False" />
+      <Frame type="UnitStatusAbilCharge" name="UnitStatusAbilCharge">
+        <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+        <Height val="76" />
+        <Width val="68" />
+        <AcceptsMouse val="False" />
+        <AbilityLink val="HeroTalandarWhirlwind" />
+        <ChargeLink val="Abil/HeroTalandarWhirlwind" />
+        <SendChargesEmptyAnimEvent val="True" />
+        <SendChargesFullAnimEvent val="True" />
+        <SendCurrentChangedAnimEvent val="True" />
+        <Frame type="Image" name="TracerPulseBombBackgroundImage">
+          <Anchor relative="$parent" />
+          <Texture val="Assets/Textures/Storm_UI_HUD_Tracer_Pulse_Bomb_Background.dds" />
+        </Frame>
+        <Frame type="ProgressBar" name="ChargeFillProgress">
+          <Anchor relative="$parent" />
+          <AcceptsMouse val="False" />
+          <RenderPriority val="512" />
+          <FillInset val="0.0" />
+          <Circular val="True" />
+          <CircularStart val="0" />
+          <CircularEndOffset val="360" />
+          <MinValue val="0" />
+          <MaxValue val="1" />
+          <Frame type="Frame" name="FillImageContainer">
+            <Anchor relative="$parent" />
+            <Frame type="Image" name="FillImage">
+              <Anchor relative="$parent" />
+              <Texture val="Assets/Textures/Storm_UI_HUD_Tracer_Pulse_Bomb_Fill_Image.dds" />
+              <TextureType layer="0" val="Circular" />
+            </Frame>
+          </Frame>
+        </Frame>
+      </Frame>
+    </Frame>
+  </Frame>-->
+
+</Frame>
+
+<Frame type="Frame" name="GameButtonProgressBarD">
+  <Anchor relative="$parent" />
+</Frame>
+
+<Frame type="Frame" name="GameButtonProgressBarInventoryButton">
+  <Anchor relative="$parent" />
+  <!--                         -->
+  <!--        Falstad          -->
+  <!--                         -->
+  <Frame type="SelectionUnitStatusPanel" name="HeroFalstadFrequentFlyer">
+    <Anchor relative="$parent"/>
+    <SpecificUnit val="HeroFalstad" />
+    <StateGroup name="Visibility">
+      <State name="Visible">
+        <When type="Property" frame="$parent/$parent/NormalImage" Texture="Assets\Textures\storm_ui_icon_falstad_tailwind_a.dds" index="0" operator="NotEqual"/>
+        <Action type="SetProperty" Alpha="0"/>
+      </State>
+    </StateGroup>
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+      <Anchor relative="$parent"/>
+      <AcceptsMouse val="False"/>
+      <Frame type="UnitStatusBehaviorIcon" name="HeroFalstadFrequentFlyerBattleIcon">
+        <Anchor relative="$parent"/>
+        <Behavior val="HeroFalstadFrequentFlyer@AttackSpeedBuff"/>
+        <AcceptsMouse val="False"/>
+        <Frame type="BehaviorIcon" name="BehaviorIcon">
+          <Anchor relative="$parent"/>
+          <Behavior val="HeroFalstadFrequentFlyer@AttackSpeedBuff"/>
+          <AcceptsMouse val="False"/>
+          <Frame type="ProgressBar" name="CooldownBar">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="102"/>
+            <Width val="102"/>
+            <AcceptsMouse val="False"/>
+            <MinValue val="0"/>
+            <MaxValue val="3"/>
+            <Value val="0"/>
+            <Circular val="True"/>
+            <CircularStart val="0"/>
+            <CircularEndOffset val="360"/>
+            <FillInset val="0.0"/>
+            <Frame type="Frame" name="FillImageContainer">
+              <Anchor relative="$parent"/>
+              <Frame type="Image" name="FillImage">
+                <Anchor relative="$parent"/>
+                <SubpixelRendering val="True"/>
+                <ColorAdjustMode val="Colorize"/>
+                <AdjustmentColor val="249ac9"/>
+                <RenderPriority val="510"/>
+                <Unclipped val="true"/>
+                <Texture val="@UI/Storm_UI_InGame_AbilityButton_Active_Add"/>
+                <BlendMode val="Normal"/>
+                <TextureType val="Circular"/>
+              </Frame>
+            </Frame>
+          </Frame>
+        </Frame>
+      </Frame>
+      
+    </Frame>
+  </Frame>
+  <!--                         -->
+  <!--        Jaina          -->
+  <!--                         -->
+  <!--<Frame type="SelectionUnitStatusPanel" name="HeroJainaImprovedIceBlock">
+    <Anchor relative="$parent"/>
+    <SpecificUnit val="HeroJaina" />
+    <StateGroup name="Visibility">
+      <State name="Visible">
+        <When type="Property" frame="$parent/$parent/NormalImage" Texture="Assets\Textures\storm_ui_icon_jaina_improvediceblock_new_active.dds" index="0" operator="NotEqual"/>
+        <Action type="SetProperty" frame="$this" Visible="False"/>
+      </State>
+    </StateGroup>
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0" template="Jaina/JainaIceBlockButtonOverlayFrameCustom">
+
+    </Frame>
+  </Frame>-->
+  <!--                         -->
+  <!--        Talandar         -->
+  <!--                         -->
+  <Frame type="SelectionUnitStatusPanel" name="HeroTalandarOverdrive">
+    <Anchor relative="$parent"/>
+    <SpecificUnit val="HeroTalandar" />
+    <StateGroup name="Visibility">
+      <State name="Visible">
+        <When type="Property" frame="$parent/$parent/NormalImage" Texture="assets\textures\storm_ui_icon_talandar_overdrive.dds" index="0" operator="NotEqual"/>
+        <Action type="SetProperty" Alpha="0"/>
+      </State>
+    </StateGroup>
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+      <Anchor relative="$parent"/>
+      <AcceptsMouse val="False"/>
+      <Frame type="UnitStatusBehaviorIcon" name="HeroTalandarOverdrive">
+        <Anchor relative="$parent"/>
+        <Behavior val="HeroTalandarOverdrive"/>
+        <AcceptsMouse val="False"/>
+        <Frame type="BehaviorIcon" name="BehaviorIcon">
+          <Anchor relative="$parent"/>
+          <Behavior val="HeroTalandarOverdrive"/>
+          <AcceptsMouse val="False"/>
+          <Frame type="ProgressBar" name="CooldownBar">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="102"/>
+            <Width val="102"/>
+            <AcceptsMouse val="False"/>
+            <MinValue val="0"/>
+            <MaxValue val="3"/>
+            <Value val="0"/>
+            <Circular val="True"/>
+            <CircularStart val="0"/>
+            <CircularEndOffset val="360"/>
+            <FillInset val="0.0"/>
+            <Frame type="Frame" name="FillImageContainer">
+              <Anchor relative="$parent"/>
+              <Frame type="Image" name="FillImage">
+                <Anchor relative="$parent"/>
+                <SubpixelRendering val="True"/>
+                <ColorAdjustMode val="Colorize"/>
+                <AdjustmentColor val="249ac9"/>
+                <RenderPriority val="510"/>
+                <Unclipped val="true"/>
+                <Texture val="@UI/Storm_UI_InGame_AbilityButton_Active_Add"/>
+                <BlendMode val="Normal"/>
+                <TextureType val="Circular"/>
+              </Frame>
+            </Frame>
+          </Frame>
+        </Frame>
+      </Frame>
+      
+    </Frame>
+  </Frame>
+  <!--                         -->
+  <!--          End            -->
+  <!--                         -->
+</Frame>
+</Desc>

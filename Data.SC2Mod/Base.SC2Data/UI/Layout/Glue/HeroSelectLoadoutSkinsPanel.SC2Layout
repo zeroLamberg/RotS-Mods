@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Frame type="Button" name="HeroSelectLoadoutSkinTileListItemTemplate" template="HeroSelectLoadoutTemplates/LargeLoadoutTileListItemTemplate">
+    <Animation name="AnimationWheelUp">
+      <Event event="OnMouseWheelIncrement" action="Reset,Play" frame="$this"/>
+      <Controller type="Property" end="Pause" frame="$parent/$parent/ScrollEditBox" property="Text">
+        <Key type="Property" time="0.0" value="WheelUp"/>
+      </Controller>
+    </Animation>
+    <Animation name="AnimationWheelDown">
+      <Event event="OnMouseWheelDecrement" action="Reset,Play" frame="$this"/>
+      <Controller type="Property" end="Pause" frame="$parent/$parent/ScrollEditBox" property="Text">
+        <Key type="Property" time="0.0" value="WheelDown"/>
+      </Controller>
+    </Animation>
+  </Frame>
+  <Frame type="Frame" name="HeroSelectLoadoutSkinsPanelTileListTemplate" template="HeroSelectLoadoutTemplates/LargeLoadoutTileListTemplate">
+    <!--<GameContentType index="0" val="Skin" />
+    <GameContentType index="1" val="Hero" />
+    <SortMethod index="0" val="ContentType" />
+    <SortMethod index="1" val="FilterString" />
+    <SortMethod index="2" val="Default" />
+    <SortMethod index="3" val="BaseFirst" />
+    <SortMethod index="4" val="Allowed" />
+    <SortMethod index="5" val="Alphabetical" />
+    <ParentHeroFilter val="{$ancestor[@type=HeroSelectLoadoutsPanel]/@Hero}" />-->
+  </Frame>
+  <Frame type="Frame" name="LoadoutSkinsPanelTemplate" template="HeroSelectLoadoutTemplates/HeroSelectLoadoutItemPanelTemplate">
+    <Frame type="Frame" name="CategoryTileList">
+      <Visible val="false" />
+    </Frame>
+    <Frame type="EditBox" name="ScrollEditBox">
+      <Anchor relative="$parent/SelectedContentLabel"/>
+      <Visible val="False"/>
+    </Frame>
+    <Frame type="Frame" name="ContentTileList" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinsPanelTileListTemplate">
+      <Frame type="Button" name="Item0" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item1" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item2" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item3" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item4" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item5" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item6" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item7" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item8" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item9" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item10" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Frame type="Button" name="Item11" template="HeroSelectLoadoutSkinsPanel/HeroSelectLoadoutSkinTileListItemTemplate" />
+      <Animation name="AnimationWheelUp">
+        <Event event="OnMouseWheelIncrement" action="Reset,Play" frame="$this"/>
+        <Controller type="Property" end="Pause" frame="$parent/ScrollEditBox" property="Text">
+          <Key type="Property" time="0.0" value="WheelUp"/>
+        </Controller>
+      </Animation>
+      <Animation name="AnimationWheelDown">
+        <Event event="OnMouseWheelDecrement" action="Reset,Play" frame="$this"/>
+        <Controller type="Property" end="Pause" frame="$parent/ScrollEditBox" property="Text">
+          <Key type="Property" time="0.0" value="WheelDown"/>
+        </Controller>
+      </Animation>
+    </Frame>
+  </Frame>
+</Desc>

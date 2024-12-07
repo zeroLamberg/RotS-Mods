@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel default="1" id="StormStorePreview">
+        <Flags index="Facial" value="1"/>
+        <Flags index="ForcePortraitModel" value="1"/>
+        <Flags index="PreventTextureAutoUpdate" value="1"/>
+        <Flags index="PreventTextureFileTokenRecognition" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel default="1" id="Portrait">
+        <Flags index="Download" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel default="1" id="Unit">
+        <Flags index="PreventTextureAutoUpdate" value="1"/>
+        <Flags index="PreventTextureFileTokenRecognition" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+    </CModel>
+    <CModel default="1" id="OneShotSpellFX">
+        <Flags index="CloakedDetectedIsFullyVisible" value="1"/>
+        <Flags index="CloakedUndetectedIsHidden" value="1"/>
+        <Flags index="FreezeParticlesAndRibbonsOnAnimPause" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CModel>
+    <CModel default="1" id="ImpactFX">
+        <Flags index="CloakedDetectedIsFullyVisible" value="1"/>
+        <Flags index="CloakedUndetectedIsHidden" value="1"/>
+        <Flags index="FreezeParticlesAndRibbonsOnAnimPause" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CModel>
+    <CModel default="1" id="BuffFX">
+        <Flags index="CloakedDetectedIsFullyVisible" value="1"/>
+        <Flags index="CloakedUndetectedIsHidden" value="1"/>
+        <Flags index="FreezeParticlesAndRibbonsOnAnimPause" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CModel>
+    <CModel default="1" id="PersistentSpellFX">
+        <Flags index="CloakedDetectedIsFullyVisible" value="1"/>
+        <Flags index="CloakedUndetectedIsHidden" value="1"/>
+        <Flags index="FreezeParticlesAndRibbonsOnAnimPause" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CModel>
+    <CModel default="1" id="LaunchFX">
+        <Flags index="CloakedDetectedIsFullyVisible" value="1"/>
+        <Flags index="CloakedUndetectedIsHidden" value="1"/>
+        <Flags index="FreezeParticlesAndRibbonsOnAnimPause" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="TeenSafe" value="1"/>
+        <!--<Flags index="VariationFallback" value="0"/>-->
+        <Flags index="Wait" value="1"/>
+    </CModel>
+    <CModel default="1" id="BuildingDeath">
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel default="1" id="Ragdoll">
+        <Flags index="PreventedWhenPhysicsPerformanceConstrained" value="1"/>
+        <Flags index="TeenSafe" value="1"/>
+    </CModel>
+    <CModel default="1" id="BaseMount" parent="Unit">
+        <Flags index="CloakedUndetectedIsHidden" value="1"/>
+        <RadiusLoose value="0.700000"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="1.200000"/>
+        <TipabilityWidth value="0.800000"/>
+        <TipabilityBlendRate value="90.000000"/>
+        <TipabilityPitchMax value="40.000000"/>
+        <TipabilityRollMax value="0.000000"/>
+    </CModel>
+    <CModel default="1" id="UnitDeath">
+        <Flags index="TeenSafe" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+        <Flags index="Wait" value="0"/>
+    </CModel>
+    <CModel default="1" id="UnitDeathRagdoll">
+        <Flags index="Download" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+        <Flags index="Wait" value="0"/>
+    </CModel>
+    <CModel default="1" id="HeroDeathRagdoll" parent="UnitDeathRagdoll">
+        <Flags index="PreventedWhenPhysicsPerformanceConstrained" value="0"/>
+        <RequiredAnims value="assets\Effects\Storm_FX_DeathRagdollDissipate\Storm_FX_DeathRagdollDissipate.m3a"/>
+        <Events>
+            <Anim value="Dissipate,00"/>
+            <Name value="Hero_Death_Ragdoll_Dissolve"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Gen_Hero_Death_Ragdoll_Dissolve"/>
+        </Events>
+    </CModel>
+    <CModel default="1" id="StormUnitDeath" parent="UnitDeath">
+        <Model value="assets\Effects\Storm_FX_HeroDeath\Storm_FX_HeroDeath.m3"/>
+    </CModel>
+    <CModel default="1" id="StormUnitDeathRagdoll" parent="UnitDeathRagdoll"/>
+    <CModel default="1" id="StormUnitDeathNew" parent="UnitDeath">
+        <Model value="assets\Effects\Storm_FX_HeroDeath\Storm_FX_HeroDeath.m3"/>
+    </CModel>
+    <CModel default="1" id="HeroModelParent" parent="Unit">
+        <FuzzyGeometryPadding value="0.300000"/>
+    </CModel>
+    <CModel default="1" id="StormPortrait" parent="Portrait">
+        <Flags index="Facial" value="1"/>
+        <Flags index="ForcePortraitModel" value="1"/>
+        <Image value=""/>
+    </CModel>
+    <CModel default="1" id="MinionDeathRagdoll" parent="StormUnitDeathRagdoll">
+        <Model value="Assets\Units\Neutral\MinionDeathRagdoll\MinionDeathRagdoll.m3"/>
+        <LowQualityModel value=""/>
+        <RequiredAnims value="Assets\Effects\Storm_FX_DeathRagdollDissipate\Storm_FX_DeathRagdollDissipate.m3a"/>
+        <Lighting value="MinionDeathRagdoll"/>
+    </CModel>
+    <CModel id="HeroGenericCaptureMacGuffinTwo@BeamVFX" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTributeCollection_Beam\Storm_FX_RavenLordTributeCollection_Beam.m3"/>
+        <RadiusLoose value="0.750000"/>
+    </CModel>
+    <CModel id="RegenGlobeNeutral" parent="Unit">
+        <Model value="assets\Effects\Storm_FX_RegenGlobeShared\Storm_FX_RegenGlobeShared.m3"/>
+    </CModel>
+    <CModel id="StormCommandUIHarnessAttack" parent="PersistentSpellFX">
+        <Model value="assets\UI\Cursors\Storm_UI_Confirmation_Attack_Ground\Storm_UI_Confirmation_Attack_Ground.m3"/>
+    </CModel>
+    <CModel id="StormCommandUIHarnessMove" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Cursors\Storm_UI_Confirmation_Move_Ground\Storm_UI_Confirmation_Move_Ground.m3"/>
+    </CModel>
+    <CModel id="StormHeroDeathCommon" parent="StormUnitDeathNew">
+        <RadiusLoose value="0.500000"/>
+    </CModel>
+    <CModel id="HeroDeathFX" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_HeroDeath\Storm_FX_HeroDeath.m3"/>
+        <RadiusLoose value="0.500000"/>
+    </CModel>
+    <CModel id="StormBlind" parent="PersistentSpellFX">
+        <Model value="assets\Effects\Storm_FX_Blind_Impact\Storm_FX_Blind_Impact.m3"/>
+    </CModel>
+    <CModel id="MapMechanicPing" parent="OneShotSpellFX">
+        <Model value="assets\UI\Feedback\Storm_UI_Ping_MapMechanic\Storm_UI_Ping_MapMechanic.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Triangle" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_AOETriangle\Storm_UI_AOETriangle.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Arc_SciFi" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_AOECone_SciFi\Storm_UI_AOECone_SciFi.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Arc_Fantasy" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_AOECone_Fantasy\Storm_UI_AOECone_Fantasy.m3"/>
+    </CModel>
+    <CModel id="RetreatPing" parent="OneShotSpellFX">
+        <Model value="assets\UI\Cursors\Storm_UI_Retreat\Storm_UI_Retreat.m3"/>
+        <ScaleMax value="1.800000,1.800000,1.800000"/>
+        <ScaleMin value="1.800000,1.800000,1.800000"/>
+    </CModel>
+    <CModel id="RetreatPingMinimap" parent="OneShotSpellFX">
+        <Model value="assets\UI\Feedback\Storm_UI_Ping_Retreat\Storm_UI_Ping_Retreat.m3"/>
+    </CModel>
+    <CModel id="StormTalkIconBubble" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_TalkIconBubble\Storm_TalkIconBubble.m3"/>
+    </CModel>
+    <CModel id="StormTalkIconRing" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_TalkIconRing\Storm_TalkIconRing.m3"/>
+    </CModel>
+    <CModel id="StormUnstoppable" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Uther_Base_HolyRadiance_Missile\Storm_FX_Uther_Base_HolyRadiance_Missile.m3"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="BribeImpactVisual" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_GoldDoubloons_Pickup\Storm_FX_GoldDoubloons_Pickup.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Triangle_Fantasy" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_AOETriangle_Fantasy\Storm_UI_AOETriangle_Fantasy.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Triangle_SciFi" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_AOETriangle_SciFi\Storm_UI_AOETriangle_SciFi.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Triangle_SciFi_Tint" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_AOETriangle_SciFi_Tint\Storm_UI_AOETriangle_SciFi_Tint.m3"/>
+    </CModel>
+    <CModel id="HeroRespawn" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_HeroRespawn_Base\Storm_FX_HeroRespawn_Base.m3"/>
+    </CModel>
+    <CModel id="UI_Cursor_Arc_Fantasy_Large" parent="UI_Cursor_Arc_Fantasy">
+        <TextureDeclares Prefix="Storm_UI_AOEConeCenter_" Slot="main"/>
+    </CModel>
+    <CModel id="QuestionMarkPortrait" parent="Portrait">
+        <Model value="Assets\UI\TechPurchase\QuestionMark\QuestionMark.m3"/>
+    </CModel>
+    <!-- Stupid Fences -->
+    <CModel id="StormKingsCrestFenceStoneDeath00" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_00.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath01" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_01.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath02" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_02.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath03" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_03.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath04" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_04.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath05" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_05.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath06" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_06.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath07" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_07.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath08" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_08.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath09" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_09.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath10" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_10.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath11" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_11.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath12" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_12.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath13" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_13.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath14" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_14.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath15" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_15.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath16" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_16.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath17" parent="UnitDeath">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_Fence_Stone_Death\Storm_Doodad_KingsCrest_Fence_Stone_Death_17.m3"/>
+    </CModel>
+    <CModel id="WallRadial" parent="Building" Race="Protoss">
+        <Model value="Assets\Doodads\XelNagaCliffWallSpires\XelNagaCliffWallSpires_04.m3"/>
+        <Radius value="0.750000"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+        <SelectionLayer value="2"/>
+        <SelectionOffset value="0.000000,0.000000,0.200000"/>
+        <SelectionRadius value="1.250000"/>
+        <ShadowRadius value="1.250000"/>
+        <SquibTypeDefault value="Rock"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeWhiteKnight" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_White\Storm_Merc_KingsCrest_Knight_White.m3"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_01_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_01_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_02_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_02_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeWhiteKnightDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_White_Death\Storm_Merc_KingsCrest_Knight_White_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerMeleeWhiteKnight" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_White\Storm_Merc_KingsCrest_Knight_White.m3"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_01_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_01_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_02_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_02_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+    </CModel>
+    <CModel id="MercLanerMeleeWhiteKnightDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_White_Death\Storm_Merc_KingsCrest_Knight_White_Death.m3"/>
+    </CModel>
+    <CModel id="TalentAttackDamageBuff" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_AttackDamageBuff\Storm_FX_Talent_AttackDamageBuff.m3"/>
+        <Priority value="32"/>
+    </CModel>
+    <CModel id="TalentMPBuff" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_MPBuff\Storm_FX_Talent_MPBuff.m3"/>
+    </CModel>
+    <CModel id="TalentShieldingBuff" parent="BuffFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Shielding_Impact\Storm_FX_Talent_Shielding_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentSpellDamageBuff" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_SpellDamageBuff\Storm_FX_Talent_SpellDamageBuff.m3"/>
+        <Priority value="32"/>
+    </CModel>
+    <CModel id="TalentHPBuff" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_HPBuff\Storm_FX_Talent_HPBuff.m3"/>
+        <Priority value="32"/>
+    </CModel>
+    <CModel id="CloakModel">
+        <Model value="Assets\Effects\Storm_FX_Cloaking\Storm_FX_Cloaking.m3"/>
+    </CModel>
+    <CModel id="CloakModelLow">
+        <Model value="Assets\Effects\Storm_FX_Cloaking\Storm_FX_Cloaking_Low.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeBlackKnight" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black\Storm_Merc_KingsCrest_Knight_Black.m3"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_01_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_01_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_02_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_02_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+    </CModel>
+    <CModel id="MercDefenderMeleeBlackKnightDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black_Death\Storm_Merc_KingsCrest_Knight_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerMeleeBlackKnight" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black\Storm_Merc_KingsCrest_Knight_Black.m3"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_01_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_01_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_02_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_02_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+    </CModel>
+    <CModel id="MercLanerMeleeBlackKnightDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black_Death\Storm_Merc_KingsCrest_Knight_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeDockKnight" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Dock\Storm_Merc_KingsCrest_Knight_Dock.m3"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_01_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_01_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_02_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_02_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+    </CModel>
+    <CModel id="MercDefenderMeleeDockKnightDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Dock_Death\Storm_Merc_KingsCrest_Knight_Dock_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerMeleeDockKnight" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Dock\Storm_Merc_KingsCrest_Knight_Dock.m3"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_01_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_01_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_02_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Attack_02_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Whoosh_Shing"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_BlackKnight_Whoosh_Shing"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="BlackKnight_Attack_Vox"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Merc_BlackKnight_Vox_Attack"/>
+        </Events>
+    </CModel>
+    <CModel id="MercLanerMeleeDockKnightDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Dock_Death\Storm_Merc_KingsCrest_Knight_Dock_Death.m3"/>
+    </CModel>
+    <CModel id="GenericImpactBloodMedium" parent="ImpactFX">
+        <Model value="assets\Effects\Physics\Storm_Effect_PhysicsImpact_Flesh_Medium\Storm_Effect_PhysicsImpact_Flesh_Medium.m3"/>
+    </CModel>
+    <CModel id="GenericImpactRockMedium" parent="ImpactFX">
+        <Model value="assets\Effects\Physics\Storm_Effect_PhysicsImpact_Rock_Medium\Storm_Effect_PhysicsImpact_Rock_Medium.m3"/>
+    </CModel>
+    <CModel id="GenericImpactSparkMedium" parent="ImpactFX">
+        <Model value="assets\Effects\Physics\Storm_Effect_PhysicsImpact_Sparks_Medium\Storm_Effect_PhysicsImpact_Sparks_Medium.m3"/>
+    </CModel>
+    <CModel id="FootmanMinionAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_MeleeMinion_Weapon_Impact\Storm_FX_MeleeMinion_Weapon_Impact.m3"/>
+    </CModel>
+    <CModel id="MinionFootmanKingsCrest" parent="Unit" Race="Protoss">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_Melee\Storm_Minion_KingsCrest_Melee.m3"/>
+        <Occlusion value="Show"/>
+        <Radius value="0.375000"/>
+        <SelectionRadius value="0.416500"/>
+        <ShadowRadius value="0.416500"/>
+        <!--<Events>
+            <Anim value="Walk,01"/>
+            <Name value="Fs_Mv_Minioin_Melee"/>
+            <Type value="Sound"/>
+            <Time value="0.297000"/>
+            <Payload value="Fs_Mv_Minioin_Melee"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Fs_Mv_Minioin_Melee"/>
+            <Type value="Sound"/>
+            <Time value="0.630000"/>
+            <Payload value="Fs_Mv_Minioin_Melee"/>
+        </Events>-->
+    </CModel>
+    <CModel id="KingsCrestShieldBearerMinionDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_Melee_Death\Storm_Minion_KingsCrest_Melee_Death.m3"/>
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="KingsCrestShieldBearerMinionDeathRagdoll" parent="UnitDeathRagdoll">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_Melee_DeathRagdoll\Storm_Minion_KingsCrest_Melee_DeathRagdoll.m3"/>
+    </CModel>
+    <CModel id="ShieldBearerMinionAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_MeleeMinion_Weapon_Impact\Storm_FX_MeleeMinion_Weapon_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_HeroDeath" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_HeroDeath\Storm_FX_HeroDeath.m3"/>
+        <RadiusLoose value="0.500000"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Hero_Death_Flare"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Gen_Hero_Death_Flare"/>
+        </Events>
+    </CModel>
+    <CModel id="StormCampHelper">
+        <Model value="Assets\Buildings\Storm_Doodad_MercCampNode\Storm_Doodad_MercCampNode.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_GenericHeal_Impact\Storm_FX_GenericHeal_Impact.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeMissileEnemyAttachment" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeEnemy_Missile\Storm_FX_RegenGlobeEnemy_Missile.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeTeamColor_Missile\Storm_FX_RegenGlobeTeamColor_Missile.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeMissileAllyAttachment" parent="MissileFX">
+        <Model value="assets\Effects\Storm_FX_RegenGlobe_Missile\Storm_FX_RegenGlobe_Missile.m3"/>
+    </CModel>
+    <CModel id="TargetDummy" parent="Unit">
+        <Model value="Assets\Doodads\Storm_Doodad_DummyTarget\Storm_Doodad_DummyTarget.m3"/>
+    </CModel>
+    <CModel id="HealingDummy" parent="Unit">
+        <Model value="Assets\Doodads\Storm_Doodad_DummyTarget_Healing\Storm_Doodad_DummyTarget_Healing.m3"/>
+    </CModel>
+    <CModel id="TargetHeroDummy" parent="Unit">
+        <Model value="Assets\Doodads\Storm_Doodad_HeroDummy\Storm_Doodad_HeroDummy.m3"/>
+    </CModel>
+    <CModel id="KingsCrestBannerMinionDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_Banner_Death\Storm_Minion_KingsCrest_Banner_Death.m3"/>
+    </CModel>
+    <CModel id="KingsCrestBannerMinionDeathRagdoll" parent="UnitDeathRagdoll">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_Melee_DeathRagdoll\Storm_Minion_KingsCrest_Melee_DeathRagdoll.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeAttachment" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobe_Missile\Storm_FX_RegenGlobe_Missile.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeEnemyAttachment" parent="PersistentSpellFX">
+        <Model value="assets\Effects\Storm_FX_RegenGlobeEnemy\Storm_FX_RegenGlobeEnemy.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeEnemy" parent="Unit">
+        <Model value="assets\Effects\Storm_FX_RegenGlobeEnemy\Storm_FX_RegenGlobeEnemy.m3"/>
+    </CModel>
+    <CModel id="FriendlyTargetHelperBeam">
+        <Model value="Assets\Doodads\Shapes\ShapeCylinder\ShapeCylinder.m3"/>
+        <ScaleMax value="0.500000,0.500000,12.000000"/>
+        <ScaleMin value="0.500000,0.500000,12.000000"/>
+    </CModel>
+    <CModel id="MeleeHeroAttackImpact" parent="ImpactFX">
+        <Model value="assets\Effects\Storm_FX_GenericMeleeHero_Impact\Storm_FX_GenericMeleeHero_Impact.m3"/>
+    </CModel>
+    <CModel id="RadarBlipHeroic">
+        <Model value="Assets\UI\Feedback\AIBeaconAssault\AIBeaconAssault.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeOgre" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_Ogre\Storm_Merc_Ogre.m3"/>
+        <RequiredAnims value="Assets\Units\Mercs\Storm_Merc_Ogre_RequiredAnims\Storm_Merc_Ogre_RequiredAnims.m3a"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid04"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid04"/>
+    </CModel>
+    <CModel id="MercDefenderRangedOgre" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black\Storm_Merc_KingsCrest_KnightWizard_Black.m3"/>
+        <RequiredAnims value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_RequiredAnims\Storm_Merc_KingsCrest_KnightWizard_RequiredAnims.m3a"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid03"/>
+        <Radius value="0.375000"/>
+        <SelectionRadius value="0.375000"/>
+        <ShadowRadius value="0.375000"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid03"/>
+    </CModel>
+    <CModel id="MercDefenderRangedOgreDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black_Death\Storm_Merc_KingsCrest_KnightWizard_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedOgreBlackKnight" parent="MercDefenderRangedOgre"/>
+    <CModel id="MercDefenderRangedOgreBlackKnightDeath" parent="MercDefenderRangedOgreDeath"/>
+    <CModel id="MercDefenderRangedOgreDockKnight" parent="MercDefenderRangedOgre">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Dock\Storm_Merc_KingsCrest_KnightWizard_Dock.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedOgreDockKnightDeath" parent="MercDefenderRangedOgreDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Dock_Death\Storm_Merc_KingsCrest_KnightWizard_Dock_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedOgreWhiteKnight" parent="MercDefenderRangedOgre">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_White\Storm_Merc_KingsCrest_KnightWizard_White.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedOgreWhiteKnightDeath" parent="MercDefenderRangedOgreDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_White_Death\Storm_Merc_KingsCrest_KnightWizard_White_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeOgreAttackMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_Placeholder_Fire_Missile\Storm_FX_Placeholder_Fire_Missile.m3"/>
+    </CModel>
+    <CModel id="MegaStunStomp">
+        <Model value="Assets\Effects\Storm_FX_ETC_Base_WarStomp\Storm_FX_ETC_Base_WarStomp.m3"/>
+        <ScaleMax value="1.200000,1.200000,1.000000"/>
+        <ScaleMin value="1.200000,1.200000,1.000000"/>
+    </CModel>
+    <CModel id="VehicleUnoccupied" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_UIArrow01\Storm_FX_UIArrow01.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="CampAggroModel" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Placeholder_RadarBlip\Storm_FX_Placeholder_RadarBlip.m3"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="CampOwnershipFlag" parent="Unit">
+        <Model value="Assets\Buildings\Storm_Doodad_MercCampNode\Storm_Doodad_MercCampNode.m3"/>
+    </CModel>
+    <CModel id="DeadTowerSite" parent="Building">
+        <Model value="Assets\Doodads\SpacePlatformHatch\SpacePlatformHatch.m3"/>
+        <Lighting value=""/>
+        <Radius value="0.750000"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="0.900000"/>
+        <ShadowRadius value="1.176200"/>
+        <SquibTypeDefault value="Rock"/>
+        <Tipability value="1.000000"/>
+    </CModel>
+    <CModel id="NeutralBuildSiteDefault" parent="Building">
+        <Model value="Assets\Doodads\SpacePlatformHatch\SpacePlatformHatch.m3"/>
+        <Lighting value=""/>
+        <Radius value="0.750000"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="0.900000"/>
+        <ShadowRadius value="1.176200"/>
+        <SquibTypeDefault value="Rock"/>
+        <Tipability value="1.000000"/>
+    </CModel>
+    <CModel id="UseVehicleBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_DoubloonCollection_Beam\Storm_FX_DoubloonCollection_Beam.m3"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="TowerAttackBeam" parent="PersistentSpellFX">
+        <Model value="assets\Effects\Storm_FX_Tower_Targeting_Beam\Storm_FX_Tower_Targeting_Beam.m3"/>
+    </CModel>
+    <CModel id="NodeWarpInBeacon" parent="Doodad">
+        <Model value="Assets\Doodads\Storm_Doodad_TechySplats_Gold\Storm_Doodad_TechySplats_Gold_17.m3"/>
+        <SelectionLayer value="1"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="TowerPowerVisual" parent="UI">
+        <Model value="Assets\UI\Feedback\PylonRadius\PylonRadius.m3"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+    </CModel>
+    <CModel id="TowerUnpoweredVisual" parent="UI">
+        <Model value="Assets\UI\Feedback\PylonRadiusUnpowered\PylonRadiusUnpowered.m3"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+    </CModel>
+    <CModel id="MountSmokeScreen" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_Mount_Impact\Storm_FX_Mount_Impact.m3"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="Mount" parent="BuffFX">
+        <Model value="Assets\Units\Terran\Predator\Predator.m3"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="RegenGlobe" parent="Unit">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeTeamColor\Storm_FX_RegenGlobeTeamColor.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeNeutralSpawnMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeShared_Missile\Storm_FX_RegenGlobeShared_Missile.m3"/>
+    </CModel>
+    <CModel id="LoSBlockerColumn" parent="Curtain">
+        <Model value="Assets\Doodads\ShakurasHexColumns\ShakurasHexColumns_05.m3"/>
+    </CModel>
+    <CModel id="ShrubBuff" parent="BuffFX">
+        <Model value="assets\Effects\Storm_FX_Cloak_Icon\Storm_FX_Cloak_Icon.m3"/>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="HealerDudeHealImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Placeholder_Heal_Impact\Storm_FX_Placeholder_Heal_Impact.m3"/>
+        <ScaleMax value="1.750000,1.750000,1.750000"/>
+        <ScaleMin value="1.750000,1.750000,1.750000"/>
+    </CModel>
+    <CModel id="JungleNodeCaptureMarker" parent="Doodad">
+        <Model value="Assets\Doodads\Storm_Building_Luxoria_WatchTower_Splat\Storm_Building_Luxoria_WatchTower_Splat.m3"/>
+        <SelectionRadius value="2.100000"/>
+        <ShadowRadius value="1.999700"/>
+    </CModel>
+    <CModel id="HealSign" parent="Doodad" Race="Neutral">
+        <Model value="Assets\Doodads\Shapes\ShapePlusSign\ShapePlusSign.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_PlayerHeroRing" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_PlayerHeroRing\Storm_FX_PlayerHeroRing.m3"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="Storm_Effect_HeroLevelUp" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_HeroLevelUp\Storm_FX_HeroLevelUp.m3"/>
+    </CModel>
+    <CModel id="StormStun" parent="PersistentSpellFX">
+        <Model value="assets\Effects\Storm_FX_StunA\Storm_FX_StunA.m3"/>
+    </CModel>
+    <CModel id="StormFear" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Guldan_Base_Horrify_Impact\Storm_FX_Guldan_Base_Horrify_Impact.m3"/>
+    </CModel>
+    <CModel id="FlagBearerMinionMissileImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_KingsCrest_Wizard_Missile_Impact\Storm_FX_KingsCrest_Wizard_Missile_Impact.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Storm_FX_MinionRanged_Missile_Launch\Storm_FX_MinionRanged_Missile_Launch.m3"/>
+    </CModel>
+    <CModel id="FlagBearerMinionMissileLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Storm_FX_MinionRanged_Missile_Launch\Storm_FX_MinionRanged_Missile_Launch.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreAttackMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_Minion_RangedUpgradeAOE_Missile\Storm_FX_Minion_RangedUpgradeAOE_Missile.m3"/>
+    </CModel>
+    <CModel id="FlagBearerMinionMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_KingsCrest_Wizard_Missile\Storm_FX_KingsCrest_Wizard_Missile.m3"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="MoneyBag" parent="Unit">
+        <Model value="Assets\Doodads\Shapes\ShapeMoneyBag\ShapeMoneyBag.m3"/>
+        <Lighting value="ShapeMoneyBag"/>
+        <SelectionLayer value="2"/>
+    </CModel>
+    <CModel id="TowerDeadSplat" parent="Splat">
+        <Model value="Assets\Splats\Splat_ProtossBuildingDeath\Splat_ProtossBuildingDeath.m3"/>
+        <Lighting value="ArmorySplat"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="HeroGenericHearthstone@ModelFinal" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_Hearthstone_In\Storm_FX_Hearthstone_In.m3"/>
+    </CModel>
+    <CModel id="HeroGenericHearthstone@ModelChannel" parent="PersistentSpellFX">
+        <Model value="assets\Effects\Storm_FX_Hearthstone_Out\Storm_FX_Hearthstone_Out.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="RecallStartChargeSound"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="RecallFinishChargeSound"/>
+            <Type value="Sound"/>
+            <Time value="0.160000"/>
+        </Events>
+    </CModel>
+    <CModel id="TrueSightBuff" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_DetectorIcon\Storm_FX_DetectorIcon.m3"/>
+    </CModel>
+    <CModel id="MercLanerMeleeOgre" parent="Unit">
+        <Model value="Assets\Units\Mercs\Storm_Merc_OgreMelee\Storm_Merc_OgreMelee.m3"/>
+        <RequiredAnims value="Assets\Units\Mercs\Storm_Merc_Ogre_RequiredAnims\Storm_Merc_Ogre_RequiredAnims.m3a"/>
+        <Lighting value=""/>
+        <Occlusion value="Show"/>
+        <Radius value="0.375000"/>
+        <SelectionRadius value="0.416500"/>
+        <ShadowRadius value="0.416500"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgre" parent="Unit">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black\Storm_Merc_KingsCrest_KnightWizard_Black.m3"/>
+        <RequiredAnims value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_RequiredAnims\Storm_Merc_KingsCrest_KnightWizard_RequiredAnims.m3a"/>
+        <Lighting value=""/>
+        <Occlusion value="Show"/>
+        <Radius value="0.375000"/>
+        <SelectionRadius value="0.340800"/>
+        <ShadowRadius value="0.340800"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black_Death\Storm_Merc_KingsCrest_KnightWizard_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreBlackKnight" parent="MercLanerRangedOgre"/>
+    <CModel id="MercLanerRangedOgreBlackKnightDeath" parent="MercLanerRangedOgreDeath"/>
+    <CModel id="MercLanerRangedOgreDockKnight" parent="MercLanerRangedOgre">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Dock\Storm_Merc_KingsCrest_KnightWizard_Dock.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreDockKnightDeath" parent="MercLanerRangedOgreDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Dock_Death\Storm_Merc_KingsCrest_KnightWizard_Dock_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreWhiteKnight" parent="MercLanerRangedOgre">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_White\Storm_Merc_KingsCrest_KnightWizard_White.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedOgreWhiteKnightDeath" parent="MercLanerRangedOgreDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_White_Death\Storm_Merc_KingsCrest_KnightWizard_White_Death.m3"/>
+    </CModel>
+    <CModel id="HealerDudeAttackBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Placeholder_Heal_Beam\Storm_FX_Placeholder_Heal_Beam.m3"/>
+    </CModel>
+    <CModel id="HeroGenericMount@SummonChannel" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_Mount_SummonChannel\Storm_FX_Mount_SummonChannel.m3"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="AOECone" parent="UI">
+        <Model value="Assets\UI\Cursors\Storm_UI_AOECone_Fantasy\Storm_UI_AOECone_Fantasy.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterSplash_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterSplash_Light\Storm_Effect_WaterSplash_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterSplash_Medium">
+        <Model value="Assets\Doodads\Storm_Doodad_WaterSplash_Med\Storm_Doodad_WaterSplash_Med.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterSplash_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterSplash_Large\Storm_Effect_WaterSplash_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterSplash_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterSplash_Massive\Storm_Effect_WaterSplash_Massive.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterRipple_Light">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterRipple_Light\Storm_Effect_WaterRipple_Light.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterRipple_Medium">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterRipple_Medium\Storm_Effect_WaterRipple_Medium.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterRipple_Large">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterRipple_Large\Storm_Effect_WaterRipple_Large.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_WaterRipple_Massive">
+        <Model value="Assets\Effects\Physics\Storm_Effect_WaterRipple_Massive\Storm_Effect_WaterRipple_Massive.m3"/>
+    </CModel>
+    <CModel id="DefaultLava" parent="Doodad">
+        <Model value="Assets\Water\Lavas\CharLavaPlane\CharLavaPlane.m3"/>
+        <LowQualityModel value="DefaultLavaLow"/>
+    </CModel>
+    <CModel id="TesterUnit" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Test\KaeoCube\KaeoCube.m3"/>
+        <Events>
+            <Anim value="Stand,Victory,00"/>
+            <Name value="SquibStart"/>
+            <Type value="Custom"/>
+            <Time value="3.200000"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Victory,00"/>
+            <Name value="SquibStop"/>
+            <Type value="Custom"/>
+            <Time value="4.650000"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Victory,01"/>
+            <Name value="SquibStart"/>
+            <Type value="Custom"/>
+            <Time value="0.350000"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Victory,01"/>
+            <Name value="SquibStop"/>
+            <Type value="Custom"/>
+            <Time value="2.350000"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid03"/>
+        <Radius value="0.375000"/>
+        <SelectionRadius value="0.375000"/>
+        <ShadowRadius value="0.375000"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid03"/>
+    </CModel>
+    <CModel id="PathingBlocker2x2">
+        <Model value="Assets\Units\Test\KaeoCube\KaeoCube.m3"/>
+    </CModel>
+    <CModel id="PathingBlocker45Degrees">
+        <Model value="Assets\Units\Test\KaeoCube\KaeoCube.m3"/>
+    </CModel>
+    <CModel id="MissingPortrait" parent="Portrait">
+        <Model value="Assets\Portraits\Storm_Portrait_Transition\Storm_Portrait_Transition.m3"/>
+        <Image value="Assets\Textures\storm_portraittransition_static.dds"/>
+    </CModel>
+    <CModel id="QuestTalentCompleteModel">
+        <Model value="assets\Effects\Storm_FX_Talent_Quest_Impact\Storm_FX_Talent_Quest_Impact.m3"/>
+    </CModel>
+    <CModel id="GodRayModel" parent="BuffFX">
+        <Model value="assets\Effects\Storm_FX_HeroCallOut\Storm_FX_HeroCallOut.m3"/>
+        <Flags index="TipabilityLevelOffWhenStationary" value="1"/>
+    </CModel>
+    <CModel id="StormSleep" parent="PersistentSpellFX">
+        <Model value="assets\Effects\Storm_FX_Ana_Base_SleepingDart_Buff\Storm_FX_Ana_Base_SleepingDart_Buff.m3"/>
+    </CModel>
+    <CModel id="UI_RangeSplat" parent="UI">
+        <Model value="assets\UI\Cursors\Storm_UI_TargetingRadiusReticle\Storm_UI_TargetingRadiusReticle.m3"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+    </CModel>
+    <CModel id="StormHeroRing">
+        <Model value="Assets\ui\cursors\storm_effect_targetingradiussplat\storm_effect_targetingradiussplat.m3"/>
+    </CModel>
+    <CModel id="RewardCampBeam" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\SOA_Reinforcements_Beam\SOA_Reinforcements_Beam.m3"/>
+        <EditorCategories value=""/>
+    </CModel>
+    <CModel id="MasterTaunt" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_Prototype_MasteryEmote\Storm_Prototype_MasteryEmote.m3"/>
+    </CModel>
+    <CModel id="LootBannerSconce" parent="Unit">
+        <Model value="assets\loot\storm_lootbanner_sconce\storm_lootbanner_sconce.m3"/>
+    </CModel>
+    <CModel id="HeroGenericCaptureMacGuffin@BeamVFX" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTributeCollection_Beam\Storm_FX_RavenLordTributeCollection_Beam.m3"/>
+        <RadiusLoose value="0.750000"/>
+    </CModel>
+    <CModel id="GolemSpawnKnockback" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Tychus_Base_Grenade_Impact\Storm_FX_Tychus_Base_Grenade_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_HeroRing_Mastery3_Low" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Game\Storm_HeroRing_Mastery_L3\Storm_HeroRing_Mastery_L3_Low.m3"/>
+        <Flags index="EmbeddedSplatsRespectOpacity" value="1"/>
+    </CModel>
+    <CModel id="Storm_HeroRing_Mastery3" parent="PersistentSpellFX">
+        <Model value="HeroRing_Mastery_3.m3"/>
+        <LowQualityModel value="Storm_HeroRing_Mastery3_Low"/>
+        <Flags index="EmbeddedSplatsRespectOpacity" value="1"/>
+    </CModel>
+    <CModel id="Storm_HeroRing_Mastery1_Low" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Game\Storm_HeroRing_Mastery_L1\Storm_HeroRing_Mastery_L1_Low.m3"/>
+        <Flags index="EmbeddedSplatsRespectOpacity" value="1"/>
+    </CModel>
+    <CModel id="Storm_HeroRing_Mastery2_Low" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Game\Storm_HeroRing_Mastery_L2\Storm_HeroRing_Mastery_L2_Low.m3"/>
+        <Flags index="EmbeddedSplatsRespectOpacity" value="1"/>
+    </CModel>
+    <CModel id="Storm_HeroRing_Mastery1" parent="PersistentSpellFX">
+        <Model value="HeroRing_Mastery_1.m3"/>
+        <LowQualityModel value="Storm_HeroRing_Mastery1_Low"/>
+        <Flags index="EmbeddedSplatsRespectOpacity" value="1"/>
+    </CModel>
+    <CModel id="Storm_HeroRing_Mastery2" parent="PersistentSpellFX">
+        <Model value="HeroRing_Mastery_2.m3"/>
+        <LowQualityModel value="Storm_HeroRing_Mastery2_Low"/>
+        <Flags index="EmbeddedSplatsRespectOpacity" value="1"/>
+    </CModel>
+    <CModel id="GameUI_SuperCloakOverlay" parent="UI">
+        <Model value="Assets\UI\Backgrounds\Storm_Overlay_SuperCloak\Storm_Overlay_SuperCloak.m3"/>
+    </CModel>
+</Catalog>

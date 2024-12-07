@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+		<Frame type="Frame" name="HeroSelectAbilitiesPanelActiveAbilTileListTemplate">
+				<Frame type="Frame" name="Item0" template="HeroAbilTileListItem/HeroSelectActiveAbilTileListItemTemplate">
+						<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+						<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+				</Frame>
+		</Frame>
+		
+		<Frame type="Frame" name="HeroSelectAbilitiesPanelPassiveAbilTileListTemplate">
+			<Frame type="Frame" name="Item0" template="HeroAbilTileListItem/HeroSelectPassiveAbilTileListItemTemplate">
+					<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			</Frame>
+	</Frame>
+
+    <Frame type="Frame" name="HeroSelectAbilitiesPanelBasicAbilTileListTemplate">
+        <Frame type="Frame" name="Item0" template="HeroAbilTileListItem/HeroSelectBasicAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent/Item1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="Item1" template="HeroAbilTileListItem/HeroSelectBasicAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent/Item2" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="Item2" template="HeroAbilTileListItem/HeroSelectBasicAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent/Item3" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+        
+        <Frame type="Frame" name="Item3" template="HeroAbilTileListItem/HeroSelectBasicAbilTileListItemTemplate">
+           <!-- <Anchor side="Top" relative="$parent/Item2" pos="Max" offset="-3"/>-->
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="HeroSelectAbilitiesPanelHeroicAbilTileListTemplate">
+
+        <Frame type="Frame" name="Item1" template="HeroAbilTileListItem/HeroSelectHeroAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent/Item2" pos="Min" offset="3"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <!--<Frame type="Frame" name="Item2" template="HeroAbilTileListItem/HeroSelectHeroAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>-->
+				<Frame type="Frame" name="Item2" template="HeroAbilTileListItem/HeroSelectHeroAbilTileListItemTemplate">
+					<Anchor side="Bottom" relative="$parent/Item3" pos="Min" offset="3"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			</Frame>
+
+        <Frame type="Frame" name="Item3" template="HeroAbilTileListItem/HeroSelectHeroAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="HeroSelectAbilitiesPanelTraitAbilTileListTemplate">
+        <Frame type="Frame" name="Item0" template="HeroAbilTileListItem/HeroSelectBasicAbilTileListItemTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="HeroSelectAbilitiesPanelTemplate" template="HeroSelectCustomizePanel/HeroSelectCustomizePanelTemplate">
+        <Anchor side="Top" relative="BorderImage" pos="Min" offset="0"/>
+        <RenderPriority val="535"/>
+        <!--<RenderType val="LDR"/>-->
+        <Width val="458"/>
+        <VisibilityOnFade val="true"/>
+
+        <Frame type="BlurFrame" name="BlurBackground">
+            <Anchor relative="$parent/BorderImage"/>
+            <BlurAmount val="0.8"/>
+            <RenderPriority val="399"/>
+            <AcceptsMouse val="true"/>
+            
+            <Frame type="Image" name="LowImage">
+                <Anchor relative="$parent" />
+                <TextureType val="Normal"/>
+                <Texture val="@UI/Storm_Generic_Background_Low"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent/HeroContainerFrame" pos="Min" offset="-7"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <RenderPriority val="400"/>
+            <TextureType val="Nineslice"/>
+            <Texture val="@UI/Storm_Generic_SmallPanel_Border"/>
+        </Frame>
+
+        <Frame type="Image" name="ArrowImage">
+            <Anchor side="Top" relative="$parent" pos="Max" offset="-47"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Unclipped val="true"/>
+            <RenderPriority val="401"/>
+            <Width val="140"/>
+            <Height val="72"/>
+            <Texture val="@UI/Storm_UI_Generic_SmallPanelArrow_Large_Mid"/>
+        </Frame>
+
+        <Frame type="Button" name="CloseButton" template="StandardTemplatesStorm/SmallPanelCloseButtonTemplate">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-6"/>
+            <Shortcut val="@UI/ScreenNavigationBack_Hotkey"/>
+            <Animation name="CloseAnimation">
+              <Event event="OnClick" action="Reset,Play" frame="$this"/>
+              <Controller type="Property" end="Pause" frame="$parent/$parent/AbilitiesButton" property="Toggled">
+                <Key type="Property" time="0.0" value="False"/>
+              </Controller>
+            </Animation>
+        </Frame>
+        
+        <Frame type="PurchaseInfoPanel" name="PurchaseInfoPanel">
+            <Alpha val="0"/>
+            <Visible val="false"/>
+        </Frame>
+        
+        <Frame type="PurchaseCurrencySelectPanel" name="PurchaseCurrencySelectPanel">
+            <FrameHandlePrefix val="HeroSelectAbilitiesPanel"/>
+            <Visible val="false"/>
+        </Frame>
+
+        <Frame type="Frame" name="HeroContainerFrame" template="HeroSelectCustomizePanel/HeroContainerFrameTemplate">
+            <Anchor side="Bottom" relative="$parent/PairedHeroFrameInvisiblePadding" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="-14"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="PairedHeroFrameInvisiblePadding">
+          <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="4" />
+          <Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4" />
+          <Anchor side="Bottom" relative="$parent/PairedHeroFrame" pos="Min" offset="22" />
+          <Height val="20" />
+          <CollapseLayout val="True" />
+          <Visible val="False"/>
+        </Frame>
+        <StateGroup name="PairedHeroVisibility">
+          <DefaultState val="PairedHeroHidden" />
+          <State name="PairedHeroVisible">
+            <When type="Property" frame="PairedHeroFrame/PairedHeroTileList" visible="true" />
+            <Action type="SetProperty" frame="PairedHeroFrame" visible="true" />
+            <Action type="SetProperty" frame="PairedHeroFrameInvisiblePadding" visible="false" />
+          </State>
+          <State name="PairedHeroHidden">
+            <Action type="SetProperty" frame="PairedHeroFrame" visible="false" />
+            <Action type="SetProperty" frame="PairedHeroFrameInvisiblePadding" visible="true" />
+          </State>
+        </StateGroup>
+        <Frame type="Frame" name="PairedHeroFrame">
+          <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="4" />
+          <Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4" />
+          <Anchor side="Bottom" relative="$parent/ActiveTileList" pos="Min" offset="20" />
+          <Height val="98" />
+          <Width val="0" />
+          <CollapseLayout val="True" />
+          <RenderPriority val="513" />
+          <Frame type="Image" name="BorderLineImage">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Min" offset="0" />
+            <Anchor side="Left" relative="$parent" pos="Min" offset="2" />
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-2" />
+            <Alpha val="186" />
+            <Color val="5c47b3" />
+            <Height val="1" />
+            <SnapToDevicePixels val="True"/>
+            <SubpixelRendering val="True"/>
+          </Frame>
+          <Frame type="Frame" name="AnchorFrame">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+            <Height val="62" />
+          </Frame>
+          <Frame type="Label" name="FormLabel">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10" />
+            <Anchor side="Right" relative="$parent/PairedHeroTileList/Item0" pos="Min" offset="15" />
+            <Options val="Ellipsis|NoWrapping|ScaleToPreventTruncation" />
+            <Style val="HeroSelectPanelFormLabel" />
+          </Frame>
+          <Frame type="Frame" name="PairedHeroTileList" template="PairedHeroTileList/PairedHeroTileListSmallTemplate">
+            <Anchor side="Top" relative="$parent/AnchorFrame" pos="Mid" offset="0" />
+            <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Mid" offset="0" />
+            <Anchor side="Right" relative="$parent" pos="Max" offset="5" />
+          </Frame>
+					<StateGroup name="AttachmentState">
+						<State name="AttachToPassive">
+							<When type="Property" frame="$parent/ActiveTileList" Visible="False" />
+							<When type="Property" frame="$parent/PassiveTileList" Visible="True" />
+							<Action type="SetAnchor" frame="$this" side="Bottom" relative="$parent/PassiveTileList" pos="Min" offset="20"/>
+						</State>
+						<State name="AttachToBasic">
+							<When type="Property" frame="$parent/ActiveTileList" Visible="False" />
+							<When type="Property" frame="$parent/PassiveTileList" Visible="False" />
+							<Action type="SetAnchor" frame="$this" side="Bottom" relative="$parent/AbilTileList" pos="Min" offset="20"/>
+						</State>
+					</StateGroup>
+        </Frame>
+
+        <Frame type="Frame" name="ActiveTileList" template="HeroSelectAbilitiesPanel/HeroSelectAbilitiesPanelActiveAbilTileListTemplate">
+					<Anchor side="Top" relative="Item0" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="0"/>
+					<Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4"/>
+					<Anchor side="Bottom" relative="$parent/PassiveTileList" pos="Min" offset="0"/>
+					<CollapseLayout val="True"/>
+					<Visible val="{Item0/@Visible}"/>
+					<Width val="0"/>
+				</Frame>
+
+        <Frame type="Frame" name="PassiveTileList" template="HeroSelectAbilitiesPanel/HeroSelectAbilitiesPanelPassiveAbilTileListTemplate">
+					<Anchor side="Top" relative="Item0" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="0"/>
+					<Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4"/>
+					<Anchor side="Bottom" relative="$parent/AbilTileList" pos="Min" offset="0"/>
+					<CollapseLayout val="True"/>
+					<Width val="0"/>
+					<Visible val="{Item0/@Visible}"/>
+				</Frame>
+
+        <Frame type="Frame" name="AbilTileList" template="HeroSelectAbilitiesPanel/HeroSelectAbilitiesPanelBasicAbilTileListTemplate">
+            <Anchor side="Top" relative="Item0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4"/>
+            <Anchor side="Bottom" relative="$parent/TraitTileList" pos="Min" offset="0"/>
+						<CollapseLayout val="True"/>
+            <Width val="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="TraitTileList" template="HeroSelectAbilitiesPanel/HeroSelectAbilitiesPanelTraitAbilTileListTemplate">
+            <Anchor side="Top" relative="Item0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4"/>
+            <Anchor side="Bottom" relative="$parent/HeroicTileList" pos="Min" offset="0"/>
+						<CollapseLayout val="True"/>
+            <Width val="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="HeroicTileList" template="HeroSelectAbilitiesPanel/HeroSelectAbilitiesPanelHeroicAbilTileListTemplate">
+            <Anchor side="Top" relative="Item1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BlurBackground" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BlurBackground" pos="Max" offset="-4"/>
+            <Anchor side="Bottom" relative="$parent/BlurBackground" pos="Max" offset="0"/>
+						<CollapseLayout val="True"/>
+            <Width val="0"/>
+        </Frame>
+
+        <Animation name="SlideInSound">
+            <Event event="OnShown" action="DirectionForward,Play"/>
+            <Event event="OnHidden" action="DirectionReverse,Play"/>
+            <Controller type="Sound" end="Pause">
+                <Key type="Sound" time="0.00" sound="@UI_BNet_HeroDetailsOpen" direction="Forward"/>
+                <Key type="Sound" time="0.175" sound="@UI_BNet_HeroDetailsClose" direction="Reverse"/>
+            </Controller>
+        </Animation>
+    </Frame>
+</Desc>

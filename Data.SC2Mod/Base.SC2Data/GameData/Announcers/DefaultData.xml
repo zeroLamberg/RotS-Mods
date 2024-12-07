@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="Announcer_Default@Preview" parent="AnnouncerVO_Preview" aid="Bogus">
+        <AssetArray index="0" File="LocalizedData\Sounds\VO\RavenLord_GameStart00.ogg"/>
+        <AssetArray index="1" File="LocalizedData\Sounds\VO\Blackheart_GameStart00.ogg"/>
+        <AssetArray index="2" File="LocalizedData\Sounds\VO\GardensDayAnnouncer_GameStart00.ogg"/>
+        <AssetArray index="3" File="LocalizedData\Sounds\VO\LadyofThorns_GameStart00.ogg"/>
+        <AssetArray index="4" File="LocalizedData\Sounds\VO\SnakeGod_GameStart00.ogg"/>
+    </CSound>
+    <CDataCollection id="Announcer_Default">
+        <DataRecord Entry="Sound,Announcer_Default@Preview"/>
+        <EditorCategories value="StormDataGroup:VO"/>
+    </CDataCollection>
+</Catalog>

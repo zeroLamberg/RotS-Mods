@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="CursedHollowCoreCurse@Damage" parent="StormPurePercent">
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="CursedHollowCoreCurse@ApplyCooldown">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CursedHollowCoreCurse@Cooldown"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="CursedHollowCoreCurse@InitialSet">
+        <EffectArray value="CursedHollowCoreCurse@Persistent"/>
+    </CEffectSet>
+    <CEffectSet id="RavenLordsCurseDummyEffect"/>
+    <CEffectEnumArea id="CursedHollowCoreCurse@InitialSearchRandom">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,Creep,NoTowerAggro,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSRandom"/>
+        </TargetSorts>
+        <AreaArray MaxCount="1" Radius="12" Effect="CursedHollowCoreCurse@Persistent"/>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="CursedHollowCoreCurse@Persistent">
+        <InitialEffect value="CursedHollowCoreCurse@ApplyCooldown"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="CursedHollowCoreCurse@PreDetonationDummy"/>
+        <PeriodicEffectArray value="CursedHollowCoreCurse@Search"/>
+        <PeriodicPeriodArray value="1.5"/>
+        <PeriodicPeriodArray value="0.5"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="CursedHollowCoreCurse@PreDetonationDummy">
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectEnumArea id="CursedHollowCoreCurse@Search">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,Creep,NoTowerAggro,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.5" Effect="CursedHollowCoreCurse@SearchImpactSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="CursedHollowCoreCurse@SearchImpactSet">
+        <EffectArray value="CursedHollowCoreCurse@Damage"/>
+        <EffectArray value="CursedHollowCoreCurse@ApplyBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="CursedHollowCoreCurse@ApplyBehavior">
+        <Behavior value="CursedHollowCoreCurse"/>
+    </CEffectApplyBehavior>
+    <CAbilEffectTarget id="CursedHollowCoreCurse">
+        <Effect value="CursedHollowCoreCurse@InitialSet"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Cooldown Location="Unit" TimeUse="3"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CursedHollowCoreCurse"/>
+        <TargetFilters value="Heroic;Player,Ally,Neutral,Creep,NoTowerAggro,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="8"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Heroic;Player,Ally,Neutral,Light,Armored,Mechanical,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AutoCastRange value="8"/>
+        <AutoCastValidatorArray value="TargetIsHero"/>
+    </CAbilEffectTarget>
+    <CValidatorUnitType id="UnitIsTearOfElune">
+        <Value value="RavenLordTribute"/>
+    </CValidatorUnitType>
+    <CValidatorPlayerRequirement id="RavenCurseIsCursed">
+        <Find value="1"/>
+        <Value value="RavenCurseIsCursed"/>
+    </CValidatorPlayerRequirement>
+    <CRequirement id="RavenCurseIsCursed">
+        <NodeArray index="Use" Link="CountUpgradeRavenCurseIsCursedCompleteOnly"/>
+    </CRequirement>
+    <CButton id="CursedHollowCoreCurse" parent="StormButtonParentHideInfo">
+        <Icon value="Assets\Textures\ui_targetportrait_cursedhollow_curseicon.dds"/>
+    </CButton>
+    <CRequirementCountUpgrade id="CountUpgradeRavenCurseIsCursedCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="RavenCurseIsCursed" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CLight id="StormRavenCourt" parent="default">
+        <ToDInfoArray index="0">
+            <Id value="StormRavenCourt"/>
+            <AmbientColor value="0.156863,0.196078,0.196078"/>
+            <OperatorHDR value="4"/>
+            <Colorize value="1"/>
+            <Param index="HDRExposure" value="2.300000"/>
+            <Param index="HDRBloomThreshold" value="0.900000"/>
+            <Param index="HDRWhitePoint" value="1.850000"/>
+            <Param index="TerrainSpecularExp" value="11.210000"/>
+            <Param index="TerrainHDRDiffuse" value="1.285000"/>
+            <Param index="CreepSpecularExp" value="30.000000"/>
+            <Param index="CreepHDRSpecMultiplier" value="3.000000"/>
+            <Param index="ColorizationInputGamma" value="1.500000"/>
+            <Param index="ColorizationBrightness" value="1.050000"/>
+            <Param index="ColorizationContrast" value="1.050000"/>
+            <Param index="ColorizationHue" value="-0.001000"/>
+            <Param index="ColorizationSaturation" value="0.200000"/>
+            <Param index="ColorizationLightness" value="0.200000"/>
+            <Param index="ColorizationBlend" value="0.300000"/>
+            <DirectionalLight index="Key">
+                <Color value="0.356863,0.411765,0.592157"/>
+                <ColorMultiplier value="2.000000"/>
+                <SpecColorMultiplier value="1.250000"/>
+                <Direction value="0.647974,-0.127480,-0.750919"/>
+            </DirectionalLight>
+            <DirectionalLight index="Fill" Color="0.352941,0.352941,0.352941" ColorMultiplier="0.300000" Direction="-0.836095,0.266028,-0.479764"/>
+            <DirectionalLight index="Back" ColorMultiplier="1.000000" Direction="-0.871676,-0.196760,0.448851"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <Variations Command="LessSaturation" Sensitivity="1"/>
+            <LightRegions index="1" AmbientColor="0.003922,0.003922,0.003922" SpecularColor="0.003922,0.003922,0.003922" SpecularMultiplier="0.000000">
+                <DiffuseColor index="Key" value="0.003922,0.003922,0.003922"/>
+                <DiffuseColor index="Fill" value="0.003922,0.003922,0.003922"/>
+                <DiffuseColor index="Back" value="0.003922,0.003922,0.003922"/>
+                <DiffuseMultiplier index="Key" value="0.000000"/>
+                <DiffuseMultiplier index="Fill" value="0.000000"/>
+                <DiffuseMultiplier index="Back" value="0.000000"/>
+            </LightRegions>
+        </ToDInfoArray>
+        <ToDInfoArray/>
+        <EditorCategories value="LightGroup:Tilesets"/>
+    </CLight>
+    <CLight id="StormRavenCourtCurseFinal" parent="default">
+        <ToDInfoArray index="0">
+            <Id value="StormRavenCourtCurseFinal"/>
+            <AmbientColor value="0.396078,0.349020,0.666667"/>
+            <OperatorHDR value="4"/>
+            <Colorize value="1"/>
+            <Param index="HDRExposure" value="1.650000"/>
+            <Param index="HDRBloomThreshold" value="0.900000"/>
+            <Param index="HDRWhitePoint" value="1.850000"/>
+            <Param index="TerrainSpecularExp" value="73.000000"/>
+            <Param index="CreepSpecularExp" value="30.000000"/>
+            <Param index="CreepHDRSpecMultiplier" value="3.000000"/>
+            <Param index="ColorizationInputHigh" value="0.975000"/>
+            <Param index="ColorizationHue" value="-0.000000"/>
+            <Param index="ColorizationBlend" value="0.000000"/>
+            <DirectionalLight index="Key">
+                <Color value="0.521569,0.368627,0.686275"/>
+                <ColorMultiplier value="1.000000"/>
+                <SpecColorMultiplier value="1.250000"/>
+                <Direction value="0.647974,-0.127480,-0.750919"/>
+            </DirectionalLight>
+            <DirectionalLight index="Fill" Color="0.349020,0.349020,0.298039" ColorMultiplier="0.300000" Direction="-0.836095,0.266028,-0.479764"/>
+            <DirectionalLight index="Back" Color="0.521569,0.364706,0.686275" ColorMultiplier="0.300000" Direction="0.649337,-0.120347,-0.750919"/>
+        </ToDInfoArray>
+        <ToDInfoArray/>
+        <EditorCategories value="LightGroup:Tilesets"/>
+    </CLight>
+    <CLight id="StormRavenCourtFinal" parent="default">
+        <ToDInfoArray index="0">
+            <Id value="StormRavenCourtFinal"/>
+            <AmbientColor value="0.517647,0.454902,0.627451"/>
+            <OperatorHDR value="4"/>
+            <Colorize value="1"/>
+            <Param index="HDRExposure" value="1.650000"/>
+            <Param index="HDRBloomThreshold" value="0.900000"/>
+            <Param index="HDRWhitePoint" value="1.850000"/>
+            <Param index="TerrainSpecularExp" value="73.000000"/>
+            <Param index="CreepSpecularExp" value="30.000000"/>
+            <Param index="CreepHDRSpecMultiplier" value="3.000000"/>
+            <Param index="ColorizationInputHigh" value="0.975000"/>
+            <Param index="ColorizationLightness" value="-0.000000"/>
+            <Param index="ColorizationBlend" value="0.000000"/>
+            <DirectionalLight index="Key">
+                <Color value="0.886275,0.886275,0.792157"/>
+                <ColorMultiplier value="1.000000"/>
+                <SpecularColor value="0.909804,0.913725,1.000000"/>
+                <SpecColorMultiplier value="1.250000"/>
+                <Direction value="0.647974,-0.127480,-0.750919"/>
+            </DirectionalLight>
+            <DirectionalLight index="Fill" Color="0.349020,0.349020,0.313726" ColorMultiplier="0.300000" Direction="-0.836095,0.266028,-0.479764"/>
+            <DirectionalLight index="Back" Color="0.886275,0.886275,0.780392" ColorMultiplier="0.250000" Direction="0.700037,-0.125326,-0.703023"/>
+        </ToDInfoArray>
+        <ToDInfoArray/>
+        <EditorCategories value="LightGroup:Tilesets"/>
+    </CLight>
+    <CLight id="StormRavenCourtCurseTransition" parent="default">
+        <ToDInfoArray index="0">
+            <Id value="StormRavenCourtCurseTransition"/>
+            <AmbientColor value="0.392157,0.349020,1.000000"/>
+            <OperatorHDR value="4"/>
+            <Colorize value="1"/>
+            <Param index="HDRExposure" value="1.650000"/>
+            <Param index="HDRBloomThreshold" value="0.900000"/>
+            <Param index="HDRWhitePoint" value="1.850000"/>
+            <Param index="TerrainSpecularExp" value="73.000000"/>
+            <Param index="CreepSpecularExp" value="30.000000"/>
+            <Param index="CreepHDRSpecMultiplier" value="3.000000"/>
+            <Param index="ColorizationInputHigh" value="0.975000"/>
+            <Param index="ColorizationHue" value="-0.000000"/>
+            <Param index="ColorizationBlend" value="0.000000"/>
+            <DirectionalLight index="Key">
+                <Color value="0.521569,0.396078,0.686275"/>
+                <ColorMultiplier value="1.000000"/>
+                <SpecColorMultiplier value="1.250000"/>
+                <Direction value="0.647974,-0.127480,-0.750919"/>
+            </DirectionalLight>
+            <DirectionalLight index="Fill" Color="0.349020,0.349020,0.298039" ColorMultiplier="0.300000" Direction="-0.836095,0.266028,-0.479764"/>
+            <DirectionalLight index="Back" Color="0.521569,0.364706,0.686275" ColorMultiplier="0.300000" Direction="0.649337,-0.120347,-0.750919"/>
+        </ToDInfoArray>
+        <ToDInfoArray/>
+        <EditorCategories value="LightGroup:Tilesets"/>
+    </CLight>
+    <CLight id="Storm_RavenCourt_Curse" parent="default">
+        <ToDInfoArray index="0">
+            <Id value="StormKingsCrestALL"/>
+            <AmbientColor value="0.070588,0.082353,0.211765"/>
+            <OperatorHDR value="4"/>
+            <Colorize value="1"/>
+            <Param index="HDRExposure" value="2.300000"/>
+            <Param index="HDRBloomThreshold" value="0.900000"/>
+            <Param index="HDRWhitePoint" value="1.850000"/>
+            <Param index="TerrainSpecularExp" value="11.210000"/>
+            <Param index="TerrainHDRDiffuse" value="1.830000"/>
+            <Param index="CreepSpecularExp" value="30.000000"/>
+            <Param index="CreepHDRSpecMultiplier" value="3.000000"/>
+            <Param index="ColorizationInputGamma" value="1.500000"/>
+            <Param index="ColorizationBrightness" value="1.050000"/>
+            <Param index="ColorizationContrast" value="1.050000"/>
+            <Param index="ColorizationHue" value="-0.001000"/>
+            <Param index="ColorizationSaturation" value="0.200000"/>
+            <Param index="ColorizationLightness" value="0.200000"/>
+            <Param index="ColorizationBlend" value="0.300000"/>
+            <DirectionalLight index="Key">
+                <Color value="0.141176,0.211765,0.411765"/>
+                <ColorMultiplier value="2.723000"/>
+                <SpecColorMultiplier value="1.250000"/>
+                <Direction value="0.647974,-0.127480,-0.750919"/>
+            </DirectionalLight>
+            <DirectionalLight index="Fill" Color="0.352941,0.352941,0.352941" ColorMultiplier="0.300000" Direction="-0.836095,0.266028,-0.479764"/>
+            <DirectionalLight index="Back" ColorMultiplier="1.000000" Direction="-0.871676,-0.196760,0.448851"/>
+        </ToDInfoArray>
+        <ToDInfoArray/>
+        <EditorCategories value="LightGroup:Tilesets"/>
+    </CLight>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_CC_V2">
+        <On index="0" Send="Create SoundEmitter Doodad_Storm_Doodad_KingsCrest_RavenCourt_Jungle_CC"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_CurtainLarge" parent="StormDoodadCurtainParent">
+        <Footprint value="ShrubFootprint2x2"/>
+        <On Terms="ActorCreation; IsInEditor" Send="Create 2x2CurtainEditorHelper"/>
+        <On Terms="Signal.*.BrushTintOn" Send="SetTintColor {151,230,147 1.800000} 0.650000 Bounce TargetingTint"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Tree">
+        <Aliases value="_DoodadImpactEffects"/>
+        <On Terms="ActorCreation" Send="StatusSet Animating 0"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 0; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 1; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 2; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 3; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 4; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree01Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 5; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 6; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 7; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; ModelVariation 8; IsStatus Animating 0" Send="Create StormKingsCrestRavenCourtTree00Impact"/>
+        <On Terms="Signal.*.DoodadImpacted; IsStatus Animating 0" Send="TimerSet 1.500000 ResetAnimation"/>
+        <On Terms="Signal.*.DoodadImpacted; IsStatus Animating 0" Send="StatusSet Animating 1"/>
+        <On Terms="TimerExpired; TimerName ResetAnimation" Send="StatusSet Animating 0"/>
+        <ModelFlags index="OutlineOccluder" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorRegionCircle id="StormDoodadRavenCourtPillarAnimMonitor">
+        <On Terms="ActorCreation" Send="QueryPersistent StormDoodadPopUpRavenCourtPillar {} AgainstRadiusVisual 0.500000"/>
+        <On Terms="Signal.*.PopUp" Target="::Creator" Send="StatusIncrement NumUnits"/>
+        <Radius value="3.000000"/>
+    </CActorRegionCircle>
+    <CActorQueryResponse id="StormDoodadPopUpRavenCourtPillar">
+        <EditorCategories value=""/>
+        <Subject Filters="Unit" Terms="ValidateUnit PillarQueryValidatorCombined"/>
+        <OnResponse Target="::QueryDirector" Send="Signal PopUp"/>
+    </CActorQueryResponse>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillar">
+        <Aliases value="_WatchTowerPillar"/>
+        <Macros value="WatchTowerPillarMacro"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_KingsCrest_RavencourtPillar_TEST">
+        <RandomScaleRange value="1.000000,1.000000"/>
+        <On Terms="ActorCreation" Send="AnimPlay Derp Work PlayForever"/>
+        <Model value="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillar"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillar_Broken">
+        <RandomScaleRange value="1.000000,1.000000"/>
+        <On Terms="ActorCreation" Send="Create StormDoodadRavenCourtPillarAnimMonitor"/>
+        <On Terms="StatusOn.*.NumUnits; AnimPlaying Stand" Send="AnimClear Stand"/>
+        <On Terms="StatusOn.*.NumUnits; AnimPlaying Stand" Send="$Death"/>
+        <On Terms="AnimDone; AnimName Death" Send="AnimPlay Dead Dead PlayForever"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Haybale">
+        <EditorCategories value="DoodadType:Environment"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_BigChunkyRock">
+        <EditorCategories value="DoodadType:Environment"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_HayBundle">
+        <EditorCategories value="DoodadType:Environment"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_HayRoll">
+        <EditorCategories value="DoodadType:Environment"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_House">
+        <EditorCategories value="DoodadType:Environment"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_AA">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_BB">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_CC">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_DD">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_EE">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_R">
+        <EditorCategories value="DoodadType:Environment"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_A">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_B">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_C">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_D">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_E">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_F">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_G">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_H">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_I">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_J">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_K">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_L">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_M">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_N">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_O">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_P">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_Q">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_S">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_T">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_U">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_W">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_X">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_Y">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_Z">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_Kingscrest_Ravencourt_CorePlatform">
+        <TexSets value="StormKingsCrestRavenCourt"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_CoreRange">
+        <Aliases value="_CreepEngulfable"/>
+        <CreepHeightClass value="Default"/>
+        <CreepRateGrow value="Grow"/>
+        <CreepRateShrink value="Shrink"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillarBase">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <ModelFlags index="OutlineOccluder" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_Banners_Ravencourt">
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorModel id="StormKingsCrestRavenCourtTree00Impact" parent="StormModelAnimationStyleOneShot">
+        <Macros value="GlobalLoopMacro"/>
+        <HostSiteOps Ops="SOpShadow SOpMoveUpBy2"/>
+    </CActorModel>
+    <CActorModel id="StormKingsCrestRavenCourtTree01Impact" parent="StormModelAnimationStyleOneShot">
+        <Macros value="GlobalLoopMacro"/>
+        <HostSiteOps Ops="SOpShadow SOpMoveUpBy2"/>
+    </CActorModel>
+    <CActorDoodad id="Storm_KingsCrest_Emblem_RavenCourt">
+        <RandomScaleRange value="1.000000,1.000000"/>
+        <Aliases value="_CreepEngulfable"/>
+        <CreepHeightClass value="Default"/>
+        <CreepRateGrow value="Grow"/>
+        <CreepRateShrink value="Shrink"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenCourt_Curtain" parent="StormDoodadCurtainParent">
+        <Footprint value="ShrubFootprint1x1"/>
+        <On Terms="ActorCreation; IsInEditor" Send="Create 1x1CurtainEditorHelper"/>
+        <On Terms="Signal.*.BrushTintOn" Send="SetTintColor {151,230,147 1.800000} 0.650000 Bounce TargetingTint"/>
+    </CActorDoodad>
+    <CActorDoodad id="StormKingsCrestCurtainRavenCourtNoVisionBlocking" parent="Storm_Doodad_KingsCrest_RavenCourt_Curtain">
+        <Footprint value=""/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_KingsCrest_RavenBush">
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="StormKingsCrestRaven">
+        <RandomScaleRange value="1.000000,1.000000"/>
+        <On Terms="ActorCreation" Send="Create StormDoodadAnimMonitor"/>
+        <On Terms="StatusOn.*.NumUnits; !AnimPlaying FlyAway" Send="AnimClear Stand"/>
+        <On Terms="StatusOn.*.NumUnits; !AnimPlaying FlyAway" Send="AnimPlay FlyAway Stand,Cover"/>
+        <On Terms="AnimDone; AnimName FlyAway" Send="Destroy Immediate"/>
+        <Model value="StormKingsCrestNormalRaven"/>
+    </CActorDoodad>
+    <CActorDoodad id="StormKingsCrestWallRaven">
+        <Aliases value="_BirdPerchedAnimation"/>
+        <On Terms="Signal.*.AnimateFlyAway; !AnimPlaying FlyAway" Send="AnimClear Stand"/>
+        <On Terms="Signal.*.AnimateFlyAway; !AnimPlaying FlyAway" Send="AnimPlay FlyAway Stand,Cover"/>
+        <On Terms="AnimDone; AnimName FlyAway" Send="Destroy Immediate"/>
+        <Model value="StormKingsCrestNormalRaven"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="StormKingsCrestPermanentRaven">
+        <Model value="StormKingsCrestFearlessRaven"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Effect_DarkRaven_Base_Fly">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+        <Aliases value="_MMAnimMonitor"/>
+        <Macros value="StormDoodadMMAnimMonitor"/>
+        <Remove Terms="ActorCreation" Send="$Stand PlayForever,RandomStartOffset"/>
+        <Remove Terms="ActorCreation" Send="$Stand PlayForever,RandomStartOffset"/>
+        <On Terms="ActorCreation" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="AnimPlay On Dead PlayForever"/>
+        <On Terms="ActorCreation" Send="StatusIncrement MM1On"/>
+        <On Terms="StatusOn.*.MM1On; IsStatus Available 1" Send="TimerSet 0.000000,1.500000 Activate"/>
+        <On Terms="StatusOff.*.MM1On; IsStatus Available 1" Send="TimerSet 0.000000,1.500000 Deactivate"/>
+        <On Terms="TimerExpired; TimerName Activate" Send="AnimClear On"/>
+        <On Terms="TimerExpired; TimerName Activate" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="TimerExpired; TimerName Deactivate" Send="AnimBracketStop BSD"/>
+        <On Terms="TimerExpired; TimerName Deactivate" Send="AnimPlay On Dead PlayForever"/>
+        <On Terms="ActorCreation" Send="StatusSet Available 0"/>
+        <On Terms="ActorCreation" Send="TimerSet 5.000000 Available"/>
+        <On Terms="TimerExpired; TimerName Available" Send="StatusSet Available 1"/>
+        <On Terms="StatusOn.*.MM1On" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="StatusOff.*.MM1On" Send="AnimBracketStop BSD"/>
+        <On Terms="StatusOff.*.MM1On" Send="AnimPlay On Dead PlayForever"/>
+        <On Terms="StatusOn.*.MM1On" Send="AnimClear On"/>
+        <Flags index="SuppressSaveLoad" value="0"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Effect_DarkRaven_Base">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+        <Aliases value="_MMAnimMonitor"/>
+        <Macros value="StormDoodadMMAnimMonitor"/>
+        <Remove Terms="ActorCreation" Send="$Stand PlayForever,RandomStartOffset"/>
+        <On Terms="ActorCreation" Send="StatusIncrement MM1On"/>
+        <On Terms="StatusOn.*.MM1On" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="StatusOff.*.MM1On" Send="AnimBracketStop BSD"/>
+        <On Terms="StatusOff.*.MM1On" Send="AnimPlay On Dead PlayForever"/>
+        <On Terms="StatusOn.*.MM1On" Send="AnimClear On"/>
+    </CActorDoodad>
+    <CActorSimple id="RavenCurseSimple">
+        <On Terms="Behavior.RavenLordsCurseUnits.On" Send="SetTintColor 207,159,255 0.000000 OneShot RavenCurse"/>
+        <On Terms="Behavior.RavenLordsCurseUnits.Off" Send="ClearTintColor 0.000000 RavenCurse"/>
+    </CActorSimple>
+    <CActorSound id="RavenCurseTributeSpawnSound" parent="SoundOneShot">
+        <Sound value="Event_RavenCurse_TributeSpawn"/>
+        <FogVisibility value="Visible"/>
+    </CActorSound>
+    <CActorSound id="RavenCurseCollectTributeSound" parent="SoundContinuous">
+        <Sound value="Event_RavenCurse_CollectTributeLoop"/>
+    </CActorSound>
+    <CActorSound id="RavenCurseCurseStartSound" parent="SoundOneShot">
+        <Sound value="Event_RavenCurse_CurseStart"/>
+        <Filter index="All" value="1"/>
+        <VisibleTo index="Self" value="1"/>
+        <VisibleTo index="Ally" value="1"/>
+        <VisibleTo index="Enemy" value="1"/>
+        <Macros value="HeroVorazunVoid@Macro"/>
+    </CActorSound>
+    <CActorSound id="RavenCurseCurseEndSound" parent="SoundOneShot">
+        <Sound value="Event_RavenCurse_CurseEnd"/>
+        <Macros value="HeroVorazunVoid@Macro"/>
+    </CActorSound>
+    <CActorSound id="RavenCurseCollectTributeStart" parent="SoundOneShot">
+        <Sound value="Event_RavenCurse_CollectTributeStart"/>
+        <Macros value="HeroVorazunVoid@Macro"/>
+    </CActorSound>
+    <CActorSound id="RavenCurseCollectTributeEnd" parent="SoundOneShot">
+        <Sound value="Event_RavenCurse_CollectTributeEnd"/>
+        <Macros value="HeroVorazunVoid@Macro"/>
+    </CActorSound>
+    <CActorSound id="RavenCurseTributeIdleSound" parent="SoundContinuous">
+        <On Terms="UnitBirth.RavenLordTribute" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachTarget"/>
+        <Sound value="Event_RavenCurse_TributeIdle"/>
+        <FogVisibility value="Visible"/>
+    </CActorSound>
+    <CActorModel id="RavenLordCurseUnit" parent="StormModelAddition">
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="CurseofEluneUnits"/>
+        <On Terms="Behavior.RavenLordsCurseUnits.On" Send="Create"/>
+        <On Terms="Behavior.RavenLordsCurseUnits.Off" Send="$Death"/>
+        <On Terms="Behavior.CursedHollowCoreCurse.On" Send="Create"/>
+        <On Terms="Behavior.CursedHollowCoreCurse.Off" Send="$Death"/>
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy Immediate"/>
+    </CActorModel>
+    <CActorModel id="RavenLordTributeWarning" parent="StormModelAnimationStyleContinuous">
+        <FogVisibility value="Visible"/>
+    </CActorModel>
+    <CActorModel id="RavenLordTributeSpawn" parent="StormModelAnimationStyleContinuous">
+        <FogVisibility value="Visible"/>
+    </CActorModel>
+    <CActorUnit id="RavenLordTributeWarningUnit" parent="GenericUnitStandard" unitName="RavenLordTributeWarning">
+        <FogVisibility value="Visible"/>
+        <MinimapIcon value="Assets\Textures\storm_ui_minimapicon_raventribute.dds"/>
+        <MinimapTooltip value="Unit/Name/RavenLordTributeWarning"/>
+        <MinimapIconScale value="0.700000"/>
+        <MinimapUseSelfColor value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <MinimapIconTintColor value="255,128,255,255"/>
+    </CActorUnit>
+    <CActorModel id="RavenLordCurseBuilding" parent="StormModelAddition">
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="CurseofEluneBuilding"/>
+        <On Terms="Behavior.RavenLordsCurseStructures.On" Send="Create"/>
+        <On Terms="Behavior.RavenLordsCurseStructures.Off" Send="$Death"/>
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Death" Send="Destroy Immediate"/>
+        <FogVisibility value="Visible"/>
+    </CActorModel>
+    <CActorUnit id="RavenLordTributePreview" parent="StormUnitBase" unitName="RavenLordTributePreview">
+        <FogVisibility value="Visible"/>
+        <On Terms="ActorCreation" Send="$Birth 0 0.000000"/>
+        <Model value="Invisible"/>
+        <Scale value="0.800000"/>
+        <MinimapIcon value="Assets\Textures\storm_ui_minimapicon_raventribute.dds"/>
+        <MinimapIconScale value="0.700000"/>
+        <MinimapIconTintColor value="255,145,113,218"/>
+        <MinimapTooltip value="Unit/Name/RavenLordTributePreview"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <VisibleOpacity value="0.250000"/>
+    </CActorUnit>
+    <CActorUnit id="RavenLordTribute" parent="StormUnitBase" unitName="RavenLordTribute">
+        <Macros value="PreTargetHaloMacro"/>
+        <On Terms="UnitHighlightLocal.*.Start" Send="StatusIncrement PreTargetingTint"/>
+        <On Terms="UnitHighlightLocal.*.Stop" Send="StatusDecrement PreTargetingTint"/>
+        <On Terms="ActorCreation" Send="StatusSet TributeCaptureOrder 0"/>
+        <On Terms="ActorCreation" Send="StatusSet TributeCaptureChaos 0"/>
+        <On Terms="ActorCreation" Send="$Birth 0 0.000000"/>
+        <On Terms="StatusOn.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 0" Send="Create TributeOrderAreaMessage"/>
+        <On Terms="StatusOn.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 0" Send="Create TributeChaosAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 5" Send="Create TributeChaosAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 5" Send="Create TributeOrderAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 4" Send="Create TributeChaosAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 4" Send="Create TributeOrderAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 3" Send="Create TributeChaosAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 3" Send="Create TributeOrderAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 2" Send="Create TributeChaosAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 2" Send="Create TributeOrderAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 1" Send="Create TributeChaosAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 1" Send="Create TributeOrderAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureOrder; IsStatus TributeCaptureChaos 0" Send="Create TributeNeutralAreaMessage"/>
+        <On Terms="StatusOff.*.TributeCaptureChaos; IsStatus TributeCaptureOrder 0" Send="Create TributeNeutralAreaMessage"/>
+        <On Terms="Signal.*.TributeOwnerNeutral" Send="Create TributeNeutralAreaMessage"/>
+        <On Terms="Behavior.MapMechanicCoolUp.Off" Send="$Birth 0 0.000000"/>
+        <MinimapIcon value="Assets\Textures\storm_ui_minimapicon_raventribute.dds"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <CustomUnitStatusFrame value="UnitStatus/MapMechanicHelpButton"/>
+        <MinimapTooltip value="Unit/Name/RavenLordTribute"/>
+        <MinimapIconScale value="0.700000"/>
+        <MinimapIconTintColor value="255,128,255,255"/>
+    </CActorUnit>
+    <CActorSound id="CursedHollowCoreCurse@DebuffSound" parent="SoundOneShot">
+        <On Terms="Effect.CursedHollowCoreCurse@ApplyBehavior.Start; At Target" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="CursedHollowCoreCurse@WarningSound" parent="SoundOneShot">
+        <On Terms="Effect.CursedHollowCoreCurse@Persistent.Start" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="CursedHollowCoreCurse@LaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.CursedHollowCoreCurse@Persistent.Stop" Send="Create"/>
+    </CActorSound>
+    <CActorModel id="CursedHollowCoreCurse@Warning" parent="StormModelAnimationStyleContinuous">
+        <FogVisibility value="Hidden"/>
+        <On Terms="Effect.CursedHollowCoreCurse@Persistent.Start" Send="Create"/>
+        <On Terms="Effect.CursedHollowCoreCurse@PreDetonationDummy.Start" Send="AnimBracketStop BSD"/>
+        <On Terms="Effect.CursedHollowCoreCurse@PreDetonationDummy.Start" Send="SetOpacity 0.000000 1.000000"/>
+        <Scale value="0.625000"/>
+    </CActorModel>
+    <CActorModel id="CursedHollowCoreCurse@Detonate" parent="StormModelAnimationStyleOneShot">
+        <FogVisibility value="Visible"/>
+        <On Terms="Effect.CursedHollowCoreCurse@PreDetonationDummy.Start" Send="Create"/>
+        <Scale value="1.300000"/>
+    </CActorModel>
+    <CActorModel id="CursedHollowCoreCurse@CircleWarning" parent="StormModelAnimationStyleContinuous">
+        <On Terms="Effect.CursedHollowCoreCurse@Persistent.Start; At Effect" Send="Create"/>
+        <On Terms="Effect.CursedHollowCoreCurse@Persistent.Stop; At Effect" Send="Destroy Immediate"/>
+        <Scale value="1.300000"/>
+    </CActorModel>
+    <CTerrain id="StormKingsCrestRavenCourt">
+        <TextureProp value="kingscrestravencourt"/>
+        <EditorCategories value="Climate:SpacePlatform"/>
+        <Camera value="BlizzardAllStars"/>
+        <Ambience value="RavenCourtAmbientDay"/>
+        <ReverbAmbient value="BetaVerb"/>
+        <MinimapBackgroundColor value="255,0,0,32"/>
+        <BlendTextures value="storm_ravencourt_1"/>
+        <BlendTextures value="storm_ravencourt_2"/>
+        <BlendTextures value="storm_ravencourt_3"/>
+        <BlendTextures value="storm_ravencourt_4"/>
+        <BlendTextures value="storm_ravencourt_5"/>
+        <BlendTextures value="storm_ravencourt_6"/>
+        <BlendTextures value="storm_ravencourt_7"/>
+        <BlendTextures value="storm_ravencourt_8"/>
+        <HardTiles value="MarSaraTile"/>
+        <CliffSets value="Storm_AshenvaleCliff0"/>
+        <CliffSets value="Storm_AshenvaleCliff1"/>
+        <FogEnabled value="1"/>
+        <FogColor value="255,45,68,86"/>
+        <FogDensity value="0.060000"/>
+        <FogFalloff value="0.200000"/>
+        <FogStartingHeight value="-0.900000"/>
+        <HeightFlags index="AirSmoothing" value="0"/>
+        <WindTurbulencePower value="3.000000"/>
+        <HeightMapEnabled value="1"/>
+        <Lighting value="StormRavenCourtFinal"/>
+    </CTerrain>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_CC_V2" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Tree" parent="Doodad">
+        <VariationCount value="9"/>
+    </CModel>
+    <CModel id="Storm_Effect_DarkRaven_Base" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Haybale" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_BigChunkyRock" parent="Doodad">
+        <VariationCount value="6"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_HayBundle" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_HayRoll" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_House" parent="Doodad">
+        <VariationCount value="16"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_A" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_AA" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_B" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_BB" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_C" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_CC" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_D" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_DD" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_E" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_EE" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_F" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_G" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_H" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_I" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_J" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_K" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_L" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_M" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_N" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_O" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_P" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_Q" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_R" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_S" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_T" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_U" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_W" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_X" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_Y" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Jungle_Z" parent="Doodad"/>
+    <CModel id="Storm_Doodad_Kingscrest_Ravencourt_CorePlatform" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_CoreRange" parent="Doodad">
+        <Flags index="ShowCreepEngulfmentEvenOnLow" value="1"/>
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillarBase" parent="Doodad"/>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillar" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_WatchTowerPillar_Broken" parent="Doodad">
+        <Events>
+            <Anim value="Death"/>
+            <Name value="Doodad_RavenPillar_Break"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Doodad_RavenPillar_Break"/>
+        </Events>
+    </CModel>
+    <CModel id="MercDefenderSiegeGiantAttackImpactRavenCourt" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_SiegeGiant_Rock_Impact\Storm_FX_SiegeGiant_Rock_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_KingsCrest_Emblem_RavenCourt" parent="Doodad">
+        <Model value="Assets\Doodads\Storm_Doodad_KingsCrest_RavenCourt_Emblem\Storm_Doodad_KingsCrest_RavenCourt_Emblem.m3"/>
+        <Flags index="ShowCreepEngulfmentEvenOnLow" value="1"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_Banners_Ravencourt" parent="Doodad">
+        <VariationCount value="7"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Curtain" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Grass">
+        <Model value="Assets\Foliage\Storm_Doodad_KingsCrest_RavenCourt_Grass\Storm_Doodad_KingsCrest_RavenCourt_Grass.m3"/>
+        <SelectionRadius value="0.750000"/>
+        <ShadowRadius value="0.750000"/>
+        <Tipability value="0.750000"/>
+        <VariationCount value="6"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_Grass_Dark">
+        <Model value="Assets\Foliage\Storm_Doodad_KingsCrest_RavenCourt_Grass_Dark\Storm_Doodad_KingsCrest_RavenCourt_Grass_Dark.m3"/>
+        <SelectionRadius value="0.750000"/>
+        <ShadowRadius value="0.750000"/>
+        <Tipability value="0.750000"/>
+        <VariationCount value="6"/>
+    </CModel>
+    <CModel id="StormKingsCrestRavenCourtTree00Impact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_KingsCrest_RavenCourt_Tree00_Impact\Storm_FX_KingsCrest_RavenCourt_Tree00_Impact.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Impact_Tree_Leaves"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Impact_Tree_Leaves"/>
+        </Events>
+    </CModel>
+    <CModel id="StormKingsCrestRavenCourtTree01Impact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_KingsCrest_RavenCourt_Tree01_Impact\Storm_FX_KingsCrest_RavenCourt_Tree01_Impact.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Impact_Tree_Leaves"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Impact_Tree_Leaves"/>
+        </Events>
+    </CModel>
+    <CModel id="Storm_Effect_DarkRaven_Base_Fly" parent="Doodad"/>
+    <CModel id="CurseofEluneBuilding" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLord_Cursed_Icon\Storm_FX_RavenLord_Cursed_Icon.m3"/>
+    </CModel>
+    <CModel id="CurseofEluneUnits" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLord_Cursed_Icon\Storm_FX_RavenLord_Cursed_Icon.m3"/>
+    </CModel>
+    <CModel id="RavenLordTribute" parent="Unit">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTribute\Storm_FX_RavenLordTribute.m3"/>
+        <SelectionRadius value="0.750000"/>
+    </CModel>
+    <CModel id="RavenLordTributeSpawn" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTribute_Spawn\Storm_FX_RavenLordTribute_Spawn.m3"/>
+    </CModel>
+    <CModel id="RavenLordTributeWarning" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Feedback\Storm_Effect_RavenLordTribute_Warning\Storm_Effect_RavenLordTribute_Warning.m3"/>
+    </CModel>
+    <CModel id="RavenLordTributePreview" parent="Unit">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTribute\Storm_FX_RavenLordTribute.m3"/>
+        <SelectionRadius value="0.750000"/>
+    </CModel>
+    <CModel id="CursedHollowCoreCurse@Detonate" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTribute_Spawn\Storm_FX_RavenLordTribute_Spawn.m3"/>
+    </CModel>
+    <CModel id="CursedHollowCoreCurse@Warning" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Feedback\Storm_Effect_RavenLordTribute_Warning\Storm_Effect_RavenLordTribute_Warning.m3"/>
+        <AnimSpeed value="1.500000"/>
+    </CModel>
+    <CModel id="CursedHollowCoreCurse@CircleWarning" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Cursors\Storm_UI_AOECursor_Fantasy_TeamColor\Storm_UI_AOECursor_Fantasy_TeamColor.m3"/>
+        <RadiusLoose value="0.500000"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_RavenCourt_CurtainLarge" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CTerrainTex id="storm_ravencourt_1">
+        <Texture value="Assets\Textures\storm_ravencourt_1.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_1normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_1.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_2">
+        <Texture value="Assets\Textures\storm_ravencourt_2.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_2normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_2.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_3">
+        <Texture value="Assets\Textures\storm_ravencourt_3.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_3normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_3.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_4">
+        <Texture value="Assets\Textures\storm_ravencourt_4.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_4normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_4.dds"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RockMix"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_5">
+        <Texture value="Assets\Textures\storm_ravencourt_5.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_5normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_5.dds"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RockMix"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_6">
+        <Texture value="Assets\Textures\storm_ravencourt_6.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_6normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_6.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_7">
+        <Texture value="Assets\Textures\storm_ravencourt_7.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_7normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_7.dds"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RavenCourt_Grass"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.750000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_ravencourt_8">
+        <Texture value="Assets\Textures\storm_ravencourt_8.dds"/>
+        <Normalmap value="Assets\Textures\storm_ravencourt_8normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_ravencourt_8.dds"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RavenCourt_Grass_Dark"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.750000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_1">
+        <Texture value="Assets\Textures\storm_winterravencourt_1.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_1normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_1.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_2">
+        <Texture value="Assets\Textures\storm_winterravencourt_2.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_2normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_2.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_3">
+        <Texture value="Assets\Textures\storm_winterravencourt_3.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_3normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_3.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_4">
+        <Texture value="Assets\Textures\storm_winterravencourt_4.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_1normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_4.dds"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RockMix"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_5">
+        <Texture value="Assets\Textures\storm_winterravencourt_5.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_5normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_5.dds"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RockMix"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_6">
+        <Texture value="Assets\Textures\storm_winterravencourt_6.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_6normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_6.dds"/>
+        <PhysicsMaterial value="Rock"/>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="3.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_7">
+        <Texture value="Assets\Textures\storm_winterravencourt_7.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_7normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_7.dds"/>
+        <PhysicsMaterial value="Grass"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RavenCourt_Grass"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.750000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="storm_winterravencourt_8">
+        <Texture value="Assets\Textures\storm_winterravencourt_8.dds"/>
+        <Normalmap value="Assets\Textures\storm_winterravencourt_2normal.dds"/>
+        <EditorIcon value="Assets\Textures\storm_ui-editoricon_winterravencourt_8.dds"/>
+        <PhysicsMaterial value="Grass"/>
+        <DoodadEntry>
+            <Model value="Storm_Doodad_KingsCrest_RavenCourt_Grass_Dark"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.750000"/>
+            <PlacementRadius value="0.150000"/>
+        </DoodadEntry>
+        <HeightMapOffset value="0.050000"/>
+        <HeightMapScale value="1.000000"/>
+    </CTerrainTex>
+    <CAccumulatorArithmetic id="CursedHollowCoreCurse@ArmorDebuffArithmetic">
+        <Parameters value="-75">
+            <AccumulatorArray value="CursedHollowCoreCurse@ArmorDebuffStackCount"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="CursedHollowCoreCurse@ArmorDebuffStackCount">
+        <ApplicationRule value="Multiply"/>
+        <Behavior value="CursedHollowCoreCurse"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorBehavior>
+    <CSound id="Amb_2D_RavenCourt_LP" parent="Ambience_Map">
+        <AssetArray File="Assets\Sounds\Ambient_2D\Amb_2D_RavenCourt01_Loop01.ogg" FacialGroup=""/>
+        <Volume value="-20.000000,-20.000000"/>
+        <MixerPriority value="1"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="1000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MX_Ravens_Court" parent="MUSIC">
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_05.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_06.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_07.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_08.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_09.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_11.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_12.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavensCourt_13.ogg" FacialGroup=""/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.000000"/>
+        <SpeakerMix index="BackRight" value="0.000000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+    </CSound>
+    <CSound id="Amb_2D_Nexus_RavenCourt_Loop" parent="Ambience_Map">
+        <AssetArray File="Assets\Sounds\Ambient_2D\Amb_2D_RavenCourt01_Loop01.ogg"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="1000" Volume="-96.000000"/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.250000"/>
+        <SpeakerMix index="BackRight" value="0.250000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+        <Volume value="-20.000000,-20.000000"/>
+    </CSound>
+    <CSound id="Amb_3D_Nexus_RavenCourt_Birds_A_Loop" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk01.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk010.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk02.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk03.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk04.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk05.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk06.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk07.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk08.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk09.ogg"/>
+        <Category value="SPieces"/>
+        <MixerPriority value="150"/>
+        <Volume value="-96.000000,-96.000000"/>
+    </CSound>
+    <CSound id="Amb_3D_Nexus_RavenCourt_Birds_B_Loop" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk01.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk010.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk02.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk03.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk04.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk05.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk06.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk07.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk08.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk09.ogg"/>
+        <Category value="SPieces"/>
+        <MixerPriority value="150"/>
+        <Volume value="-96.000000,-96.000000"/>
+    </CSound>
+    <CSound id="Amb_3D_Nexus_RavenCourt_Birds_C_Loop" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk01.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk010.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk02.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk03.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk04.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk05.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk06.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk07.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk08.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk09.ogg"/>
+        <Category value="SPieces"/>
+        <MixerPriority value="150"/>
+        <Volume value="-96.000000,-96.000000"/>
+    </CSound>
+    <CSound id="Amb_3D_Nexus_RavenCourt_Birds_D_Loop" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk01.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk010.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk02.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk03.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk04.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk05.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk06.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk07.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk08.ogg"/>
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_Birds_Raven_Vx_Talk09.ogg"/>
+        <Category value="SPieces"/>
+        <MixerPriority value="150"/>
+        <Volume value="-96.000000,-96.000000"/>
+    </CSound>
+    <CSound id="Amb_3D_Nexus_RavenCourt_Campfire_Small" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Ambient_3D\Amb_3D_FireSml_Loop01.ogg"/>
+        <Category value="SPieces"/>
+        <LoopCount value="1"/>
+        <MixerPriority value="150"/>
+        <Pitch value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="Doodad_Core_Death_RavenCourt" parent="_FX_Breakables">
+        <AssetArray File="Assets\Sounds\Doodads\Doodad_Core_Death01.ogg" FacialGroup=""/>
+        <Category value="Message"/>
+        <Mode value="2D"/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.000000"/>
+        <SpeakerMix index="BackRight" value="0.000000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+    </CSound>
+    <CSound id="UI_Game_Flyin_RavenCurseStart" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_Generic01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="Storm_UI_Flyin_RavenCurseStart" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_Generic01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="Storm_UI_Flyin_EnemyCursed" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_EnemyCursed01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="UI_Game_Flyin_AllyCursed" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_EnemyCursed01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="Storm_UI_Flyin_AllyCursed" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_EnemyCursed01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="UI_Game_Flyin_EnemyObtainedRavenTribute" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_Generic01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="UI_Game_Flyin_AllyObtainedRavenTribute" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_Generic01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="Storm_UI_Flyin_AllyObtainedRavenTribute" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_Generic01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="Storm_UI_Flyin_EnemyObtainedRavenTribute" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_Generic01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="Doodad_RavenPillar_Break" parent="Ambience_Object">
+        <AssetArray File="Assets\Sounds\Doodads\Doodad_RavenPillar_Break01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Doodads\Doodad_RavenPillar_Break02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Doodads\Doodad_RavenPillar_Break03.ogg" FacialGroup=""/>
+        <Category value="Death"/>
+        <Volume value="-5.000000,-5.000000"/>
+    </CSound>
+    <CSound id="UI_Game_Flyin_EnemyCursed" parent="UI">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\UI\UI_Game_Flyin_EnemyCursed01.ogg" FacialGroup=""/>
+        <Volume value="-11.000000,-11.000000"/>
+    </CSound>
+    <CSound id="MX_RavenKing_CurseActive" parent="MUSIC">
+        <AssetArray File="Assets\Music\MX_RavenKing_Event01.ogg" FacialGroup=""/>
+        <VariationMinimum value="4"/>
+        <Volume value="1.000000,1.000000"/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.000000"/>
+        <SpeakerMix index="BackRight" value="0.000000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+    </CSound>
+    <CSound id="MX_RavenKing_CurseStart" parent="MUSIC">
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavenKing_Start_Event_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavenKing_Start_Event_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavenKing_Start_Event_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavenKing_Start_Event_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\RavensCourt\Storm_Music_RavenKing_Start_Event_05.ogg" FacialGroup=""/>
+        <VariationMinimum value="4"/>
+        <Volume value="-96.000000,-96.000000"/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.000000"/>
+        <SpeakerMix index="BackRight" value="0.000000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+    </CSound>
+    <CSound id="MX_Ravens_Court_Intro" parent="MUSIC">
+        <AssetArray File="Assets\Music\MX_CursedHollow_03.ogg" FacialGroup=""/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.300000"/>
+        <SpeakerMix index="BackRight" value="0.300000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="MX_Ravens_Court_LVL_1" parent="MUSIC">
+        <AssetArray File="Assets\Music\MX_RavenCourt01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Music\MX_Concept02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Music\MX_LuxCrypt_4.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Music\MX_GardenOfTerror_Day1.ogg" FacialGroup=""/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.300000"/>
+        <SpeakerMix index="BackRight" value="0.300000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="MX_Ravens_Court_LVL_10" parent="MUSIC">
+        <AssetArray File="Assets\Music\MX_CursedHollow_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Music\MX_RavenCourt01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Music\MX_GardenOfTerror_Day2.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Music\Mx_Heroes_Symphony_Part1.ogg" FacialGroup=""/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="100"/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.300000"/>
+        <SpeakerMix index="BackRight" value="0.300000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="MX_Ravens_Court_LVL_20" parent="MUSIC">
+        <AssetArray File="Assets\Music\MX_CursedHollow_03.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Music\Glue_Screen\MX_GlueScreen_RockOpera01.ogg" FacialGroup=""/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.300000"/>
+        <SpeakerMix index="BackRight" value="0.300000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="LoadingMusic_CursedHollow" parent="MUSIC">
+        <AssetArray File="Assets\Music\MX_LoadingScreen_Cursed_Hollow2_Alt.ogg" Offset="44100,44100" FacialGroup=""/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="3042" Volume="-96.000000"/>
+        <SpeakerMix index="Center" value="0.000000"/>
+        <SpeakerMix index="BackLeft" value="0.000000"/>
+        <SpeakerMix index="BackRight" value="0.000000"/>
+        <SpeakerMix index="SideLeft" value="0.000000"/>
+        <SpeakerMix index="SideRight" value="0.000000"/>
+        <SustainFade index="1" Time="3000" Volume="-96.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CurseMid" parent="Interactive2D">
+        <AssetArray index="0">
+            <File value="Assets\Sounds\Event\Event_RavenCurse_Mid01.ogg"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitModel value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <Flags index="AutoUnload" value="0"/>
+        <Flags index="Purgable" value="1"/>
+        <Flags index="Wait" value="0"/>
+        <Category value="Spell"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="1295"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="3597" Volume="-96.000000"/>
+        <ReverbBalance Room="0"/>
+        <SpeakerMix index="BackLeft" value="1.000000"/>
+        <SpeakerMix index="BackRight" value="1.000000"/>
+        <SpeakerMix index="SideLeft" value="1.000000"/>
+        <SpeakerMix index="SideRight" value="1.000000"/>
+        <SustainFade index="1" Time="500" Volume="-96.000000"/>
+        <Volume value="-14.000000,-14.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="30.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CollectTributeEnd" parent="_FX_Map_Event">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_CollectTributeEnd01.ogg"/>
+        <DupeDestroyCountPerPlayer value="1"/>
+        <DupeMuteCount value="1"/>
+        <VolumeRolloffPoints Distance="30.472103"/>
+        <VolumeRolloffPoints Distance="90.000000" Volume="-96.000000"/>
+        <DupeWait value="5000,5000"/>
+        <Volume value="-7.000000,-7.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CollectTributeStart" parent="_FX_Map_Event">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_CollectTributeStart01.ogg"/>
+        <DupeDestroyCountPerPlayer value="1"/>
+        <DupeMuteCount value="1"/>
+        <OffsetFadeIn Time="6" Volume="-96.000000"/>
+        <OffsetFadeIn Time="251"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="251" Volume="-96.000000"/>
+        <Volume value="-18.000000,-18.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CurseStart" parent="Interactive2D">
+        <AssetArray index="0">
+            <File value="Assets\Sounds\Event\Event_RavenCurse_CurseStart01.ogg"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitModel value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <Flags index="AutoUnload" value="0"/>
+        <Flags index="Purgable" value="1"/>
+        <Flags index="Wait" value="0"/>
+        <ReverbBalance Room="0"/>
+        <SpeakerMix index="BackLeft" value="1.000000"/>
+        <SpeakerMix index="BackRight" value="1.000000"/>
+        <SpeakerMix index="SideLeft" value="1.000000"/>
+        <SpeakerMix index="SideRight" value="1.000000"/>
+        <SustainFade index="1" Time="500" Volume="-96.000000"/>
+        <Volume value="0.000000,0.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CurseEnd" parent="Interactive2D">
+        <AssetArray index="0">
+            <File value="Assets\Sounds\Event\Event_RavenCurse_CurseEnd01.ogg"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitModel value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <Flags index="AutoUnload" value="0"/>
+        <Flags index="Purgable" value="1"/>
+        <Flags index="Stream" value="0"/>
+        <Flags index="Wait" value="0"/>
+        <ReverbBalance Room="0"/>
+        <SpeakerMix index="BackLeft" value="1.000000"/>
+        <SpeakerMix index="BackRight" value="1.000000"/>
+        <SpeakerMix index="SideLeft" value="1.000000"/>
+        <SpeakerMix index="SideRight" value="1.000000"/>
+        <SustainFade index="1" Time="500" Volume="-96.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_TributeSpawn" parent="_FX_Map_Event">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_Tribute_SpawnLong01.ogg" FacialGroup=""/>
+        <Volume value="-9.000000,-9.000000"/>
+        <VolumeRolloffPoints Distance="0.726392" Volume="-0.160000"/>
+        <VolumeRolloffPoints Distance="61.946049" Volume="-96.000000"/>
+        <DupeWait value="5000,5000"/>
+        <Flags index="Stream" value="1"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_TributeIdle" parent="_FX_Map_Event">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_Tribute_Idle_Loop01.ogg"/>
+        <LoopCount value="-1"/>
+        <Volume value="-21.000000,-21.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="30.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CollectTributeLoop" parent="_FX_Map_Event">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_CollectTributeLoop01.ogg"/>
+        <DupeDestroyCountPerPlayer value="1"/>
+        <DupeMuteCount value="1"/>
+        <LoopCount value="-1"/>
+        <Volume value="-9.000000,-9.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="20.000000" Volume="-96.000000"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="200"/>
+    </CSound>
+    <CSound id="Event_RavenCurse_CurseEnd_Timer" parent="_2D_FX_Map_Event" Portrait="" Subtitle="" Speaker="" Line="" Race="Terran">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_CurseEnd_Timer01.ogg" FacialGroup=""/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="Raven_AlliesCursed" parent="AnnouncerVO_Mechanics">
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_082.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_083.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_485.ogg" FacialGroup=""/>
+        <Flags index="Stream" value="0"/>
+    </CSound>
+    <CSound id="Raven_EnemyCursed" parent="AnnouncerVO_Mechanics">
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_080.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_081.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_484.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Raven_AllyCurseEnd" parent="AnnouncerVO_Mechanics">
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_084.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_085.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_482.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Raven_EnemyCurseEnd" parent="AnnouncerVO_Mechanics">
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_085.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_482.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_483.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Raven_ObserverCurseEnd" parent="AnnouncerVO_Mechanics">
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_085.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_483.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_084.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\CreepVO_RavenKing_482.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="CursedHollowCoreCurse@DebuffSound" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Heroes\Guldan_Base\Guldan_HandOfGuldan_Launch01.ogg" FacialGroup=""/>
+        <Pitch value="3.000000,3.000000"/>
+        <Volume value="2.000000,2.000000"/>
+    </CSound>
+    <CSound id="CursedHollowCoreCurse@WarningSound" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Event\Event_RavenCurse_CollectTributeStart01.ogg" FacialGroup=""/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-5.000000,-3.000000"/>
+    </CSound>
+    <CSound id="CursedHollowCoreCurse@LaunchSound" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Event\LuxCrypt\Event_LuxCrypt_SpiderCurse_CollectSouls_End01.ogg" FacialGroup=""/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-2.000000,2.000000"/>
+    </CSound>
+    <CDataCollectionAbil id="CursedHollowCoreCurse">
+        <EditorCategories value="StormDataGroup:Ability"/>
+        <DataRecord Entry="Abil,CursedHollowCoreCurse"/>
+        <DataRecord Entry="Actor,CursedHollowCoreCurse@DebuffSound"/>
+        <DataRecord Entry="Actor,CursedHollowCoreCurse@CircleWarning"/>
+        <DataRecord Entry="Actor,CursedHollowCoreCurse@Detonate"/>
+        <DataRecord Entry="Actor,CursedHollowCoreCurse@LaunchSound"/>
+        <DataRecord Entry="Actor,CursedHollowCoreCurse@Warning"/>
+        <DataRecord Entry="Actor,CursedHollowCoreCurse@WarningSound"/>
+        <DataRecord Entry="Behavior,CursedHollowCoreCurse"/>
+        <DataRecord Entry="Behavior,CursedHollowCoreCurse@CarryBehavior"/>
+        <DataRecord Entry="Behavior,CursedHollowCoreCurse@Cooldown"/>
+        <DataRecord Entry="Button,CursedHollowCoreCurse"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@InitialSearchRandom"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@Persistent"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@PreDetonationDummy"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@ApplyBehavior"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@Damage"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@Search"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@SearchImpactSet"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@InitialSet"/>
+        <DataRecord Entry="Effect,CursedHollowCoreCurse@ApplyCooldown"/>
+        <DataRecord Entry="Model,CursedHollowCoreCurse@CircleWarning"/>
+        <DataRecord Entry="Model,CursedHollowCoreCurse@Detonate"/>
+        <DataRecord Entry="Model,CursedHollowCoreCurse@Warning"/>
+        <DataRecord Entry="Sound,CursedHollowCoreCurse@LaunchSound"/>
+        <DataRecord Entry="Sound,CursedHollowCoreCurse@WarningSound"/>
+        <DataRecord Entry="Sound,CursedHollowCoreCurse@DebuffSound"/>
+        <DataRecord Entry="Accumulator,CursedHollowCoreCurse@ArmorDebuffArithmetic"/>
+        <DataRecord Entry="Accumulator,CursedHollowCoreCurse@ArmorDebuffStackCount"/>
+    </CDataCollectionAbil>
+    <CSoundtrack id="Storm_Ambience_Tutorial_RavenCourt">
+        <CueArray>
+            <MasterLayer Sound="Amb_2D_Nexus_RavenCourt_Loop"/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+            <SlaveLayers/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="RavenCourtAmbientDay">
+        <CueArray>
+            <MasterLayer Sound="Amb_2D_RavenCourt_LP"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_RavensCourt_LVL_1" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Ravens_Court_LVL_1"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_RavensCourt_LVL_10" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Ravens_Court_LVL_10"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_RavensCourt_LVL_20" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Ravens_Court_LVL_20"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="MX_RavensCourt_Intro" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="MX_Ravens_Court_Intro"/>
+        </CueArray>
+        <Delay value="20,40"/>
+        <Flags index="Continuous" value="0"/>
+    </CSoundtrack>
+    <CUnit id="StormRaven" parent="StormCritter">
+        <Description value="Button/Tooltip/CritterStormRaven"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="360"/>
+        <Radius value="0"/>
+        <EditorCategories value="ObjectType:Unit"/>
+    </CUnit>
+    <CUnit id="RavenLordTributeWarning">
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Sight value="4.5"/>
+        <Radius value="2"/>
+        <EditorCategories value=""/>
+    </CUnit>
+    <CUnit id="RavenLordTribute">
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Sight value="4.5"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <BehaviorArray Link="HeroGenericCaptureMacGuffin@IsMacGuffin"/>
+        <BehaviorArray Link="HeroGenericCaptureMacGuffin@MacGuffinActivated"/>
+        <Radius value="0.75"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+    </CUnit>
+    <CUnit id="RavenLordTributePreview">
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Destructible" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Radius value="0.75"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <FogVisibility value="Visible"/>
+    </CUnit>
+    <CBehaviorBuff id="CursedHollowCoreCurse@CarryBehavior" parent="StormCarryBehaviorParent">
+        <BehaviorFlags index="EnabledWhileDead" value="0"/>
+        <PeriodicEffect value="CursedHollowCoreCurse@InitialSearchRandom"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CursedHollowCoreCurse@Cooldown">
+        <Duration value="3"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="CursedHollowCoreCurse@CarryBehavior"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavenLordsCurseUnits">
+        <Alignment value="Negative"/>
+        <InitialEffect value="RavenCurseSetUnitHPTo1"/>
+        <FinalEffect value="RavenCurseSetUnitHPTo100Percent"/>
+        <DamageResponse Handled="RavenLordsCurseDummyEffect">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavenLordsCurseStructures">
+        <Alignment value="Negative"/>
+        <Duration value="1"/>
+        <Modification LifeArmorMultiplier="0" ShieldArmorMultiplier="0" EnergyArmorMultiplier="0">
+            <StateFlags index="Passive" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressEnergyRegen" value="1"/>
+            <TurretDisableArray value="TownCannonTowerL1Turret"/>
+            <TurretDisableArray value="TownCannonTowerL2Turret"/>
+            <TurretDisableArray value="TownCannonTowerL3Turret"/>
+            <TurretDisableArray value="TownHallTurret"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavenLordsCurseStructuresWarning">
+        <Duration value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CursedHollowCoreCurse">
+        <BehaviorCategories index="User1" value="1"/>
+        <TechAliasArray value="StormCategory PhysicalArmor"/>
+        <TechAliasArray value="StormCategory SpellArmor"/>
+        <RemoveValidatorArray value="TargetNotDead"/>
+        <RemoveValidatorArray value="StormCategoryTargetHasNotSpecialDeathState"/>
+        <Duration value="4"/>
+    </CBehaviorBuff>
+</Catalog>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CutsceneState cutsceneVersion="1.300000">
+    <CCutsceneNodeFolder referenceGuid="9844469027070693342" referenceFile="Cutscenes/ScoreScreen__Base.SC2Cutscene" guid="9844469027070693342" name="Imported Assets"/>
+    <CCutsceneNodeActor guid="12999438263003172851" filter="Variation1" name="HeroDiabloBase (Var1)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelBase" shadowBox="0" opacity="0.000000" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="5165211322877267955" duration="107354" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="12593925457069203647" filter="Victory" name="Animation - Victory">
+            <CCutsceneElementAnim guid="5461601992513937599" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="11867975052313747647" filter="Defeat" name="Animation - Defeat">
+            <CCutsceneElementAnim guid="5481046207111094463" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="9904907773766525119" name="Animation Layer">
+            <CCutsceneElementAnim guid="8921934929606729919" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="10233790243008143551" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="8644146546664530111" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6005703920043417791" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36153.000000,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="5369896460695101631" start="105459" value="1.000000" time="105459.000000" curveInValue="70806.000000,1.000000" curveOutValue="105520.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6245280498644148415" start="105642" value="0.000000" time="105642.000000" curveInValue="105581.000000,0.333333" curveOutValue="105643.000000,0.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeConversation guid="13494338575849480383" filter="Defeat" name="Conversation - Defeat"/>
+        <CCutsceneNodeConversation guid="10737882200828272831" filter="Victory" name="Conversation - Victory"/>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeActor guid="9236108280256026625" filter="Variation2" name="HeroDiabloBase (Var2)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelBase" variation="1" shadowBox="0" opacity="0.000000" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="8546024481669535745" duration="107354" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="12263559289015392257" filter="Victory" name="Animation - Victory">
+            <CCutsceneElementAnim guid="8722794542320080897" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="9457298438870030337" filter="Defeat" name="Animation - Defeat">
+            <CCutsceneElementAnim guid="4991425018248583169" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="13488441733716137985" name="Animation Layer">
+            <CCutsceneElementAnim guid="8933576436102748161" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="13704825909825263617" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="9041889601432868865" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="6326334994540419073" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36153.000000,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8662312263101995009" start="105459" value="1.000000" time="105459.000000" curveInValue="70806.000000,1.000000" curveOutValue="105520.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="7609054997857458177" start="105642" value="0.000000" time="105642.000000" curveInValue="105581.000000,0.333333" curveOutValue="105643.000000,0.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeConversation guid="10119012097270765569" filter="Defeat" name="Conversation - Defeat"/>
+        <CCutsceneNodeConversation guid="12221777718310885377" filter="Victory" name="Conversation - Victory"/>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeActor guid="10147260970778949919" filter="Variation3" name="HeroDiabloBase (Var3)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelBase" variation="2" shadowBox="0" opacity="0.000000" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="6431925577530669343" duration="107354" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="12873387768519522591" filter="Victory" name="Animation - Victory">
+            <CCutsceneElementAnim guid="5922805153604761887" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="12663871459865065759" filter="Defeat" name="Animation - Defeat">
+            <CCutsceneElementAnim guid="6068656698174142751" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="12617543683457612063" name="Animation Layer">
+            <CCutsceneElementAnim guid="8319886389310585119" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="11872498266421000479" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="6477658664176384287" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="7397241935690660127" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36153.000000,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="4985586853747292447" start="105459" value="1.000000" time="105459.000000" curveInValue="70806.000000,1.000000" curveOutValue="105520.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="7909823519141591327" start="105642" value="0.000000" time="105642.000000" curveInValue="105581.000000,0.333333" curveOutValue="105643.000000,0.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeConversation guid="13154789928354642207" filter="Defeat" name="Conversation - Defeat"/>
+        <CCutsceneNodeConversation guid="9812957917802330399" filter="Victory" name="Conversation - Victory"/>
+    </CCutsceneNodeActor>
+    <CCutsceneNodeActor guid="10620374015898059032" filter="Variation4" name="HeroDiabloBase (Var4)" scale="0.929844,0.929844,0.929844" rotation="0.000000,0.000000,-85.499992" finderTag="Hero" modelLink="HeroDiablo@StoreModelBase" variation="3" shadowBox="0" opacity="0.000000" teamColorDiffuse="0.705800,0.078300,0.117600,1.000000" teamColorEmissive="0.545100,0.062700,0.086100,1.000000">
+        <CCutsceneElementObject guid="6798665622896279832" duration="107354" lockedToEnd="1"/>
+        <CCutsceneNodeAnimLayer guid="11713707882974576920" filter="Victory" name="Animation - Victory">
+            <CCutsceneElementAnim guid="6687294861758202136" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="10418921654370730264" filter="Defeat" name="Animation - Defeat">
+            <CCutsceneElementAnim guid="5785021627001766168" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodeAnimLayer guid="10618773655248994584" name="Animation Layer">
+            <CCutsceneElementAnim guid="9171289373493461272" duration="111417" lockedToEnd="1" anim="Stand S" priority="3" originalDuration="4000" originalMoveSpeed="400.000000" movespeed="400.000000" looping="1" fullMatchLegacy="1"/>
+        </CCutsceneNodeAnimLayer>
+        <CCutsceneNodePropertyValue guid="13175319463217889560" name="Property - Opacity" propertyName="opacity">
+            <CCutsceneElementPropertyCurve guid="6550418725095637272" start="1000" value="0.000000" time="1000.000000" curveInValue="999.000000,0.000000" curveOutValue="1166.666626,0.333333" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8118591815502037272" start="1500" value="1.000000" time="1500.000000" curveInValue="1333.333374,0.666667" curveOutValue="36153.000000,1.000000" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8598450683074871576" start="105459" value="1.000000" time="105459.000000" curveInValue="70806.000000,1.000000" curveOutValue="105520.000000,0.666667" curveOutType="3" curveInType="3"/>
+            <CCutsceneElementPropertyCurve guid="8193404072714600728" start="105642" value="0.000000" time="105642.000000" curveInValue="105581.000000,0.333333" curveOutValue="105643.000000,0.000000" curveOutType="3" curveInType="3"/>
+        </CCutsceneNodePropertyValue>
+        <CCutsceneNodeConversation guid="11905773718030549272" filter="Defeat" name="Conversation - Defeat"/>
+        <CCutsceneNodeConversation guid="11369935041290600728" filter="Victory" name="Conversation - Victory"/>
+    </CCutsceneNodeActor>
+</CutsceneState>

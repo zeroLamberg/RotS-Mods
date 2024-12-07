@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CTargetSortDistance id="TSDistanceFromSource">
+        <WhichLocation Value="SourceUnit"/>
+    </CTargetSortDistance>
+    <CTargetSortBehaviorCount id="TSManaUser">
+        <WhichUnit Value="Target"/>
+        <Behavior value="NotManaUserDummy"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortField id="TSNotImmuneToSkillshots">
+        <Field value="Attributes[Massive]"/>
+        <Value value="0"/>
+    </CTargetSortField>
+    <CTargetSortBehaviorCount id="TSNoLowBouncePriority">
+        <WhichUnit Value="Target"/>
+        <Behavior value="LowBouncePriorityTarget"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortBehaviorCount id="TSNotWall">
+        <Behavior value="TownWallBehavior"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortField id="TSStructure">
+        <Field value="Attributes[7]"/>
+        <Value value="1"/>
+    </CTargetSortField>
+    <CTargetSortBehaviorCount id="TSEngaged">
+        <Behavior value="JungleCreepPassive"/>
+        <WhichUnit Value="Target"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortBehaviorCount id="TSNotGate">
+        <Behavior value="TownGateBehavior"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortField id="TSNotStructure">
+        <Field value="Attributes[7]"/>
+        <Value value="0"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSSummon">
+        <Field value="Attributes[Summoned]"/>
+        <Value value="1"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSNotSummon">
+        <Field value="Attributes[Summoned]"/>
+        <Value value="0"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSNoTowerAggro">
+        <Field value="Attributes[Armored]"/>
+        <Value value="1"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSNotNoMinionAggro">
+        <Field value="Attributes[Psionic]"/>
+        <Value value="0"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSMinion">
+        <Field value="Attributes[Biological]"/>
+        <Value value="1"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSMerc">
+        <Field value="Attributes[4]"/>
+        <Value value="1"/>
+    </CTargetSortField>
+    <CTargetSortField id="TSHeroic">
+        <Field value="Attributes[9]"/>
+        <Value value="1"/>
+    </CTargetSortField>
+    <CTargetSortBehaviorCount id="TSHighPriority">
+        <WhichUnit Value="Target"/>
+        <Behavior value="HighCombatPriority"/>
+        <Value value="1"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortBehaviorCount id="TSIsMULE">
+        <Behavior value="TalentCalldownMULE@TimeLife"/>
+        <Value value="1"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortField id="TSNotHeroic">
+        <Field value="Attributes[9]"/>
+        <Value value="0"/>
+    </CTargetSortField>
+    <CTargetSortVital id="TSLifeSmallestFirst"/>
+    <CTargetSortBehaviorCount id="TSNoBounce">
+        <Behavior value="GenericNoBounceEffects"/>
+        <WhichUnit Value="Target"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortField id="TSNotInvulnerable">
+        <Field value="Flags[27]"/>
+        <Value value="0"/>
+    </CTargetSortField>
+    <CTargetSortBehaviorCount id="TSisLanerOgre">
+        <WhichUnit Value="Target"/>
+        <Descending value="1"/>
+        <Behavior value="MercLanerKnightMarkerBehavior"/>
+        <Value value="1"/>
+    </CTargetSortBehaviorCount>
+</Catalog>

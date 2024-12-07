@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CReverb id="BetaVerb" parent="Mountains">
+        <DecayTime value="1.000000"/>
+        <Reverb value="-750"/>
+        <Room value="-2000"/>
+        <Reflections value="-3000"/>
+    </CReverb>
+    <CReverb id="Test_HauntedMines_Verb">
+        <DecayTime value="1.000000"/>
+        <Diffusion value="27.000000"/>
+        <Room value="-2000"/>
+        <RoomHF value="-2500"/>
+        <DecayHFRatio value="0.210000"/>
+        <Reflections value="-3000"/>
+        <ReflectionsDelay value="0.300000"/>
+        <Reverb value="-750"/>
+        <ReverbDelay value="0.100000"/>
+    </CReverb>
+</Catalog>

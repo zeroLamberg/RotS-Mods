@@ -1,0 +1,113 @@
+include "LibCore_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Glue
+//--------------------------------------------------------------------------------------------------
+// Preset Declarations
+const int libGlue_ge_GluePortraitSection_BattleLobbySlot = 0;
+const int libGlue_ge_GlueBattleLobbyUISlotStatus_Empty = 0;
+const int libGlue_ge_GlueBattleLobbyUISlotStatus_Player = 1;
+const int libGlue_ge_GlueBattleLobbyUISlotStatus_AI = 2;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_None = 0;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetHost = 1;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SwapTeams = 2;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetObserver = 3;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_Kick = 4;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot1 = 5;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot2 = 6;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot3 = 7;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot4 = 8;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot5 = 9;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_EnemyTeamSlot6 = 10;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetDifficulty1 = 11;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetDifficulty2 = 12;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetDifficulty3 = 13;
+const int libGlue_ge_GlueUIBattleLobbyContextMenuOptions_SetDifficulty4 = 14;
+
+// Constants
+const int libGlue_gv_glueUIBattleLobbyContextMenuOptionsMaxCount = 16;
+const int libGlue_gv_glueUIBattleLobbyAttributeMaxCount = 6;
+const fixed libGlue_gv_glueUIBattleLobbyStartGameTime = 10.0;
+const fixed libGlue_gv_glueUIBattleLobbyShufflePlayersTime = 2.0;
+
+// Structures
+struct libGlue_gs_GlueBattleLobbyUI {
+    int lv_mainDialog;
+    int lv_battleLobbyHostPlayer;
+    playergroup[libCore_gv_bALMaxTeams + 1] lv_battleLobbyTeamPlayerGroup;
+    int[libGlue_gv_glueUIBattleLobbyContextMenuOptionsMaxCount + 1] lv_battleLobbyHostContextMenuOption;
+    int lv_battleLobbyHostContextMenuOptionsCurrent;
+    int lv_battleLobbyHostContextMenuOptionTeam;
+    int lv_battleLobbyHostContextMenuOptionSlot;
+    bool[libCore_gv_bALMaxEnginePlayerCount + 1] lv_battleLobbySuppressPlayerInput;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotPlayer;
+    timer lv_battleLobbyStartGameButtonTimer;
+    timer lv_battleLobbyShufflePlayersButtonTimer;
+    int[libCore_gv_mapCountMax + 1] lv_battleLobbyMapList;
+    int lv_battleLobbyMapListCount;
+    int lv_battleLobbyMapSelectedDropdownIndex;
+    int lv_battleLobbyMapSelectedIndex;
+    int lv_battleLobbyPanel;
+    int lv_battleLobbyMapImage;
+    int lv_battleLobbyMapNameLabel;
+    int[libCore_gv_bALMaxTeams + 1] lv_battleLobbyTeamPanel;
+    int[libCore_gv_bALMaxTeams + 1] lv_battleLobbyTeamNameLabel;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotPanel;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotNameLabel;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotEditButton;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotEditContextMenu;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotPlayerStatus;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotAvatarPortraitContainer;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotAvatarPortraitImage;
+    int[libCore_gv_bALMaxTeams + 1][libCore_gv_bALMaxPlayersOnATeam + 1] lv_battleLobbyTeamSlotAvatarPortraitTextureCoordsLabel;
+    int lv_battleLobbyEditContextMenu;
+    int lv_battleLobbyEditContextMenuTitleLabel;
+    int lv_battleLobbyAttributePanel;
+    int[libGlue_gv_glueUIBattleLobbyAttributeMaxCount + 1] lv_battleLobbyAttributePulldownFrame;
+    int[libGlue_gv_glueUIBattleLobbyAttributeMaxCount + 1] lv_battleLobbyAttributePulldown;
+    int[libGlue_gv_glueUIBattleLobbyAttributeMaxCount + 1] lv_battleLobbyAttributePulldownNameLabel;
+    int lv_battleLobbyStartGameButton;
+    int lv_battleLobbyShufflePlayersButton;
+};
+
+// Variable Declarations
+bool libGlue_gv_glueUILoadingStarted;
+libGlue_gs_GlueBattleLobbyUI libGlue_gv_glueBattleLobbyUI;
+
+// Function Declarations
+void libGlue_gf_GlueUpdatePlayerPortrait (int lp_player, playergroup lp_forPlayers, int lp_portraitSection);
+void libGlue_gf_GlueBattleLobbyAssignPlayerToSlot (int lp_player, int lp_team, int lp_slot, int lp_slotStatus);
+void libGlue_gf_GlueBattleLobbySwitchPlayerSlots (int lp_player1, int lp_player2);
+void libGlue_gf_GlueBattleLobbyUpdateSlots ();
+void libGlue_gf_GlueBattleLobbyUpdateHostUI ();
+void libGlue_gf_GlueBattleLobbySendSlotStatusAnimationEvent (int lp_team, int lp_slot, int lp_status);
+void libGlue_gf_GlueBattleLobbySetPlayerHost (int lp_player);
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuUpdate (int lp_team, int lp_slot);
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionClear ();
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuOptionAdd (int lp_option);
+void libGlue_gf_GlueBattleLobbyHostPlayerContextMenuSelectionUpdate (int lp_option);
+void libGlue_gf_GlueBattleLobbyRefreshMapList (int lp_gameMode);
+void libGlue_gf_GlueBattleLobbyShufflePlayers ();
+int libGlue_gf_GlueBattleLobbyGetPlayerTeam (int lp_player);
+int libGlue_gf_GlueBattleLobbyGetPlayerSlot (int lp_player);
+int libGlue_gf_GlueBattleLobbyGetPlayerStatus (int lp_player);
+int libGlue_gf_GlueBattleLobbyGetFreeSlotOfTeam (int lp_team);
+void libGlue_gf_GlueBattleLobbyAttributeUIUpdate ();
+void libGlue_gf_GlueBattleLobbyAttributeUIFillData ();
+void libGlue_gf_GlueBattleLobbyUpdateMapInfo ();
+
+// Trigger Declarations
+trigger libGlue_gt_IncludeGlue;
+trigger libGlue_gt_GlueInitialize;
+trigger libGlue_gt_GlueInitializeGlueUI;
+trigger libGlue_gt_GlueStart;
+trigger libGlue_gt_GlueInitializePlayers;
+trigger libGlue_gt_GlueDialogItemUsedClicked;
+trigger libGlue_gt_GlueDialogItemUsedChangeSelection;
+trigger libGlue_gt_GlueTimerPeriodicEvent;
+trigger libGlue_gt_GlueStartGameButtonEnabler;
+trigger libGlue_gt_GluePlayerLeft;
+
+// Library Initialization
+void libGlue_InitVariables ();
+

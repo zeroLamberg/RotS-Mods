@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CSound id="Wizard_Templar_ArcaneOrb_Impact" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_ArcaneOrb_Impact01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_ArcaneOrb_Impact02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_ArcaneOrb_Impact03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_ArcaneOrb_Impact04.ogg" FacialGroup=""/>
+        <DupeDestroyCount value="3"/>
+        <DupeMuteCount value="1"/>
+        <FogFadeOut/>
+        <FogFadeOut Time="1500" Volume="-96.000000"/>
+        <MuteFadeOut/>
+        <MuteFadeOut Time="1500" Volume="-96.000000"/>
+        <Pitch value="-1.000000,2.000000"/>
+        <PlayDelay value="0,50"/>
+        <SustainFade index="1" Time="1500"/>
+        <Volume value="-8.000000,-5.000000"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="-0.120000"/>
+        <DupeThresholdPoints Count="2" Volume="-10.000000"/>
+        <DupeThresholdPoints Count="3" Volume="-16.000000"/>
+        <DupeThresholdPoints Count="1" Volume="-2.000000"/>
+    </CSound>
+    <CSound id="Wizard_Templar_Teleport_Sound_Out" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Teleport_Launch_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Teleport_Launch_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Teleport_Launch_03.ogg" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-10.000000,-9.000000"/>
+        <CategoryDuckingLocalAlly value="NPC_Spell_InstaCast"/>
+    </CSound>
+    <CSound id="Wizard_Templar_MagicMissiles_Impact" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Impact_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Impact_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Impact_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Impact_04.ogg" FacialGroup=""/>
+        <CategoryLocalAlly value="Unknown"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-16.039999,-16.039999"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="-0.120000"/>
+    </CSound>
+    <CSound id="Wizard_Templar_MagicMissiles_Launch" parent="_FX_Hero_Spell_Launch">
+        <DupeDestroyCount value="1"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="1"/>
+        <Pitch value="1.000000,1.000000"/>
+        <Volume value="-16.000000,-14.000000"/>
+        <CategoryDuckingLocalAlly value="NPC_Spell_InstaCast"/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_05.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_06.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_MagicMissile_Launch_07.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Wizard_Templar_Disintegrate_End" parent="_FX_Hero_Spell_End">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_End_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_End_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_End_03.ogg" FacialGroup=""/>
+        <CategoryLocalAlly value="Unknown"/>
+        <Pitch value="-1.000000,0.000000"/>
+        <Volume value="-16.000000,-15.000000"/>
+    </CSound>
+    <CSound id="Wizard_Templar_Disintegrate_Loop" parent="_FX_Hero_Spell_Loop">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_Ray_Loop_01.ogg" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_Ray_Loop_02.ogg" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_Ray_Loop_03.ogg" LoopCount="-1" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_Ray_Loop_04.ogg" LoopCount="-1" FacialGroup=""/>
+        <CategoryLocalAlly value="Unknown"/>
+        <Pitch value="-2.000000,1.000000"/>
+        <Volume value="-15.000000,-13.000000"/>
+    </CSound>
+    <CSound id="Wizard_Tempar_Disintegrate_Start" parent="_FX_Hero_Ult_Launch">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_Cast_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Templar\Wizard_Templar_Disintegrate_Cast_02.ogg" FacialGroup=""/>
+        <Category value="User28"/>
+        <CategoryLocal value="Spell"/>
+        <PanLevelNonLocal value="1.000000"/>
+        <Pitch value="3.000000,6.000000"/>
+        <Volume value="-17.000000,-15.000000"/>
+        <CategoryDuckingLocal value="Local_Spell_Instacast"/>
+        <CategoryDuckingLocalAlly value="NPC_Spell_InstaCast"/>
+        <CategoryDuckingNonLocal value="NPC_Spell_InstaCast"/>
+    </CSound>
+</Catalog>

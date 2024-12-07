@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSkin id="Announcer_PH">
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@HeroSelect" To="Announcer_PH@HeroSelect"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@CountdownRemain" To="Announcer_PH@CountdownRemain"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Countdown10sec" To="Announcer_PH@Countdown10sec"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Countdown5sec" To="Announcer_PH@Countdown5sec"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Countdown4sec" To="Announcer_PH@Countdown4sec"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Countdown3sec" To="Announcer_PH@Countdown3sec"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Countdown2sec" To="Announcer_PH@Countdown2sec"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Countdown1sec" To="Announcer_PH@Countdown1sec"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@GameStart" To="Announcer_PH@GameStart"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@HeroSlain" To="Announcer_PH@HeroSlain"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@HeroKill" To="Announcer_PH@HeroKill"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Kill_Observer" To="Announcer_PH@Kill_Observer"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@DoubleKill" To="Announcer_PH@DoubleKill"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@TripleKill" To="Announcer_PH@TripleKill"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@FourKill" To="Announcer_PH@FourKill"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@MegaKill" To="Announcer_PH@MegaKill"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@TeamKill" To="Announcer_PH@TeamKill"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@TeamKill_Blue" To="Announcer_PH@TeamKill_Blue"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@TeamKill_Red" To="Announcer_PH@TeamKill_Red"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@FirstBloodAlly" To="Announcer_PH@FirstBloodAlly"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@FirstBlood_Red" To="Announcer_PH@FirstBlood_Red"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@FirstBlood_Blue" To="Announcer_PH@FirstBlood_Blue"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@SpreeStart" To="Announcer_PH@SpreeStart"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@SpreeEnd" To="Announcer_PH@SpreeEnd"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@SpreeFirstUpgrade" To="Announcer_PH@SpreeFirstUpgrade"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@SpreeSecondUpgrade" To="Announcer_PH@SpreeSecondUpgrade"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@SpreeThirdUpgrade" To="Announcer_PH@SpreeThirdUpgrade"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@SpreeMax" To="Announcer_PH@SpreeMax"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@PlayerAbandon" To="Announcer_PH@PlayerAbandon"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@PlayerRejoin" To="Announcer_PH@PlayerRejoin"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Revive" To="Announcer_PH@Revive"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@OutpostLost" To="Announcer_PH@OutpostLost"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@OutpostDestroy" To="Announcer_PH@OutpostDestroy"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@KeepLost" To="Announcer_PH@KeepLost"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@KeepDestroy" To="Announcer_PH@KeepDestroy"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@OutpostDestroy_Red" To="Announcer_PH@OutpostDestroy_Red"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@OutpostDestroy_Blue" To="Announcer_PH@OutpostDestroy_Blue"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@KeepDestroy_Red" To="Announcer_PH@KeepDestroy_Red"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@KeepDestroy_Blue" To="Announcer_PH@KeepDestroy_Blue"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@CastleAttackAlly" To="Announcer_PH@CastleAttackAlly"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@CastleAttack_Blue" To="Announcer_PH@CastleAttack_Blue"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@CastleAttack_Red" To="Announcer_PH@CastleAttack_Red"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@EndingLose" To="Announcer_PH@EndingLose"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@EndingWin" To="Announcer_PH@EndingWin"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Ending_Red" To="Announcer_PH@Ending_Red"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Ending_Blue" To="Announcer_PH@Ending_Blue"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@LevelAnnounce" To="Announcer_PH@LevelAnnounce"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@TalentUnlock" To="Announcer_PH@TalentUnlock"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@MVP" To="Announcer_PH@MVP"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@ResultEpic" To="Announcer_PH@ResultEpic"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@ResultLegendary" To="Announcer_PH@ResultLegendary"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Health" To="Announcer_PH@Health"/>
+        <ReplacementArray Catalog="Sound" From="Announcer_PH@Mana" To="Announcer_PH@Mana"/>
+    </CSkin>
+    <CSound id="Announcer_PH@CastleAttackAlly" parent="AnnouncerVO">
+        <Category value="User35"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@CastleAttack_Blue" parent="AnnouncerVO">
+        <Category value="User35"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@CastleAttack_Red" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown10sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown1sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown2sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown30sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown3sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown4sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Countdown5sec" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@CountdownRemain" parent="AnnouncerVO_Countdown">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@EndingLose" parent="AnnouncerVO_Ending">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@EndingWin" parent="AnnouncerVO_Ending">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Ending_Red" parent="AnnouncerVO_Ending">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Ending_Blue" parent="AnnouncerVO_Ending">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@GameStart" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Gravestomp" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Gravestomp_Observer" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@HeroSelect" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@HeroSelect_Player" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@HeroSelect_Observer" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@KeepDestroy" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@KeepDestroy_Blue" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@KeepDestroy_Red" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@KeepLost" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Kill_Observer" parent="AnnouncerVO_Kills">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@LevelAnnounce" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Draft_Last" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Draft_Map" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@DoubleKill" parent="AnnouncerVO_Kills">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@MegaKill" parent="AnnouncerVO_Kills">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@FirstBloodAlly" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@FirstBlood_Blue" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@FirstBlood_Red" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@FourKill" parent="AnnouncerVO_Kills">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@HeroKill" parent="AnnouncerVO_Kills">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@HeroSlain" parent="AnnouncerVO_Kills">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@HeroSlain_Observer" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@TeamKill" parent="AnnouncerVO_Kills">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@TeamKill_Blue" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@TeamKill_Red" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@TripleKill" parent="AnnouncerVO_Kills">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@MercCapture_Blue" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@MercCapture_Red" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@OutpostDestroy" parent="AnnouncerVO_Fort">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@OutpostDestroy_Blue" parent="AnnouncerVO_Fort">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@OutpostDestroy_Red" parent="AnnouncerVO_Fort">
+        <Exclusivity value="AnnouncerHigh"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@OutpostLost" parent="AnnouncerVO_Fort">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Revive" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Revive_Observer" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@PlayerAbandon" parent="AnnouncerVO">
+        <DupeWait value="15000,15000"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@PlayerRejoin" parent="AnnouncerVO">
+        <DupeWait value="15000,15000"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Preview" parent="AnnouncerVO_Preview" aid="Bogus"/>
+    <CSound id="Announcer_PH@ResultEpic" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@ResultLegendary" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@ResultMVP" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeEnd" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeEnd_Ally" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeFirstUpgrade" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeMax" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeSecondUpgrade" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeStart" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@SpreeThirdUpgrade" parent="AnnouncerVO">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@TalentUnlock" parent="AnnouncerVO_TalentUnlock">
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Health" parent="HeroVO_2D_High">
+        <DupeWait value="5000,10000"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CSound id="Announcer_PH@Mana" parent="HeroVO_2D_High">
+        <DupeWait value="5000,10000"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+        <AssetArray File="Unknown"/>
+    </CSound>
+    <CDataCollection id="Announcer_PH">
+        <DataRecord Entry="Skin,Announcer_PH"/>
+        <DataRecord Entry="Sound,Announcer_PH@CastleAttackAlly"/>
+        <DataRecord Entry="Sound,Announcer_PH@CastleAttack_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@CastleAttack_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown10sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown1sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown2sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown30sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown3sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown4sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@Countdown5sec"/>
+        <DataRecord Entry="Sound,Announcer_PH@CountdownRemain"/>
+        <DataRecord Entry="Sound,Announcer_PH@EndingLose"/>
+        <DataRecord Entry="Sound,Announcer_PH@EndingWin"/>
+        <DataRecord Entry="Sound,Announcer_PH@Ending_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@Ending_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@GameStart"/>
+        <DataRecord Entry="Sound,Announcer_PH@Gravestomp"/>
+        <DataRecord Entry="Sound,Announcer_PH@Gravestomp_Observer"/>
+        <DataRecord Entry="Sound,Announcer_PH@HeroSelect"/>
+        <DataRecord Entry="Sound,Announcer_PH@HeroSelect_Observer"/>
+        <DataRecord Entry="Sound,Announcer_PH@KeepDestroy"/>
+        <DataRecord Entry="Sound,Announcer_PH@KeepDestroy_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@KeepDestroy_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@KeepLost"/>
+        <DataRecord Entry="Sound,Announcer_PH@Kill_Observer"/>
+        <DataRecord Entry="Sound,Announcer_PH@LevelAnnounce"/>
+        <DataRecord Entry="Sound,Announcer_PH@Draft_Last"/>
+        <DataRecord Entry="Sound,Announcer_PH@Draft_Map"/>
+        <DataRecord Entry="Sound,Announcer_PH@DoubleKill"/>
+        <DataRecord Entry="Sound,Announcer_PH@MegaKill"/>
+        <DataRecord Entry="Sound,Announcer_PH@FirstBloodAlly"/>
+        <DataRecord Entry="Sound,Announcer_PH@FirstBlood_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@FirstBlood_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@FourKill"/>
+        <DataRecord Entry="Sound,Announcer_PH@HeroKill"/>
+        <DataRecord Entry="Sound,Announcer_PH@HeroSlain"/>
+        <DataRecord Entry="Sound,Announcer_PH@HeroSlain_Observer"/>
+        <DataRecord Entry="Sound,Announcer_PH@TeamKill"/>
+        <DataRecord Entry="Sound,Announcer_PH@TeamKill_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@TeamKill_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@TripleKill"/>
+        <DataRecord Entry="Sound,Announcer_PH@MercCapture_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@MercCapture_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@OutpostDestroy"/>
+        <DataRecord Entry="Sound,Announcer_PH@OutpostDestroy_Blue"/>
+        <DataRecord Entry="Sound,Announcer_PH@OutpostDestroy_Red"/>
+        <DataRecord Entry="Sound,Announcer_PH@OutpostLost"/>
+        <DataRecord Entry="Sound,Announcer_PH@Revive"/>
+        <DataRecord Entry="Sound,Announcer_PH@Revive_Observer"/>
+        <DataRecord Entry="Sound,Announcer_PH@PlayerAbandon"/>
+        <DataRecord Entry="Sound,Announcer_PH@PlayerRejoin"/>
+        <DataRecord Entry="Sound,Announcer_PH@Preview"/>
+        <DataRecord Entry="Sound,Announcer_PH@ResultEpic"/>
+        <DataRecord Entry="Sound,Announcer_PH@ResultLegendary"/>
+        <DataRecord Entry="Sound,Announcer_PH@ResultMVP"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeEnd"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeEnd_Ally"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeFirstUpgrade"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeMax"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeSecondUpgrade"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeStart"/>
+        <DataRecord Entry="Sound,Announcer_PH@SpreeThirdUpgrade"/>
+        <DataRecord Entry="Sound,Announcer_PH@TalentUnlock"/>
+        <DataRecord Entry="Sound,Announcer_PH@Health"/>
+        <DataRecord Entry="Sound,Announcer_PH@Mana"/>
+        <DataRecord Entry="Sound,Announcer_PH@HeroSelect_Player"/>
+        <EditorCategories value="StormHero:Common,StormDataGroup:VO"/>
+    </CDataCollection>
+</Catalog>

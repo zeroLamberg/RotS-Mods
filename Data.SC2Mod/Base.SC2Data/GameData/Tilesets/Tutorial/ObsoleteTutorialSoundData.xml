@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="ObsoleteTutorialVO_Diablo_138" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00138">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_005" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00005">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_019" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00019">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_009" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00009">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_041" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00041">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_204" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00204">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_001" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00001">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_002" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00002">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_170" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00170">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_193" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00193">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_164" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00164">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_206" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00206">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_207" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00207">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_180" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00180">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_143" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00143">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_154" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00154">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_156" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00156">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_185" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00185">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_186" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00186">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Nova_189" parent="HeroVO_Tutorial" Portrait="NovaPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Nova" Actor="NovaPortrait" Line="00189">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_140" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00140">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_149" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00149">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_152" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00152">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_157" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00157">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_213" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00213">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Nova_214" parent="HeroVO_Tutorial" Portrait="NovaPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Nova" Actor="NovaPortrait" Line="00214">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_215" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00215">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_182" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00182">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_190" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00190">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_166" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00166">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Nova_167" parent="HeroVO_Tutorial" Portrait="NovaPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Nova" Actor="NovaPortrait" Line="00167">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_174" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00174">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_039" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00039">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_038" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00038">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_037" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00037">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_040" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00040">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_131" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00131">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Nova_133" parent="HeroVO_Tutorial" Portrait="NovaPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Nova" Actor="NovaPortrait" Line="00133">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Nova_135" parent="HeroVO_Tutorial" Portrait="NovaPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Nova" Actor="NovaPortrait" Line="00135">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_137" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00137">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_208" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00208">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_210" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00210">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_212" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00212">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_021" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00021">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_032" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00032">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_034" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00034">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_035" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00035">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_066" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00066">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_106" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00106">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_107" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00107">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_108" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00108">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Stitches_109" parent="HeroVO_Tutorial" Portrait="StitchesPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Stitches" Actor="StitchesPortrait" Line="00109">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_110" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00110">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_111" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00111">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_112" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00112">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_129" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00129">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_130" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00130">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Tyrael_132" parent="HeroVO_Tutorial" Portrait="" Subtitle="ObsoleteTutorialVO" Speaker="Tyrael" Actor="" Line="00132">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_134" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00134">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_136" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00136">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_013" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00013">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Kingscrest_068" parent="HeroVO_Tutorial" Portrait="" Subtitle="ObsoleteTutorialVO" Speaker="Kingscrest" Actor="" Line="00068">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_003" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00003">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_023" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00023">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Kingscrest_072" parent="HeroVO_Tutorial" Portrait="" Subtitle="ObsoleteTutorialVO" Speaker="Kingscrest" Actor="" Line="00072">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_078" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00078">
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="Stream" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_081" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00081">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_087" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00087">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_090" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00090">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_094" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00094">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_029" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00029">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_115" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00115">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_069" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00069">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_073" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00073">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_088" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00088">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Raynor_098" parent="HeroVO_Tutorial" Portrait="RaynorPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Raynor" Actor="RaynorPortrait" Line="00098">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Diablo_036" parent="HeroVO_Tutorial" Portrait="DiabloPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Diablo" Actor="DiabloPortrait" Line="00036">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="ObsoleteTutorialVO_Stitches_101" parent="HeroVO_Tutorial" Portrait="StitchesPortrait" Subtitle="ObsoleteTutorialVO" Speaker="Stitches" Actor="StitchesPortrait" Line="00101">
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Flags index="Obsolete" value="1"/>
+        <PanLevel value="0.000000"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <SustainFade index="1" Time="500"/>
+        <VolumeRolloffPoints index="0" removed="1"/>
+        <VolumeRolloffPoints index="1" removed="1"/>
+        <PanLevelNonLocal value="0.000000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+</Catalog>

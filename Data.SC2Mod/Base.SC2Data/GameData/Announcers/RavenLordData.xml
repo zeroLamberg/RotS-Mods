@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CVoiceOver id="Announcer_RavenLord" parent="StormVoiceOverAnnouncer">
+        <Character value="Announcer_RavenLord"/>
+        <Lines Group="Draft_Map"/>
+        <Lines Group="HeroSelect"/>
+        <Lines Group="HeroSelectPlayer"/>
+        <Lines Group="HeroSelectPlayer" SoundIndex="1"/>
+        <Lines Group="HeroSelectPlayer" SoundIndex="2"/>
+        <Lines Group="HeroSelect_Observer"/>
+        <Lines Group="CountdownRemain"/>
+        <Lines Group="Countdown10sec"/>
+        <Lines Group="Countdown5sec"/>
+        <Lines Group="Countdown4sec"/>
+        <Lines Group="Countdown3sec"/>
+        <Lines Group="Countdown2sec"/>
+        <Lines Group="Countdown1sec"/>
+        <Lines Group="GameStart"/>
+        <Lines Group="GameStart" SoundIndex="1"/>
+        <Lines Group="GameStart" SoundIndex="2"/>
+        <Lines Group="TalentUnlock"/>
+        <Lines Group="TalentUnlock" SoundIndex="2"/>
+        <Lines Group="TalentUnlock" SoundIndex="3"/>
+        <Lines Group="TalentUnlock" SoundIndex="1"/>
+        <Lines Group="OutpostDestroy"/>
+        <Lines Group="OutpostDestroy" SoundIndex="1"/>
+        <Lines Group="OutpostDestroy" SoundIndex="2"/>
+        <Lines Group="OutpostDestroy" SoundIndex="3"/>
+        <Lines Group="OutpostDestroy" SoundIndex="4"/>
+        <Lines Group="OutpostDestroy" SoundIndex="5"/>
+        <Lines Group="OutpostDestroy_Red"/>
+        <Lines Group="OutpostDestroy_Red" SoundIndex="1"/>
+        <Lines Group="OutpostDestroy_Blue"/>
+        <Lines Group="OutpostDestroy_Blue" SoundIndex="1"/>
+        <Lines Group="OutpostLost"/>
+        <Lines Group="OutpostLost" SoundIndex="1"/>
+        <Lines Group="OutpostLost" SoundIndex="2"/>
+        <Lines Group="OutpostLost" SoundIndex="3"/>
+        <Lines Group="OutpostLost" SoundIndex="4"/>
+        <Lines Group="OutpostLost" SoundIndex="5"/>
+        <Lines Group="KeepDestroy"/>
+        <Lines Group="KeepDestroy" SoundIndex="1"/>
+        <Lines Group="KeepDestroy" SoundIndex="2"/>
+        <Lines Group="KeepDestroy" SoundIndex="3"/>
+        <Lines Group="KeepDestroy_Red"/>
+        <Lines Group="KeepDestroy_Red" SoundIndex="1"/>
+        <Lines Group="KeepDestroy_Blue"/>
+        <Lines Group="KeepDestroy_Blue" SoundIndex="1"/>
+        <Lines Group="KeepLost"/>
+        <Lines Group="KeepLost" SoundIndex="1"/>
+        <Lines Group="KeepLost" SoundIndex="2"/>
+        <Lines Group="KeepLost" SoundIndex="3"/>
+        <Lines Group="CastleAttackAlly"/>
+        <Lines Group="CastleAttackAlly" SoundIndex="1"/>
+        <Lines Group="CastleAttack_Red"/>
+        <Lines Group="CastleAttack_Red" SoundIndex="1"/>
+        <Lines Group="CastleAttack_Blue"/>
+        <Lines Group="CastleAttack_Blue" SoundIndex="1"/>
+        <Lines Group="EndingWin"/>
+        <Lines Group="EndingWin" SoundIndex="1"/>
+        <Lines Group="EndingWin" SoundIndex="2"/>
+        <Lines Group="EndingLose"/>
+        <Lines Group="EndingLose" SoundIndex="1"/>
+        <Lines Group="EndingLose" SoundIndex="2"/>
+        <Lines Group="Ending_Red"/>
+        <Lines Group="Ending_Blue"/>
+        <Lines Group="PlayerAbandon"/>
+        <Lines Group="PlayerRejoin"/>
+        <Lines Group="FirstBloodAlly"/>
+        <Lines Group="FirstBlood_Red"/>
+        <Lines Group="FirstBlood_Blue"/>
+        <Lines Group="DoubleKill"/>
+        <Lines Group="DoubleKill" SoundIndex="1"/>
+        <Lines Group="DoubleKill" SoundIndex="2"/>
+        <Lines Group="TripleKill"/>
+        <Lines Group="TripleKill" SoundIndex="1"/>
+        <Lines Group="TripleKill" SoundIndex="2"/>
+        <Lines Group="FourKill"/>
+        <Lines Group="MegaKill"/>
+        <Lines Group="TeamKill"/>
+        <Lines Group="TeamKill_Red"/>
+        <Lines Group="TeamKill_Blue"/>
+        <Lines Group="HeroKill"/>
+        <Lines Group="HeroKill" SoundIndex="1"/>
+        <Lines Group="HeroKill" SoundIndex="2"/>
+        <Lines Group="HeroKill" SoundIndex="3"/>
+        <Lines Group="HeroKill" SoundIndex="4"/>
+        <Lines Group="HeroKill" SoundIndex="5"/>
+        <Lines Group="HeroKill" SoundIndex="6"/>
+        <Lines Group="HeroKill" SoundIndex="7"/>
+        <Lines Group="HeroKill" SoundIndex="8"/>
+        <Lines Group="HeroKill" SoundIndex="9"/>
+        <Lines Group="Kill_Observer"/>
+        <Lines Group="Kill_Observer" SoundIndex="1"/>
+        <Lines Group="Kill_Observer" SoundIndex="2"/>
+        <Lines Group="Kill_Observer" SoundIndex="3"/>
+        <Lines Group="Kill_Observer" SoundIndex="4"/>
+        <Lines Group="HeroSlain"/>
+        <Lines Group="HeroSlain" SoundIndex="1"/>
+        <Lines Group="HeroSlain" SoundIndex="2"/>
+        <Lines Group="HeroSlain" SoundIndex="3"/>
+        <Lines Group="HeroSlain" SoundIndex="4"/>
+        <Lines Group="HeroSlain" SoundIndex="5"/>
+        <Lines Group="HeroSlain" SoundIndex="6"/>
+        <Lines Group="HeroSlain" SoundIndex="7"/>
+        <Lines Group="SpreeStart"/>
+        <Lines Group="SpreeFirstUpgrade"/>
+        <Lines Group="SpreeSecondUpgrade"/>
+        <Lines Group="SpreeThirdUpgrade"/>
+        <Lines Group="SpreeMax"/>
+        <Lines Group="SpreeEnd"/>
+        <Lines Group="SpreeEnd_Ally"/>
+        <Lines Group="Gravestomp"/>
+        <Lines Group="Gravestomp" SoundIndex="1"/>
+        <Lines Group="Gravestomp_Observer"/>
+        <Lines Group="Revive"/>
+        <Lines Group="Revive_Observer"/>
+        <Lines Group="MVP"/>
+        <Lines Group="MVP" SoundIndex="1"/>
+        <Lines Group="Epic"/>
+        <Lines Group="Legendary"/>
+    </CVoiceOver>
+    <CCharacter id="Announcer_RavenLord">
+        <Race value="Unknown"/>
+        <Voice value="ATT Mel"/>
+        <Color value="255,128,128,0"/>
+    </CCharacter>
+    <CSkin id="Announcer_RavenLord" parent="AnnouncerReplacementParentNEW" SoundTemplate="RavenLord">
+        <EffectArray index="117" Operation="Set" Reference="Sound,Announcer_PH@HeroKill,AssetArray[7].File" Value="LocalizedData\Sounds\VO\RavenLord_HeroKill07_ALT.ogg"/>
+        <EffectArray index="118" Operation="Set" Reference="Sound,Announcer_PH@HeroKill,AssetArray[8].File" Value="LocalizedData\Sounds\VO\RavenLord_HeroKill08_ALT1.ogg"/>
+        <EffectArray index="346" Operation="Set" Reference="Sound,Announcer_PH@OutpostLost,AssetArray[5].File" Value="LocalizedData\Sounds\VO\RavenLord_OutpostLost05_ALT1.ogg"/>
+        <EffectArray index="356" Operation="Set" Reference="Sound,Announcer_PH@OutpostDestroy,AssetArray[4].File" Value="LocalizedData\Sounds\VO\RavenLord_OutpostDestroy04_ALT4.ogg"/>
+        <EffectArray index="357" Operation="Set" Reference="Sound,Announcer_PH@OutpostDestroy,AssetArray[5].File" Value="LocalizedData\Sounds\VO\RavenLord_OutpostDestroy05_ALT.ogg"/>
+        <EffectArray index="400" Operation="Set" Reference="Sound,Announcer_PH@KeepDestroy,AssetArray[4].File" Value="LocalizedData\Sounds\VO\RavenLord_KeepDestroy03_ALT.ogg"/>
+        <EffectArray index="431" Operation="Set" Reference="Sound,Announcer_PH@CastleAttackAlly,AssetArray[2].File" Value="LocalizedData\Sounds\VO\RavenLord_CastleAttackAlly00_ALT.ogg"/>
+        <EffectArray index="539" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[0].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic00.ogg"/>
+        <EffectArray index="540" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[1].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic01.ogg"/>
+        <EffectArray index="541" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[2].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic02.ogg"/>
+        <EffectArray index="542" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[3].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic03.ogg"/>
+        <EffectArray index="543" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[4].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic04.ogg"/>
+        <EffectArray index="544" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[5].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic05.ogg"/>
+        <EffectArray index="545" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[6].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic06.ogg"/>
+        <EffectArray index="546" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[7].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic07.ogg"/>
+        <EffectArray index="547" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[8].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic08.ogg"/>
+        <EffectArray index="548" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[9].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic09.ogg"/>
+        <EffectArray index="549" Operation="Set" Reference="Sound,Announcer_PH@ResultEpic,AssetArray[10].File" Value="LocalizedData\Sounds\VO\RavenLord_Epic10.ogg"/>
+        <EffectArray index="550" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[0].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary00.ogg"/>
+        <EffectArray index="551" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[1].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary01.ogg"/>
+        <EffectArray index="552" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[2].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary02.ogg"/>
+        <EffectArray index="553" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[3].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary03.ogg"/>
+        <EffectArray index="554" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[4].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary04.ogg"/>
+        <EffectArray index="555" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[5].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary05.ogg"/>
+        <EffectArray index="556" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[6].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary06.ogg"/>
+        <EffectArray index="557" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[7].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary07.ogg"/>
+        <EffectArray index="558" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[8].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary08.ogg"/>
+        <EffectArray index="559" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[9].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary09.ogg"/>
+        <EffectArray index="560" Operation="Set" Reference="Sound,Announcer_PH@ResultLegendary,AssetArray[10].File" Value="LocalizedData\Sounds\VO\RavenLord_Legendary10.ogg"/>
+    </CSkin>
+    <CSound id="Announcer_RavenLord@Preview" parent="AnnouncerVO_Preview" aid="RavenLord"/>
+    <CDataCollection id="Announcer_RavenLord">
+        <EditorCategories value="StormHero:Common,StormDataGroup:VO"/>
+        <DataRecord Entry="Character,Announcer_RavenLord"/>
+        <DataRecord Entry="Skin,Announcer_RavenLord"/>
+        <DataRecord Entry="Sound,Announcer_RavenLord@Preview"/>
+        <DataRecord Entry="VoiceOver,Announcer_RavenLord"/>
+    </CDataCollection>
+</Catalog>

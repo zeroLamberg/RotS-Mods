@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CHero default="1">
+        <?token id="HeroID" value="Bogus"?>
+        <?token id="HeroVO" value="DX@"?>
+        <HyperlinkId value="##HeroID##"/>
+        <Unit value="##id##"/>
+        <VOArray index="AIAttack" value="##HeroVO##AI_Attack"/>
+        <VOArray index="AICaution" value="##HeroVO##AI_Caution"/>
+        <VOArray index="AIGoodJob" value="##HeroVO##AI_GoodJob"/>
+        <VOArray index="AIHeal" value="##HeroVO##AI_Heal"/>
+        <VOArray index="AIMercCapture" value="##HeroVO##AI_MercCapture"/>
+        <VOArray index="AIOnMyWay" value="##HeroVO##AI_OnMyWay"/>
+        <VOArray index="AIRetreat" value="##HeroVO##AI_Retreat"/>
+        <VOArray index="AIUhOh" value="##HeroVO##AI_Uhoh"/>
+        <VOArray index="Celebrate" value="##HeroVO##Celebrate"/>
+        <VOArray index="Cheer" value="##HeroVO##VOX_Cheer"/>
+        <VOArray index="Comeback" value="##HeroVO##Comeback"/>
+        <VOArray index="EndEnemyKillSpree" value="##HeroVO##KillSpreeEnd"/>
+        <VOArray index="GetHit" value="##HeroVO##VOX_GetHitSmall"/>
+        <VOArray index="GetHitLarge" value="##HeroVO##VOX_GetHitLarge"/>
+        <VOArray index="GetHitSmall" value="##HeroVO##VOX_GetHitSmall"/>
+        <VOArray index="GlueExamineLocked" value="##HeroVO##UI_ExLocked"/>
+        <VOArray index="GlueExaminePurchased" value="##HeroVO##UI_ExPurchased"/>
+        <VOArray index="GlueGift" value="##HeroVO##UI_Gift"/>
+        <VOArray index="GluePurchase" value="##HeroVO##UI_Purchase"/>
+        <VOArray index="GlueTrial" value="##HeroVO##UI_Trial"/>
+        <VOArray index="GlueWaitLocked" value="##HeroVO##UI_WaitLocked"/>
+        <VOArray index="GlueWaitPurchased" value="##HeroVO##UI_WaitPurchased"/>
+        <VOArray index="Goodbye" value="##HeroVO##Social_Goodbye"/>
+        <VOArray index="Healed" value="##HeroVO##Healed"/>
+        <VOArray index="Hello" value="##HeroVO##Social_Hello"/>
+        <VOArray index="IntroAgree" value="##HeroVO##IntroAgree"/>
+        <VOArray index="IntroBoast" value="##HeroVO##IntroBoast"/>
+        <VOArray index="IntroQuestion" value="##HeroVO##IntroQuestion"/>
+        <VOArray index="IntroResponse" value="##HeroVO##IntroRespond"/>
+        <VOArray index="KillGeneric" value="##HeroVO##Kill"/>
+        <VOArray index="Laugh" value="##HeroVO##Laugh"/>
+        <VOArray index="No" value="##HeroVO##No"/>
+        <VOArray index="PingAssistHero" value="##HeroVO##Ping_AssistHero"/>
+        <VOArray index="PingAssistMe" value="##HeroVO##Ping_AssistMe"/>
+        <VOArray index="PingAttackCore" value="##HeroVO##Ping_AttackCastle"/>
+        <VOArray index="PingAttackHere" value="##HeroVO##Ping_Attack"/>
+        <VOArray index="PingAttackHero" value="##HeroVO##Ping_KillHero"/>
+        <VOArray index="PingAttackMercCamp" value="##HeroVO##Ping_AttackMerc"/>
+        <VOArray index="PingAttackTown" value="##HeroVO##Ping_AttackOutpost"/>
+        <VOArray index="PingAttackWatchTower" value="##HeroVO##Ping_AttackTower"/>
+        <VOArray index="PingDefendCore" value="##HeroVO##Ping_DefendCastle"/>
+        <VOArray index="PingDefendHere" value="##HeroVO##Ping_Defend"/>
+        <VOArray index="PingDefendTown" value="##HeroVO##Ping_DefendOutpost"/>
+        <VOArray index="PingDefendWatchTower" value="##HeroVO##Ping_DefendTower"/>
+        <VOArray index="Pissed" value="##HeroVO##Pissed"/>
+        <VOArray index="Resurrected" value="##HeroVO##Resurrected"/>
+        <VOArray index="Revive" value="##HeroVO##Revive"/>
+        <VOArray index="Sorry" value="##HeroVO##Social_Sorry"/>
+        <VOArray index="SpecChosen" value="##HeroVO##Spec"/>
+        <VOArray index="TeamKilled" value="##HeroVO##TeamKilled"/>
+        <VOArray index="Thanks" value="##HeroVO##Social_Thanks"/>
+        <VOArray index="UILockin" value="##HeroVO##UI_Lockin"/>
+        <VOArray index="WellPlayed" value="##HeroVO##Social_WellPlayed"/>
+        <VOArray index="WorthIt" value="##HeroVO##WorthIt"/>
+        <HeroSelectCutsceneFile value="Cutscenes\HeroSelect##HeroID##.SC2Cutscene"/>
+        <ScoreScreenCutsceneFile value="Cutscenes\ScoreScreen_##HeroID##.SC2Cutscene"/>
+        <MiniPortraitCutsceneFile value="Cutscenes\MiniPortrait##HeroID##.SC2Cutscene"/>
+        <PreviewCutsceneFile value="Cutscenes\Store##HeroID##.SC2Cutscene"/>
+        <TileCutsceneFile value="Cutscenes\Frame##HeroID##.SC2Cutscene"/>
+        <HomeScreenCutsceneFile value="Cutscenes\Home_##HeroID##.SC2Cutscene"/>
+        <InGameUnitStatusCutsceneFile value="Cutscenes\InGameUnitStatus_##HeroID##.SC2Cutscene"/>
+        <Portrait value="Assets\Textures\storm_ui_ingame_heroselect_btn_##HeroID##.dds"/>
+        <SelectScreenButtonImage value="Assets\Textures\storm_ui_ingame_heroselect_btn_##HeroID##.dds"/>
+        <PartyPanelButtonImage value="Assets\Textures\storm_ui_ingame_partyframe_##HeroID##.dds"/>
+        <LeaderboardImage value="Assets\Textures\storm_ui_ingame_hero_leaderboard_##HeroID##.dds"/>
+        <ScoreScreenImage value="Assets\Textures\storm_ui_ingame_hero_leaderboard_##HeroID##.dds"/>
+        <DraftScreenLargeImage value="Assets/Textures/storm_ui_glues_draft_banner_##HeroID##.dds"/>
+        <DraftScreenLargeImageBackground value="Assets/Textures/storm_ui_glues_draft_banner_glow_##HeroID##.dds"/>
+        <DraftScreenPortrait value="Assets/Textures/storm_ui_glues_draft_portrait_##HeroID##.dds"/>
+        <DraftScreenPortraitBackground value="Assets/Textures/storm_ui_glues_draft_portrait_bg_##HeroID##.dds"/>
+        <CollectionIcon value="Assets/Textures/ui_targetportrait_hero_##HeroID##.dds"/>
+    </CHero>
+    <CHero id="Random" HeroID="BogusHero">
+        <AttributeId value="Rand"/>
+        <Flags index="Random" value="1"/>
+        <SelectScreenButtonImage value="Assets\Textures\UI\HeroIcons\Selection\storm_ui_ingame_heroselect_btn_placeholder.dds"/>
+        <Unit value="BogusHero"/>
+    </CHero>
+    <CHero id="AI" HeroID="BogusHero">
+        <LeaderboardImage value="Assets\Textures\storm_ui_ingame_hero_leaderboard_AI.dds"/>
+        <Unit value="BogusHero"/>
+    </CHero>
+    <CHero id="_Empty" HeroID="BogusHero">
+        <SelectScreenButtonImage value="Assets\Textures\UI\HeroIcons\Selection\storm_ui_ingame_heroselect_btn_empty.dds"/>
+        <Unit value="BogusHero"/>
+    </CHero>
+</Catalog>

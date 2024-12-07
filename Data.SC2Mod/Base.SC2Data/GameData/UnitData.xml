@@ -1,0 +1,3945 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <const id="ImmuneToAOE" path="CUnit.Attributes.index" value="Mechanical"/>
+    <const id="Merc" path="CUnit.Attributes.index" value="Robotic"/>
+    <const id="Tower" path="CUnit.Attributes.index" value="Armored"/>
+    <const id="ImmuneToFriendlyAbilities" path="CUnit.Attributes.index" value="Hover"/>
+    <const id="ImmuneToSkillshots" path="CUnit.Attributes.index" value="Massive"/>
+    <const id="Minion" path="CUnit.Attributes.index" value="Biological"/>
+    <const id="MapCreature" path="CUnit.Attributes.index" value="User1"/>
+    <const id="Creep" path="CUnit.Attributes.index" value="Light"/>
+    <const id="NoMinionAggro" path="CUnit.Attributes.index" value="Psionic"/>
+    <CUnit default="1">
+        <Description value="Unit/Description/##id##"/>
+        <TauntDoesntStopUnit index="Cheer" value="1"/>
+        <TauntDoesntStopUnit index="Dance" value="1"/>
+        <BehaviorArray Link="HeroGenericUserRecord"/>
+        <DeathRevealRadius value="0"/>
+        <DeathRevealDuration value="0"/>
+    </CUnit>
+    <CUnit default="1" id="StormAbilityDummyTargetUnitParent">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Worker" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoDeathEvent" value="1"/>
+        <FlagArray index="ShowResources" value="0"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FlagArray index="CameraFollow" value="0"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <BehaviorArray Link="HallOfStormsKnockbackImmunity"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <BehaviorArray Link="IgnoresCountdownTimer"/>
+        <Mover value=""/>
+        <Radius value="0"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit default="1" id="StormVectorAbilityUnitParent">
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Worker" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoDeathEvent" value="1"/>
+        <FlagArray index="ShowResources" value="0"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FlagArray index="CameraFollow" value="0"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Mover value=""/>
+        <BehaviorArray Link="HallOfStormsKnockbackImmunity"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <BehaviorArray Link="IgnoresCountdownTimer"/>
+        <Radius value="0"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit default="1" id="StormCreep">
+        <DeathTime value="10"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="0"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Creep" value="1"/>
+        <Speed value="2.75"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="799.9804"/>
+        <TurningRate value="399.9023"/>
+        <Sight value="8"/>
+        <RepairTime value="16.667"/>
+        <AttackTargetPriority value="10"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="AttackAlly"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="2" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="AttackAlly,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="2" Column="3"/>
+        </CardLayouts>
+        <CargoSize value="1"/>
+        <SubgroupPriority value="6"/>
+        <MinimapRadius value="0.375"/>
+        <OverlapIndex value="2"/>
+        <AlliedPushPriority value="8"/>
+    </CUnit>
+    <CUnit default="1" id="StormSummonInvulnerable">
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <BehaviorArray Link="Summon@SummonedUnitTracker"/>
+        <MinimapRadius value="0"/>
+        <DeathTime value="10"/>
+    </CUnit>
+    <CUnit default="1" id="StormUnitInactiveInvulnerable">
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <MinimapRadius value="0"/>
+        <Fidget DelayMax="0" DelayMin="0"/>
+        <DeathTime value="10"/>
+    </CUnit>
+    <CUnit default="1" id="StormCritter">
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="2"/>
+        <Collide index="ForceField" value="1"/>
+        <Attributes index="Minion" value="1"/>
+        <LifeStart value="10"/>
+        <LifeMax value="10"/>
+        <LifeArmorName value="Unit/LifeArmorName/CritterGroundArmor"/>
+        <Speed value="2"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="494.4726"/>
+        <TurningRate value="494.4726"/>
+        <Sight value="8"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.3125"/>
+        <SeparationRadius value="0.34"/>
+        <SubgroupPriority value="48"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+        <Fidget DelayMax="6" DelayMin="4">
+            <ChanceArray index="Anim" value="10"/>
+            <ChanceArray index="Idle" value="30"/>
+            <ChanceArray index="Move" value="60"/>
+        </Fidget>
+    </CUnit>
+    <CUnit default="1" id="StormBasicHeroicUnit">
+        <BehaviorArray Link="HeroGenericGeneral"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Hero" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="AIForceTactical" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="40"/>
+        <Collide index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Heroic" value="1"/>
+        <Speed value="4.3984"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="1000"/>
+        <!--<LateralAcceleration value="46"/>-->
+        <StationaryTurningRate value="1759.9218"/>
+        <TurningRate value="1759.9218"/>
+        <Sight value="12"/>
+        <AttackTargetPriority value="10"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <EffectArray index="Create" value="AddToAllHeroicUnitsTrackingBehavior"/>
+        <!--<InnerRadiusSafetyMultiplier value="2"/>-->
+        <CargoSize value="1"/>
+        <SubgroupPriority value="15"/>
+        <Fidget DelayMax="10" DelayMin="5">
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="66"/>
+        </Fidget>
+        <TauntDuration index="Dance" value="5"/>
+        <TauntDuration index="Tease" value="2.5"/>
+        <OverlapIndex value="2"/>
+        <AlliedPushPriority value="60"/>
+        <TargetingHitTestPriority value="10"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit default="1" id="StormHero" parent="StormBasicHeroicUnit">
+        <DeathTime value="-1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="SelectableWhileDead" value="1"/>
+        <FlagArray index="PreferLastAttackTarget" value="1"/>
+        <FlagArray index="ResumeLastMoveOrder" value="1"/>
+        <FlagArray index="LeechBehaviorShieldDamage" value="1"/>
+        <EnergyMax value="290"/>
+        <EnergyStart value="290"/>
+        <EnergyRegenRate value="2.8984"/>
+        <AbilArray Link="HoldFire"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="StormInventory"/>
+        <AbilArray Link="UseVehicle"/>
+        <AbilArray Link="HeroGenericHearthstone"/>
+        <AbilArray Link="HeroGenericFountainDrink"/>
+        <AbilArray Link="HeroGenericCaptureMacGuffin"/>
+        <AbilArray Link="HeroGenericCaptureMacGuffinTwo"/>
+        <AbilArray Link="MapMechanicAbilityTarget"/>
+        <AbilArray Link="MapMechanicAbilityTarget2"/>
+        <AbilArray Link="MapMechanicAbilityInstant"/>
+        <AbilArray Link="SmartCommandUnitInteraction"/>
+        <BehaviorArray Link="HeroGenericHeroDummyVeterancy"/>
+        <BehaviorArray Link="HeroGenericCollisionRadius"/>
+        <BehaviorArray Link="Summon@SummonerUnitTracker"/>
+        <BehaviorArray Link="Summon@RefreshModifiers"/>
+        <BehaviorArray Link="HeroGenericDisabler@SilenceAbilities"/>
+        <BehaviorArray Link="ShrubStatusController"/>
+        <BehaviorArray Link="ShrubProximityDetector"/>
+        <BehaviorArray Link="HeroGenericPregameAbilitySuppression"/>
+        <BehaviorArray Link="HeroGenericPregameAbilityMinionSuppression"/>
+        <BehaviorArray Link="HeroGenericStationaryExtraStealthController"/>
+    </CUnit>
+    <CUnit default="1" id="StormVehicle">
+        <BehaviorArray Link="GenericVehicleBehaviorEmpty"/>
+        <DeathTime value="7"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Hero" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="AIForceTactical" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="SelectableWhileDead" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Heroic" value="1"/>
+        <EnergyStart value="400"/>
+        <EnergyMax value="400"/>
+        <EnergyRegenRate value="2.2187"/>
+        <ShieldRegenDelay value="10"/>
+        <Speed value="4"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="2879.8242"/>
+        <TurningRate value="999.8437"/>
+        <AttackTargetPriority value="10"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="Que1Passive"/>
+        <AbilArray Link="StormInventory"/>
+        <AbilArray Link="LeaveVehicle"/>
+        <CargoSize value="1"/>
+        <SubgroupPriority value="15"/>
+        <Fidget DelayMax="10" DelayMin="5">
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="66"/>
+        </Fidget>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+        <TauntDuration index="Tease" value="2.5"/>
+        <OverlapIndex value="1"/>
+        <Sight value="12"/>
+    </CUnit>
+    <!-- Town Wall Data-->
+    <CUnit default="1" id="TownGateL1">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="TownStructureGate" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <Sight value="8"/>
+        <VisionHeight value="4"/>
+        <AttackTargetPriority value="10"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownGateBehavior"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="StatusBarController"/>
+        <Radius value="0.75"/>
+        <SeparationRadius value="2"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <Name value="Unit/Name/TownGate"/>
+        <DeathTime value="2"/>
+    </CUnit>
+    <CUnit default="1" id="TownGateL2">
+        <!--DeathTime value="-1"/-->
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="TownStructureGate" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="5300"/>
+        <LifeMax value="5300"/>
+        <Sight value="8"/>
+        <VisionHeight value="4"/>
+        <AttackTargetPriority value="10"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownGateBehavior"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="StatusBarController"/>
+        <Radius value="0.75"/>
+        <SeparationRadius value="2"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <Name value="Unit/Name/TownGate"/>
+        <DeathTime value="2"/>
+    </CUnit>
+    <CUnit default="1" id="TownGateL3">
+        <!--DeathTime value="-1"/-->
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="TownStructureGate" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="6150"/>
+        <LifeMax value="6150"/>
+        <Sight value="8"/>
+        <VisionHeight value="4"/>
+        <AttackTargetPriority value="10"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownGateBehavior"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="StatusBarController"/>
+        <Radius value="0.75"/>
+        <SeparationRadius value="2"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <Name value="Unit/Name/TownGate"/>
+        <DeathTime value="2"/>
+    </CUnit>
+    <CUnit default="1" id="StormSummonInactive">
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <BehaviorArray Link="Summon@SummonedUnitTracker"/>
+        <MinimapRadius value="0"/>
+        <DeathTime value="10"/>
+    </CUnit>
+    <CUnit default="1" id="StormSummonPassive" parent="StormSummonInactive">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <PushPriority value="30"/>
+        <AttackTargetPriority value="20"/>
+        <BehaviorArray Link="HallOfStormsKnockbackKillable"/>
+        <Radius value="0"/>
+        <AlliedPushPriority value="30"/>
+        <TargetingHitTestPriority value="11"/>
+        <Collide index="Structure" value="1"/>
+    </CUnit>
+    <CUnit default="1" id="StormSummonFigment" parent="StormSummonInactive">
+        <FlagArray index="Invulnerable" value="1"/>
+        <PushPriority value="30"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <AlliedPushPriority value="30"/>
+    </CUnit>
+    <CUnit default="1" id="StormMinorUnit">
+        <DeathTime value="10"/>
+        <BehaviorArray Link="ShrubProximityDetector"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="LeechBehaviorShieldDamage" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="0"/>
+        <Response value="Nothing"/>
+        <Speed value="3.25"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="799.9804"/>
+        <TurningRate value="399.9023"/>
+        <Sight value="8"/>
+        <RepairTime value="16.667"/>
+        <AttackTargetPriority value="10"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="6"/>
+        <MinimapRadius value="0.375"/>
+        <AIEvalFactor value="0.1"/>
+        <OverlapIndex value="2"/>
+        <AlliedPushPriority value="8"/>
+        <Collide index="Burrow" value="1"/>
+    </CUnit>
+    <CUnit default="1" id="StormMercBase" parent="StormMinorUnit">
+        <PushPriority value="70"/>
+        <!--<Collide index="Ground" value="1"/>-->
+        <AbilArray Link="stop"/>
+        <AbilArray Link="AttackAlly"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="2" Column="3"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="2" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="AttackAlly,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <AlliedPushPriority value="40"/>
+    </CUnit>
+    <CUnit default="1" id="StormMercDefenderParent" parent="StormMercBase">
+        <Attributes index="Creep" value="1"/>
+        <BehaviorArray Link="MercDefenderSuppressGate"/>
+        <MinimapRadius value="0"/>
+        <AlliedPushPriority value="80"/>
+    </CUnit>
+    <CUnit default="1" id="StormMercLanerParent" parent="StormMercBase">
+        <FogVisibility value="Visible"/>
+        <PushPriority value="60"/>
+        <Attributes index="Minion" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <BehaviorArray Link="MercLanerBirthDelay"/>
+    </CUnit>
+    <CUnit default="1" id="StormBossMercBase">
+        <DeathTime value="10"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="110"/>
+        <Collide index="Colossus" value="1"/>
+        <Attributes index="MapBoss" value="1"/>
+        <Speed value="3.75"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="AttackAlly"/>
+        <AbilArray Link="move"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="2" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="2" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="AttackAlly,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="2"/>
+        <SeparationRadius value="0.9"/>
+        <InnerRadiusSafetyMultiplier value="2"/>
+        <MinimapRadius value="0"/>
+        <AlliedPushPriority value="120"/>
+    </CUnit>
+    <CUnit default="1" id="StormBossMercDefenderParent" parent="StormBossMercBase">
+        <Attributes index="Creep" value="1"/>
+        <KillXP value="375"/>
+        <BehaviorArray Link="PermaUnstoppable"/>
+    </CUnit>
+    <CUnit default="1" id="StormBossMercLanerParent" parent="StormBossMercBase">
+        <FogVisibility value="Visible"/>
+        <PushPriority value="100"/>
+        <Attributes index="Minion" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Radius value="1.25"/>
+        <MinimapRadius value="0.375"/>
+        <AlliedPushPriority value="110"/>
+        <BehaviorArray Link="PermaUnstoppable"/>
+        <BehaviorArray Link="MercLanerGraveGolemBirthDelay"/>
+    </CUnit>
+    <CUnit default="1" id="StormMinion" parent="StormMinorUnit">
+        <PushPriority value="10"/>
+        <Attributes index="Minion" value="1"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="AttackAlly"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="2" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="AttackAlly,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="2" Column="3"/>
+        </CardLayouts>
+        <AlliedPushPriority value="10"/>
+    </CUnit>
+    <CUnit default="1" id="StormMinionWalkable" parent="StormMinion">
+        <PushPriority value="12"/>
+    </CUnit>
+    <CUnit default="1" id="StormSummonActive" parent="StormMinorUnit">
+        <PushPriority value="30"/>
+        <Attributes index="Summoned" value="1"/>
+        <TacticalAIFilters value="-;Player,Ally,Neutral,Psionic"/>
+        <AlliedPushPriority value="30"/>
+        <BehaviorArray Link="Summon@SummonedUnitTracker"/>
+    </CUnit>
+    <CUnit default="1" id="StormPathingBlockerUnit" parent="StormSummonFigment">
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="ForceCollisionCheck" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="127"/>
+        <EditorCategories value=""/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Larva" value="1"/>
+        <Collide index="Swarm" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="IsPathingBlockerUnit"/>
+        <InnerRadius value="0.0625"/>
+        <AlliedPushPriority value="127"/>
+    </CUnit>
+    <CUnit default="1" id="StormMonsterMinorBase">
+        <DeathTime value="10"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="20"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Attributes index="MapCreature" value="1"/>
+        <Speed value="3.75"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="attack"/>
+        <CardLayouts>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="0"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <InnerRadius value="0.5"/>
+        <SubgroupPriority value="16"/>
+        <MinimapRadius value="0.375"/>
+        <AIEvalFactor value="0.1"/>
+        <OverlapIndex value="1"/>
+        <AlliedPushPriority value="20"/>
+    </CUnit>
+    <CUnit default="1" id="StormMonsterMinorDefenderParent" parent="StormMonsterMinorBase">
+        <PushPriority value="70"/>
+        <Attributes index="Creep" value="1"/>
+        <AlliedPushPriority value="80"/>
+    </CUnit>
+    <CUnit default="1" id="StormMonsterMinorLanerParent" parent="StormMonsterMinorBase">
+        <FogVisibility value="Dimmed"/>
+        <PushPriority value="60"/>
+        <Attributes index="Minion" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <AlliedPushPriority value="40"/>
+    </CUnit>
+    <CUnit default="1" id="StormMonsterMajorBase">
+        <DeathTime value="10"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <BehaviorArray Link="PermaUnstoppable"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="90"/>
+        <Attributes index="MapCreature" value="1"/>
+        <Attributes index="MapBoss" value="1"/>
+        <Speed value="3.75"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="0" Column="0"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1.5"/>
+        <SeparationRadius value="0.9"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="1.5"/>
+        <OverlapIndex value="1"/>
+        <AlliedPushPriority value="100"/>
+    </CUnit>
+    <CUnit default="1" id="StormMonsterMajorDefenderParent" parent="StormMonsterMajorBase">
+        <Attributes index="Creep" value="1"/>
+    </CUnit>
+    <CUnit default="1" id="StormMonsterMajorLanerParent" parent="StormMonsterMajorBase">
+        <FogVisibility value="Visible"/>
+        <PushPriority value="80"/>
+        <Collide index="Colossus" value="1"/>
+        <Attributes index="Minion" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Radius value="1.25"/>
+        <InnerRadiusSafetyMultiplier value="2"/>
+        <MinimapRadius value="0.375"/>
+        <AlliedPushPriority value="90"/>
+    </CUnit>
+    <CUnit default="1" id="StormHeroMounted" parent="StormHero">
+        <AbilArray Link="HeroGenericMount"/>
+        <AbilArray Link="HeroGenericMount@Dismount"/>
+        <CardLayouts>
+            <LayoutButtons Face="LockedUltimateAbility" Type="Passive" Requirements="UltimateNotUnlocked" Row="0" Column="3"/>
+            <LayoutButtons Face="HeroGenericHearthstone" Type="AbilCmd" AbilCmd="HeroGenericHearthstone,Execute" Row="1" Column="4"/>
+            <LayoutButtons Face="HeroGenericMount@SummonMount" Type="AbilCmd" AbilCmd="HeroGenericMount,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="HeroGenericMount@Dismount" Type="AbilCmd" AbilCmd="HeroGenericMount@Dismount,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="LockedMapMechanicAbility" Type="Passive" Requirements="NoMapMechanicAbilityBehaviors" Row="1" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="HoldFire,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="HoldFire,HoldFire" Row="2" Column="2"/>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="2" Column="4"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit default="1" id="StormHeroMountedCustom" parent="StormHero">
+        <CardLayouts>
+            <LayoutButtons Face="LockedUltimateAbility" Type="Passive" Requirements="UltimateNotUnlocked" Row="0" Column="3"/>
+            <LayoutButtons Face="HeroGenericHearthstone" Type="AbilCmd" AbilCmd="HeroGenericHearthstone,Execute" Row="1" Column="4"/>
+            <LayoutButtons Face="LockedMapMechanicAbility" Type="Passive" Requirements="NoMapMechanicAbilityBehaviors" Row="1" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="HoldFire,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="HoldFire,HoldFire" Row="2" Column="2"/>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="2" Column="4"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit default="1" id="StormBaseTownStructure">
+        <BehaviorArray Link="StatusBarController"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <Sight value="8"/>
+        <AttackTargetPriority value="10"/>
+        <CardLayouts>
+            <LayoutButtons Face="Detector" Type="Passive" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="3.5"/>
+        <SeparationRadius value="2"/>
+        <GlossaryPriority value="10"/>
+        <DeathTime value="10"/>
+    </CUnit>
+    <CUnit default="1" id="TownWallL1Parent" parent="StormBaseTownStructure">
+        <Name value="Unit/Name/TownWall"/>
+        <FlagArray index="TownStructureWall" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Sight value="5"/>
+        <VisionHeight value="4"/>
+        <AttackTargetPriority value="9"/>
+        <BehaviorArray Link="Benign"/>
+        <BehaviorArray Link="TownWallBehavior"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <Radius value="2"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit default="1" id="TownWallL2Parent" parent="StormBaseTownStructure">
+        <LifeStart value="1700"/>
+        <LifeMax value="1700"/>
+        <AttackTargetPriority value="9"/>
+        <MinimapRadius value="0"/>
+        <Sight value="5"/>
+        <VisionHeight value="4"/>
+        <Radius value="2"/>
+        <BehaviorArray Link="Benign"/>
+        <BehaviorArray Link="TownWallBehavior"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <FlagArray index="TownStructureWall" value="1"/>
+        <Name value="Unit/Name/TownWall"/>
+    </CUnit>
+    <CUnit default="1" id="TownWallL3Parent" parent="StormBaseTownStructure">
+        <LifeStart value="2100"/>
+        <LifeMax value="2100"/>
+        <AttackTargetPriority value="9"/>
+        <MinimapRadius value="0"/>
+        <Sight value="5"/>
+        <VisionHeight value="4"/>
+        <Radius value="2"/>
+        <BehaviorArray Link="Benign"/>
+        <BehaviorArray Link="TownWallBehavior"/>
+        <BehaviorArray Link="TownWallL3Behavior"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <FlagArray index="TownStructureWall" value="1"/>
+        <Name value="Unit/Name/TownWall"/>
+    </CUnit>
+    <CUnit default="1" id="StormEasterEggUnit" parent="StormMinorUnit">
+        <Description value=""/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <MinimapRadius value="0"/>
+        <FogVisibility value="Dimmed"/>
+        <Collide index="Structure" value="1"/>
+        <Sight value="0"/>
+        <Speed value="0"/>
+        <Acceleration value="0"/>
+        <StationaryTurningRate value="0"/>
+        <TurningRate value="0"/>
+    </CUnit>
+    <CUnit default="1" id="GenericFlairUnit">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="ClearRallyOnTargetLost" value="0"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FlagArray index="CameraFollow" value="0"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+    </CUnit>
+    <!--<Collide index="Larva" value="1"/>-->
+    <CUnit default="1" id="StormPowerup">
+        <FlagArray index="Turnable" value="0"/>
+        <!--<FlagArray index="Unclickable" value="0"/>-->
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <StationaryTurningRate value="0"/>
+        <TurningRate value="0"/>
+        <Height value="0.2"/>
+        <BehaviorArray Link="Benign"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <Radius value="0.25"/>
+        <MinimapRadius value="0"/>
+        <Fidget DelayMax="0" DelayMin="0"/>
+    </CUnit>
+    <CUnit default="1" id="TargetDummyParent">
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <LifeStart value="100000"/>
+        <LifeMax value="100000"/>
+        <LifeRegenDelay value="3"/>
+        <LifeRegenRate value="100030"/>
+        <Speed value="4"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <BehaviorArray Link="JungleCreepPassive"/>
+        <BehaviorArray Link="TargetDummyDamageResponseMonitor"/>
+        <BehaviorArray Link="HeroGenericGeneral"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0"/>
+        <InnerRadius value="0.625"/>
+        <MinimapRadius value="0.375"/>
+        <PushPriority value="40"/>
+        <AlliedPushPriority value="60"/>
+    </CUnit>
+    <CUnit id="UserRecordUnitHandle">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoDeathEvent" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FlagArray index="CameraFollow" value="0"/>
+        <FogVisibility value="Visible"/>
+        <EditorFlags index="NoPlacement" value="1"/>
+        <EditorFlags index="BlockStructures" value="0"/>
+        <Response value="Nothing"/>
+        <Attributes index="Heroic" value="1"/>
+        <Mover value=""/>
+        <Radius value="0"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+    </CUnit>
+    <CUnit id="PathingBlocker" parent="StormPathingBlockerUnit">
+        <Radius value="0.625"/>
+    </CUnit>
+    <CUnit id="StormHeroPet" parent="StormSummonActive">
+        <PushPriority value="40"/>
+        <BehaviorArray Link="HeroicSummon"/>
+        <OverlapIndex value="3"/>
+        <AlliedPushPriority value="50"/>
+        <Radius value="1"/>
+        <InnerRadius value="1"/>
+    </CUnit>
+    <CUnit id="NeutralPlayerUnitHandle">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoDeathEvent" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FlagArray index="CameraFollow" value="0"/>
+        <FogVisibility value="Visible"/>
+        <EditorFlags index="NoPlacement" value="1"/>
+        <EditorFlags index="BlockStructures" value="0"/>
+        <Response value="Nothing"/>
+        <Mover value=""/>
+        <Radius value="0"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+        <Attributes index="Heroic" value="1"/>
+    </CUnit>
+    <CUnit id="MercCoweringDefenderOrientDummy">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <Mover value="Fly"/>
+        <Speed value="30"/>
+        <StationaryTurningRate value="999.8437"/>
+        <Sight value="4"/>
+        <BehaviorArray Link="Benign"/>
+        <Radius value="0"/>
+        <SubgroupPriority value="9"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value=""/>
+        <AcquireLeashRadius value="4"/>
+    </CUnit>
+    <CUnit id="JungleObjectiveDefendIconUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NeverThink" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Radius value="0"/>
+        <OverlapIndex value="2"/>
+    </CUnit>
+    <CUnit id="JungleObjectiveAttackIconUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NeverThink" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Radius value="0.125"/>
+        <OverlapIndex value="2"/>
+    </CUnit>
+    <CUnit id="InvisibleUnit">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoDeathEvent" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FlagArray index="CameraFollow" value="0"/>
+        <FogVisibility value="Visible"/>
+        <EditorFlags index="NoPlacement" value="1"/>
+        <EditorFlags index="BlockStructures" value="0"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <Response value="Nothing"/>
+        <Mover value=""/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="99999"/>
+        <LifeMax value="99999"/>
+        <BehaviorArray Link="HallOfStormsKnockbackImmunity"/>
+        <BehaviorArray Link="DamageTakenNone"/>
+        <BehaviorArray Link="SuppressCollisionPermanent"/>
+    </CUnit>
+    <CUnit id="SuicideUnitXPDummy">
+        <Race value="Zerg"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <BehaviorArray Link="SuicideUnitXPDummyTimedLife"/>
+        <Radius value="0"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value=""/>
+        <UserFlagArray index="Unit" value="1"/>
+    </CUnit>
+    <CUnit id="StormGameStartPathingBlockerDiagonal" parent="PATHINGBLOCKER">
+        <ReviveType value="PathingBlocker2x2"/>
+        <Radius value="1"/>
+        <Footprint value="StormGateStartPathingBlockerDiagonal"/>
+        <PlacementFootprint value="Footprint2x2"/>
+        <TacticalAI value="PathingBlocker2x2"/>
+        <LeaderAlias value="PathingBlocker2x2"/>
+        <HotkeyAlias value="PathingBlocker2x2"/>
+        <SelectAlias value="PathingBlocker2x2"/>
+        <SubgroupAlias value="PathingBlocker2x2"/>
+        <AIEvaluateAlias value="PathingBlocker2x2"/>
+        <ReviveInfoBase>
+            <Charge Link="PathingBlocker2x2/Revive"/>
+            <Cooldown Link="PathingBlocker2x2/Revive"/>
+        </ReviveInfoBase>
+        <BehaviorArray Link="HallOfStormsKnockbackImmunity"/>
+    </CUnit>
+    <CUnit id="GroundHoleVision">
+        <ReviveType value="GroundHoleCamera"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <MinimapRadius value="0"/>
+        <TacticalAI value="GroundHoleCamera"/>
+        <LeaderAlias value="GroundHoleCamera"/>
+        <HotkeyAlias value="GroundHoleCamera"/>
+        <SelectAlias value="GroundHoleCamera"/>
+        <SubgroupAlias value="GroundHoleCamera"/>
+        <AIEvaluateAlias value="GroundHoleCamera"/>
+        <ReviveInfoBase>
+            <Charge Link="GroundHoleCamera/Revive"/>
+            <Cooldown Link="GroundHoleCamera/Revive"/>
+        </ReviveInfoBase>
+        <Radius value="3"/>
+    </CUnit>
+    <CUnit id="HoleLadderDown">
+        <ReviveType value="GroundHole"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Ground" value="1"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <MinimapRadius value="0"/>
+        <TacticalAI value="GroundHole"/>
+        <LeaderAlias value="GroundHole"/>
+        <HotkeyAlias value="GroundHole"/>
+        <SelectAlias value="GroundHole"/>
+        <SubgroupAlias value="GroundHole"/>
+        <AIEvaluateAlias value="GroundHole"/>
+        <ReviveInfoBase>
+            <Charge Link="GroundHole/Revive"/>
+            <Cooldown Link="GroundHole/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="GroundHoleCamera">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <Mover value="Fly"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="HoleLadderUp">
+        <ReviveType value="GroundHole"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Mover value="Fly"/>
+        <Sight value="12"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <Radius value="0"/>
+        <TacticalAI value="GroundHole"/>
+        <LeaderAlias value="GroundHole"/>
+        <HotkeyAlias value="GroundHole"/>
+        <SelectAlias value="GroundHole"/>
+        <SubgroupAlias value="GroundHole"/>
+        <AIEvaluateAlias value="GroundHole"/>
+        <ReviveInfoBase>
+            <Charge Link="GroundHole/Revive"/>
+            <Cooldown Link="GroundHole/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="StormGameStartPathingBlocker" parent="PATHINGBLOCKER">
+        <ReviveType value="PathingBlocker2x2"/>
+        <Radius value="1"/>
+        <Footprint value="StormGateBlockerFootprint"/>
+        <PlacementFootprint value="Footprint2x2"/>
+        <TacticalAI value="PathingBlocker2x2"/>
+        <LeaderAlias value="PathingBlocker2x2"/>
+        <HotkeyAlias value="PathingBlocker2x2"/>
+        <SelectAlias value="PathingBlocker2x2"/>
+        <SubgroupAlias value="PathingBlocker2x2"/>
+        <AIEvaluateAlias value="PathingBlocker2x2"/>
+        <ReviveInfoBase>
+            <Charge Link="PathingBlocker2x2/Revive"/>
+            <Cooldown Link="PathingBlocker2x2/Revive"/>
+        </ReviveInfoBase>
+        <BehaviorArray Link="HallOfStormsKnockbackImmunity"/>
+    </CUnit>
+    <CUnit id="RegenGlobeMissileNoEnemyVisibility" parent="MISSILE_INVULNERABLE">
+        <Mover value="RegenGlobeMissile"/>
+    </CUnit>
+    <CUnit id="TownHallL1WeaponAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="TownHallMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <BehaviorArray Link="TownHallFlamingArrowBehavior"/>
+    </CUnit>
+    <CUnit id="TownHallL2WeaponAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="TownHallMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <BehaviorArray Link="TownHallFlamingArrowBehavior"/>
+    </CUnit>
+    <CUnit id="TownHallL3WeaponAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="TownHallMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <BehaviorArray Link="TownHallFlamingArrowBehavior"/>
+    </CUnit>
+    <CUnit id="TutorialBeacon" parent="DESTRUCTIBLE">
+        <ReviveType value="Beacon_Protoss"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <Radius value="1.875"/>
+        <SeparationRadius value="1.875"/>
+        <EditorCategories value="ObjectType:Other,ObjectFamily:Campaign"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+        <SelectAlias value="Beacon_Protoss"/>
+        <SubgroupAlias value="Beacon_Protoss"/>
+        <AIEvaluateAlias value="Beacon_Protoss"/>
+        <FogVisibility value="Visible"/>
+        <Sight value="3"/>
+        <VisionHeight value="1"/>
+    </CUnit>
+    <CUnit id="WizardMinion" parent="StormMinion">
+        <LifeStart value="495"/>
+        <LifeMax value="495"/>
+        <WeaponArray Link="WizardMinion"/>
+        <Radius value="0.5625"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.5625"/>
+        <BehaviorArray Link="WizardMinionScaling"/>
+        <BehaviorArray Link="MinionSprint"/>
+    </CUnit>
+    <CUnit id="WizardMinionMissile" parent="MISSILE_INVULNERABLE">
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="FootmanMinion" parent="StormMinion">
+        <LifeStart value="990"/>
+        <LifeMax value="990"/>
+        <RepairTime value="0"/>
+        <WeaponArray Link="FootmanMinion"/>
+        <InnerRadius value="0.6875"/>
+        <KillDisplay value="Never"/>
+        <AlliedPushPriority value="9"/>
+        <Radius value="0.6875"/>
+        <BehaviorArray Link="MeleeMinionScaling"/>
+        <BehaviorArray Link="ExperienceGlobeSpawn"/>
+        <BehaviorArray Link="MinionSprint"/>
+    </CUnit>
+    <CUnit id="CatapultMinion" parent="StormMinionWalkable">
+        <LifeStart value="550"/>
+        <LifeMax value="550"/>
+        <Acceleration value="2"/>
+        <Deceleration value="2"/>
+        <StationaryTurningRate value="149.9414"/>
+        <TurningRate value="149.9414"/>
+        <Sight value="13"/>
+        <BehaviorArray Link="CatapultMinionScaling"/>
+        <BehaviorArray Link="MinionSprint"/>
+        <WeaponArray Link="CatapultMinion"/>
+        <Radius value="1.125"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.875"/>
+    </CUnit>
+    <CUnit id="CatapultMinionMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="CatapultMinionMissileMover"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="TargetDummy">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Minion" value="1"/>
+        <LifeStart value="100000"/>
+        <LifeMax value="100000"/>
+        <LifeRegenDelay value="3"/>
+        <LifeRegenRate value="100030"/>
+        <Speed value="2"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <BehaviorArray Link="JungleCreepPassive"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0"/>
+        <InnerRadius value="0.625"/>
+        <MinimapRadius value="0.375"/>
+        <OverlapIndex value="2"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+    </CUnit>
+    <CUnit id="TargetHeroDummy" parent="TargetDummyParent">
+        <FlagArray index="Hero" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <EnergyStart value="100000"/>
+        <EnergyMax value="100000"/>
+        <EnergyRegenRate value="100000"/>
+        <Sight value="8"/>
+        <Speed value="4.3984"/>
+        <BehaviorArray Link="HeroGenericCollisionRadius"/>
+        <EffectArray index="Create" value="AddToAllHeroicUnitsTrackingBehavior"/>
+    </CUnit>
+    <CUnit id="StormPig" parent="StormCritter">
+        <Description value="Button/Tooltip/CritterStormPig"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="360"/>
+        <BehaviorArray Link="Harmless"/>
+        <BehaviorArray Link="StormPigWander"/>
+        <Radius value="0"/>
+        <EditorCategories value="ObjectType:Unit"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="50"/>
+            <ChanceArray index="Idle" value="50"/>
+            <ChanceArray index="Move" value="0"/>
+        </Fidget>
+    </CUnit>
+    <CUnit id="StormCrab" parent="StormCritter">
+        <Description value="Button/Tooltip/CritterStormCrab"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="360"/>
+        <BehaviorArray Link="Harmless"/>
+        <BehaviorArray Link="StormCrabWander"/>
+        <Radius value="0"/>
+        <EditorCategories value="ObjectType:Unit"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="50"/>
+            <ChanceArray index="Idle" value="50"/>
+            <ChanceArray index="Move" value="0"/>
+        </Fidget>
+    </CUnit>
+    <CUnit id="CampOwnershipFlag">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <MinimapRadius value="0"/>
+        <FogVisibility value="Visible"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+    </CUnit>
+    <CUnit id="MercDefenderMeleeOgreAttackMissile" parent="MISSILE_INVULNERABLE">
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="TownGateL1Horizontal" parent="TownGateL1">
+        <Footprint value="TownGateFootprintHorizontal"/>
+    </CUnit>
+    <CUnit id="TownGateL1Vertical" parent="TownGateL1">
+        <Facing value="90"/>
+        <Footprint value="TownGateFootprintVertical"/>
+    </CUnit>
+    <CUnit id="TownGateL1BLUR" parent="TownGateL1">
+        <Facing value="45"/>
+        <Footprint value="TownGateFootprintBLUR"/>
+    </CUnit>
+    <CUnit id="TownGateL1BRUL" parent="TownGateL1">
+        <Facing value="135"/>
+        <Footprint value="TownGateFootprintBRUL"/>
+    </CUnit>
+    <CUnit id="TownGateL2Horizontal" parent="TownGateL2">
+        <Footprint value="TownGateFootprintHorizontal"/>
+    </CUnit>
+    <CUnit id="TownGateL2Vertical" parent="TownGateL2">
+        <Facing value="90"/>
+        <Footprint value="TownGateFootprintVertical"/>
+    </CUnit>
+    <CUnit id="TownGateL2BLUR" parent="TownGateL2">
+        <Facing value="45"/>
+        <Footprint value="TownGateFootprintBLUR"/>
+    </CUnit>
+    <CUnit id="TownGateL2BRUL" parent="TownGateL2">
+        <Facing value="135"/>
+        <Footprint value="TownGateFootprintBRUL"/>
+    </CUnit>
+    <CUnit id="TownGateL215BLUR" parent="TownGateL2">
+        <Facing value="74.9926"/>
+        <Footprint value="TownGateFootprint15BLUR"/>
+    </CUnit>
+    <CUnit id="TownGateL215BRUL" parent="TownGateL2">
+        <Facing value="284.9963"/>
+        <Footprint value="TownGateFootprint15BRUL"/>
+    </CUnit>
+    <CUnit id="TownGateL3Horizontal" parent="TownGateL3">
+        <Footprint value="TownGateFootprintHorizontal"/>
+    </CUnit>
+    <CUnit id="TownGateL3Vertical" parent="TownGateL3">
+        <Facing value="90"/>
+        <Footprint value="TownGateFootprintVertical"/>
+    </CUnit>
+    <CUnit id="TownGateL3BLUR" parent="TownGateL3">
+        <Facing value="45"/>
+        <Footprint value="TownGateFootprintBLUR"/>
+    </CUnit>
+    <CUnit id="TownGateL3BRUL" parent="TownGateL3">
+        <Facing value="135"/>
+        <Footprint value="TownGateFootprintBRUL"/>
+    </CUnit>
+    <CUnit id="TownGateL315BRUL" parent="TownGateL3">
+        <Facing value="284.9963"/>
+        <Footprint value="TownGateFootprint15BRUL"/>
+    </CUnit>
+    <CUnit id="TownGateL315BLUR" parent="TownGateL3">
+        <Facing value="74.9926"/>
+        <Footprint value="TownGateFootprint15BLUR"/>
+    </CUnit>
+    <CUnit id="MercDefenderMeleeOgre" parent="StormMinion">
+        <FlagArray index="StatTrackDamageDone" value="1"/>
+        <Attributes index="Creep" value="1"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <RepairTime value="0"/>
+        <DamageDealtXP value="0"/>
+        <DamageTakenXP value="0"/>
+        <WeaponArray Link="MercDefenderMeleeOgre"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <SubgroupPriority value="0"/>
+        <KillDisplay value="Always"/>
+        <AlliedPushPriority value="9"/>
+        <Collide index="Larva" value="1"/>
+    </CUnit>
+    <CUnit id="MercDefenderRangedOgre" parent="StormMinion">
+        <FlagArray index="StatTrackDamageDone" value="1"/>
+        <Attributes index="Creep" value="1"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="1300"/>
+        <LifeMax value="1300"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <RepairTime value="0"/>
+        <DamageDealtXP value="0"/>
+        <DamageTakenXP value="0"/>
+        <WeaponArray Link="MercDefenderRangedOgre"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="MercLanerOgreBuffAbility" Type="AbilCmd" AbilCmd="MercDefenderOgreBuffAbility,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <SubgroupPriority value="0"/>
+        <KillDisplay value="Always"/>
+        <AlliedPushPriority value="0"/>
+        <AcquireMovementLimit value="10"/>
+        <AcquireLeashRadius value="10"/>
+        <AcquireLeashResetRadius value="10"/>
+    </CUnit>
+    <CUnit id="MercDefenderRangedOgreMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="CreepMissile"/>
+    </CUnit>
+    <CUnit id="MercLanerRangedOgre" parent="StormMinion">
+        <FlagArray index="StatTrackDamageDone" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <LifeStart value="1250"/>
+        <LifeMax value="1250"/>
+        <RepairTime value="0"/>
+        <WeaponArray Link="MercLanerRangedOgre"/>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+        <FogVisibility value="Visible"/>
+    </CUnit>
+    <CUnit id="MercLanerRangedOgreAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="MercLanerRangedOgreMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="TownMoonwell" parent="StormBaseTownStructure">
+        <Facing value="315"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="TownStructureMoonwell" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="375"/>
+        <LifeMax value="375"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <BehaviorArray Link="StructureInvulnerability"/>
+        <BehaviorArray Link="PermaInvulnerable"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3Contour"/>
+        <MinimapRadius value="0"/>
+        <Radius value="1.5"/>
+        <AIEvalFactor value="0.8"/>
+    </CUnit>
+    <CUnit id="TownMoonwellL2" parent="StormBaseTownStructure">
+        <Facing value="315"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="TownStructureMoonwell" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="550"/>
+        <LifeMax value="550"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <BehaviorArray Link="StructureInvulnerability"/>
+        <BehaviorArray Link="PermaInvulnerable"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3Contour"/>
+        <MinimapRadius value="0"/>
+        <Radius value="1.5"/>
+        <AIEvalFactor value="0.8"/>
+    </CUnit>
+    <CUnit id="TownMoonwellL3" parent="StormBaseTownStructure">
+        <Facing value="315"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="TownStructureMoonwell" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <BehaviorArray Link="StructureInvulnerability"/>
+        <BehaviorArray Link="PermaInvulnerable"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3Contour"/>
+        <MinimapRadius value="0"/>
+        <Radius value="1.5"/>
+        <AIEvalFactor value="0.8"/>
+    </CUnit>
+    <CUnit id="TownStoneFenceA" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Footprint value="StoneFenceA"/>
+        <PlacementFootprint value="StoneFenceA"/>
+    </CUnit>
+    <CUnit id="TownStoneFenceB" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Footprint value="StoneFenceB"/>
+        <PlacementFootprint value="StoneFenceB"/>
+    </CUnit>
+    <CUnit id="TownStoneFenceC" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Footprint value="StoneFenceC"/>
+        <PlacementFootprint value="StoneFenceC"/>
+    </CUnit>
+    <CUnit id="TownStoneFenceD" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Footprint value="StoneFenceD"/>
+        <PlacementFootprint value="StoneFenceD"/>
+    </CUnit>
+    <CUnit id="TownStoneFenceE" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Footprint value="StoneFenceE"/>
+        <PlacementFootprint value="StoneFenceE"/>
+    </CUnit>
+    <CUnit id="TownStoneFenceF" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <Footprint value="StoneFenceF"/>
+        <PlacementFootprint value="StoneFenceF"/>
+    </CUnit>
+    <CUnit id="TownTownHallL3" parent="StormBaseTownStructure">
+        <DeathTime value="-1"/>
+        <Facing value="315"/>
+        <FlagArray index="TargetableWhileDead" value="1"/>
+        <FlagArray index="TownStructureTownHall" value="1"/>
+        <Response value="AcquireNoFlee"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="20050"/>
+        <LifeMax value="20050"/>
+        <Sight value="12"/>
+        <KillXP value="1440"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownL3"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <BehaviorArray Link="TowerCFHUpdateNearbyHeroes"/>
+        <BehaviorArray Link="TowerCFHFocusedTargetTracker"/>
+        <BehaviorArray Link="TownDetection"/>
+        <WeaponArray Link="TownHallL3Weapon" Turret="TownHallTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MothershipCoreAttack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="2"/>
+        </CardLayouts>
+        <Radius value="3"/>
+        <Footprint value="Footprint6x6Contour"/>
+        <DeadFootprint value="Footprint6x6Contour"/>
+        <PlacementFootprint value="Footprint6x6Contour"/>
+        <MinimapRadius value="2.5"/>
+        <EffectArray index="Death" value="CreateTownHallDestroyed"/>
+        <DefaultAcquireLevel value="None"/>
+    </CUnit>
+    <CUnit id="JungleCampIconUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Radius value="0.125"/>
+        <OverlapIndex value="2"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+    </CUnit>
+    <CUnit id="JungleCampIconUnitTeamColor">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Radius value="0.125"/>
+        <OverlapIndex value="2"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+    </CUnit>
+    <CUnit id="LootBannerSconce">
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <BehaviorArray Link="UnitCannotBePinged"/>
+        <BehaviorArray Link="MercCampBannerSconceDummyVeterancy"/>
+        <MinimapRadius value="0"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <Radius value="0"/>
+    </CUnit>
+    <CUnit id="SkeletalPirate" parent="StormMinion">
+        <Attributes index="Creep" value="1"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <LifeRegenDelay value="10"/>
+        <LifeRegenRate value="10"/>
+        <RepairTime value="0"/>
+        <WeaponArray Link="SkeletalPirate"/>
+        <Radius value="0.6875"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.5"/>
+        <AlliedPushPriority value="0"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+    </CUnit>
+    <CUnit id="MercLanerMeleeOgre" parent="StormMinion">
+        <FlagArray index="StatTrackDamageDone" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <RepairTime value="0"/>
+        <WeaponArray Link="MercLanerMeleeOgre"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="MercLanerOgreBruiserTaunt" Type="AbilCmd" AbilCmd="MercLanerOgreBruiserTaunt" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <AlliedPushPriority value="9"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+        <FogVisibility value="Visible"/>
+    </CUnit>
+    <CUnit id="TownCircleWallLine" parent="StormBaseTownStructure">
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <Footprint value="TownCircleWallLine"/>
+        <PlacementFootprint value="TownCircleWallLine"/>
+        <FlagArray index="Turnable" value="1"/>
+        <AttackTargetPriority value="9"/>
+    </CUnit>
+    <CUnit id="TownCircleWallLineOffset" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <Footprint value="TownCircleWallLineOffset"/>
+        <PlacementFootprint value="TownCircleWallLineOffset"/>
+        <AttackTargetPriority value="9"/>
+    </CUnit>
+    <CUnit id="TownCircleWallDiagonalSmall" parent="StormBaseTownStructure">
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <Footprint value="TownCircleWallDiagonalSmall"/>
+        <PlacementFootprint value="TownCircleWallDiagonalSmall"/>
+        <FlagArray index="Turnable" value="1"/>
+        <AttackTargetPriority value="9"/>
+    </CUnit>
+    <CUnit id="TownCircleWallDiagonalBig" parent="StormBaseTownStructure">
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <Footprint value="TownCircleWallDiagonalBig"/>
+        <PlacementFootprint value="TownCircleWallDiagonalBig"/>
+        <FlagArray index="Turnable" value="1"/>
+        <AttackTargetPriority value="9"/>
+    </CUnit>
+    <CUnit id="TownTownHallL1" parent="StormBaseTownStructure">
+        <DeathTime value="-1"/>
+        <Facing value="315"/>
+        <Response value="AcquireNoFlee"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="6000"/>
+        <LifeMax value="6000"/>
+        <Sight value="12"/>
+        <AbilArray Link="attack"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="StructureAmmoMonitor"/>
+        <BehaviorArray Link="StructureAmmoReplenisher"/>
+        <WeaponArray Link="TownHallL1Weapon" Turret="TownHallTurret"/>
+        <Radius value="2"/>
+        <DeadFootprint value="Footprint4x4Contour"/>
+        <Footprint value="Footprint4x4Contour"/>
+        <PlacementFootprint value="Footprint4x4Contour"/>
+        <MinimapRadius value="2.5"/>
+    </CUnit>
+    <CUnit id="TownTownHallL2" parent="StormBaseTownStructure">
+        <DeathTime value="-1"/>
+        <Facing value="315"/>
+        <FlagArray index="TargetableWhileDead" value="1"/>
+        <FlagArray index="TownStructureTownHall" value="1"/>
+        <Response value="AcquireNoFlee"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="15450"/>
+        <LifeMax value="15450"/>
+        <Sight value="12"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownL2"/>
+        <BehaviorArray Link="BuildingMediumDamage"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <BehaviorArray Link="TowerCFHUpdateNearbyHeroes"/>
+        <BehaviorArray Link="TowerCFHFocusedTargetTracker"/>
+        <BehaviorArray Link="TownDetection"/>
+        <WeaponArray Link="TownHallL2Weapon" Turret="TownHallTurret"/>
+        <Radius value="3"/>
+        <DeadFootprint value="Footprint5x5Contour"/>
+        <Footprint value="Footprint5x5Contour"/>
+        <PlacementFootprint value="Footprint5x5Contour"/>
+        <MinimapRadius value="2.5"/>
+        <KillXP value="1080"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MothershipCoreAttack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="2"/>
+        </CardLayouts>
+        <EffectArray index="Death" value="CreateTownHallDestroyed"/>
+        <DefaultAcquireLevel value="None"/>
+    </CUnit>
+    <CUnit id="WatchTowerCaptureBeacon">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <EditorFlags index="BlockStructures" value="0"/>
+        <Radius value="3.5"/>
+        <MinimapRadius value="0"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <BehaviorArray Link="IsDisableableBeacon"/>
+    </CUnit>
+    <CUnit id="TownMercCampCaptureBeacon">
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <EditorFlags index="BlockStructures" value="0"/>
+        <Radius value="2.75"/>
+        <MinimapRadius value="0"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <BehaviorArray Link="IsDisableableBeacon"/>
+        <InnerRadius value="0.125"/>
+    </CUnit>
+    <!--        <Footprint value="Footprint2x2Contour"/>-->
+    <!--        <PlacementFootprint value="Footprint2x2Contour"/>-->
+    <CUnit id="XelNagaWatchTower">
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Sight value="21"/>
+        <Radius value="0.0625"/>
+        <MinimapRadius value="2"/>
+        <EditorCategories value="ObjectType:Structure"/>
+    </CUnit>
+    <CUnit id="StormDestructibleRocks6x6">
+        <Facing value="315"/>
+        <Footprint value="Footprint4x4DestructibleRockDiagonal"/>
+        <FogVisibility value="Dimmed"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Destructible,ObjectFamily:Melee"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <BehaviorArray Link="TreeBehavior"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+    </CUnit>
+    <CUnit id="NodeWarpInBeacon" parent="DESTRUCTIBLE">
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <Radius value="0.875"/>
+        <SeparationRadius value="0.875"/>
+        <EditorCategories value="ObjectType:Other,ObjectFamily:Campaign"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+        <Mob value="Multiplayer"/>
+    </CUnit>
+    <CUnit id="RegenGlobe" parent="StormPowerup">
+        <BehaviorArray Link="RegenGlobeTimedLife"/>
+        <BehaviorArray Link="RegenGlobeSearch"/>
+    </CUnit>
+    <CUnit id="RegenGlobeMissile" parent="MISSILE_INVULNERABLE"/>
+    <CUnit id="RangedMinionMissile" parent="MISSILE_INVULNERABLE">
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="RecallDestination">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Worker" value="1"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ShowResources" value="0"/>
+        <EditorCategories value=""/>
+        <MinimapRadius value="0"/>
+        <Response value="Nothing"/>
+        <Mob value="Multiplayer"/>
+        <Attributes index="Structure" value="1"/>
+    </CUnit>
+    <CUnit id="ExperienceGlobe" parent="StormPowerup">
+        <FlagArray index="Uncommandable" value="0"/>
+        <Speed value="20"/>
+        <Acceleration value="10"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <BehaviorArray Link="ExperienceGlobeTimedLife"/>
+        <BehaviorArray Link="ExperienceGlobeSearchDelay"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="AttackTowards" Type="AbilCmd" AbilCmd="attack,Towards" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.125"/>
+    </CUnit>
+    <CUnit id="ExperienceGlobeMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="ExperienceAcquiredMissileMover"/>
+    </CUnit>
+    <CUnit id="HealSign">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <Response value="Nothing"/>
+        <Radius value="0"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Shape"/>
+        <Fidget DelayMax="0" DelayMin="0"/>
+        <Attributes index="Structure" value="1"/>
+        <Mob value="Multiplayer"/>
+    </CUnit>
+    <CUnit id="RangedMinion" parent="StormMinion">
+        <LifeStart value="660"/>
+        <LifeMax value="660"/>
+        <WeaponArray Link="RangedMinion"/>
+        <Radius value="0.6875"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.5"/>
+        <BehaviorArray Link="RangedMinionScaling"/>
+        <BehaviorArray Link="ExperienceGlobeSpawn"/>
+        <BehaviorArray Link="MinionSprint"/>
+    </CUnit>
+    <CUnit id="FlagBearerMinionMissile" parent="MISSILE_INVULNERABLE">
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="KingsCore">
+        <DefaultAcquireLevel value="None"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="TownStructureCore" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="14000"/>
+        <LifeMax value="14000"/>
+        <ShieldsStart value="7000"/>
+        <ShieldsMax value="7000"/>
+        <ShieldRegenDelay value="8"/>
+        <ShieldRegenRate value="100"/>
+        <Sight value="11"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <BehaviorArray Link="CoreDetection"/>
+        <BehaviorArray Link="PalaceDamageResponseController"/>
+        <BehaviorArray Link="CoreScaling"/>
+        <BehaviorArray Link="BuildingLightDamage"/>
+        <BehaviorArray Link="BuildingHeavyDamage"/>
+        <BehaviorArray Link="CoreInvulnerability"/>
+        <BehaviorArray Link="TowerCFHUpdateNearbyHeroes"/>
+        <BehaviorArray Link="TowerCFHFocusedTargetTracker"/>
+        <WeaponArray Link="KingsCore" Turret="KingsCore"/>
+        <CardLayouts>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="2" Column="1"/>
+            <LayoutButtons Face="Detector" Type="Passive" Row="2" Column="1"/>
+            <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="4"/>
+        <SeparationRadius value="2"/>
+        <Footprint value="Footprint6x6ContourWithNotches"/>
+        <PlacementFootprint value="Footprint6x6ContourWithNotches"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="2.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <GlossaryPriority value="10"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <DeathTime value="10"/>
+    </CUnit>
+    <CUnit id="NodeTurretWeapon" parent="MISSILE_INVULNERABLE">
+        <Mover value="HeroMissile"/>
+    </CUnit>
+    <CUnit id="UnderworldMineEntranceMinimapIcon">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Radius value="0.125"/>
+        <OverlapIndex value="2"/>
+    </CUnit>
+    <!-- Town Wall Radial Data -->
+    <CUnit id="GroundHole">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <MinimapRadius value="0"/>
+        <Mover value="Fly"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="UnderworldMinion" parent="StormMinion">
+        <Attributes index="Creep" value="1"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <RepairTime value="0"/>
+        <WeaponArray Link="UnderworldMinion"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0.5"/>
+        <KillDisplay value="Never"/>
+        <AlliedPushPriority value="9"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.75"/>
+    </CUnit>
+    <CUnit id="UnderworldRangedMinionMissile" parent="MISSILE_INVULNERABLE">
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <Mover value="UnderworldRangedMinionMissileLong"/>
+    </CUnit>
+    <CUnit id="UnderworldRangedMinion" parent="StormMinion">
+        <Attributes index="Creep" value="1"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <WeaponArray Link="UnderworldRangedMinion"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.75"/>
+        <InnerRadius value="0.5"/>
+        <ScoreMake value="50"/>
+        <ScoreKill value="100"/>
+        <MinimapRadius value="0.5"/>
+    </CUnit>
+    <!-- Liberty Data                                                                           -->
+    <CUnit id="BeaconArmy" parent="BEACON"/>
+    <CUnit id="BeaconDefend" parent="BEACON"/>
+    <CUnit id="BeaconAttack" parent="BEACON"/>
+    <CUnit id="BeaconHarass" parent="BEACON"/>
+    <CUnit id="BeaconIdle" parent="BEACON"/>
+    <CUnit id="BeaconAuto" parent="BEACON"/>
+    <CUnit id="BeaconDetect" parent="BEACON"/>
+    <CUnit id="BeaconScout" parent="BEACON"/>
+    <CUnit id="BeaconClaim" parent="BEACON"/>
+    <CUnit id="BeaconExpand" parent="BEACON"/>
+    <CUnit id="BeaconRally" parent="BEACON"/>
+    <CUnit id="BeaconCustom1" parent="BEACON"/>
+    <CUnit id="BeaconCustom2" parent="BEACON"/>
+    <CUnit id="BeaconCustom3" parent="BEACON"/>
+    <CUnit id="BeaconCustom4" parent="BEACON"/>
+    <CUnit id="PathingBlocker2x2" parent="PATHINGBLOCKER">
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2"/>
+        <PlacementFootprint value="Footprint2x2"/>
+        <Collide index="Burrow" value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="Structure" value="0"/>
+        <Collide index="RoachBurrow" value="1"/>
+    </CUnit>
+    <CUnit id="BattleshipBombardMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="BattleshipBombardMissileLong"/>
+    </CUnit>
+    <CUnit id="IntroVOInteractor" parent="ITEM"/>
+    <CUnit id="MoonwellIconUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+    </CUnit>
+    <CUnit id="MoonwellIconUnitOffsetLeft">
+        <ReviveType value="MoonwellIconUnit"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LeaderAlias value="MoonwellIconUnit"/>
+        <HotkeyAlias value="MoonwellIconUnit"/>
+        <SelectAlias value="MoonwellIconUnit"/>
+        <SubgroupAlias value="MoonwellIconUnit"/>
+        <ReviveInfoBase>
+            <Charge Link="MoonwellIconUnit/Revive"/>
+            <Cooldown Link="MoonwellIconUnit/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="MoonwellIconUnitOffsetRight">
+        <ReviveType value="MoonwellIconUnit"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LeaderAlias value="MoonwellIconUnit"/>
+        <HotkeyAlias value="MoonwellIconUnit"/>
+        <SelectAlias value="MoonwellIconUnit"/>
+        <SubgroupAlias value="MoonwellIconUnit"/>
+        <ReviveInfoBase>
+            <Charge Link="MoonwellIconUnit/Revive"/>
+            <Cooldown Link="MoonwellIconUnit/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="ProgressBarUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeMax value="10"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="HeroTestHero" parent="StormHeroMounted">
+        <LifeStart value="50000"/>
+        <LifeMax value="50000"/>
+        <LifeRegenRate value="1000"/>
+        <WeaponArray Link="TyrandeWeapon"/>
+    </CUnit>
+    <CUnit id="HealingHeroDummy">
+        <BehaviorArray Link="HeroGenericGeneral"/>
+        <BehaviorArray Link="TargetDummySuppressMovement"/>
+        <BehaviorArray Link="HealingHeroDummyPreventDeathBehavior"/>
+        <BehaviorArray Link="Benign"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Hero" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeMax value="100000"/>
+        <CardLayouts>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+        </CardLayouts>
+        <MinimapRadius value="0.3"/>
+    </CUnit>
+    <CUnit id="TheLittleKing" parent="StormEasterEggUnit"/>
+    <CUnit id="HangingSharkBreakable">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Attributes index="MapCreature" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <BehaviorArray Link="BlackheartSharkClickResponse"/>
+        <MinimapRadius value="0"/>
+        <Facing value="45"/>
+    </CUnit>
+    <CUnit id="HangingSharkBreakable_L">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Attributes index="MapCreature" value="1"/>
+        <BehaviorArray Link="BlackheartSharkClickResponse"/>
+        <MinimapRadius value="0"/>
+        <Facing value="315"/>
+    </CUnit>
+    <CUnit id="GlowingSteppingStones" parent="GenericFlairUnit">
+        <FlagArray index="Unselectable" value="0"/>
+        <FlagArray index="Untargetable" value="0"/>
+    </CUnit>
+    <CUnit id="GraveGolemEntanglingRootsMissile" parent="MISSILE"/>
+    <CUnit id="Storm_Critter_KingsCrest_Peasant_Vendor_A" parent="GenericFlairUnit">
+        <BehaviorArray Link="PeasantCowerCarryBehavior"/>
+        <FlagArray index="Turnable" value="1"/>
+        <MinimapRadius value="0"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="Storm_Critter_KingsCrest_Peasant_Vendor_B" parent="GenericFlairUnit">
+        <BehaviorArray Link="PeasantCowerCarryBehavior"/>
+        <FlagArray index="Turnable" value="1"/>
+        <MinimapRadius value="0"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="Storm_Critter_KingsCrest_Peasant_Vendor_C" parent="GenericFlairUnit">
+        <BehaviorArray Link="PeasantCowerCarryBehavior"/>
+        <FlagArray index="Turnable" value="1"/>
+        <MinimapRadius value="0"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="Storm_Critter_KingsCrest_Peasant_Vendor_D" parent="GenericFlairUnit">
+        <BehaviorArray Link="PeasantCowerCarryBehavior"/>
+        <FlagArray index="Turnable" value="1"/>
+        <MinimapRadius value="0"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestDestructiblePumpkin">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Destructible" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestDestructibleTombstones">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Destructible" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="DragonKnightFireBreathFireballMissile">
+        <Mover value="DragonKnightFireBreathFireballMissile"/>
+    </CUnit>
+    <CUnit id="GhostShipBeacon">
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Sight value="3"/>
+        <Radius value="0"/>
+        <MinimapRadius value="0"/>
+        <Footprint value="Unbuildable2x2"/>
+        <PlacementFootprint value="Unbuildable2x2"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <SeparationRadius value="0"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <BehaviorArray Link="IsMacguffin"/>
+    </CUnit>
+    <CUnit id="DocksPirateCaptain">
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Sight value="3"/>
+        <Radius value="0"/>
+        <SeparationRadius value="0"/>
+        <MinimapRadius value="1"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="50"/>
+            <ChanceArray index="Idle" value="50"/>
+        </Fidget>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <BehaviorArray Link="IsMacguffin"/>
+        <Footprint value="Unbuildable3x3"/>
+        <PlacementFootprint value="Unbuildable3x3"/>
+    </CUnit>
+    <CUnit id="DragonballCaptureBeacon">
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <EditorFlags index="BlockStructures" value="0"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Radius value="4"/>
+        <MinimapRadius value="0"/>
+        <BehaviorArray Link="IsDisableableBeacon"/>
+    </CUnit>
+    <CUnit id="UnderworldSummonedBossBody">
+        <ReviveType value="UnderworldSummonedBoss"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="4000"/>
+        <LifeMax value="4000"/>
+        <Speed value="3.75"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <AttackTargetPriority value="5"/>
+        <Radius value="0"/>
+        <MinimapRadius value="0.375"/>
+    </CUnit>
+    <CUnit id="TutorialSkeletonRanged" parent="StormMinion">
+        <Response value="Acquire"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="80"/>
+        <LifeMax value="80"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="7"/>
+        <RepairTime value="0"/>
+        <AbilArray index="1" Link="attack"/>
+        <BehaviorArray Link="HighCombatPriority"/>
+        <WeaponArray Link="TutorialSkeletonRangedWeapon"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.6875"/>
+        <InnerRadius value="0.6875"/>
+        <SubgroupPriority value="14"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+    </CUnit>
+    <CUnit id="TutorialSkeletonRangedMissile" parent="MISSILE_INVULNERABLE">
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="TutorialSkeletonMelee" parent="StormMinion">
+        <Response value="Acquire"/>
+        <Attributes index="Minion" value="0"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <Speed value="2"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="7"/>
+        <RepairTime value="0"/>
+        <AbilArray index="1" Link="attack"/>
+        <BehaviorArray Link="HighCombatPriority"/>
+        <WeaponArray Link="TutorialSkeletonMeleeWeapon"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.6875"/>
+        <InnerRadius value="0.6875"/>
+        <SubgroupPriority value="14"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+    </CUnit>
+    <CUnit id="DragonShireShrineSun">
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Sight value="5"/>
+        <AbilArray Link="GardensObeliskActivate"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <CardLayouts>
+            <LayoutButtons Face="GardensObeliskActivate" Type="AbilCmd" AbilCmd="GardensObeliskActivate,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.0625"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2Contour"/>
+        <MinimapRadius value="2"/>
+    </CUnit>
+    <CUnit id="DragonShireShrineMoon" parent="DragonShireShrineSun">
+        <Name value="Unit/Name/DragonShireShrineMoon"/>
+    </CUnit>
+    <CUnit id="GardensDragonShrineTargetSun">
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Air" value="1"/>
+        <LifeStart value="100000"/>
+        <LifeMax value="100000"/>
+        <LifeRegenDelay value="1"/>
+        <LifeRegenRate value="100030"/>
+        <Mover value="Fly"/>
+        <MinimapRadius value="0"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+    </CUnit>
+    <CUnit id="GardensDragonShrineTargetMoon" parent="GardensDragonShrineTargetSun">
+        <Name value="Unit/Name/GardensDragonShrineTargetMoon"/>
+    </CUnit>
+    <CUnit id="DragonCoreConstructionFootprintUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Footprint value="Footprint6x6ContourWithNotchesCoreConstructing"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="TargetHeroDummyFreddie">
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Hero" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="100000"/>
+        <LifeMax value="100000"/>
+        <LifeRegenDelay value="3"/>
+        <LifeRegenRate value="100030"/>
+        <Speed value="4"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="ZagaraDevouringMaw"/>
+        <AbilArray Link="AnubarakCocoon"/>
+        <AbilArray Link="StitchesGorge"/>
+        <AbilArray Link="ButcherLambToTheSlaughter"/>
+        <AbilArray Link="ZeratulVoidPrison"/>
+        <AbilArray Link="VoidPrisonCancel"/>
+        <AbilArray Link="VarianTaunt"/>
+        <AbilArray Link="GuldanHorrify"/>
+        <CardLayouts>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="ZeratulVoidPrisonCancel" Type="AbilCmd" AbilCmd="VoidPrisonCancel,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="ZeratulVoidPrison" Type="AbilCmd" AbilCmd="ZeratulVoidPrison,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="ZagaraDevouringMaw" Type="AbilCmd" AbilCmd="ZagaraDevouringMaw,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AnubarakCocoon" Type="AbilCmd" AbilCmd="AnubarakCocoon,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="StitchesGorge" Type="AbilCmd" AbilCmd="StitchesGorge,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="ButcherLambToTheSlaughter" Type="AbilCmd" AbilCmd="ButcherLambToTheSlaughter,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GuldanHorrify" Type="AbilCmd" AbilCmd="GuldanHorrify,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="VarianTaunt" Type="AbilCmd" AbilCmd="VarianTaunt,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0"/>
+        <InnerRadius value="0.625"/>
+        <MinimapRadius value="0.375"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <EnergyStart value="100000"/>
+        <EnergyMax value="100000"/>
+        <EnergyRegenRate value="100000"/>
+        <BehaviorArray Link="Ultimate1Unlocked"/>
+        <BehaviorArray Link="Ultimate2Unlocked"/>
+        <Sight value="8"/>
+    </CUnit>
+    <CUnit id="TargetDummyMonster" parent="TargetDummyParent">
+        <Attributes index="MapCreature" value="1"/>
+    </CUnit>
+    <CUnit id="TargetDummyMercenary" parent="TargetDummyParent">
+        <Attributes index="Merc" value="1"/>
+    </CUnit>
+    <CUnit id="TargetFlyingDummy">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="100000"/>
+        <LifeMax value="100000"/>
+        <LifeRegenDelay value="3"/>
+        <LifeRegenRate value="100030"/>
+        <Mover value="Fly"/>
+        <Speed value="2"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0"/>
+        <InnerRadius value="0.625"/>
+        <MinimapRadius value="0.375"/>
+        <Height value="3"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestDestructibleVaseGarden">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="DeadUnitCameraTarget">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Radius value="0.125"/>
+        <MinimapRadius value="0"/>
+        <TacticalAIFilters value="-;Player,Neutral,Enemy"/>
+    </CUnit>
+    <CUnit id="StormLuxoriaSandScarab" parent="StormCritter">
+        <Description value="Button/Tooltip/CritterStormLuxoriaSandScarab"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="360"/>
+        <BehaviorArray Link="Harmless"/>
+        <BehaviorArray Link="StormCrabWander"/>
+        <Radius value="0"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="50"/>
+            <ChanceArray index="Idle" value="50"/>
+            <ChanceArray index="Move" value="0"/>
+        </Fidget>
+    </CUnit>
+    <CUnit id="JungleBattleship">
+        <DeathTime value="3"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="IgnoreTerrainZInit" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="Minion" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="Merc" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Mover value="Fly"/>
+        <Speed value="3.5"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="39.9023"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="9"/>
+        <VisionHeight value="4"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="GhostShipBombardChargedPort"/>
+        <AbilArray Link="GhostShipBombardChargedStarboard"/>
+        <BehaviorArray Link="BattleshipRiseUpBehavior"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="0"/>
+            <LayoutButtons Face="GhostShipCannonBombard" Type="AbilCmd" AbilCmd="GhostShipBombardChargedPort,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GhostShipCannonBombard" Type="AbilCmd" AbilCmd="GhostShipBombardChargedStarboard,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="7.75"/>
+    </CUnit>
+    <CUnit id="ItemCannonball" parent="StormPowerup">
+        <BehaviorArray Link="DoubloonPickupScan"/>
+    </CUnit>
+    <CUnit id="ItemDoubloonPickupPrecursor" parent="StormPowerup"/>
+    <CUnit id="ItemUnderworldPowerup" parent="StormPowerup">
+        <BehaviorArray Link="SkullPickupScan"/>
+    </CUnit>
+    <CUnit id="Storm_KingsCrest_Shrubbery">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="50"/>
+        <LifeMax value="50"/>
+        <Footprint value="ShrubFootprint1x1"/>
+        <PlacementFootprint value="ShrubFootprint1x1"/>
+    </CUnit>
+    <CUnit id="Storm_Doodad_Luxoria_Destructible_Medium">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestDestructibleBarrel">
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Destructible" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestSharkJawUnit">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestGardenStatueUnit">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FogVisibility value="Dimmed"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <BehaviorArray Link="DestructibleBehavior"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="TownGateL2HorizontalTopVisionBlocked" parent="TownGateL2">
+        <Footprint value="TownGateFootprintHorizontalTopVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2HorizontalBotVisionBlocked" parent="TownGateL2">
+        <Facing value="180"/>
+        <Footprint value="TownGateFootprintHorizontalBotVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2VerticalLeftVisionBlocked" parent="TownGateL2">
+        <Facing value="90"/>
+        <Footprint value="TownGateFootprintVerticalLeftVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2VerticalRightVisionBlocked" parent="TownGateL2">
+        <Facing value="270"/>
+        <Footprint value="TownGateFootprintVerticalRightVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2BLURTLVisionBlocked" parent="TownGateL2">
+        <Facing value="45"/>
+        <Footprint value="TownGateFootprintBLURTLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2BLURBRVisionBlocked" parent="TownGateL2">
+        <Facing value="225"/>
+        <Footprint value="TownGateFootprintBLURBRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2BRULBLVisionBlocked" parent="TownGateL2">
+        <Facing value="135"/>
+        <Footprint value="TownGateFootprintBRULBLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL2BRULTRVisionBlocked" parent="TownGateL2">
+        <Facing value="315"/>
+        <Footprint value="TownGateFootprintBRULTRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL215BLURBRVisionBlocked" parent="TownGateL2">
+        <Facing value="254.9926"/>
+        <Footprint value="TownGateFootprint15BLURBRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL215BLURTLVisionBlocked" parent="TownGateL2">
+        <Facing value="74.9926"/>
+        <Footprint value="TownGateFootprint15BLURTLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL215BRULBLVisionBlocked" parent="TownGateL2">
+        <Facing value="104.9963"/>
+        <Footprint value="TownGateFootprint15BRULBLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL215BRULTRVisionBlocked" parent="TownGateL2">
+        <Facing value="284.9963"/>
+        <Footprint value="TownGateFootprint15BRULTRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3HorizontalBotVisionBlocked" parent="TownGateL3">
+        <Facing value="180"/>
+        <Footprint value="TownGateFootprintHorizontalBotVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3HorizontalTopVisionBlocked" parent="TownGateL3">
+        <Footprint value="TownGateFootprintHorizontalTopVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3VerticalLeftVisionBlocked" parent="TownGateL3">
+        <Facing value="90"/>
+        <Footprint value="TownGateFootprintVerticalLeftVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3VerticalRightVisionBlocked" parent="TownGateL3">
+        <Facing value="270"/>
+        <Footprint value="TownGateFootprintVerticalRightVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3BLURTLVisionBlocked" parent="TownGateL3">
+        <Facing value="45"/>
+        <Footprint value="TownGateFootprintBLURTLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3BLURBRVisionBlocked" parent="TownGateL3">
+        <Facing value="225"/>
+        <Footprint value="TownGateFootprintBLURBRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3BRULBLVisionBlocked" parent="TownGateL3">
+        <Facing value="135"/>
+        <Footprint value="TownGateFootprintBRULBLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL3BRULTRVisionBlocked" parent="TownGateL3">
+        <Facing value="315"/>
+        <Footprint value="TownGateFootprintBRULTRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL315BRULBLVisionBlocked" parent="TownGateL3">
+        <Facing value="104.9963"/>
+        <Footprint value="TownGateFootprint15BRULBLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL315BRULTRVisionBlocked" parent="TownGateL3">
+        <Facing value="284.9963"/>
+        <Footprint value="TownGateFootprint15BRULTRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL315BRULGarden" parent="TownGateL3">
+        <Facing value="349.9914"/>
+        <FlagArray index="Unclickable" value="1"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unhighlightable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="TownGateL315BLURBRVisionBlocked" parent="TownGateL3">
+        <Facing value="254.9926"/>
+        <Footprint value="TownGateFootprint15BLURBRVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL315BLURTLVisionBlocked" parent="TownGateL3">
+        <Facing value="74.9926"/>
+        <Footprint value="TownGateFootprint15BLURTLVisionBlocked"/>
+    </CUnit>
+    <CUnit id="TownGateL315BLURGarden" parent="TownGateL3">
+        <Facing value="189.9975"/>
+        <FlagArray index="Unclickable" value="1"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unhighlightable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="MercDefenderMeleeKnight" parent="StormMercDefenderParent">
+        <LifeStart value="3000"/>
+        <LifeMax value="3000"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <KillXP value="100"/>
+        <BehaviorArray Link="OgreDefenderScaling"/>
+        <BehaviorArray Link="KnightMeleeDamageResponseBehavior"/>
+        <BehaviorArray Link="KnightGetHitVOXDamageResponse"/>
+        <BehaviorArray Link="MercKnightDeathResponse"/>
+        <WeaponArray Link="MercDefenderMeleeKnight"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.9"/>
+        <InnerRadius value="0.5"/>
+    </CUnit>
+    <CUnit id="MercDefenderRangedMage" parent="StormMercDefenderParent">
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <KillXP value="150"/>
+        <AbilArray Link="KnightMagicVolley"/>
+        <BehaviorArray Link="MageDefenderScaling"/>
+        <BehaviorArray Link="KnightSorcererCasterDamageResponseBehavior"/>
+        <BehaviorArray Link="MercDefenderSorcererSoundSearch"/>
+        <BehaviorArray Link="WizardDefenderSpellShieldAuraController"/>
+        <WeaponArray Link="MercDefenderRangedMage"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="KnightMagicVolley" Type="AbilCmd" AbilCmd="KnightMagicVolley,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <SeparationRadius value="0.9"/>
+        <InnerRadius value="0.5"/>
+        <AcquireMovementLimit value="10"/>
+        <AcquireLeashRadius value="10"/>
+        <AcquireLeashResetRadius value="10"/>
+    </CUnit>
+    <CUnit id="MercDefenderRangedMageMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="CreepMissile"/>
+    </CUnit>
+    <CUnit id="MercLanerRangedMage" parent="StormMercLanerParent">
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <AbilArray Link="KnightMagicVolley"/>
+        <BehaviorArray Link="MageLanerScaling"/>
+        <BehaviorArray Link="MercLanerRangedSpawnRootEffect"/>
+        <BehaviorArray Link="MercLanerOgreHealScan"/>
+        <BehaviorArray Link="KnightSorcererCasterDamageResponseBehavior"/>
+        <BehaviorArray Link="WizardLanerSpellShieldAuraController"/>
+        <WeaponArray Link="MercLanerRangedMage"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="KnightMagicVolley" Type="AbilCmd" AbilCmd="KnightMagicVolley,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.75"/>
+        <LeaderAlias value="MercDefenderRangedMage"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+    </CUnit>
+    <CUnit id="MercLanerRangedKnightAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="MercLanerRangedMageMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="TownCannonTower" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="TownStructureCannonTower" value="1"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="2500"/>
+        <LifeMax value="2500"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="Queue5Storm"/>
+        <AbilArray Link="TowerDeadMorph"/>
+        <AbilArray Link="AbathurAssumingDirectControlCancel"/>
+        <BehaviorArray Link="TownCannonTowerNoDeath"/>
+        <BehaviorArray Link="BuildingLightDamage"/>
+        <BehaviorArray Link="BuildingHeavyDamage"/>
+        <WeaponArray Link="GuardTowerL1Weapon" Turret="TownCannonTowerL1Turret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="TowerDeadMorph" Type="AbilCmd" AbilCmd="TowerDeadMorph,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AbathurSymbioteCancel" Type="AbilCmd" AbilCmd="AbathurAssumingDirectControlCancel,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2Contour"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="0.6"/>
+    </CUnit>
+    <CUnit id="TownCannonTowerL2" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="TownStructureCannonTower" value="1"/>
+        <DefaultAcquireLevel value="None"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="4300"/>
+        <LifeMax value="4300"/>
+        <Sight value="10"/>
+        <KillXP value="360"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="TowerDeadMorph"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownCannonTowerNoDeath"/>
+        <BehaviorArray Link="BuildingLightDamage"/>
+        <BehaviorArray Link="BuildingHeavyDamage"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <WeaponArray Link="GuardTowerL2Weapon" Turret="TownCannonTowerL2Turret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="TowerDeadMorph" Type="AbilCmd" AbilCmd="TowerDeadMorph,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2ContourBlockLOS"/>
+        <PlacementFootprint value="Footprint2x2ContourBlockLOS"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="0.6"/>
+    </CUnit>
+    <CUnit id="TownCannonTowerL2Standalone" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="TownStructureCannonTower" value="1"/>
+        <DefaultAcquireLevel value="None"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="4300"/>
+        <LifeMax value="4300"/>
+        <KillXP value="360"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="Queue5Storm"/>
+        <AbilArray Link="TowerDeadMorph"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="BuildingLightDamage"/>
+        <BehaviorArray Link="BuildingHeavyDamage"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <WeaponArray Link="GuardTowerL2Weapon" Turret="TownCannonTowerL2Turret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="TowerDeadMorph" Type="AbilCmd" AbilCmd="TowerDeadMorph,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2Contour"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="0.6"/>
+        <LeaderAlias value="TownCannonTowerL2"/>
+        <Sight value="10"/>
+    </CUnit>
+    <CUnit id="TownCannonTowerL3" parent="StormBaseTownStructure">
+        <Description value="Button/Tooltip/TownCannonTower"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="TownStructureCannonTower" value="1"/>
+        <DefaultAcquireLevel value="None"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="5300"/>
+        <LifeMax value="5300"/>
+        <Sight value="10"/>
+        <KillXP value="480"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="Queue5Storm"/>
+        <AbilArray Link="TowerDeadMorph"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="TownCannonTowerNoDeath"/>
+        <BehaviorArray Link="BuildingLightDamage"/>
+        <BehaviorArray Link="BuildingHeavyDamage"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <WeaponArray Link="GuardTowerL3Weapon" Turret="TownCannonTowerL3Turret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="TowerDeadMorph" Type="AbilCmd" AbilCmd="TowerDeadMorph,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2ContourBlockLOS"/>
+        <PlacementFootprint value="Footprint2x2ContourBlockLOS"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="0.6"/>
+        <LeaderAlias value="TownCannonTowerL2"/>
+    </CUnit>
+    <CUnit id="TownCannonTowerL3Standalone" parent="StormBaseTownStructure">
+        <Description value="Button/Tooltip/TownCannonTower"/>
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="TownStructureCannonTower" value="1"/>
+        <DefaultAcquireLevel value="None"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="NoMinionAggro" value="0"/>
+        <LifeStart value="5300"/>
+        <LifeMax value="5300"/>
+        <KillXP value="480"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="Queue5Storm"/>
+        <AbilArray Link="TowerDeadMorph"/>
+        <BehaviorArray Link="MinionAIAttackableStructure"/>
+        <BehaviorArray Link="BuildingLightDamage"/>
+        <BehaviorArray Link="BuildingHeavyDamage"/>
+        <BehaviorArray Link="TowerTargetingLaserUnitTracker"/>
+        <WeaponArray Link="GuardTowerL3Weapon" Turret="TownCannonTowerL3Turret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="TowerDeadMorph" Type="AbilCmd" AbilCmd="TowerDeadMorph,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2Contour"/>
+        <MinimapRadius value="0"/>
+        <AIEvalFactor value="0.6"/>
+        <LeaderAlias value="TownCannonTowerL2"/>
+        <Sight value="10"/>
+    </CUnit>
+    <CUnit id="TownCannonTowerDead" parent="StormBaseTownStructure">
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Attributes index="Tower" value="1"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <LifeStart value="4000"/>
+        <LifeMax value="4000"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="Queue5Storm"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <Footprint value="Footprint2x2ContourBlockLOS"/>
+        <PlacementFootprint value="Footprint2x2ContourBlockLOS"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="LuxoriaBeetle" parent="StormCritter">
+        <Description value="Button/Tooltip/CritterLuxoriaBeetle"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <Speed value="1"/>
+        <BehaviorArray Link="CritterStomp"/>
+        <Radius value="0.25"/>
+        <SeparationRadius value="0.25"/>
+    </CUnit>
+    <CUnit id="DocksTreasureChest">
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <Attributes index="MapCreature" value="1"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <LifeStart value="18"/>
+        <LifeMax value="18"/>
+        <Speed value="3.5"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="1"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+        <Response value="Flee"/>
+        <BehaviorArray Link="DocksTreasureChestLightDamage"/>
+        <BehaviorArray Link="DocksTreasureChestHeavyDamage"/>
+        <BehaviorArray Link="DocksTreasureChestDead"/>
+        <BehaviorArray Link="DocksTreasureChestClampDamage"/>
+        <BehaviorArray Link="JungleCreepPassive"/>
+        <BehaviorArray Link="ShowDescriptionTextInTargetPanel"/>
+        <BehaviorArray Link="ImmunetoStasisBehavior"/>
+        <BehaviorArray Link="HasDamageClampBehavior"/>
+        <BehaviorArray Link="LowBouncePriorityTarget"/>
+        <BehaviorArray Link="IsPseudoStructure"/>
+        <BehaviorArray Link="ImmunetoSylvanasBlackArrowStructureDebuff"/>
+        <FogVisibility value="Snapshot"/>
+        <Footprint value="Footprint2x2ContourNoPathing"/>
+        <PlacementFootprint value="Footprint2x2ContourNoPathing"/>
+        <Facing value="34.9914"/>
+        <Collide index="Structure" value="1"/>
+    </CUnit>
+    <CUnit id="MercLanerMeleeKnight" parent="StormMercLanerParent">
+        <LifeStart value="3300"/>
+        <LifeMax value="3300"/>
+        <AbilArray Link="MercLanerOgreBruiserTaunt"/>
+        <BehaviorArray Link="OgreLanerScaling"/>
+        <BehaviorArray Link="KnightTowerDamageReductionBuff"/>
+        <BehaviorArray Link="MercLanerKnightMarkerBehavior"/>
+        <BehaviorArray Link="KnightMeleeDamageResponseBehavior"/>
+        <BehaviorArray Link="KnightGetHitVOXDamageResponse"/>
+        <BehaviorArray Link="MercKnightDeathResponse"/>
+        <WeaponArray Link="MercLanerMeleeKnight"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="MercLanerOgreBruiserTaunt" Type="AbilCmd" AbilCmd="MercLanerOgreBruiserTaunt" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="1"/>
+        <InnerRadiusSafetyMultiplier value="2"/>
+        <LeaderAlias value="MercDefenderMeleeKnight"/>
+        <AcquireLeashRadius value="1"/>
+        <AcquireLeashResetRadius value="1"/>
+    </CUnit>
+    <CUnit id="UnderworldSummonedBossSiegeAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="MercLanerSiegeGiantGuidanceMissile"/>
+        <StationaryTurningRate value="1007.9296"/>
+        <TurningRate value="1007.9296"/>
+    </CUnit>
+    <CUnit id="TownHallDestroyed">
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <FlagArray index="TownStructureTownHall" value="1"/>
+        <FogVisibility value="Visible"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="NoMinionAggro" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <BehaviorArray Link="Benign"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="VehicleDragon" parent="StormVehicle">
+        <FogVisibility value="Visible"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Colossus" value="1"/>
+        <LifeStart value="8350"/>
+        <LifeMax value="8350"/>
+        <AbilArray Link="VehicleDragonPunt"/>
+        <AbilArray Link="VehicleDragonFireBreath"/>
+        <BehaviorArray Link="DragonKnightScaling"/>
+        <BehaviorArray Link="VehicleDragonPotionStun"/>
+        <BehaviorArray Link="DragonShrineDeactivated"/>
+        <BehaviorArray Link="VehicleGenericHeroInsideUnitTracker"/>
+        <CardLayouts>
+            <LayoutButtons Face="DragonKnightFireBreath" Type="AbilCmd" AbilCmd="VehicleDragonFireBreath,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="DragonKnightBullRush" Type="AbilCmd" AbilCmd="VehicleDragonPunt,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="DragonKnightRubbleMaker" Type="Passive" Row="0" Column="0"/>
+            <LayoutButtons Face="DragonKnightLeaveDragon" Type="AbilCmd" AbilCmd="LeaveVehicle,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0004">
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1.5"/>
+        <InnerRadius value="0.75"/>
+        <WeaponArray Link="GardensDragonKnightWeapon"/>
+        <WeaponArray Link="GardensDragonKnightPuntWeapon"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <SubgroupPriority value="14"/>
+        <AIEvalFactor value="1.3"/>
+    </CUnit>
+    <CUnit id="HallOfStormsLocationUnit">
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Response value="Nothing"/>
+        <Attributes index="ImmuneToAOE" value="1"/>
+        <Attributes index="ImmuneToSkillshots" value="1"/>
+        <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
+        <EffectArray index="Create" value="HearthstoneUnitTrackerAdd"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="TowerMissile" parent="MISSILE_INVULNERABLE"/>
+    <CUnit id="JungleGraveGolemDefender" parent="StormBossMercDefenderParent">
+        <LifeStart value="16000"/>
+        <LifeMax value="16000"/>
+        <KillXP value="750"/>
+        <AbilArray Link="UnderworldBossRoots"/>
+        <AbilArray Link="UnderworldBossStun"/>
+        <BehaviorArray Link="GraveGolemDefenderScaling"/>
+        <WeaponArray Link="MercDefenderGraveGolem"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="GraveGolemMegaStun" Type="AbilCmd" AbilCmd="UnderworldBossStun,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GraveGolemBindingRoots" Type="AbilCmd" AbilCmd="UnderworldBossRoots,Execute" Row="0" Column="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="JungleGraveGolemLaner" parent="StormBossMercLanerParent">
+        <LifeStart value="19000"/>
+        <LifeMax value="19000"/>
+        <AbilArray Link="UnderworldBossStun"/>
+        <AbilArray Link="UnderworldBossRoots"/>
+        <AbilArray Link="GraveGolemMULEKill"/>
+        <BehaviorArray Link="GraveGolemLanerScaling"/>
+        <BehaviorArray Link="GraveGolemBindingRootsCastScan"/>
+        <BehaviorArray Link="GraveGolemMegaStunCastScan"/>
+        <BehaviorArray Link="GraveGolemMULEKillCastScan"/>
+        <WeaponArray Link="MercLanerGraveGolem"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="GraveGolemMegaStun" Type="AbilCmd" AbilCmd="UnderworldBossStun,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GraveGolemMULEKill" Type="AbilCmd" AbilCmd="GraveGolemMULEKill,255" Row="0" Column="0"/>
+            <LayoutButtons Face="GraveGolemBindingRoots" Type="AbilCmd" AbilCmd="UnderworldBossRoots,Execute" Row="0" Column="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="UnderworldBoss" parent="StormMonsterMajorDefenderParent">
+        <Collide index="Colossus" value="1"/>
+        <LifeStart value="9000"/>
+        <LifeMax value="9000"/>
+        <AbilArray Link="UnderworldBossStun"/>
+        <AbilArray Link="UnderworldBossRoots"/>
+        <BehaviorArray Link="UnderworldBossScaling"/>
+        <WeaponArray Link="UnderworldBoss"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="GraveGolemBindingRoots" Type="AbilCmd" AbilCmd="UnderworldBossRoots,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GraveGolemMegaStun" Type="AbilCmd" AbilCmd="UnderworldBossStun,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1.25"/>
+        <KillXP value="560"/>
+    </CUnit>
+    <CUnit id="UnderworldSummonedBoss" parent="StormMonsterMajorLanerParent">
+        <LifeStart value="4000"/>
+        <LifeMax value="4000"/>
+        <AttackTargetPriority value="5"/>
+        <AbilArray index="1" Link="StormBossAttack"/>
+        <AbilArray Link="UnderworldBossStun"/>
+        <AbilArray Link="UnderworldBossRoots"/>
+        <AbilArray Link="GraveGolemMULEKill"/>
+        <BehaviorArray Link="UnderworldSummonedBossScaling"/>
+        <BehaviorArray Link="GraveGolemMULEKillCastScan"/>
+        <WeaponArray Link="UnderworldSummonedBoss"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="GraveGolemBindingRoots" Type="AbilCmd" AbilCmd="UnderworldBossRoots,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GraveGolemMegaStun" Type="AbilCmd" AbilCmd="UnderworldBossStun,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GraveGolemMULEKill" Type="AbilCmd" AbilCmd="GraveGolemMULEKill,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <MinimapRadius value="0"/>
+        <KillXP value="250"/>
+    </CUnit>
+    <CUnit id="StormKingsCrestRampCoversUnit">
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Footprint value="StormPlacementFootprint1x1"/>
+        <MinimapRadius value="0"/>
+    </CUnit>
+    <CUnit id="PaulUnit">
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="VisionTestCenterOnly" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <Speed value="3.75"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="9"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="PaulUnitAbility"/>
+        <AbilArray Link="GhostShipBombardChargedPort"/>
+        <AbilArray Link="GhostShipBombardChargedStarboard"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="0"/>
+            <LayoutButtons Face="PaulUnitAbility" Type="AbilCmd" AbilCmd="PaulUnitAbility,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GhostShipCannonBombard" Type="AbilCmd" AbilCmd="GhostShipBombardChargedPort,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="GhostShipCannonBombard" Type="AbilCmd" AbilCmd="GhostShipBombardChargedStarboard,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <InnerRadius value="0.375"/>
+        <SubgroupPriority value="9"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CUnit id="TestHeroMelee" parent="StormHero">
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
+        <LifeRegenRate value="1.457"/>
+        <WeaponArray Link="HeroArthas"/>
+        <CardLayouts>
+            <LayoutButtons Face="Hearthstone" Type="AbilCmd" AbilCmd="Hearthstone,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="SummonMount" Type="AbilCmd" AbilCmd="Mount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="UnsummonMount" Type="AbilCmd" AbilCmd="Dismount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="0" Column="0"/>
+            <LayoutButtons Face="MoonwellDrink" Type="AbilCmd" AbilCmd="FountainDrink,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityA,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityC,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityB,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityD,255" Row="0" Column="0"/>
+            <LayoutButtons Face="AbathurSymbioteCancel" Type="AbilCmd" AbilCmd="AbathurAssumingDirectControlCancel,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0004">
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <InnerRadius value="0.75"/>
+        <AbilArray Link="TestDummyAbilityA"/>
+        <AbilArray Link="TestDummyAbilityC"/>
+        <AbilArray Link="TestDummyAbilityB"/>
+        <AbilArray Link="TestDummyAbilityD"/>
+    </CUnit>
+    <CUnit id="TestHeroMeleePredictive" parent="StormHero">
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
+        <LifeRegenRate value="1.457"/>
+        <WeaponArray Link="HeroArthas"/>
+        <CardLayouts>
+            <LayoutButtons Face="Hearthstone" Type="AbilCmd" AbilCmd="Hearthstone,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="SummonMount" Type="AbilCmd" AbilCmd="Mount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="UnsummonMount" Type="AbilCmd" AbilCmd="Dismount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="0" Column="0"/>
+            <LayoutButtons Face="MoonwellDrink" Type="AbilCmd" AbilCmd="FountainDrink,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityA,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityC,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityB,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityD,255" Row="0" Column="0"/>
+            <LayoutButtons Face="AbathurSymbioteCancel" Type="AbilCmd" AbilCmd="AbathurAssumingDirectControlCancel,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0004">
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <InnerRadius value="0.75"/>
+        <AbilArray Link="TestDummyAbilityA"/>
+        <AbilArray Link="TestDummyAbilityC"/>
+        <AbilArray Link="TestDummyAbilityB"/>
+        <AbilArray Link="TestDummyAbilityD"/>
+    </CUnit>
+    <CUnit id="TestHeroRanged" parent="StormHero">
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
+        <LifeRegenRate value="1.457"/>
+        <WeaponArray Link="HeroDemonHunter"/>
+        <CardLayouts>
+            <LayoutButtons Face="Hearthstone" Type="AbilCmd" AbilCmd="Hearthstone,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="SummonMount" Type="AbilCmd" AbilCmd="Mount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="UnsummonMount" Type="AbilCmd" AbilCmd="Dismount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="0" Column="0"/>
+            <LayoutButtons Face="MoonwellDrink" Type="AbilCmd" AbilCmd="FountainDrink,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityA,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityC,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityB,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityD,255" Row="0" Column="0"/>
+            <LayoutButtons Face="AbathurSymbioteCancel" Type="AbilCmd" AbilCmd="AbathurAssumingDirectControlCancel,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0004">
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <InnerRadius value="0.75"/>
+        <AbilArray Link="TestDummyAbilityA"/>
+        <AbilArray Link="TestDummyAbilityC"/>
+        <AbilArray Link="TestDummyAbilityB"/>
+        <AbilArray Link="TestDummyAbilityD"/>
+    </CUnit>
+    <CUnit id="TestHeroRangedPredictive" parent="StormHero">
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
+        <LifeRegenRate value="1.457"/>
+        <WeaponArray Link="HeroDemonHunter"/>
+        <CardLayouts>
+            <LayoutButtons Face="Hearthstone" Type="AbilCmd" AbilCmd="Hearthstone,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons Face="SummonMount" Type="AbilCmd" AbilCmd="Mount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="UnsummonMount" Type="AbilCmd" AbilCmd="Dismount,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelTargetMode" Row="0" Column="0"/>
+            <LayoutButtons Face="MoonwellDrink" Type="AbilCmd" AbilCmd="FountainDrink,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityA,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityC,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityB,255" Row="0" Column="0"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="TestDummyAbilityD,255" Row="0" Column="0"/>
+            <LayoutButtons Face="AbathurSymbioteCancel" Type="AbilCmd" AbilCmd="AbathurAssumingDirectControlCancel,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0004">
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <InnerRadius value="0.75"/>
+        <AbilArray Link="TestDummyAbilityA"/>
+        <AbilArray Link="TestDummyAbilityC"/>
+        <AbilArray Link="TestDummyAbilityB"/>
+        <AbilArray Link="TestDummyAbilityD"/>
+    </CUnit>
+    <CUnit id="RegenGlobeNeutral" parent="StormPowerup">
+        <BehaviorArray Link="RegenGlobeNeutralTimedLife"/>
+        <BehaviorArray Link="RegenGlobeNeutralSearch"/>
+    </CUnit>
+    <CUnit id="RegenGlobeNeutralPrecursor" parent="StormPowerup"/>
+    <CUnit id="KnightMagicVolleyMissile" parent="MISSILE_INVULNERABLE"/>
+    <CUnit id="DebugUnknownUnit"/>
+    <CUnit id="TownWallDiagonalBLUR" parent="TownWallL1Parent">
+        <Footprint value="TownWallDiagonalBLUR"/>
+        <PlacementFootprint value="TownWallDiagonalBLUR"/>
+        <Facing value="45"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallDiagonalBLUR"/>
+    </CUnit>
+    <CUnit id="TownWallDiagonalBRUL" parent="TownWallL1Parent">
+        <Footprint value="TownWallDiagonalBRUL"/>
+        <PlacementFootprint value="TownWallDiagonalBRUL"/>
+        <Facing value="135"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallDiagonalBRUL"/>
+    </CUnit>
+    <CUnit id="TownWallHorizontal" parent="TownWallL1Parent">
+        <Footprint value="TownWallHorizontal"/>
+        <PlacementFootprint value="TownWallHorizontal"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallHorizontal"/>
+    </CUnit>
+    <CUnit id="TownWallL2DiagonalBLUR" parent="TownWallL2Parent">
+        <Facing value="45"/>
+        <Footprint value="TownWallDiagonalBLUR"/>
+        <PlacementFootprint value="TownWallDiagonalBLUR"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL2DiagonalBLUR"/>
+    </CUnit>
+    <CUnit id="TownWallL2DiagonalBRUL" parent="TownWallL2Parent">
+        <Facing value="135"/>
+        <Footprint value="TownWallDiagonalBRUL"/>
+        <PlacementFootprint value="TownWallDiagonalBRUL"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL2DiagonalBRUL"/>
+    </CUnit>
+    <CUnit id="TownWallL2Horizontal" parent="TownWallL2Parent">
+        <Footprint value="TownWallHorizontal"/>
+        <PlacementFootprint value="TownWallHorizontal"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL2Horizontal"/>
+    </CUnit>
+    <CUnit id="TownWallL2Vertical" parent="TownWallL2Parent">
+        <Facing value="90"/>
+        <Footprint value="TownWallVertical"/>
+        <PlacementFootprint value="TownWallVertical"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL2Vertical"/>
+    </CUnit>
+    <CUnit id="TownWallL3DiagonalBLUR" parent="TownWallL3Parent">
+        <Facing value="45"/>
+        <Footprint value="TownWallDiagonalBLUR"/>
+        <PlacementFootprint value="TownWallDiagonalBLUR"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL3DiagonalBLUR"/>
+    </CUnit>
+    <CUnit id="TownWallL3DiagonalBRUL" parent="TownWallL3Parent">
+        <Facing value="135"/>
+        <Footprint value="TownWallDiagonalBRUL"/>
+        <PlacementFootprint value="TownWallDiagonalBRUL"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL3DiagonalBRUL"/>
+    </CUnit>
+    <CUnit id="TownWallL3Horizontal" parent="TownWallL3Parent">
+        <Footprint value="TownWallHorizontal"/>
+        <PlacementFootprint value="TownWallHorizontal"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL3Horizontal"/>
+    </CUnit>
+    <CUnit id="TownWallL3Vertical" parent="TownWallL3Parent">
+        <Facing value="90"/>
+        <Footprint value="TownWallVertical"/>
+        <PlacementFootprint value="TownWallVertical"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallL3Vertical"/>
+    </CUnit>
+    <CUnit id="TownWallVertical" parent="TownWallL1Parent">
+        <Footprint value="TownWallVertical"/>
+        <PlacementFootprint value="TownWallVertical"/>
+        <Facing value="90"/>
+        <FlagArray index="Turnable" value="1"/>
+        <Name value="Unit/Name/TownWallVertical"/>
+    </CUnit>
+    <CUnit id="TownWallRadial0L1" parent="TownWallL1Parent">
+        <Facing value="74.9926"/>
+        <Footprint value="WallRadial00"/>
+        <PlacementFootprint value="WallRadial00"/>
+    </CUnit>
+    <CUnit id="TownWallRadial0L2" parent="TownWallL2Parent">
+        <Facing value="74.9926"/>
+        <Footprint value="WallRadial00"/>
+        <PlacementFootprint value="WallRadial00"/>
+    </CUnit>
+    <CUnit id="TownWallRadial0L3" parent="TownWallL3Parent">
+        <Facing value="74.9926"/>
+        <Footprint value="WallRadial00"/>
+        <PlacementFootprint value="WallRadial00"/>
+    </CUnit>
+    <CUnit id="TownWallRadial1L1" parent="TownWallL1Parent">
+        <Facing value="59.9963"/>
+        <Footprint value="WallRadial01"/>
+        <PlacementFootprint value="WallRadial01"/>
+    </CUnit>
+    <CUnit id="TownWallRadial1L2" parent="TownWallL2Parent">
+        <Facing value="59.9963"/>
+        <Footprint value="WallRadial01"/>
+        <PlacementFootprint value="WallRadial01"/>
+    </CUnit>
+    <CUnit id="TownWallRadial1L3" parent="TownWallL3Parent">
+        <Facing value="59.9963"/>
+        <Footprint value="WallRadial01"/>
+        <PlacementFootprint value="WallRadial01"/>
+    </CUnit>
+    <CUnit id="TownWallRadial2L1" parent="TownWallL1Parent">
+        <Facing value="45"/>
+        <Footprint value="WallRadial02"/>
+        <PlacementFootprint value="WallRadial02"/>
+    </CUnit>
+    <CUnit id="TownWallRadial2L2" parent="TownWallL2Parent">
+        <Facing value="45"/>
+        <Footprint value="WallRadial02"/>
+        <PlacementFootprint value="WallRadial02"/>
+    </CUnit>
+    <CUnit id="TownWallRadial2L3" parent="TownWallL3Parent">
+        <Facing value="45"/>
+        <Footprint value="WallRadial02"/>
+        <PlacementFootprint value="WallRadial02"/>
+    </CUnit>
+    <CUnit id="TownWallRadial3L1" parent="TownWallL1Parent">
+        <Facing value="29.9926"/>
+        <Footprint value="WallRadial03"/>
+        <PlacementFootprint value="WallRadial03"/>
+    </CUnit>
+    <CUnit id="TownWallRadial3L2" parent="TownWallL2Parent">
+        <Facing value="29.9926"/>
+        <Footprint value="WallRadial03"/>
+        <PlacementFootprint value="WallRadial03"/>
+    </CUnit>
+    <CUnit id="TownWallRadial3L3" parent="TownWallL3Parent">
+        <Facing value="29.9926"/>
+        <Footprint value="WallRadial03"/>
+        <PlacementFootprint value="WallRadial03"/>
+    </CUnit>
+    <CUnit id="TownWallRadial4L1" parent="TownWallL1Parent">
+        <Facing value="14.9963"/>
+        <Footprint value="WallRadial04"/>
+        <PlacementFootprint value="WallRadial04"/>
+    </CUnit>
+    <CUnit id="TownWallRadial4L2" parent="TownWallL2Parent">
+        <Facing value="14.9963"/>
+        <Footprint value="WallRadial04"/>
+        <PlacementFootprint value="WallRadial04"/>
+    </CUnit>
+    <CUnit id="TownWallRadial4L3" parent="TownWallL3Parent">
+        <Facing value="14.9963"/>
+        <Footprint value="WallRadial04"/>
+        <PlacementFootprint value="WallRadial04"/>
+    </CUnit>
+    <CUnit id="TownWallRadial5L1" parent="TownWallL1Parent">
+        <Footprint value="WallRadial05"/>
+        <PlacementFootprint value="WallRadial05"/>
+    </CUnit>
+    <CUnit id="TownWallRadial5L2" parent="TownWallL2Parent">
+        <Footprint value="WallRadial05"/>
+        <PlacementFootprint value="WallRadial05"/>
+    </CUnit>
+    <CUnit id="TownWallRadial5L3" parent="TownWallL3Parent">
+        <Footprint value="WallRadial05"/>
+        <PlacementFootprint value="WallRadial05"/>
+    </CUnit>
+    <CUnit id="TownWallRadial6L1" parent="TownWallL1Parent">
+        <Facing value="344.9926"/>
+        <Footprint value="WallRadial06"/>
+        <PlacementFootprint value="WallRadial06"/>
+    </CUnit>
+    <CUnit id="TownWallRadial6L2" parent="TownWallL2Parent">
+        <Facing value="344.9926"/>
+        <Footprint value="WallRadial06"/>
+        <PlacementFootprint value="WallRadial06"/>
+    </CUnit>
+    <CUnit id="TownWallRadial6L3" parent="TownWallL3Parent">
+        <Facing value="344.9926"/>
+        <Footprint value="WallRadial06"/>
+        <PlacementFootprint value="WallRadial06"/>
+    </CUnit>
+    <CUnit id="TownWallRadial7L1" parent="TownWallL1Parent">
+        <Facing value="329.9963"/>
+        <Footprint value="WallRadial07"/>
+        <PlacementFootprint value="WallRadial07"/>
+    </CUnit>
+    <CUnit id="TownWallRadial7L2" parent="TownWallL2Parent">
+        <Facing value="329.9963"/>
+        <Footprint value="WallRadial07"/>
+        <PlacementFootprint value="WallRadial07"/>
+    </CUnit>
+    <CUnit id="TownWallRadial7L3" parent="TownWallL3Parent">
+        <Facing value="329.9963"/>
+        <Footprint value="WallRadial07"/>
+        <PlacementFootprint value="WallRadial07"/>
+    </CUnit>
+    <CUnit id="TownWallRadial8L1" parent="TownWallL1Parent">
+        <Facing value="315"/>
+        <Footprint value="WallRadial08"/>
+        <PlacementFootprint value="WallRadial08"/>
+    </CUnit>
+    <CUnit id="TownWallRadial8L2" parent="TownWallL2Parent">
+        <Facing value="315"/>
+        <Footprint value="WallRadial08"/>
+        <PlacementFootprint value="WallRadial08"/>
+    </CUnit>
+    <CUnit id="TownWallRadial8L3" parent="TownWallL3Parent">
+        <Facing value="315"/>
+        <Footprint value="WallRadial08"/>
+        <PlacementFootprint value="WallRadial08"/>
+    </CUnit>
+    <CUnit id="TownWallRadial9L1" parent="TownWallL1Parent">
+        <Facing value="299.9926"/>
+        <Footprint value="WallRadial09"/>
+        <PlacementFootprint value="WallRadial09"/>
+    </CUnit>
+    <CUnit id="TownWallRadial9L2" parent="TownWallL2Parent">
+        <Facing value="299.9926"/>
+        <Footprint value="WallRadial09"/>
+        <PlacementFootprint value="WallRadial09"/>
+    </CUnit>
+    <CUnit id="TownWallRadial9L3" parent="TownWallL3Parent">
+        <Facing value="299.9926"/>
+        <Footprint value="WallRadial09"/>
+        <PlacementFootprint value="WallRadial09"/>
+    </CUnit>
+    <CUnit id="TownWallRadial10L1" parent="TownWallL1Parent">
+        <Facing value="284.9963"/>
+        <Footprint value="WallRadial10"/>
+        <PlacementFootprint value="WallRadial10"/>
+    </CUnit>
+    <CUnit id="TownWallRadial10L2" parent="TownWallL2Parent">
+        <Facing value="284.9963"/>
+        <Footprint value="WallRadial10"/>
+        <PlacementFootprint value="WallRadial10"/>
+    </CUnit>
+    <CUnit id="TownWallRadial10L3" parent="TownWallL3Parent">
+        <Facing value="284.9963"/>
+        <Footprint value="WallRadial10"/>
+        <PlacementFootprint value="WallRadial10"/>
+    </CUnit>
+    <CUnit id="TownWallRadial11L1" parent="TownWallL1Parent">
+        <Facing value="270"/>
+        <Footprint value="WallRadial11"/>
+        <PlacementFootprint value="WallRadial11"/>
+    </CUnit>
+    <CUnit id="TownWallRadial11L2" parent="TownWallL2Parent">
+        <Facing value="270"/>
+        <Footprint value="WallRadial11"/>
+        <PlacementFootprint value="WallRadial11"/>
+    </CUnit>
+    <CUnit id="TownWallRadial11L3" parent="TownWallL3Parent">
+        <Facing value="270"/>
+        <Footprint value="WallRadial11"/>
+        <PlacementFootprint value="WallRadial11"/>
+    </CUnit>
+    <CUnit id="TownWallRadial12L1" parent="TownWallL1Parent">
+        <Facing value="254.9926"/>
+        <Footprint value="WallRadial12"/>
+        <PlacementFootprint value="WallRadial12"/>
+    </CUnit>
+    <CUnit id="TownWallRadial12L2" parent="TownWallL2Parent">
+        <Facing value="254.9926"/>
+        <Footprint value="WallRadial12"/>
+        <PlacementFootprint value="WallRadial12"/>
+    </CUnit>
+    <CUnit id="TownWallRadial12L3" parent="TownWallL3Parent">
+        <Facing value="254.9926"/>
+        <Footprint value="WallRadial12"/>
+        <PlacementFootprint value="WallRadial12"/>
+    </CUnit>
+    <CUnit id="TownWallRadial13L1" parent="TownWallL1Parent">
+        <Facing value="239.9963"/>
+        <Footprint value="WallRadial13"/>
+        <PlacementFootprint value="WallRadial13"/>
+    </CUnit>
+    <CUnit id="TownWallRadial13L2" parent="TownWallL2Parent">
+        <Facing value="239.9963"/>
+        <Footprint value="WallRadial13"/>
+        <PlacementFootprint value="WallRadial13"/>
+    </CUnit>
+    <CUnit id="TownWallRadial13L3" parent="TownWallL3Parent">
+        <Facing value="239.9963"/>
+        <Footprint value="WallRadial13"/>
+        <PlacementFootprint value="WallRadial13"/>
+    </CUnit>
+    <CUnit id="TownWallRadial14L1" parent="TownWallL1Parent">
+        <Facing value="225"/>
+        <Footprint value="WallRadial14"/>
+        <PlacementFootprint value="WallRadial14"/>
+    </CUnit>
+    <CUnit id="TownWallRadial14L2" parent="TownWallL2Parent">
+        <Facing value="225"/>
+        <Footprint value="WallRadial14"/>
+        <PlacementFootprint value="WallRadial14"/>
+    </CUnit>
+    <CUnit id="TownWallRadial14L3" parent="TownWallL3Parent">
+        <Facing value="225"/>
+        <Footprint value="WallRadial14"/>
+        <PlacementFootprint value="WallRadial14"/>
+    </CUnit>
+    <CUnit id="TownWallRadial15L1" parent="TownWallL1Parent">
+        <Facing value="209.9926"/>
+        <Footprint value="WallRadial15"/>
+        <PlacementFootprint value="WallRadial15"/>
+    </CUnit>
+    <CUnit id="TownWallRadial15L2" parent="TownWallL2Parent">
+        <Facing value="209.9926"/>
+        <Footprint value="WallRadial15"/>
+        <PlacementFootprint value="WallRadial15"/>
+    </CUnit>
+    <CUnit id="TownWallRadial15L3" parent="TownWallL3Parent">
+        <Facing value="209.9926"/>
+        <Footprint value="WallRadial15"/>
+        <PlacementFootprint value="WallRadial15"/>
+    </CUnit>
+    <CUnit id="TownWallRadial16L1" parent="TownWallL1Parent">
+        <Facing value="194.9963"/>
+        <Footprint value="WallRadial16"/>
+        <PlacementFootprint value="WallRadial16"/>
+    </CUnit>
+    <CUnit id="TownWallRadial16L2" parent="TownWallL2Parent">
+        <Facing value="194.9963"/>
+        <Footprint value="WallRadial16"/>
+        <PlacementFootprint value="WallRadial16"/>
+    </CUnit>
+    <CUnit id="TownWallRadial16L3" parent="TownWallL3Parent">
+        <Facing value="194.9963"/>
+        <Footprint value="WallRadial16"/>
+        <PlacementFootprint value="WallRadial16"/>
+    </CUnit>
+    <CUnit id="TownWallRadial17L1" parent="TownWallL1Parent">
+        <Facing value="180"/>
+        <Footprint value="WallRadial17"/>
+        <PlacementFootprint value="WallRadial17"/>
+    </CUnit>
+    <CUnit id="TownWallRadial17L2" parent="TownWallL2Parent">
+        <Facing value="180"/>
+        <Footprint value="WallRadial17"/>
+        <PlacementFootprint value="WallRadial17"/>
+    </CUnit>
+    <CUnit id="TownWallRadial17L3" parent="TownWallL3Parent">
+        <Facing value="180"/>
+        <Footprint value="WallRadial17"/>
+        <PlacementFootprint value="WallRadial17"/>
+    </CUnit>
+    <CUnit id="TownWallRadial18L1" parent="TownWallL1Parent">
+        <Facing value="164.9926"/>
+        <Footprint value="WallRadial18"/>
+        <PlacementFootprint value="WallRadial18"/>
+    </CUnit>
+    <CUnit id="TownWallRadial18L2" parent="TownWallL2Parent">
+        <Facing value="164.9926"/>
+        <Footprint value="WallRadial18"/>
+        <PlacementFootprint value="WallRadial18"/>
+    </CUnit>
+    <CUnit id="TownWallRadial18L3" parent="TownWallL3Parent">
+        <Facing value="164.9926"/>
+        <Footprint value="WallRadial18"/>
+        <PlacementFootprint value="WallRadial18"/>
+    </CUnit>
+    <CUnit id="TownWallRadial19L1" parent="TownWallL1Parent">
+        <Facing value="149.9963"/>
+        <Footprint value="WallRadial19"/>
+        <PlacementFootprint value="WallRadial19"/>
+    </CUnit>
+    <CUnit id="TownWallRadial19L2" parent="TownWallL2Parent">
+        <Facing value="149.9963"/>
+        <Footprint value="WallRadial19"/>
+        <PlacementFootprint value="WallRadial19"/>
+    </CUnit>
+    <CUnit id="TownWallRadial19L3" parent="TownWallL3Parent">
+        <Facing value="149.9963"/>
+        <Footprint value="WallRadial19"/>
+        <PlacementFootprint value="WallRadial19"/>
+    </CUnit>
+    <CUnit id="TownWallRadial20L1" parent="TownWallL1Parent">
+        <Facing value="135"/>
+        <Footprint value="WallRadial20"/>
+        <PlacementFootprint value="WallRadial20"/>
+    </CUnit>
+    <CUnit id="TownWallRadial20L2" parent="TownWallL2Parent">
+        <Facing value="135"/>
+        <Footprint value="WallRadial20"/>
+        <PlacementFootprint value="WallRadial20"/>
+    </CUnit>
+    <CUnit id="TownWallRadial20L3" parent="TownWallL3Parent">
+        <Facing value="135"/>
+        <Footprint value="WallRadial20"/>
+        <PlacementFootprint value="WallRadial20"/>
+    </CUnit>
+    <CUnit id="TownWallRadial21L1" parent="TownWallL1Parent">
+        <Facing value="119.9926"/>
+        <Footprint value="WallRadial21"/>
+        <PlacementFootprint value="WallRadial21"/>
+    </CUnit>
+    <CUnit id="TownWallRadial21L2" parent="TownWallL2Parent">
+        <Facing value="119.9926"/>
+        <Footprint value="WallRadial21"/>
+        <PlacementFootprint value="WallRadial21"/>
+    </CUnit>
+    <CUnit id="TownWallRadial21L3" parent="TownWallL3Parent">
+        <Facing value="119.9926"/>
+        <Footprint value="WallRadial21"/>
+        <PlacementFootprint value="WallRadial21"/>
+    </CUnit>
+    <CUnit id="TownWallRadial22L1" parent="TownWallL1Parent">
+        <Facing value="104.9963"/>
+        <Footprint value="WallRadial22"/>
+        <PlacementFootprint value="WallRadial22"/>
+    </CUnit>
+    <CUnit id="TownWallRadial22L2" parent="TownWallL2Parent">
+        <Facing value="104.9963"/>
+        <Footprint value="WallRadial22"/>
+        <PlacementFootprint value="WallRadial22"/>
+    </CUnit>
+    <CUnit id="TownWallRadial22L3" parent="TownWallL3Parent">
+        <Facing value="104.9963"/>
+        <Footprint value="WallRadial22"/>
+        <PlacementFootprint value="WallRadial22"/>
+    </CUnit>
+    <CUnit id="TownWallRadial23L1" parent="TownWallL1Parent">
+        <Facing value="90"/>
+        <Footprint value="WallRadial23"/>
+        <PlacementFootprint value="WallRadial23"/>
+    </CUnit>
+    <CUnit id="TownWallRadial23L2" parent="TownWallL2Parent">
+        <Facing value="90"/>
+        <Footprint value="WallRadial23"/>
+        <PlacementFootprint value="WallRadial23"/>
+    </CUnit>
+    <CUnit id="TownWallRadial23L3" parent="TownWallL3Parent">
+        <Facing value="90"/>
+        <Footprint value="WallRadial23"/>
+        <PlacementFootprint value="WallRadial23"/>
+    </CUnit>
+    <CUnit id="PlayerInteraction@InteractionUnit">
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Buried" value="1"/>
+        <FlagArray index="NoDeathEvent" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <LifeStart value="500000"/>
+        <LifeMax value="500000"/>
+        <LifeArmor value="10000"/>
+        <LifeRegenRate value="10000"/>
+        <AbilArray Link="PlayerInteraction@Ability"/>
+        <CardLayouts>
+            <LayoutButtons Face="PlayerInteraction@Ability" Type="AbilCmd" AbilCmd="PlayerInteraction@Ability,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="PlayerInteraction@Ability" Type="AbilCmd" AbilCmd="PlayerInteraction@Ability,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="PlayerInteraction@Ability" Type="AbilCmd" AbilCmd="PlayerInteraction@Ability,Execute" Row="0" Column="2"/>
+        </CardLayouts>
+        <MinimapRadius value="0"/>
+        <Attributes index="Heroic" value="1"/>
+    </CUnit>
+</Catalog>

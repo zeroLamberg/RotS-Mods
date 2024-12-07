@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    
+    <Frame type="Frame" name="MapMechanicHelpPanelTemplate">
+        <Visible Val="False"/>
+        <Frame type="Image" name="LightBox">
+            <Anchor relative="$parent"/>
+            <LayerColor val="000000"/>
+            <Alpha val="150"/>
+        </Frame>
+        
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="1504"/>
+            <Height val="848"/>
+            <Texture val="@UI/StormTempWhite"/>
+            <Color val="ffffff"/>
+            <Alpha val="50"/>
+        </Frame>
+        
+        <Frame type="Image" name="HelpImage">
+            <Anchor relative="$parent/BorderImage" offset="-2"/>
+            <Texture val="@UI/Storm_temp_missing_asset"/>
+        </Frame>
+        
+        <Frame type="Button" name="CloseButton">
+            <Anchor relative="$parent/HelpImage"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HitTestFrame val="HitTestFrame"/>
+            <Width val="1920"/>
+            <Height val="1080"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Texture val="@UI/StormTempWhite"/>
+                <TextureType val="Nineslice"/>
+                <Alpha val="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Texture val="@UI/StormTempWhite"/>
+                <TextureType val="Nineslice"/>
+                <Alpha val="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Frame" name="HitTestFrame">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+        
+        <Frame type="Button" name="OKButton" template="StandardTemplatesStorm/StandardButtonTemplate">
+            <Anchor side="Left" relative="$parent/HelpImage" pos="Min" offset="300"/>
+            <Anchor side="Bottom" relative="$parent/HelpImage" pos="Max" offset="-60"/>
+            <Frame type="Label" name="Label">
+                <Text val="@UI/Close"/>
+            </Frame>
+        </Frame>
+    </Frame>
+    
+</Desc>

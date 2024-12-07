@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectEnumTrackedUnits id="UnitStatsArmorPenetration@EnumSummonedUnits">
+        <BehaviorLink value="Summon@SummonerUnitTracker"/>
+        <Effect value="UnitStatsArmorPenetration@UpdateSummonedUnit"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectSet id="UnitStatsArmorPenetration@UpdateSet">
+        <ValidatorArray value="UnitStatsArmorPenetration@ValueNotValid"/>
+        <EffectArray value="UnitStatsArmorPenetration@Update"/>
+        <EffectArray value="UnitStatsArmorPenetration@EnumSummonedUnits"/>
+    </CEffectSet>
+    <CAccumulatorUserData id="UnitStatsArmorPenetration@ValueSummoner">
+        <Key value="ArmorPenetrationSummoner"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericGeneral"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsArmorPenetration@ValueLocalEffectCaster">
+        <Key value="ArmorPenetrationLocal"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsArmorPenetration@ValueCalculation">
+        <Parameters value="0">
+            <AccumulatorArray value="AttributeStatsArmorPenetration"/>
+            <AccumulatorArray value="UnitStatsArmorPenetration@ValueBuff"/>
+            <AccumulatorArray value="UnitStatsArmorPenetration@ValueSummoner"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <!--(Value +  Local Value) * Block Special Case [Artifacts.SC2Mod]-->
+    <CAccumulatorArithmetic id="UnitStatsArmorPenetration@ValueFinal">
+        <MinAccumulation value="0"/>
+        <MaxAccumulation value="75"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsArmorPenetration@ValueCaster"/>
+            <AccumulatorArray value="UnitStatsArmorPenetration@ValueLocalEffectCaster"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsArmorPenetration@ValueBuff">
+        <Key value="ArmorPenetrationBuff"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericGeneral"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsArmorPenetration@Value">
+        <MinAccumulation value="0"/>
+        <MaxAccumulation value="75"/>
+        <Key value="ArmorPenetration"/>
+        <BehaviorScope Value="Target" Behavior="HeroGenericGeneral"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsArmorPenetration@ValueBuffCaster" parent="UnitStatsArmorPenetration@ValueBuff">
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsArmorPenetration@ValueCaster">
+        <MinAccumulation value="0"/>
+        <MaxAccumulation value="75"/>
+        <Key value="ArmorPenetration"/>
+        <BehaviorScope Behavior="HeroGenericGeneral"/>
+    </CAccumulatorUserData>
+    <CDataCollection id="UnitStatsArmorPenetration">
+        <DataRecord Entry="Effect,UnitStatsArmorPenetration@Update"/>
+        <DataRecord Entry="Effect,UnitStatsArmorPenetration@UpdateSet"/>
+        <DataRecord Entry="Effect,UnitStatsArmorPenetration@EnumSummonedUnits"/>
+        <DataRecord Entry="Effect,UnitStatsArmorPenetration@UpdateSummonedUnit"/>
+        <DataRecord Entry="Validator,UnitStatsArmorPenetration@ValueNotValid"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@ValueFinal"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@ValueCalculation"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@ValueBuff"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@Value"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@ValueCaster"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@ValueSummoner"/>
+        <DataRecord Entry="Accumulator,UnitStatsArmorPenetration@ValueLocalEffectCaster"/>
+    </CDataCollection>
+</Catalog>

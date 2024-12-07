@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorEventMacroRunnable id="MountBlackheartsDoubloonVar1@Macro">
+        <Do Send="TextureSelectById MountBlackheartsDoubloonVar1@Diff"/>
+        <Do Send="TextureSelectById MountBlackheartsDoubloonVar1@Norm"/>
+        <Do Send="TextureSelectById MountBlackheartsDoubloonVar1@Spec"/>
+    </CActorEventMacroRunnable>
+    <CActorEventMacroRunnable id="MountBlackheartsDoubloonVar2@Macro">
+        <Do Send="TextureSelectById MountBlackheartsDoubloonVar2@Diff"/>
+        <Do Send="TextureSelectById MountBlackheartsDoubloonVar2@Norm"/>
+        <Do Send="TextureSelectById MountBlackheartsDoubloonVar2@Spec"/>
+    </CActorEventMacroRunnable>
+    <CModel id="MountBlackheartsDoubloon@Mount" parent="BaseMount">
+        <Model value="assets\Units\Mounts\Storm_Mount_Doubloon_Base\Storm_Mount_Doubloon_Base.m3"/>
+        <RequiredAnims value="Assets\Units\Mounts\Storm_Mount_HearthstoneCard_RequiredAnims\Storm_Mount_HearthstoneCard_RequiredAnims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,Start,00"/>
+            <Name value="Mount_Doubloon_Start"/>
+            <Type value="Sound"/>
+            <Time value="0.156000"/>
+            <Payload value="MountBlackheartsDoubloon@Start"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Mount_Doubloon_Stop"/>
+            <Type value="Sound"/>
+            <Time value="0.148000"/>
+            <Payload value="MountBlackheartsDoubloon@Stop"/>
+        </Events>
+        <TextureDeclares Prefix="Storm_Mount_Doubloon_Base_" Slot="main"/>
+    </CModel>
+    <CSkin default="1" id="MountBlackheartsDoubloonCommon">
+        <ModelGroups Name="DoubloonModels">
+            <Models value="MountBlackheartsDoubloon@Mount"/>
+        </ModelGroups>
+    </CSkin>
+    <CSkin id="MountBlackheartsDoubloonVar1" parent="MountBlackheartsDoubloonCommon">
+        <ModelMacroRun Models="DoubloonModels" Macro="MountBlackheartsDoubloonVar1@Macro"/>
+    </CSkin>
+    <CSkin id="MountBlackheartsDoubloonVar2" parent="MountBlackheartsDoubloonCommon">
+        <ModelMacroRun Models="DoubloonModels" Macro="MountBlackheartsDoubloonVar2@Macro"/>
+    </CSkin>
+    <CTexture id="MountBlackheartsDoubloonVar1@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_Doubloon_Base_Diablo_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountBlackheartsDoubloonVar1@Norm" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_Doubloon_Base_Diablo_Norm.dds"/>
+    </CTexture>
+    <CTexture id="MountBlackheartsDoubloonVar1@Spec" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_Doubloon_Base_Diablo_Spec.dds"/>
+    </CTexture>
+    <CTexture id="MountBlackheartsDoubloonVar2@Diff" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_Doubloon_Base_Zerg_Diff.dds"/>
+    </CTexture>
+    <CTexture id="MountBlackheartsDoubloonVar2@Norm" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_Doubloon_Base_Zerg_Norm.dds"/>
+    </CTexture>
+    <CTexture id="MountBlackheartsDoubloonVar2@Spec" parent="MainSlotTexture">
+        <File value="Assets\Textures\Storm_Mount_Doubloon_Base_Zerg_Spec.dds"/>
+    </CTexture>
+    <CSound id="MountBlackheartsDoubloon@Summon" parent="_FX_Hero_Movement">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Summon01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Summon02.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Dismiss" parent="_FX_Hero_Movement">
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Dismiss01.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Dismiss02.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Dismiss03.ogg" FacialGroup=""/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Start" parent="_FX_Hero_Movement">
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Start01.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Start02.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Start03.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Start04.ogg" FacialGroup=""/>
+        <Chance value="20"/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-14.000000,-14.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Move_Loop" parent="_FX_Hero_Movement">
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon_Move_Loop01.ogg" FacialGroup=""/>
+        <LoopCount value="-1"/>
+        <MixerPriority value="75"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="1539"/>
+        <OffsetFadeOut/>
+        <OffsetFadeOut Time="2178" Volume="-96.000000"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-22.000000,-20.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Stop" parent="_FX_Hero_Movement">
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon\Mount_Doubloon_Start01.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon\Mount_Doubloon_Start02.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon\Mount_Doubloon_Start03.ogg" FacialGroup=""/>
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon\Mount_Doubloon_Start04.ogg" FacialGroup=""/>
+        <Chance value="50"/>
+        <MixerPriority value="75"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-13.000000,-13.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Store_Birth" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Summon01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Summon02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Dismiss01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Dismiss02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Dismiss03.ogg" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="0.000000,0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Store_Idle" parent="_FX_StoreMount">
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Start01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Start02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Start03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mounts\Mount_Doubloon_Start04.ogg" FacialGroup=""/>
+        <Chance value="50"/>
+        <Pitch value="-2.000000,-2.000000"/>
+        <ResourcePriority value="16"/>
+        <Volume value="-8.000000,-7.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="MountBlackheartsDoubloon@Store_Purchase" parent="_FX_StoreMount">
+        <AssetArray File="assets\Sounds\Mounts\Mount_Doubloon\Mount_Doubloon_Purchase01.ogg" FacialGroup=""/>
+        <ResourcePriority value="16"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CDataCollection id="MountBlackheartsDoubloon">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Model,MountBlackheartsDoubloon@Mount"/>
+        <DataRecord Entry="Model,MountBlackheartsDoubloon@Store"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Store_Birth"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Store_Idle"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Store_Purchase"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Summon"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Dismiss"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Start"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Stop"/>
+        <DataRecord Entry="Sound,MountBlackheartsDoubloon@Move_Loop"/>
+    </CDataCollection>
+    <CDataCollection id="MountBlackheartsDoubloonVar1">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountBlackheartsDoubloonVar1@Macro"/>
+        <DataRecord Entry="Skin,MountBlackheartsDoubloonVar1"/>
+        <DataRecord Entry="Texture,MountBlackheartsDoubloonVar1@Diff"/>
+        <DataRecord Entry="Texture,MountBlackheartsDoubloonVar1@Norm"/>
+        <DataRecord Entry="Texture,MountBlackheartsDoubloonVar1@Spec"/>
+    </CDataCollection>
+    <CDataCollection id="MountBlackheartsDoubloonVar2">
+        <EditorCategories value="StormDataGroup:Mount"/>
+        <DataRecord Entry="Actor,MountBlackheartsDoubloonVar2@Macro"/>
+        <DataRecord Entry="Skin,MountBlackheartsDoubloonVar2"/>
+        <DataRecord Entry="Texture,MountBlackheartsDoubloonVar2@Diff"/>
+        <DataRecord Entry="Texture,MountBlackheartsDoubloonVar2@Norm"/>
+        <DataRecord Entry="Texture,MountBlackheartsDoubloonVar2@Spec"/>
+    </CDataCollection>
+</Catalog>

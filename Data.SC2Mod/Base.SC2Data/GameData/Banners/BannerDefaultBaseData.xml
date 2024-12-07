@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorUnit id="BannerUnitHolder" parent="GenericUnitMinimal" unitName="BannerUnitHolder">
+        <On Terms="UnitBirth.BannerUnitHolder" Send="SetMinimapVisibility"/>
+        <Model value="Invisible"/>
+        <MinimapIcon value="Assets\Textures\storm_ui_minimapicon_creepcamp.dds"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="BannerUnit" parent="GenericUnitMinimal" unitName="BannerUnit">
+        <VisibleToPlayers index="1" value="1"/>
+        <VisibleToPlayers index="2" value="1"/>
+        <VisibleToPlayers index="3" value="1"/>
+        <VisibleToPlayers index="4" value="1"/>
+        <VisibleToPlayers index="5" value="1"/>
+        <VisibleToPlayers index="6" value="1"/>
+        <VisibleToPlayers index="7" value="1"/>
+        <VisibleToPlayers index="8" value="1"/>
+        <VisibleToPlayers index="9" value="1"/>
+        <VisibleToPlayers index="10" value="1"/>
+        <VisibleToPlayers index="13" value="1"/>
+        <VisibleToPlayers index="14" value="1"/>
+        <On Terms="UnitBirth.BannerUnit" Send="SetMinimapVisibility"/>
+        <Model value="BannerDefault"/>
+        <MinimapIcon value="Assets\Textures\storm_ui_minimapicon_creepcamp.dds"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+        <StatusBarFlags index="Magazine" value="0"/>
+        <StatusBarFlags index="Workers" value="0"/>
+        <StatusBarFlags index="Custom" value="0"/>
+        <VisibleTo index="All" value="1"/>
+    </CActorUnit>
+    <CModel id="BannerDefault" parent="PersistentSpellFX">
+        <Model value="assets\Loot\Storm_LootBanner_Default\Storm_LootBanner_Default.m3"/>
+        <TextureDeclares Prefix="Storm_LootBanner_Default_" Slot="main">
+            <Adaptions TriggerOnSubstring="_Decal" Slot="decal"/>
+        </TextureDeclares>
+    </CModel>
+    <CUnit id="BannerUnitHolder">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NeverThink" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Height value="7"/>
+    </CUnit>
+    <CUnit id="BannerUnit">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NeverThink" value="1"/>
+        <FogVisibility value="Visible"/>
+        <Response value="Nothing"/>
+        <Radius value="0"/>
+    </CUnit>
+</Catalog>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Frame type="Frame" name="SingleBehaviorTemplate">
+    <Anchor relative="$parent" />
+    <CollapseLayout val="True"/>
+    <!--<Visible val="False"/>-->
+    <Frame type="Image" name="StacksFull">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="-7" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="-7" />
+      <Visible val="False"/>
+    </Frame>
+  </Frame>
+  <Frame type="Frame" name="StackingBehaviorTemplate" template="UnitStatusStackingElements/SingleBehaviorTemplate">
+    <Frame type="ProgressBar" name="StacksProgressBar">
+      <Anchor side="Top" relative="$parent/StacksFull" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent/StacksFull" pos="Mid" offset="0" />
+      <Anchor side="Right" relative="$parent/StacksFull" pos="Mid" offset="0" />
+      <AcceptsMouse val="False" />
+      <MinValue val="0" />
+      <MaxValue val="1" />
+      <Value val="0" />
+      <Horizontal val="True" />
+      <Height val="36" />
+      <Width val="{$parent/Stacking/@Width}" />
+      <Frame type="Frame" name="FillImageContainer">
+        <Anchor relative="$parent" />
+        <Frame type="Image" name="FillImage">
+          <Anchor relative="$parent" />
+          <Texture val="{$parent/$parent/$parent/Stacking/@Texture}" />
+        </Frame>
+      </Frame>
+    </Frame>
+    <Frame type="Image" name="Stacking">
+      <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Visible val="False" />
+    </Frame>
+    <StateGroup name="HideStackingImage">
+      <State name="Default">
+        <Action type="SetProperty" Visible="true" frame="StacksProgressBar" />
+      </State>
+      <State name="Full">
+        <When type="Property" frame="StacksProgressBar" Value="{StacksProgressBar/@MaxValue}"/>
+        <Action type="SetProperty" Visible="false" frame="StacksProgressBar" />
+        <Action type="SetProperty" Visible="True" frame="StacksFull" />
+      </State>
+    </StateGroup>
+  </Frame>
+</Desc>

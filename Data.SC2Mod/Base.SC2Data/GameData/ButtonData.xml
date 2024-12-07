@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton default="1" id="StormButtonParentHideInfo">
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowRequirements" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <SimpleDisplayText value="Button/SimpleDisplayText/##id##"/>
+    </CButton>
+    <CButton default="1" id="StormButtonParent">
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowRequirements" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <TooltipCooldownOverrideText value="Button/Information/##id##"/>
+        <SimpleDisplayText value="Button/SimpleDisplayText/##id##"/>
+    </CButton>
+    <CButton id="BasicAttack" parent="StormButtonParentHideInfo">
+        <Icon value="assets\textures\storm_ui_icon_talent_autoattack_base.dds"/>
+    </CButton>
+    <CButton id="HeroGenericHearthstone@NoMana">
+        <Name value="Button/Name/HeroGenericHearthstone"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowRequirements" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Assets\Textures\storm_ui_icon_generic_hearthstone.dds"/>
+        <AlertName value="Button/Name/HeroGenericHearthstone"/>
+        <AlertIcon value="Assets\Textures\storm_ui_icon_generic_hearthstone.dds"/>
+    </CButton>
+    <CButton id="RegenGlobe">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+    </CButton>
+    <CButton id="SmartCommandUnitInteraction"/>
+    <CButton id="HeroGenericCaptureMacGuffinTwo">
+        <Icon value="Assets\Textures\btn-ability-protoss-voidrayprismaticalignment.dds"/>
+    </CButton>
+    <CButton id="HeroGenericHearthstone">
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowRequirements" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Assets\Textures\storm_ui_icon_generic_hearthstone.dds"/>
+        <AlertIcon value="Assets\Textures\storm_ui_icon_generic_hearthstone.dds"/>
+    </CButton>
+    <CButton id="WallCrush" parent="StormButtonParent"/>
+    <CButton id="GardensObeliskActivate" parent="StormButtonParent"/>
+    <CButton id="VehicleDragonFireBreath" parent="StormButtonParent"/>
+    <CButton id="GhostShipCannonBombard" parent="StormButtonParent">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-330mmbarragecannon.dds"/>
+    </CButton>
+    <CButton id="BullRushWeaponCooldown" parent="StormButtonParent"/>
+    <CButton id="VehicleDragonDragonRoar" parent="StormButtonParent"/>
+    <CButton id="HeroGenericCaptureMacGuffin">
+        <Icon value="Assets\Textures\btn-ability-protoss-voidrayprismaticalignment.dds"/>
+    </CButton>
+    <CButton id="TowerDeadMorph" parent="StormButtonParent">
+        <Icon value="Assets\Textures\btn-ability-zerg-root.dds"/>
+    </CButton>
+    <CButton id="LockedUltimateAbility" parent="StormButtonParentHideInfo">
+        <Icon value="assets\Textures\HUD_Btn_BG_Ability_Locked_RotS.dds"/>
+    </CButton>
+    <CButton id="LeaveVehicle" parent="StormButtonParent"/>
+    <CButton id="UseVehicle" parent="StormButtonParent">
+        <Icon value="Assets\Textures\storm_ui_icon_epicmount.dds"/>
+    </CButton>
+    <CButton id="MercLanerOgreBruiserTaunt" parent="StormButtonParent"/>
+    <CButton id="MercLanerOgreBuffAbility" parent="StormButtonParent"/>
+    <CButton id="HeroGenericMount@Dismount">
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowRequirements" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Assets\Textures\storm_ui_icon_generic_cancel_mount.dds"/>
+    </CButton>
+    <CButton id="HeroGenericMount@SummonMount">
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowRequirements" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Assets\Textures\storm_ui_icon_generic_mount.dds"/>
+    </CButton>
+    <CButton id="DebugUnknownAbility">
+        <Icon value="assets\textures\storm_ui_icon_monk_trait1.dds"/>
+    </CButton>
+    <CButton id="HeroGenericFountainDrink">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+    </CButton>
+    <CButton id="PlayerInteraction@Ability">
+        <Icon value="Assets\Textures\btn-ability-dehaka-healing.dds"/>
+    </CButton>
+    <CButton id="GraveGolemBindingRoots">
+        <Icon value="Assets\Textures\storm_ui_icon_malfurion_entanglingroots.dds"/>
+    </CButton>
+    <CButton id="GraveGolemMegaStun">
+        <Icon value="Assets\Textures\storm_ui_icon_slam.dds"/>
+    </CButton>
+    <CButton id="Tease">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="Cheer"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="SummonedUnitSpecialCaseInteraction" parent="StormButtonParentHideInfo">
+        <Icon value="Assets\Textures\btn-ability-protoss-prismaticbeam-color.dds"/>
+    </CButton>
+    <CButton id="LockedMapMechanicAbility" parent="StormButtonParent">
+        <Icon value="assets\textures\hud_btn_bg_ability_locked_rots.dds"/>
+    </CButton>
+    <CButton id="MapMechanicAbilityInstant" parent="StormButtonParent">
+        <Icon value="Assets\Textures\coreattackping.dds"/>
+    </CButton>
+    <CButton id="MapMechanicAbility">
+        <Icon value="Assets\Textures\coreattackping.dds"/>
+    </CButton>
+    <CButton id="MapMechanicAbility2">
+        <Icon value="Assets\Textures\coreattackping.dds"/>
+    </CButton>
+</Catalog>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <!-- We can't click on terrain through Portrait Panel, that's why it is moved away and Portrait is unclipped -->
+    <Frame type="PortraitPanel" name="PortraitPanelTemplate">
+      <Width val="1"/>
+      <Height val="1"/>
+      <AlphaMaskTexture val="Assets/Textures/hud_bg_portraitframe_alphamask.dds"/>
+      <Handle val="PortraitPanel"/>
+      <Frame type="Image" name="Background">
+        <Visible val="False"/>
+        <Alpha val="0"/>
+      </Frame>
+      <Frame type="Portrait" name="Portrait">
+        <AcceptsMouse val="False"/>
+        <RenderType val="HDR"/>
+        <Unclipped val="True"/>
+        <Width val="195"/>
+        <Height val="195"/>
+        <Handle val="PortraitFrame"/>
+        <AlphaMaskTexture val="Assets/Textures/hud_bg_portraitframe_alphamask.dds"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Max" offset="0"/>
+        <Anchor side="Bottom" relative="$GameUI" pos="Max" offset="-20"/>
+        <Anchor side="Left" relative="$GameUI" pos="Min" offset="20"/>
+      </Frame>
+    </Frame>
+</Desc>

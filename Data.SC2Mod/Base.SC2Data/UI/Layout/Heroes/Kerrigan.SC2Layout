@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+	<Frame type="SelectionUnitStatusPanel" name="KerriganFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+		<SpecificUnit val="KerriganHero"/>
+
+		<Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+
+			<Frame type="Image" name="MechanicTexture">
+				<Texture val="Assets\Textures\storm_ui_icon_kerrigan_assimilation.dds"/>
+			</Frame>
+            
+      <Frame type="BehaviorIcon" name="KerriganAssimilationTooltip" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+          <Behavior val="KerriganAssimilation@Shield"/>
+      </Frame>
+
+			<Frame type="UnitStatusBehaviorIcon" name="AssimilationShield" template="StandardHeroUITemplates/CircularBehaviorCountdownBarTemplate">
+				<Behavior val="KerriganAssimilation@Shield"/>
+
+				<Animation name="ShieldActivateAnim" template="StandardHeroUITemplates/PulseInAnimTemplate">
+          <Event event="OnShown" action="Reset, Play"/>
+				</Animation>
+
+				<Animation name="ShieldDeactivate" template="StandardHeroUITemplates/PulseOutAnimTemplate">
+          <Event event="OnHidden" action="Reset, Play"/>
+				</Animation>
+			</Frame>
+		</Frame>
+	</Frame>
+
+  <Frame type="Frame" name="KerriganStacksFrameContainer">
+    <Anchor relative="$parent" />
+    <Frame type="Frame" name="KerriganBoundlessFuryStacksFrame" template="UnitStatusStackingElements/StackingBehaviorTemplate">
+      <Frame type="Image" name="StacksFull">
+        <Texture val="@UI/Stacks/Kerrigan/BoundlessFury"/>
+      </Frame>
+    </Frame>
+  </Frame>
+	
+</Desc>

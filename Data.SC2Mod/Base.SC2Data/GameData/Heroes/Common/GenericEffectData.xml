@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="HeroGenericExperience@GlobeDeath" parent="Unit">
+        <Model value="Assets\Effects\Protoss\TempestPlasmaMissile_TeamColor\TempestPlasmaMissile_TeamColor.m3"/>
+        <AnimSpeed value="0.250000"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+    </CModel>
+    <CModel id="HeroGenericExperience@Globe" parent="Unit">
+        <Model value="Assets\Effects\Protoss\TempestPlasmaMissile_TeamColor\TempestPlasmaMissile_TeamColor.m3"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+    </CModel>
+    <CModel id="HeroGenericExperience@GlobeLastHitImpact" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_HvH_DiabloLoot_GoldPickup\Storm_FX_HvH_DiabloLoot_GoldPickup.m3"/>
+        <ScaleMax value="1.750000,1.750000,1.750000"/>
+        <ScaleMin value="1.750000,1.750000,1.750000"/>
+    </CModel>
+    <CModel id="HeroGenericExperience@GlobeMissileImpactTeamColor" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\TempestPlasmaMissileImpact_TeamColor\TempestPlasmaMissileImpact_TeamColor.m3"/>
+    </CModel>
+    <CModel id="HeroGenericExperience@GlobeMissileImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_BrightWing_Base_ArcaneFlare_Impact\Storm_FX_BrightWing_Base_ArcaneFlare_Impact.m3"/>
+    </CModel>
+    <CModel id="StormSlowDebuffLarge" parent="BuffFX">
+        <Model value="Assets\Effects\Storm_FX_Slow_Large\Storm_FX_Slow_Large.m3"/>
+    </CModel>
+    <!--CModel id="BruiserMinionDeath" parent="UnitDeath" Race="Terran">-->
+    <!--        <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath.m3"/>-->
+    <!--        <EditorCategories value="Race:Neutral"/>-->
+    <!--        <Occlusion value="Show"/>-->
+    <!--        <SelectionRadius value="2.000000"/>-->
+    <!--        <ShadowRadius value="2.000000"/>-->
+    <!--    </CModel>-->
+    <!--    <CModel id="Storm_Effect_MinionDeath" parent="UnitDeath" Race="Terran">-->
+    <!--        <Model value="Assets\Effects\Storm_Effect_MinionDeath\Storm_Effect_MinionDeath.m3"/>-->
+    <!--        <EditorCategories value="Race:Neutral"/>-->
+    <!--        <Occlusion value="Show"/>-->
+    <!--        <SelectionRadius value="2.000000"/>-->
+    <!--        <ShadowRadius value="2.000000"/>-->
+    <!--    </CModel-->
+    <CModel id="StormSlowDebuff" parent="BuffFX">
+        <Model value="Assets\Effects\Storm_FX_Slow\Storm_FX_Slow.m3"/>
+    </CModel>
+    <CModel id="HeroGenericFountainDrink@HealImpact" parent="OneShotSpellFX">
+        <Model value="assets\Effects\Storm_FX_GenericHeal_Regen_Impact\Storm_FX_GenericHeal_Regen_Impact.m3"/>
+        <EditorCategories value=""/>
+    </CModel>
+    <CModel id="StormDamageReduction" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Nullification\Storm_FX_Talent_Nullification.m3"/>
+    </CModel>
+    <CModel id="NullificationShieldBuff" parent="BuffFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_HardenedShields\Storm_FX_Talent_HardenedShields.m3"/>
+    </CModel>
+    <CModel id="TalentDampenMagicImpact">
+        <Model value="Assets\Effects\Storm_FX_Talent_SpellShield_ImpactFX\Storm_FX_Talent_SpellShield_ImpactFX.m3"/>
+    </CModel>
+    <CModel id="TalentDampenMagicImpactKicker">
+        <Model value="Assets\Effects\Storm_FX_Talent_Block_Impact\Storm_FX_Talent_Block_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentArcanePowerBuffModel" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_EyeoftheStorm_Buff\Storm_FX_Talent_EyeoftheStorm_Buff.m3"/>
+    </CModel>
+    <CModel id="TalentBloodForBloodCaster" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_BloodForBlood\Storm_FX_Talent_BloodForBlood.m3"/>
+    </CModel>
+    <CModel id="TalentBloodForBloodImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_BloodForBlood_Impact\Storm_FX_Talent_BloodForBlood_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentBloodForBloodBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_BloodForBlood_Beam\Storm_FX_Talent_BloodForBlood_Beam.m3"/>
+    </CModel>
+    <CModel id="TalentFirstAidHealAlly" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_FirstAid_Impact\Storm_FX_Talent_FirstAid_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentRewindCast" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Rewind_Impact\Storm_FX_Talent_Rewind_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentRewindCastAlly" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Rewind_Impact\Storm_FX_Talent_Rewind_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentStoneskinCastAlly" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_ImmortalShield\Storm_FX_Talent_ImmortalShield.m3"/>
+    </CModel>
+    <CModel id="TalentCleanseImpactModel" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Cleanse_Impact\Storm_FX_Talent_Cleanse_Impact.m3"/>
+        <RadiusLoose value="0.500000"/>
+    </CModel>
+    <CModel id="RegenGlobeAllyAttachmentObserver" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeBlue\Storm_FX_RegenGlobeBlue.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeEnemyAttachmentObserver" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeRed\Storm_FX_RegenGlobeRed.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeMissileAllyAttachmentObserver" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeBlue_Missile\Storm_FX_RegenGlobeBlue_Missile.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeMissileEnemyAttachmentObserver" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeRed_Missile\Storm_FX_RegenGlobeRed_Missile.m3"/>
+    </CModel>
+    <CModel id="RegenGlobeNeutralAttachment" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RegenGlobeShared\Storm_FX_RegenGlobeShared.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_GenericMana_Regen_Impact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_GenericMana_Regen_Impact\Storm_FX_GenericMana_Regen_Impact.m3"/>
+        <RadiusLoose value="0.500000"/>
+    </CModel>
+    <CModel id="Storm_FX_GenericMana_Gain_Impact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_GenericMana_Impact\Storm_FX_GenericMana_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_GenericHeal_Regen_Impact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_GenericHeal_Regen_Impact\Storm_FX_GenericHeal_Regen_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_Effect_GenericHeal_Impact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_GenericHeal_Impact\Storm_FX_GenericHeal_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_FX_GenericMelee_Impact" parent="FX">
+        <Model value="Assets\Effects\Storm_FX_GenericMana_Regen_Impact\Storm_FX_GenericMana_Regen_Impact.m3"/>
+    </CModel>
+    <CModel id="Storm_FX_GenericHeal_Regen_Minion" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_GenericHeal_Regen_Minion\Storm_FX_GenericHeal_Regen_Minion.m3"/>
+    </CModel>
+    <CModel id="StormTargetSelected" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_Global_AttackConfirmation_Cursor\Storm_FX_Global_AttackConfirmation_Cursor.m3"/>
+        <Radius value="0.125000"/>
+        <RadiusLoose value="0.125000"/>
+    </CModel>
+    <CModel id="PoisonedEffect" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Poison_Impact\Storm_FX_Talent_Poison_Impact.m3"/>
+    </CModel>
+    <CModel id="EyeoftheStormExplode" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Muradin_Base_Thunderclap\Storm_FX_Muradin_Base_Thunderclap.m3"/>
+    </CModel>
+    <CModel id="EyeoftheStormExplodeImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_EyeoftheStorm_Impact\Storm_FX_Talent_EyeoftheStorm_Impact.m3"/>
+    </CModel>
+    <CModel id="EyeoftheStormExplodeWarning" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Cursors\Storm_UI_AOECursor_SciFi\Storm_UI_AOECursor_SciFi.m3"/>
+    </CModel>
+    <CModel id="EyeoftheStormStart" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Muradin_Base_Thunderclap_Electricity\Storm_FX_Muradin_Base_Thunderclap_Electricity.m3"/>
+        <RadiusLoose value="0.500000"/>
+    </CModel>
+    <CModel id="HallOfStormsKnockbackFX" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_KingsCrest_DragonKnight_SavageCharge_Impact\Storm_FX_KingsCrest_DragonKnight_SavageCharge_Impact.m3"/>
+    </CModel>
+    <CModel id="TalentHealingWard@HealImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_HPBuff\Storm_FX_Talent_HPBuff.m3"/>
+    </CModel>
+    <CModel id="HeroGenericLeechHeal" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Lifesteal\Storm_FX_Lifesteal.m3"/>
+    </CModel>
+    <CModel id="StormFastBuff" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Sprint_Slow\Storm_FX_Talent_Sprint_Slow.m3"/>
+    </CModel>
+    <CModel id="AttackSpeedSlowModel" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_ImposingPresence\Storm_FX_Talent_ImposingPresence.m3"/>
+    </CModel>
+    <CModel id="StormFastBuffLarge" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_Sprint\Storm_FX_Talent_Sprint.m3"/>
+        <RadiusLoose value="0.500000"/>
+    </CModel>
+    <CModel id="RevealedBuff" parent="BuffFX">
+        <Model value="Assets\Effects\Storm_FX_Cloak_Icon\Storm_FX_Cloak_Icon.m3"/>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="Storm_Overlay_Global_Stasis" parent="UI">
+        <Model value="Assets\UI\Backgrounds\Storm_Overlay_Global_Stasis\Storm_Overlay_Global_Stasis.m3"/>
+    </CModel>
+    <CModel id="TeleportTargetEffect" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_Mount_SummonChannel\Storm_FX_Mount_SummonChannel.m3"/>
+        <RadiusLoose value="0.750000"/>
+    </CModel>
+    <CModel id="StoneSkinAbsorbActivated" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_ImmortalShield\Storm_FX_Talent_ImmortalShield.m3"/>
+    </CModel>
+    <CModel id="StoneSkinAbsorbModel" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Talent_ImmortalShield_Impact\Storm_FX_Talent_ImmortalShield_Impact.m3"/>
+    </CModel>
+    <CModel id="CaptureMacGuffinBeamUnderground" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTributeCollection_Beam\Storm_FX_RavenLordTributeCollection_Beam.m3"/>
+        <RadiusLoose value="0.750000"/>
+    </CModel>
+    <CModel id="Storm_Overlay_Global_Invulnerable" parent="UI">
+        <Model value="Assets\UI\Backgrounds\Storm_Overlay_Global_Invulnerable\Storm_Overlay_Global_Invulnerable.m3"/>
+    </CModel>
+    <CModel id="Storm_Overlay_Global_Heal" parent="UI">
+        <Model value="Assets\UI\Backgrounds\Storm_Overlay_Global_Heal\Storm_Overlay_Global_Heal.m3"/>
+    </CModel>
+    <CModel id="Storm_Overlay_Global_Taunt" parent="UI">
+        <Model value="Assets\UI\Backgrounds\Storm_Overlay_Global_Taunt\Storm_Overlay_Global_Taunt.m3"/>
+    </CModel>
+</Catalog>

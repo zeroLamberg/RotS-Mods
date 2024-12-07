@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <const id="Merc" path="CWeaponLegacy.TargetFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CWeaponLegacy.TargetFilters" value="Mechanical"/>
+    <const id="Tower" path="CWeaponLegacy.TargetFilters" value="Armored"/>
+    <const id="ImmuneToFriendlyAbilities" path="CWeaponLegacy.TargetFilters" value="Hover"/>
+    <const id="ImmuneToSkillshots" path="CWeaponLegacy.TargetFilters" value="Massive"/>
+    <const id="Minion" path="CWeaponLegacy.TargetFilters" value="Biological"/>
+    <const id="MapCreature" path="CWeaponLegacy.TargetFilters" value="User1"/>
+    <const id="NoMinionAggro" path="CWeaponLegacy.TargetFilters" value="Psionic"/>
+    <const id="Creep" path="CWeaponLegacy.TargetFilters" value="Light"/>
+    <const id="Merc" path="CWeaponLegacy.AcquireFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CWeaponLegacy.AcquireFilters" value="Mechanical"/>
+    <const id="Tower" path="CWeaponLegacy.AcquireFilters" value="Armored"/>
+    <const id="ImmuneToFriendlyAbilities" path="CWeaponLegacy.AcquireFilters" value="Hover"/>
+    <const id="ImmuneToSkillshots" path="CWeaponLegacy.AcquireFilters" value="Massive"/>
+    <const id="Minion" path="CWeaponLegacy.AcquireFilters" value="Biological"/>
+    <const id="MapCreature" path="CWeaponLegacy.AcquireFilters" value="User1"/>
+    <const id="NoMinionAggro" path="CWeaponLegacy.AcquireFilters" value="Psionic"/>
+    <const id="Creep" path="CWeaponLegacy.AcquireFilters" value="Light"/>
+    <const id="Merc" path="CWeapon.TargetFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CWeapon.TargetFilters" value="Mechanical"/>
+    <const id="Tower" path="CWeapon.TargetFilters" value="Armored"/>
+    <const id="ImmuneToFriendlyAbilities" path="CWeapon.TargetFilters" value="Hover"/>
+    <const id="ImmuneToSkillshots" path="CWeapon.TargetFilters" value="Massive"/>
+    <const id="Minion" path="CWeapon.TargetFilters" value="Biological"/>
+    <const id="MapCreature" path="CWeapon.TargetFilters" value="User1"/>
+    <const id="NoMinionAggro" path="CWeapon.TargetFilters" value="Psionic"/>
+    <const id="Creep" path="CWeapon.TargetFilters" value="Light"/>
+    <const id="Merc" path="CWeapon.AcquireFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CWeapon.AcquireFilters" value="Mechanical"/>
+    <const id="Tower" path="CWeapon.AcquireFilters" value="Armored"/>
+    <const id="ImmuneToFriendlyAbilities" path="CWeapon.AcquireFilters" value="Hover"/>
+    <const id="ImmuneToSkillshots" path="CWeapon.AcquireFilters" value="Massive"/>
+    <const id="Minion" path="CWeapon.AcquireFilters" value="Biological"/>
+    <const id="MapCreature" path="CWeapon.AcquireFilters" value="User1"/>
+    <const id="NoMinionAggro" path="CWeapon.AcquireFilters" value="Psionic"/>
+    <const id="Creep" path="CWeapon.AcquireFilters" value="Light"/>
+    <CWeapon default="1">
+        <DisplayEffect value=""/>
+    </CWeapon>
+    <CWeaponLegacy default="1">
+        <DisplayEffect value=""/>
+        <Effect value=""/>
+    </CWeaponLegacy>
+    <CWeaponStrafe default="1">
+        <DisplayEffect value=""/>
+        <Effect value=""/>
+    </CWeaponStrafe>
+    <CWeaponLegacy default="1" id="StormTowerWeapon">
+        <TargetFilters value="Visible;Player,Ally,Neutral,Creep,Tower,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden"/>
+        <MinScanRange value="0"/>
+        <RangeSlop value="0"/>
+        <Period value="1"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <AcquireFilters value="-;Player,Ally,Neutral,Enemy"/>
+        <Icon value="assets\textures\storm_ui_icon_talent_autoattack_base.dds"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy default="1" id="StormHeroWeapon">
+        <Options index="ContinuousScan" value="1"/>
+        <Options index="HoldFileInShrubs" value="1"/>
+        <TargetFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <RangeSlop value="2.125"/>
+        <ArcSlop value="219.9902"/>
+        <LegacyOptions index="Uninterruptible" value="1"/>
+        <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>
+        <AllowedMovement value="Slowing"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <PreEffect value="DismountDecloakCasterSet"/>
+        <Icon value="assets\textures\storm_ui_icon_talent_autoattack_base.dds"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy default="1" id="StormHeroWeaponSlow" parent="StormHeroWeapon">
+        <DamagePoint value="0.25"/>
+        <Backswing value="0.25"/>
+        <UninterruptibleDelay value="0.125"/>
+        <UninterruptibleDuration value="0.1875"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy default="1" id="StormHeroWeaponMedium" parent="StormHeroWeapon">
+        <DamagePoint value="0.1875"/>
+        <Backswing value="0.1875"/>
+        <UninterruptibleDelay value="0.0625"/>
+        <UninterruptibleDuration value="0.1875"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy default="1" id="StormHeroWeaponFast" parent="StormHeroWeapon">
+        <DamagePoint value="0.125"/>
+        <Backswing value="0.125"/>
+        <UninterruptibleDelay value="0.0625"/>
+        <UninterruptibleDuration value="0.125"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SkeletalPirate">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderMurlocWeaponDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Passive"/>
+        <Range value="1"/>
+        <Period value="1"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0.125"/>
+        <Effect value="MercDefenderMurlocWeaponDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="WizardMinion">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="WizardMinionWeaponDamage"/>
+        <TargetFilters value="Visible;NoMinionAggro,Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="3"/>
+        <Range value="3"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.3"/>
+        <Backswing value="0"/>
+        <Effect value="WizardMinionWeaponLaunchMissile"/>
+        <RangeSlop value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FootmanMinion">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="FootmanMinionWeaponDamage"/>
+        <TargetFilters value="Visible;NoMinionAggro,Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="0.875"/>
+        <Range value="0.875"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.22"/>
+        <Backswing value="0.12"/>
+        <Effect value="FootmanMinionWeaponDamage"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CatapultMinion">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="CatapultMinionWeaponDamage"/>
+        <TargetFilters value="Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="11"/>
+        <Period value="3"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <Effect value="CatapultMinionWeaponSwitch"/>
+        <Range value="11"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderMeleeBandit">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderMeleeBanditDamage"/>
+        <TargetFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Range value="0.5"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <Period value="1"/>
+        <DamagePoint value="0.5"/>
+        <Backswing value="1"/>
+        <Effect value="MercDefenderMeleeBanditImpactSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderRangedBandit">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderRangedBanditDamage"/>
+        <TargetFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Range value="5.5"/>
+        <Marker Link="Weapon/MeleeMinionAir"/>
+        <Cost>
+            <Cooldown Link="Weapon/MeleeMinionAir"/>
+        </Cost>
+        <Period value="1"/>
+        <DamagePoint value="0.125"/>
+        <Backswing value="0"/>
+        <Effect value="MercDefenderRangedBanditWeaponAir"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GuardTowerL2Weapon" parent="StormTowerWeapon">
+        <DisplayEffect value="GuardTowerL2WeaponDamage"/>
+        <Range value="7.75"/>
+        <Effect value="GuardTowerL2WeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GuardTowerL3Weapon" parent="StormTowerWeapon">
+        <DisplayEffect value="GuardTowerL3WeaponDamage"/>
+        <Range value="7.75"/>
+        <Effect value="GuardTowerL3WeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GuardTowerL1Weapon" parent="StormTowerWeapon">
+        <DisplayEffect value="GuardTowerL1WeaponDamage"/>
+        <Range value="7.75"/>
+        <Effect value="GuardTowerL1WeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderMeleeOgre">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderMeleeOgreDamage"/>
+        <TargetFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Range value="1.25"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.2"/>
+        <Backswing value="0"/>
+        <Effect value="MercDefenderMeleeOgreImpactSet"/>
+        <AcquireFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderRangedOgre">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderRangedOgreDamage"/>
+        <TargetFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.3125"/>
+        <Backswing value="0"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <Effect value="MercDefenderRangedOgreLaunchMissile"/>
+        <AcquireFilters value="Visible;Neutral,ImmuneToSkillshots,Heroic,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercLanerMeleeOgre">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="MercLanerMeleeOgreDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="8"/>
+        <Range value="1.25"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.2"/>
+        <Backswing value="0"/>
+        <Effect value="MercLanerMeleeOgreDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercLanerRangedOgre">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercLanerRangedOgreWeaponDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="8"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <Effect value="MercLanerRangedOgreWeaponLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TownHallL2Weapon" parent="StormTowerWeapon">
+        <DisplayEffect value="TownHallL2WeaponDamage"/>
+        <Range value="8"/>
+        <Effect value="TownHallL2WeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TownHallL3Weapon" parent="StormTowerWeapon">
+        <DisplayEffect value="TownHallL3WeaponDamage"/>
+        <Range value="8"/>
+        <Effect value="TownHallL3WeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TownHallL1Weapon" parent="StormTowerWeapon">
+        <DisplayEffect value="TownHallL1WeaponDamage"/>
+        <Range value="8"/>
+        <Effect value="TownHallL1WeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="UnderworldBoss">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="UnderworldBossWeaponDamage"/>
+        <TargetFilters value="Ground,Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="10"/>
+        <Range value="2"/>
+        <Arc value="14.9963"/>
+        <Period value="1"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <Effect value="UnderworldBossWeaponDamage"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="UnderworldSummonedBoss">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="UnderworldSummonedBossWeaponDamage"/>
+        <TargetFilters value="Structure,Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="8"/>
+        <Range value="2"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.3"/>
+        <Backswing value="0.1"/>
+        <Effect value="UnderworldSummonedBossWeaponDamage"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Marker Link="Weapon/UnderworldSummonedBossSiege"/>
+        <Cost>
+            <Cooldown Link="Weapon/UnderworldSummonedBossSiege"/>
+        </Cost>
+        <AcquireFilters value="Structure,Visible;NoMinionAggro,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="UnderworldSummonedBossSiege">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="UnderworldSummonedBossWeaponDamage"/>
+        <TargetFilters value="Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Range value="10"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.15"/>
+        <Backswing value="0.1"/>
+        <Effect value="UnderworldSummonedBossSiegeSwitch"/>
+        <AcquireFilters value="-;NoMinionAggro,Structure,Heroic"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="VehicleDefenderMortarTeam">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="VehicleDefenderMortarTeamWeaponDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Passive"/>
+        <MinScanRange value="8"/>
+        <Period value="1"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="VehicleDefenderMortarTeamWeaponLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="VehicleLightCycleWeapon">
+        <Options index="ContinuousScan" value="1"/>
+        <Options index="HoldFileInShrubs" value="1"/>
+        <CursorRangeMode value="ForceToMax"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
+        <DisplayEffect value="LightCycleWeaponDamage"/>
+        <TargetFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="7.5"/>
+        <Range value="7.5"/>
+        <RangeSlop value="0"/>
+        <Period value="1"/>
+        <DamagePoint value="0.125"/>
+        <Backswing value="0"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <Effect value="RangedAttackLightCycleWeaponLaunchMissile"/>
+        <ArcSlop value="135"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="RangedMinion">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="RangedMinionWeaponDamage"/>
+        <TargetFilters value="Visible;NoMinionAggro,Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.5"/>
+        <Backswing value="0"/>
+        <Effect value="RangedMinionWeaponLaunchMissile"/>
+        <RangeSlop value="0"/>
+        <LegacyOptions index="Uninterruptible" value="1"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <UninterruptibleDuration value="0.5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="KingsCore" parent="StormTowerWeapon">
+        <DisplayEffect value="KingsCoreWeaponDamage"/>
+        <Range value="8"/>
+        <Backswing value="0.125"/>
+        <Effect value="KingsCoreWeaponCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="UnderworldMinion">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="UnderworldMinionWeaponDamage"/>
+        <TargetFilters value="Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;NoMinionAggro,Structure"/>
+        <AcquireTargetSorts RequestCount="1" RequestPercentage="1">
+            <SortArray value="TSHighPriority"/>
+        </AcquireTargetSorts>
+        <MinScanRange value="8"/>
+        <Range value="0.5"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <Effect value="UnderworldMinionWeaponDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="UnderworldRangedMinion">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="UnderworldRangedMinionWeaponDamage"/>
+        <TargetFilters value="Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="8"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.4"/>
+        <Backswing value="0.3"/>
+        <Effect value="UnderworldRangedMinionWeaponLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderGraveGolem">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="OgreKingJungleWeaponDamage"/>
+        <TargetFilters value="Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden"/>
+        <MinScanRange value="10"/>
+        <Range value="2"/>
+        <Arc value="14.9963"/>
+        <Period value="1"/>
+        <DamagePoint value="0.3125"/>
+        <Backswing value="0"/>
+        <Effect value="OgreKingJungleWeaponDamage"/>
+        <LegacyOptions index="Uninterruptible" value="1"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <UninterruptibleDuration value="0.375"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercLanerGraveGolem">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="OgreKingLanerWeaponDamage"/>
+        <TargetFilters value="Visible;NoMinionAggro,Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AcquireFilters value="Visible;NoMinionAggro,Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <MinScanRange value="10"/>
+        <Range value="2"/>
+        <Arc value="14.9963"/>
+        <Period value="1"/>
+        <DamagePoint value="0.3125"/>
+        <Backswing value="0"/>
+        <Effect value="OgreKingLanerWeaponDamage"/>
+        <LegacyOptions index="Uninterruptible" value="1"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+        <UninterruptibleDuration value="0.375"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderMeleeKnight">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderMeleeKnightDamage"/>
+        <TargetFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden"/>
+        <AcquireFilters value="Visible;Neutral,Creep,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Range value="1.25"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.2"/>
+        <Backswing value="0"/>
+        <Effect value="MercDefenderMeleeKnightImpactSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercDefenderRangedMage">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercDefenderRangedMageDamage"/>
+        <TargetFilters value="Visible;Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden"/>
+        <AcquireFilters value="Visible;Neutral,Creep,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden"/>
+        <MinScanRange value="10"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.375"/>
+        <Backswing value="0"/>
+        <Effect value="MercDefenderRangedMageLaunchMissile"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercLanerMeleeKnight">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercLanerMeleeKnightDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="8"/>
+        <Range value="1.25"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.2"/>
+        <Backswing value="0"/>
+        <Effect value="MercLanerMeleeKnightDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MercLanerRangedMage">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="MercLanerRangedMageWeaponDamage"/>
+        <TargetFilters value="Visible;Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="-;Creep,NoMinionAggro,Structure,Heroic"/>
+        <MinScanRange value="8"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <Effect value="MercLanerRangedMageWeaponLaunchMissile"/>
+    </CWeaponLegacy>
+</Catalog>

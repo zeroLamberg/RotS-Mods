@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="RegenGlobeGenerator_RavenCourt">
+        <Model value="assets\Doodads\Storm_Doodad_DummyTarget_Healing\Storm_Doodad_DummyTarget_Healing.m3"/>
+    </CModel>
+    <CModel id="storm_kingscrest_startingplatform_ravencourt" parent="Storm_Doodad_KingsCrest_StartingPlatform">
+        <Model value="Assets\Doodads\Storm_Doodad_KingsCrest_RavenCourt_StartingBase\Storm_Doodad_KingsCrest_RavenCourt_StartingBase.m3"/>
+    </CModel>
+    <CModel id="KingsCrestWatchTower_RavenCourt" parent="KingsCrestWatchTower">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_WatchTower\Storm_Building_KingsCrest_RavenCourt_WatchTower.m3"/>
+    </CModel>
+    <CModel id="CorePermanentInvulnerabilityModelAttachment_RavenCourt" parent="CorePermanentInvulnerabilityModelAttachment">
+        <Model value="Assets\Doodads\Storm_Doodad_KingsCrest_RavenCourt_CoreShield\Storm_Doodad_KingsCrest_RavenCourt_CoreShield.m3"/>
+    </CModel>
+    <CModel id="CorePermanentInvulnerabilityBirthModel_RavenCourt" parent="CorePermanentInvulnerabilityBirthModel">
+        <Model value="Assets\Doodads\Storm_Doodad_KingsCrest_RavenCourt_CoreShield_Birth\Storm_Doodad_KingsCrest_RavenCourt_CoreShield_Birth.m3"/>
+    </CModel>
+    <CModel id="CorePermanentInvulnerabilityDeathModel_RavenCourt" parent="CorePermanentInvulnerabilityDeathModel">
+        <Model value="Assets\Doodads\Storm_Doodad_KingsCrest_RavenCourt_CoreShield_Death\Storm_Doodad_KingsCrest_RavenCourt_CoreShield_Death.m3"/>
+    </CModel>
+    <CModel id="TownTowerKingsCrestDead_RavenCourt" parent="TownTowerKingsCrestDead">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_00.m3"/>
+    </CModel>
+    <CModel id="TownTowerKingsCrestDeath_RavenCourt" parent="TownTowerKingsCrestDeath">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Death\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Death_00.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestExplosionDamageHeavyBase_RavenCourt" parent="TownTowerL2KingsCrestExplosionDamageHeavyBase">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Base\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Base_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestExplosionDamageHeavyTurret_RavenCourt" parent="TownTowerL2KingsCrestExplosionDamageHeavyTurret">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Turret\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Turret_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestExplosionDamageLightBase_RavenCourt" parent="TownTowerL2KingsCrestExplosionDamageLightBase">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Base\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Base_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestExplosionDamageLightTurret_RavenCourt" parent="TownTowerL2KingsCrestExplosionDamageLightTurret">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Turret\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Turret_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestExplosionDamageHeavyBase_RavenCourt" parent="TownTowerL3KingsCrestExplosionDamageHeavyBase">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Base\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Base_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestExplosionDamageHeavyTurret_RavenCourt" parent="TownTowerL3KingsCrestExplosionDamageHeavyTurret">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Turret\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_Explosion_Turret_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestExplosionDamageLightBase_RavenCourt" parent="TownTowerL3KingsCrestExplosionDamageLightBase">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Base\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Base_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestExplosionDamageLightTurret_RavenCourt" parent="TownTowerL3KingsCrestExplosionDamageLightTurret">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Turret\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_Explosion_Turret_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestExplosionDeadBase_RavenCourt" parent="TownTowerL3KingsCrestExplosionDeadBase">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Base\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Base_02.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL3_RavenCourt" parent="TownTownHallL3">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleSuperior\Storm_Building_KingsCrest_RavenCourt_CastleSuperior.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL3BirthModel_RavenCourt" parent="TownTownHallL3BirthModel">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Birth\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Birth.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL3Damage_RavenCourt" parent="TownTownHallL3Damage">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Damage\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Damage.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL3ExplosionDamage_RavenCourt" parent="TownTownHallL3ExplosionDamage">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Damage_Explosion\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Damage_Explosion.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL3Death_RavenCourt" parent="TownTownHallL3Death">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Damage_Death\Storm_Building_KingsCrest_RavenCourt_CastleSuperior_Damage_Death.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL2_RavenCourt" parent="TownTownHallL2">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL2Damage_RavenCourt" parent="TownTownHallL2Damage">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade_Damage\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade_Damage.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL2ExplosionDamage_RavenCourt" parent="TownTownHallL2ExplosionDamage">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade_Damage_Explosion\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade_Damage_Explosion.m3"/>
+    </CModel>
+    <CModel id="TownTownHallL2Death_RavenCourt" parent="TownTownHallL2Death">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade_Damage_Death\Storm_Building_KingsCrest_RavenCourt_CastleUpgrade_Damage_Death.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrest_RavenCourt" parent="TownTowerL2KingsCrest">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower\Storm_Building_KingsCrest_RavenCourt_Tower_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrest_RavenCourt" parent="TownTowerL3KingsCrest">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower\Storm_Building_KingsCrest_RavenCourt_Tower_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestBirthModel_RavenCourt" parent="TownTowerL2KingsCrestBirthModel">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_Birth\Storm_Building_KingsCrest_RavenCourt_Tower_Birth_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestBirthModel_RavenCourt" parent="TownTowerL3KingsCrestBirthModel">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_Birth\Storm_Building_KingsCrest_RavenCourt_Tower_Birth_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestDamageLight_RavenCourt" parent="TownTowerL2KingsCrestDamageLight">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestDamageLight_RavenCourt" parent="TownTowerL3KingsCrestDamageLight">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight\Storm_Building_KingsCrest_RavenCourt_Tower_DamageLight_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestDamageHeavy_RavenCourt" parent="TownTowerL2KingsCrestDamageHeavy">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestDamageHeavy_RavenCourt" parent="TownTowerL3KingsCrestDamageHeavy">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy\Storm_Building_KingsCrest_RavenCourt_Tower_DamageHeavy_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestExplosionDeadTurret_RavenCourt" parent="TownTowerL2KingsCrestExplosionDeadTurret">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Turret\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Turret_01.m3"/>
+    </CModel>
+    <CModel id="TownTowerL3KingsCrestExplosionDeadTurret_RavenCourt" parent="TownTowerL3KingsCrestExplosionDeadTurret">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Turret\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Turret_02.m3"/>
+    </CModel>
+    <CModel id="TownTowerL2KingsCrestExplosionDeadBase_RavenCourt" parent="TownTowerL2KingsCrestExplosionDeadBase">
+        <Model value="Assets\Effects\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Base\Storm_Building_KingsCrest_RavenCourt_Tower_Rubble_Explosion_Base_01.m3"/>
+    </CModel>
+    <CModel id="TownGateL1_RavenCourt" parent="TownGateL1">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate\Storm_Building_KingsCrest_RavenCourt_Gate.m3"/>
+    </CModel>
+    <CModel id="TownGateL2_RavenCourt" parent="TownGateL2">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate\Storm_Building_KingsCrest_RavenCourt_Gate.m3"/>
+    </CModel>
+    <CModel id="TownGateL3_RavenCourt" parent="TownGateL3">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate\Storm_Building_KingsCrest_RavenCourt_Gate.m3"/>
+    </CModel>
+    <CModel id="TownGateDamaged_RavenCourt" parent="TownGateDamaged">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate_Damage\Storm_Building_KingsCrest_RavenCourt_Gate_Damage.m3"/>
+    </CModel>
+    <CModel id="TownGateDamagedDeath00_RavenCourt" parent="TownGateDamagedDeath00">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate_Damage\Storm_Building_KingsCrest_RavenCourt_Gate_Damage_00.m3"/>
+    </CModel>
+    <CModel id="TownGateDamagedDeath01_RavenCourt" parent="TownGateDamagedDeath01">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate_Damage\Storm_Building_KingsCrest_RavenCourt_Gate_Damage_01.m3"/>
+    </CModel>
+    <CModel id="TownGateDamagedDeath02_RavenCourt" parent="TownGateDamagedDeath02">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate_Damage\Storm_Building_KingsCrest_RavenCourt_Gate_Damage_02.m3"/>
+    </CModel>
+    <CModel id="TownGateDamagedDeath03_RavenCourt" parent="TownGateDamagedDeath03">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate_Damage\Storm_Building_KingsCrest_RavenCourt_Gate_Damage_03.m3"/>
+    </CModel>
+    <CModel id="TownGateBirthModel_RavenCourt" parent="TownGateBirthModel">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_Gate_Birth\Storm_Building_KingsCrest_RavenCourt_Gate_Birth.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath00_RavenCourt" parent="StormKingsCrestFenceStoneDeath00">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_00.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath01_RavenCourt" parent="StormKingsCrestFenceStoneDeath01">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_01.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath02_RavenCourt" parent="StormKingsCrestFenceStoneDeath02">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_02.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath03_RavenCourt" parent="StormKingsCrestFenceStoneDeath03">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_03.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath04_RavenCourt" parent="StormKingsCrestFenceStoneDeath04">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_04.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath05_RavenCourt" parent="StormKingsCrestFenceStoneDeath05">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_05.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath06_RavenCourt" parent="StormKingsCrestFenceStoneDeath06">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_06.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath07_RavenCourt" parent="StormKingsCrestFenceStoneDeath07">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_07.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath08_RavenCourt" parent="StormKingsCrestFenceStoneDeath08">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_08.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath09_RavenCourt" parent="StormKingsCrestFenceStoneDeath09">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_09.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath10_RavenCourt" parent="StormKingsCrestFenceStoneDeath10">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_10.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath11_RavenCourt" parent="StormKingsCrestFenceStoneDeath11">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_11.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath12_RavenCourt" parent="StormKingsCrestFenceStoneDeath12">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_12.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath13_RavenCourt" parent="StormKingsCrestFenceStoneDeath13">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_13.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath14_RavenCourt" parent="StormKingsCrestFenceStoneDeath14">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_14.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath15_RavenCourt" parent="StormKingsCrestFenceStoneDeath15">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_15.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath16_RavenCourt" parent="StormKingsCrestFenceStoneDeath16">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_16.m3"/>
+    </CModel>
+    <CModel id="StormKingsCrestFenceStoneDeath17_RavenCourt" parent="StormKingsCrestFenceStoneDeath17">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone_Death_17.m3"/>
+    </CModel>
+    <CModel id="MinionCatapultRanged_RavenCourt" parent="MinionCatapultRanged">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_RavenCourt_Catapult\Storm_Minion_KingsCrest_RavenCourt_Catapult.m3"/>
+    </CModel>
+    <CModel id="MinionCatapultRangedDeath_RavenCourt" parent="MinionCatapultRangedDeath">
+        <Model value="Assets\Units\Minions\Storm_Minion_KingsCrest_RavenCourt_Catapult_Death\Storm_Minion_KingsCrest_RavenCourt_Catapult_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerMeleeKnight_RavenCourt" parent="MercLanerMeleeKnight">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black\Storm_Merc_KingsCrest_Knight_Black.m3"/>
+    </CModel>
+    <CModel id="MercLanerMeleeKnightDeath_RavenCourt" parent="MercLanerMeleeKnightDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black_Death\Storm_Merc_KingsCrest_Knight_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeKnight_RavenCourt" parent="MercDefenderMeleeKnight">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black\Storm_Merc_KingsCrest_Knight_Black.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeKnightDeath_RavenCourt" parent="MercDefenderMeleeKnightDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black_Death\Storm_Merc_KingsCrest_Knight_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedMage_RavenCourt" parent="MercLanerRangedMage">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black\Storm_Merc_KingsCrest_KnightWizard_Black.m3"/>
+    </CModel>
+    <CModel id="MercLanerRangedMageDeath_RavenCourt" parent="MercLanerRangedMageDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black_Death\Storm_Merc_KingsCrest_KnightWizard_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedMage_RavenCourt" parent="MercDefenderRangedMage">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black\Storm_Merc_KingsCrest_KnightWizard_Black.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedMageDeath_RavenCourt" parent="MercDefenderRangedMageDeath">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black_Death\Storm_Merc_KingsCrest_KnightWizard_Black_Death.m3"/>
+    </CModel>
+    <CModel id="MercDefenderRangedMageBirthModel_RavenCourt" parent="MercDefenderRangedMageBirthModel">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_KnightWizard_Black_Birth\Storm_Merc_KingsCrest_KnightWizard_Black_Birth.m3"/>
+    </CModel>
+    <CModel id="MercDefenderMeleeKnightBirthModel_RavenCourt" parent="MercDefenderMeleeKnightBirthModel">
+        <Model value="Assets\Units\Mercs\Storm_Merc_KingsCrest_Knight_Black_Birth\Storm_Merc_KingsCrest_Knight_Black_Birth.m3"/>
+    </CModel>
+    <CModel id="WallRadial0_RavenCourt" parent="WallRadial0">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone.m3"/>
+    </CModel>
+    <CModel id="WallRadial1_RavenCourt" parent="WallRadial1">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone.m3"/>
+    </CModel>
+    <CModel id="WallRadial2_RavenCourt" parent="WallRadial2">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone.m3"/>
+    </CModel>
+    <CModel id="WallRadial3_RavenCourt" parent="WallRadial3">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone.m3"/>
+    </CModel>
+    <CModel id="WallRadial4_RavenCourt" parent="WallRadial4">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone.m3"/>
+    </CModel>
+    <CModel id="WallRadial5_RavenCourt" parent="WallRadial5">
+        <Model value="Assets\Buildings\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone\Storm_Doodad_KingsCrest_RavenCourt_Fence_Stone.m3"/>
+    </CModel>
+    <CModel id="CoreKingsCrestBase_RavenCourt" parent="CoreKingsCrestBase">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_Core_RavenLord\Storm_Building_KingsCrest_Core_RavenLord.m3"/>
+    </CModel>
+    <CModel id="TownMoonwellL2_RavenCourt" parent="TownMoonwellL2">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_ManaWell\Storm_Building_KingsCrest_RavenCourt_ManaWell.m3"/>
+    </CModel>
+    <CModel id="TownMoonwellL3_RavenCourt" parent="TownMoonwellL3">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_ManaWell\Storm_Building_KingsCrest_RavenCourt_ManaWell.m3"/>
+    </CModel>
+    <CModel id="TownMoonwellKingsCrestDeath_RavenCourt" parent="TownMoonwellKingsCrestDeath">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_RavenCourt_ManaWell_Death\Storm_Building_KingsCrest_RavenCourt_ManaWell_Death.m3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_KingsCrest_CurbStone_RavenCourt" parent="Storm_Doodad_KingsCrest_CurbStone">
+        <Model value="Assets\Doodads\Storm_Doodad_KingsCrest_Ravencourt_CurbStone\Storm_Doodad_KingsCrest_Ravencourt_CurbStone.m3"/>
+    </CModel>
+    <CModel id="WatchTowerCaptureProgressRunes_RavenCourt" parent="WatchTowerCaptureProgressRunes">
+        <Model value="Assets\Buildings\Storm_Building_RavenCourt_WatchTower_Progress\Storm_Building_RavenCourt_WatchTower_Progress.m3"/>
+    </CModel>
+    <CModel id="CaptureMacGuffinBeam_RavenCourt" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_RavenLordTributeCollection_Beam\Storm_FX_RavenLordTributeCollection_Beam.m3"/>
+        <RadiusLoose value="0.750000"/>
+    </CModel>
+    <CModel id="CoreKingsCrestDeath_RavenCourt" parent="CoreKingsCrestDeath">
+        <Model value="Assets\Buildings\Storm_Building_KingsCrest_Core_RavenLord_Death\Storm_Building_KingsCrest_Core_RavenLord_Death.m3"/>
+    </CModel>
+    <CSkin id="TilesetRavenCourtReplacement">
+        <ReplacementArray Catalog="Model" From="CorePermanentInvulnerabilityModelAttachment" To="CorePermanentInvulnerabilityModelAttachment_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="CorePermanentInvulnerabilityBirthModel" To="CorePermanentInvulnerabilityBirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="CorePermanentInvulnerabilityDeathModel" To="CorePermanentInvulnerabilityDeathModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="CoreKingsCrestDeath" To="CoreKingsCrestDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerKingsCrestDead" To="TownTowerKingsCrestDead_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerKingsCrestDeath" To="TownTowerKingsCrestDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestExplosionDamageHeavyBase" To="TownTowerL2KingsCrestExplosionDamageHeavyBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestExplosionDamageHeavyTurret" To="TownTowerL2KingsCrestExplosionDamageHeavyTurret_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestExplosionDamageLightBase" To="TownTowerL2KingsCrestExplosionDamageLightBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestExplosionDamageLightTurret" To="TownTowerL2KingsCrestExplosionDamageLightTurret_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestExplosionDamageHeavyBase" To="TownTowerL3KingsCrestExplosionDamageHeavyBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestExplosionDamageHeavyTurret" To="TownTowerL3KingsCrestExplosionDamageHeavyTurret_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestExplosionDamageLightBase" To="TownTowerL3KingsCrestExplosionDamageLightBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestExplosionDamageLightTurret" To="TownTowerL3KingsCrestExplosionDamageLightTurret_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestExplosionDeadBase" To="TownTowerL3KingsCrestExplosionDeadBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL3" To="TownTownHallL3_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL3BirthModel" To="TownTownHallL3BirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL3Damage" To="TownTownHallL3Damage_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL3ExplosionDamage" To="TownTownHallL3ExplosionDamage_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL3Death" To="TownTownHallL3Death_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL2" To="TownTownHallL2_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL2Damage" To="TownTownHallL2Damage_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL2ExplosionDamage" To="TownTownHallL2ExplosionDamage_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTownHallL2Death" To="TownTownHallL2Death_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrest" To="TownTowerL2KingsCrest_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrest" To="TownTowerL3KingsCrest_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestBirthModel" To="TownTowerL2KingsCrestBirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestBirthModel" To="TownTowerL3KingsCrestBirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestDamageLight" To="TownTowerL2KingsCrestDamageLight_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestDamageLight" To="TownTowerL3KingsCrestDamageLight_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestDamageHeavy" To="TownTowerL2KingsCrestDamageHeavy_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestDamageHeavy" To="TownTowerL3KingsCrestDamageHeavy_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestExplosionDeadTurret" To="TownTowerL2KingsCrestExplosionDeadTurret_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL3KingsCrestExplosionDeadTurret" To="TownTowerL3KingsCrestExplosionDeadTurret_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownTowerL2KingsCrestExplosionDeadBase" To="TownTowerL2KingsCrestExplosionDeadBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateL1" To="TownGateL1_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateL2" To="TownGateL2_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateL3" To="TownGateL3_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateDamaged" To="TownGateDamaged_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateDamagedDeath00" To="TownGateDamagedDeath00_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateDamagedDeath01" To="TownGateDamagedDeath01_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateDamagedDeath02" To="TownGateDamagedDeath02_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateDamagedDeath03" To="TownGateDamagedDeath03_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownGateBirthModel" To="TownGateBirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath00" To="StormKingsCrestFenceStoneDeath00_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath01" To="StormKingsCrestFenceStoneDeath01_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath02" To="StormKingsCrestFenceStoneDeath02_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath03" To="StormKingsCrestFenceStoneDeath03_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath04" To="StormKingsCrestFenceStoneDeath04_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath05" To="StormKingsCrestFenceStoneDeath05_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath06" To="StormKingsCrestFenceStoneDeath06_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath07" To="StormKingsCrestFenceStoneDeath07_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath08" To="StormKingsCrestFenceStoneDeath08_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath09" To="StormKingsCrestFenceStoneDeath09_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath10" To="StormKingsCrestFenceStoneDeath10_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath11" To="StormKingsCrestFenceStoneDeath11_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath12" To="StormKingsCrestFenceStoneDeath12_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath13" To="StormKingsCrestFenceStoneDeath13_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath14" To="StormKingsCrestFenceStoneDeath14_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath15" To="StormKingsCrestFenceStoneDeath15_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath16" To="StormKingsCrestFenceStoneDeath16_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="StormKingsCrestFenceStoneDeath17" To="StormKingsCrestFenceStoneDeath17_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MinionCatapultRanged" To="MinionCatapultRanged_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MinionCatapultRangedDeath" To="MinionCatapultRangedDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercLanerMeleeKnight" To="MercLanerMeleeKnight_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercLanerMeleeKnightDeath" To="MercLanerMeleeKnightDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercDefenderMeleeKnight" To="MercDefenderMeleeKnight_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercDefenderMeleeKnightDeath" To="MercDefenderMeleeKnightDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercLanerRangedMage" To="MercLanerRangedMage_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercLanerRangedMageDeath" To="MercLanerRangedMageDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercDefenderRangedMage" To="MercDefenderRangedMage_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercDefenderRangedMageDeath" To="MercDefenderRangedMageDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercDefenderRangedMageBirthModel" To="MercDefenderRangedMageBirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="MercDefenderMeleeKnightBirthModel" To="MercDefenderMeleeKnightBirthModel_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="WallRadial1" To="WallRadial1_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="WallRadial2" To="WallRadial2_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="WallRadial3" To="WallRadial3_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="WallRadial4" To="WallRadial4_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="WallRadial5" To="WallRadial5_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="CoreKingsCrestBase" To="CoreKingsCrestBase_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownMoonwellL2" To="TownMoonwellL2_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownMoonwellL3" To="TownMoonwellL3_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="TownMoonwellKingsCrestDeath" To="TownMoonwellKingsCrestDeath_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="Storm_Doodad_KingsCrest_CurbStone" To="Storm_Doodad_KingsCrest_CurbStone_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="WatchTowerCaptureProgressRunes" To="WatchTowerCaptureProgressRunes_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="HeroGenericCaptureMacGuffin@BeamVFX" To="CaptureMacGuffinBeam_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="KingsCrestWatchTower" To="KingsCrestWatchTower_RavenCourt"/>
+        <ReplacementArray Catalog="Model" From="Storm_Doodad_KingsCrest_StartingPlatform" To="storm_kingscrest_startingplatform_ravencourt"/>
+        <ReplacementArray Catalog="Sound" From="Doodad_Core_Death" To="Doodad_Core_Death_RavenCourt"/>
+    </CSkin>
+</Catalog>

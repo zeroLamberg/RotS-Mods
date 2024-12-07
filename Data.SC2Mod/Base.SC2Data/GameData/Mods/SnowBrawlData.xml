@@ -1,0 +1,1664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectSwitch id="SnowmanWeaponImpactSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
+        <CaseDefault value="SnowmanWeaponDamage"/>
+    </CEffectSwitch>
+    <CEffectSet id="WorldEnderSnowballLaunchFXDummySet"/>
+    <CEffectApplyBehavior id="ApplyWorldEnderSnowballGlazeVisualBuff">
+        <Behavior value="WorldEnderSnowballGlazeVisualBuff"/>
+        <ValidatorArray value="TargetIsStructureorHero"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="SnowballPickupSearchArea" parent="StormImpactSearchAreaNoReveal">
+        <SearchFilters value="Heroic;Structure,Item,Stasis,Dead,Resistant"/>
+        <TargetSorts RequestCount="1" RequestPercentage="1">
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <AreaArray MaxCount="1" Radius="1.2" Effect="SnowballPickupPickupSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="SnowballPickupPickupSet">
+        <ValidatorArray value="TargetNotHallucination"/>
+        <ValidatorArray value="MapMechanicPickupDisallowedBehaviors"/>
+        <ValidatorArray value="NotLongboatUnit"/>
+        <EffectArray value="SnowballPickupModifyOwnertoClaimNeutral"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="SnowballPickupModifyOwnertoClaimNeutral">
+        <ImpactUnit Value="Caster"/>
+        <ModifyFlags index="Owner" value="1"/>
+        <ModifyOwnerPlayer Effect="RegenGlobePickupSet" Value="Target"/>
+    </CEffectModifyUnit>
+    <CEffectEnumArea id="HardPackSnowballCursorScan">
+        <LaunchLocation Effect="HardPackSnowballCreateScanPersistent" Value="OriginPoint"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden"/>
+        <AreaArray MaxCount="1" RectangleWidth="1" RectangleHeight="1.6"/>
+        <RevealerParams Duration="0.5" ShapeExpansion="1">
+            <RevealFlags index="Unfog" value="1"/>
+        </RevealerParams>
+    </CEffectEnumArea>
+    <CEffectSet id="HardPackSnowballInitialSet">
+        <EffectArray value="HardPackSnowballRemoveBehavior"/>
+        <EffectArray value="HardPackSnowballCreatePersistent"/>
+        <EffectArray value="MedivhTransformRavenRemoveSet"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="HardPackSnowballRemoveBehavior">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="HasMapMechanicTargetAbilitySnowBrawl"/>
+    </CEffectRemoveBehavior>
+    <CEffectCreatePersistent id="HardPackSnowballCreatePersistent">
+        <WhichLocation Value="CasterPoint"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="HardPackSnowballLaunchMissile"/>
+        <PeriodicOffsetArray value="0,-15,0"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="HardPackSnowballLaunchMissile">
+        <ImpactLocation Value="TargetPoint"/>
+        <LaunchOffset value="0,-1,0"/>
+        <LaunchEffect value="HardPackSnowballCreateScanPersistent"/>
+        <AmmoUnit value="HardPackSnowball"/>
+        <Movers Link="HardPackSnowballMissile"/>
+        <LaunchLocation Value="SourcePoint"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="HardPackSnowballCreateScanPersistent">
+        <WhichLocation Value="CasterPoint"/>
+        <PeriodCount value="14"/>
+        <PeriodicEffectArray value="HardPackSnowballScanSet"/>
+        <PeriodicOffsetArray value="0,1,0"/>
+        <PeriodicOffsetArray value="0,2,0"/>
+        <PeriodicOffsetArray value="0,3,0"/>
+        <PeriodicOffsetArray value="0,4,0"/>
+        <PeriodicOffsetArray value="0,5,0"/>
+        <PeriodicOffsetArray value="0,6,0"/>
+        <PeriodicOffsetArray value="0,7,0"/>
+        <PeriodicOffsetArray value="0,8,0"/>
+        <PeriodicOffsetArray value="0,9,0"/>
+        <PeriodicOffsetArray value="0,10,0"/>
+        <PeriodicOffsetArray value="0,11,0"/>
+        <PeriodicOffsetArray value="0,12,0"/>
+        <PeriodicOffsetArray value="0,13,0"/>
+        <PeriodicOffsetArray value="0,14,0"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicValidator value="SourceNotDead"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="HardPackSnowballScanSet">
+        <EffectArray value="HardPackSnowballScanSearchArea"/>
+        <EffectArray value="HardPackSnowballSnowmanSearchArea"/>
+    </CEffectSet>
+    <CEffectEnumArea id="HardPackSnowballScanSearchArea" parent="StormImpactSearchArea">
+        <LaunchLocation Effect="HardPackSnowballCreatePersistent" Value="OriginPoint"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden"/>
+        <AreaArray>
+            <MaxCount value="1"/>
+            <RectangleWidth value="1"/>
+            <RectangleHeight value="1.2"/>
+            <Effect value="HardPackSnowballImpactSet"/>
+        </AreaArray>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="HardPackSnowballSnowmanSearchArea" parent="StormImpactSearchAreaNoReveal">
+        <LaunchLocation Effect="HardPackSnowballCreatePersistent" Value="OriginPoint"/>
+        <SearchFilters value="-;Player,Ally,Enemy,Dead,Hidden"/>
+        <AreaArray>
+            <MaxCount value="1"/>
+            <RectangleWidth value="1"/>
+            <RectangleHeight value="1.2"/>
+            <Effect value="HardPackSnowballSnowmanImpactSet"/>
+        </AreaArray>
+    </CEffectEnumArea>
+    <CEffectSet id="HardPackSnowballImpactSet">
+        <ValidatorArray value="noMarkers"/>
+        <EffectArray value="HardPackSnowballDestroyPersistent"/>
+        <EffectArray value="HardPackSnowballDestroyScanPersistent"/>
+        <EffectArray value="HardPackSnowballDamage"/>
+        <EffectArray value="HardPackSnowballSuicide"/>
+        <EffectArray value="HardPackSnowballModifyFacing"/>
+        <EffectArray value="HardPackSnowballKnockbackDestinationCP"/>
+    </CEffectSet>
+    <CEffectSet id="HardPackSnowballSnowmanImpactSet">
+        <ValidatorArray value="TargetIsSnowmanInProgress"/>
+        <EffectArray value="SnowmanAddBuildStackSwitch"/>
+        <EffectArray value="HardPackSnowballDestroyPersistent"/>
+        <EffectArray value="HardPackSnowballDestroyScanPersistent"/>
+        <EffectArray value="HardPackSnowballSuicide"/>
+    </CEffectSet>
+    <CEffectDestroyPersistent id="HardPackSnowballDestroyPersistent">
+        <WhichLocation Value="SourcePoint"/>
+        <Effect value="HardPackSnowballCreatePersistent"/>
+    </CEffectDestroyPersistent>
+    <CEffectDestroyPersistent id="HardPackSnowballDestroyScanPersistent">
+        <WhichLocation Effect="HardPackSnowballCreateScanPersistent" Value="CasterPoint"/>
+        <Effect value="HardPackSnowballCreateScanPersistent"/>
+    </CEffectDestroyPersistent>
+    <CEffectDamage id="HardPackSnowballDamage" parent="StormSpell">
+        <Amount value="400"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
+    </CEffectDamage>
+    <CEffectDamage id="HardPackSnowballSuicide" parent="StormSuicideParent"/>
+    <CEffectModifyUnit id="HardPackSnowballModifyFacing">
+        <LaunchUnit Value="Caster"/>
+        <FacingLocation Value="CasterUnit"/>
+        <FacingType value="LookAt"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="HardPackSnowballKnockbackApplyStun">
+        <WhichUnit Effect="HardPackSnowballImpactSet"/>
+        <Behavior value="HardPackSnowballStun"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="HardPackSnowballKnockbackDestinationCP">
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="HardPackSnowballKnockbackDestinationSet"/>
+        <PeriodicOffsetArray value="0,-10,0"/>
+        <OffsetVectorStartLocation Effect="HardPackSnowballInitialSet" Value="OriginPoint"/>
+        <ValidatorArray value="TargetNotUnstoppable"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="HardPackSnowballKnockbackDestinationSet">
+        <EffectArray value="HardPackSnowballKnockbackApplyStun"/>
+        <EffectArray value="HardPackSnowballKnockbackApplyMoveSpeed"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="HardPackSnowballKnockbackLaunchVictim">
+        <LaunchLocation Effect="HardPackSnowballImpactSet" Value="TargetUnit"/>
+        <ImpactLocation Effect="HardPackSnowballKnockbackDestinationSet" Value="TargetPoint"/>
+        <Flags index="Placement" value="1"/>
+        <Flags index="TravelValidation" value="1"/>
+        <PlacementRange value="10"/>
+        <Movers Link="HardPackSnowballVictim"/>
+        <DeathType value="Unknown"/>
+        <ValidatorArray value="SourceNotDead"/>
+    </CEffectLaunchMissile>
+    <CEffectRemoveBehavior id="HardPackSnowballKnockbackRemoveStun">
+        <WhichUnit Effect="HardPackSnowballImpactSet"/>
+        <BehaviorLink value="HardPackSnowballStun"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="HardPackSnowballKnockbackTrailDummy"/>
+    <CEffectSet id="HeavySnowballInitialSet">
+        <EffectArray value="HeavySnowballRemoveBehavior"/>
+        <EffectArray value="HeavySnowballLaunchMissile"/>
+        <EffectArray value="MedivhTransformRavenRemoveSet"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="HeavySnowballLaunchMissile">
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="HeavySnowballImpactCreatePersistent"/>
+        <AmmoUnit value="HeavySnowball"/>
+        <ImpactRange value="0.6"/>
+        <Movers Link="HeavySnowballMissileNear" IfRangeLTE="6"/>
+        <Movers Link="HeavySnowballMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectRemoveBehavior id="HeavySnowballRemoveBehavior">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="HasMapMechanicTargetAbility2SnowBrawl"/>
+    </CEffectRemoveBehavior>
+    <CEffectCreatePersistent id="HeavySnowballImpactCreatePersistent">
+        <ExpireDelay value="0.5"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="HeavySnowballTargetSearch"/>
+        <PeriodicEffectArray value="HeavySnowballSnowmanSearch"/>
+        <RevealRadius value="2.25"/>
+        <RevealFlags index="Unfog" value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="HeavySnowballTargetSearch" parent="StormImpactSearchArea">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.5" Effect="HeavySnowballExplosionSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="HeavySnowballExplosionSet">
+        <EffectArray value="HeavySnowballDamage"/>
+        <EffectArray value="HeavySnowballAddSlowBehavior"/>
+        <EffectArray value="HeavySnowballAddSlowFaderBehavior"/>
+        <EffectArray value="HeavySnowballAddSlowFaderBehavior"/>
+        <EffectArray value="ApplyAbilityImpactReveal"/>
+        <EffectArray value="StormSuicide"/>
+    </CEffectSet>
+    <CEffectDamage id="HeavySnowballDamage" parent="StormSpell">
+        <Amount value="430"/>
+        <AttributeFactor index="Minion" value="1"/>
+        <AttributeFactor index="Structure" value="1"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
+    </CEffectDamage>
+    <CEffectDamage id="WorldEnderSnowballDamage" parent="StormSpell">
+        <AttributeFactor index="Minion" value="1"/>
+        <AttributeFactor index="Structure" value="1"/>
+        <Amount value="430"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="HeavySnowballAddSlowBehavior" parent="StormApplySlow">
+        <Behavior value="HeavySnowballSlow"/>
+        <Count value="4"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="HeavySnowballAddSlowFaderBehavior">
+        <Behavior value="HeavySnowballSlowFader"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="HeavySnowballRemove1SlowStack">
+        <BehaviorLink value="HeavySnowballSlow"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="HeavySnowballRemoveSlowFaderBehavior">
+        <BehaviorLink value="HeavySnowballSlowFader"/>
+    </CEffectRemoveBehavior>
+    <CEffectEnumArea id="HeavySnowballSnowmanSearch" parent="StormImpactSearchAreaNoReveal">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Hidden"/>
+        <AreaArray Radius="2.5" Effect="SnowmanAddBuildStackSwitch"/>
+    </CEffectEnumArea>
+    <CEffectSwitch id="SnowmanAddBuildStackSwitch">
+        <ValidatorArray value="TargetIsSnowmanInProgress"/>
+        <CaseArray Validator="TargetIsSnowmanWith1BuildStack" Effect="SnowmanFinishBuildingSnowmanSet"/>
+        <CaseDefault value="SnowmanAddBuildSnowmanBehavior"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="SnowmanAddBuildSnowmanBehavior">
+        <Behavior value="BuildSnowman"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="SnowmanFinishBuildingSnowmanSet">
+        <EffectArray value="SnowmanCreateUnit"/>
+        <EffectArray value="SnowmanKillSnowmanInProgress"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="SnowmanCreateUnit">
+        <SpawnUnit value="EvilSnowman"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+    </CEffectCreateUnit>
+    <CEffectDamage id="SnowmanKillSnowmanInProgress" parent="StormSuicideParent">
+        <ImpactLocation Effect="SnowmanAddBuildStackSwitch" Value="TargetUnit"/>
+    </CEffectDamage>
+    <CEffectDamage id="SnowmanWeaponDamage" parent="StormSpell">
+        <Amount value="200"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SnowmanWeaponLaunchMissile">
+        <ValidatorArray value="TargetNotDead"/>
+        <ImpactEffect value="SnowmanWeaponImpactSwitch"/>
+        <Flags index="TravelValidation" value="1"/>
+        <Flags index="ValidateWeapon" value="0"/>
+        <AmmoUnit value="SnowmanAttackMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectSwitch id="WorldEnderSnowballDamageSwitch">
+        <CaseArray Validator="StormTargetIsLaneMinion" Effect="Kill"/>
+        <CaseArray Validator="TargetIsFort12" Effect="WorldEnderSnowballDamageFort"/>
+        <CaseArray Validator="TargetIsFort122" Effect="WorldEnderSnowballDamageKeep"/>
+        <CaseArray Validator="TownStructureCore" Effect="WorldEnderSnowballDamageCore"/>
+        <CaseArray Validator="TargetIsStructureOrPseudoStructure" Effect="Kill"/>
+        <CaseDefault value="WorldEnderSnowballDamage"/>
+    </CEffectSwitch>
+    <CEffectDamage id="WorldEnderSnowballDamageFort">
+        <Amount value="4300"/>
+    </CEffectDamage>
+    <CEffectDamage id="WorldEnderSnowballDamageKeep">
+        <Amount value="6000"/>
+    </CEffectDamage>
+    <CEffectDamage id="WorldEnderSnowballDamageCore">
+        <Amount value="6000"/>
+    </CEffectDamage>
+    <CEffectSet id="WorldEnderSnowballTargetSet">
+        <EffectArray value="WorldEnderSnowballDamageSwitch"/>
+        <EffectArray value="ApplyWorldEnderSnowballGlazeVisualBuff"/>
+        <EffectArray value="HeavySnowballAddSlowBehavior"/>
+        <EffectArray value="HeavySnowballAddSlowFaderBehavior"/>
+    </CEffectSet>
+    <CEffectEnumArea id="WorldEnderSnowballImpactSearch" parent="StormImpactSearchArea">
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Player,Ally,ImmuneToAOE,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="12" Effect="WorldEnderSnowballTargetSet"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="WorldEnderSnowballLaunchMissile">
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="WorldEnderSnowballImpactSearch"/>
+        <AmmoUnit value="WorldEnderSnowballMissile"/>
+        <ImpactRange value="0.6"/>
+        <Movers Link="WorldEnderSnowballMissile" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CAbilEffectTarget id="MapMechanicAbilityTarget2SnowBrawl">
+        <TechAliasArray value="StormFlag MapMechanicAbility"/>
+        <PrepEffect value="DismountDecloakCasterSet"/>
+        <Effect value="HeavySnowballInitialSet"/>
+        <Flags index="ClearLastMoveTarget" value="1"/>
+        <Flags index="RangeUseCasterRadius" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Cooldown Link="Abil/MapMechanicAbilityTargetSnowBrawl" Location="Unit" TimeUse="2"/>
+        </Cost>
+        <Range value="11"/>
+        <Arc value="9.9975"/>
+        <CastIntroTime value="0.125"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <CursorEffect value="HeavySnowballTargetSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MapMechanicAbility2SnowBrawl" Requirements="CanUseMapMechanicTargetAbility2SnowBrawl">
+            <Flags index="AllowSelfCast" value="0"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="MapMechanicAbilityTargetSnowBrawl">
+        <TechAliasArray value="StormFlag MapMechanicAbility"/>
+        <PrepEffect value="DismountDecloakCasterSet"/>
+        <Effect value="HardPackSnowballInitialSet"/>
+        <Flags index="ClearLastMoveTarget" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Cooldown Location="Unit" TimeUse="2"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="9.9975"/>
+        <CastIntroTime value="0.125"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <CursorEffect value="HardPackSnowballCursorScan"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MapMechanicAbilitySnowBrawl" Requirements="CanUseMapMechanicTargetAbilitySnowBrawl">
+            <Flags index="AllowSelfCast" value="0"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CValidatorUnitType id="CasterIsHardPackSnowball">
+        <WhichUnit Value="Caster"/>
+        <Value value="SnowballPickupHardPackSnowball"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterIsHeavySnowball">
+        <WhichUnit Value="Caster"/>
+        <Value value="SnowballPickupHeavySnowball"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsHardPackSnowball">
+        <Value value="SnowballPickupHardPackSnowball"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsHeavySnowball">
+        <Value value="SnowballPickupHeavySnowball"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsSnowmanInProgress">
+        <Value value="SnowmanInProgress"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="TargetHas1BuildSnowmanStack">
+        <WhichUnit Effect="SnowmanAddBuildStackSwitch"/>
+        <Value value="1"/>
+        <Behavior value="BuildSnowman"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetHas2BuildSnowmanStacks">
+        <WhichUnit Effect="SnowmanAddBuildStackSwitch"/>
+        <Value value="2"/>
+        <Behavior value="BuildSnowman"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TargetIsSnowmanWith2BuildStacks">
+        <Type value="And"/>
+        <CombineArray value="TargetIsSnowmanInProgress"/>
+        <CombineArray value="TargetHas2BuildSnowmanStacks"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TargetIsSnowmanWith1BuildStack">
+        <Type value="And"/>
+        <CombineArray value="TargetIsSnowmanInProgress"/>
+        <CombineArray value="TargetHas1BuildSnowmanStack"/>
+    </CValidatorCombine>
+    <CButton id="MapMechanicAbility2SnowBrawl" parent="StormButtonParentHideInfo">
+        <Icon value="assets\textures\storm_ui_icon_brawl_snowballbig.dds"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="MapMechanicAbilitySnowBrawl" parent="StormButtonParentHideInfo">
+        <Icon value="Assets\Textures\storm_ui_icon_Brawl_SnowballSmall.dds"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="SnowBrawlColossalSnowball" parent="StormButtonParent">
+        <Icon value="assets\Textures\Storm_UI_Icon_Mei_q_Snowblind.dds"/>
+        <SimpleDisplayText value="Button/Tooltip/SnowBrawlColossalSnowball"/>
+    </CButton>
+    <CButton id="SnowmanWeapon" parent="StormButtonParentHideInfo">
+        <Icon value="Assets\Textures\storm_ui_loadscreen_snow_brawl_icon3.dds"/>
+        <SimpleDisplayText value="Button/SimpleDisplayText/BasicAttack"/>
+    </CButton>
+    <CActorMissile id="HardPackSnowballMissile" parent="StormMissileWithDeath" unitName="HardPackSnowball">
+        <Model value="HardPackSnowballMissile"/>
+        <DeathArray index="Impact" AnimProps="Death,Alternate"/>
+        <Remove Terms="UnitDeath" Send="AnimBracketStop BSD"/>
+        <Remove Terms="ActorOrphan" Send="AnimBracketStop BSD"/>
+        <On Terms="AnimDone.*.Complete; AnimName Death" Send="Destroy"/>
+    </CActorMissile>
+    <CActorUnit id="SnowballPickupHardPackSnowball" parent="PickupParent" unitName="SnowballPickupHardPackSnowball">
+        <On Terms="ActorCreation" Send="Create HardPackSnowballPickupSpawnSound"/>
+        <DeathArray index="Timeout" AnimProps="Death,Alternate"/>
+        <Scale value="1.300000"/>
+    </CActorUnit>
+    <CActorUnit id="SnowballPickupHeavySnowball" parent="PickupParent" unitName="SnowballPickupHeavySnowball">
+        <On Terms="ActorCreation" Send="Create HeavySnowballPickupSpawnSound"/>
+        <DeathArray index="Timeout" AnimProps="Death,Alternate"/>
+    </CActorUnit>
+    <CActorSound id="HardpackSnowballPickupPickupSound" parent="SoundOneShot">
+        <On Terms="Behavior.HasMapMechanicTargetAbilitySnowBrawl.On" Send="Create"/>
+        <Sound value="Snowball_Hardpack_Pickup"/>
+    </CActorSound>
+    <CActorSound id="HardPackSnowballPickupSpawnSound" parent="SoundOneShot">
+        <Sound value="Snowball_Hardpack_Spawn"/>
+    </CActorSound>
+    <CActorQuad id="HardPackSnowballGuide" parent="StormGuideVisualQuadDownClosestFantasy" abil="MapMechanicAbilityTargetSnowBrawl">
+        <Height value="14.500000"/>
+        <Width value="1.000000"/>
+    </CActorQuad>
+    <CActorAction id="HardPackSnowballAttackAction" parent="StormGenericAttackPoint" effectLaunch="HardPackSnowballLaunchMissile">
+        <LaunchSiteOps Ops="SOpShadow HardPackSnowballAttackOffset"/>
+        <LaunchAttachQuery Methods="Weapon 0"/>
+        <Missile value="HardPackSnowballMissile"/>
+        <ImpactPointSiteOps Ops="SOpTargetPointStationary SOpShadow HardPackSnowballAttackOffset"/>
+    </CActorAction>
+    <CActorSiteOpLocalOffset id="HardPackSnowballAttackOffset">
+        <LocalOffset value="0.000000,0.000000,1.700000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorSound id="HardPackSnowballLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.HardPackSnowballLaunchMissile.Start; At Caster" Send="Create"/>
+        <Sound value="HardPackSnowballLaunch"/>
+    </CActorSound>
+    <CActorSound id="HardPackSnowballImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.HardPackSnowballImpactSet.Start" Send="Create"/>
+        <On Terms="Effect.HardPackSnowballSnowmanImpactSet.Start" Send="Create"/>
+        <Sound value="HardPackSnowballImpact"/>
+    </CActorSound>
+    <CActorModel id="HardPackSnowballTrailSplat" parent="StormModelAnimationStyleOneShot">
+        <On index="0" Send="AnimBracketStart BSD Birth Stand Death ContentPlayOnce 5.000000 AsTimeScaleAbsolute"/>
+        <On Terms="Effect.HardPackSnowballKnockbackTrailDummy.Start" Send="Create"/>
+        <Scale value="0.600000"/>
+    </CActorModel>
+    <CActorMissile id="HeavySnowballMissile" parent="StormMissileWithDeath" unitName="HeavySnowball">
+        <DeathArray index="Impact" AnimProps="Death"/>
+        <Model value="HeavySnowballMissile"/>
+        <Remove Terms="UnitDeath" Send="AnimBracketStop BSD"/>
+        <Remove Terms="ActorOrphan" Send="AnimBracketStop BSD"/>
+        <On Terms="AnimDone.*.Complete; AnimName Death" Send="Destroy"/>
+        <On Terms="Effect.HeavySnowballImpactCreatePersistent.Start" Send="SetOpacity"/>
+    </CActorMissile>
+    <CActorModel id="HeavySnowballImpact" parent="StormModelAnimationStyleOneShot">
+        <On Terms="Effect.HeavySnowballTargetSearch.Start" Send="Create"/>
+    </CActorModel>
+    <CActorRange id="HeavySnowballRange" parent="StormRangeAbilPlusSplat" abil="MapMechanicAbilityTarget2SnowBrawl"/>
+    <CActorSplat id="HeavySnowballRangeSplat" parent="StormRangeSplat">
+        <Scale value="11.000000"/>
+    </CActorSplat>
+    <CActorSplat id="HeavySnowballCursorSplat" parent="StormGuideVisualCircleFantasy" abil="MapMechanicAbilityTarget2SnowBrawl"/>
+    <CActorAction id="HeavySnowballAttack" parent="StormGenericAttackPoint" effectImpact="HeavySnowballTargetSearch" effectLaunch="HeavySnowballLaunchMissile">
+        <LaunchAttachQuery Methods="Weapon 0"/>
+        <LaunchAssets Model="HeavySnowballLaunch"/>
+        <Missile value="HeavySnowballMissile"/>
+    </CActorAction>
+    <CActorSound id="HeavySnowballLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.HeavySnowballLaunchMissile.Start; At Caster" Send="Create"/>
+        <Sound value="HeavySnowballLaunch"/>
+    </CActorSound>
+    <CActorSound id="HeavySnowballImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.HeavySnowballTargetSearch.Start" Send="Create"/>
+        <Sound value="HeavySnowballImpact"/>
+    </CActorSound>
+    <CActorSound id="HeavySnowballMissileSound" parent="SoundContinuous">
+        <On Terms="Effect.HeavySnowballLaunchMissile; At Caster" Send="Create"/>
+        <On Terms="Effect.HeavySnowballTargetSearch.Start" Send="Destroy"/>
+        <Sound value="HeavySnowballMissile"/>
+    </CActorSound>
+    <CActorModel id="HeavySnowballSlow" parent="ModelAddition">
+        <On Terms="Behavior.HeavySnowballSlowFader.On" Send="Create"/>
+        <On Terms="Behavior.HeavySnowballSlowFader.Off" Send="Destroy"/>
+        <Scale value="1.500000"/>
+    </CActorModel>
+    <CActorModelMaterial id="HeavySnowballImpactGlaze" parent="StormModelAnimationStyleContinuousUnit">
+        <On Terms="Behavior.HeavySnowballSlowFader.On" Send="Create"/>
+        <On Terms="Behavior.HeavySnowballSlowFader.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.WorldEnderSnowballGlazeVisualBuff.On" Send="Create"/>
+        <On Terms="Behavior.WorldEnderSnowballGlazeVisualBuff.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD IGNORE Stand Death"/>
+        <On Terms="ActorCreation" Send="Create HeavySnowballImpactDamageSound"/>
+        <Remove Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <Host Subject=""/>
+        <Inherits index="TimeScale" value="1"/>
+    </CActorModelMaterial>
+    <CActorSound id="HeavySnowballPickupSpawnSound" parent="SoundOneShot">
+        <Sound value="Snowball_Heavy_Spawn"/>
+    </CActorSound>
+    <CActorSound id="HeavySnowballImpactDamageSound" parent="SoundOneShot">
+        <Sound value="HeavySnowballImpactDamage"/>
+    </CActorSound>
+    <CActorSound id="HeavySnowballPickupPickupSound" parent="SoundOneShot">
+        <On Terms="Behavior.HasMapMechanicTargetAbility2SnowBrawl.On" Send="Create"/>
+        <Sound value="Snowball_Heavy_Pickup"/>
+    </CActorSound>
+    <CActorUnit id="SnowmanInProgress" parent="StormUnitBase" unitName="SnowmanInProgress">
+        <HostSiteOps Ops="SOpForwardPointsDown SOpMoveDownByDot50 SOpMoveDownByDot15"/>
+        <On Terms="ActorCreation" Send="Create HardPackSnowballPickupSpawnSound"/>
+        <On Terms="ActorCreation" Send="Create SnowmanInProgressSpawn"/>
+        <On Terms="BehaviorLevel.BuildSnowman.Start; Level 1" Send="Create SnowmanInProgressMiddle"/>
+        <On Terms="BehaviorLevel.BuildSnowman.Start; Level 2" Send="Create SnowmanInProgressTop"/>
+        <On Terms="UnitHighlightLocal.*.Start" Target="_Snowman" Send="StatusIncrement PreTargetingTint"/>
+        <On Terms="UnitHighlightLocal.*.Stop" Target="_Snowman" Send="StatusDecrement PreTargetingTint"/>
+        <On Terms="ActorDestruction" Target="SnowmanInProgressMiddle" Send="Destroy"/>
+        <On Terms="ActorDestruction" Target="SnowmanInProgressTop" Send="Destroy"/>
+        <Macros value="PreTargetHaloMacro"/>
+        <Scale value="4.000000"/>
+        <FogVisibility value="Dimmed"/>
+        <Aliases value="_Snowman"/>
+    </CActorUnit>
+    <CActorModel id="SnowmanInProgressMiddle" parent="StormModelAnimationStyleContinuousUnit">
+        <On Terms="UnitHighlightLocal.*.Start" Target="_Snowman" Send="StatusIncrement PreTargetingTint"/>
+        <On Terms="UnitHighlightLocal.*.Stop" Target="_Snowman" Send="StatusDecrement PreTargetingTint"/>
+        <Macros value="PreTargetHaloMacro"/>
+        <HostSiteOps Ops="SOpForwardPointsDown SOpMoveBackBy1 SOpMoveBackByDot5"/>
+        <Scale value="3.000000"/>
+        <FogVisibility value="Dimmed"/>
+        <Aliases value="_Snowman"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
+    </CActorModel>
+    <CActorModel id="SnowmanInProgressTop" parent="StormModelAnimationStyleContinuousUnit">
+        <On Terms="UnitHighlightLocal.*.Start" Target="_Snowman" Send="StatusIncrement PreTargetingTint"/>
+        <On Terms="UnitHighlightLocal.*.Stop" Target="_Snowman" Send="StatusDecrement PreTargetingTint"/>
+        <Macros value="PreTargetHaloMacro"/>
+        <HostSiteOps Ops="SOpForwardPointsDown SOpMoveBackBy2 SOpMoveBackByDot5"/>
+        <Scale value="2.000000"/>
+        <FogVisibility value="Dimmed"/>
+        <Aliases value="_Snowman"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
+    </CActorModel>
+    <CActorUnit id="EvilSnowman" parent="StormMinionStandard" unitName="EvilSnowman">
+        <On Terms="ActorCreation" Send="$Birth 0 0.000000"/>
+        <On Terms="ActorCreation" Send="Create HeroJainaWaterElemental@SoundLoop"/>
+        <On Terms="ActorDestruction" Target="HeroJainaWaterElemental@SoundLoop" Send="Destroy"/>
+        <DeathArray index="Normal" ModelLink="SnowmanDeath" SoundLink="Jaina_Claus_WaterElemental_Death"/>
+        <ImpactSound value="Pet_Large_Wet_Impact"/>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <BarOffset value="20"/>
+        <CustomUnitStatusFrame value="UnitStatus/MinionUnitStatusFrameWithDurationBars"/>
+    </CActorUnit>
+    <CActorSimple id="SnowmanEnrageResize">
+        <On Terms="Behavior.SnowmanEnrageBuff.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="StatusSet SnowmanEnrageScalingActive 1"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="PhysicsTerminate"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetScale 1.200000 0.500000 SnowmanEnrageScale"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.600000 PhysicsRestart"/>
+        <On Terms="TimerExpired; TimerName PhysicsRestart" Target="_Unit" Send="PhysicsInitialize"/>
+        <On Terms="TimerExpired; TimerName PhysicsRestart" Send="StatusSet SnowmanEnrageScalingActive 0"/>
+        <On Terms="Behavior.SnowmanEnrageBuff.Off" Send="TimerKill PhysicsRestart"/>
+        <On Terms="Behavior.SnowmanEnrageBuff.Off" Target="_Unit" Send="PhysicsTerminate"/>
+        <On Terms="Behavior.SnowmanEnrageBuff.Off" Target="_Unit" Send="ClearScale 0.500000 SnowmanEnrageScale"/>
+        <On Terms="Behavior.SnowmanEnrageBuff.Off" Send="StatusSet SnowmanEnrageScalingActive 1"/>
+        <On Terms="Behavior.SnowmanEnrageBuff.Off" Send="TimerSet 0.600000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="StatusSet SnowmanEnrageScalingActive 0"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Target="_Unit" Send="PhysicsInitialize"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+        <On Terms="UnitDeathCustomize; IsStatus SnowmanEnrageScalingActive 1" Target="_Unit" Send="ClearScale 0.000000 SnowmanEnrageScale"/>
+        <On Terms="UnitDeathCustomize" Send="Destroy"/>
+    </CActorSimple>
+    <CActorModelMaterial id="SnowmanEnrageGlaze" parent="StormModelAnimationStyleContinuousUnit">
+        <On Terms="Behavior.SnowmanEnrageBuff.On" Send="Create"/>
+        <On Terms="Behavior.SnowmanEnrageBuff.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD IGNORE Stand Death"/>
+        <Remove Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <Host Subject=""/>
+        <Inherits index="TimeScale" value="1"/>
+    </CActorModelMaterial>
+    <CActorMissile id="SnowmanAttackMissile" parent="StormMissileWithDeath" unitName="SnowmanAttackMissile">
+        <Macros value="GlobalLoopMacro"/>
+    </CActorMissile>
+    <CActorSound id="SnowmanBirthSound" parent="SoundOneShot">
+        <Sound value="Jaina_Claus_WaterElemental_Birth"/>
+        <On Terms="UnitBirth.EvilSnowman" Send="Create"/>
+    </CActorSound>
+    <CActorModel id="SnowmanDeath" parent="StormModelAnimationStyleOneShot"/>
+    <CActorModel id="SnowmanInProgressSpawn" parent="StormModelAnimationStyleOneShot">
+        <Model value="HeavySnowballImpact"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.WorldEnderSnowballImpactSearch.Start" Send="Create"/>
+        <Model value="HeavySnowballExplosion"/>
+        <Scale value="10.000000"/>
+        <FogVisibility value="Dimmed"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballWarning" parent="StormModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="SetScale 2.750000"/>
+        <On Terms="ActorCreation" Send="Create WorldEnderSnowballWarningMotion"/>
+        <On Terms="Effect.WorldEnderSnowballLaunchMissile.Launch" Send="Create"/>
+        <On Terms="Effect.WorldEnderSnowballImpactSearch.Start; FromEffectTreeDescendant" Target="_WorldEnderWarningExtra" Send="Signal SnowballImpacted"/>
+        <On Terms="Effect.WorldEnderSnowballImpactSearch.Start; FromEffectTreeDescendant" Send="AnimBracketStop BSD"/>
+        <Inherits index="TeamColor" value="1"/>
+        <HostSiteOps Ops="SOp2DRotation SOpTargetPoint" HoldPosition="1" HoldRotation="1"/>
+        <Model value="WorldEnderSnowballWarningSplatRing"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballWarningMotion" parent="StormModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="SetScale 0.100000,0.100000,1.000000"/>
+        <On Terms="ActorCreation" Send="SetScale 2.750000 3.125000"/>
+        <On Terms="Signal.*.SnowballImpacted" Send="AnimBracketStop BSD"/>
+        <Aliases value="_WorldEnderWarningExtra"/>
+        <HostSiteOps Ops="SOp2DRotation SOpTargetPoint" HoldPosition="1" HoldRotation="1"/>
+        <Model value="WorldEnderSnowballWarningSplatRing"/>
+    </CActorModel>
+    <CActorModelMaterial id="WorldEnderSnowballStructureGlaze" parent="BuffContinuous">
+        <On Terms="Behavior.WorldEnderSnowballStructureGlazeVisualBuff.On" Send="Create"/>
+        <On Terms="Behavior.WorldEnderSnowballStructureGlazeVisualBuff.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="ActorCreation" Send="AnimPlay GLStand GLstand PlayForever -1.000000 -1.000000 0.330000 AsTimeScale"/>
+        <Inherits index="TimeScale" value="1"/>
+    </CActorModelMaterial>
+    <CActorModel id="WorldEnderSnowballWarningMotion02" parent="StormModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="SetScale 0.500000"/>
+        <On Terms="ActorCreation" Send="AnimSetTimeScaleAbsolute {} 0.007500"/>
+        <Inherits index="TeamColor" value="1"/>
+        <HostSiteOps Ops="SOp2DRotation SOpTargetPoint" HoldPosition="1" HoldRotation="1"/>
+        <Model value="WorldEnderSnowballWarningMotion01"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballWarningMotion03" parent="StormModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="SetScale 0.500000"/>
+        <On Terms="ActorCreation" Send="AnimSetTimeScaleAbsolute {} 0.075000"/>
+        <Inherits index="TeamColor" value="1"/>
+        <HostSiteOps Ops="SOp2DRotation SOpTargetPoint" HoldPosition="1" HoldRotation="1"/>
+        <Model value="WorldEnderSnowballWarningMotion01"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballWarningMotion04" parent="StormModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="SetScale 0.500000"/>
+        <On Terms="ActorCreation" Send="AnimSetTimeScaleAbsolute {} 0.100000"/>
+        <Inherits index="TeamColor" value="1"/>
+        <HostSiteOps Ops="SOp2DRotation SOpTargetPoint" HoldPosition="1" HoldRotation="1"/>
+        <Model value="WorldEnderSnowballWarningMotion01"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballWarningMotion05" parent="StormModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="SetScale 0.500000"/>
+        <On Terms="ActorCreation" Send="AnimSetTimeScaleAbsolute {} 0.250000"/>
+        <Inherits index="TeamColor" value="1"/>
+        <HostSiteOps Ops="SOp2DRotation SOpTargetPoint" HoldPosition="1" HoldRotation="1"/>
+        <Model value="WorldEnderSnowballWarningMotion01"/>
+    </CActorModel>
+    <CActorModel id="WorldEnderSnowballImpactSecondary" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.WorldEnderSnowballImpactSearch.Start" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetFacing 180.000000"/>
+        <Model value="HeavySnowballExplosion"/>
+        <Scale value="5.000000"/>
+        <FogVisibility value="Dimmed"/>
+    </CActorModel>
+    <CActorSound id="WorldEnderSnowballImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.WorldEnderSnowballImpactSearch.Start" Send="Create"/>
+        <Sound value="WorldEnderSnowballImpact"/>
+        <FogVisibility value="Visible"/>
+    </CActorSound>
+    <CActorModel id="WorldEnderSnowballLaunch" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.WorldEnderSnowballLaunchFXDummySet.Start" Send="Create"/>
+        <Model value="HeavySnowballExplosion"/>
+        <Scale value="5.000000"/>
+        <FogVisibility value="Dimmed"/>
+    </CActorModel>
+    <CActorSound id="WorldEnderSnowballLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.WorldEnderSnowballLaunchFXDummySet.Start" Send="Create"/>
+        <Sound value="WorldEnderSnowballLaunch"/>
+        <FogVisibility value="Visible"/>
+    </CActorSound>
+    <CActorMissile id="WorldEnderSnowballMissile" parent="GenericAttackMissile" unitName="WorldEnderSnowballMissile">
+        <FogVisibility value="Dimmed"/>
+    </CActorMissile>
+    <CActorAction id="SnowmanAttack" parent="StormGenericAttackHeroRanged" effectImpact="SnowmanWeaponImpactSwitch" effectLaunch="SnowmanWeaponLaunchMissile">
+        <ImpactMap index="None" Sound="HeroJainaWaterElemental@WeaponImpact"/>
+        <LaunchAssets Sound="HeroJainaWaterElemental@WeaponLaunch"/>
+        <LaunchAttachQuery Methods="$GenericAttackLaunchMethodsFullMatch"/>
+    </CActorAction>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_A">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_B">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_C">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_D">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_E">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_F">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_G">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_H">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_I">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_J">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_K">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_L">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_M">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_N">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_O">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_P">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_Q">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_R">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_S">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_T">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_U">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_V">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_W">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_X">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_Y">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Jungle_Z">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CActorDoodad id="Storm_Doodad_SnowBrawl_Reindeer">
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
+    <CModel id="EvilSnowman" parent="Unit">
+        <Model value="Assets\Units\Pets\Storm_Pet_JainaWaterElemental_Claus\Storm_Pet_JainaWaterElemental_Claus.m3"/>
+        <RequiredAnims value="Assets\Units\Pets\Storm_Pet_JainaWaterElemental_Claus_RequiredAnims\Storm_Pet_JainaWaterElemental_Claus_RequiredAnims.m3a"/>
+    </CModel>
+    <CModel id="HardPackSnowballImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Large\Storm_Effect_PhysicsImpact_Snow_Large.m3"/>
+    </CModel>
+    <CModel id="HardPackSnowballMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Small_Missile\Storm_FX_SnowBrawl_SnowBall_Small_Missile.m3"/>
+        <Events>
+            <Anim value="Death,Alternate,00"/>
+            <Name value="HardPackSnowballImpactAlt"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="HardPackSnowballImpactAlt"/>
+        </Events>
+    </CModel>
+    <CModel id="HardPackSnowballMissileTrailSplat" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Arthas_Base_Sindragosa_Breath\Storm_FX_Arthas_Base_Sindragosa_Breath.m3"/>
+    </CModel>
+    <CModel id="HardPackSnowballTrailSplat" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Arthas_Base_Sindragosa_Breath\Storm_FX_Arthas_Base_Sindragosa_Breath.m3"/>
+    </CModel>
+    <CModel id="HeavySnowballSlow" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Jaina_Base_Chilled_FrostBite\Storm_FX_Jaina_Base_Chilled_FrostBite.m3"/>
+    </CModel>
+    <CModel id="SnowballPickupGlow" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Storm_FX_Jaina_Base_Chilled_FrostBite\Storm_FX_Jaina_Base_Chilled_FrostBite.m3"/>
+    </CModel>
+    <CModel id="SnowballPickupHardPackSnowball" parent="Unit">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Small\Storm_FX_SnowBrawl_SnowBall_Small.m3"/>
+    </CModel>
+    <CModel id="SnowballPickupHeavySnowball" parent="Unit">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Large\Storm_FX_SnowBrawl_SnowBall_Large.m3"/>
+    </CModel>
+    <CModel id="HeavySnowballImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Large_Impact\Storm_FX_SnowBrawl_SnowBall_Large_Impact.m3"/>
+    </CModel>
+    <CModel id="HeavySnowballMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Large_Missile\Storm_FX_SnowBrawl_SnowBall_Large_Missile.m3"/>
+    </CModel>
+    <CModel id="HeavySnowballExplosion" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Massive\Storm_Effect_PhysicsImpact_Snow_Massive.m3"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="HeavySnowballLaunch" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Light\Storm_Effect_PhysicsImpact_Snow_Light.m3"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="SnowballPickupGroundPuff" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Physics\Storm_Effect_PhysicsImpact_Snow_Medium\Storm_Effect_PhysicsImpact_Snow_Medium.m3"/>
+    </CModel>
+    <CModel id="HeavySnowballImpactGlaze" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Glaze\Storm_Glaze_Snow_TangentSpace\Storm_Glaze_Snow_TangentSpace.m3"/>
+    </CModel>
+    <CModel id="SnowmanAttackMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Storm_FX_Jaina_Claus_WaterElemental_Missile\Storm_FX_Jaina_Claus_WaterElemental_Missile.m3"/>
+    </CModel>
+    <CModel id="SnowmanEnrageGlaze" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Glaze\Storm_Glaze_Ice_TangentSpace\Storm_Glaze_Ice_TangentSpace.m3"/>
+    </CModel>
+    <CModel id="SnowmanInProgress" parent="Unit">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Small\Storm_FX_SnowBrawl_SnowBall_Small.m3"/>
+    </CModel>
+    <CModel id="SnowmanInProgressMiddle">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Small\Storm_FX_SnowBrawl_SnowBall_Small.m3"/>
+    </CModel>
+    <CModel id="SnowmanInProgressTop">
+        <Model value="Assets\Effects\Storm_FX_SnowBrawl_SnowBall_Small\Storm_FX_SnowBrawl_SnowBall_Small.m3"/>
+    </CModel>
+    <CModel id="Storm_FX_KingsCrest_Rain">
+        <Model value="Assets\Effects\Storm_FX_KingsCrest_Snowfall\Storm_FX_KingsCrest_Snowfall.m3"/>
+    </CModel>
+    <CModel id="SnowmanDeath" parent="StormUnitDeath">
+        <Model value="Assets\Units\Pets\Storm_Pet_JainaWaterElemental_Claus_Death\Storm_Pet_JainaWaterElemental_Claus_Death.m3"/>
+    </CModel>
+    <CModel id="Storm_FX_SnowBrawl_SnowBall_Big_Clean"/>
+    <CModel id="Storm_FX_SnowBrawl_SnowBall_Clean"/>
+    <CModel id="WorldEnderSnowballMissile" parent="Unit">
+        <Model value="assets\effects\storm_fx_wcav_snowball_missile\storm_fx_wcav_snowball_missile.m3"/>
+        <ScaleMax value="3.000000,3.000000,3.000000"/>
+        <ScaleMin value="3.000000,3.000000,3.000000"/>
+    </CModel>
+    <CModel id="WorldEnderSnowballWarningSplatRing" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Cursors\Storm_UI_AOECursor_Fantasy_TeamColor\Storm_UI_AOECursor_Fantasy_TeamColor.m3"/>
+        <RadiusLoose value="0.500000"/>
+        <ScaleMax value="4.500000,4.500000,4.500000"/>
+        <ScaleMin value="4.500000,4.500000,4.500000"/>
+    </CModel>
+    <CModel id="WorldEnderSnowballWarningMotion01" parent="PersistentSpellFX">
+        <Model value="assets\effects\storm_fx_kerrigan_ghost_primalshackles_ground\storm_fx_kerrigan_ghost_primalshackles_ground.m3"/>
+        <RadiusLoose value="0.500000"/>
+        <ScaleMax value="4.500000,4.500000,4.500000"/>
+        <ScaleMin value="4.500000,4.500000,4.500000"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_A" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_B" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_C" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_D" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_E" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_F" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_G" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_H" parent="Doodad">
+        <VariationCount value="3"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_I" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_J" parent="Doodad">
+        <VariationCount value="4"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_K" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_L" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_M" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_N" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_O" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_P" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_Q" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_R" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_S" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_T" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_U" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_V" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_W" parent="Doodad">
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_X" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_Y" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Jungle_Z" parent="Doodad"/>
+    <CModel id="Storm_Doodad_SnowBrawl_Reindeer" parent="Doodad"/>
+    <CWeaponLegacy id="EvilSnowmanWeapon" parent="StormHeroWeaponFast">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SnowmanWeaponDamage"/>
+        <MinScanRange value="20"/>
+        <Range value="7"/>
+        <ArcSlop value="11.25"/>
+        <Period value="1.5"/>
+        <Effect value="SnowmanWeaponLaunchMissile"/>
+        <LegacyOptions index="Uninterruptible" value="0"/>
+        <LegacyOptions index="FaceTargetWhileInCooldown" value="1"/>
+        <AcquireScanFilters value="-;Psionic"/>
+    </CWeaponLegacy>
+    <CMoverMissile id="HardPackSnowballMissile">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Speed value="15"/>
+            <MaxSpeed value="15"/>
+            <IgnoresTerrain value="1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="HardPackSnowballVictim">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="3200"/>
+            <MinSpeed value="20"/>
+            <MaxSpeed value="20"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="-1"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+        <MotionPhases YawPitchRoll="MAX"/>
+        <RotationIgnoredByUnit value="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="HeavySnowballMissile">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="6"/>
+            <Speed value="16"/>
+            <MinSpeed value="16"/>
+            <MaxSpeed value="26"/>
+            <Outro value="-4,-2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaClearance value="3.1,-1"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="10000"/>
+            <MinSpeed value="16"/>
+            <MaxSpeed value="26"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="HeavySnowballMissileNear">
+        <MotionPhases>
+            <Driver value="Ballistic"/>
+            <Speed value="14"/>
+            <Gravity value="110"/>
+            <Outro value="-0.5,-0.1"/>
+            <YawPitchRoll value="MAX"/>
+            <Overlays Scale="1,1"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="100"/>
+            <MinSpeed value="14"/>
+            <MaxSpeed value="26"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="WorldEnderSnowballMissile">
+        <MotionPhases>
+            <Driver value="Ballistic"/>
+            <Acceleration value="-1"/>
+            <Speed value="3"/>
+            <MaxSpeed value="4"/>
+            <Gravity value="20"/>
+            <YawPitchRoll value="MAX"/>
+            <FlightTime value="3,-1"/>
+        </MotionPhases>
+        <MotionOverlays>
+            <Type value="Revolver"/>
+            <RevolverSpeed value="74.8828"/>
+            <RevolverSpeedRange value="74.8828"/>
+            <RevolverMaxSpeed value="719.2968"/>
+            <RevolverMaxSpeedRange value="719.2968"/>
+            <RevolverAccel value="45"/>
+            <RevolverAccelRange value="45"/>
+        </MotionOverlays>
+    </CMoverMissile>
+    <CSound id="HardPackSnowballImpact" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_03.ogg" FacialGroup=""/>
+        <Pitch value="-2.000000,3.500000"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="HardPackSnowballImpactAlt" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_Miss_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_Miss_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_Miss_03.ogg" FacialGroup=""/>
+        <Pitch value="0.000000,3.000000"/>
+        <Volume value="-10.000000,-8.000000"/>
+    </CSound>
+    <CSound id="HardPackSnowballLaunch" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Launch_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Launch_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Launch_03.ogg" FacialGroup=""/>
+        <DupeWait value="100,100"/>
+        <Pitch value="-3.000000,3.000000"/>
+    </CSound>
+    <CSound id="HeavySnowballImpactDamage" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Impact_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Impact_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Impact_03.ogg" FacialGroup=""/>
+        <Pitch value="-2.000000,3.500000"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="SnowmanWeaponLaunch" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Launch_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Launch_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Launch_03.ogg" FacialGroup=""/>
+        <DupeWait value="100,100"/>
+        <Pitch value="-3.000000,3.000000"/>
+        <Volume value="-10.000000,0.000000"/>
+    </CSound>
+    <CSound id="SnowmanWeaponImpact" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Impact_03.ogg" FacialGroup=""/>
+        <Pitch value="-2.000000,3.500000"/>
+        <Volume value="-10.000000,0.000000"/>
+    </CSound>
+    <CSound id="HeavySnowballLaunch" parent="_FX_Hero_Spell_Launch">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Launch_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Launch_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Launch_03.ogg" FacialGroup=""/>
+        <DupeWait value="100,100"/>
+        <Pitch value="-1.000000,3.000000"/>
+        <Volume value="2.000000,5.000000"/>
+    </CSound>
+    <CSound id="HeavySnowballMissile" parent="_FX_Hero_Spell_Projectile">
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Base\Wizard_MagicMissile_Projectile_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Base\Wizard_MagicMissile_Projectile_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Base\Wizard_MagicMissile_Projectile_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Base\Wizard_MagicMissile_Projectile_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Heroes\Wizard_Base\Wizard_MagicMissile_Projectile_05.ogg" FacialGroup=""/>
+        <Flags index="AllowDuckingInPlayDelay" value="0"/>
+        <DupeWait value="100,100"/>
+        <Volume value="-4.000000,-2.000000"/>
+        <Pitch value="-3.000000,3.000000"/>
+    </CSound>
+    <CSound id="HeavySnowballImpact" parent="_FX_Hero_Spell_Impact">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Impact_Miss_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Impact_Miss_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Impact_Miss_03.ogg" FacialGroup=""/>
+        <Pitch value="0.000000,3.500000"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="Snowball_Heavy_Pickup" parent="_FX_Pickups">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Pickup_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Pickup_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Pickup_03.ogg" Volume="-2.000000,-2.000000" FacialGroup=""/>
+        <DupeHistoryCount value="2"/>
+        <DupeThresholdFadeTime value="1000"/>
+        <Select value="Sequential"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="Snowball_Hardpack_Pickup" parent="_FX_Pickups">
+        <DupeHistoryCount value="2"/>
+        <DupeThresholdFadeTime value="1000"/>
+        <Select value="Sequential"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Pickup_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Pickup_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Pickup_03.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Snowball_Hardpack_Spawn" parent="_FX_Pickups">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Drop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Drop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Hardpack_Snowball_Drop_03.ogg" FacialGroup=""/>
+        <DupeHistoryCount value="2"/>
+        <DupeThresholdFadeTime value="1000"/>
+        <Select value="Sequential"/>
+        <Volume value="-10.000000,-10.000000"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+        <Pitch value="-1.000000,1.000000"/>
+    </CSound>
+    <CSound id="Snowball_Heavy_Spawn" parent="_FX_Pickups">
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Drop_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Drop_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mutators\SnowBrawl\Heavy_Snowball_Drop_03.ogg" FacialGroup=""/>
+        <DupeHistoryCount value="2"/>
+        <DupeThresholdFadeTime value="1000"/>
+        <Select value="Sequential"/>
+        <VolumeRolloffPoints index="0" Distance="10.000000" Volume="0.000000"/>
+        <VolumeRolloffPoints index="1" Distance="20.000000" Volume="-96.000000"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="WorldEnderSnowballLaunch" parent="_FX_NPC_Combat">
+        <AssetArray File="Assets\Sounds\Event\HVH\InfernalShrines\Event_Punisher_Leap_Launch01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Event\HVH\InfernalShrines\Event_Punisher_Leap_Launch02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Event\HVH\InfernalShrines\Event_Punisher_Leap_Launch03.ogg" FacialGroup=""/>
+        <Pitch value="4.000000,4.000000"/>
+        <Category value="Alert"/>
+        <CategoryDuckingNonLocal value="MapEvents_Punch"/>
+        <SustainFade index="1" Time="250"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="23.000000" Volume="-96.000000"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="WorldEnderSnowballImpact" parent="_FX_NPC_Combat">
+        <AssetArray File="Assets\Sounds\Mercs\WC\Merc_WC_MountainGiant_Snowball_Impact01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mercs\WC\Merc_WC_MountainGiant_Snowball_Impact02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mercs\WC\Merc_WC_MountainGiant_Snowball_Impact03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Mercs\WC\Merc_WC_MountainGiant_Snowball_Impact04.ogg" FacialGroup=""/>
+        <Category value="Alert"/>
+        <CategoryDuckingLocal value="MapEvents_Punch"/>
+        <CategoryDuckingNonLocal value="MapEvents_Punch"/>
+        <SustainFade index="1" Time="250"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="23.000000" Volume="-96.000000"/>
+        <PanLevel value="0.800000"/>
+        <Volume value="-4.000000,-3.000000"/>
+        <Pitch value="-1.000000,-1.000000"/>
+        <PanLevelNonLocal value="0.800000"/>
+    </CSound>
+    <CUnit default="1" id="SnowballPickupSnowballParent" parent="StormPowerup">
+        <BehaviorArray Link="SnowballPickupSearch"/>
+        <BehaviorArray Link="SnowballPickupTimedLife"/>
+        <LifeStart value="60"/>
+        <LifeMax value="60"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="Unselectable" value="0"/>
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CUnit id="HardPackSnowball" parent="MISSILE_INVULNERABLE">
+        <Sight value="2.5"/>
+    </CUnit>
+    <CUnit id="HeavySnowball" parent="MISSILE_INVULNERABLE">
+        <Sight value="2.5"/>
+    </CUnit>
+    <CUnit id="SnowballPickupHardPackSnowball" parent="SnowballPickupSnowballParent"/>
+    <CUnit id="SnowballPickupHeavySnowball" parent="SnowballPickupSnowballParent"/>
+    <CUnit id="SnowmanInProgress" parent="StormSummonPassive">
+        <Radius value="1.375"/>
+        <FogVisibility value="Dimmed"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="EvilSnowman" parent="StormSummonActive">
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <Speed value="5.1992"/>
+        <Acceleration value="200"/>
+        <Sight value="7"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="HeroGenericSummonedUnitSpecialCaseInteraction"/>
+        <BehaviorArray Link="SnowmanScaling"/>
+        <BehaviorArray Link="ShrubProximityDetector"/>
+        <BehaviorArray Link="HeroicSummon"/>
+        <WeaponArray Link="EvilSnowmanWeapon"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.3"/>
+        <InnerRadius value="1"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+        <FlagArray index="VisionTestCenterOnly" value="0"/>
+        <InnerRadiusSafetyMultiplier value="2"/>
+        <LifeRegenRate value="-50"/>
+        <Collide index="Ground" value="1"/>
+    </CUnit>
+    <CUnit id="SnowmanAttackMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="HeroMissileSpeed22Ribbon"/>
+    </CUnit>
+    <CUnit id="WorldEnderSnowballMissile" parent="MISSILE_INVULNERABLE">
+        <FogVisibility value="Dimmed"/>
+    </CUnit>
+    <CBehaviorBuff id="HasMapMechanicTargetAbility2SnowBrawl">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+        <InfoIcon value="Assets\Textures\storm_ui_hud_snowbrawl_snowballa.dds"/>
+        <TechAliasArray value="StormCategory MapMechanicAbility"/>
+        <RemoveValidatorArray value="SourceNotDead"/>
+        <RemoveValidatorArray value="StormCategoryCasterHasNotSpecialDeathState"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HasMapMechanicTargetAbilitySnowBrawl">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+        <InfoIcon value="Assets\Textures\storm_ui_hud_snowbrawl_snowballb.dds"/>
+        <TechAliasArray value="StormCategory MapMechanicAbility"/>
+        <RemoveValidatorArray value="SourceNotDead"/>
+        <RemoveValidatorArray value="StormCategoryCasterHasNotSpecialDeathState"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SnowballPickupTimedLife">
+        <Duration value="60"/>
+        <ExpireEffect value="StormSuicideTimeout"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SnowballPickupSearch">
+        <Period value="0.25"/>
+        <InitialEffect value="SnowballPickupSearchArea"/>
+        <PeriodicEffect value="SnowballPickupSearchArea"/>
+        <Modification MoveSpeedMultiplier="0.85"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HardPackSnowballStun" parent="StormPushPullParent">
+        <Duration value="0.5"/>
+        <InitialEffect value="HardPackSnowballKnockbackLaunchVictim"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="HardPackSnowballKnockbackTrailDummy"/>
+        <TechAliasArray value="StormCategory FlailingBackward"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HeavySnowballSlow" parent="StormSlow">
+        <Modification UnifiedMoveSpeedFactor="-0.15"/>
+        <MaxStackCount value="4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HeavySnowballSlowFader">
+        <Period value="0.5"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffect value="HeavySnowballRemove1SlowStack"/>
+        <Duration value="2"/>
+        <FinalEffect value="HeavySnowballRemoveSlowFaderBehavior"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BuildSnowman">
+        <MaxStackCount value="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SnowmanEnrageBuff">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\storm_ui_icon_rehgar_bloodlust.dds"/>
+        <BehaviorCategories index="Fast" value="1"/>
+        <BehaviorCategories index="User14" value="1"/>
+        <Modification UnifiedMoveSpeedFactor="0.25">
+            <AdditiveAttackSpeedFactor value="0.4"/>
+        </Modification>
+        <BehaviorFlags index="Permanent" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="SnowmanScaling">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+        <XPFraction index="Kills" value="0"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+        <VeterancyLevelArray MinVeterancyXP="1">
+            <Modification>
+                <DamageDealtFraction index="Spell" value="0.05"/>
+                <VitalMaxFractionArray index="Life" value="0.05"/>
+            </Modification>
+        </VeterancyLevelArray>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="WorldEnderSnowballGlazeVisualBuff" parent="StormCarryBehaviorParent">
+        <Duration value="3"/>
+    </CBehaviorBuff>
+</Catalog>

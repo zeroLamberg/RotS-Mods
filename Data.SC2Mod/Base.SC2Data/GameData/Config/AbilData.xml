@@ -1,0 +1,3969 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUser id="Ability">
+        <Fields Id="Flag_MountReplacement" Type="User" UserType="GenericTrueFalse"/>
+        <Fields>
+            <Id value="Type"/>
+            <Type value="User"/>
+            <UserType value="AbilityType"/>
+            <EditorColumn value="3"/>
+        </Fields>
+        <Fields Id="ButtonEntry" Type="GameLink" GameLinkType="Button"/>
+        <Fields Id="AbilityEntry" Type="GameLink" GameLinkType="Abil"/>
+        <Fields>
+            <Id value="Slot"/>
+            <Type value="User"/>
+            <UserType value="AbilitySlot"/>
+            <EditorColumn value="2"/>
+        </Fields>
+        <Fields Id="Paired" Type="User" UserType="AbilityPaired"/>
+        <Fields Id="Hero" Type="User" UserType="Hero"/>
+        <Fields Id="InventoryUnitEntry" Type="GameLink" GameLinkType="Unit"/>
+        <Fields Id="Flag_AffectedByCooldownReduction" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Flag_ShowInHeroSelection" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Flag_UsesCharges" Type="User" UserType="GenericTrueFalse"/>
+        <Fields Id="Flag_CooldownPerUnit" Type="User" UserType="GenericTrueFalse"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="AbathurSymbiote">
+            <GameLink GameLink="HeroAbathurSymbiote">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurSymbiote">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurToxicNest">
+            <GameLink GameLink="HeroAbathurToxicNest">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurToxicNest">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurLocustStrain">
+            <GameLink GameLink="HeroAbathurLocustStrain">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurLocustStrain">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurDeepTunnel">
+            <GameLink GameLink="HeroAbathurDeepTunnel">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurDeepTunnel">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Mount">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_MountReplacement"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurSymbioteStab">
+            <GameLink GameLink="HeroAbathurStab">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurStab">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurSymbioteSpikeBurst">
+            <GameLink GameLink="HeroAbathurSpikeBurst">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurSpikeBurst">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurSymbioteCarapace">
+            <GameLink GameLink="HeroAbathurCarapace">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurCarapace">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurUltimateEvolution">
+            <GameLink GameLink="HeroAbathurUltimateEvolution">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurUltimateEvolution">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="AbathurEvolveMonstrosity">
+            <GameLink GameLink="HeroAbathurEvolveMonstrosity">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAbathurEvolveMonstrosity">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Abathur">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinFlashHeal">
+            <GameLink GameLink="AnduinFlashHeal">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnduinFlashHeal">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinDivineStar">
+            <GameLink GameLink="AnduinDivineStar">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnduinDivineStar">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinChastise">
+            <GameLink GameLink="AnduinChastise">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnduinChastise">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinLeapOfFaith">
+            <GameLink GameLink="AnduinLeapOfFaith">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnduinLeapOfFaith">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinHolyWordSalvation">
+            <GameLink GameLink="AnduinHolyWordSalvation">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnduinHolyWordSalvation">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AnduinLightbomb">
+            <GameLink GameLink="AnduinLightbomb">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnduinLightbomb">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Anduin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakImpale">
+            <GameLink GameLink="AnubarakImpale">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakImpale">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Anubarak">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakHardenCarapace">
+            <GameLink GameLink="AnubarakHardenCarapace">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakHardenCarapace">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Anubarak">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakBurrowCharge">
+            <GameLink GameLink="AnubarakBurrowCharge">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakBurrowCharge">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Anubarak">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakScarabHost">
+            <GameLink GameLink="AnubarakScarabHost">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakScarabHost">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Anubarak">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakLocustSwarm">
+            <GameLink GameLink="AnubarakLocustSwarm">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakLocustSwarm">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Anubarak">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AnubarakCocoon">
+            <GameLink GameLink="AnubarakCocoon">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AnubarakCocoon">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Anubarak">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisBladeDash">
+            <GameLink GameLink="HeroArtanisBladeDash">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisBladeDash">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Artanis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisTwinBlades">
+            <GameLink GameLink="HeroArtanisTwinBlades">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisTwinBlades">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Artanis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisPhasePrism">
+            <GameLink GameLink="HeroArtanisPhasePrism">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisPhasePrism">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Artanis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisPurifierBeam">
+            <GameLink GameLink="HeroArtanisPurifierBeam">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisPurifierBeam">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Artanis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisSuppressionPulse">
+            <GameLink GameLink="HeroArtanisSuppressionPulse">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisSuppressionPulse">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Artanis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArtanisShieldOverload">
+            <GameLink GameLink="HeroArtanisShieldOverload">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArtanisShieldOverload">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Artanis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasDeathCoil">
+            <GameLink GameLink="HeroArthasDeathCoil">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasDeathCoil">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasHowlingBlast">
+            <GameLink GameLink="HeroArthasHowlingBlast">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasHowlingBlast">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasIceboundFortitude">
+            <GameLink GameLink="HeroArthasIceboundFortitude">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasIceboundFortitude">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasFrozenTempest">
+            <GameLink GameLink="HeroArthasFrozenTempest">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasFrozenTempest">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasRemorselessWinter">
+            <GameLink GameLink="HeroArthasRemorselessWinter">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasRemorselessWinter">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ArthasSummonSindragosa">
+            <GameLink GameLink="HeroArthasSummonSindragosa">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroArthasSummonSindragosa">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Arthas">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielSacredSweep">
+            <GameLink GameLink="HeroAurielSacredSweep">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielSacredSweep">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielRayOfHeaven">
+            <GameLink GameLink="HeroAurielRayOfHeaven">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielRayOfHeaven">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielDetainmentStrike">
+            <GameLink GameLink="HeroAurielDetainmentStrike">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielDetainmentStrike">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielBestowHope">
+            <GameLink GameLink="HeroAurielBestowHope">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielBestowHope">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielResurrect">
+            <GameLink GameLink="HeroAurielResurrect">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielResurrect">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="AurielCrystalAegis">
+            <GameLink GameLink="HeroAurielCrystalAegis">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroAurielCrystalAegis">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Auriel">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingArcaneFlare">
+            <GameLink GameLink="BrightwingArcaneFlare">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingArcaneFlare">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingPolymorph">
+            <GameLink GameLink="BrightwingPolymorph">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingPolymorph">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingPixieDust">
+            <GameLink GameLink="BrightwingPixieDust">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingPixieDust">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingPhaseShift">
+            <GameLink GameLink="BrightwingPhaseShift">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingPhaseShift">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Mount">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_MountReplacement"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingSoothingMist">
+            <GameLink GameLink="BrightwingCalmingMist">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingSoothingMist">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingEmeraldWind">
+            <GameLink GameLink="BrightwingEmeraldWind">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingEmeraldWind">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="BrightwingBlinkHeal">
+            <GameLink GameLink="BrightwingBlinkHeal">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="BrightwingBlinkHeal">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Brightwing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaTheGriffinsArsenal">
+            <GameLink GameLink="DeltaTheGriffinsArsenal">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="DeltaTheGriffinsArsenal">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Delta">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaCleanShot">
+            <GameLink GameLink="DeltaCleanShot">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="DeltaCleanShot">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Delta">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaPriorityTarget">
+            <GameLink GameLink="DeltaPriorityTarget">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="DeltaPriorityTarget">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Delta">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaFade">
+            <GameLink GameLink="DeltaFade">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="DeltaFade">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Delta">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaExclusionZone">
+            <GameLink GameLink="DeltaExclusionZone">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="DeltaExclusionZone">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Delta">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="DeltaFlashbang">
+            <GameLink GameLink="DeltaFlashbang">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="DeltaFlashbang">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Delta">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloShadowCharge">
+            <GameLink GameLink="HeroDiabloShadowCharge">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloShadowCharge">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloFireStomp">
+            <GameLink GameLink="HeroDiabloFireStomp">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloFireStomp">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloOverpower">
+            <GameLink GameLink="HeroDiabloOverpower">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloOverpower">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloBlackSoulstone">
+            <GameLink GameLink="HeroDiabloBlackSoulstone">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloBlackSoulstone">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloApocalypse">
+            <GameLink GameLink="HeroDiabloApocalypse">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloApocalypse">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="DiabloLightningBreath">
+            <GameLink GameLink="HeroDiabloLightningBreath">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroDiabloLightningBreath">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Diablo">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCPowerslide">
+            <GameLink GameLink="ETCPowerslide">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="ETCPowerslide">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="ETC">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCFaceMelt">
+            <GameLink GameLink="ETCFaceMelt">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="ETCFaceMelt">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="ETC">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCGuitarSolo">
+            <GameLink GameLink="ETCGuitarSolo">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="ETCGuitarSolo">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="ETC">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCRockstar">
+            <GameLink GameLink="ETCRockstar">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="ETCRockstar">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="ETC">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCStageDive">
+            <GameLink GameLink="ETCStageDive">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="ETCStageDive">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="ETC">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="ETCMoshPit">
+            <GameLink GameLink="ETCMoshPit">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="ETCMoshPit">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="ETC">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadHammerang">
+            <GameLink GameLink="HeroFalstadHammerang">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadHammerang">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadBOOMerang">
+            <GameLink GameLink="HeroFalstadBOOMerang">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadBOOMerang">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadLightningRod">
+            <GameLink GameLink="HeroFalstadLightningRod">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadLightningRod">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadBarrelRoll">
+            <GameLink GameLink="HeroFalstadBarrelRoll">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadBarrelRoll">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadTailwind">
+            <GameLink GameLink="HeroFalstadTailwind">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadTailwind">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadHinterlandBlast">
+            <GameLink GameLink="HeroFalstadHinterlandBlast">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadHinterlandBlast">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadMightyGust">
+            <GameLink GameLink="HeroFalstadMightyGust">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadMightyGust">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="FalstadFlight">
+            <GameLink GameLink="HeroFalstadFlight">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroFalstadFlight">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Mount">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Falstad">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_MountReplacement"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneGilneanCocktail">
+            <GameLink GameLink="GreymaneGilneanCocktail">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneGilneanCocktail">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneInnerBeast">
+            <GameLink GameLink="GreymaneInnerBeast">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneInnerBeast">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneDarkflight">
+            <GameLink GameLink="GreymaneDarkflight">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneDarkflight">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneCurseOfTheWorgen">
+            <GameLink GameLink="GreymaneWorgenForm">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneWorgenForm">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneRazorSwipe">
+            <GameLink GameLink="GreymaneRazorSwipe">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneRazorSwipe">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneDisengage">
+            <GameLink GameLink="GreymaneDisengage">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneDisengage">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneGoForTheThroat">
+            <GameLink GameLink="GreymaneGoForTheThroat">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneGoForTheThroat">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="GreymaneCursedBullet">
+            <GameLink GameLink="GreymaneCursedBullet">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="GreymaneCursedBullet">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Greymane">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaFrostbolt">
+            <GameLink GameLink="HeroJainaFrostbolt">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaFrostbolt">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaBlizzard">
+            <GameLink GameLink="HeroJainaBlizzard">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaBlizzard">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaConeOfCold">
+            <GameLink GameLink="HeroJainaConeOfCold">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaConeOfCold">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaFrostbite">
+            <GameLink GameLink="HeroJainaFrostbite">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaFrostbite">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaRingOfFrost">
+            <GameLink GameLink="HeroJainaRingOfFrost">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaRingOfFrost">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaWaterElemental">
+            <GameLink GameLink="HeroJainaWaterElementalSummon">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaWaterElementalSummon">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JainaImprovedIceBlock">
+            <GameLink GameLink="HeroJainaImprovedIceBlock">
+                <Field Id="InventoryUnitEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaImprovedIceBlock">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroJainaImprovedIceBlock">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Active">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Active">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Jaina">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaPunish">
+            <GameLink GameLink="JohannaPunish">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="JohannaPunish">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Johanna">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaCondemn">
+            <GameLink GameLink="JohannaCondemn">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="JohannaCondemn">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Johanna">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaShieldGlare">
+            <GameLink GameLink="JohannaShieldGlare">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="JohannaShieldGlare">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="Hero" Instance="Johanna">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaIronSkin">
+            <GameLink GameLink="JohannaIronSkin">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="JohannaIronSkin">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Johanna">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaFallingSword">
+            <GameLink GameLink="JohannaFallingSword">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="JohannaFallingSword">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Johanna">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="JohannaBlessedShield">
+            <GameLink GameLink="JohannaBlessedShield">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="JohannaBlessedShield">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Johanna">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganRavage">
+            <GameLink GameLink="KerriganRavage">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KerriganRavage">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="Hero" Instance="Kerrigan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganImpalingBlades">
+            <GameLink GameLink="KerriganImpalingBlades">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KerriganImpalingBlades">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Kerrigan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganPrimalGrasp">
+            <GameLink GameLink="KerriganPrimalGrasp">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="KerriganPrimalGrasp">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Kerrigan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganAssimilation">
+            <GameLink GameLink="KerriganAssimilation">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="KerriganAssimilation">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Kerrigan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganMaelstrom">
+            <GameLink GameLink="KerriganMaelstrom">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KerriganMaelstrom">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kerrigan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="KerriganSummonUltralisk">
+            <GameLink GameLink="KerriganSummonUltralisk@Talent">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="KerriganSummonUltralisk">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Kerrigan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimRadiantDash">
+            <GameLink GameLink="KharazimRadiantDash">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KharazimRadiantDash">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kharazim">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimBreathofHeaven">
+            <GameLink GameLink="KharazimBreathofHeaven">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KharazimBreathofHeaven">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kharazim">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimDeadlyReach">
+            <GameLink GameLink="KharazimDeadlyReach">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KharazimDeadlyReach">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="[Default]">
+                <Field Id="Flag_MountReplacement"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kharazim">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimPickYourTrait">
+            <GameLink GameLink="KharazimHero@Trait">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="KharazimHero@PickYourTrait">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kharazim">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimSevenSidedStrike">
+            <GameLink GameLink="KharazimSevenSidedStrike">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KharazimSevenSidedStrike">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kharazim">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="KharazimDivinePalm">
+            <GameLink GameLink="KharazimDivinePalm">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="KharazimDivinePalm">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Kharazim">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingMagicMissiles">
+            <GameLink GameLink="LiMingMagicMissiles">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="LiMingMagicMissiles">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="LiMing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingArcaneOrb">
+            <GameLink GameLink="LiMingArcaneOrb">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="LiMingArcaneOrb">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="LiMing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingTeleport">
+            <GameLink GameLink="LiMingTeleport">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="LiMingTeleport">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="LiMing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingCriticalMass">
+            <GameLink GameLink="LiMingCriticalMass">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="LiMingCriticalMass">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="LiMing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingDisintegrate">
+            <GameLink GameLink="LiMingDisintegrate">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="LiMingDisintegrate">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="LiMing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="LiMingWaveOfForce">
+            <GameLink GameLink="LiMingWaveOfForce">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="LiMingWaveOfForce">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="LiMing">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionRegrowth">
+            <GameLink GameLink="HeroMalfurionRegrowth">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionRegrowth">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Malfurion">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionMoonfire">
+            <GameLink GameLink="HeroMalfurionMoonfire">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionMoonfire">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Malfurion">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionEntanglingRoots">
+            <GameLink GameLink="HeroMalfurionEntanglingRoots">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionEntanglingRoots">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Malfurion">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionInnervate">
+            <GameLink GameLink="HeroMalfurionInnervate">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionInnervate">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Malfurion">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionTranquility">
+            <GameLink GameLink="HeroMalfurionTranquility">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionTranquility">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Malfurion">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="MalfurionTwilightDream">
+            <GameLink GameLink="HeroMalfurionTwilightDream">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroMalfurionTwilightDream">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Malfurion">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinStormbolt">
+            <GameLink GameLink="MuradinStormbolt">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinStormbolt">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinThunderclap">
+            <GameLink GameLink="MuradinThunderclap">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinThunderclap">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinDwarfToss">
+            <GameLink GameLink="MuradinDwarfToss">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinDwarfToss">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinSecondWind">
+            <GameLink GameLink="MuradinSecondWind">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinSecondWind">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinAvatar">
+            <GameLink GameLink="MuradinAvatar">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinAvatar">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinHaymaker">
+            <GameLink GameLink="MuradinHaymaker">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinHaymaker">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="MuradinStoneform">
+            <GameLink GameLink="MuradinStoneform">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="MuradinStoneform">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="Hero" Instance="Muradin">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosEmpowerSulfuras">
+            <GameLink GameLink="HeroRagnarosEmpowerSulfuras">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosEmpowerSulfuras">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosLivingMeteor">
+            <GameLink GameLink="HeroRagnarosLivingMeteor">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosLivingMeteor">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosBlastWave">
+            <GameLink GameLink="HeroRagnarosBlastWave">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosBlastWave">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosSulfurasSmash">
+            <GameLink GameLink="HeroRagnarosSulfurasSmash">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosSulfurasSmash">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosLavaWave">
+            <GameLink GameLink="HeroRagnarosLavaWave">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosLavaWave">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosMoltenCore">
+            <GameLink GameLink="HeroRagnarosMoltenCore">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosMoltenCore">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosMoltenSwing">
+            <GameLink GameLink="HeroRagnarosMoltenCoreMoltenSwing">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosMoltenCoreMoltenSwing">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosMeteorShower">
+            <GameLink GameLink="HeroRagnarosMoltenCoreMeteorShower">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosMoltenCoreMeteorShower">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosExplosiveRune">
+            <GameLink GameLink="HeroRagnarosMoltenCoreExplosiveRune">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosMoltenCoreExplosiveRune">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="RagnarosMoltenCoreReturn">
+            <GameLink GameLink="HeroRagnarosMoltenCoreReturn">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroRagnarosMoltenCoreReturn">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Ragnaros">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisSolarLance">
+            <GameLink GameLink="HeroSelendisSolarLance">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisSolarLance">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Selendis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisZealousRush">
+            <GameLink GameLink="HeroSelendisZealousRush">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisZealousRush">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Selendis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_CooldownPerUnit"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisDecisiveBlow">
+            <GameLink GameLink="HeroSelendisDecisiveBlow">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisDecisiveBlow">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Selendis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisExecutorsGuard">
+            <GameLink GameLink="HeroSelendisExecutorsGuard">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisExecutorsGuard">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Selendis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisGoldenArmada">
+            <GameLink GameLink="HeroSelendisGoldenArmada">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisGoldenArmada">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Selendis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="SelendisPsionicSurge">
+            <GameLink GameLink="HeroSelendisPsionicSurge">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroSelendisPsionicSurge">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Selendis">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarThunderousCharge">
+            <GameLink GameLink="HeroTalandarThunderousCharge">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarThunderousCharge">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarWhirlwind">
+            <GameLink GameLink="HeroTalandarWhirlwind">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarWhirlwind">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarSolarBlast">
+            <GameLink GameLink="HeroTalandarSolarBlast">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarSolarBlast">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarPurification">
+            <GameLink GameLink="HeroTalandarPurification">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarPurification">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarShieldOvercharge">
+            <GameLink GameLink="HeroTalandarShieldOvercharge">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarShieldOvercharge">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarBattleArena">
+            <GameLink GameLink="HeroTalandarBattleArena">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarBattleArena">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarSolariteCore">
+            <GameLink GameLink="HeroTalandarSolariteCore">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarSolariteCore">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+        </Instances>
+        <Instances Id="TalandarRecharge">
+            <GameLink GameLink="HeroTalandarRecharge">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarRecharge">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="HeroTalandarRecharge">
+                <Field Id="InventoryUnitEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Active">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Active">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Talandar">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusOverkill">
+            <GameLink GameLink="TychusOverkill">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusOverkill">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusFragGrenade">
+            <GameLink GameLink="TychusFragGrenade">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusFragGrenade">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusRunAndGun">
+            <GameLink GameLink="TychusRunAndGun">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusRunAndGun">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusMinigun">
+            <GameLink GameLink="TychusMinigun">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusMinigun">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusLaserDrill">
+            <GameLink GameLink="TychusLaserDrill">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusLaserDrill">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusOdin">
+            <GameLink GameLink="TychusOdin">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusOdin">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired1">
+                <Field Id="Paired"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusOdinAnnihilate">
+            <GameLink GameLink="TychusOdinAnnihilate">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusOdinAnnihilate">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusOdinRagnarokMissiles">
+            <GameLink GameLink="TychusOdinRagnarokMissiles">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusOdinRagnarokMissiles">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+        </Instances>
+        <Instances Id="TychusOdinThrusters">
+            <GameLink GameLink="TychusOdinThrusters">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TychusOdinThrusters">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityPaired" Instance="Paired2">
+                <Field Id="Paired"/>
+            </User>
+            <User Type="Hero" Instance="Tychus">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeLightOfElune">
+            <GameLink GameLink="TyrandeLightOfElune">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeLightOfElune">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Tyrande">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_UsesCharges"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeSentinel">
+            <GameLink GameLink="TyrandeSentinel">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeSentinel">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tyrande">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeLunarFlare">
+            <GameLink GameLink="TyrandeLunarFlare">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeLunarFlare">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Tyrande">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeHuntersMark">
+            <GameLink GameLink="TyrandeHuntersMark">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeHuntersMark">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tyrande">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeShadowstalk">
+            <GameLink GameLink="TyrandeShadowstalk">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeShadowstalk">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Tyrande">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="TyrandeStarfall">
+            <GameLink GameLink="TyrandeStarfall">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="TyrandeStarfall">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Tyrande">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanGlobeOfAnnihilation">
+            <GameLink GameLink="AzmodanGlobeOfAnnihilation">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanGlobeOfAnnihilation">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Azmodan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic1">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanSummonDemonWarrior">
+            <GameLink GameLink="AzmodanSummonDemonWarrior">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanSummonDemonWarrior">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic2">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Azmodan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanAllShallBurn">
+            <GameLink GameLink="AzmodanAllShallBurn">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanAllShallBurn">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Azmodan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Basic3">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Basic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanSummonDemonLieutenant">
+            <GameLink GameLink="AzmodanSummonDemonLieutenant">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanSummonDemonLieutenant">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="AbilityType" Instance="Trait">
+                <Field Id="Type"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Trait">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="Hero" Instance="Azmodan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanDemonicInvasion">
+            <GameLink GameLink="AzmodanDemonicInvasion">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanDemonicInvasion">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Azmodan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+        <Instances Id="AzmodanTideOfSin">
+            <GameLink GameLink="AzmodanTideOfSin">
+                <Field Id="ButtonEntry"/>
+            </GameLink>
+            <GameLink GameLink="AzmodanTideOfSin">
+                <Field Id="AbilityEntry"/>
+            </GameLink>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_AffectedByCooldownReduction"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="Flag_ShowInHeroSelection"/>
+            </User>
+            <User Type="Hero" Instance="Azmodan">
+                <Field Id="Hero"/>
+            </User>
+            <User Type="AbilitySlot" Instance="Heroic">
+                <Field Id="Slot"/>
+            </User>
+            <User Type="AbilityType" Instance="Heroic">
+                <Field Id="Type"/>
+            </User>
+        </Instances>
+    </CUser>
+</Catalog>

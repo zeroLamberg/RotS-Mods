@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+  <Frame type="SelectionUnitStatusPanel" name="MuradinFrame" template="StandardHeroUITemplates/CircularHeroUITemplate">
+    <SpecificUnit val="MuradinHero"/>
+
+    <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+
+        <Frame type="Image" name="MechanicTexture">
+            <Texture val="Assets\Textures\storm_ui_icon_muradin_secondwind.dds"/>
+        </Frame>
+
+        <Frame type="BehaviorIcon" name="SecondsWindActiveIcon" template="StandardHeroUITemplates/SmallBehaviorTooltiptemplate">
+            <Behavior val="MuradinSecondWind@Cooldown"/>
+        </Frame>
+
+        <Frame type="UnitStatusBehaviorIcon" name="SecondsWindActiveAnim" template="StandardHeroUITemplates/CircularBehaviorCountdownBarTemplate">
+            <Behavior val="MuradinSecondWind@Cooldown"/>
+        </Frame>
+    </Frame>
+</Frame>
+
+</Desc>

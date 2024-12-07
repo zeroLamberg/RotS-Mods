@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Frame type="Button" name="LoadoutMountTileListItemTemplate" template="HeroSelectLoadoutTemplates/LoadoutTileListItemTemplate">
+    <Animation name="AnimationWheelUp">
+      <Event event="OnMouseWheelIncrement" action="Reset,Play" frame="$this"/>
+      <Controller type="Property" end="Pause" frame="$parent/$parent/ScrollEditBox" property="Text">
+        <Key type="Property" time="0.0" value="WheelUp"/>
+      </Controller>
+    </Animation>
+    <Animation name="AnimationWheelDown">
+      <Event event="OnMouseWheelDecrement" action="Reset,Play" frame="$this"/>
+      <Controller type="Property" end="Pause" frame="$parent/$parent/ScrollEditBox" property="Text">
+        <Key type="Property" time="0.0" value="WheelDown"/>
+      </Controller>
+    </Animation>
+  </Frame>
+  <Frame type="Frame" name="LoadoutMountsPanelTemplate" template="HeroSelectLoadoutTemplates/HeroSelectLoadoutItemPanelTemplate">
+    <StateGroup name="HeroUsesMounts">
+      <State name="NotUses">
+        <When type="StateGroup" frame="$ancestor[@name=HeroSelectLoadoutPanel]" HeroUsesMounts="NotUses" />
+        <Action type="SetProperty" frame="ContentTileList" Visible="False"/>
+        <Action type="SetProperty" frame="CategoryTileList" Visible="False"/>
+        <Action type="SetProperty" frame="SearchEditBox" Visible="False"/>
+        <Action type="SetProperty" frame="OwnershipFilterPulldown" Visible="False"/>
+        <Action type="SetProperty" frame="SelectedContentLabel" Visible="False"/>
+        <Action type="SetProperty" frame="MountReplacementContainer" Visible="True"/>
+      </State>
+    </StateGroup>
+    <Frame type="Frame" name="CategoryTileList" template="HeroSelectLoadoutTemplates/LoadoutCategoryTileListTemplate">
+    </Frame>
+    <Frame type="EditBox" name="ScrollEditBox">
+      <Anchor relative="$parent/SelectedContentLabel"/>
+      <Visible val="False"/>
+    </Frame>
+    <Frame type="Frame" name="ContentTileList" template="HeroSelectLoadoutTemplates/LoadoutTileListTemplate">
+      <Frame type="Button" name="Item0" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item1" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item2" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item3" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item4" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item5" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item6" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item7" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item8" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item9" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item10" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item11" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item12" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item13" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item14" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item15" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item16" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Frame type="Button" name="Item17" template="HeroSelectLoadoutMountsPanel/LoadoutMountTileListItemTemplate" />
+      <Animation name="AnimationWheelUp">
+        <Event event="OnMouseWheelIncrement" action="Reset,Play" frame="$this"/>
+        <Controller type="Property" end="Pause" frame="$parent/ScrollEditBox" property="Text">
+          <Key type="Property" time="0.0" value="WheelUp"/>
+        </Controller>
+      </Animation>
+      <Animation name="AnimationWheelDown">
+        <Event event="OnMouseWheelDecrement" action="Reset,Play" frame="$this"/>
+        <Controller type="Property" end="Pause" frame="$parent/ScrollEditBox" property="Text">
+          <Key type="Property" time="0.0" value="WheelDown"/>
+        </Controller>
+      </Animation>
+    </Frame>
+    <Frame type="Frame" name="MountReplacementContainer">
+      <Anchor side="Top" relative="$ancestor[@name=HeroSelectLoadoutPanel]/BlurBackground" pos="Min" offset="0" />
+      <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+      <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+      <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />
+      <Visible val="false" />
+      <!--<StateGroup name="Visibility">
+        <State name="Show">
+          <When type="Property" frame="$ancestor[@name=HeroSelectLoadoutPanel]" HeroUsesMounts="false" />
+          <Action type="SetProperty" Visible="true" />
+          <Action type="SetProperty" frame="$parent/OwnershipFilterPulldown" Visible="false" />
+          <Action type="SetProperty" frame="$parent/SearchEditBox" Visible="false" />
+          <Action type="SetProperty" frame="$parent/CategoryTileList" Visible="false" />
+        </State>
+      </StateGroup>-->
+      <Frame type="Label" name="MountUnavailableHeader" template="HeroSelectLoadoutTemplates/SelectedItemNameLabelTemplate">
+        <Anchor side="Top" relative="$parent/$parent/SearchEditBox" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$this" pos="Min" offset="0" />
+        <Anchor side="Bottom" relative="$parent/$parent/SearchEditBox" pos="Mid" offset="0" />
+        <Text val="@UI/HeroSelectMountsPanel/MountUnavailableHeader" />
+      </Frame>
+      <Frame type="Image" name="BorderTopLineImage">
+        <Anchor side="Top" relative="$parent/$parent/SearchEditBox" pos="Max" offset="10" />
+        <Anchor side="Left" relative="$parent" pos="Min" offset="5" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-5" />
+        <Alpha val="186" />
+        <Color val="5c47b3" />
+        <Height val="2" />
+      </Frame>
+      <Frame type="Image" name="DarkenImage">
+        <Anchor side="Top" relative="$parent/BorderTopLineImage" pos="Max" offset="0" />
+        <Anchor side="Left" relative="$parent/BorderTopLineImage" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/BorderTopLineImage" pos="Max" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5" />
+        <Alpha val="150" />
+        <Color val="191336" />
+      </Frame>
+      <Frame type="Label" name="MountUnavailableLabel">
+        <Anchor side="Top" relative="$parent" pos="Mid" offset="-50" />
+        <Anchor side="Left" relative="$parent/BorderTopLineImage" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="-50" />
+        <Style val="HeroSelectPanelUnavailableLabel" />
+        <Text val="@UI/HeroSelectMountsPanel/MountUnavailableTooltip" />
+      </Frame>
+      <Frame type="Image" name="BorderLine2Image">
+        <Anchor side="Left" relative="$parent/BorderTopLineImage" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent/BorderTopLineImage" pos="Max" offset="0" />
+        <Anchor side="Bottom" relative="$parent/MountReplacementHeader" pos="Min" offset="-10" />
+        <Alpha val="186" />
+        <Color val="5c47b3" />
+        <Height val="2" />
+      </Frame>
+      <Frame type="Label" name="MountReplacementHeader">
+        <Anchor side="Left" relative="$parent/BorderTopLineImage" pos="Min" offset="20" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+        <Anchor side="Bottom" relative="$parent/MountReplacementTileList" pos="Min" offset="-10" />
+        <Style val="HeroSelectPanelHeaderLabel" />
+        <Text val="@UI/HeroSelectMountsPanel/MountReplacementHeader" />
+      </Frame>
+      <Frame type="Frame" name="MountReplacementTileList">
+        <Anchor side="Left" relative="$parent/BorderTopLineImage" pos="Min" offset="-2" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-2" />
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />
+        <Height val="110" />
+        <Frame type="Frame" name="Item0" template="HeroAbilTileListItem/HeroSelectHeroAbilTileListItemTemplate">
+          <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+          <Frame type="Frame" name="HotkeyFrame">
+            <StateGroup name="HeroAbilHotkeyFrame">
+              <DefaultState val="HotkeyAbility"/>
+            </StateGroup>
+          </Frame>
+        </Frame>
+      </Frame>
+    </Frame>
+  </Frame>
+</Desc>

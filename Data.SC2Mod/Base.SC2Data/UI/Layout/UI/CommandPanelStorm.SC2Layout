@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+  <Constant name="CommandButtonGap" val="1" />
+  <Constant name="CommandButtonSpacing" val="26" />
+  <Constant name="CommandButtonSpacingNeg" val="-26" />
+  <Constant name="CommandButtonBottomSpacing" val="5" />
+  <Constant name="DynamicButtonGap" val="-96" />
+  <Frame type="Image" name="ChoiceArrowTemplate">
+    <Anchor side="Top" relative="$parent/ChoiceBg" pos="Max" offset="-15"/>
+    <Anchor side="Left" relative="$parent/ChoiceBg" pos="Mid" offset="0"/>
+    <Anchor side="Right" relative="$parent/ChoiceBg" pos="Mid" offset="0"/>
+    <Height val="48"/>
+    <Width val="64"/>
+    <Texture val="@UI/StormTalentTipArrow"/>
+  </Frame>
+  <Animation name="FlipCommandPanel">
+    <Event event="FlipCommandPanel" action="Restart, Play" />
+    <Controller type="Anchor" end="Pause" side="Bottom" relative="false" frame="AnchorFrame">
+      <Key type="Curve" time="0" value="100" inout="Smooth" />
+      <Key type="Curve" time=".25" value="0" inout="Smooth" />
+    </Controller>
+  </Animation>
+  <Frame type="Image" name="ButtonPulseTemplate">
+    <Anchor side="Top" relative="$parent/GameButtonDefaultBorder" pos="Mid" offset="0" />
+    <Anchor side="Left" relative="$parent/GameButtonDefaultBorder" pos="Mid" offset="0" />
+    <Anchor side="Right" relative="$parent/GameButtonDefaultBorder" pos="Mid" offset="0" />
+    <Anchor side="Bottom" relative="$parent/GameButtonDefaultBorder" pos="Mid" offset="0" />
+    <Texture val="@UI/Storm_UI_InGame_AbilityButton_Activate_Add" />
+    <BlendMode val="Add" />
+    <ColorAdjustMode val="None" />
+    <Color val="00c8ff" />
+    <Alpha val="0" />
+    <Visible val="False" />
+    <Unclipped val="True" />
+    <Animation name="ButtonPulse">
+      <Event event="OnShown" action="Stop" />
+      <Event event="ButtonPulse" action="Restart, play" frame="$parent" />
+      <Controller type="Dimension" dimension="Height" end="Pause" unclipped="True" percentage="false" relative="False">
+        <Key type="Curve" time="0" value="300" inout="Linear" />
+        <Key type="Curve" time="0.6" value="116" inout="Linear,Slow" />
+        <Key type="Curve" time="0.8" value="116" inout="Slow,Linear" />
+      </Controller>
+      <Controller type="Dimension" dimension="Width" end="Pause" unclipped="True" percentage="false" relative="False">
+        <Key type="Curve" time="0" value="300" inout="Linear" />
+        <Key type="Curve" time="0.6" value="116" inout="Linear,Slow" />
+        <Key type="Curve" time="0.8" value="116" inout="Slow,Linear" />
+      </Controller>
+      <Controller type="Fade" end="Pause">
+        <Key type="Curve" time="0" value="0" />
+        <Key type="Curve" time=".6" value="255" inout="Linear" />
+        <Key type="Curve" time="0.8" value="0" inout="Slow,Linear" />
+      </Controller>
+      <Controller type="Visibility" end="Pause">
+        <Key type="Bool" time="1" value="False" />
+      </Controller>
+    </Animation>
+  </Frame>
+
+  <Frame type="CommandPanel" name="CommandPanelTemplate">
+      <DisplayCancelCommandCard val="false"/>
+      <HideUnusedButtons val="True"/>
+      <UseGridHotkeys val="True"/>
+      <RenderPriority val="600"/>
+      <Handle val="CommandPanel"/>
+      
+      <Frame type="Frame" name="AnchorFrame">
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />
+      </Frame>
+
+
+      <Frame type="CommandTooltip" name="AbilityTooltipStorm" template="StandardTooltipStorm/AbilityCommandTooltipTemplateStorm">
+          <!--<Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+          <Anchor side="Bottom" relative="$parent" pos="Max" offset="-100"/>
+          <FadeTime val="999999999"/>-->
+      </Frame>
+
+      <StateGroup name="ActiveButton">
+        <DefaultState val="Default"/>
+        <State name="CommandButton00">
+            <When type="Property" frame="$this/CommandButton00" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <!--<Action type="SetState" frame="$Announcer" group="ContextState" state="CommandPanel"/>-->
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton00"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton00/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton01">
+            <When type="Property" frame="$this/CommandButton01" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton01"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton01/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton02">
+            <When type="Property" frame="$this/CommandButton02" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton02"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton02/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton03">
+            <When type="Property" frame="$this/CommandButton03" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton03"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton03/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton04">
+            <When type="Property" frame="$this/CommandButton04" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton04"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton04/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton05">
+            <When type="Property" frame="$this/CommandButton05" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton05"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton05/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton06">
+            <When type="Property" frame="$this/CommandButton06" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton06"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton06/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton07">
+            <When type="Property" frame="$this/CommandButton07" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton07"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton07/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton08">
+            <When type="Property" frame="$this/CommandButton08" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton08"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton08/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton09">
+            <When type="Property" frame="$this/CommandButton09" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton09"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton09/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton10">
+            <When type="Property" frame="$this/CommandButton10" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton10"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton10/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton11">
+            <When type="Property" frame="$this/CommandButton11" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton11"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton11/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton12">
+            <When type="Property" frame="$this/CommandButton12" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton12"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton12/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton13">
+            <When type="Property" frame="$this/CommandButton13" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton13"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton13/NormalImage/@Texture}"/>
+        </State>
+        <State name="CommandButton14">
+            <When type="Property" frame="$this/CommandButton14" operator="Equal" Hovering="True"/>
+            <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="True"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Button" FormatText="CommandButton14"/>
+            <Action type="SetProperty" frame="$Announcer/TF_Texture" FormatText="{$CommandPanel/CommandButton14/NormalImage/@Texture}"/>
+        </State>
+        <State name="Default">
+          <Action type="SetState" frame="$Announcer" group="CommandPanelState" state="False"/>
+        </State>
+      </StateGroup>
+
+      <Frame type="SelectionUnitStatusPanel" name="CommandUnitSelectionPanel">
+        <Anchor relative="$parent/AnchorFrame" />
+        <Frame type="UnitStatusFrame" name="UnitStatusFrame0">
+          <Anchor relative="$parent" />
+          <Frame type="UnitStatusValidatorAnimElement" name="AttentionValidatorElementQ">
+            <Handle val="Q_AttentionAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonAttentionQDamage" />
+            <Validator val="AbilButtonAttentionQHealing" />
+            <Validator val="AbilButtonAttentionQMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="AttentionValidatorElementW">
+            <Handle val="W_AttentionAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonAttentionWDamage" />
+            <Validator val="AbilButtonAttentionWHealing" />
+            <Validator val="AbilButtonAttentionWMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="AttentionValidatorElementE">
+            <Handle val="E_AttentionAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonAttentionEDamage" />
+            <Validator val="AbilButtonAttentionEHealing" />
+            <Validator val="AbilButtonAttentionEMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="AttentionValidatorElementR">
+            <Handle val="R_AttentionAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonAttentionRDamage" />
+            <Validator val="AbilButtonAttentionRHealing" />
+            <Validator val="AbilButtonAttentionRMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="AttentionValidatorElementD">
+            <Handle val="D_AttentionAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonAttentionDDamage" />
+            <Validator val="AbilButtonAttentionDHealing" />
+            <Validator val="AbilButtonAttentionDMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElementQ">
+            <Handle val="Q_ActiveAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonActiveQDamage" />
+            <Validator val="AbilButtonActiveQHealing" />
+            <Validator val="AbilButtonActiveQMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElementW">
+            <Handle val="W_ActiveAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonActiveWDamage" />
+            <Validator val="AbilButtonActiveWHealing" />
+            <Validator val="AbilButtonActiveWMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElementE">
+            <Handle val="E_ActiveAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonActiveEDamage" />
+            <Validator val="AbilButtonActiveEHealing" />
+            <Validator val="AbilButtonActiveEMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElementR">
+            <Handle val="R_ActiveAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonActiveRDamage" />
+            <Validator val="AbilButtonActiveRHealing" />
+            <Validator val="AbilButtonActiveRMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElementD">
+            <Handle val="D_ActiveAnimValidatorFrame" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonActiveDDamage" />
+            <Validator val="AbilButtonActiveDHealing" />
+            <Validator val="AbilButtonActiveDMana" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="ActiveValidatorElementF">
+            <Handle val="F_AbilMapMechanicShown" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilButtonHideFMapMechanic" />
+          </Frame>
+          <Frame type="UnitStatusValidatorAnimElement" name="AbilBarHealthBarPortraitGlow">
+            <Handle val="AbilBarHealthBarPortraitGlow" />
+            <Anchor relative="$parent" />
+            <Validator val="AbilBarHealthBarPortraitGlow" />
+            <Animation flags="" name="CommandCardFlip">
+              <Event event="AbilBarHealthBarPortraitGlow" action="Restart,Play" />
+              <Event event="NoState" action="Restart,Play" />
+              <Controller type="Event" end="Stop" frame="$ancestor[@type=CommandPanel]">
+                <Key type="Event" time="0.0" event="FlipCommandPanel" />
+              </Controller>
+            </Animation>
+          </Frame>
+        </Frame>
+      </Frame>
+
+      <!-- Mount Button  -->
+      <Frame type="CommandButton" name="CommandButton08" template="CommandButtonStorm/BookEndLeftButtonTemplate">
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Handle val="CommandButton08"/>
+        <!--<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Right" relative="$parent/MiddleFill" pos="Min" offset="35"/>-->
+        <Anchor side="Left" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+
+        <Anchor side="Bottom" relative="$parent/CommandButton00" pos="Max" offset="-5" />
+        <Anchor side="Right" relative="$parent/CommandButton00" pos="Min" offset="-8" />
+        <RenderPriority val="499" />
+        <Frame type="Image" name="NormalImage">
+          <Anchor relative="$parent" offset="0"/>
+        </Frame>
+        <Frame type="Image" name="HoverImage">
+          <Anchor relative="$parent" offset="0"/>
+        </Frame>
+      </Frame>
+
+      <!-- Abil Button 1-->
+      <Frame type="CommandButton" name="CommandButton00" template="CommandButtonStorm/CommandButtonTemplate">
+        <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="#CommandButtonBottomSpacing" />
+        <Anchor side="Right" relative="$parent/CommandButton01" pos="Min" offset="#CommandButtonSpacing" />
+        <Anchor side="Left" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Handle val="CommandButton00"/>
+        <!--<Anchor side="Bottom" relative="$parent/MiddleFill" pos="Max" offset="5"/>
+        <Anchor side="Left" relative="$parent/MiddleFill" pos="0.2" offset="0"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>-->
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Frame type="Frame" name="GameButtonProgressBar" template="GameButtonProgressBars/GameButtonProgressBarQ"/>
+        <Frame type="Frame" name="AttentionEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$Q_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonAttentionQHealing" action="DirectionForward,Play" frame="$Q_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonAttentionQDamage" action="DirectionForward,Play" frame="$Q_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonAttentionQMana" action="DirectionForward,Play" frame="$Q_AttentionAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="ActiveEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$Q_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonActiveQHealing" action="DirectionForward,Play" frame="$Q_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonActiveQDamage" action="DirectionForward,Play" frame="$Q_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonActiveQMana" action="DirectionForward,Play" frame="$Q_ActiveAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="HeroSpecificCommandCardPanel" template="HeroSpecific/HeroSpecificCommandButton00Template">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Height val="120" />
+          <Width val="120" />
+        </Frame>
+      </Frame>
+
+      <!-- Abil Button 2-->
+      <Frame type="CommandButton" name="CommandButton01" template="CommandButtonStorm/CommandButtonTemplate">
+        <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="#CommandButtonBottomSpacing" />
+        <Anchor side="Right" relative="$parent/CommandButton02" pos="Min" offset="#CommandButtonSpacing" />
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$this" pos="Min" offset="0"/>
+        <Handle val="CommandButton01"/>
+        <!--<Anchor side="Bottom" relative="$parent/CommandButton00" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandButton00" pos="Max" offset="#CommanButtonSpacing"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>-->
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Frame type="Frame" name="GameButtonProgressBar" template="GameButtonProgressBars/GameButtonProgressBarW"/>
+        <Frame type="Frame" name="AttentionEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$W_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonAttentionWHealing" action="DirectionForward,Play" frame="$W_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonAttentionWDamage" action="DirectionForward,Play" frame="$W_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonAttentionWMana" action="DirectionForward,Play" frame="$W_AttentionAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="ActiveEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$W_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonActiveWHealing" action="DirectionForward,Play" frame="$W_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonActiveWDamage" action="DirectionForward,Play" frame="$W_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonActiveWMana" action="DirectionForward,Play" frame="$W_ActiveAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="HeroSpecificCommandCardPanel" template="HeroSpecific/HeroSpecificCommandButton01Template">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Height val="120" />
+          <Width val="120" />
+        </Frame>
+      </Frame>
+
+      <!-- Abil Button 3-->
+      <Frame type="CommandButton" name="CommandButton02" template="CommandButtonStorm/CommandButtonTemplate">
+        <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="#CommandButtonBottomSpacing" />
+        <Anchor side="Left" relative="$parent/AnchorFrame" pos="Mid" offset="0" />
+        <Anchor side="Right" relative="$parent/AnchorFrame" pos="Mid" offset="0" />
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Handle val="CommandButton02"/>
+
+        <!--<Anchor side="Bottom" relative="$parent/CommandButton01" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandButton01" pos="Max" offset="#CommanButtonSpacing"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>-->
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Frame type="Frame" name="GameButtonProgressBar" template="GameButtonProgressBars/GameButtonProgressBarE"/>
+        <Frame type="Frame" name="AttentionEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$E_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonAttentionEHealing" action="DirectionForward,Play" frame="$E_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonAttentionEDamage" action="DirectionForward,Play" frame="$E_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonAttentionEMana" action="DirectionForward,Play" frame="$E_AttentionAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="ActiveEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$E_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonActiveEHealing" action="DirectionForward,Play" frame="$E_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonActiveEDamage" action="DirectionForward,Play" frame="$E_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonActiveEMana" action="DirectionForward,Play" frame="$E_ActiveAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="HeroSpecificCommandCardPanel" template="HeroSpecific/HeroSpecificCommandButton02Template">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Height val="120" />
+          <Width val="120" />
+        </Frame>
+      </Frame>
+
+      <!-- Heroic Button-->
+      <Frame type="CommandButton" name="CommandButton03" template="CommandButtonStorm/CommandButtonTemplate">
+        <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="#CommandButtonBottomSpacing" />
+        <Anchor side="Left" relative="$parent/CommandButton02" pos="Max" offset="#CommandButtonSpacingNeg" />
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+        <Handle val="CommandButton03"/>
+
+
+        <!--<Anchor side="Bottom" relative="$parent/CommandButton02" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandButton02" pos="Max" offset="#CommanButtonSpacing"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>-->
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Frame type="Frame" name="GameButtonProgressBar" template="GameButtonProgressBars/GameButtonProgressBarR"/>
+        <Frame type="Frame" name="AttentionEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$R_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonAttentionRHealing" action="DirectionForward,Play" frame="$R_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonAttentionRDamage" action="DirectionForward,Play" frame="$R_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonAttentionRMana" action="DirectionForward,Play" frame="$R_AttentionAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="ActiveEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$R_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonActiveRHealing" action="DirectionForward,Play" frame="$R_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonActiveRDamage" action="DirectionForward,Play" frame="$R_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonActiveRMana" action="DirectionForward,Play" frame="$R_ActiveAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="HeroSpecificCommandCardPanel" template="HeroSpecific/HeroSpecificCommandButton03Template">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Height val="120" />
+          <Width val="120" />
+        </Frame>
+      </Frame>
+
+      <!-- Trait Button -->
+      <Frame type="CommandButton" name="CommandButton04" template="CommandButtonStorm/CommandButtonTemplate">
+        <Anchor side="Left" relative="$parent/CommandButton03" pos="Max" offset="#CommandButtonSpacingNeg" />
+        <Anchor side="Bottom" relative="$parent/AnchorFrame" pos="Max" offset="#CommandButtonBottomSpacing" />
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+        <Handle val="CommandButton04"/>
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Frame type="Frame" name="GameButtonProgressBar" template="GameButtonProgressBars/GameButtonProgressBarD"/>
+        <Frame type="Frame" name="AttentionEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$D_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonAttentionDHealing" action="DirectionForward,Play" frame="$D_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonAttentionDDamage" action="DirectionForward,Play" frame="$D_AttentionAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonAttentionDMana" action="DirectionForward,Play" frame="$D_AttentionAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="ActiveEffect">
+          <Animation name="EffectState">
+            <Event event="NoState" action="DirectionReverse,Play" frame="$D_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="HealType">
+            <Event event="AbilButtonActiveDHealing" action="DirectionForward,Play" frame="$D_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="DamageType">
+            <Event event="AbilButtonActiveDDamage" action="DirectionForward,Play" frame="$D_ActiveAnimValidatorFrame" />
+          </Animation>
+          <Animation name="ManaType">
+            <Event event="AbilButtonActiveDMana" action="DirectionForward,Play" frame="$D_ActiveAnimValidatorFrame" />
+          </Animation>
+        </Frame>
+        <Frame type="Frame" name="HeroSpecificCommandCardPanel" template="HeroSpecific/HeroSpecificCommandButton04Template">
+          <Anchor side="Top" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Left" relative="$parent" pos="Mid" offset="0" />
+          <Anchor side="Right" relative="$parent" pos="Mid" offset="0" />
+          <Height val="120" />
+          <Width val="120" />
+        </Frame>
+      </Frame>
+
+      <!-- Map Mechanic Button -->
+      <Frame type="CommandButton" name="CommandButton05" template="CommandButtonStorm/CommandButtonTemplate">
+        <Anchor side="Top" relative="$parent/CommandButton01" pos="Min" offset="0" />
+        <Anchor side="Left" relative="$parent/CommandButton09" pos="Max" offset="-5" />
+        <Handle val="CommandButton05"/>
+        <ClickSound val="@UI_Game_ActionClick" />
+        <BatchGroup val="false" />
+        <RenderPriority val="511" />
+        <Unclipped val="true" />
+        <Width val="0" />
+        <Height val="0" />
+        <StateGroup name="PlayOnceAnimationState">
+          <DefaultState val="IntroOff" />
+          <State name="IntroOff">
+            <When type="AnimationState" frame="$this" PlayOnceAnimationState="IntroOff" />
+            <Action type="SendEvent" frame="$this" event="StopAll" />
+          </State>
+          <State name="IntroOn">
+            <When type="AnimationState" frame="$this" PlayOnceAnimationState="IntroOn" />
+            <Action type="SendEvent" frame="$this" event="PlayIntro" />
+          </State>
+        </StateGroup>
+        <Animation name="SpawnInPlayOnceAnimation">
+          <Event event="PlayIntro" action="Reset, Play" />
+          <Event event="StopAll" action="Reset, Stop" />
+          <Controller type="Anchor" end="Pause" unclipped="True" side="Left" relative="true">
+            <Key type="Curve" time="0.0" value="-92" inout="Linear" />
+            <Key type="Curve" time="0.7" value="0" inout="Smooth,Linear" />
+          </Controller>
+          <Controller type="Rotation" end="Pause" relative="false" frame="GameButtonDefaultBorder">
+            <Key type="Curve" time="0.0" value="-90" inout="Linear" />
+            <Key type="Curve" time="0.7" value="0" inout="Smooth,Linear" />
+          </Controller>
+          <Controller type="Rotation" end="Pause" relative="false" frame="IconBackground">
+            <Key type="Curve" time="0.0" value="-90" inout="Linear" />
+            <Key type="Curve" time="0.7" value="0" inout="Smooth,Linear" />
+          </Controller>
+          <Controller type="Rotation" end="Pause" relative="false" frame="DisabledLockOverlay">
+            <Key type="Curve" time="0.0" value="-90" inout="Linear" />
+            <Key type="Curve" time="0.7" value="0" inout="Smooth,Linear" />
+          </Controller>
+          <Controller type="Rotation" end="Pause" relative="false" frame="NormalImage">
+            <Key type="Curve" time="0.0" value="-90" inout="Linear" />
+            <Key type="Curve" time="0.7" value="0" inout="Smooth,Linear" />
+          </Controller>
+          <Controller type="Fade" end="Pause">
+            <Key type="Curve" time="0.0" value="0" inout="Linear,Step" />
+            <Key type="Curve" time="0.2" value="0" inout="Step,Smooth" />
+            <Key type="Curve" time="0.6" value="255" inout="Smooth,Linear" />
+          </Controller>
+          <Controller type="Animation" end="stop" frame="$FKeyButtonPulse1" Animation="ButtonPulse">
+            <Key type="Animation" time="0" action="reset" />
+            <Key type="Animation" time="0.7" action="play" />
+          </Controller>
+          <Controller type="Animation" end="stop" frame="$FKeyButtonPulse2" Animation="ButtonPulse">
+            <Key type="Animation" time="0" action="reset" />
+            <Key type="Animation" time="0.9" action="play" />
+          </Controller>
+          <Controller type="Animation" end="stop" frame="$FKeyButtonPulse3" Animation="ButtonPulse">
+            <Key type="Animation" time="0" action="reset" />
+            <Key type="Animation" time="1.1" action="play" />
+          </Controller>
+        </Animation>
+        <Frame type="Frame" name="ValidatorResponseFrame">
+          <Animation name="ValidatorState">
+            <Event event="AbilButtonHideFMapMechanic" action="DirectionForward,Play" frame="$F_AbilMapMechanicShown" />
+            <Event event="NoState" action="DirectionReverse,Play" frame="$F_AbilMapMechanicShown" />
+            <Controller type="Fade" end="Pause" frame="$parent">
+              <Key type="Curve" time="0" value="255" inout="Linear,slow" />
+              <Key type="Curve" time=".2" value="0" inout="Linear" />
+            </Controller>
+            <Controller type="Visibility" end="Pause" frame="$parent">
+              <Key type="Bool" time=".2" value="False" />
+            </Controller>
+          </Animation>
+        </Frame>
+        <Frame type="Image" name="DisabledLockOverlay">
+          <Anchor relative="$parent/NormalImage" offset="0" />
+          <Texture val="@UI/HUD_BTN_BG_Ability_Locked" />
+          <ImageMaskTexture val="@UI/HUD_BTN_BG_Ability_AlphaMask" />
+          <DesaturateOnDisable val="False" />
+          <RenderPriority val="503" />
+          <Animation name="Fade">
+            <Event event="FadeOut" action="DirectionForward,Play" />
+            <Event event="FadeIn" action="DirectionReverse,Play" />
+            <Controller type="Fade" layer="1" end="Pause">
+              <Key type="Curve" time="0" value="255" />
+              <Key type="Curve" time="0.25" value="0" />
+            </Controller>
+            <Controller type="Visibility" end="Pause">
+              <Key type="Bool" time="0" value="True" />
+              <Key type="Bool" time="0.25" value="True" />
+              <Key type="Bool" time="0.25" value="False" />
+            </Controller>
+          </Animation>
+        </Frame>
+        <StateGroup name="VisibilityStateGroup">
+          <State name="Hidden">
+            <When type="Property" frame="$this" Width="0" />
+            <When type="Property" frame="$this" Height="0" />
+            <Action type="SetProperty" frame="GameButtonDefaultBorder" Visible="False"/>
+          </State>
+          <State name="Visible">
+            <Action type="SetProperty" frame="GameButtonDefaultBorder" Visible="True"/>
+          </State>
+        </StateGroup>
+        <!--<Frame type="Image" name="GameButtonDefaultBorder">
+          <StateGroup name="BorderStates">
+            <DefaultState val="Normal" />
+            <State name="Cleared">
+              <When type="StateGroup" ButtonEnabled="Enabled" />
+              <When type="Property" frame="$parent" Cleared="true" />
+              <Action type="SetProperty" frame="$parent" Visible="false" />
+            </State>
+            <State name="Disabled">
+              <When type="StateGroup" ButtonEnabled="Enabled" />
+              <When type="Property" frame="$parent" CommandDisabled="true" />
+              <Action type="SetProperty" frame="$this" DesaturationColor="#ColorCommandDisabled" />
+              <Action type="SetProperty" frame="$parent/GameButtonDefaultHoverBorder" Visible="false" />
+              <Action type="SendEvent" frame="$parent/DisabledLockOverlay" event="FadeIn" />
+            </State>
+            <State name="Normal">
+              <When type="Property" frame="$parent" Executing="false" />
+              <When type="Property" frame="$parent" CommandDisabled="false" />
+              <When type="Property" frame="$parent/CooldownLabel" Visible="false" />
+              <When type="StateGroup" ButtonEnabled="Enabled" />
+              <Action type="SetProperty" frame="$this" Texture="@UI/Storm_UI_InGame_AbilityButtonBorder" />
+              <Action type="SetProperty" frame="$parent/GameButtonDefaultHoverBorder" Visible="true" />
+              <Action type="SendEvent" frame="$parent/DisabledLockOverlay" event="FadeOut" />
+            </State>
+            <State name="Executing">
+              <When type="Property" frame="$parent" Executing="true" />
+              <When type="StateGroup" ButtonEnabled="Enabled" />
+              <Action type="SetProperty" frame="$this" Texture="@UI/Storm_UI_InGame_AbilityButtonBorder_Hover" />
+              <Action type="SetProperty" frame="$parent/GameButtonDefaultHoverBorder" Visible="false" />
+            </State>
+          </StateGroup>
+        </Frame>-->
+        <StateGroup name="StateGroup">
+          <State name="Locked">
+            <When type="Property" frame="$this/NormalImage" Texture="assets\textures\hud_btn_bg_ability_locked_rots.dds" index="0" operator="Equal" />
+            <Action type="SendEvent" frame="DisabledLockOverlay" event="FadeIn" />
+          </State>
+          <State name="Normal">
+            <When type="Property" frame="$this/NormalImage" Texture="assets\textures\hud_btn_bg_ability_locked_rots.dds" index="0" operator="NotEqual" />
+            <Action type="SendEvent" frame="DisabledLockOverlay" event="FadeOut" />
+          </State>
+        </StateGroup>
+        <Frame type="Image" name="FKeyButtonPulse1" template="CommandPanelStorm/ButtonPulseTemplate">
+          <Visible val="True" />
+          <Handle val="FKeyButtonPulse1" />
+        </Frame>
+        <Frame type="Image" name="FKeyButtonPulse2" template="CommandPanelStorm/ButtonPulseTemplate">
+          <Visible val="True" />
+          <Handle val="FKeyButtonPulse2" />
+        </Frame>
+        <Frame type="Image" name="FKeyButtonPulse3" template="CommandPanelStorm/ButtonPulseTemplate">
+          <Visible val="True" />
+          <Handle val="FKeyButtonPulse3" />
+        </Frame>
+      </Frame>
+
+      <!-- Artifact Button 1 -->
+      <Frame type="CommandButton" name="CommandButton13" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Width val="105"/>
+        <Height val="105"/>
+        <!--<Width val="95"/>
+        <Height val="65"/>-->
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent/MiddleFill" pos="Min" offset="32"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/MiddleFill" pos="0.9" offset="0"/>
+        <Handle val="CommandButton13"/>
+        <ClickSound val="@UI_Game_ActionClick" />
+      </Frame>
+
+      <!-- Artifact Button 2 -->
+      <Frame type="CommandButton" name="CommandButton06" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Width val="95"/>
+        <Height val="65"/>
+        <Anchor side="Bottom" relative="$parent/MiddleFill" pos="0.9" offset="0"/>
+        <Anchor side="Left" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent/MiddleFill" pos="Max" offset="-30"/>
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Handle val="CommandButton06"/>
+      </Frame>
+              
+      <!-- Hearthstone Button-->
+      <Frame type="CommandButton" name="CommandButton09" template="CommandButtonStorm/BookEndRightButtonTemplate">
+        <Anchor side="Top" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/CommandButton08" pos="Max" offset="0" />
+        <Anchor side="Left" relative="$parent/CommandButton04" pos="Max" offset="5" />
+        <RenderPriority val="499" />
+        <ClickSound val="@UI_Game_ActionClick" />
+        <Handle val="CommandButton09"/>
+        <Frame type="Image" name="NormalImage">
+          <Anchor relative="$parent" offset="0"/>
+        </Frame>
+        <Frame type="Image" name="HoverImage">
+          <Anchor relative="$parent" offset="0"/>
+        </Frame>
+      </Frame>
+
+      <!-- Hidden Buttons-->
+      <Frame type="CommandButton" name="CommandButton07" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Anchor side="Top" relative="$parent/CommandButton06" pos="Max" offset="500"/>
+        <Anchor side="Left" relative="$parent/CommandButton06" pos="Max" offset="#CommandButtonGap"/>
+        <Handle val="CommandButton07"/>
+      </Frame>
+
+      <Frame type="CommandButton" name="CommandButton10" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Anchor side="Top" relative="$parent/CommandButton00" pos="Max" offset="500"/>
+        <Anchor side="Left" relative="$parent/CommandButton00" pos="Min" offset="0"/>
+        <Handle val="CommandButton10"/>
+      </Frame>
+
+      <Frame type="CommandButton" name="CommandButton11" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Anchor side="Top" relative="$parent/CommandButton10" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandButton10" pos="Max" offset="#CommandButtonGap"/>
+        <Handle val="CommandButton11"/>
+      </Frame>
+
+      <Frame type="CommandButton" name="CommandButton12" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Anchor side="Top" relative="$parent/CommandButton11" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandButton11" pos="Max" offset="#CommandButtonGap"/>
+        <Handle val="CommandButton12"/>
+      </Frame>
+
+      <Frame type="Image" name="MiddleFill">
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0" />
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0" />
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />
+        <!--<Height val="92" />
+        <Width val="800" />-->
+        <Height val="66" />
+        <Width val="564" />
+        <Texture val="@UI/HUD_BG_ArtBarMiddleFill_Metal" />
+        <!--<Texture val="@UI/HUD_BG_ArtBarMiddleFill" />-->
+        <TextureType val="Nineslice" />
+        <Tiled val="true" />
+        <RenderPriority val="500" />
+        <Frame type="Image" name="AbilityBarGlowImage">
+          <Handle val="AbilityBackPlate" />
+          <Anchor relative="$parent" />
+          <Height val="66" />
+          <Width val="564" />
+          <TextureType val="Nineslice" />
+          <RenderPriority val="500" />
+          <Visible val="true" />
+          <Alpha val="0" />
+          <Texture val="@UI/Storm_UI_InGame_AbilityBarLowGlow" />
+          <TextureType val="Nineslice" />
+          <BlendMode val="Add" />
+          <ColorAdjustMode val="Colorize" />
+          <LightAdjustColor val="FFFFFF" />
+          <DarkAdjustColor val="FFFFFF" />
+        </Frame>
+      </Frame>
+
+      <Frame type="CommandButton" name="CommandButton14" template="CommandButtonStorm/HiddenButtonTemplate">
+        <Anchor side="Top" relative="$parent/CommandButton12" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandButton12" pos="Max" offset="0"/>
+      </Frame>
+
+      <Frame type="Label" name="RowText0">
+        <Anchor side="Top" relative="$parent/CommandButton00" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/CommandButton00" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Style val="@@CommandRow"/>
+      </Frame>
+
+      <Frame type="Label" name="RowText1">
+        <Anchor side="Top" relative="$parent/CommandButton05" pos="Min" offset="-1"/>
+        <Anchor side="Bottom" relative="$parent/CommandButton05" pos="Max" offset="2"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Style val="@@CommandRow"/>
+      </Frame>
+
+      <Frame type="Label" name="RowText2">
+        <Anchor side="Top" relative="$parent/CommandButton10" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/CommandButton10" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Style val="@@CommandRow"/>
+      </Frame>
+
+      <Frame type="Image" name="CommandTargetImage">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+        <Width val="76"/>
+        <Height val="76"/>
+      </Frame>
+
+      <Frame type="Label" name="CommandTargetName">
+        <Anchor side="Top" relative="$parent/CommandTargetImage" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent/CommandTargetImage" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent/CommandTargetImage" pos="Max" offset="5"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+        <Style val="@@CommandTargetName"/>
+      </Frame>
+
+      <Frame type="Label" name="CommandTargetPrompt">
+        <Anchor side="Top" relative="$parent/CommandTargetImage" pos="Max" offset="10"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+        <Style val="@@CommandTargetPrompt"/>
+      </Frame>
+
+      <Frame type="Frame" name="UncontrollableUnitFrame">
+        <Anchor relative="$parent"/>
+
+        <Frame type="Label" name="UncontrollableUnitTitleLabel">
+          <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+          <Style val="@@CommandPanelEnemyUnitTitle"/>
+        </Frame>
+
+        <Frame type="Label" name="UncontrollableUnitPromptLabel">
+          <Anchor side="Top" relative="$parent/UncontrollableUnitTitleLabel" pos="Max" offset="10"/>
+          <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+          <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+          <Style val="@@CommandPanelEnemyUnitPrompt"/>
+          <Text val="@UI/CommandPanelEnemyUnitPrompt"/>
+        </Frame>
+      </Frame>
+  </Frame>
+</Desc>
