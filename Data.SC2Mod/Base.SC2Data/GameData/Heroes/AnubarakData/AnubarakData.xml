@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="AnubarakLocustSwarm@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="AnubarakLocustSwarm@HealMU"/>
+    <CEffectUserData id="AnubarakBedOfBarbs@PeriodicDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakBedOfBarbs@PeriodicDamage"/>
+    <CEffectSet id="AnubarakBedOfBarbs@PeriodicDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakBedOfBarbs@PeriodicDamageCritStatusIncrement" DamageEffect="AnubarakBedOfBarbs@PeriodicDamage"/>
+    <CEffectUserData id="AnubarakCryptweave@DoTDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakCryptweave@DoTDamage"/>
+    <CEffectSet id="AnubarakCryptweave@DoTDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakCryptweave@DoTDamageCritStatusIncrement" DamageEffect="AnubarakCryptweave@DoTDamage"/>
+    <CEffectDamage id="AnubarakWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <LaunchLocation Value="TargetUnit"/>
+        <Amount value="81">
+            <AccumulatorArray value="AnubarakAcidDrenchedMandibles@BasicAttackDamageBuffSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectSet id="AnubarakHero@RegenGlobeSet">
         <EffectArray value="AnubarakRegenerationMaster@TokenCounterIncrement"/>
     </CEffectSet>
     <CEffectDamage id="AnubarakPassiveCarrionBeetleWeaponDamage" parent="StormPhysical">
         <Amount value="10"/>
-    </CEffectDamage>
-    <CEffectDamage id="AnubarakWeapon@Damage" parent="StormPhysical">
-        <LaunchLocation Value="TargetUnit"/>
-        <Amount value="81">
-            <AccumulatorArray value="AnubarakAcidDrenchedMandibles@BasicAttackDamageBuffSwitch"/>
-        </Amount>
     </CEffectDamage>
     <CEffectModifyPlayer id="AnubarakRegenerationMaster@DeltaEvent1Modification">
         <EffectArray Reference="Behavior,AnubarakRegenerationMaster@TokenCounter,Modification.VitalRegenArray[Life]" Value="1"/>
@@ -23,14 +28,14 @@
         <ValidatorArray value="AnubarakRegenerationMaster@QuestNotMaxed"/>
         <Amount value="1"/>
     </CEffectUserData>
-    <CEffectUserData id="AnubarakBeetleWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakBeetleWeapon@Damage"/>
-    <CEffectSet id="AnubarakBeetleWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakBeetleWeapon@DamageCritStatusIncrement" DamageEffect="AnubarakBeetleWeapon@Damage"/>
-    <CEffectSet id="AnubarakBurningBeetles@DamageBeetleSet" parent="StormDamageSet" CritStatusEffect="AnubarakBurningBeetles@DamageBeetleCritStatusIncrement" DamageEffect="AnubarakBurningBeetles@DamageBeetle"/>
-    <CEffectUserData id="AnubarakBurningBeetles@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakBurningBeetles@Damage"/>
-    <CEffectUserData id="AnubarakBurningBeetles@DamageBeetleCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakBurningBeetles@DamageBeetle"/>
-    <CEffectSet id="AnubarakBurningBeetles@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakBurningBeetles@DamageCritStatusIncrement" DamageEffect="AnubarakBurningBeetles@Damage"/>
-    <CEffectUserData id="AnubarakBurrowCharge@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakBurrowCharge@Damage"/>
-    <CEffectSet id="AnubarakBurrowCharge@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakBurrowCharge@DamageCritStatusIncrement" DamageEffect="AnubarakBurrowCharge@Damage"/>
+    <CEffectUserData id="AnubarakBeetleWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakBeetleWeapon@Damage"/>
+    <CEffectSet id="AnubarakBeetleWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakBeetleWeapon@DamageCritStatusIncrement" DamageEffect="AnubarakBeetleWeapon@Damage"/>
+    <CEffectSet id="AnubarakBurningBeetles@DamageBeetleSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakBurningBeetles@DamageBeetleCritStatusIncrement" DamageEffect="AnubarakBurningBeetles@DamageBeetle"/>
+    <CEffectUserData id="AnubarakBurningBeetles@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakBurningBeetles@Damage"/>
+    <CEffectUserData id="AnubarakBurningBeetles@DamageBeetleCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakBurningBeetles@DamageBeetle"/>
+    <CEffectSet id="AnubarakBurningBeetles@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakBurningBeetles@DamageCritStatusIncrement" DamageEffect="AnubarakBurningBeetles@Damage"/>
+    <CEffectUserData id="AnubarakBurrowCharge@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakBurrowCharge@Damage"/>
+    <CEffectSet id="AnubarakBurrowCharge@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakBurrowCharge@DamageCritStatusIncrement" DamageEffect="AnubarakBurrowCharge@Damage"/>
     <CEffectModifyPlayer id="AnubarakBurrowCharge@EnableCollision">
         <EffectArray Operation="Set" Reference="Unit,AnubarakHero,Collide[Land2]" Value="1"/>
         <EffectArray Operation="Set" Reference="Unit,AnubarakHero,Mover" Value="Ground"/>
@@ -40,6 +45,7 @@
         <VitalArray index="Life">
             <Change value="2"/>
         </VitalArray>
+        <TechAliasArray value="StormFlag IgnoredByTextTags"/>
     </CEffectModifyUnit>
     <CEffectUserData id="AnubarakDebilitation@DecreaseHealCreatedMultiplier" parent="StormModifyHealCreatedMultiplier">
         <Amount value="0">
@@ -86,16 +92,16 @@
     <CEffectDamage id="AnubarakHiveMaster@Damage" parent="StormSpell">
         <Amount value="165"/>
     </CEffectDamage>
-    <CEffectUserData id="AnubarakHiveMaster@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakHiveMaster@Damage"/>
-    <CEffectSet id="AnubarakHiveMaster@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakHiveMaster@DamageCritStatusIncrement" DamageEffect="AnubarakHiveMaster@Damage"/>
+    <CEffectUserData id="AnubarakHiveMaster@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakHiveMaster@Damage"/>
+    <CEffectSet id="AnubarakHiveMaster@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakHiveMaster@DamageCritStatusIncrement" DamageEffect="AnubarakHiveMaster@Damage"/>
     <CEffectModifyUnit id="AnubarakHiveMaster@HealMU" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <Change value="80"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnubarakHiveMaster@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="AnubarakHiveMaster@HealMU"/>
-    <CEffectUserData id="AnubarakImpale@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakImpale@Damage"/>
-    <CEffectSet id="AnubarakImpale@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakImpale@DamageCritStatusIncrement" DamageEffect="AnubarakImpale@Damage"/>
+    <CEffectSet id="AnubarakHiveMaster@HealSet" parent="StormHealSetCaster" HealEffect="AnubarakHiveMaster@HealMU"/>
+    <CEffectUserData id="AnubarakImpale@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakImpale@Damage"/>
+    <CEffectSet id="AnubarakImpale@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakImpale@DamageCritStatusIncrement" DamageEffect="AnubarakImpale@Damage"/>
     <CEffectModifyUnit id="AnubarakLeechingScarabs@HealMU" parent="StormModifyUnitHealingSelfIgnoreHealCreatedMultiplierTarget">
         <VitalArray index="Life">
             <Change value="0.5">
@@ -103,22 +109,20 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnubarakLeechingScarabs@HealSet" parent="StormHealSetTargetNoCrit" HealEffect="AnubarakLeechingScarabs@HealMU"/>
+    <CEffectSet id="AnubarakLeechingScarabs@HealSet" parent="StormHealSetTarget" HealEffect="AnubarakLeechingScarabs@HealMU"/>
     <CEffectModifyUnit id="AnubarakLegionOfBeetles@ModifyUnitCooldown">
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
         <Cost Abil="AnubarakScarabHost,Execute" CooldownOperation="Set" CooldownTimeUse="12"/>
     </CEffectModifyUnit>
-    <CEffectUserData id="AnubarakLocustSwarm@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakLocustSwarm@Damage"/>
-    <CEffectSet id="AnubarakLocustSwarm@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakLocustSwarm@DamageCritStatusIncrement" DamageEffect="AnubarakLocustSwarm@Damage"/>
+    <CEffectUserData id="AnubarakLocustSwarm@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakLocustSwarm@Damage"/>
+    <CEffectSet id="AnubarakLocustSwarm@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakLocustSwarm@DamageCritStatusIncrement" DamageEffect="AnubarakLocustSwarm@Damage"/>
     <CEffectModifyUnit id="AnubarakLocustSwarm@HealMU" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <Change value="24"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnubarakLocustSwarm@HealSet" parent="StormHealSetCasterNoCrit">
-        <EffectArray index="0" value="AnubarakLocustSwarm@HealMU"/>
-    </CEffectSet>
+    <CEffectSet id="AnubarakLocustSwarm@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakLocustSwarm@HealCritStatusIncrement" HealEffect="AnubarakLocustSwarm@HealMU"/>
     <CEffectSet id="AnubarakScarabHost@CreateUnitSet">
         <EffectArray value="AnubarakScarabHost@ApplyTimedLife"/>
         <EffectArray value="Summon@CreationSwitch"/>
@@ -157,10 +161,10 @@
         <EffectArray Reference="Behavior,AnubarakBurrowCharge@Caster,Duration" Value="0.187500"/>
         <EffectArray Reference="Actor,AnubarakBurrowCharge@Guide,Height" Value="2.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="AnubarakUrticatingSpines@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnubarakUrticatingSpines@Damage"/>
-    <CEffectSet id="AnubarakUrticatingSpines@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakUrticatingSpines@DamageCritStatusIncrement" DamageEffect="AnubarakUrticatingSpines@Damage"/>
-    <CEffectUserData id="AnubarakWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="AnubarakWeapon@Damage"/>
-    <CEffectSet id="AnubarakWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="AnubarakWeapon@DamageCritStatusIncrement" DamageEffect="AnubarakWeapon@Damage"/>
+    <CEffectUserData id="AnubarakUrticatingSpines@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakUrticatingSpines@Damage"/>
+    <CEffectSet id="AnubarakUrticatingSpines@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnubarakUrticatingSpines@DamageCritStatusIncrement" DamageEffect="AnubarakUrticatingSpines@Damage"/>
+    <CEffectUserData id="AnubarakWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnubarakWeapon@Damage"/>
+    <CEffectSet id="AnubarakWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="AnubarakWeapon@DamageCritStatusIncrement" DamageEffect="AnubarakWeapon@Damage"/>
     <CEffectApplyBehavior id="AnubarakTheTraitorKing@ApplyBuff">
         <WhichUnit Value="Caster"/>
         <Behavior value="AnubarakTheTraitorKing@ActiveBuff"/>
@@ -179,7 +183,7 @@
         <Behavior value="AnubarakCryptweave@DoTBehavior"/>
     </CEffectApplyBehavior>
     <CEffectSet id="AnubarakCryptweave@DoTDamagePeriodicSet">
-        <EffectArray value="AnubarakCryptweave@DoTDamage"/>
+        <EffectArray value="AnubarakCryptweave@DoTDamageSet"/>
     </CEffectSet>
     <CEffectDamage id="AnubarakCryptweave@DoTDamage" parent="StormSpellDoT">
         <Amount value="15">
@@ -213,14 +217,12 @@
     <CEffectDamage id="AnubarakBurningBeetles@DamageBeetle" parent="StormSpell">
         <LaunchLocation Value="CasterUnit"/>
         <Amount value="6"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
     </CEffectDamage>
     <CEffectDamage id="AnubarakBurningBeetles@Damage" parent="StormSpell">
         <DamageModifierSource Value="Source"/>
         <LaunchLocation Value="CasterUnit"/>
         <Amount value="21"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
     </CEffectDamage>
     <CEffectSet id="AnubarakHardenCarapace@ApplyBehaviorSet">
@@ -296,7 +298,7 @@
         <ValidatorArray value="AnubarakAcidDrenchedMandibles"/>
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="TargetIsRootedOrSlowedOrStunned"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="AnubarakAcidDrenchedMandibles@Buff"/>
     </CEffectApplyBehavior>
@@ -385,9 +387,6 @@
     <CEffectApplyBehavior id="AnubarakScarabHost@ApplyTimedLife">
         <Behavior value="AnubarakScarabHost@TimedLifeAndDamageResponse"/>
     </CEffectApplyBehavior>
-    <CEffectSwitch id="AnubarakBeetleWeapon@ImpactSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="AnubarakBeetleWeapon@ImpactSet"/>
-    </CEffectSwitch>
     <CEffectSet id="AnubarakBeetleWeapon@ImpactSet">
         <EffectArray value="AnubarakBeetleWeapon@DamageSet"/>
     </CEffectSet>
@@ -991,6 +990,11 @@
         <EffectArray value="CameraShakeMediumTauntingTotemSet"/>
         <EffectArray value="AnubarakDebilitation@ApplyDebuff"/>
     </CEffectSet>
+    <CEffectDamage id="AnubarakBeetleWeapon@Damage" parent="StormSpellBasicAttack">
+        <Amount value="20">
+            <AccumulatorArray value="AnubarakLeechingScarabs@BeetleWeaponDamageSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectCreatePersistent id="AnubarakImpale@ModelPersistent">
         <Marker>
             <MatchFlags index="Id" value="1"/>
@@ -1125,11 +1129,6 @@
         <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="3.5" Effect="AnubarakUrticatingSpines@ImpactSet"/>
     </CEffectEnumArea>
-    <CEffectDamage id="AnubarakBeetleWeapon@Damage" parent="StormSpell">
-        <Amount value="20">
-            <AccumulatorArray value="AnubarakLeechingScarabs@BeetleWeaponDamageSwitch"/>
-        </Amount>
-    </CEffectDamage>
     <CAbilEffectInstant id="AnubarakScarabHost">
         <Effect value="AnubarakScarabHost@DummySet"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="AnubarakScarabHost">
@@ -3651,7 +3650,7 @@
         <Period value="1"/>
         <DamagePoint value="0.15"/>
         <Backswing value="0.25"/>
-        <Effect value="AnubarakBeetleWeapon@ImpactSwitch"/>
+        <Effect value="AnubarakBeetleWeapon@ImpactSet"/>
         <RandomDelayMin value="0"/>
         <RandomDelayMax value="0"/>
     </CWeaponLegacy>

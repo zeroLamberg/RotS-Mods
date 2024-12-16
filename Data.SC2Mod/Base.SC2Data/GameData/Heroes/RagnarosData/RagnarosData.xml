@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroRagnarosGiantScorcher@DoT" parent="StormPureDoTPercent">
-        <VitalFractionMax index="Life" value="0.03"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroRagnarosWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="HeroRagnarosEmpowerSulfuras@DamageLocalLeech" parent="StormModifyLocalLeech">
+        <Amount value="0">
+            <AccumulatorArray value="HeroRagnarosEmpowerSulfuras@LeechSwitch"/>
+        </Amount>
+    </CEffectUserData>
+    <CEffectUserData id="HeroRagnarosMeteorBomb@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroRagnarosMeteorBomb@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroRagnarosWeapon@DamageCritStatucLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroRagnarosWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="HeroRagnarosWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="183">
             <AccumulatorArray value="HeroRagnarosBlisteringAttacks@DamageBuffSwitch"/>
         </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="HeroRagnarosGiantScorcher@DoT" parent="StormPureDoTPercent">
+        <Amount value="3"/>
     </CEffectDamage>
     <CEffectModifyUnit id="HeroRagnarosFlamesOfSulfuron@SetCooldown">
         <Cost Abil="HeroRagnarosSulfurasSmash,Execute" CooldownOperation="Set" CooldownTimeUse="5"/>
@@ -58,8 +69,8 @@
             <AccumulatorArray value="HeroRagnarosHeatwave@StoredLocalToken"/>
         </Count>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroRagnarosBlastWave@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroRagnarosBlastWave@Damage"/>
-    <CEffectSet id="HeroRagnarosBlastWave@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosBlastWave@DamageCritStatusIncrement" DamageEffect="HeroRagnarosBlastWave@Damage"/>
+    <CEffectUserData id="HeroRagnarosBlastWave@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosBlastWave@Damage"/>
+    <CEffectSet id="HeroRagnarosBlastWave@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroRagnarosBlastWave@DamageCritStatusIncrement" DamageEffect="HeroRagnarosBlastWave@Damage"/>
     <CEffectApplyBehavior id="HeroRagnarosBlisteringAttacks@ApplyCooldown">
         <ValidatorArray value="HeroRagnarosBlisteringAttacks@DamageTargetCombine"/>
         <WhichUnit Value="Caster"/>
@@ -68,7 +79,7 @@
     <CEffectModifyUnit id="HeroRagnarosBlisteringAttacks@CDRTriggerDummy">
         <ValidatorArray value="HeroRagnarosBlisteringAttacks"/>
         <ValidatorArray value="HeroRagnarosBlisteringAttacks@CasterHasCooldown"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
     </CEffectModifyUnit>
@@ -84,72 +95,12 @@
         <ValidatorArray value="HeroRagnarosCatchingFire@QuestNotMaxed"/>
     </CEffectUserData>
     <CEffectApplyBehavior id="HeroRagnarosCauterizeWounds@ApplyBehavior">
-        <ValidatorArray value="TargetIsHero"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroRagnarosCauterizeWounds@HoT"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="HeroRagnarosCauterizeWounds@ApplyHoTDisplay">
-        <WhichUnit Value="Caster"/>
-        <Behavior value="HeroRagnarosCauterizeWounds@HotDisplay"/>
-    </CEffectApplyBehavior>
-    <CEffectSet id="HeroRagnarosCauterizeWounds@CastSet">
-        <ValidatorArray value="HeroRagnarosCauterizeWounds"/>
-        <ValidatorArray value="TargetIsHero"/>
-        <EffectArray value="HeroRagnarosCauterizeWounds@AddHealDisplay"/>
-        <EffectArray value="HeroRagnarosCauterizeWounds@ApplyBehavior"/>
-        <EffectArray value="HeroRagnarosCauterizeWounds@ApplyHoTDisplay"/>
-    </CEffectSet>
-    <CEffectModifyUnit id="HeroRagnarosCauterizeWounds@HealHoTDisplay" parent="StormModifyUnitHealingSelf"/>
-    <CEffectSet id="HeroRagnarosCauterizeWounds@PeriodicSet">
-        <EffectArray value="HeroRagnarosCauterizeWounds@HealModifyUnit"/>
-        <EffectArray value="HeroRagnarosCauterizeWounds@SubtractHealDisplay"/>
-    </CEffectSet>
-    <CEffectModifyUnit id="HeroRagnarosCauterizeWounds@HealModifyUnit" parent="StormModifyUnitHealingSelf">
-        <VitalArray index="Life">
-            <Change value="0.6">
-                <AccumulatorArray value="DamageInheritedMultiply"/>
-                <AccumulatorArray value="ConstantMultiply0dot08332"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectUserData id="HeroRagnarosCauterizeWounds@AddHealDisplay" parent="StormModifyGeneralData">
-        <Key value="HeroRagnarosCauterizeWounds@HealDisplay"/>
-        <Amount value="0.6">
-            <AccumulatorArray value="DamageInheritedMultiply"/>
-        </Amount>
-        <SourceKey value="HeroRagnarosCauterizeWounds@HealDisplay"/>
-        <Operation value="Add"/>
-        <BehaviorScope Value="Caster"/>
-    </CEffectUserData>
-    <CEffectUserData id="HeroRagnarosCauterizeWounds@SubtractHealDisplay" parent="StormModifyGeneralData">
-        <Key value="HeroRagnarosCauterizeWounds@HealDisplay"/>
-        <Amount value="0.6">
-            <AccumulatorArray value="DamageInheritedMultiply"/>
-            <AccumulatorArray value="ConstantMultiply0dot08332"/>
-        </Amount>
-        <SourceKey value="HeroRagnarosCauterizeWounds@HealDisplay"/>
-        <Operation value="Subtract"/>
-        <BehaviorScope Value="Caster"/>
-    </CEffectUserData>
-    <CEffectUserData id="HeroRagnarosCauterizeWounds@ResetHealDisplay" parent="StormModifyGeneralData">
-        <Key value="HeroRagnarosCauterizeWounds@HealDisplay"/>
-        <SourceKey value="HeroRagnarosCauterizeWounds@HealDisplay"/>
-        <BehaviorScope Value="Caster"/>
-    </CEffectUserData>
-    <CEffectUserData id="HeroRagnarosEmpowerSulfuras@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroRagnarosEmpowerSulfuras@Damage"/>
-    <CEffectSet id="HeroRagnarosEmpowerSulfuras@DamageInheritSet" parent="StormDamageInheritSetSpell">
-        <EffectArray value="HeroRagnarosEmpowerSulfuras@DamageLeechSet"/>
-        <EffectArray value="HeroRagnarosCauterizeWounds@CastSet"/>
-    </CEffectSet>
-    <CEffectModifyUnit id="HeroRagnarosEmpowerSulfuras@DamageLeechModifyUnit" parent="StormModifyUnitLeechSpell">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="HeroRagnarosEmpowerSulfuras@LeechSwitch"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="HeroRagnarosEmpowerSulfuras@DamageLeechSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroRagnarosEmpowerSulfuras@DamageLeechModifyUnit"/>
-    <CEffectSet id="HeroRagnarosEmpowerSulfuras@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosEmpowerSulfuras@DamageCritStatusIncrement" DamageEffect="HeroRagnarosEmpowerSulfuras@Damage"/>
+    <CEffectModifyUnit id="HeroRagnarosCauterizeWounds@HealModifyUnit" parent="StormModifyUnitHealingSelf"/>
+    <CEffectUserData id="HeroRagnarosEmpowerSulfuras@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosEmpowerSulfuras@Damage"/>
+    <CEffectSet id="HeroRagnarosEmpowerSulfuras@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroRagnarosEmpowerSulfuras@DamageCritStatusIncrement" LocalLeechEffect="HeroRagnarosEmpowerSulfuras@DamageLocalLeech" DamageEffect="HeroRagnarosEmpowerSulfuras@Damage"/>
     <CEffectSet id="HeroRagnarosEmpowerSulfuras@SearchImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroRagnarosSulfurasHungers@ApplyDamageResponse"/>
         <EffectArray value="HeroRagnarosEmpowerSulfuras@DamageSet"/>
@@ -432,8 +383,8 @@
             <AccumulatorArray value="HeroRagnarosMoltenCore@DamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectUserData id="HeroRagnarosFirelordsFury@ExplosiveRuneDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroRagnarosFirelordsFury@ExplosiveRuneDamage"/>
-    <CEffectSet id="HeroRagnarosFirelordsFury@ExplosiveRuneDamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosFirelordsFury@ExplosiveRuneDamageCritStatusIncrement" DamageEffect="HeroRagnarosFirelordsFury@ExplosiveRuneDamage"/>
+    <CEffectUserData id="HeroRagnarosFirelordsFury@ExplosiveRuneDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosFirelordsFury@ExplosiveRuneDamage"/>
+    <CEffectSet id="HeroRagnarosFirelordsFury@ExplosiveRuneDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroRagnarosFirelordsFury@ExplosiveRuneDamageCritStatusIncrement" DamageEffect="HeroRagnarosFirelordsFury@ExplosiveRuneDamage"/>
     <CEffectSet id="HeroRagnarosFirelordsFury@ExplosiveRuneImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroRagnarosFirelordsFury@ExplosiveRuneDamageSet"/>
     </CEffectSet>
@@ -800,10 +751,10 @@
         <Abil value="move"/>
         <Target Effect="HeroRagnarosLivingMeteor@PointHandleSet" Value="TargetPoint"/>
     </CEffectIssueOrder>
-    <CEffectUserData id="HeroRagnarosLivingMeteor@LandingDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroRagnarosLivingMeteor@LandingDamage"/>
-    <CEffectSet id="HeroRagnarosLivingMeteor@LandingDamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosLivingMeteor@LandingDamageCritStatusIncrement" DamageEffect="HeroRagnarosLivingMeteor@LandingDamage"/>
-    <CEffectUserData id="HeroRagnarosLivingMeteor@PeriodicDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroRagnarosLivingMeteor@PeriodicDamage"/>
-    <CEffectSet id="HeroRagnarosLivingMeteor@PeriodicDamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosLivingMeteor@PeriodicDamageCritStatusIncrement" DamageEffect="HeroRagnarosLivingMeteor@PeriodicDamage"/>
+    <CEffectUserData id="HeroRagnarosLivingMeteor@LandingDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosLivingMeteor@LandingDamage"/>
+    <CEffectSet id="HeroRagnarosLivingMeteor@LandingDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroRagnarosLivingMeteor@LandingDamageCritStatusIncrement" DamageEffect="HeroRagnarosLivingMeteor@LandingDamage"/>
+    <CEffectUserData id="HeroRagnarosLivingMeteor@PeriodicDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosLivingMeteor@PeriodicDamage"/>
+    <CEffectSet id="HeroRagnarosLivingMeteor@PeriodicDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroRagnarosLivingMeteor@PeriodicDamageCritStatusIncrement" DamageEffect="HeroRagnarosLivingMeteor@PeriodicDamage"/>
     <CEffectSet id="HeroRagnarosLivingMeteor@PointHandleSet">
         <EffectArray value="HeroRagnarosLivingMeteor@CreateMeteor"/>
         <TargetLocationType value="Point"/>
@@ -922,8 +873,8 @@
     <CEffectCreatePersistent id="RagnarosLivingMeteorVector@CreateUnitLinkDummy">
         <WhichLocation Value="TargetUnit"/>
     </CEffectCreatePersistent>
-    <CEffectUserData id="HeroRagnarosMeteorBomb@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroRagnarosMeteorBomb@DamageCritStatusCombine" Effect="HeroRagnarosMeteorBomb@Damage"/>
-    <CEffectSet id="HeroRagnarosMeteorBomb@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosMeteorBomb@DamageCritStatusIncrement" DamageEffect="HeroRagnarosMeteorBomb@Damage"/>
+    <CEffectUserData id="HeroRagnarosMeteorBomb@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosMeteorBomb@Damage"/>
+    <CEffectSet id="HeroRagnarosMeteorBomb@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroRagnarosMeteorBomb@DamageCritStatusLocal" CritStatusEffect="HeroRagnarosMeteorBomb@DamageCritStatusIncrement" DamageEffect="HeroRagnarosMeteorBomb@Damage"/>
     <CEffectModifyUnit id="HeroRagnarosMoltenCore@ActivateCooldown">
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
@@ -944,8 +895,8 @@
     <CEffectModifyPlayer id="HeroRagnarosMoltenCore@FinalModifyPlayer">
         <EffectArray Operation="Set" Reference="Abil,HeroRagnarosLavaWave,Cost[0].Vital[Energy]" Value="80"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroRagnarosMoltenCoreExplosiveRune@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroRagnarosMoltenCoreExplosiveRune@Damage"/>
-    <CEffectSet id="HeroRagnarosMoltenCoreExplosiveRune@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosMoltenCoreExplosiveRune@DamageCritStatusIncrement" DamageEffect="HeroRagnarosMoltenCoreExplosiveRune@Damage"/>
+    <CEffectUserData id="HeroRagnarosMoltenCoreExplosiveRune@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosMoltenCoreExplosiveRune@Damage"/>
+    <CEffectSet id="HeroRagnarosMoltenCoreExplosiveRune@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroRagnarosMoltenCoreExplosiveRune@DamageCritStatusIncrement" DamageEffect="HeroRagnarosMoltenCoreExplosiveRune@Damage"/>
     <CEffectSet id="HeroRagnarosMoltenCoreExplosiveRune@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroRagnarosMoltenCoreExplosiveRune@DamageSet"/>
         <EffectArray value="HeroRagnarosFirelordsFury@Switch"/>
@@ -1184,8 +1135,8 @@
     <CEffectModifyPlayer id="HeroRagnarosSulfurasHungers@RewardModification">
         <EffectArray Reference="Accumulator,HeroRagnarosSulfurasHungers@DamageModifier,Amount" Value="100"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroRagnarosWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroRagnarosWeapon@DamageCritStatusCombine" Effect="HeroRagnarosWeapon@Damage"/>
-    <CEffectSet id="HeroRagnarosWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroRagnarosWeapon@DamageCritStatusIncrement" DamageEffect="HeroRagnarosWeapon@Damage"/>
+    <CEffectUserData id="HeroRagnarosWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroRagnarosWeapon@Damage"/>
+    <CEffectSet id="HeroRagnarosWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroRagnarosWeapon@DamageCritStatucLocal" CritStatusEffect="HeroRagnarosWeapon@DamageCritStatusIncrement" DamageEffect="HeroRagnarosWeapon@Damage"/>
     <CEffectSet id="HeroRagnarosLavaWave@ExperienceGlobePickupSet">
         <ValidatorArray value="HeroRagnarosLavaWave@TargetIsLavaWaveLaneUnit"/>
         <EffectArray value="HeroGenericExperienceGlobeTimedLifeInitialRemoveSourceBehavior"/>
@@ -1320,6 +1271,11 @@
         <AreaArray Radius="3" Effect="HeroRagnarosMeteorBomb@ImpactSet"/>
         <RevealerParams Duration="1.5"/>
     </CEffectEnumArea>
+    <CEffectDamage id="HeroRagnarosEmpowerSulfuras@Damage" parent="StormSpellBasicAttack">
+        <Amount value="202">
+            <AccumulatorArray value="HeroRagnarosSulfurasHungers@DamageModifier"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectSet id="HeroRagnarosMeteorBomb@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroRagnarosMeteorBomb@DamageSet"/>
         <EffectArray value="HeroRagnarosBlisteringAttacks@CDRTriggerDummy"/>
@@ -1364,12 +1320,6 @@
         <ImpactUnit Value="Caster"/>
         <Weapon Weapon="HeroRagnarosWeapon" CooldownOperation="Set"/>
     </CEffectModifyUnit>
-    <CEffectDamage id="HeroRagnarosEmpowerSulfuras@Damage" parent="StormSpell">
-        <Amount value="202">
-            <AccumulatorArray value="HeroRagnarosSulfurasHungers@DamageModifier"/>
-        </Amount>
-        <DamageInheritEffect value="HeroRagnarosEmpowerSulfuras@DamageInheritSet"/>
-    </CEffectDamage>
     <CEffectApplyBehavior id="HeroRagnarosSlowBurn@ApplySlow" parent="StormApplySlow">
         <ValidatorArray value="HeroRagnarosSlowBurn"/>
         <Behavior value="HeroRagnarosSlowBurn@Slow"/>
@@ -2217,6 +2167,9 @@
             <Flags index="AllowSelfCast" value="0"/>
         </CmdButtonArray>
     </CAbilEffectTarget>
+    <CValidatorCombine id="HeroRagnarosMeteorBomb@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroRagnarosMeteorBomb@TargetIsTracked"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroRagnarosBlastWave@TargetHasBuff" parent="TargetIsParent">
         <Behavior value="HeroRagnarosBlastWave@Buff"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -2288,12 +2241,12 @@
         <CombineArray value="TargetIsHero"/>
     </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed id="HeroRagnarosCatchingFire@QuestMaxedTarget" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="HeroRagnarosCatchingFire@TokenCounter"/>
+    <CValidatorCombine id="HeroRagnarosWeapon@DamageCritStatusCombine" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="HeroRagnarosBlisteringAttacks@DamageTargetCombine"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed id="HeroRagnarosCatchingFire@QuestNotMaxed" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="HeroRagnarosCatchingFire@TokenCounter">
         <Value value="0"/>
     </CValidatorUnitCompareChargeUsed>
-    <CValidatorUnitCompareBehaviorCount id="HeroRagnarosCauterizeWounds@CasterHasHoTStacks" parent="CasterIsParent">
-        <Behavior value="HeroRagnarosCauterizeWounds@HoT"/>
-    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="HeroRagnarosFireWard@CasterStacksNotMax">
         <WhichUnit Value="Caster"/>
         <Compare value="LT"/>
@@ -2356,10 +2309,6 @@
         <Behavior value="HeroRagnarosLivingMeteor@DamageMarker"/>
         <RequireOriginPlayer Effect="HeroRagnarosLivingMeteor@InitialPersistent" Value="Origin"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroRagnarosMeteorBomb@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroRagnarosMeteorBomb@TargetIsTracked"/>
-    </CValidatorCombine>
     <CValidatorIsUnitTracked id="HeroRagnarosMeteorBomb@TargetIsTracked">
         <Find value="1"/>
         <BehaviorLink value="HeroRagnarosMeteorBomb@InnerRadiusUnitTracker"/>
@@ -2433,10 +2382,6 @@
         <Value value="0"/>
     </CValidatorUnitCompareChargeUsed>
     <CValidatorPlayerTalent id="HeroRagnarosSulfurasSmash" parent="PlayerTalent"/>
-    <CValidatorCombine id="HeroRagnarosWeapon@DamageCritStatusCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="HeroRagnarosBlisteringAttacks@DamageTargetCombine"/>
-    </CValidatorCombine>
     <CValidatorUnitType id="HeroRagnarosLavaWave@TargetIsLavaWaveLaneUnit">
         <Value value="HeroRagnarosLavaWave@LaneUnit"/>
     </CValidatorUnitType>
@@ -8177,17 +8122,9 @@
     <CDataCollection id="HeroRagnarosCauterizeWounds">
         <EditorCategories value="StormDataGroup:Talent"/>
         <DataRecord Entry="Behavior,HeroRagnarosCauterizeWounds@HoT"/>
-        <DataRecord Entry="Behavior,HeroRagnarosCauterizeWounds@HotDisplay"/>
         <DataRecord Entry="Button,HeroRagnarosCauterizeWounds"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@PeriodicSet"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@HealHoTDisplay"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@ResetHealDisplay"/>
         <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@ApplyBehavior"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@ApplyHoTDisplay"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@CastSet"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@AddHealDisplay"/>
         <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@HealModifyUnit"/>
-        <DataRecord Entry="Effect,HeroRagnarosCauterizeWounds@SubtractHealDisplay"/>
         <DataRecord Entry="Talent,HeroRagnarosCauterizeWounds"/>
         <DataRecord Entry="Validator,HeroRagnarosCauterizeWounds"/>
         <DataRecord Entry="Validator,HeroRagnarosCauterizeWounds@CasterHasHoTStacks"/>
@@ -8680,15 +8617,8 @@
         <Duration value="6"/>
         <Period value="0.5"/>
         <PeriodCount value="12"/>
-        <PeriodicEffect value="HeroRagnarosCauterizeWounds@PeriodicSet"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="HeroRagnarosCauterizeWounds@HotDisplay">
-        <RemoveValidatorArray value="HeroRagnarosCauterizeWounds@CasterHasHoTStacks"/>
-        <Duration value="6"/>
-        <Period value="6"/>
-        <PeriodicEffect value="HeroRagnarosCauterizeWounds@HealHoTDisplay"/>
-        <PeriodicDisplayEffect value="HeroRagnarosCauterizeWounds@HealHoTDisplay"/>
-        <FinalEffect value="HeroRagnarosCauterizeWounds@ResetHealDisplay"/>
+        <PeriodicEffect value="HeroRagnarosCauterizeWounds@HealModifyUnit"/>
+        <PeriodicDisplayEffect value="HeroRagnarosCauterizeWounds@HealModifyUnit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroRagnarosFireWard@SpellArmor">
         <Alignment value="Positive"/>

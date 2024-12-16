@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorEffectTreeUserData id="HeroGenericLocalLeechGT0">
+        <Compare value="GT"/>
+        <Key value="LocalLeech"/>
+    </CValidatorEffectTreeUserData>
+    <CValidatorCombine id="UnitStatsPhysicalLeech@ValueGT0CasterCombine">
+        <CombineArray value="UnitStatsPhysicalLeech@ValueGT0Caster"/>
+        <CombineArray value="HeroGenericLocalLeechGT0"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnitStatsPhysicalLeech@ValueGT0TargetCombine">
+        <CombineArray value="UnitStatsPhysicalLeech@ValueGT0Target"/>
+        <CombineArray value="HeroGenericLocalLeechGT0"/>
+    </CValidatorCombine>
+    <CValidatorEffectTreeUserData id="UnitStatsPureLeech@ValueGT0Caster" parent="StormGeneralData">
+        <Compare value="GT"/>
+        <Key value="PureLeech"/>
+        <BehaviorScope Value="Caster"/>
+    </CValidatorEffectTreeUserData>
+    <CValidatorCombine id="UnitStatsPureLeech@ValueGT0CasterCombine">
+        <CombineArray value="UnitStatsPureLeech@ValueGT0Caster"/>
+        <CombineArray value="HeroGenericLocalLeechGT0"/>
+    </CValidatorCombine>
+    <CValidatorEffectTreeUserData id="UnitStatsPureLeech@ValueGT0Target" parent="StormGeneralData">
+        <Compare value="GT"/>
+        <Key value="PureLeech"/>
+    </CValidatorEffectTreeUserData>
+    <CValidatorCombine id="UnitStatsPureLeech@ValueGT0TargetCombine">
+        <CombineArray value="UnitStatsPureLeech@ValueGT0Target"/>
+        <CombineArray value="HeroGenericLocalLeechGT0"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnitStatsSpellLeech@ValueGT0TargetCombine">
+        <CombineArray value="UnitStatsSpellLeech@ValueGT0Target"/>
+        <CombineArray value="HeroGenericLocalLeechGT0"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnitStatsSpellLeech@ValueGT0CasterCombine">
+        <CombineArray value="UnitStatsSpellLeech@ValueGT0Caster"/>
+        <CombineArray value="HeroGenericLocalLeechGT0"/>
+    </CValidatorCombine>
+    <CValidatorEffectTreeUserData id="UnitStatsPhysicalLeech@ValueGT0Target" parent="StormGeneralData">
+        <Compare value="GT"/>
+        <Key value="PhysicalLeech"/>
+    </CValidatorEffectTreeUserData>
     <CValidatorEffectTreeUserData id="UnitStatsSpellLeech@ValueGT0Target" parent="StormGeneralData">
         <Compare value="GT"/>
         <Key value="SpellLeech"/>
@@ -14,40 +55,98 @@
         <Key value="PhysicalLeech"/>
         <BehaviorScope Value="Caster"/>
     </CValidatorEffectTreeUserData>
-    <CAccumulatorArithmetic id="UnitStatsPhysicalLeech@CalculatedCaster">
-        <Parameters value="0.01">
-            <AccumulatorArray value="DamageInheritedMultiply"/>
-            <AccumulatorArray value="UnitStatsPhysicalLeech@UserDataCaster"/>
+    <CAccumulatorArithmetic id="UnitStatsPureLeech@FinalArithmetic">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPureLeech@UserData"/>
+            <AccumulatorArray value="HeroGenericLeechLocal"/>
         </Parameters>
     </CAccumulatorArithmetic>
-    <CAccumulatorUserData id="UnitStatsPhysicalLeech@UserData" parent="StormUserDataGeneral">
+    <CAccumulatorArithmetic id="UnitStatsPureLeech@FinalArithmeticCaster">
         <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPureLeech@UserDataCaster"/>
+            <AccumulatorArray value="HeroGenericLeechLocal"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsPureLeech@UserData" parent="StormUserDataGeneral">
+        <Key value="PureLeech"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="UnitStatsPureLeech@UserDataCaster" parent="StormUserDataGeneral">
+        <Key value="PureLeech"/>
+        <BehaviorScope Value="Caster"/>
+    </CAccumulatorUserData>
+    <CAccumulatorUserData id="HeroGenericLeechLocal">
+        <Key value="LocalLeech"/>
+    </CAccumulatorUserData>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalLeech@FinalArithmetic">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalLeech@UserData"/>
+            <AccumulatorArray value="HeroGenericLeechLocal"/>
+        </Parameters>
+        <MinAccumulation value="0"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsPhysicalLeech@FinalArithmeticCaster">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsPhysicalLeech@UserDataCaster"/>
+            <AccumulatorArray value="HeroGenericLeechLocal"/>
+        </Parameters>
+        <MinAccumulation value="0"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellLeech@FinalArithmetic">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellLeech@UserData"/>
+            <AccumulatorArray value="HeroGenericLeechLocal"/>
+        </Parameters>
+        <MinAccumulation value="0"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="UnitStatsSpellLeech@FinalArithmeticCaster">
+        <Parameters value="0">
+            <AccumulatorArray value="UnitStatsSpellLeech@UserDataCaster"/>
+            <AccumulatorArray value="HeroGenericLeechLocal"/>
+        </Parameters>
+        <MinAccumulation value="0"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorUserData id="UnitStatsPhysicalLeech@UserData" parent="StormUserDataGeneral">
         <Key value="PhysicalLeech"/>
     </CAccumulatorUserData>
     <CAccumulatorUserData id="UnitStatsPhysicalLeech@UserDataCaster" parent="UnitStatsPhysicalLeech@UserData">
         <BehaviorScope Value="Caster"/>
     </CAccumulatorUserData>
-    <CAccumulatorArithmetic id="UnitStatsSpellLeech@CalculatedCaster">
-        <Parameters value="0.01">
-            <AccumulatorArray value="DamageInheritedMultiply"/>
-            <AccumulatorArray value="UnitStatsSpellLeech@UserDataCaster"/>
-        </Parameters>
-    </CAccumulatorArithmetic>
     <CAccumulatorUserData id="UnitStatsSpellLeech@UserData" parent="StormUserDataGeneral">
-        <MinAccumulation value="0"/>
         <Key value="SpellLeech"/>
     </CAccumulatorUserData>
     <CAccumulatorUserData id="UnitStatsSpellLeech@UserDataCaster" parent="UnitStatsSpellLeech@UserData">
         <BehaviorScope Value="Caster"/>
     </CAccumulatorUserData>
+    <CDataCollection id="UnitStatsPureLeech">
+        <DataRecord Entry="Validator,UnitStatsPureLeech@ValueGT0Target"/>
+        <DataRecord Entry="Validator,UnitStatsPureLeech@ValueGT0Caster"/>
+        <DataRecord Entry="Validator,UnitStatsPureLeech@ValueGT0CasterCombine"/>
+        <DataRecord Entry="Validator,UnitStatsPureLeech@ValueGT0TargetCombine"/>
+        <DataRecord Entry="Accumulator,UnitStatsPureLeech@FinalArithmeticCaster"/>
+        <DataRecord Entry="Accumulator,UnitStatsPureLeech@FinalArithmetic"/>
+        <DataRecord Entry="Accumulator,UnitStatsPureLeech@UserData"/>
+        <DataRecord Entry="Accumulator,UnitStatsPureLeech@UserDataCaster"/>
+    </CDataCollection>
     <CDataCollection id="UnitStatsSpellLeech">
+        <DataRecord Entry="Validator,UnitStatsSpellLeech@ValueGT0Target"/>
+        <DataRecord Entry="Validator,UnitStatsSpellLeech@ValueGT0Caster"/>
+        <DataRecord Entry="Validator,UnitStatsSpellLeech@ValueGT0CasterCombine"/>
+        <DataRecord Entry="Validator,UnitStatsSpellLeech@ValueGT0TargetCombine"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellLeech@FinalArithmeticCaster"/>
+        <DataRecord Entry="Accumulator,UnitStatsSpellLeech@FinalArithmetic"/>
         <DataRecord Entry="Accumulator,UnitStatsSpellLeech@UserData"/>
         <DataRecord Entry="Accumulator,UnitStatsSpellLeech@UserDataCaster"/>
-        <DataRecord Entry="Accumulator,UnitStatsSpellLeech@CalculatedCaster"/>
     </CDataCollection>
     <CDataCollection id="UnitStatsPhysicalLeech">
+        <DataRecord Entry="Validator,UnitStatsPhysicalLeech@ValueGT0Caster"/>
+        <DataRecord Entry="Validator,UnitStatsPhysicalLeech@ValueGT0Target"/>
+        <DataRecord Entry="Validator,UnitStatsPhysicalLeech@ValueGT0CasterCombine"/>
+        <DataRecord Entry="Validator,UnitStatsPhysicalLeech@ValueGT0TargetCombine"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@FinalArithmeticCaster"/>
+        <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@FinalArithmetic"/>
         <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@UserData"/>
         <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@UserDataCaster"/>
-        <DataRecord Entry="Accumulator,UnitStatsPhysicalLeech@CalculatedCaster"/>
     </CDataCollection>
 </Catalog>

@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="TychusMeltingPoint@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="TychusMeltingPoint@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="TychusOverkill@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="TychusOverkill@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="TychusWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="TychusWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="TychusOdinWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="191"/>
+    </CEffectDamage>
+    <CEffectDamage id="TychusWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="42">
+            <AccumulatorArray value="TychusHeavensDevils@BasicAttackSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectDamage id="TychusMinigun@Damage" parent="StormPurePercent">
         <Amount value="2.5"/>
     </CEffectDamage>
@@ -22,14 +39,6 @@
         <AttributeFactor index="Heroic" value="-0.75"/>
         <AttributeFactor index="Summoned" value="-0.75"/>
         <Amount value="43"/>
-    </CEffectDamage>
-    <CEffectDamage id="TychusOdinWeapon@Damage" parent="StormPhysical">
-        <Amount value="191"/>
-    </CEffectDamage>
-    <CEffectDamage id="TychusWeapon@Damage" parent="StormPhysical">
-        <Amount value="42">
-            <AccumulatorArray value="TychusHeavensDevils@BasicAttackSwitch"/>
-        </Amount>
     </CEffectDamage>
     <CEffectDamage id="TychusWeaponDamage" parent="StormPhysical">
         <Amount value="24"/>
@@ -228,8 +237,8 @@
         <EffectArray Operation="Multiply" Reference="Effect,TychusOdinRagnarokMissiles@Damage,Amount" Value="1.04"/>
         <EffectArray Operation="Multiply" Reference="Effect,TychusOdinWeapon@Damage,Amount" Value="1.04"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="TychusFragGrenade@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TychusFragGrenade@Damage"/>
-    <CEffectSet id="TychusFragGrenade@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusFragGrenade@DamageCritStatusIncrement" DamageEffect="TychusFragGrenade@Damage"/>
+    <CEffectUserData id="TychusFragGrenade@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusFragGrenade@Damage"/>
+    <CEffectSet id="TychusFragGrenade@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="TychusFragGrenade@DamageCritStatusIncrement" DamageEffect="TychusFragGrenade@Damage"/>
     <CEffectUserData id="TychusInTheRhythm@IncrementTokenCount" parent="StormModifyTokenCount" TokenCounterBehavior="TychusInTheRhythm">
         <ValidatorArray value="TychusInTheRhythm"/>
         <ValidatorArray value="TychusMinigun@HasActiveOrPrimed"/>
@@ -239,8 +248,8 @@
     <CEffectModifyPlayer id="TychusInTheRhythm@DeltaEvent1Modification">
         <EffectArray Reference="Accumulator,TychusInTheRhythm@IncreasedDurationTokenCount,Amount" Value="1"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="TychusLaserDrill@WeaponDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TychusLaserDrill@WeaponDamage"/>
-    <CEffectSet id="TychusLaserDrill@WeaponDamageSet" parent="StormDamageSet" CritStatusEffect="TychusLaserDrill@WeaponDamageCritStatusIncrement" DamageEffect="TychusLaserDrill@WeaponDamage"/>
+    <CEffectUserData id="TychusLaserDrill@WeaponDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusLaserDrill@WeaponDamage"/>
+    <CEffectSet id="TychusLaserDrill@WeaponDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="TychusLaserDrill@WeaponDamageCritStatusIncrement" DamageEffect="TychusLaserDrill@WeaponDamage"/>
     <CEffectSet id="TychusLaserDrill@WeaponPeriodicSet">
         <EffectArray value="TychusLaserDrill@WeaponDamageSet"/>
         <EffectArray value="TychusFocusingDiodes@ApplyStackingDamageIncreaseBehavior"/>
@@ -250,18 +259,18 @@
         <ValidatorArray value="TychusMasterAssassin@QuestNotMaxed"/>
         <Amount value="1"/>
     </CEffectUserData>
-    <CEffectUserData id="TychusMeltingPoint@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="TychusMeltingPoint@CritStatusCombine" Effect="TychusMeltingPoint@Damage"/>
-    <CEffectSet id="TychusMeltingPoint@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusMeltingPoint@DamageCritStatusIncrement" DamageEffect="TychusMeltingPoint@Damage"/>
+    <CEffectUserData id="TychusMeltingPoint@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusMeltingPoint@Damage"/>
+    <CEffectSet id="TychusMeltingPoint@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="TychusMeltingPoint@DamageCritStatusLocal" CritStatusEffect="TychusMeltingPoint@DamageCritStatusIncrement" DamageEffect="TychusMeltingPoint@Damage"/>
     <CEffectSet id="TychusMinigun@CastSet">
         <EffectArray value="TychusMinigun@ApplyPrimed"/>
         <EffectArray value="TychusThatsTheStuff@ApplyHoTDisplayer"/>
     </CEffectSet>
-    <CEffectUserData id="TychusOdinAnnihilate@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TychusOdinAnnihilate@Damage"/>
-    <CEffectSet id="TychusOdinAnnihilate@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusOdinAnnihilate@DamageCritStatusIncrement" DamageEffect="TychusOdinAnnihilate@Damage"/>
-    <CEffectUserData id="TychusOdinNuclearBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TychusOdinNuclearBlast@Damage"/>
-    <CEffectSet id="TychusOdinNuclearBlast@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusOdinNuclearBlast@DamageCritStatusIncrement" DamageEffect="TychusOdinNuclearBlast@Damage"/>
-    <CEffectUserData id="TychusOdinRagnarokMissiles@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TychusOdinRagnarokMissiles@Damage"/>
-    <CEffectSet id="TychusOdinRagnarokMissiles@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusOdinRagnarokMissiles@DamageCritStatusIncrement" DamageEffect="TychusOdinRagnarokMissiles@Damage"/>
+    <CEffectUserData id="TychusOdinAnnihilate@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusOdinAnnihilate@Damage"/>
+    <CEffectSet id="TychusOdinAnnihilate@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="TychusOdinAnnihilate@DamageCritStatusIncrement" DamageEffect="TychusOdinAnnihilate@Damage"/>
+    <CEffectUserData id="TychusOdinNuclearBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusOdinNuclearBlast@Damage"/>
+    <CEffectSet id="TychusOdinNuclearBlast@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="TychusOdinNuclearBlast@DamageCritStatusIncrement" DamageEffect="TychusOdinNuclearBlast@Damage"/>
+    <CEffectUserData id="TychusOdinRagnarokMissiles@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusOdinRagnarokMissiles@Damage"/>
+    <CEffectSet id="TychusOdinRagnarokMissiles@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="TychusOdinRagnarokMissiles@DamageCritStatusIncrement" DamageEffect="TychusOdinRagnarokMissiles@Damage"/>
     <CEffectSet id="TychusOdinThrusters@CastSet">
         <EffectArray value="TychusOdinThrusters@IssueApproachOrder"/>
         <EffectArray value="TychusOdinThrusters@ApplyRushingBehavior"/>
@@ -281,8 +290,8 @@
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="TychusOdinThrusters@RushingBehavior"/>
     </CEffectRemoveBehavior>
-    <CEffectUserData id="TychusOverkill@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="TychusOverkill@CritStatusCombine" Effect="TychusOverkill@Damage"/>
-    <CEffectSet id="TychusOverkill@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusOverkill@DamageCritStatusIncrement" DamageEffect="TychusOverkill@Damage"/>
+    <CEffectUserData id="TychusOverkill@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusOverkill@Damage"/>
+    <CEffectSet id="TychusOverkill@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="TychusOverkill@DamageCritStatusLocal" CritStatusEffect="TychusOverkill@DamageCritStatusIncrement" DamageEffect="TychusOverkill@Damage"/>
     <CEffectCreatePersistent id="TychusOverkill@InitialDelayPersistent">
         <WhichLocation Value="TargetUnit"/>
         <TimeScaleSource Value="Caster"/>
@@ -292,8 +301,8 @@
         <PeriodicEffectArray value="TychusOverkill@ApplyActiveBehavior"/>
         <PeriodicEffectArray value="TychusOverkill@InitialPersistent"/>
     </CEffectCreatePersistent>
-    <CEffectUserData id="TychusOverkill@MainTargetDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="TychusOverkill@CritStatusCombine" Effect="TychusOverkill@MainTargetDamage"/>
-    <CEffectSet id="TychusOverkill@MainTargetDamageSet" parent="StormDamageSet" CritStatusEffect="TychusOverkill@MainTargetDamageCritStatusIncrement" DamageEffect="TychusOverkill@MainTargetDamage"/>
+    <CEffectUserData id="TychusOverkill@MainTargetDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusOverkill@MainTargetDamage"/>
+    <CEffectSet id="TychusOverkill@MainTargetDamageSet" parent="StormDamageSet" LocalCritStatusEffect="TychusOverkill@DamageCritStatusLocal" CritStatusEffect="TychusOverkill@MainTargetDamageCritStatusIncrement" DamageEffect="TychusOverkill@MainTargetDamage"/>
     <CEffectApplyBehavior id="TychusPressTheAdvantage@ApplyBushBonus">
         <ValidatorArray value="TargetInShrub"/>
         <Behavior value="TychusPressTheAdvantage@BushBonus"/>
@@ -439,8 +448,8 @@
     <CEffectModifyPlayer id="TychusThatsTheStuff@ResetHeal">
         <EffectArray Operation="Set" Reference="Effect,TychusThatsTheStuff@HealModifyUnit,VitalArray[Life].Change" Value="0"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="TychusWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="TychusWeapon@DamageCritStatusCombine" Effect="TychusWeapon@Damage"/>
-    <CEffectSet id="TychusWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="TychusWeapon@DamageCritStatusIncrement" DamageEffect="TychusWeapon@Damage"/>
+    <CEffectUserData id="TychusWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TychusWeapon@Damage"/>
+    <CEffectSet id="TychusWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="TychusWeapon@DamageCritStatusLocal" CritStatusEffect="TychusWeapon@DamageCritStatusIncrement" DamageEffect="TychusWeapon@Damage"/>
     <CEffectSet id="TychusWeapon@ImpactSet">
         <EffectArray value="TychusWeapon@DamageSet"/>
         <EffectArray value="TychusWeapon@ImpactSetSecondary"/>
@@ -648,7 +657,7 @@
         <InitialOffset value="0,-4,0"/>
     </CEffectCreatePersistent>
     <CEffectSet id="TychusWeapon@ImpactSetSecondary">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="TychusMinigun@DamageSwitch"/>
         <EffectArray value="TychusInTheRhythm@IncrementTokenCount"/>
         <EffectArray value="TychusSizzlinAttacks@Damage"/>
@@ -668,6 +677,7 @@
     </CEffectEnumArea>
     <CEffectApplyBehavior id="TychusFocusingDiodes@ApplyStackingDamageIncreaseBehavior">
         <ValidatorArray value="TychusFocusingDiodes"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="TychusFocusingDiodes@DamageIncrease"/>
     </CEffectApplyBehavior>
@@ -768,6 +778,11 @@
             <AccumulatorArray value="TychusArmorPiercingRounds@IncreasedDamageSwitch"/>
         </Amount>
     </CEffectDamage>
+    <CEffectDamage id="TychusLaserDrill@WeaponDamage" parent="StormSpellBasicAttack">
+        <Amount value="71">
+            <AccumulatorArray value="TychusFocusingDiodes@IncreasedDamageArithmetic"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectSet id="TychusOverkill@RetargetDestroyPersistentSet">
         <ValidatorArray value="TargetNotInvulnerable"/>
         <EffectArray value="TychusOverkill@DestroyBasePersistent"/>
@@ -858,11 +873,6 @@
         <EffectArray value="CameraShakeLightTauntingTotemSet"/>
         <EffectArray value="StormSuicide"/>
     </CEffectSet>
-    <CEffectDamage id="TychusLaserDrill@WeaponDamage" parent="StormSpell">
-        <Amount value="71">
-            <AccumulatorArray value="TychusFocusingDiodes@IncreasedDamageArithmetic"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectCreatePersistent id="TychusLaserDrill@WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
         <Flags index="Channeled" value="1"/>
@@ -1087,7 +1097,6 @@
         <EffectArray value="TychusWeapon@LaunchMissile"/>
         <EffectArray value="TychusMiniGunWeaponApplyLockandLoad"/>
         <EffectArray value="RapidFireWarmupCheckSwitch"/>
-        <EffectArray value="UniversalWeaponLaunchSet"/>
     </CEffectSet>
     <CEffectEnumArea id="OdinWeaponSplashSearch">
         <ExcludeArray Effect="TychusOdinWeapon@Set" Value="Target"/>
@@ -1405,6 +1414,12 @@
         <SetLastTarget value="Attack"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TychusRunAndGun"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="TychusOverkill@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="TychusArmorPiercingRounds@TargetHas4Stacks"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TychusMeltingPoint@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="TargetIsLaneMinionOrMercenaryOrMonster"/>
+    </CValidatorCombine>
     <CValidatorPlayerTalent id="TychusCollateralDamage" parent="PlayerTalent"/>
     <CValidatorUnitCompareBehaviorCount id="TychusABadBadMan@CasterHasCDRBuff" parent="CasterIsParent">
         <Behavior value="TychusABadBadMan@CDRController"/>
@@ -1438,10 +1453,6 @@
     <CValidatorUnitCompareBehaviorCount id="TychusHeavensDevils@TargetHasDamageBuff" parent="TargetIsParent">
         <Behavior value="TychusHeavensDevils@DamageBuff"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="TychusOverkill@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="TychusArmorPiercingRounds@TargetHas4Stacks"/>
-    </CValidatorCombine>
     <CValidatorPlayerTalent id="TychusABadBadMan" parent="PlayerTalent"/>
     <CValidatorUnitCompareBehaviorCount id="TychusABadBadMan@CasterHasRequiredStacks">
         <WhichUnit Value="Caster"/>
@@ -1489,10 +1500,6 @@
     <CValidatorUnitCompareChargeUsed id="TychusMasterAssassin@QuestMaxedTarget" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="TychusMasterAssassin@TokenCounter">
         <WhichUnit Value="Target"/>
     </CValidatorUnitCompareChargeUsed>
-    <CValidatorCombine id="TychusMeltingPoint@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="TargetIsLaneMinionOrMercenaryOrMonster"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="TychusPressTheAdvantage@CasterHasCarryBehavior" parent="CasterIsParent">
         <Behavior value="TychusPressTheAdvantage@AttackRangeBuff"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -1541,6 +1548,9 @@
         <CombineArray value="TychusOverkill@TargetWithinImprovedRange"/>
     </CValidatorCombine>
     <CValidatorPlayerTalent id="TychusSprayNPray" parent="PlayerTalent"/>
+    <CValidatorCombine id="TychusWeapon@DamageCritStatusCombine" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="TychusHeavensDevils@BasicAttackDamageCombine"/>
+    </CValidatorCombine>
     <CValidatorUnitFilters id="TychusOverkill@TargetNotInvulnerable">
         <WhichUnit Effect="TychusOverkill@InitialPersistent"/>
         <Filters value="-;Invulnerable"/>
@@ -1657,10 +1667,6 @@
     <CValidatorPlayerTalent id="TychusMeltingPoint" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="TychusBobAndWeave" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="TychusSizzlinAttacks" parent="PlayerTalent"/>
-    <CValidatorCombine id="TychusWeapon@DamageCritStatusCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="TychusHeavensDevils@BasicAttackDamageCombine"/>
-    </CValidatorCombine>
     <CValidatorCombine id="TychusWeapon@IsTychusAndNotInOdin">
         <Type value="And"/>
         <CombineArray value="TychusHero@TargetIsTychus"/>
@@ -6741,7 +6747,7 @@
         <DataRecord Entry="Model,TychusMeltingPoint@DebuffFX"/>
         <DataRecord Entry="Talent,TychusMeltingPoint"/>
         <DataRecord Entry="Validator,TychusMeltingPoint"/>
-        <DataRecord Entry="Validator,TychusMeltingPoint@CritStatusCombine"/>
+        <DataRecord Entry="Validator,TychusMeltingPoint@DamageCritStatusCombine"/>
         <DataRecord Entry="Accumulator,TychusMeltingPoint@IncreasedDamageSwitch"/>
         <DataRecord Entry="Accumulator,TychusMeltingPoint@IncreasedDamageModifier"/>
     </CDataCollection>
@@ -7282,7 +7288,7 @@
         <DataRecord Entry="Sound,TychusOverkill@End"/>
         <DataRecord Entry="Validator,TychusOverkill@CasterHasActive"/>
         <DataRecord Entry="Validator,TychusOverkill@CasterHasNotActive"/>
-        <DataRecord Entry="Validator,TychusOverkill@CritStatusCombine"/>
+        <DataRecord Entry="Validator,TychusOverkill@DamageCritStatusCombine"/>
         <DataRecord Entry="Validator,TychusOverkill@OutOfRangeRetargetInRange"/>
         <DataRecord Entry="Validator,TychusOverkill@ProximityAttackCombine"/>
         <DataRecord Entry="Validator,TychusOverkill@StasisRetargetInRange"/>
@@ -7403,6 +7409,7 @@
         <FlagArray index="ForceCollisionCheck" value="1"/>
         <FlagArray index="Unstoppable" value="1"/>
         <PushPriority value="7000"/>
+        <Collide index="Ground" value="1"/>
         <Collide index="Structure" value="1"/>
         <Attributes index="ImmuneToFriendlyAbilities" value="1"/>
         <LifeStart value="1255"/>
@@ -7416,7 +7423,6 @@
         <BehaviorArray Link="TychusLaserDrill@StartupDelay"/>
         <BehaviorArray Link="HeroicSummon"/>
         <BehaviorArray Link="IsPseudoStructure"/>
-        <BehaviorArray Link="HeroGenericCollisionRadius"/>
         <WeaponArray Link="TychusLaserDrill@Weapon" Turret="TychusLaserDrill@Turret"/>
         <SeparationRadius value="1.5"/>
         <MinimapRadius value="0.75"/>
@@ -7567,7 +7573,6 @@
             <AbilLinkDisableArray value="HoldFire"/>
         </Modification>
         <BehaviorCategories index="Fast" value="0"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="TychusFocusingDiodes@DamageIncrease">
         <BuffFlags index="RefreshStack" value="1"/>

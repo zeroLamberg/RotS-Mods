@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="DeltaCleanShot@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="DeltaCleanShot@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="DeltaNuclearStrike@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="DeltaNuclearStrike@DamageCritStatusCombine"/>
+    </CEffectUserData>
     <CEffectDamage id="DeltaWeaponSniper@PercentDamage" parent="StormPurePercent">
         <ValidatorArray value="TargetIsHero"/>
         <Amount value="0">
             <AccumulatorArray value="DeltaWeaponSniper@PercentDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="DeltaWeaponGaussRifle@Damage" parent="StormPhysical">
+    <CEffectDamage id="DeltaWeaponGaussRifle@Damage" parent="StormPhysicalBasicAttack">
         <EditorCategories value="StormHero:Katarina"/>
         <Amount value="188">
             <AccumulatorArray value="DeltaDesperateMeasures@BasicAttackBonusSwitch"/>
             <AccumulatorArray value="DeltaLockdownRound@WeaponDamageBonusSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="DeltaWeaponPlasmaCoil@AOEDamage" parent="StormPhysical">
+    <CEffectDamage id="DeltaWeaponPlasmaCoil@AOEDamage" parent="StormPhysicalBasicAttack">
         <Amount value="188">
             <AccumulatorArray value="DeltaWeaponPlasmaCoil@AOEDamageMultiplierSwitch"/>
             <AccumulatorArray value="DeltaDesperateMeasures@BasicAttackBonusSwitch"/>
             <AccumulatorArray value="DeltaLockdownRound@WeaponDamageBonusSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="DeltaWeaponPlasmaCoil@Damage" parent="StormPhysical">
+    <CEffectDamage id="DeltaWeaponPlasmaCoil@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="188">
             <AccumulatorArray value="DeltaDesperateMeasures@BasicAttackBonusSwitch"/>
             <AccumulatorArray value="DeltaLockdownRound@WeaponDamageBonusSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="DeltaWeaponSniper@Damage" parent="StormPhysical">
+    <CEffectDamage id="DeltaWeaponSniper@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="188">
             <AccumulatorArray value="DeltaDesperateMeasures@BasicAttackBonusSwitch"/>
             <AccumulatorArray value="DeltaLockdownRound@WeaponDamageBonusSwitch"/>
@@ -46,8 +52,8 @@
             <AccumulatorArray value="DeltaDangerClose@DamageBonusSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectUserData id="DeltaCleanShot@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="DeltaCleanShot@DamageCritStatusCombine" Effect="DeltaCleanShot@Damage"/>
-    <CEffectSet id="DeltaCleanShot@DamageSet" parent="StormDamageSet" CritStatusEffect="DeltaCleanShot@DamageCritStatusIncrement" DamageEffect="DeltaCleanShot@Damage"/>
+    <CEffectUserData id="DeltaCleanShot@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaCleanShot@Damage"/>
+    <CEffectSet id="DeltaCleanShot@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="DeltaCleanShot@DamageCritStatusLocal" CritStatusEffect="DeltaCleanShot@DamageCritStatusIncrement" DamageEffect="DeltaCleanShot@Damage"/>
     <CEffectModifyUnit id="DeltaCleanShot@GaussBonusCooldownMU">
         <ImpactUnit Value="Caster"/>
         <Cost Abil="DeltaCleanShot,Execute" ChargeTimeUse="-4" CooldownOperation="Add"/>
@@ -161,8 +167,8 @@
     <CEffectDamage id="DeltaClusterCharge@CenterDamage" parent="StormSpell">
         <Amount value="180"/>
     </CEffectDamage>
-    <CEffectUserData id="DeltaClusterCharge@CenterDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="DeltaClusterCharge@CenterDamage"/>
-    <CEffectSet id="DeltaClusterCharge@CenterDamageSet" parent="StormDamageSet" CritStatusEffect="DeltaClusterCharge@CenterDamageCritStatusIncrement" DamageEffect="DeltaClusterCharge@CenterDamage"/>
+    <CEffectUserData id="DeltaClusterCharge@CenterDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaClusterCharge@CenterDamage"/>
+    <CEffectSet id="DeltaClusterCharge@CenterDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="DeltaClusterCharge@CenterDamageCritStatusIncrement" DamageEffect="DeltaClusterCharge@CenterDamage"/>
     <CEffectSet id="DeltaClusterCharge@CenterImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="DeltaClusterCharge@CenterDamageSet"/>
     </CEffectSet>
@@ -190,8 +196,8 @@
     <CEffectDamage id="DeltaClusterCharge@SpreadDamage" parent="StormSpell">
         <Amount value="90"/>
     </CEffectDamage>
-    <CEffectUserData id="DeltaClusterCharge@SpreadDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="DeltaClusterCharge@SpreadDamage"/>
-    <CEffectSet id="DeltaClusterCharge@SpreadDamageSet" parent="StormDamageSet" CritStatusEffect="DeltaClusterCharge@SpreadDamageCritStatusIncrement" DamageEffect="DeltaClusterCharge@SpreadDamage"/>
+    <CEffectUserData id="DeltaClusterCharge@SpreadDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaClusterCharge@SpreadDamage"/>
+    <CEffectSet id="DeltaClusterCharge@SpreadDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="DeltaClusterCharge@SpreadDamageCritStatusIncrement" DamageEffect="DeltaClusterCharge@SpreadDamage"/>
     <CEffectSet id="DeltaClusterCharge@SpreadImpactSet" parent="StormAbilityImpactSetEnemy"/>
     <CEffectCreatePersistent id="DeltaClusterCharge@SpreadPersistentHero">
         <WhichLocation Effect="DeltaClusterCharge@TargetUnitPersistent" Value="TargetUnit"/>
@@ -466,8 +472,8 @@
     <CEffectDamage id="DeltaMindBlast@Damage" parent="StormSpell">
         <Amount value="230"/>
     </CEffectDamage>
-    <CEffectUserData id="DeltaMindBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="DeltaMindBlast@Damage"/>
-    <CEffectSet id="DeltaMindBlast@DamageSet" parent="StormDamageSet" CritStatusEffect="DeltaMindBlast@DamageCritStatusIncrement" DamageEffect="DeltaMindBlast@Damage"/>
+    <CEffectUserData id="DeltaMindBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaMindBlast@Damage"/>
+    <CEffectSet id="DeltaMindBlast@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="DeltaMindBlast@DamageCritStatusIncrement" DamageEffect="DeltaMindBlast@Damage"/>
     <CEffectEnumArea id="DeltaMindBlast@Search" parent="StormImpactSearchArea">
         <ValidatorArray value="DeltaMindBlast"/>
         <ValidatorArray value="CasterNotDead"/>
@@ -489,8 +495,8 @@
         </Amount>
         <Visibility value="Hidden"/>
     </CEffectDamage>
-    <CEffectUserData id="DeltaNuclearStrike@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="DeltaNuclearStrike@DamageCritStatusCombine" Effect="DeltaNuclearStrike@Damage"/>
-    <CEffectSet id="DeltaNuclearStrike@DamageSet" parent="StormDamageSet" CritStatusEffect="DeltaNuclearStrike@DamageCritStatusIncrement" DamageEffect="DeltaNuclearStrike@Damage"/>
+    <CEffectUserData id="DeltaNuclearStrike@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaNuclearStrike@Damage"/>
+    <CEffectSet id="DeltaNuclearStrike@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="DeltaNuclearStrike@DamageCritStatusLocal" CritStatusEffect="DeltaNuclearStrike@DamageCritStatusIncrement" DamageEffect="DeltaNuclearStrike@Damage"/>
     <CEffectCreatePersistent id="DeltaNuclearStrike@ExpirePersistent">
         <InitialDelay value="1.25"/>
         <ExpireEffect value="DeltaNuclearStrike@Search"/>
@@ -680,7 +686,7 @@
         <Behavior value="DeltaSprint@Movespeed"/>
     </CEffectApplyBehavior>
     <CEffectUserData id="DeltaSprint@HeroFoundIncrementUD">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <Key value="DeltaSprint@HeroFound"/>
         <SourceKey value="DeltaSprint@HeroFound"/>
     </CEffectUserData>
@@ -777,8 +783,8 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="DeltaWeaponGaussRifle@Movespeed"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="DeltaWeaponGaussRifle@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="DeltaWeaponGaussRifle@Damage"/>
-    <CEffectSet id="DeltaWeaponGaussRifle@DamageSet" parent="StormDamageSet" CritStatusEffect="DeltaWeaponGaussRifle@DamageCritStatusIncrement" DamageEffect="DeltaWeaponGaussRifle@Damage"/>
+    <CEffectUserData id="DeltaWeaponGaussRifle@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaWeaponGaussRifle@Damage"/>
+    <CEffectSet id="DeltaWeaponGaussRifle@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="DeltaWeaponGaussRifle@DamageCritStatusIncrement" DamageEffect="DeltaWeaponGaussRifle@Damage"/>
     <CEffectSet id="DeltaWeaponGaussRifle@InitialSet">
         <EffectArray value="DeltaHero@ApplyWeaponDummyUIBehavior"/>
         <EffectArray value="DeltaLockdownRound@WeaponInitialSet"/>
@@ -798,30 +804,30 @@
         <WhichUnit Value="Caster"/>
     </CEffectRemoveBehavior>
     <CEffectSet id="DeltaWeaponGaussRifle@ImpactSetSecondary">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="DeltaLockdownRound@ApplyRoot"/>
         <EffectArray value="DeltaGhost@ModifyCooldown"/>
     </CEffectSet>
     <CEffectSet id="DeltaWeaponGaussRifle@WeaponEquippedDummySet"/>
-    <CEffectUserData id="DeltaWeaponPlasmaCoil@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="DeltaWeaponPlasmaCoil@Damage"/>
-    <CEffectSet id="DeltaWeaponPlasmaCoil@DamageSet" parent="StormDamageSet" CritStatusEffect="DeltaWeaponPlasmaCoil@DamageCritStatusIncrement" DamageEffect="DeltaWeaponPlasmaCoil@Damage"/>
+    <CEffectUserData id="DeltaWeaponPlasmaCoil@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaWeaponPlasmaCoil@Damage"/>
+    <CEffectSet id="DeltaWeaponPlasmaCoil@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="DeltaWeaponPlasmaCoil@DamageCritStatusIncrement" DamageEffect="DeltaWeaponPlasmaCoil@Damage"/>
     <CEffectSet id="DeltaWeaponPlasmaCoil@ImpactSetSecondary">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="DeltaLockdownRound@ApplyRoot"/>
         <EffectArray value="DeltaWeaponPlasmaCoil@SearchArea"/>
         <EffectArray value="DeltaGhost@ModifyCooldown"/>
     </CEffectSet>
     <CEffectSet id="DeltaWeaponSniper@ImpactSetSecondary">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="DeltaWeaponSniper@PercentDamage"/>
         <EffectArray value="DeltaGhost@ModifyCooldown"/>
         <EffectArray value="DeltaLockdownRound@ApplyRoot"/>
     </CEffectSet>
     <CEffectSet id="DeltaWeaponSniper@WeaponEquippedDummySet"/>
-    <CEffectUserData id="DeltaWeaponPlasmaCoil@AOEDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="DeltaWeaponPlasmaCoil@AOEDamage"/>
-    <CEffectSet id="DeltaWeaponPlasmaCoil@AOEDamageSet" parent="StormDamageSet" CritStatusEffect="DeltaWeaponPlasmaCoil@AOEDamageCritStatusIncrement" DamageEffect="DeltaWeaponPlasmaCoil@AOEDamage"/>
+    <CEffectUserData id="DeltaWeaponPlasmaCoil@AOEDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaWeaponPlasmaCoil@AOEDamage"/>
+    <CEffectSet id="DeltaWeaponPlasmaCoil@AOEDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="DeltaWeaponPlasmaCoil@AOEDamageCritStatusIncrement" DamageEffect="DeltaWeaponPlasmaCoil@AOEDamage"/>
     <CEffectSet id="DeltaWeaponPlasmaCoil@AOEImpactSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="DeltaWeaponPlasmaCoil@AOEDamageSet"/>
         <EffectArray value="DeltaLockdownRound@PlasmaApplySlow"/>
     </CEffectSet>
@@ -845,8 +851,8 @@
         <Behavior value="DeltaWeaponSniper@WeaponCarried"/>
         <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="DeltaWeaponSniper@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="DeltaWeaponSniper@Damage"/>
-    <CEffectSet id="DeltaWeaponSniper@DamageSet" parent="StormDamageSet" CritStatusEffect="DeltaWeaponSniper@DamageCritStatusIncrement" DamageEffect="DeltaWeaponSniper@Damage"/>
+    <CEffectUserData id="DeltaWeaponSniper@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="DeltaWeaponSniper@Damage"/>
+    <CEffectSet id="DeltaWeaponSniper@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="DeltaWeaponSniper@DamageCritStatusIncrement" DamageEffect="DeltaWeaponSniper@Damage"/>
     <CEffectRemoveBehavior id="DeltaWeaponSniper@RemoveBehaviorCarried">
         <BehaviorLink value="DeltaWeaponSniper@WeaponCarried"/>
         <WhichUnit Value="Caster"/>
@@ -1497,15 +1503,17 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="DeltaInfiltrationMission"/>
         <PlaceUnit value="DeltaInfiltrationMission@ScoutingDroneReducedVision"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="DeltaCleanShot@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="DeltaDangerClose@DamageBonusCombine"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DeltaNuclearStrike@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="TargetIsStructure"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareAbilStage id="DeltaCleanShot@CasterIsCastingCleanShot">
         <WhichUnit Value="Caster"/>
         <AbilityStage value="Cast"/>
         <Ability value="DeltaCleanShot"/>
     </CValidatorUnitCompareAbilStage>
-    <CValidatorCombine id="DeltaCleanShot@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="DeltaDangerClose@DamageBonusCombine"/>
-    </CValidatorCombine>
     <CValidatorCombine id="DeltaCleanShot@GaussBonusCombine">
         <CombineArray value="DeltaWeaponGaussRifle@CasterHasWeaponEquipped"/>
         <CombineArray value="DeltaDoubleCharge@GaussCarriedBonusCombine"/>
@@ -1620,10 +1628,6 @@
     <CValidatorPlayerTalent id="DeltaMarkedForDeath" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="DeltaMindBlast" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="DeltaNuclearStrike" parent="PlayerTalent"/>
-    <CValidatorCombine id="DeltaNuclearStrike@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="TargetIsStructure"/>
-    </CValidatorCombine>
     <CValidatorPlayerTalent id="DeltaOnTheChase" parent="PlayerTalent"/>
     <CValidatorCompareTrackedUnitsCount id="DeltaOnTheChase@TrackedUnitCountGT0">
         <Compare value="GT"/>
@@ -1685,7 +1689,7 @@
     <CValidatorPlayerTalent id="DeltaSprint" parent="PlayerTalent"/>
     <CValidatorLocationEnumArea id="DeltaSprint@ButtonGlowSearch">
         <WhichLocation Value="SourceUnit"/>
-        <AreaArray Compare="GT" Radius="3" Validator="SpellEffectTreeCheckCombine"/>
+        <AreaArray Compare="GT" Radius="3" Validator="EffectTreeCheckCombineNonBasicAttack"/>
         <LaunchLocation Value="SourceUnit"/>
         <SearchFilters value="Heroic,Visible;Player,Ally,Neutral,ImmuneToAOE,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>

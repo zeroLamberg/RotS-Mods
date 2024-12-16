@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="AnduinWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="AnduinFlashHeal@HealCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="AnduinFlashHeal@HealCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="AnduinChastise@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinChastise@Damage"/>
+    <CEffectSet id="AnduinChastise@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinChastise@DamageCritStatusIncrement" DamageEffect="AnduinChastise@Damage"/>
+    <CEffectUserData id="AnduinHolyNova@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinHolyNova@Damage"/>
+    <CEffectSet id="AnduinHolyNova@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinHolyNova@DamageCritStatusIncrement" DamageEffect="AnduinHolyNova@Damage"/>
+    <CEffectDamage id="AnduinWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="85"/>
     </CEffectDamage>
-    <CEffectUserData id="AnduinBindingHeal@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="AnduinBindingHeal@HealModifyUnit"/>
+    <CEffectUserData id="AnduinBindingHeal@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="AnduinBindingHeal@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinBindingHeal@HealModifyUnit" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <Change value="135"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinBindingHeal@HealSet" parent="StormHealSetCaster" CritStatusEffect="AnduinBindingHeal@HealCritStatusIncrement" HealEffect="AnduinBindingHeal@HealModifyUnit">
+    <CEffectSet id="AnduinBindingHeal@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinBindingHeal@HealCritStatusIncrement" HealEffect="AnduinBindingHeal@HealModifyUnit">
         <ValidatorArray value="AnduinBindingHeal"/>
         <ValidatorArray value="IsNotSelf"/>
     </CEffectSet>
@@ -19,13 +26,13 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="AnduinBlessedHands@AttackSpeedBuff"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="AnduinBlessedRecovery@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="AnduinBlessedRecovery@HealModifyUnit"/>
+    <CEffectUserData id="AnduinBlessedRecovery@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="AnduinBlessedRecovery@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinBlessedRecovery@HealModifyUnit" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <ChangeFraction value="0.05"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinBlessedRecovery@HealSet" parent="StormHealSetCaster" CritStatusEffect="AnduinBlessedRecovery@HealCritStatusIncrement" HealEffect="AnduinBlessedRecovery@HealModifyUnit"/>
+    <CEffectSet id="AnduinBlessedRecovery@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinBlessedRecovery@HealCritStatusIncrement" HealEffect="AnduinBlessedRecovery@HealModifyUnit"/>
     <CEffectModifyPlayer id="AnduinCensure">
         <EffectArray Reference="Behavior,AnduinChastise@Root,Duration" Value="0.500000"/>
     </CEffectModifyPlayer>
@@ -61,22 +68,22 @@
         <CaseArray Validator="AnduinLayOnHands" Effect="AnduinLayOnHands@CastSet"/>
         <CaseDefault value="AnduinDesperatePrayer@HealSet"/>
     </CEffectSwitch>
-    <CEffectUserData id="AnduinDesperatePrayer@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinDesperatePrayer@HealModifyUnit"/>
+    <CEffectUserData id="AnduinDesperatePrayer@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinDesperatePrayer@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinDesperatePrayer@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="375"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinDesperatePrayer@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinDesperatePrayer@HealCritStatusIncrement" HealEffect="AnduinDesperatePrayer@HealModifyUnit"/>
-    <CEffectUserData id="AnduinDivineStar@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinDivineStar@Damage"/>
-    <CEffectSet id="AnduinDivineStar@DamageSet" parent="StormDamageSet" CritStatusEffect="AnduinDivineStar@DamageCritStatusIncrement" DamageEffect="AnduinDivineStar@Damage"/>
-    <CEffectUserData id="AnduinEnchantBootsLionsSpeed@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinEnchantBootsLionsSpeed@HealModifyUnit"/>
+    <CEffectSet id="AnduinDesperatePrayer@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinDesperatePrayer@HealCritStatusIncrement" HealEffect="AnduinDesperatePrayer@HealModifyUnit"/>
+    <CEffectUserData id="AnduinDivineStar@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinDivineStar@Damage"/>
+    <CEffectSet id="AnduinDivineStar@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinDivineStar@DamageCritStatusIncrement" DamageEffect="AnduinDivineStar@Damage"/>
+    <CEffectUserData id="AnduinEnchantBootsLionsSpeed@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinEnchantBootsLionsSpeed@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinEnchantBootsLionsSpeed@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="70"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinEnchantBootsLionsSpeed@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinEnchantBootsLionsSpeed@HealCritStatusIncrement" HealEffect="AnduinEnchantBootsLionsSpeed@HealModifyUnit"/>
+    <CEffectSet id="AnduinEnchantBootsLionsSpeed@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinEnchantBootsLionsSpeed@HealCritStatusIncrement" HealEffect="AnduinEnchantBootsLionsSpeed@HealModifyUnit"/>
     <CEffectSet id="AnduinEnchantBootsLionsSpeed@PeriodicSet" parent="StormAbilityImpactSetAlly">
         <ValidatorArray value="TargetLifeNotFull"/>
         <EffectArray value="AnduinEnchantBootsLionsSpeed@HealSet"/>
@@ -106,7 +113,7 @@
         <EffectArray value="AnduinLightwell@CooldownRefund"/>
         <ValidatorArray value="AnduinHero@CasterIsAnduin"/>
     </CEffectSet>
-    <CEffectUserData id="AnduinHolyNova@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinHolyNova@HealModifyUnit"/>
+    <CEffectUserData id="AnduinHolyNova@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinHolyNova@HealModifyUnit"/>
     <CEffectSet id="AnduinHolyNova@HealImpactSet" parent="StormAbilityImpactSetAlly">
         <EffectArray value="AnduinHolyNova@HealSet"/>
     </CEffectSet>
@@ -115,17 +122,17 @@
             <Change value="105"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinHolyNova@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinHolyNova@HealCritStatusIncrement" HealEffect="AnduinHolyNova@HealModifyUnit"/>
+    <CEffectSet id="AnduinHolyNova@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinHolyNova@HealCritStatusIncrement" HealEffect="AnduinHolyNova@HealModifyUnit"/>
     <CEffectApplyBehavior id="AnduinHolyWordSalvation@ApplyHealingBehavior">
         <Behavior value="AnduinHolyWordSalvation@Healing"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="AnduinHolyWordSalvation@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinHolyWordSalvation@HealModifyUnit"/>
+    <CEffectUserData id="AnduinHolyWordSalvation@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinHolyWordSalvation@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinHolyWordSalvation@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <ChangeFraction value="0.025"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinHolyWordSalvation@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinHolyWordSalvation@HealCritStatusIncrement" HealEffect="AnduinHolyWordSalvation@HealModifyUnit"/>
+    <CEffectSet id="AnduinHolyWordSalvation@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinHolyWordSalvation@HealCritStatusIncrement" HealEffect="AnduinHolyWordSalvation@HealModifyUnit"/>
     <CEffectSet id="AnduinHolyWordSalvation@PeriodicSet">
         <EffectArray value="AnduinHolyWordSalvation@HealSet"/>
     </CEffectSet>
@@ -148,13 +155,13 @@
         <EffectArray value="AnduinLayOnHands@ApplyUnstoppableCaster"/>
         <EffectArray value="AnduinLayOnHands@ApplyUnstoppableTarget"/>
     </CEffectSet>
-    <CEffectUserData id="AnduinLayOnHands@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinLayOnHands@HealModifyUnit"/>
+    <CEffectUserData id="AnduinLayOnHands@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinLayOnHands@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinLayOnHands@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="187.5"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinLayOnHands@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinLayOnHands@HealCritStatusIncrement" HealEffect="AnduinLayOnHands@HealModifyUnit"/>
+    <CEffectSet id="AnduinLayOnHands@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinLayOnHands@HealCritStatusIncrement" HealEffect="AnduinLayOnHands@HealModifyUnit"/>
     <CEffectSet id="AnduinLeapOfFaith@DelayPersistentSet">
         <EffectArray value="HeroGenericNullifyMissileTarget"/>
         <EffectArray value="HeroGenericRedirectMissileTarget"/>
@@ -169,8 +176,8 @@
         <EffectArray value="AnduinLeapOfFaith@ApplyUnstoppableBehavior"/>
         <EffectArray value="AnduinLeapOfFaith@IncrementUserData"/>
     </CEffectSet>
-    <CEffectUserData id="AnduinLightbomb@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinLightbomb@Damage"/>
-    <CEffectSet id="AnduinLightbomb@DamageSet" parent="StormDamageSet" CritStatusEffect="AnduinLightbomb@DamageCritStatusIncrement" DamageEffect="AnduinLightbomb@Damage"/>
+    <CEffectUserData id="AnduinLightbomb@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinLightbomb@Damage"/>
+    <CEffectSet id="AnduinLightbomb@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinLightbomb@DamageCritStatusIncrement" DamageEffect="AnduinLightbomb@Damage"/>
     <CEffectModifyPlayer id="AnduinLightwell@CooldownRefund">
         <ValidatorArray value="AnduinLightwell"/>
         <Cost Abil="AnduinLightwell">
@@ -185,13 +192,13 @@
     <CEffectCreatePersistent id="AnduinLightwell@FXPersistent">
         <WhichLocation Effect="AnduinLightwell@Search"/>
     </CEffectCreatePersistent>
-    <CEffectUserData id="AnduinLightwell@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinLightwell@HealModifyUnit"/>
+    <CEffectUserData id="AnduinLightwell@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinLightwell@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinLightwell@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="50"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinLightwell@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinLightwell@HealCritStatusIncrement" HealEffect="AnduinLightwell@HealModifyUnit"/>
+    <CEffectSet id="AnduinLightwell@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinLightwell@HealCritStatusIncrement" HealEffect="AnduinLightwell@HealModifyUnit"/>
     <CEffectUserData id="AnduinLightwell@SetStartTokenCount" parent="StormModifyGeneralData">
         <Key value="AnduinLightwellToken"/>
         <Amount value="15"/>
@@ -277,7 +284,7 @@
         <Key value="AnduinPowerWordShield@Anduin"/>
         <SourceKey value="AnduinPowerWordShield@Anduin"/>
     </CEffectUserData>
-    <CEffectUserData id="AnduinPursuedByGrace@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinPursuedByGrace@HealModifyUnit"/>
+    <CEffectUserData id="AnduinPursuedByGrace@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinPursuedByGrace@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinPursuedByGrace@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="42">
@@ -285,7 +292,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinPursuedByGrace@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinPursuedByGrace@HealCritStatusIncrement" HealEffect="AnduinPursuedByGrace@HealModifyUnit"/>
+    <CEffectSet id="AnduinPursuedByGrace@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinPursuedByGrace@HealCritStatusIncrement" HealEffect="AnduinPursuedByGrace@HealModifyUnit"/>
     <CEffectSet id="AnduinPursuedByGrace@ImpactSet" parent="StormAbilityImpactSetAlly">
         <EffectArray value="AnduinPursuedByGrace@HealSet"/>
     </CEffectSet>
@@ -341,13 +348,13 @@
         <EffectArray value="AnduinPushForward@ApplyMoveSpeedBehavior"/>
         <EffectArray value="AnduinPushForward@ApplyHealingStackBehavior"/>
     </CEffectSet>
-    <CEffectUserData id="AnduinRenew@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinRenew@HealModifyUnit"/>
+    <CEffectUserData id="AnduinRenew@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinRenew@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinRenew@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="32"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinRenew@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinRenew@HealCritStatusIncrement" HealEffect="AnduinRenew@HealModifyUnit"/>
+    <CEffectSet id="AnduinRenew@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinRenew@HealCritStatusIncrement" HealEffect="AnduinRenew@HealModifyUnit"/>
     <CEffectSet id="AnduinRenew@PeriodicSet" parent="StormAbilityImpactSetAlly">
         <EffectArray value="AnduinRenew@HealSet"/>
     </CEffectSet>
@@ -363,7 +370,7 @@
             <Change value="25"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="AnduinDivineStar@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AnduinDivineStar@HealModifyUnit"/>
+    <CEffectUserData id="AnduinDivineStar@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinDivineStar@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinDivineStar@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="120">
@@ -371,7 +378,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinDivineStar@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinDivineStar@HealCritStatusIncrement" HealEffect="AnduinDivineStar@HealModifyUnit"/>
+    <CEffectSet id="AnduinDivineStar@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AnduinDivineStar@HealCritStatusIncrement" HealEffect="AnduinDivineStar@HealModifyUnit"/>
     <CEffectUserData id="AnduinDivineStar@IncrementUserData">
         <Key value="Healing"/>
         <SourceKey value="Healing"/>
@@ -386,7 +393,7 @@
         </Marker>
     </CEffectCreatePersistent>
     <CEffectSet id="AnduinHolyNova@DamageImpactSet">
-        <EffectArray value="AnduinHolyNova@Damage"/>
+        <EffectArray value="AnduinHolyNova@DamageSet"/>
         <EffectArray value="AnduinInnerFocus@ModifyCooldown"/>
     </CEffectSet>
     <CEffectEnumArea id="AnduinPowerWordShield@AllySearch">
@@ -415,7 +422,7 @@
         <ValidatorArray value="AnduinSpeedOfThePious"/>
         <EffectArray value="AnduinSpeedOfThePious@CooldownReduction"/>
     </CEffectSet>
-    <CEffectUserData id="AnduinFlashHeal@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="AnduinFlashHeal@CritCheckCombine" Effect="AnduinFlashHeal@HealModifyUnit"/>
+    <CEffectUserData id="AnduinFlashHeal@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinFlashHeal@HealModifyUnit"/>
     <CEffectModifyUnit id="AnduinFlashHeal@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="270">
@@ -431,7 +438,7 @@
             <Change value="280"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AnduinFlashHeal@HealSet" parent="StormHealSetTarget" CritStatusEffect="AnduinFlashHeal@HealCritStatusIncrement" HealEffect="AnduinFlashHeal@HealModifyUnit">
+    <CEffectSet id="AnduinFlashHeal@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="AnduinFlashHeal@HealCritStatusLocal" CritStatusEffect="AnduinFlashHeal@HealCritStatusIncrement" HealEffect="AnduinFlashHeal@HealModifyUnit">
         <EffectArray value="AnduinBlessedHands@ApplyBuff"/>
     </CEffectSet>
     <CEffectEnumArea id="AnduinEvenhandedBlessings@UISearchArea">
@@ -476,7 +483,7 @@
     </CEffectAddTrackedUnit>
     <CEffectEnumTrackedUnits id="AnduinRenew@EnumerateTrackedUnits">
         <ValidatorArray value="TargetIsHero"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="AnduinRenew"/>
         <BehaviorLink value="AnduinRenew@UnitTracker"/>
         <Effect value="AnduinRenew@ApplyHoT"/>
@@ -552,7 +559,7 @@
     <CEffectSet id="AnduinPushForward@ImpactSetSpell">
         <ValidatorArray value="AnduinPushForward"/>
         <ValidatorArray value="TargetIsHero"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <EffectArray value="AnduinPushForward@ApplyCarryBehavior"/>
         <EffectArray value="AnduinPushForward@ApplyMoveSpeedBehavior"/>
         <EffectArray value="AnduinPushForward@ApplyHealingStackBehavior"/>
@@ -822,7 +829,7 @@
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="AnduinChastise@TargetCountIsValid"/>
         <EffectArray value="AnduinChastise@IncrementToken"/>
-        <EffectArray value="AnduinChastise@Damage"/>
+        <EffectArray value="AnduinChastise@DamageSet"/>
         <EffectArray value="AnduinCensure@ApplyStun"/>
         <EffectArray value="AnduinChastise@ApplyRoot"/>
         <EffectArray value="AnduinChastise@DummyMissileEnumerateTrackedUnit"/>
@@ -846,10 +853,10 @@
     <CEffectDamage id="AnduinChastise@Damage" parent="StormSpell">
         <Amount value="175"/>
     </CEffectDamage>
-    <CEffectUserData id="AnduinWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="AnduinWeapon@Damage"/>
-    <CEffectSet id="AnduinWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="AnduinWeapon@DamageCritStatusIncrement" DamageEffect="AnduinWeapon@Damage"/>
+    <CEffectUserData id="AnduinWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AnduinWeapon@Damage"/>
+    <CEffectSet id="AnduinWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="AnduinWeapon@DamageCritStatusIncrement" DamageEffect="AnduinWeapon@Damage"/>
     <CEffectSet id="AnduinWeapon@ImpactSetTalents">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="AnduinSurgeOfLight@ModifyUnitCooldown"/>
         <EffectArray value="AnduinRenew@EnumerateTrackedUnits"/>
         <EffectArray value="AnduinVariansLegacy@ApplyDoT"/>
@@ -1037,7 +1044,7 @@
         <Amount value="29"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="AnduinVariansLegacy@ApplyDoT" parent="StormApplyDoT">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="AnduinVariansLegacy"/>
         <Behavior value="AnduinVariansLegacy@DoT"/>
     </CEffectApplyBehavior>
@@ -1250,6 +1257,9 @@
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="AnduinInnerFocus"/>
     </CAbilEffectInstant>
+    <CValidatorCombine id="AnduinFlashHeal@HealCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="AnduinInnerFocus@HasActiveBehavior"/>
+    </CValidatorCombine>
     <CValidatorEffectTreeUserData id="AnduinChastise@TargetCountIsValid">
         <Compare value="LT"/>
         <Key value="AnduinChastiseToken"/>
@@ -1359,10 +1369,6 @@
         <Value value="1"/>
         <Behavior value="AnduinInnerFocus@Active"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="AnduinFlashHeal@CritCheckCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="AnduinInnerFocus@HasActiveBehavior"/>
-    </CValidatorCombine>
     <CValidatorCombine id="AnduinLightOfStormwind@BuffCombine">
         <Type value="And"/>
         <CombineArray value="AnduinLightOfStormwind"/>
@@ -7484,7 +7490,6 @@
             <ModifyFlags index="SuppressTurning" value="1"/>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
         <RemoveValidatorArray value="AnduinLeapOfFaith@TargetHasRequiredMover"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AnduinLeapOfFaith@Daze" parent="StormDisplacement">

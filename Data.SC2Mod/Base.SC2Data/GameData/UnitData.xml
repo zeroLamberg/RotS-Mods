@@ -259,7 +259,6 @@
         <AbilArray Link="MapMechanicAbilityInstant"/>
         <AbilArray Link="SmartCommandUnitInteraction"/>
         <BehaviorArray Link="HeroGenericHeroDummyVeterancy"/>
-        <BehaviorArray Link="HeroGenericCollisionRadius"/>
         <BehaviorArray Link="Summon@SummonerUnitTracker"/>
         <BehaviorArray Link="Summon@RefreshModifiers"/>
         <BehaviorArray Link="HeroGenericDisabler@SilenceAbilities"/>
@@ -1312,7 +1311,6 @@
         <EnergyRegenRate value="100000"/>
         <Sight value="8"/>
         <Speed value="4.3984"/>
-        <BehaviorArray Link="HeroGenericCollisionRadius"/>
         <EffectArray index="Create" value="AddToAllHeroicUnitsTrackingBehavior"/>
     </CUnit>
     <CUnit id="StormPig" parent="StormCritter">

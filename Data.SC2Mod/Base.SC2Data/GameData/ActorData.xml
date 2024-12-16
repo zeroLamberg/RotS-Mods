@@ -12159,10 +12159,15 @@
     </CActorModel>
     <CActorModel id="HeroGenericLeechHealVisual" parent="StormModelAnimationStyleOneShotUnit">
         <On Terms="Effect.HeroGenericPhysicalLeechHeal.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.HeroGenericPhysicalLeechHealSummoner.Start; At Target" Send="Create"/>
         <On Terms="Effect.HeroGenericSpellLeechHeal.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.HeroGenericSpellLeechHealSummoner.Start; At Target" Send="Create"/>
+        <On Terms="Effect.HeroGenericPureLeechHeal.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.HeroGenericPureLeechHealSummoner.Start; At Target" Send="Create"/>
         <HostSiteOps Ops="SOpCasterUnit SOpAttachCenterSoft" HoldRotation="1"/>
         <Model value="HeroGenericLeechHeal"/>
         <AutoScaleFactor value="1.000000"/>
+        <Terms value="Cap 1"/>
     </CActorModel>
     <CActorSound id="TownCannonTowerImpactPlayerSound" parent="SoundOneShot">
         <Filter index="All" value="1"/>

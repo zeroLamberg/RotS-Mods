@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="ImmuneToAOE" path="CEffectEnumArea.SearchFilters" value="Mechanical"/>
     <const id="Merc" path="CEffectEnumArea.SearchFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CEffectEnumArea.SearchFilters" value="Mechanical"/>
     <const id="NoTowerAggro" path="CEffectEnumArea.SearchFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CEffectEnumArea.SearchFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CEffectEnumArea.SearchFilters" value="Massive"/>
     <const id="Minion" path="CEffectEnumArea.SearchFilters" value="Biological"/>
-    <const id="Creep" path="CEffectEnumArea.SearchFilters" value="Light"/>
     <const id="NoMinionAggro" path="CEffectEnumArea.SearchFilters" value="Psionic"/>
-    <const id="ImmuneToAOE" path="CEffectDamage.AttributeFactor.index" value="Mechanical"/>
+    <const id="Creep" path="CEffectEnumArea.SearchFilters" value="Light"/>
     <const id="Merc" path="CEffectDamage.AttributeFactor.index" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CEffectDamage.AttributeFactor.index" value="Mechanical"/>
     <const id="Tower" path="CEffectDamage.AttributeFactor.index" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CEffectDamage.AttributeFactor.index" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CEffectDamage.AttributeFactor.index" value="Massive"/>
     <const id="Minion" path="CEffectDamage.AttributeFactor.index" value="Biological"/>
     <const id="MapCreature" path="CEffectDamage.AttributeFactor.index" value="User1"/>
-    <const id="Creep" path="CEffectDamage.AttributeFactor.index" value="Light"/>
     <const id="NoMinionAggro" path="CEffectDamage.AttributeFactor.index" value="Psionic"/>
-    <const id="ImmuneToAOE" path="CEffectDamage.SearchFilters" value="Mechanical"/>
+    <const id="Creep" path="CEffectDamage.AttributeFactor.index" value="Light"/>
     <const id="Merc" path="CEffectDamage.SearchFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CEffectDamage.SearchFilters" value="Mechanical"/>
     <const id="NoTowerAggro" path="CEffectDamage.SearchFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CEffectDamage.SearchFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CEffectDamage.SearchFilters" value="Massive"/>
     <const id="Minion" path="CEffectDamage.SearchFilters" value="Biological"/>
-    <const id="Creep" path="CEffectDamage.SearchFilters" value="Light"/>
     <const id="NoMinionAggro" path="CEffectDamage.SearchFilters" value="Psionic"/>
+    <const id="Creep" path="CEffectDamage.SearchFilters" value="Light"/>
     <CEffect default="1">
         <EditorCategories value=""/>
     </CEffect>
@@ -98,35 +98,56 @@
         <EditorCategories value=""/>
     </CEffectUserData>
     <CEffectSet default="1" id="StormAbilityImpactSetAlly">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
+    <CEffectUserData default="1" id="StormModifyLocalCritStatus">
+        <Key value="LocalCritStatus"/>
+        <SourceKey value="LocalCritStatus"/>
+        <Operation value="Set"/>
+    </CEffectUserData>
+    <CEffectUserData default="1" id="StormModifyLocalLeech">
+        <Key value="LocalLeech"/>
+        <Amount value="0"/>
+        <SourceKey value="LocalLeech"/>
+        <Operation value="Set"/>
+    </CEffectUserData>
     <CEffectUserData default="1" id="StormModifyTokenCount">
         <?token id="TokenCounterBehavior" type="CBehaviorLink" value="Bogus"?>
         <TechAliasArray value="TokenCounterBehavior: ##TokenCounterBehavior##"/>
         <Amount value="0"/>
     </CEffectUserData>
     <CEffectSet default="1" id="StormHealSetTarget">
+        <?token id="LocalCritStatusEffect" type="CEffectLink" value="Bogus"?>
         <?token id="CritStatusEffect" type="CEffectLink" value="Bogus"?>
         <?token id="HealEffect" type="CEffectLink" value="Bogus"?>
+        <EffectArray value="##LocalCritStatusEffect##"/>
         <EffectArray value="##CritStatusEffect##"/>
         <EffectArray value="##HealEffect##"/>
         <EffectArray value="HeroGenericModifyHealReducedTargetValueActivatePersistent"/>
         <EffectArray value="HeroGenericUniversalHealResponseSet"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
         <ValidatorArray value="TargetLifeNotFull"/>
     </CEffectSet>
     <CEffectSet default="1" id="StormHealSetCaster">
+        <?token id="LocalCritStatusEffect" type="CEffectLink" value="Bogus"?>
         <?token id="CritStatusEffect" type="CEffectLink" value="Bogus"?>
         <?token id="HealEffect" type="CEffectLink" value="Bogus"?>
+        <EffectArray value="##LocalCritStatusEffect##"/>
         <EffectArray value="##CritStatusEffect##"/>
         <EffectArray value="##HealEffect##"/>
         <EffectArray value="HeroGenericModifyHealReducedCasterValueActivatePersistent"/>
         <EffectArray value="HeroGenericUniversalHealResponseSet"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
         <ValidatorArray value="CasterLifeNotFull"/>
     </CEffectSet>
     <CEffectSet default="1" id="StormDamageSet">
+        <?token id="LocalCritStatusEffect" type="CEffectLink" value="Bogus"?>
+        <?token id="LocalLeechEffect" type="CEffectLink" value="Bogus"?>
         <?token id="CritStatusEffect" type="CEffectLink" value="Bogus"?>
         <?token id="DamageEffect" type="CEffectLink" value="Bogus"?>
+        <EffectArray value="##LocalCritStatusEffect##"/>
         <EffectArray value="##CritStatusEffect##"/>
+        <EffectArray value="##LocalLeechEffect##"/>
         <EffectArray value="##DamageEffect##"/>
         <ValidatorArray value="TargetNotDeadAndNoSpecialDeathState"/>
         <ValidatorArray value="TargetNotInvulnerable"/>
@@ -211,18 +232,24 @@
         <Key value="SpellLeech"/>
         <SourceKey value="SpellLeech"/>
     </CEffectUserData>
+    <CEffectUserData default="1" id="StormModifyPureLeech" parent="StormModifyGeneralData">
+        <Key value="PureLeech"/>
+        <SourceKey value="PureLeech"/>
+    </CEffectUserData>
     <CEffectSet default="1" id="StormPostTeleportSet">
         <EffectArray value="HeroGenericPostTeleportApplyImmuneToDisplacement"/>
         <TargetLocationType value="Point"/>
     </CEffectSet>
-    <CEffectDamage default="1" id="StormSpellNoModifiers" parent="StormDamage"/>
     <CEffectDamage default="1" id="StormPure" parent="StormDamage">
         <Kind value="Splash"/>
         <KindSplash value="Splash"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPure"/>
+        <Type value="Normal"/>
     </CEffectDamage>
     <CEffectDamage default="1" id="StormPhysical" parent="StormDamage">
         <Kind value="Ranged"/>
         <KindSplash value="Ranged"/>
+        <Type value="Normal"/>
         <Amount value="0">
             <AccumulatorArray value="UnitStatsPhysicalDamageMultiplierArithmeticAdditiveMultiply"/>
             <AccumulatorArray value="UnitStatsPhysicalArmorSwitch"/>
@@ -313,11 +340,51 @@
         <VitalArray index="Life">
             <Change value="0">
                 <AccumulatorArray value="DamageInheritedMultiply"/>
-                <AccumulatorArray value="UnitStatsPhysicalLeech@UserDataCaster"/>
+                <AccumulatorArray value="UnitStatsPhysicalLeech@FinalArithmeticCaster"/>
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectDamage default="1" id="StormSpell" parent="StormSpellNoModifiers">
+    <CEffectModifyUnit default="1" id="StormModifyUnitLeechPure" parent="StormModifyUnitLeechParent">
+        <VitalArray index="Life">
+            <Change value="0">
+                <AccumulatorArray value="DamageInheritedMultiply"/>
+                <AccumulatorArray value="UnitStatsPureLeech@FinalArithmeticCaster"/>
+            </Change>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectDamage default="1" id="StormPhysicalBasicAttack" parent="StormPhysical">
+        <Type value="Universal"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPhysicalBasicAttack"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormPhysicalDoT" parent="StormPhysical">
+        <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
+        <ResponseFlags index="Acquire" value="0"/>
+        <Visibility value="Hidden"/>
+        <Type value="Poison"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPhysicalDoT"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormPhysicalPercent" parent="StormPhysical">
+        <Amount value="0">
+            <AccumulatorArray value="HeroGenericVitalFractionalDamageMultiply"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormPhysicalBasicAttackPercent" parent="StormPhysicalPercent">
+        <Type value="Universal"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPhysicalBasicAttack"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormPhysicalDoTPercent" parent="StormPhysicalPercent">
+        <Type value="Poison"/>
+        <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
+        <ResponseFlags index="Acquire" value="0"/>
+        <Visibility value="Hidden"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPhysicalDoT"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormPureBasicAttack" parent="StormPure">
+        <Type value="Universal"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPureBasicAttack"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormSpell" parent="StormDamage">
+        <Type value="Normal"/>
         <DamageInheritEffect value="HeroGenericDamageInheritSetSpell"/>
         <Amount value="0">
             <AccumulatorArray value="UnitStatsSpellDamageMultiplierArithmeticAdditiveMultiply"/>
@@ -328,33 +395,63 @@
     <CEffectSwitch default="1" id="AbilDmgMissCheck">
         <CaseArray Validator="CasterIsBlindedOrTargetIsEvading" Effect="BlindMissedDummySet"/>
     </CEffectSwitch>
+    <CEffectDamage default="1" id="StormSpellBasicAttack" parent="StormSpell">
+        <Type value="Universal"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellBasicAttack"/>
+    </CEffectDamage>
     <CEffectDamage default="1" id="StormSpellDoT" parent="StormSpell">
+        <Type value="Poison"/>
         <Visibility value="Hidden"/>
         <ResponseFlags index="Acquire" value="0"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellDoT"/>
     </CEffectDamage>
     <CEffectModifyUnit default="1" id="StormModifyUnitLeechSpell" parent="StormModifyUnitLeechParent">
         <VitalArray index="Life">
             <Change value="0">
                 <AccumulatorArray value="DamageInheritedMultiply"/>
-                <AccumulatorArray value="UnitStatsSpellLeech@UserDataCaster"/>
+                <AccumulatorArray value="UnitStatsSpellLeech@FinalArithmeticCaster"/>
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
     <CEffectDamage default="1" id="StormPureDoT" parent="StormPure">
+        <Type value="Poison"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Hidden"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPureDoT"/>
     </CEffectDamage>
     <CEffectDamage default="1" id="StormPurePercent" parent="StormPure">
         <Amount value="0">
             <AccumulatorArray value="HeroGenericVitalFractionalDamageMultiply"/>
         </Amount>
     </CEffectDamage>
+    <CEffectDamage default="1" id="StormPureBasicAttackPercent" parent="StormPurePercent">
+        <Type value="Universal"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPureBasicAttack"/>
+    </CEffectDamage>
     <CEffectDamage default="1" id="StormPureDoTPercent" parent="StormPurePercent">
+        <Type value="Poison"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Hidden"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetPureDoT"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormSpellPercent" parent="StormSpell">
+        <Amount value="0">
+            <AccumulatorArray value="HeroGenericVitalFractionalDamageMultiply"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormSpellBasicAttackPercent" parent="StormSpellPercent">
+        <Type value="Universal"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellBasicAttack"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="StormSpellDoTPercent" parent="StormSpellPercent">
+        <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
+        <ResponseFlags index="Acquire" value="0"/>
+        <Visibility value="Hidden"/>
+        <Type value="Poison"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellDoT"/>
     </CEffectDamage>
     <CEffectSwitch default="1" id="SummonedBasicAttackAbilityDamageMissCheck">
         <CaseArray Validator="CasterIsBlindedOrTargetIsEvadingAndNotDodging" Effect="BlindMissedDummy"/>
@@ -375,7 +472,7 @@
         <ValidatorArray value="TargetNotUnstoppable"/>
     </CEffectApplyBehavior>
     <CEffectSet default="1" id="StormAbilityImpactSetEnemy">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <EffectArray value="ApplyAbilityImpactReveal"/>
     </CEffectSet>
     <CEffectDamage default="1" id="StormSuicideParent">
@@ -399,41 +496,29 @@
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
     <CEffectUserData default="1" id="StormCriticalStatusIncrementer">
-        <?token id="Validator" type="CValidatorLink" value="Bogus"?>
         <?token id="Effect" type="CEffectLink" value="Bogus"?>
         <ValidatorArray value="CasterIsHeroPlayer"/>
-        <ValidatorArray value="##Validator##"/>
+        <ValidatorArray value="HeroGenericLocalCritStatusGT0"/>
         <Key value="Player ##Effect##"/>
         <SourceKey value="Player ##Effect##"/>
         <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
         <TechAliasArray value="StormFlag OverridePlayerIndex"/>
     </CEffectUserData>
     <CEffectUserData default="1" id="StormCriticalStatusIncrementerCaster">
-        <?token id="Validator" type="CValidatorLink" value="Bogus"?>
         <?token id="Effect" type="CEffectLink" value="Bogus"?>
         <ValidatorArray value="CasterIsHeroPlayer"/>
-        <ValidatorArray value="##Validator##"/>
+        <ValidatorArray value="HeroGenericLocalCritStatusGT0"/>
         <Key value="Player ##Effect##"/>
         <SourceKey value="Player ##Effect##"/>
         <BehaviorScope Behavior="HeroGenericUserRecord"/>
         <TechAliasArray value="StormFlag OverridePlayerIndex"/>
     </CEffectUserData>
-    <CEffectSet default="1" id="StormDamageInheritSetPhysical">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
-        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
-        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
-    </CEffectSet>
-    <CEffectSet default="1" id="StormDamageInheritSetSpell">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
-        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
-        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
-    </CEffectSet>
     <CEffectTeleport default="1" id="StormTeleportSelf">
         <WhichUnit Value="Caster"/>
         <PlacementAround Value="CasterUnit"/>
         <MinDistance value="0"/>
     </CEffectTeleport>
-    <CEffectDamage id="CatapultMinionWeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="CatapultMinionWeaponDamage" parent="StormPhysicalBasicAttack">
         <Amount value="75">
             <AccumulatorArray value="CatapultMinionWeaponDamageScaling"/>
             <AccumulatorArray value="CatapultMinionWeaponDamageSwitch"/>
@@ -447,13 +532,13 @@
         <EffectArray value="DismountTarget"/>
         <EffectArray value="HeroGenericMount@DismountTargetModifyCooldown"/>
     </CEffectSet>
-    <CEffectDamage id="FootmanMinionWeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="FootmanMinionWeaponDamage" parent="StormPhysicalBasicAttack">
         <Amount value="20">
             <AccumulatorArray value="FootmanMinionWeaponDamageSwitch"/>
             <AccumulatorArray value="MeleeMinionWeaponDamageScaling"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="GuardTowerL1WeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="GuardTowerL1WeaponDamage" parent="StormPhysicalBasicAttack">
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Snapshot"/>
         <Flags index="NoLeech" value="1"/>
@@ -464,7 +549,7 @@
             <AccumulatorArray value="StructureDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="GuardTowerL2WeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="GuardTowerL2WeaponDamage" parent="StormPhysicalBasicAttack">
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Snapshot"/>
         <Flags index="NoLeech" value="1"/>
@@ -475,7 +560,7 @@
             <AccumulatorArray value="StructureDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="GuardTowerL3WeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="GuardTowerL3WeaponDamage" parent="StormPhysicalBasicAttack">
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Snapshot"/>
         <Flags index="NoLeech" value="1"/>
@@ -486,48 +571,104 @@
             <AccumulatorArray value="StructureDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectAddTrackedUnit id="HeroGenericCollisionRadius@AddTrackedUnit">
-        <BehaviorLink value="HeroGenericCollisionRadius@UnitTracker"/>
-    </CEffectAddTrackedUnit>
-    <CEffectApplyBehavior id="HeroGenericCollisionRadius@ApplyPushSpeed">
-        <Behavior value="HeroGenericCollisionRadius@PushSpeed"/>
-    </CEffectApplyBehavior>
-    <CEffectApplyForce id="HeroGenericCollisionRadius@ApplyForce2">
-        <ValidatorArray value="CasterIsGroundMover"/>
-        <ValidatorArray value="StormCategoryCasterHasNotSuppressCollision"/>
-        <ValidatorArray value="IsPathing"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@AllianceRangeCondition"/>
-        <Chance value="0"/>
-        <WhichLocation Value="TargetUnitOrPoint"/>
-        <WhichUnit Value="Caster"/>
-        <Amount value="1"/>
-    </CEffectApplyForce>
-    <CEffectApplyBehavior id="HeroGenericCollisionRadius@ApplyPushBehavior">
-        <Behavior value="HeroGenericCollisionRadius@CollisionPush"/>
-    </CEffectApplyBehavior>
-    <CEffectSet id="HeroGenericCollisionRadius@DummySet">
-        <ValidatorArray value="TargetIsGroundMover"/>
-        <ValidatorArray value="StormCategoryTargetHasNotSuppressCollision"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@TargetIsMovingAndHasPushableOrders"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@EnemyRangeCheck"/>
+    <CEffectSet id="HeroGenericDamageInheritSetPhysicalBasicAttack">
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
+        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
+        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
+        <EffectArray value="HeroGenericPhysicalLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value="HeroGenericDisabler@DummyDamage"/>
     </CEffectSet>
-    <CEffectEnumTrackedUnits id="HeroGenericCollisionRadius@EnumTrackedUnits">
-        <BehaviorLink value="HeroGenericCollisionRadius@UnitTracker"/>
-        <Effect value="HeroGenericCollisionRadius@ImpactSet"/>
-        <TrackedUnitFilters value="-;Self"/>
-    </CEffectEnumTrackedUnits>
-    <CEffectSet id="HeroGenericCollisionRadius@ImpactSet">
-        <ValidatorArray value="TargetIsGroundMover"/>
-        <ValidatorArray value="StormCategoryTargetHasNotSuppressCollision"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@TargetIsMovingAndHasPushableOrders"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@AllianceRangeCondition"/>
-        <EffectArray value="HeroGenericCollisionRadius@ApplyPushSpeed"/>
-        <EffectArray value="HeroGenericCollisionRadius@ApplyForce"/>
+    <CEffectSet id="HeroGenericDamageInheritSetPhysicalDoT">
+        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
+        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
+        <EffectArray value="HeroGenericPhysicalLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value=""/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
-    <CEffectSet id="HeroGenericCollisionRadius@InitialSet">
-        <EffectArray value="HeroGenericCollisionRadius@AddTrackedUnit"/>
-        <EffectArray value="HeroGenericCollisionRadius@ApplyPushBehavior"/>
+    <CEffectSet id="HeroGenericDamageInheritSetPureBasicAttack">
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
+        <EffectArray value="HeroGenericPureLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value=""/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value="HeroGenericDisabler@DummyDamage"/>
     </CEffectSet>
+    <CEffectSet id="HeroGenericDamageInheritSetPureDoT">
+        <EffectArray value="HeroGenericPureLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value=""/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value=""/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
+    </CEffectSet>
+    <CEffectSet id="HeroGenericDamageInheritSetSpellBasicAttack">
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
+        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
+        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
+        <EffectArray value="HeroGenericSpellLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value="HeroGenericDisabler@DummyDamage"/>
+    </CEffectSet>
+    <CEffectSet id="HeroGenericDamageInheritSetPure">
+        <EffectArray value="HeroGenericPureLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value=""/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value="HeroGenericDisabler@DummyDamage"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
+    </CEffectSet>
+    <CEffectSet id="HeroGenericDamageInheritSetSpellDoT">
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
+        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
+        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
+        <EffectArray value="HeroGenericSpellLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value=""/>
+    </CEffectSet>
+    <CEffectUserData id="HeroGenericLocalCritStatusAlwaysTrue">
+        <Key value="LocalCritStatus"/>
+        <SourceKey value="LocalCritStatus"/>
+        <Operation value="Set"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericLocalCritStatusIncrementPure" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="CritAliasPure"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericLocalCritStatusIncrementSpell" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="CritAliasSpell"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericLocalCritStatusIncrementPhysical" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="CritAliasPhysical"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericLocalCritStatusReset">
+        <Key value="LocalCritStatus"/>
+        <Amount value="0"/>
+        <SourceKey value="LocalCritStatus"/>
+        <Operation value="Set"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroGenericLocalLeechReset" parent="StormModifyLocalLeech"/>
     <CEffectModifyUnit id="HeroGenericMount@DismountTargetModifyCooldown">
         <Cost Abil="HeroGenericMount,Execute" CooldownOperation="Set">
             <Fraction Cooldown="1"/>
@@ -543,11 +684,65 @@
         <ValidatorArray value="StormCategoryTargetNotMounted"/>
         <EffectArray value="DismountTargetSet"/>
     </CEffectSet>
-    <CEffectUserData id="HeroGenericSpellLeechCritStatusIncrementSummoner" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroGenericSpellLeechHealSummoner"/>
+    <CEffectModifyUnit id="HeroGenericPhysicalLeechHealSummoner" parent="StormModifyUnitLeechPhysical">
+        <ValidatorArray index="0" value="TargetNotTimeStopped"/>
+        <ValidatorArray index="1" value="TargetNotDeadAndNoSpecialDeathState"/>
+        <LaunchUnit Value="Target"/>
+        <ImpactUnit Value="Target"/>
+        <VitalArray index="Life">
+            <Change value="0">
+                <AccumulatorArray index="0" value="UnitStatsHealReceivedTargetModifier"/>
+                <AccumulatorArray index="3" value="UnitStatsPhysicalLeech@FinalArithmetic"/>
+            </Change>
+            <ScoreArray index="0" Validator="TargetIsHero"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectSwitch id="HeroGenericPureLeechHealSummonerSwitch">
+        <CaseArray Validator="Summon@CasterIsSummoner" Effect="HeroGenericPureLeechHealSet"/>
+        <CaseArray Validator="Summon@CasterIsSummoned" Effect="HeroGenericPureLeechHealGetSummonerUnit"/>
+    </CEffectSwitch>
+    <CEffectUserData id="HeroGenericPureLeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroGenericPureLeechHeal"/>
+    <CEffectUserData id="HeroGenericPureLeechCritStatusIncrementSummoner" parent="StormCriticalStatusIncrementerCaster" Effect="HeroGenericPureLeechHealSummoner"/>
+    <CEffectModifyUnit id="HeroGenericPureLeechHealSummoner" parent="StormModifyUnitLeechPure">
+        <ValidatorArray index="0" value="TargetNotTimeStopped"/>
+        <ValidatorArray index="1" value="TargetNotDeadAndNoSpecialDeathState"/>
+        <LaunchUnit Value="Target"/>
+        <ImpactUnit Value="Target"/>
+        <VitalArray index="Life">
+            <Change value="0">
+                <AccumulatorArray index="0" value="UnitStatsHealReceivedTargetModifier"/>
+                <AccumulatorArray index="3" value="UnitStatsPureLeech@FinalArithmetic"/>
+            </Change>
+            <ScoreArray index="0" Validator="TargetIsHero"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectUserData id="HeroGenericSpellLeechCritStatusIncrementSummoner" parent="StormCriticalStatusIncrementerCaster" Effect="HeroGenericSpellLeechHealSummoner"/>
+    <CEffectModifyUnit id="HeroGenericPureLeechHeal" parent="StormModifyUnitLeechPure"/>
+    <CEffectUserData id="HeroGenericPhysicalLeechCritStatusIncrementSummoner" parent="StormCriticalStatusIncrementerCaster" Effect="HeroGenericSpellLeechHealSummoner"/>
     <CEffectEnumTrackedUnits id="HeroGenericSpellLeechHealGetSummonerUnit">
         <BehaviorLink value="Summon@SummonedUnitTracker"/>
         <Effect value="HeroGenericSpellLeechHealSetSummoner"/>
     </CEffectEnumTrackedUnits>
+    <CEffectSet id="HeroGenericPureLeechHealSet" parent="StormHealSetCaster" CritStatusEffect="HeroGenericPureLeechCritStatusIncrement" HealEffect="HeroGenericPureLeechHeal">
+        <ValidatorArray value="UnitStatsSpellLeech@ValueGT0CasterCombine"/>
+        <TechAliasArray value="StormFlag SuppressHealResponse"/>
+    </CEffectSet>
+    <CEffectEnumTrackedUnits id="HeroGenericPhysicalLeechHealGetSummonerUnit">
+        <BehaviorLink value="Summon@SummonedUnitTracker"/>
+        <Effect value="HeroGenericPhysicalLeechHealSetSummoner"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectSet id="HeroGenericPhysicalLeechHealSetSummoner" parent="StormHealSetTarget" CritStatusEffect="HeroGenericPhysicalLeechCritStatusIncrementSummoner" HealEffect="HeroGenericPhysicalLeechHealSummoner">
+        <ValidatorArray value="UnitStatsPhysicalLeech@ValueGT0TargetCombine"/>
+        <TechAliasArray value="StormFlag SuppressHealResponse"/>
+    </CEffectSet>
+    <CEffectEnumTrackedUnits id="HeroGenericPureLeechHealGetSummonerUnit">
+        <BehaviorLink value="Summon@SummonedUnitTracker"/>
+        <Effect value="HeroGenericPureLeechHealSetSummoner"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectSet id="HeroGenericPureLeechHealSetSummoner" parent="StormHealSetTarget" CritStatusEffect="HeroGenericPureLeechCritStatusIncrementSummoner" HealEffect="HeroGenericPureLeechHealSummoner">
+        <ValidatorArray value="UnitStatsPureLeech@ValueGT0TargetCombine"/>
+        <TechAliasArray value="StormFlag SuppressHealResponse"/>
+    </CEffectSet>
     <CEffectModifyUnit id="HeroGenericSpellLeechHealSummoner" parent="StormModifyUnitLeechSpell">
         <ValidatorArray index="0" value="TargetNotTimeStopped"/>
         <ValidatorArray index="1" value="TargetNotDeadAndNoSpecialDeathState"/>
@@ -556,18 +751,22 @@
         <VitalArray index="Life">
             <Change value="0">
                 <AccumulatorArray index="0" value="UnitStatsHealReceivedTargetModifier"/>
-                <AccumulatorArray index="3" value="UnitStatsSpellLeech@UserData"/>
+                <AccumulatorArray index="3" value="UnitStatsSpellLeech@FinalArithmetic"/>
             </Change>
             <ScoreArray index="0" Validator="TargetIsHero"/>
         </VitalArray>
     </CEffectModifyUnit>
     <CEffectSet id="HeroGenericSpellLeechHealSetSummoner" parent="StormHealSetTarget" CritStatusEffect="HeroGenericSpellLeechCritStatusIncrementSummoner" HealEffect="HeroGenericSpellLeechHealSummoner">
-        <ValidatorArray value="UnitStatsSpellLeech@ValueGT0Target"/>
+        <ValidatorArray value="UnitStatsSpellLeech@ValueGT0TargetCombine"/>
         <TechAliasArray value="StormFlag SuppressHealResponse"/>
     </CEffectSet>
     <CEffectSwitch id="HeroGenericSpellLeechHealSummonerSwitch">
         <CaseArray Validator="Summon@CasterIsSummoner" Effect="HeroGenericSpellLeechHealSet"/>
         <CaseArray Validator="Summon@CasterIsSummoned" Effect="HeroGenericSpellLeechHealGetSummonerUnit"/>
+    </CEffectSwitch>
+    <CEffectSwitch id="HeroGenericPhysicalLeechHealSummonerSwitch">
+        <CaseArray Validator="Summon@CasterIsSummoner" Effect="HeroGenericPhysicalLeechHealSet"/>
+        <CaseArray Validator="Summon@CasterIsSummoned" Effect="HeroGenericPhysicalLeechHealGetSummonerUnit"/>
     </CEffectSwitch>
     <CEffectSet id="HeroGenericUniversalAbilityCastSet1"/>
     <CEffectSet id="HeroGenericUniversalBasicAbilityCastSet1"/>
@@ -760,37 +959,37 @@
     </CEffectDamage>
     <!--    <ValidatorArray value="NoTankSpecialization" />-->
     <!--    <AttributeFactor index="Summoned" value="1" />-->
-    <CEffectDamage id="MercDefenderMeleeKnightDamage" parent="StormPhysical">
+    <CEffectDamage id="MercDefenderMeleeKnightDamage" parent="StormPhysicalBasicAttack">
         <Amount value="45">
             <AccumulatorArray value="KnightDefenderWeaponDamageScaling"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="MercDefenderRangedMageDamage" parent="StormPhysical">
+    <CEffectDamage id="MercDefenderRangedMageDamage" parent="StormPhysicalBasicAttack">
         <Amount value="50">
             <AccumulatorArray value="MageDefenderWeaponDamageScaling"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="MercLanerMeleeKnightDamage" parent="StormPhysical">
+    <CEffectDamage id="MercLanerMeleeKnightDamage" parent="StormPhysicalBasicAttack">
         <Amount value="60">
             <AccumulatorArray value="KnightLanerWeaponDamageScaling"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="MercLanerRangedMageWeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="MercLanerRangedMageWeaponDamage" parent="StormPhysicalBasicAttack">
         <Amount value="60">
             <AccumulatorArray value="MageLanerWeaponDamageScaling"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="OgreKingJungleWeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="OgreKingJungleWeaponDamage" parent="StormPhysicalBasicAttack">
         <Amount value="240">
             <AccumulatorArray value="MercGraveGolemDefenderWeaponDamageScaling"/>
             <AccumulatorArray value="GraveGolemDefenderWeaponDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="OgreKingLanerWeaponDamage" parent="StormPhysical">
-        <Amount value="400"/>
+    <CEffectDamage id="OgreKingLanerWeaponDamage" parent="StormPhysicalBasicAttack">
         <ValidatorArray value="MinionAITargetIsAttackableStructure"/>
+        <Amount value="400"/>
     </CEffectDamage>
-    <CEffectDamage id="RangedMinionWeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="RangedMinionWeaponDamage" parent="StormPhysicalBasicAttack">
         <Amount value="40">
             <AccumulatorArray value="RangedMinionWeaponDamageScaling"/>
             <AccumulatorArray value="RangedMinionWeaponDamageSwitch"/>
@@ -810,12 +1009,15 @@
     </CEffectSet>
     <CEffectApplyBehavior id="HeroGenericExperience@ApplyLastHitTimer">
         <Behavior value="HeroGenericExperience@LastHitTimer"/>
+        <ValidatorArray value="HeroGenericExperience@TargetHasSpawnBehavior"/>
+        <ValidatorArray value="CasterIsHeroPlayer"/>
     </CEffectApplyBehavior>
     <CEffectSet id="HeroGenericRegenGlobeNeutralTimedLifeExpireSet">
         <EffectArray value="Suicide"/>
     </CEffectSet>
     <CEffectDamage id="PermaPoisonDamage" parent="StormSpellDoT">
         <Amount value="100"/>
+        <DamageInheritEffect value="HeroGenericDamageInheritSetSpell"/>
     </CEffectDamage>
     <CEffectDamage id="BattleshipBombardDamage" parent="StormSpell">
         <ImpactLocation Value="TargetUnit"/>
@@ -939,11 +1141,17 @@
             <AccumulatorArray value="UnitStatsHealCreatedMultiplierUserData"/>
         </Amount>
     </CEffectUserData>
-    <CEffectSet id="HeroGenericDamageInheritSetPhysicalNoLeech" parent="StormDamageInheritSetPhysical"/>
-    <CEffectSet id="HeroGenericDamageInheritSetSpell" parent="StormDamageInheritSetSpell">
+    <CEffectSet id="HeroGenericDamageInheritSetSpell">
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
+        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueEnhanced"/>
+        <EffectArray value="UnitStatsSpellArmorModifiedDamage@StoreValueMitigated"/>
         <EffectArray value="HeroGenericSpellLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value="HeroGenericDisabler@DummyDamage"/>
     </CEffectSet>
-    <CEffectSet id="HeroGenericDamageInheritSetSpellNoLeech" parent="StormDamageInheritSetSpell"/>
     <CEffectModifyUnit id="HeroGenericEnergySet0">
         <LaunchUnit Value="Target"/>
         <VitalArray index="Energy">
@@ -957,22 +1165,30 @@
             <ChangeFraction value="-1"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroGenericPhysicalLeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasPhysicalPower" Effect="HeroGenericPhysicalLeechHeal"/>
-    <CEffectUserData id="HeroGenericSpellLeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroGenericSpellLeechHeal"/>
+    <CEffectUserData id="HeroGenericPhysicalLeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroGenericPhysicalLeechHeal"/>
+    <CEffectUserData id="HeroGenericSpellLeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroGenericSpellLeechHeal"/>
     <CEffectSet id="HeroGenericPhysicalLeechHealSet" parent="StormHealSetCaster" CritStatusEffect="HeroGenericPhysicalLeechCritStatusIncrement" HealEffect="HeroGenericPhysicalLeechHeal">
-        <ValidatorArray value="UnitStatsPhysicalLeech@ValueGT0Caster"/>
+        <ValidatorArray value="UnitStatsPhysicalLeech@ValueGT0CasterCombine"/>
         <TechAliasArray value="StormFlag SuppressHealResponse"/>
     </CEffectSet>
     <CEffectSet id="HeroGenericSpellLeechHealSet" parent="StormHealSetCaster" CritStatusEffect="HeroGenericSpellLeechCritStatusIncrement" HealEffect="HeroGenericSpellLeechHeal">
-        <ValidatorArray value="UnitStatsSpellLeech@ValueGT0Caster"/>
+        <ValidatorArray value="UnitStatsSpellLeech@ValueGT0CasterCombine"/>
         <TechAliasArray value="StormFlag SuppressHealResponse"/>
     </CEffectSet>
     <CEffectSet id="MercDefenderSiegeModeMeleeAnimDummy"/>
     <CEffectSet id="MercDefenderSiegeModeMeleeFinishDummy">
         <TargetLocationType value="Point"/>
     </CEffectSet>
-    <CEffectSet id="HeroGenericDamageInheritSetPhysical" parent="StormDamageInheritSetPhysical">
-        <EffectArray value="HeroGenericPhysicalLeechHealSet"/>
+    <CEffectSet id="HeroGenericDamageInheritSetPhysical">
+        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueEnhanced"/>
+        <EffectArray value="UnitStatsPhysicalArmorModifiedDamage@StoreValueMitigated"/>
+        <EffectArray value="HeroGenericPhysicalLeechHealSummonerSwitch"/>
+        <EffectArray value="HeroGenericLocalLeechReset"/>
+        <EffectArray value="HeroGenericLocalCritStatusReset"/>
+        <EffectArray value=""/>
+        <EffectArray value="HeroGenericExperience@ApplyLastHitTimer"/>
+        <EffectArray value="HeroGenericDisabler@DummyDamage"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
     <CEffectModifyUnit id="StructureAmmoRemove1Ammo">
         <LaunchUnit Value="Caster"/>
@@ -1069,10 +1285,12 @@
     <CEffectSet id="StormTechAliasList">
         <TechAliasArray value="StormFlag Critical"/>
         <TechAliasArray value="StormFlag IgnoredByTextTags"/>
+        <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
         <TechAliasArray value="StormFlag IgnoredByEffectHistory"/>
-        <TechAliasArray value="StormFlag TriggerVoiceResponse"/>
         <TechAliasArray value="StormFlag IgnoredByQuestEvents"/>
+        <TechAliasArray value="StormFlag OverridePlayerIndex"/>
         <TechAliasArray value="StormFlag SuppressHealResponse"/>
+        <TechAliasArray value="StormFlag TriggerVoiceResponse"/>
     </CEffectSet>
     <CEffectRemoveBehavior id="HeroGenericExperienceGlobeRemoveSpawnBehavior">
         <BehaviorLink value="ExperienceGlobeSpawn"/>
@@ -1389,7 +1607,7 @@
         <SpawnOwner Value="Caster"/>
         <SpawnUnit value="RegenGlobe"/>
     </CEffectCreateUnit>
-    <CEffectDamage id="TownHallL1WeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="TownHallL1WeaponDamage" parent="StormPhysicalBasicAttack">
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Snapshot"/>
         <Flags index="NoLeech" value="1"/>
@@ -1400,7 +1618,7 @@
             <AccumulatorArray value="StructureDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="TownHallL2WeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="TownHallL2WeaponDamage" parent="StormPhysicalBasicAttack">
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Snapshot"/>
         <Flags index="NoLeech" value="1"/>
@@ -1590,7 +1808,7 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="TowerLowEnergyPowerdown"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="TownHallL3WeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="TownHallL3WeaponDamage" parent="StormPhysicalBasicAttack">
         <ResponseFlags index="Acquire" value="0"/>
         <Visibility value="Snapshot"/>
         <Flags index="NoLeech" value="1"/>
@@ -1615,7 +1833,7 @@
     </CEffectDamage>
     <CEffectSet id="UniversalAbilityLaunchSet"/>
     <CEffectSet id="UniversalBasicAbilityLaunchSet"/>
-    <CEffectDamage id="WizardMinionWeaponDamage" parent="StormPhysical">
+    <CEffectDamage id="WizardMinionWeaponDamage" parent="StormPhysicalBasicAttack">
         <Amount value="17">
             <AccumulatorArray value="WizardMinionWeaponDamageScaling"/>
             <AccumulatorArray value="WizardMinionWeaponDamageSwitch"/>
@@ -2258,9 +2476,7 @@
         <EffectArray value="DismountTarget"/>
         <EffectArray value="DecloakTargetSet"/>
     </CEffectSet>
-    <CEffectModifyUnit id="BlindMissedDummy">
-        <LaunchUnit Value="Caster"/>
-    </CEffectModifyUnit>
+    <CEffectModifyUnit id="BlindMissedDummy"/>
     <CEffectCreatePersistent id="GodRayCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
         <Flags index="PersistUntilDestroyed" value="1"/>
@@ -2275,12 +2491,12 @@
     </CEffectDestroyPersistent>
     <CEffectApplyBehavior id="ApplyAbilityImpactRevealEnemyOnly">
         <ValidatorArray value="TargetIsEnemy"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <Behavior value="AbilityImpactReveal"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ApplyAbilityImpactReveal">
         <ValidatorArray value="TargetNotUnrevealable"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <Behavior value="AbilityImpactReveal"/>
     </CEffectApplyBehavior>
     <CEffectRemoveBehavior id="HeroGenericCleanseRemoveCCBehaviorCategoriesTarget">
@@ -3167,22 +3383,6 @@
         <XP value="80"/>
     </CEffectModifyUnit>
     <CEffectSet id="ExperienceGlobeDummyImpactSetLastHit"/>
-    <CEffectApplyForce id="HeroGenericCollisionRadius@ApplyForce">
-        <ValidatorArray value="TargetIsGroundMover"/>
-        <ValidatorArray value="StormCategoryTargetHasNotSuppressCollision"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@TargetIsMovingAndHasPushableOrders"/>
-        <ValidatorArray value="HeroGenericCollisionRadius@AllianceRangeCondition"/>
-        <ValidatorArray value="TargetIsNotTurning"/>
-        <Amount value="1"/>
-    </CEffectApplyForce>
-    <CEffectEnumArea id="HeroGenericCollisionRadius@Search">
-        <SearchFilters value="-;Self,Structure,Missile,Item,Stasis,Dead,Hidden"/>
-        <AreaArray Effect="HeroGenericCollisionRadius@ApplyForce"/>
-        <SearchFlags index="ExtendByUnitRadius" value="1"/>
-        <SearchFlags index="OffsetAreaByAngle" value="0"/>
-        <ExtraRadiusBonus value="-0.75"/>
-        <DebugTrace value="1"/>
-    </CEffectEnumArea>
     <CEffectDamage id="VariationCheckDummy"/>
     <CEffectModifyUnit id="MercDefenderSorcererSoundDummy">
         <ValidatorArray value="SourceHasJunglePassive"/>

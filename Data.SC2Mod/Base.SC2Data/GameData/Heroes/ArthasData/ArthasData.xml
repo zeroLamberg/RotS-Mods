@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroArthasEndlessWinter@Damage" parent="StormPurePercent">
+    <CEffectUserData id="HeroArthasFrozenTempest@DamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="0">
+            <AccumulatorArray value="HeroArthasRemorselessWinter@IncreasedLeechSwitch"/>
+        </Amount>
+    </CEffectUserData>
+    <CEffectUserData id="HeroArthasEndlessWinter@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasEndlessWinter@Damage"/>
+    <CEffectSet id="HeroArthasEndlessWinter@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusAlwaysTrue" CritStatusEffect="HeroArthasEndlessWinter@DamageCritStatusIncrement" DamageEffect="HeroArthasEndlessWinter@Damage">
         <ValidatorArray value="HeroArthasEndlessWinter"/>
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="HeroArthasFrozenTempest@TargetIsFullySlowed"/>
-        <Amount value="1.25"/>
-        <TechAliasArray value="StormFlag Critical"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroArthasFrostmourneHungers@Damage" parent="StormPurePercent">
-        <Amount value="5"/>
-        <ValidatorArray value="TargetIsHero"/>
-        <DamageInheritEffect value="HeroArthasFrostmourneHungers@HealSet"/>
-        <TechAliasArray value="StormFlag Critical"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroArthasWeapon@Damage" parent="StormPhysical">
+    </CEffectSet>
+    <CEffectUserData id="HeroArthasFrostmourneHungers@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasFrostmourneHungers@Damage"/>
+    <CEffectUserData id="HeroArthasFrostmourneHungers@DamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="150"/>
+    </CEffectUserData>
+    <CEffectSet id="HeroArthasFrostmourneHungers@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusAlwaysTrue" CritStatusEffect="HeroArthasFrostmourneHungers@DamageCritStatusIncrement" LocalLeechEffect="HeroArthasFrostmourneHungers@DamageLeechLocal" DamageEffect="HeroArthasFrostmourneHungers@Damage">
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
+    </CEffectSet>
+    <CEffectUserData id="HeroArthasFrozenTempest@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasFrozenTempest@Damage"/>
+    <CEffectSet id="HeroArthasFrozenTempest@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArthasFrozenTempest@DamageCritStatusIncrement" LocalLeechEffect="HeroArthasFrozenTempest@DamageLeechLocal" DamageEffect="HeroArthasFrozenTempest@Damage"/>
+    <CEffectDamage id="HeroArthasWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="88"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroArthasFrostmourneHungers@Damage" parent="StormPureBasicAttackPercent">
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroArthasEndlessWinter@Damage" parent="StormPurePercent">
+        <Amount value="1.25"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="HeroArthas@LevelScalingModification">
         <EffectArray Operation="Multiply" Reference="Unit,HeroArthas,LifeMax" Value="1.04"/>
@@ -38,7 +51,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroArthasAntiMagicShell@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroArthasAntiMagicShell@Heal"/>
+    <CEffectSet id="HeroArthasAntiMagicShell@HealSet" parent="StormHealSetCaster" HealEffect="HeroArthasAntiMagicShell@Heal"/>
     <CEffectApplyBehavior id="HeroArthasAsphyxiate@ApplyStun" parent="StormApplyStun">
         <Behavior value="HeroArthasAsphyxiate@Stun"/>
     </CEffectApplyBehavior>
@@ -65,8 +78,8 @@
     <CEffectApplyBehavior id="HeroArthasDeathCoil@ApplyTargetDebuff">
         <Behavior value="HeroArthasDeathCoil@TargetDebuff"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroArthasDeathCoil@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArthasDeathCoil@Damage"/>
-    <CEffectSet id="HeroArthasDeathCoil@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArthasDeathCoil@DamageCritStatusIncrement" DamageEffect="HeroArthasDeathCoil@Damage"/>
+    <CEffectUserData id="HeroArthasDeathCoil@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasDeathCoil@Damage"/>
+    <CEffectSet id="HeroArthasDeathCoil@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArthasDeathCoil@DamageCritStatusIncrement" DamageEffect="HeroArthasDeathCoil@Damage"/>
     <CEffectSet id="HeroArthasDeathCoil@DeadTargetLaunchMissileReturnSet">
         <ValidatorArray value="HeroArthasDeathCoil@ImpactReturnTargetCombine"/>
         <EffectArray value="HeroArthasDeathCoil@LaunchMissileReturn"/>
@@ -90,8 +103,8 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroArthasDeathCoil@HealCasterCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroArthasDeathCoil@HealCaster"/>
-    <CEffectSet id="HeroArthasDeathCoil@HealCasterSet" parent="StormHealSetCaster" CritStatusEffect="HeroArthasDeathCoil@HealCasterCritStatusIncrement" HealEffect="HeroArthasDeathCoil@HealCaster"/>
+    <CEffectUserData id="HeroArthasDeathCoil@HealCasterCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroArthasDeathCoil@HealCaster"/>
+    <CEffectSet id="HeroArthasDeathCoil@HealCasterSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArthasDeathCoil@HealCasterCritStatusIncrement" HealEffect="HeroArthasDeathCoil@HealCaster"/>
     <CEffectSet id="HeroArthasDeathCoil@ImpactSetReturn">
         <ValidatorArray value="CasterNotDeadOrStasis"/>
         <ValidatorArray value="CasterNotTimeStopped"/>
@@ -153,14 +166,6 @@
     <CEffectModifyPlayer id="HeroArthasFrostmourneHungers@ChangeIcon">
         <EffectArray Operation="Set" Reference="Button,HeroArthasFrostmourneHungers,Icon" Value="assets\textures\storm_ui_icon_arthas_frostmournehungers_on.dds"/>
     </CEffectModifyPlayer>
-    <CEffectModifyUnit id="HeroArthasFrostmourneHungers@Heal" parent="StormModifyUnitHealingSelfIgnoreHealCreatedMultiplier">
-        <VitalArray index="Life">
-            <Change value="1.5">
-                <AccumulatorArray value="DamageInheritedMultiply"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="HeroArthasFrostmourneHungers@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroArthasFrostmourneHungers@Heal"/>
     <CEffectModifyPlayer id="HeroArthasObliterate@HeroTakedownReduceCooldown">
         <Cost Abil="HeroArthasFrostmourneHungers">
             <Cooldown>
@@ -184,9 +189,6 @@
         <ValidatorArray value="TargetIsHero"/>
         <Behavior value="HeroArthasFrozenTempest@TargetDummyTimer"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="HeroArthasFrozenTempest@DamageInheritSet" parent="StormDamageInheritSetSpell">
-        <EffectArray value="HeroArthasFrozenTempest@LeechHealSet"/>
-    </CEffectSet>
     <CEffectSet id="HeroArthasFrozenTempest@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
     </CEffectSet>
@@ -197,7 +199,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroArthasFrozenTempest@LeechHealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroArthasFrozenTempest@LeechHeal"/>
+    <CEffectSet id="HeroArthasFrozenTempest@LeechHealSet" parent="StormHealSetCaster" HealEffect="HeroArthasFrozenTempest@LeechHeal"/>
     <CEffectSet id="HeroArthasFrozenTempest@SearchImpactSetTalents">
         <EffectArray value="HeroArthasColdHeart@CooldownReduction"/>
         <EffectArray value="HeroArthasRemorselessWinter@CooldownReduction"/>
@@ -214,8 +216,8 @@
         <CaseArray Validator="HeroArthasAsphyxiate@TargetIsInFrozenTempestAreaAndCasterHasTalent" Effect="HeroArthasAsphyxiate@ApplyStun"/>
         <CaseDefault value="HeroArthasHowlingBlast@ApplyRoot"/>
     </CEffectSwitch>
-    <CEffectUserData id="HeroArthasHowlingBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArthasHowlingBlast@Damage"/>
-    <CEffectSet id="HeroArthasHowlingBlast@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArthasHowlingBlast@DamageCritStatusIncrement" DamageEffect="HeroArthasHowlingBlast@Damage"/>
+    <CEffectUserData id="HeroArthasHowlingBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasHowlingBlast@Damage"/>
+    <CEffectSet id="HeroArthasHowlingBlast@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArthasHowlingBlast@DamageCritStatusIncrement" DamageEffect="HeroArthasHowlingBlast@Damage"/>
     <CEffectSet id="HeroArthasHowlingBlast@SearchImpactSetTalents">
         <EffectArray value="HeroArthasFrostPresence@IncreaseToken"/>
         <EffectArray value="HeroArthasShatteredArmor@ApplyArmorDebuff"/>
@@ -267,6 +269,7 @@
         <ValidatorArray value="HeroArthasObliterate"/>
         <ValidatorArray value="HeroArthasObliterate@QuestNotMax"/>
         <ValidatorArray value="TargetIsHero"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <Amount value="1"/>
     </CEffectUserData>
     <CEffectModifyPlayer id="HeroArthasObliterate@IncreaseTokenModification">
@@ -293,7 +296,7 @@
     </CEffectSet>
     <CEffectSwitch id="HeroArthasPestilence@InitialSwitch">
         <ValidatorArray value="HeroArthasPestilence"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <CaseArray Validator="HeroArthasIceboundFortitude@CasterHasBuff" Effect="HeroArthasPestilence@InitialSetAdvanced"/>
         <CaseArray Validator="HeroArthasPestilence@TargetHasNotHealReductionAdvancedCasterReq" Effect="HeroArthasPestilence@InitialSet"/>
     </CEffectSwitch>
@@ -334,7 +337,7 @@
             <ChangeFraction value="0.06"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroArthasRuneTap@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroArthasRuneTap@Heal"/>
+    <CEffectSet id="HeroArthasRuneTap@HealSet" parent="StormHealSetCaster" HealEffect="HeroArthasRuneTap@Heal"/>
     <CEffectEnumArea id="HeroArthasSnapFreeze@CastSearch">
         <ValidatorArray value="HeroArthasSnapFreeze"/>
         <DebugTrace value="1"/>
@@ -354,8 +357,8 @@
         <EffectArray Operation="Multiply" Reference="Effect,HeroArthasSummonSindragosa@CreatePersistent,PeriodCount" Value="2"/>
         <EffectArray Reference="Actor,HeroArthasSummonSindragosa@Guide,Height" Value="36.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroArthasSummonSindragosa@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArthasSummonSindragosa@Damage"/>
-    <CEffectSet id="HeroArthasSummonSindragosa@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArthasSummonSindragosa@DamageCritStatusIncrement" DamageEffect="HeroArthasSummonSindragosa@Damage"/>
+    <CEffectUserData id="HeroArthasSummonSindragosa@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasSummonSindragosa@Damage"/>
+    <CEffectSet id="HeroArthasSummonSindragosa@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArthasSummonSindragosa@DamageCritStatusIncrement" DamageEffect="HeroArthasSummonSindragosa@Damage"/>
     <CEffectModifyPlayer id="HeroArthasUnholyEndurance">
         <EffectArray Reference="Abil,HeroArthasDeathCoil,Cost[0].Cooldown.TimeUse" Value="-2.000000"/>
         <EffectArray Reference="Abil,HeroArthasDeathCoil,Cost[0].Vital[Energy]" Value="-20"/>
@@ -367,8 +370,8 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroArthasUnholyEndurance@Shield"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroArthasWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArthasWeapon@Damage"/>
-    <CEffectSet id="HeroArthasWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArthasWeapon@DamageCritStatusIncrement" DamageEffect="HeroArthasWeapon@Damage">
+    <CEffectUserData id="HeroArthasWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArthasWeapon@Damage"/>
+    <CEffectSet id="HeroArthasWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroArthasWeapon@DamageCritStatusIncrement" DamageEffect="HeroArthasWeapon@Damage">
         <EffectArray value="HeroArthasPestilence@InitialSwitch"/>
     </CEffectSet>
     <CEffectModifyUnit id="ArthasFrostmourneHungersImpactModifyWeaponCooldown">
@@ -421,11 +424,6 @@
         <ImpactUnit Value="Caster"/>
         <Weapon Weapon="HeroArthasWeapon" CooldownOperation="Set"/>
     </CEffectModifyUnit>
-    <CEffectSwitch id="HeroArthasWeapon@DamageSwitch">
-        <CaseArray Validator="HeroArthasFrostmourneHungers@HasPrimedAndBasicAttackNegate" Effect="HeroArthasFrostmourneHungers@MissingImpactSet"/>
-        <CaseArray Validator="HeroArthasFrostmourneHungers@HasPrimed" Effect="HeroArthasFrostmourneHungers@AttackSet"/>
-        <CaseDefault value="HeroArthasWeapon@ImpactSet"/>
-    </CEffectSwitch>
     <CEffectModifyPlayer id="HeroArthasFrostmourneHungers@SetCooldown">
         <WhichPlayer Value="Caster"/>
         <EffectArray Operation="Set" Reference="Button,HeroArthasFrostmourneHungers,Icon" Value="assets\textures\storm_ui_icon_arthas_frostmournehungers_off.dds"/>
@@ -444,16 +442,11 @@
         <EffectArray value="HeroArthasFrostmourneHungers@WeaponResetModifyUnit"/>
         <ValidatorArray value="HeroArthasFrostmourneHungers@HasNotPrimed"/>
     </CEffectSet>
-    <CEffectSet id="HeroArthasFrostmourneHungers@MissingImpactSet">
-        <EffectArray value="BlindMissedDummySet"/>
-        <EffectArray value="HeroArthasFrostmourneHungers@RemovePrimedBehavior"/>
-    </CEffectSet>
     <CEffectSet id="HeroArthasFrostmourneHungers@AttackSet">
         <EffectArray value="HeroArthasFrostmourneHungers@ApplySlow"/>
-        <EffectArray value="HeroArthasFrostmourneHungers@Damage"/>
+        <EffectArray value="HeroArthasFrostmourneHungers@DamageSet"/>
         <EffectArray value="HeroArthasFrostmourneHungers@RemovePrimedBehavior"/>
         <EffectArray value="HeroArthasObliterate@IncreaseToken"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="HeroArthasFrostmourneHungers@HasPrimed"/>
     </CEffectSet>
@@ -501,7 +494,7 @@
         <SearchFlags index="SameCliff" value="0"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="HeroArthasRuneTap@ApplyStack">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <WhichUnit Value="Source"/>
         <Behavior value="HeroArthasRuneTap@Stacks"/>
     </CEffectApplyBehavior>
@@ -556,8 +549,8 @@
         <Behavior value="HeroArthasFrozenTempest@Slow"/>
     </CEffectApplyBehavior>
     <CEffectSet id="HeroArthasFrozenTempest@SearchImpactSet" parent="StormAbilityImpactSetEnemy">
-        <EffectArray value="HeroArthasFrozenTempest@Damage"/>
-        <EffectArray value="HeroArthasEndlessWinter@Damage"/>
+        <EffectArray value="HeroArthasFrozenTempest@DamageSet"/>
+        <EffectArray value="HeroArthasEndlessWinter@DamageSet"/>
         <EffectArray value="HeroArthasFrozenTempest@ApplyTargetDummyTimer"/>
         <EffectArray value="HeroArthasFrozenTempest@AddTrackedUnit"/>
         <EffectArray value="HeroArthasFrozenTempest@ApplySlow"/>
@@ -580,6 +573,7 @@
     </CEffectSet>
     <CEffectApplyBehavior id="HeroArthasFrostmourneHungers@ApplySlow" parent="StormApplySlow">
         <Behavior value="HeroArthasFrostmourneHungers@Slow"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="ArthasArmyOfTheDeadSpawnPersistent">
         <WhichLocation Value="CasterUnit"/>
@@ -795,7 +789,6 @@
         <Amount value="14">
             <AccumulatorArray value="HeroArthasRemorselessWinter@IncreasedDamageSwitch"/>
         </Amount>
-        <DamageInheritEffect value="HeroArthasFrozenTempest@DamageInheritSet"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
     </CEffectDamage>
     <CEffectEnumArea id="ArthasArmyOfTheDeadHealSearch">
@@ -990,6 +983,11 @@
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="RequireTargetVision" value="0"/>
     </CAbilEffectInstant>
+    <CValidatorCombine id="HeroArthasFrostmourneHungers@TargetCombine">
+        <Type value="And"/>
+        <CombineArray value="TargetIsHero"/>
+        <CombineArray value="HeroArthasFrostmourneHungers@HasPrimed"/>
+    </CValidatorCombine>
     <CValidatorUnitType id="HeroArthas@TargetIsArthas">
         <Value value="HeroArthas"/>
     </CValidatorUnitType>
@@ -1051,11 +1049,6 @@
         <RequireCasterUnit Value="Caster"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorPlayerTalent id="HeroArthasShatteredArmor" parent="PlayerTalent"/>
-    <CValidatorCombine id="HeroArthasFrostmourneHungers@HasPrimedAndBasicAttackNegate">
-        <Type value="And"/>
-        <CombineArray value="HeroArthasFrostmourneHungers@HasPrimed"/>
-        <CombineArray value="BasicAttackEffectTreeCheckCombineNegate"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroArthasFrostmourneHungers@HasPrimed">
         <WhichUnit Value="Caster"/>
         <Compare value="GT"/>
@@ -4044,7 +4037,7 @@
         <DataRecord Entry="Effect,HeroArthasWeapon@Damage"/>
         <DataRecord Entry="Effect,HeroArthasWeapon@DamageCritStatusIncrement"/>
         <DataRecord Entry="Effect,HeroArthasWeapon@DamageSet"/>
-        <DataRecord Entry="Effect,HeroArthasWeapon@DamageSwitch"/>
+        <DataRecord Entry="Effect,HeroArthasWeapon@ImpactSetSwitch"/>
         <DataRecord Entry="Effect,HeroArthasWeapon@ImpactSet"/>
         <DataRecord Entry="Sound,HeroArthasWeapon@AttackImpactUnit"/>
         <DataRecord Entry="Sound,HeroArthasWeapon@AttackImpactBuilding"/>

@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="ETCWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="ETCStageDive@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCStageDive@Damage"/>
+    <CEffectSet id="ETCStageDive@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCStageDive@DamageCritStatusIncrement" DamageEffect="ETCStageDive@Damage"/>
+    <CEffectUserData id="ETCWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="ETCWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="ETCWeapon@DamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="0">
+            <AccumulatorArray value="ETCGuitarHero@LeechSwitch"/>
+        </Amount>
+    </CEffectUserData>
+    <CEffectDamage id="ETCWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="92">
             <AccumulatorArray value="ETCHammeron@BasicAttackDamageSwitch"/>
         </Amount>
-        <DamageInheritEffect value="ETCWeapon@DamageInheritSet"/>
     </CEffectDamage>
-    <CEffectUserData id="ETCAggressiveShredding@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="ETCAggressiveShredding@HealModifyUnit"/>
+    <CEffectUserData id="ETCAggressiveShredding@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="ETCAggressiveShredding@HealModifyUnit"/>
     <CEffectModifyUnit id="ETCAggressiveShredding@HealModifyUnit" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <Change value="120"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="ETCAggressiveShredding@HealSet" parent="StormHealSetCaster" CritStatusEffect="ETCAggressiveShredding@HealCritStatusIncrement" HealEffect="ETCAggressiveShredding@HealModifyUnit">
+    <CEffectSet id="ETCAggressiveShredding@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCAggressiveShredding@HealCritStatusIncrement" HealEffect="ETCAggressiveShredding@HealModifyUnit">
         <ValidatorArray value="ETCAggressiveShredding"/>
     </CEffectSet>
     <CEffectSet id="ETCBULLwark@AllyImpactSet" parent="StormAbilityImpactSetAlly">
@@ -32,10 +41,10 @@
     <CEffectModifyPlayer id="ETCCrowdSurfer">
         <EffectArray Reference="Abil,ETCPowerslide,Cost[0].Cooldown.TimeUse" Value="-2.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="ETCEchoPedal@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="ETCEchoPedal@Damage"/>
-    <CEffectSet id="ETCEchoPedal@DamageSet" parent="StormDamageSet" CritStatusEffect="ETCEchoPedal@DamageCritStatusIncrement" DamageEffect="ETCEchoPedal@Damage"/>
-    <CEffectUserData id="ETCFaceMelt@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="ETCFaceMelt@Damage"/>
-    <CEffectSet id="ETCFaceMelt@DamageSet" parent="StormDamageSet" CritStatusEffect="ETCFaceMelt@DamageCritStatusIncrement" DamageEffect="ETCFaceMelt@Damage"/>
+    <CEffectUserData id="ETCEchoPedal@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCEchoPedal@Damage"/>
+    <CEffectSet id="ETCEchoPedal@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCEchoPedal@DamageCritStatusIncrement" DamageEffect="ETCEchoPedal@Damage"/>
+    <CEffectUserData id="ETCFaceMelt@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCFaceMelt@Damage"/>
+    <CEffectSet id="ETCFaceMelt@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCFaceMelt@DamageCritStatusIncrement" DamageEffect="ETCFaceMelt@Damage"/>
     <CEffectApplyBehavior id="ETCGuitarHero@ExtendGuitarSoloBehavior">
         <WhichUnit Value="Caster"/>
         <Behavior value="ETCGuitarSolo@HoT"/>
@@ -44,7 +53,7 @@
         <ValidatorArray value="ETCGuitarHero@LeechCombine"/>
         <EffectArray value="ETCGuitarHero@ExtendGuitarSoloBehavior"/>
     </CEffectSet>
-    <CEffectUserData id="ETCGuitarSolo@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="ETCGuitarSolo@HealModifyUnit"/>
+    <CEffectUserData id="ETCGuitarSolo@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCGuitarSolo@HealModifyUnit"/>
     <CEffectModifyUnit id="ETCGuitarSolo@HealModifyUnit" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <Change value="66">
@@ -52,7 +61,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="ETCGuitarSolo@HealSet" parent="StormHealSetTarget" CritStatusEffect="ETCGuitarSolo@HealCritStatusIncrement" HealEffect="ETCGuitarSolo@HealModifyUnit"/>
+    <CEffectSet id="ETCGuitarSolo@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCGuitarSolo@HealCritStatusIncrement" HealEffect="ETCGuitarSolo@HealModifyUnit"/>
     <CEffectRemoveBehavior id="ETCGuitarSolo@RemoveHoT">
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="ETCGuitarSolo@HoT"/>
@@ -112,8 +121,8 @@
     <CEffectSet id="ETCPowerslide@ApproachInitialSet">
         <TargetLocationType value="Point"/>
     </CEffectSet>
-    <CEffectUserData id="ETCPowerslide@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="ETCPowerslide@Damage"/>
-    <CEffectSet id="ETCPowerslide@DamageSet" parent="StormDamageSet" CritStatusEffect="ETCPowerslide@DamageCritStatusIncrement" DamageEffect="ETCPowerslide@Damage"/>
+    <CEffectUserData id="ETCPowerslide@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCPowerslide@Damage"/>
+    <CEffectSet id="ETCPowerslide@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCPowerslide@DamageCritStatusIncrement" DamageEffect="ETCPowerslide@Damage"/>
     <CEffectIssueOrder id="ETCPowerslide@IssueApproachOrder">
         <WhichUnit Value="Caster"/>
         <Abil value="ETCPowerslide@Approach"/>
@@ -126,13 +135,13 @@
         <!--<EffectArray value="ETCPowerslide@CancelApproachOder"/>-->
         <EffectArray value="ETCPowerslide@IssueApproachOrder"/>
     </CEffectSet>
-    <CEffectUserData id="ETCProgRock@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="ETCProgRock@HealModifyUnit"/>
+    <CEffectUserData id="ETCProgRock@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCProgRock@HealModifyUnit"/>
     <CEffectModifyUnit id="ETCProgRock@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="50"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="ETCProgRock@HealSet" parent="StormHealSetTarget" CritStatusEffect="ETCProgRock@HealCritStatusIncrement" HealEffect="ETCProgRock@HealModifyUnit"/>
+    <CEffectSet id="ETCProgRock@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="ETCProgRock@HealCritStatusIncrement" HealEffect="ETCProgRock@HealModifyUnit"/>
     <CEffectUserData id="ETCProgRock@IncrementTokenCounter" parent="StormModifyTokenCount" TokenCounterBehavior="ETCProgRock@TokenCounter">
         <ValidatorArray value="ETCProgRock"/>
         <ValidatorArray value="ETCProgRock@QuestNotMaxedTarget"/>
@@ -159,24 +168,10 @@
         <EffectArray value="ETCStageDive@ChannelRemoveBehavior"/>
         <EffectArray value="ETCHero@HeroicAbilityCastSupplementalSet"/>
     </CEffectSet>
-    <CEffectUserData id="ETCWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="ETCWeapon@DamageCritCheckCombine" Effect="ETCWeapon@Damage"/>
-    <CEffectSet id="ETCWeapon@DamageInheritSet" parent="StormDamageInheritSetPhysical">
-        <EffectArray value="ETCWeapon@LeechSet"/>
-    </CEffectSet>
-    <CEffectSet id="ETCWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="ETCWeapon@DamageCritStatusIncrement" DamageEffect="ETCWeapon@Damage"/>
-    <CEffectUserData id="ETCWeapon@LeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="ETCWeapon@DamageCritCheckCombine" Effect="ETCWeapon@LeechModifyUnit"/>
-    <CEffectModifyUnit id="ETCWeapon@LeechModifyUnit" parent="StormModifyUnitLeechPhysical">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="ETCGuitarHero@LeechSwitch"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="ETCWeapon@LeechSet" parent="StormHealSetCaster" CritStatusEffect="ETCWeapon@LeechCritStatusIncrement" HealEffect="ETCWeapon@LeechModifyUnit">
-        <ValidatorArray value="ETCWeapon@LeechCheckCombine"/>
-    </CEffectSet>
+    <CEffectUserData id="ETCWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="ETCWeapon@Damage"/>
+    <CEffectSet id="ETCWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="ETCWeapon@DamageCritStatusLocal" CritStatusEffect="ETCWeapon@DamageCritStatusIncrement" LocalLeechEffect="ETCWeapon@DamageLeechLocal" DamageEffect="ETCWeapon@Damage"/>
     <CEffectSet id="ETCWeapon@TalentSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="ETCGuitarHero@InitialSet"/>
         <EffectArray value="ETCAggressiveShredding@ModifyCooldown"/>
         <EffectArray value="ETCHammeron@ApplyPhysicalArmorDebuff"/>
@@ -856,6 +851,9 @@
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="ETCBULLwark"/>
     </CAbilEffectInstant>
+    <CValidatorCombine id="ETCWeapon@DamageCritStatusCombine" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="ETCHammeron@ETCHasGuitarSoloActiveAndHasHammerOnTalentCombine"/>
+    </CValidatorCombine>
     <CValidatorCombine id="ETCEncore@HasTalentCombine">
         <CombineArray value="ETCEncore"/>
         <CombineArray value="ETCHeaviestMetal"/>
@@ -921,14 +919,6 @@
         <Find value="1"/>
         <Value value="ETCSkinBaseVar2"/>
     </CValidatorPlayerRequirement>
-    <CValidatorCombine id="ETCWeapon@DamageCritCheckCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="ETCHammeron@ETCHasGuitarSoloActiveAndHasHammerOnTalentCombine"/>
-    </CValidatorCombine>
-    <CValidatorCombine id="ETCWeapon@LeechCheckCombine">
-        <CombineArray value="UnitStatsPhysicalLeech@ValueGT0Caster"/>
-        <CombineArray value="ETCGuitarHero@LeechCombine"/>
-    </CValidatorCombine>
     <CValidatorUnitMover id="ETCCrowdSurfer@MissileMover">
         <WhichUnit Value="Caster"/>
         <Value value="ETCCrowdSurfer@MissileMover"/>
@@ -4829,7 +4819,6 @@
             <StateFlags index="LineMovement" value="1"/>
             <AbilLinkEnableArray value="ETCPowerslide"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ETCBULLwark@Shield" parent="StormShield">
         <InfoIcon value="assets\textures\storm_ui_icon_talent_stormshield.dds"/>

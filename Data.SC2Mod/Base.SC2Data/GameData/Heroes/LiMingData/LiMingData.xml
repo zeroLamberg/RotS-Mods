@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="LiMingCannoneer@Damage" parent="StormPhysical">
+    <CEffectUserData id="LiMingArcaneOrb@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="LiMingArcaneOrb@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="LiMingWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="70"/>
+    </CEffectDamage>
+    <CEffectDamage id="LiMingCannoneer@Damage" parent="StormSpellBasicAttack">
         <TechAliasArray value="StormFlag Critical"/>
-        <Kind value="Spell"/>
         <Amount value="63">
             <AccumulatorArray value="LiMingCannoneer@SourceTrackerArithmetic"/>
         </Amount>
-    </CEffectDamage>
-    <CEffectDamage id="LiMingWeapon@Damage" parent="StormPhysical">
-        <Amount value="70"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="LiMingAetherWalker">
         <EffectArray Operation="Set" Reference="Abil,LiMingTeleport,Cost[0].Vital[Energy]" Value="0"/>
@@ -105,8 +107,8 @@
         <Behavior value="LiMingArcaneOrb@TimeStamp"/>
         <ValidatorArray value="LiMingArcaneOrb@TimeStampDelayUserDataGT3"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="LiMingArcaneOrb@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="LiMingArcaneOrb@DamageCritStatusCombine" Effect="LiMingArcaneOrb@Damage"/>
-    <CEffectSet id="LiMingArcaneOrb@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingArcaneOrb@DamageCritStatusIncrement" DamageEffect="LiMingArcaneOrb@Damage"/>
+    <CEffectUserData id="LiMingArcaneOrb@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingArcaneOrb@Damage"/>
+    <CEffectSet id="LiMingArcaneOrb@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="LiMingArcaneOrb@DamageCritStatusLocal" CritStatusEffect="LiMingArcaneOrb@DamageCritStatusIncrement" DamageEffect="LiMingArcaneOrb@Damage"/>
     <CEffectSet id="LiMingArcaneOrb@PeriodicSet">
         <EffectArray value="LiMingArcaneOrb@TimeStampDelayUserDataIncrement"/>
         <EffectArray value="LiMingArcaneOrb@ApplyTimeStampBehavior"/>
@@ -135,10 +137,10 @@
     <CEffectModifyPlayer id="LiMingCalamity">
         <EffectArray Reference="Effect,LiMingCalamity@Search,AreaArray[0].Radius" Value="1.5"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="LiMingCalamity@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="LiMingCalamity@Damage"/>
-    <CEffectSet id="LiMingCalamity@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingCalamity@DamageCritStatusIncrement" DamageEffect="LiMingCalamity@Damage"/>
+    <CEffectUserData id="LiMingCalamity@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingCalamity@Damage"/>
+    <CEffectSet id="LiMingCalamity@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="LiMingCalamity@DamageCritStatusIncrement" DamageEffect="LiMingCalamity@Damage"/>
     <CEffectSet id="LiMingCannoneer@ImpactSet">
-        <EffectArray value="LiMingCannoneer@MissSwitch"/>
+        <EffectArray value="LiMingCannoneer@Damage"/>
         <EffectArray value="LiMingChargedBlast@ProcSet"/>
     </CEffectSet>
     <CEffectApplyBehavior id="LiMingCannoneer@TrackerSourceAB">
@@ -148,9 +150,9 @@
             <AccumulatorArray value="LiMingCannoneer@CasterTrackerStackCount"/>
         </Count>
     </CEffectApplyBehavior>
-    <CEffectUserData id="LiMingChargedBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="LiMingChargedBlast@Damage"/>
-    <CEffectSet id="LiMingChargedBlast@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingChargedBlast@DamageCritStatusIncrement" DamageEffect="LiMingChargedBlast@Damage">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+    <CEffectUserData id="LiMingChargedBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingChargedBlast@Damage"/>
+    <CEffectSet id="LiMingChargedBlast@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="LiMingChargedBlast@DamageCritStatusIncrement" DamageEffect="LiMingChargedBlast@Damage">
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectSet>
     <CEffectSet id="LiMingCriticalMass@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
@@ -160,8 +162,8 @@
         <BehaviorLink value="LiMingDisintegrate@Controller"/>
         <Count value="1"/>
     </CEffectRemoveBehavior>
-    <CEffectUserData id="LiMingDisintegrate@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="LiMingDisintegrate@Damage"/>
-    <CEffectSet id="LiMingDisintegrate@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingDisintegrate@DamageCritStatusIncrement" DamageEffect="LiMingDisintegrate@Damage"/>
+    <CEffectUserData id="LiMingDisintegrate@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingDisintegrate@Damage"/>
+    <CEffectSet id="LiMingDisintegrate@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="LiMingDisintegrate@DamageCritStatusIncrement" DamageEffect="LiMingDisintegrate@Damage"/>
     <CEffectModifyUnit id="LiMingDominance@HealMU" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <Change value="0">
@@ -249,7 +251,7 @@
         <EffectArray Reference="Effect,LiMingTeleport@Teleport,Range" Value="2"/>
         <EffectArray Reference="Actor,LiMingTeleport@RangeSplat,Scale" Value="2.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="LiMingMagicMissiles@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="LiMingMagicMissiles@Damage"/>
+    <CEffectUserData id="LiMingMagicMissiles@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingMagicMissiles@Damage"/>
     <CEffectModifyPlayer id="LiMingMirrorball">
         <EffectArray Reference="Abil,LiMingMagicMissiles,Cost[0].Vital[Energy]" Value="10"/>
         <EffectArray Reference="Effect,LiMingMagicMissiles@CreatePersistents,PeriodCount" Value="2"/>
@@ -341,10 +343,10 @@
         <Key value="LiMingTriumvirate"/>
         <SourceKey value="LiMingTriumvirate"/>
     </CEffectUserData>
-    <CEffectUserData id="LiMingWaveOfForce@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="LiMingWaveOfForce@Damage"/>
-    <CEffectSet id="LiMingWaveOfForce@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingWaveOfForce@DamageCritStatusIncrement" DamageEffect="LiMingWaveOfForce@Damage"/>
-    <CEffectUserData id="LiMingWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="LiMingWeapon@Damage"/>
-    <CEffectSet id="LiMingWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingWeapon@DamageCritStatusIncrement" DamageEffect="LiMingWeapon@Damage"/>
+    <CEffectUserData id="LiMingWaveOfForce@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingWaveOfForce@Damage"/>
+    <CEffectSet id="LiMingWaveOfForce@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="LiMingWaveOfForce@DamageCritStatusIncrement" DamageEffect="LiMingWaveOfForce@Damage"/>
+    <CEffectUserData id="LiMingWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="LiMingWeapon@Damage"/>
+    <CEffectSet id="LiMingWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="LiMingWeapon@DamageCritStatusIncrement" DamageEffect="LiMingWeapon@Damage"/>
     <CEffectModifyPlayer id="LiMingZeisVengeance">
         <EffectArray Reference="Abil,LiMingArcaneOrb,Cost[0].Cooldown.TimeUse" Value="-1.000000"/>
     </CEffectModifyPlayer>
@@ -686,14 +688,11 @@
         <EffectArray value="LiMingCannoneer@TrackerSourceAB"/>
         <EffectArray value="LiMingCannoneer@TrackerRB"/>
     </CEffectSet>
-    <CEffectSwitch id="LiMingCannoneer@MissSwitch" parent="AbilDmgMissCheck">
-        <CaseDefault value="LiMingCannoneer@Damage"/>
-    </CEffectSwitch>
     <CEffectSet id="LiMingDominance@Set">
         <EffectArray value="LiMingDominance@HealSet"/>
         <EffectArray value="LiMingDominance@MovementSpeedBuffApplyBehavior"/>
     </CEffectSet>
-    <CEffectSet id="LiMingDominance@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="LiMingDominance@HealMU"/>
+    <CEffectSet id="LiMingDominance@HealSet" parent="StormHealSetCaster" HealEffect="LiMingDominance@HealMU"/>
     <CEffectSet id="LiMingTeleport@Set">
         <EffectArray value="HeroGenericPostTeleportSet"/>
         <EffectArray value="LiMingCannoneer@TrackerAB"/>
@@ -986,13 +985,14 @@
         <VitalArray index="Energy">
             <Change value="10"/>
         </VitalArray>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectModifyUnit>
     <CEffectRemoveBehavior id="LiMingChargedBlast@DebuffRB">
         <BehaviorLink value="LiMingChargedBlast@Debuff"/>
         <Count value="1"/>
         <RequireOriginPlayer Value="Origin"/>
     </CEffectRemoveBehavior>
-    <CEffectSet id="LiMingMagicMissiles@DamageSet" parent="StormDamageSet" CritStatusEffect="LiMingMagicMissiles@DamageCritStatusIncrement" DamageEffect="LiMingMagicMissiles@Damage">
+    <CEffectSet id="LiMingMagicMissiles@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="LiMingMagicMissiles@DamageCritStatusIncrement" DamageEffect="LiMingMagicMissiles@Damage">
         <EffectArray value="LiMingSeeker@BuffSwitch"/>
     </CEffectSet>
     <CEffectRemoveBehavior id="LiMingTalRashasElements@CasterBuffRB">
@@ -1590,6 +1590,9 @@
             <Flags index="IgnoreUser" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
+    <CValidatorCombine id="LiMingArcaneOrb@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="LiMingArcaneOrb@TimeStampGTE12"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="LiMingArchonPurePower@CasterHasDamageBonus" parent="CasterIsParent">
         <Behavior value="LiMingArchonPurePowerDisintegrate@DamageBonus"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -1597,10 +1600,6 @@
         <Type value="And"/>
         <CombineArray value="LiMingSeeker"/>
         <CombineArray value="TargetIsNotHeroic"/>
-    </CValidatorCombine>
-    <CValidatorCombine id="LiMingArcaneOrb@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="LiMingArcaneOrb@TimeStampGTE12"/>
     </CValidatorCombine>
     <CValidatorCombine id="LiMingArcaneOrb@TimeStamp10To15LoopsElapsed">
         <Type value="And"/>

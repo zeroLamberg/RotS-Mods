@@ -12,6 +12,15 @@
     <CValidatorEffectTreeUserData default="1">
         <CheckExistence value="0"/>
     </CValidatorEffectTreeUserData>
+    <CValidatorCombine default="1" id="StormCritStatusCombinePhysical">
+        <CombineArray value="CritAliasPhysical"/>
+    </CValidatorCombine>
+    <CValidatorCombine default="1" id="StormCritStatusCombineSpell">
+        <CombineArray value="CritAliasSpell"/>
+    </CValidatorCombine>
+    <CValidatorCombine default="1" id="StormCritStatusCombinePure">
+        <CombineArray value="CritAliasPure"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed default="1" id="StormTokenCounterPlayer_Minimum">
         <?token id="TokenCounterBehavior" type="CBehaviorLink" value="Bogus"?>
         <ChargeLink value="TokenCounter/##TokenCounterBehavior##_Minimum"/>
@@ -100,6 +109,16 @@
     <CValidatorEffectTreeUserData default="1" id="StormGeneralData">
         <BehaviorScope Value="Target" Behavior="HeroGenericUserRecord"/>
     </CValidatorEffectTreeUserData>
+    <CValidatorCombine id="CritAliasPure">
+        <CombineArray value="CasterHasDummyCriticalPureBehavior"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasDummyCriticalPureBehavior" parent="CasterIsParent">
+        <Behavior value="DummyCriticalPureBehavior"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorEffectTreeUserData id="HeroGenericLocalCritStatusGT0">
+        <Compare value="GT"/>
+        <Key value="LocalCritStatus"/>
+    </CValidatorEffectTreeUserData>
     <CValidatorPlayerRequirement id="StormCategoryCasterHasMapMechanicAbility">
         <Find value="1"/>
         <Value value="StormCategoryMapMechanicAbility"/>
@@ -184,23 +203,6 @@
         <Compare value="GT"/>
         <Value value="3"/>
     </CValidatorUnitCompareDamageTakenTime>
-    <CValidatorUnitOrderQueue id="HeroGenericCollisionRadius@CurrentOrderIsPushableCaster">
-        <AbilTechAlias value="StormCategory SuppressCollision"/>
-        <Find value="0"/>
-    </CValidatorUnitOrderQueue>
-    <CValidatorLocationCompareRange id="HeroGenericCollisionRadius@EnemyRangeCheck">
-        <WhichLocation Value="TargetUnit"/>
-        <Compare value="LE"/>
-    </CValidatorLocationCompareRange>
-    <CValidatorCondition id="HeroGenericCollisionRadius@AllianceRangeCondition">
-        <IfArray Test="TargetIsAllyorPlayer" Return="HeroGenericCollisionRadius@AllyRangeCheck"/>
-        <Else value="HeroGenericCollisionRadius@EnemyRangeCheck"/>
-    </CValidatorCondition>
-    <CValidatorLocationCompareRange id="HeroGenericCollisionRadius@AllyRangeCheck">
-        <Compare value="LE"/>
-        <Range value="1"/>
-        <Value Value="CasterPoint"/>
-    </CValidatorLocationCompareRange>
     <CValidatorUnitOrderQueue id="HeroGenericFountainDrink@CasterHasNotOrder">
         <AbilLink value="HeroGenericFountainDrink"/>
         <Find value="0"/>
@@ -240,20 +242,6 @@
         <CombineArray value="StormCasterIsLaneMinion"/>
         <CombineArray value="StormCasterIsMercenary"/>
         <CombineArray value="StormCasterIsMonster"/>
-    </CValidatorCombine>
-    <CValidatorUnitCompareBehaviorCount id="HeroGenericCollisionRadius@TargetHasController">
-        <Compare value="GT"/>
-        <Behavior value="HeroGenericCollisionRadius"/>
-    </CValidatorUnitCompareBehaviorCount>
-    <CValidatorUnitOrderQueue id="HeroGenericCollisionRadius@CurrentOrderIsPushable">
-        <WhichUnit Value="Target"/>
-        <AbilTechAlias value="StormCategory SuppressCollision"/>
-        <Find value="0"/>
-    </CValidatorUnitOrderQueue>
-    <CValidatorCombine id="HeroGenericCollisionRadius@TargetIsMovingAndHasPushableOrders">
-        <Type value="And"/>
-        <CombineArray value="IsPathingTarget"/>
-        <CombineArray value="HeroGenericCollisionRadius@CurrentOrderIsPushable"/>
     </CValidatorCombine>
     <CValidatorUnitOrderQueue id="HeroGenericMount@@CasterHasOrder">
         <AbilLink value="HeroGenericMount"/>
@@ -550,7 +538,7 @@
         <Value value="TargetHeroDummy"/>
         <Find value="0"/>
     </CValidatorUnitType>
-    <CValidatorCombine id="BasicAttackEffectTreeCheckCombineNegate">
+    <CValidatorCombine id="EffectTreeCheckCombineBasicAttackNegate">
         <CombineArray value="CasterIsBlinded"/>
         <CombineArray value="TargetIsEvading"/>
     </CValidatorCombine>
@@ -608,10 +596,6 @@
         <Compare value="GE"/>
         <Value value="11"/>
     </CValidatorUnitCompareVeterancyLevel>
-    <CValidatorPlayerRequirement id="StormCategoryCasterHasSuppressCollision">
-        <Find value="1"/>
-        <Value value="StormCategorySuppressCollision"/>
-    </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategoryCasterHasAbnormalRespawn">
         <Find value="1"/>
         <Value value="StormCategoryAbnormalRespawn"/>
@@ -619,9 +603,6 @@
     <CValidatorPlayerRequirement id="StormCategoryCasterHasDebuffSpellPower">
         <Find value="1"/>
         <Value value="StormCategoryDebuffSpellPower"/>
-    </CValidatorPlayerRequirement>
-    <CValidatorPlayerRequirement id="StormCategoryCasterHasNotSuppressCollision">
-        <Value value="StormCategorySuppressCollision"/>
     </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategoryCasterHasNotDebuffSpellPower">
         <Value value="StormCategoryDebuffSpellPower"/>
@@ -671,11 +652,6 @@
     <CValidatorPlayerRequirement id="StormCategoryCasterHasNotSuppressUltimateCharge">
         <Value value="StormCategorySuppressUltimateCharge"/>
     </CValidatorPlayerRequirement>
-    <CValidatorPlayerRequirement id="StormCategorySourceHasSuppressCollision">
-        <Find value="1"/>
-        <Value value="StormCategorySuppressCollision"/>
-        <WhichUnit Value="Source"/>
-    </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategorySourceHasAbnormalRespawn">
         <Find value="1"/>
         <Value value="StormCategoryAbnormalRespawn"/>
@@ -684,10 +660,6 @@
     <CValidatorPlayerRequirement id="StormCategorySourceHasDebuffSpellPower">
         <Find value="1"/>
         <Value value="StormCategoryDebuffSpellPower"/>
-        <WhichUnit Value="Source"/>
-    </CValidatorPlayerRequirement>
-    <CValidatorPlayerRequirement id="StormCategorySourceHasNotSuppressCollision">
-        <Value value="StormCategorySuppressCollision"/>
         <WhichUnit Value="Source"/>
     </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategorySourceHasNotDebuffSpellPower">
@@ -752,11 +724,6 @@
         <Value value="StormCategorySuppressUltimateCharge"/>
         <WhichUnit Value="Source"/>
     </CValidatorPlayerRequirement>
-    <CValidatorPlayerRequirement id="StormCategoryTargetHasSuppressCollision">
-        <Find value="1"/>
-        <Value value="StormCategorySuppressCollision"/>
-        <WhichUnit Value="Target"/>
-    </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategoryTargetHasAbnormalRespawn">
         <Find value="1"/>
         <Value value="StormCategoryAbnormalRespawn"/>
@@ -765,10 +732,6 @@
     <CValidatorPlayerRequirement id="StormCategoryTargetHasDebuffSpellPower">
         <Find value="1"/>
         <Value value="StormCategoryDebuffSpellPower"/>
-        <WhichUnit Value="Target"/>
-    </CValidatorPlayerRequirement>
-    <CValidatorPlayerRequirement id="StormCategoryTargetHasNotSuppressCollision">
-        <Value value="StormCategorySuppressCollision"/>
         <WhichUnit Value="Target"/>
     </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategoryTargetHasNotDebuffSpellPower">
@@ -1811,11 +1774,11 @@
     <CValidatorUnitFilters id="TargetNotMerc">
         <Filters value="-;Robotic"/>
     </CValidatorUnitFilters>
-    <CValidatorCombine id="SpellEffectTreeCheckCombine">
+    <CValidatorCombine id="EffectTreeCheckCombineNonBasicAttack">
         <Type value="And"/>
         <CombineArray value="AlwaysReturnsTrue"/>
     </CValidatorCombine>
-    <CValidatorCombine id="SpellEffectTreeCheckCombineReversed">
+    <CValidatorCombine id="EffectTreeCheckCombineNonBasicAttackReversed">
         <Type value="And"/>
         <CombineArray value="AlwaysReturnsTrue"/>
         <CombineArray value="CasterNotInStasisorDeadorInvulnerableorSpecialDeathStateorHidden"/>
@@ -1824,12 +1787,12 @@
         <Type value="And"/>
         <CombineArray value="StormCategoryCasterHasNotStasisAir"/>
     </CValidatorCombine>
-    <CValidatorCombine id="BasicAttackEffectTreeCheckCombineReversed">
+    <CValidatorCombine id="EffectTreeCheckCombineBasicAttackReversed">
         <Type value="And"/>
         <CombineArray value="TargetNotBlinded"/>
         <CombineArray value="CasterNotEvading"/>
     </CValidatorCombine>
-    <CValidatorCombine id="BasicAttackEffectTreeCheckCombine">
+    <CValidatorCombine id="EffectTreeCheckCombineBasicAttack">
         <Type value="And"/>
         <CombineArray value="CasterNotBlinded"/>
         <CombineArray value="TargetNotEvading"/>
@@ -2331,17 +2294,20 @@
     <CValidatorUnitFilters id="TargetNotHidden">
         <Filters value="-;Hidden"/>
     </CValidatorUnitFilters>
-    <CValidatorCombine id="CritAliasSpellPower">
+    <CValidatorCombine id="CritAliasSpell">
         <CombineArray value="CasterHasDummyCriticalSpellBehavior"/>
         <CombineArray value="AzmodanHellRift@SourceHasCarryActive"/>
     </CValidatorCombine>
-    <CValidatorCombine id="CritAliasPhysicalPower">
+    <CValidatorCombine id="CritAliasPhysical">
         <CombineArray value="CasterHasDummyCriticalPhysicalBehavior"/>
         <CombineArray value="AnubarakAcidDrenchedMandibles@CasterHasBuff"/>
         <CombineArray value="DeltaLockdownRound@UDIsValid"/>
         <CombineArray value="DeltaDesperateMeasures@UDIsValid"/>
         <CombineArray value="HeroFalstadSecretWeapon@CasterHasBuff"/>
         <CombineArray value="GreymaneExecutioner@CasterHasDamageBuff"/>
+        <CombineArray value="HeroJainaIcefuryWand@TargetIsChilledAndCasterHasIcefuryWand"/>
+        <CombineArray value="KerriganAssimilationBlades@CasterHasMaxStackCount"/>
+        <CombineArray value="HeroMalfurionCelestialAlignment@TargetCombine"/>
     </CValidatorCombine>
     <CValidatorCombine id="InvButtonActiveDamage">
         <CombineArray value="HeroArthasFrostmourneHungers@HasPrimed"/>

@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="JohannaWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="JohannaCondemn@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="JohannaCondemn@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="JohannaHolyFury@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="JohannaHolyFury@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="JohannaPunish@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="JohannaPunish@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="JohannaWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="99"/>
     </CEffectDamage>
-    <CEffectUserData id="JohannaCondemn@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="JohannaCondemn@DamageCritStatusCombine" Effect="JohannaCondemn@Damage"/>
-    <CEffectSet id="JohannaCondemn@DamageSet" parent="StormDamageSet" CritStatusEffect="JohannaCondemn@DamageCritStatusIncrement" DamageEffect="JohannaCondemn@Damage"/>
-    <CEffectUserData id="JohannaHolyFury@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="JohannaHolyFury@DamageCritStatusCombine" Effect="JohannaHolyFury@Damage"/>
-    <CEffectSet id="JohannaHolyFury@DamageSet" parent="StormDamageSet" CritStatusEffect="JohannaHolyFury@DamageCritStatusIncrement" DamageEffect="JohannaHolyFury@Damage"/>
-    <CEffectUserData id="JohannaPunish@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="JohannaPunish@DamageCritStatusCombine" Effect="JohannaPunish@Damage"/>
-    <CEffectSet id="JohannaPunish@DamageSet" parent="StormDamageSet" CritStatusEffect="JohannaPunish@DamageCritStatusIncrement" DamageEffect="JohannaPunish@Damage"/>
-    <CEffectUserData id="JohannaShieldGlare@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="JohannaShieldGlare@Damage"/>
-    <CEffectSet id="JohannaShieldGlare@DamageSet" parent="StormDamageSet" CritStatusEffect="JohannaShieldGlare@DamageCritStatusIncrement" DamageEffect="JohannaShieldGlare@Damage"/>
+    <CEffectUserData id="JohannaCondemn@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaCondemn@Damage"/>
+    <CEffectSet id="JohannaCondemn@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="JohannaCondemn@DamageCritStatusLocal" CritStatusEffect="JohannaCondemn@DamageCritStatusIncrement" DamageEffect="JohannaCondemn@Damage"/>
+    <CEffectUserData id="JohannaHolyFury@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaHolyFury@Damage"/>
+    <CEffectSet id="JohannaHolyFury@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="JohannaHolyFury@DamageCritStatusLocal" CritStatusEffect="JohannaHolyFury@DamageCritStatusIncrement" DamageEffect="JohannaHolyFury@Damage"/>
+    <CEffectUserData id="JohannaPunish@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaPunish@Damage"/>
+    <CEffectSet id="JohannaPunish@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="JohannaPunish@DamageCritStatusLocal" CritStatusEffect="JohannaPunish@DamageCritStatusIncrement" DamageEffect="JohannaPunish@Damage"/>
+    <CEffectUserData id="JohannaShieldGlare@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaShieldGlare@Damage"/>
+    <CEffectSet id="JohannaShieldGlare@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="JohannaShieldGlare@DamageCritStatusIncrement" DamageEffect="JohannaShieldGlare@Damage"/>
     <CEffectApplyBehavior id="JohannaSteedCharge@ApplyMountedController">
         <WhichUnit Value="Caster"/>
         <Behavior value="JohannaSteedCharge@MountedController"/>
@@ -76,7 +85,7 @@
     <CEffectSet id="JohannaSinsExposed@ExposedBasicAttackSet">
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="JohannaSinsExposed@TargetHasBehavior"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="JohannaSinsExposed@RemoveNonSelfBehavior"/>
         <EffectArray value="JohannaSinsExposed@ApplyHealingReductionBehavior"/>
     </CEffectSet>
@@ -97,13 +106,13 @@
     </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="JohannaDivineFortress@ApplyArmorBehavior">
         <ValidatorArray value="JohannaDivineFortress"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="JohannaDivineFortress@ArmorBehavior"/>
     </CEffectApplyBehavior>
     <CEffectSet id="JohannaEternalRetaliation@Set">
         <ValidatorArray value="JohannaEternalRetaliation@TargetHasMarkedBehavior"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="JohannaEternalRetaliation@ModifyCooldown"/>
         <EffectArray value="JohannaEternalRetaliation@KillMinion"/>
         <EffectArray value="JohannaEternalRetaliation@RemoveMarkedBehavior"/>
@@ -243,8 +252,8 @@
             </Cooldown>
         </Cost>
     </CEffectModifyPlayer>
-    <CEffectUserData id="JohannaWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="JohannaWeapon@Damage"/>
-    <CEffectSet id="JohannaWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="JohannaWeapon@DamageCritStatusIncrement" DamageEffect="JohannaWeapon@Damage"/>
+    <CEffectUserData id="JohannaWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaWeapon@Damage"/>
+    <CEffectSet id="JohannaWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="JohannaWeapon@DamageCritStatusIncrement" DamageEffect="JohannaWeapon@Damage"/>
     <CEffectSet id="JohannaWeapon@Set">
         <EffectArray value="JohannaEternalRetaliation@Set"/>
         <EffectArray value="JohannaWeapon@DamageSet"/>
@@ -603,7 +612,7 @@
     </CEffectRemoveBehavior>
     <CEffectSet id="JohannaBlessedMomentum@WeaponSet">
         <ValidatorArray value="JohannaBlessedMomentum"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="JohannaBlessedMomentum@ApplyAttackSpeedBehavior"/>
         <EffectArray value="JohannaBlessedMomentum@ModifyCooldowns"/>
     </CEffectSet>
@@ -616,22 +625,22 @@
     <CEffectModifyPlayer id="JohannaFallingSword@ResetCollision">
         <EffectArray Operation="Set" Reference="Unit,JohannaHero,Collide[Land2]" Value="1"/>
     </CEffectModifyPlayer>
-    <CEffectSet id="JohannaHeavensFury@DamageSet" parent="StormDamageSet" CritStatusEffect="JohannaHeavensFury@DamageCritStatusIncrement" DamageEffect="JohannaHeavensFury@Damage"/>
-    <CEffectUserData id="JohannaHeavensFury@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="JohannaHeavensFury@HealMU"/>
-    <CEffectUserData id="JohannaHeavensFury@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="JohannaHeavensFury@Damage"/>
+    <CEffectSet id="JohannaHeavensFury@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="JohannaHeavensFury@DamageCritStatusIncrement" DamageEffect="JohannaHeavensFury@Damage"/>
+    <CEffectUserData id="JohannaHeavensFury@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaHeavensFury@HealMU"/>
+    <CEffectUserData id="JohannaHeavensFury@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="JohannaHeavensFury@Damage"/>
     <CEffectModifyUnit id="JohannaHeavensFury@HealMU" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="68"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="JohannaHeavensFury@HealSet" parent="StormHealSetCaster" CritStatusEffect="JohannaHeavensFury@HealCritStatusIncrement" HealEffect="JohannaHeavensFury@HealMU"/>
-    <CEffectUserData id="JohannaHolyRenewal@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="JohannaHolyRenewal@HealMU"/>
+    <CEffectSet id="JohannaHeavensFury@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="JohannaHeavensFury@HealCritStatusIncrement" HealEffect="JohannaHeavensFury@HealMU"/>
+    <CEffectUserData id="JohannaHolyRenewal@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="JohannaHolyRenewal@HealMU"/>
     <CEffectModifyUnit id="JohannaHolyRenewal@HealMU" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <ChangeFraction value="0.05"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="JohannaHolyRenewal@HealSet" parent="StormHealSetCaster" CritStatusEffect="JohannaHolyRenewal@HealCritStatusIncrement" HealEffect="JohannaHolyRenewal@HealMU"/>
+    <CEffectSet id="JohannaHolyRenewal@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="JohannaHolyRenewal@HealCritStatusIncrement" HealEffect="JohannaHolyRenewal@HealMU"/>
     <CEffectApplyBehavior id="JohannaBlessedHammer@ApplyStack">
         <WhichUnit Value="Caster"/>
         <Behavior value="JohannaBlessedHammer@Stack"/>
@@ -642,7 +651,7 @@
         <BehaviorLink value="JohannaBlessedHammer@Stack"/>
     </CEffectRemoveBehavior>
     <CEffectSet id="JohannaBlessedHammer@WeaponSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="JohannaBlessedHammer"/>
         <ValidatorArray value="TargetIsHero"/>
         <EffectArray value="JohannaBlessedHammer@ApplyStack"/>
@@ -708,19 +717,19 @@
     <CEffectModifyPlayer id="JohannaLawsOfHope@DeltaEvent1Modification">
         <EffectArray Reference="Effect,JohannaLawsOfHope@HealMU,VitalArray[Life].ChangeFraction" Value="0.01"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="JohannaLawsOfHope@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="JohannaLawsOfHope@HealMU"/>
+    <CEffectUserData id="JohannaLawsOfHope@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="JohannaLawsOfHope@HealMU"/>
     <CEffectModifyUnit id="JohannaLawsOfHope@HealMU" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <ChangeFraction value="0.04"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="JohannaLawsOfHope@HealSet" parent="StormHealSetCaster" CritStatusEffect="JohannaLawsOfHope@HealCritStatusIncrement" HealEffect="JohannaLawsOfHope@HealMU"/>
+    <CEffectSet id="JohannaLawsOfHope@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="JohannaLawsOfHope@HealCritStatusIncrement" HealEffect="JohannaLawsOfHope@HealMU"/>
     <CEffectUserData id="JohannaLawsOfHope@TokenCounterIncrement" parent="StormModifyTokenCount" TokenCounterBehavior="JohannaLawsOfHope@TokenCounter">
         <ValidatorArray value="JohannaLawsOfHope"/>
         <Amount value="1"/>
     </CEffectUserData>
     <CEffectAddTrackedUnit id="JohannaPunish@AddTrackedUnit">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <BehaviorLink value="JohannaPunish@UnitTracker"/>
         <TrackedUnit Value="Target"/>
     </CEffectAddTrackedUnit>
@@ -1010,7 +1019,7 @@
     </CEffectEnumArea>
     <CEffectLaunchMissile id="JohannaBlessedShield@Bounce1LaunchMissile">
         <ValidatorArray value="NotCloakedOrIsRevealed"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <LaunchLocation Effect="JohannaBlessedShield@Bounce1Persistent" Value="TargetUnit"/>
         <ImpactEffect value="JohannaBlessedShield@Bounce1ImpactSet"/>
         <AmmoUnit value="JohannaBlessedShield@Missile"/>
@@ -1047,7 +1056,7 @@
     <CEffectLaunchMissile id="JohannaBlessedShield@Bounce2LaunchMissile">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="NotCloakedOrIsRevealed"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <LaunchLocation Effect="JohannaBlessedShield@Bounce2Search" Value="TargetUnit"/>
         <ImpactEffect value="JohannaBlessedShield@Bounce2ImpactSet"/>
         <AmmoUnit value="JohannaBlessedShield@Missile"/>
@@ -1087,7 +1096,7 @@
     <CEffectLaunchMissile id="JohannaBlessedShield@Bounce3LaunchMissile">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="NotCloakedOrIsRevealed"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <LaunchLocation Effect="JohannaBlessedShield@Bounce3Search" Value="TargetUnit"/>
         <ImpactEffect value="JohannaBlessedShield@Bounce3ImpactSet"/>
         <AmmoUnit value="JohannaBlessedShield@Missile"/>
@@ -1123,7 +1132,7 @@
     <CEffectLaunchMissile id="JohannaBlessedShield@Bounce4LaunchMissile">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="NotCloakedOrIsRevealed"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <LaunchLocation Effect="JohannaBlessedShield@Bounce4Search" Value="TargetUnit"/>
         <ImpactEffect value="JohannaBlessedShield@Bounce4ImpactSet"/>
         <AmmoUnit value="JohannaBlessedShield@Missile"/>
@@ -1351,15 +1360,20 @@
         <CursorEffect value="JohannaBlessedShield@MissileScan"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="JohannaBlessedShield" Requirements="Ultimate2Unlocked"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="JohannaCondemn@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="TargetIsLaneMinionOrMercenary"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="JohannaHolyFury@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="JohannaHolyFury@CasterStackCountGTE2"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="JohannaPunish@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="JohannaRoar@HasTalentAndTrackedUnitsCountIsValid"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="JohannaBlessedHammer@StackCountIsValid" parent="CasterIsParent">
         <Compare value="GE"/>
         <Value value="3"/>
         <Behavior value="JohannaBlessedHammer@Stack"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="JohannaCondemn@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="TargetIsLaneMinionOrMercenary"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed id="JohannaDivineFortress@TokenCounterNotMin" parent="StormTokenCounterPlayer_Minimum" TokenCounterBehavior="JohannaDivineFortress@TokenCounter">
         <Value value="0"/>
     </CValidatorUnitCompareChargeUsed>
@@ -1370,10 +1384,6 @@
         <Value value="2"/>
         <Behavior value="JohannaHolyFury@Stack"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="JohannaHolyFury@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="JohannaHolyFury@CasterStackCountGTE2"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareCooldown id="JohannaIndestructible@CasterHasNotCooldown">
         <WhichUnit Value="Caster"/>
         <Compare value="LE"/>
@@ -1381,10 +1391,6 @@
         <Location value="Unit"/>
         <Ability value="JohannaIndestructible"/>
     </CValidatorUnitCompareCooldown>
-    <CValidatorCombine id="JohannaPunish@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="JohannaRoar@HasTalentAndTrackedUnitsCountIsValid"/>
-    </CValidatorCombine>
     <CValidatorCombine id="JohannaRoar@HasTalentAndTrackedUnitsCountIsValid">
         <Type value="And"/>
         <CombineArray value="JohannaRoar"/>

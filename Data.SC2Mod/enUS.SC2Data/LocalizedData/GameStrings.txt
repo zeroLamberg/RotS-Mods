@@ -546,7 +546,7 @@ Behavior/Tooltip/BrightwingPixieCharm@ArcaneFlare=Arcane Flare damage bonus: <c 
 Behavior/Tooltip/DeltaInfiltrationMission@TokenCounter=<c val="#TooltipQuest">Mercenary camps capruted: <c val="#TooltipNumbers" validator="DeltaInfiltrationMission@QuestNotMaxedTarget"><d ref="Behavior,DeltaInfiltrationMission@TokenCounter,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,DeltaInfiltrationMission@TokenCounter,Cost.Charge.CountMax"/>
 Behavior/Tooltip/DeltaShadowSleight@DamageIncrease=Damage increased by <c val="#TooltipNumbers"><d ref="Effect,DeltaShadowSleight@StoreDamageMultiplier,Amount"/>%</c>
 Behavior/Tooltip/DeltaSpecialOperations@Buff=Basic Attacks are empowered.
-Behavior/Tooltip/ETCBlockParty@Block=Reducing the damage taken from the next Heroic Basic Attack by <c val="#TooltipNumbers"><d ref="Accumulator,ETCBlockParty@PhysicalArmorBuffArithmetic,Parameters[0]"/>%</c>.
+Behavior/Tooltip/ETCBlockParty@Block=Reduces the damage taken from the next Heroic Physical damage source by <c val="#TooltipNumbers"><d ref="Accumulator,ETCBlockParty@PhysicalArmorBuffArithmetic,Parameters[0]"/>%</c>.
 Behavior/Tooltip/ETCProgRock@TokenCounter=<c val="#TooltipQuest">Globes gathered: <c val="#TooltipNumbers" validator="ETCProgRock@QuestNotMaxedTarget"><d ref="Behavior,ETCProgRock@TokenCounter,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,ETCProgRock@TokenCounter,Cost.Charge.CountMax"/></c></n>Increased Healing: <c val="#TooltipNumbers" validator="ETCProgRock@QuestNotMaxedTarget"><d ref="Behavior,ETCProgRock@TokenCounter,DamageResponse.Cost.Charge.CountUse*Accumulator,ETCProgRock@GuitarSoloHealingBonusArithmetic,Parameters[0]"/></c></c>
 Behavior/Tooltip/GreymaneExecutioner@DamageBuff=Physical damage increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,GreymaneExecutioner@DamageIncreaseModifier,Amount"/>%</c>.
 Behavior/Tooltip/GreymaneIncendiaryElixir@TokenCounter=<c val="#TooltipQuest">Heroes hit: <c val="#TooltipNumbers" validator="GreymaneIncendiaryElixir@QuestNotMaxedTarget"><d ref="Behavior,GreymaneIncendiaryElixir@TokenCounter,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,GreymaneIncendiaryElixir@TokenCounter,Cost.Charge.CountMax"/></c></c><n/><c val="#TooltipQuest">Explosion bonus: <c val="#TooltipNumbers" validator="GreymaneIncendiaryElixir@QuestNotMaxedTarget"><d ref="Accumulator,GreymaneIncendiaryElixir@DamageArithmetic,Parameters[0]*Behavior,GreymaneIncendiaryElixir@TokenCounter,DamageResponse.Cost.Charge.CountUse"/></c>
@@ -556,7 +556,7 @@ Behavior/Tooltip/HeroAbathurEvolveMonstrosityStacks@TokenCounter=Bonus Health: <
 Behavior/Tooltip/HeroArtanisGravitonVortex@Stack=Phase Prism damage: +<c val="#TooltipNumbers"><d ref="100*Effect,HeroArtanisGravitonVortex@StoreUserDataDamage,Amount*$BehaviorStackCount:HeroArtanisGravitonVortex@Stack$" precision="2"/>%</c>
 Behavior/Tooltip/HeroArtanisPrismaticAlignment=<c val="#TooltipQuest">Alignment: <c val="#TooltipNumbers" validator="!HeroArtanisPrismaticAlignment@QuestMaxedTarget" ><d ref="Behavior,HeroArtanisPrismaticAlignment,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,HeroArtanisPrismaticAlignment,Cost.Charge.CountMax"/></c>
 Behavior/Tooltip/HeroArtanisProtectorOfAiur=<c val="#TooltipQuest">Increased Attack Damage:</c> <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroArtanisProtectorOfAiur@DamageArithmetic,Parameters[0]*Behavior,HeroArtanisProtectorOfAiur,DamageResponse.Cost.Charge.CountUse" precision="2"/>%</c>
-Behavior/Tooltip/HeroArtanisReactiveParry=Blocks an enemy Hero's Basic Attack, reducing its damage by <c val="#TooltipNumbers"><d ref="Accumulator,HeroArtanisReactiveParry@PhysicalArmorBuffArithmetic,Parameters[0]"/>%</c>.
+Behavior/Tooltip/HeroArtanisReactiveParry=Reduces the damage taken from the next Heroic Physical damage source by <c val="#TooltipNumbers"><d ref="Accumulator,HeroArtanisReactiveParry@PhysicalArmorBuffArithmetic,Parameters[0]"/>%</c>.
 Behavior/Tooltip/HeroArthasFrostPresence=<c val="#TooltipQuest">Heroes Rooted: <c val="#TooltipNumbers" validator="!HeroArthasFrostPresence@QuestMaximumTarget"><d ref="Behavior,HeroArthasFrostPresence,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,HeroArthasFrostPresence,Cost.Charge.CountMax"/></c>
 Behavior/Tooltip/HeroArthasObliterate=<c val="#TooltipQuest">Heroes hit:</c> <c val="#TooltipNumbers"><d ref="Behavior,HeroArthasObliterate,DamageResponse.Cost.Charge.CountUse"/></c><n/><c val="#TooltipQuest">Health damage:</c> <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrostmourneHungers@Damage,Amount" precision="2"/>%</c>
 Behavior/Tooltip/HeroAurielIncreasingClarity=<c val="#TooltipQuest">Heroes hit: <c val="#TooltipNumbers" validator="!HeroAurielIncreasingClarity@QuestCompleted"><d ref="Behavior,HeroAurielIncreasingClarity,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,HeroAurielIncreasingClarity,DamageResponse.Cost.Charge.CountMax"/></c><n/>Bonus damage: <c val="#TooltipNumbers" validator="!HeroAurielIncreasingClarity@QuestCompleted"><d ref="Accumulator,HeroAurielIncreasingClarity@DamageModifier,Amount" precision="0"/></c></c>
@@ -610,7 +610,7 @@ Behavior/Tooltip/KharazimInsight=<c val="#TooltipQuest">Insight Gained: <c val="
 Behavior/Tooltip/LiMingCannoneer@Tracker=Physical damage Bonus: <c val="#TooltipNumbers"><d ref="100*Accumulator,LiMingCannoneer@SourceTrackerArithmetic,Parameters[0]*$BehaviorStackCount:LiMingCannoneer@Tracker$"/>%</c><n/>Basic Attack Range Bonus: <c val="#TooltipNumbers"><d precision="1" ref="Behavior,LiMingCannoneer@Tracker,Modification.WeaponRange*$BehaviorStackCount:LiMingCannoneer@Tracker$"/></c>
 Behavior/Tooltip/LiMingForceArmor@Block=Reduces single Spell damage source by <c val="#TooltipNumbers"><d ref="Accumulator,LiMingForceArmor@SpellArmorArithmetic,Parameters[0]"/>%</c>.
 Behavior/Tooltip/LiMingTalRashasElements@CasterBuff=Damage of next Abiltiy increased by <c val="#TooltipNumbers"><d ref="(Effect,LiMingTalRashasElements@StoreLocalDamageModifier,Amount*100)*$BehaviorStackCount:LiMingTalRashasElements@CasterBuff$"/>%</c>.
-Behavior/Tooltip/MuradinDwarfBlock@PhysicalArmor=Blocks an enemy Hero's Basic Attack, reducing its damage by <c val="#TooltipNumbers"><d ref="Accumulator,MuradinDwarfBlock@PhysicalArmorBuffArithmetic,Parameters[0]"/>%</c>.
+Behavior/Tooltip/MuradinDwarfBlock@PhysicalArmor=Reduces the damage taken from the next Heroic Physical damage source by <c val="#TooltipNumbers"><d ref="Accumulator,MuradinDwarfBlock@PhysicalArmorBuffArithmetic,Parameters[0]"/>%</c>.
 Behavior/Tooltip/MuradinGiveEmTheAxe@DamageBuff=+<c val="#TooltipNumbers"><d ref="100*Accumulator,MuradinGiveEmTheAxe@WeaponDamageBuffModifier,Amount"/>%</c> Physical damage
 Behavior/Tooltip/MuradinPerfectStorm@TokenCounter=<c val="#TooltipQuest">Heroes hit: <c val="#TooltipNumbers"><d ref="$RunAccumulators:MuradinPerfectStorm@QuestStackCount$"/></c><n/>Basic Attack's Bonus damage: <c val="#TooltipNumbers"><d ref="$RunAccumulators:MuradinPerfectStorm@BasicAttackDamageArithmetic$" precision="2"/></c><n/>Storm Bolt's Bonus damage: <c val="#TooltipNumbers"><d ref="$RunAccumulators:MuradinPerfectStorm@StormBoltDamageArithmetic$" precision="2"/></c></c>
 Behavior/Tooltip/TalentBribe@TokenCounter=<c val="#TooltipQuest">Bribe stacks:</c> <d ref="Behavior,TalentBribe@TokenCounter,DamageResponse.Cost.Charge.CountUse"/>/<d ref="Behavior,TalentBribe@TokenCounter,Cost.Charge.CountMax"/>
@@ -2174,7 +2174,7 @@ Button/SimpleDisplayText/HeroSelendisSeveringSlash=Activate to damage and Silenc
 Button/SimpleDisplayText/HeroSelendisShieldDynamo=Zealous Rush's shields stack and don't expire
 Button/SimpleDisplayText/HeroSelendisSolarCharge=<c val="#TooltipQuest">Quest:</c> Increase Solar Lance damage
 Button/SimpleDisplayText/HeroSelendisSolarLance=Fire two crossing beams dealing damage
-Button/SimpleDisplayText/HeroSelendisTemplarsFury=Zealous Rush increases Physical damage
+Button/SimpleDisplayText/HeroSelendisTemplarsFury=Zealous Rush increases Basic Attack damage
 Button/SimpleDisplayText/HeroSelendisTractorBeam=Reduce Solar Lance cooldown, Stuns in the center
 Button/SimpleDisplayText/HeroSelendisTrialByFire=Solar Lance deals additional damage
 Button/SimpleDisplayText/HeroSelendisUnwaveringResolve=Zealous Rush grants Unstoppable
@@ -2519,7 +2519,7 @@ Button/Tooltip/AzmodanSinsGrasp=All Shall Burn Slows enemy Heroes by <c val="#To
 Button/Tooltip/AzmodanSummonDemonLieutenant=Summon a Demon Lieutenant at any allied Mercenary, Minion, or Azmodan Demon. The Lieutenant will cast Demonic Smite every <c val="#TooltipNumbers"><d ref="Abil,AzmodanDemonicSmite,Cost[0].Cooldown.TimeUse" player="0"/></c> seconds, instantly killing an enemy Minion. Lasts <c val="#TooltipNumbers"><d ref="Behavior,AzmodanDemonLieutenant@TimedLife,Duration-1"player="0"/></c> seconds.<n/><n/>Usable while Channeling All Shall Burn.
 Button/Tooltip/AzmodanSummonDemonWarrior=Spawn a Demon Warrior that marches forward. Warriors deal <c val="#TooltipNumbers"><d ref="Effect,AzmodanDemonWarriorWeapon@Damage,Amount" option="player"/></c> damage per Attack and <c val="#TooltipNumbers"><d ref="Effect,AzmodanBurningDemon@Damage,Amount*(1/Behavior,AzmodanBurningDemon@PeriodicDamageController,Period)" option="player"/></c> damage to nearby enemies every second. Lasts for <c val="#TooltipNumbers"><d ref="Behavior,AzmodanSummonDemonWarrior@TimedLife,Duration-1.5"precision="1"player="0"/></c> seconds.<n/><n/>Usable while Channeling All Shall Burn.
 Button/Tooltip/AzmodanTideOfSin=Activate to make the next Globe of Annihilation cost no Mana and deal <c val="#TooltipNumbers"><d ref="100*Accumulator,AzmodanTideOfSin@DamageModifier,Amount"/>%</c> increased damage.<n/><n/>Usable while Channeling All Shall Burn.
-Button/Tooltip/AzmodanTotalAnnihilation=Globe of Annihilation damages Heroes for an additional <c val="#TooltipNumbers"><d ref="Effect,AzmodanTotalAnnihilation@Damage,Amount"/>%</c> of their maximum Health.
+Button/Tooltip/AzmodanTotalAnnihilation=Globe of Annihilation against Heroes deals bonus <c val="#TooltipNumbers"><d ref="Effect,AzmodanTotalAnnihilation@Damage,Amount"/>%</c> of their maximum Health as <c val="#TooltipDamagePure">Pure</c> damage.
 Button/Tooltip/AzmodanTrample=Activate to charge a short distance, dealing <c val="#TooltipNumbers"><d ref="Effect,AzmodanTrample@Damage,Amount" option="player"/></c> damage and Slowing enemies caught in the path by <c val="#TooltipNumbers"><d ref="-100*Behavior,AzmodanTrample@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,AzmodanTrample@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/AzmodanWrath=Basic Attacks against Heroes under <c val="#TooltipNumbers"><d ref="100*Validator,AzmodanWrath@LifeThreshold,Value"/>%</c> Health grant <c val="#TooltipNumbers"><d ref="Effect,AzmodanGlobeOfAnnihilation@IncrementTokenCounterWrath,Amount"/></c> Annihilation. <n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> After gaining <c val="#TooltipNumbers"><d ref="Behavior,AzmodanWrath@TokenCounter,Cost.Charge.CountMax"/></c> Annihilation, hitting a Hero with Globe of Annihilation increases the damage of Azmodan's next Basic Attack against them within <c val="#TooltipNumbers"><d ref="Behavior,AzmodanWrath@Marker,Duration"/></c> seconds by <c val="#TooltipNumbers"><d ref="100*Accumulator,AzmodanWrath@WeaponDamageBonusMultiplier,Amount"/>%</c> the amount of Annihilation he has.
 Button/Tooltip/BasicAttack=Basic Attack
@@ -2554,7 +2554,7 @@ Button/Tooltip/Common_Cleanse=Remove all stuns, roots, silences, and slows and p
 Button/Tooltip/DeltaCleanShot=After <c val="#TooltipNumbers"><d ref="Abil,DeltaCleanShot,CastIntroTime[0]" precision="2"/></c> seconds, deal <c val="#TooltipNumbers"><d ref="Effect,DeltaCleanShot@Damage,Amount" option="player"/></c> damage in a line and gain a bonus effect depending on the equipped weapon.<n/><n/>• <c val="#ColorCreamYellow" validator="DeltaWeaponSniper@TargetHasWeaponEquipped">Canister Rifle: Heroes hit are Silenced for <c val="#TooltipNumbers"><d ref="Behavior,DeltaCleanShot@SniperBonusSilence,Duration" player="0" precision="2"/></c> <lang rule="plural">second,seconds</lang></c>.<n/>• <c val="#ColorCreamYellow" validator="DeltaWeaponPlasmaCoil@TargetHasWeaponEquipped">Plasma Coil: Enemies hit are Slowed by <c val="#TooltipNumbers"><d ref="-100*Behavior,DeltaCleanShot@PlasmaBonusSlow,Modification.UnifiedMoveSpeedFactor" player="0"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,DeltaCleanShot@PlasmaBonusSlow,Duration" player="0" precision="2"/></c> seconds.</c><n/>• <c val="#ColorCreamYellow" validator="DeltaWeaponGaussRifle@TargetHasWeaponEquipped">Gauss Rifle: Reduce Clean Shot's cooldown by <c val="#TooltipNumbers"><d ref="-Effect,DeltaCleanShot@GaussBonusCooldownMU,Cost[0].ChargeTimeUse" precision="2" player="0"/></c> seconds per each Hero hit.</c>
 Button/Tooltip/DeltaClusterCharge=Throw a bomb with a <c val="#TooltipNumbers"><d ref="Effect,DeltaClusterCharge@InitialGroundPersistent,PeriodicPeriodArray[0]" precision="2"/></c> <lang rule="plural">second,seconds</lang> fuse. Upon detonation, it deals <c val="#TooltipNumbers"><d ref="Effect,DeltaClusterCharge@CenterDamage,Amount" option="player"/></c> damage and splits into <c val="#TooltipNumbers"><d ref="Effect,DeltaClusterCharge@SpreadPersistent,PeriodCount"/></c> bombs that deal <c val="#TooltipNumbers"><d ref="Effect,DeltaClusterCharge@SpreadDamage,Amount" option="player"/></c> damage after <c val="#TooltipNumbers"><d ref="Effect,DeltaClusterCharge@SpreadPersistentCluster,InitialDelay" precision="2"/></c> <lang rule="plural">second,seconds</lang>.<n/><n/>If Clusterbomb lands on an enemy Hero it attaches to them, slowing them for <c val="#TooltipNumbers"><d ref="-100*Behavior,DeltaClusterCharge@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> while it is attached.
 Button/Tooltip/DeltaDangerClose=Within the first <c val="#TooltipNumbers"><d ref="100*Actor,DeltaDangerClose@Guide,Height/Actor,DeltaCleanShot@CursorGuide,Height" player="0"/>%</c> of its range, Clean Shot deals <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaDangerClose@DamageBonusModifier,Amount"/>%</c> increased damage and knocks targets back.
-Button/Tooltip/DeltaDesperateMeasures=After expending your last Ammunition, gain <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaDesperateMeasures@BasicAttackBonusModifier,Amount"/>%</c> Physical damage for <c val="#TooltipNumbers"><d ref="Behavior,DeltaDesperateMeasures@AttackDamageBuff,Duration" precision="2"/></c> seconds.<n/><n/><c val="#AbilityPassive">Passive:</c> While below <c val="#TooltipNumbers"><d ref="100*Validator,DeltaDesperateMeasures@HealthRequirementIsValid,Value"/>%</c> Health, Fade's cooldown recharges <c val="#TooltipNumbers"><d ref="-100*Effect,DeltaDesperateMeasures@CooldownMU,Cost[0].CooldownTimeUse/Behavior,DeltaDesperateMeasures@HealthCarryBehavior,Period"/>%</c> faster.
+Button/Tooltip/DeltaDesperateMeasures=After expending your last Ammunition, gain <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaDesperateMeasures@BasicAttackBonusModifier,Amount"/>%</c> Basic Attack damage for <c val="#TooltipNumbers"><d ref="Behavior,DeltaDesperateMeasures@AttackDamageBuff,Duration" precision="2"/></c> seconds.<n/><n/><c val="#AbilityPassive">Passive:</c> While below <c val="#TooltipNumbers"><d ref="100*Validator,DeltaDesperateMeasures@HealthRequirementIsValid,Value"/>%</c> Health, Fade's cooldown recharges <c val="#TooltipNumbers"><d ref="-100*Effect,DeltaDesperateMeasures@CooldownMU,Cost[0].CooldownTimeUse/Behavior,DeltaDesperateMeasures@HealthCarryBehavior,Period"/>%</c> faster.
 Button/Tooltip/DeltaDoubleCharge=Clean Shot gains an extra charge and gains the bonus effect from your next weapon. This weapon is displayed on your back.
 Button/Tooltip/DeltaEmpathicBond=Delta heals for <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaEmpathicBond@Multiplier,Amount"/>%</c> of all damage the marked target takes.
 Button/Tooltip/DeltaExclusionZone=Toss a gadget which deploys into two unpassable fences for <c val="#TooltipNumbers"><d ref="Behavior,DeltaExclusionZone@TowerTimedLife,Duration" player="0" precision="2"/></c> seconds.
@@ -2562,7 +2562,7 @@ Button/Tooltip/DeltaExclusionZone@Cancel=Cancel Exclusion Zone
 Button/Tooltip/DeltaExtremePrejudice=Set Priority Target's duration to <c val="#TooltipNumbers"><d ref="Effect,DeltaExtremePrejudice,EffectArray[0].Value"/></c> seconds. The target is Revealed for the duration.<n/><n/><c val="#AbilityPassive">Passive:</c> Increase Priority Target's range by <c val="#TooltipNumbers"><d ref="100*(Effect,DeltaExtremePrejudice,EffectArray[1].Value-1)"/>%</c>.
 Button/Tooltip/DeltaFade=Gain Stealthed, Unrevealable and <c val="#TooltipNumbers"><d ref="100*Behavior,DeltaFade@Movespeed,Modification.UnifiedMoveSpeedFactor*Behavior,DeltaFade@Movespeed,MaxStackCount" player="0"/>%</c> Movement Speed for <c val="#TooltipNumbers"><d ref="Behavior,DeltaFade@Movespeed,Duration" player="0" precision="2"/></c> second. Delta can move through units while in Fade.
 Button/Tooltip/DeltaFlashbang=Toss a grenade that deals <c val="#TooltipNumbers"><d ref="Effect,DeltaFlashbang@Damage,Amount" option="player"/></c> damage. Enemies hit are Blinded and have their vision radius greatly reduced for <c val="#TooltipNumbers"><d ref="Behavior,DeltaFlashbang@VisionReduction,Duration" player="0" precision="2"/></c> seconds.
-Button/Tooltip/DeltaGhost=Primary Basic Attacks against Heroes reduce the cooldown of Fade by <c val="#TooltipNumbers"><d ref="-Effect,DeltaGhost@ModifyCooldown,Cost[0].CooldownTimeUse" precision="2"/></c>  seconds and Priority Target by <c val="#TooltipNumbers"><d ref="-Effect,DeltaGhost@ModifyCooldown,Cost[1].CooldownTimeUse" precision="2"/></c> seconds.
+Button/Tooltip/DeltaGhost=Primary Basic Attacks against Heroes reduce the cooldown of Fade by <c val="#TooltipNumbers"><d ref="-Effect,DeltaGhost@ModifyCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> <lang rule="plural">second,seconds</lang> and Priority Target by <c val="#TooltipNumbers"><d ref="-Effect,DeltaGhost@ModifyCooldown,Cost[1].CooldownTimeUse" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/DeltaHero@Hearthstone=After Channeling for <c val="#TooltipNumbers"><d ref="Abil,HeroGenericHearthstone,CastIntroTime[0]" player="0" precision="2"/></c> seconds, teleport back to the Hall of Storms, instantly restoring <c val="#TooltipNumbers"><d ref="Effect,HeroGenericHearthstone@Health,VitalArray[Life].Change"/></c> Health and <c val="#TooltipNumbers"><d ref="100*Effect,DeltaHero@HearthstoneSetEnergyFull,VitalArray.ChangeFraction"/>%</c> Ammunition.
 Button/Tooltip/DeltaHigravBoots=Griffin's Arsenal grants Unstoppable for <c val="#TooltipNumbers"><d ref="Behavior,DeltaHigravBoots@Unstoppable,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/DeltaInfiltrationMission=After capturing a Mercenary Camp, place a Scouting Drone on its location that lasts for <c val="#TooltipNumbers"><d ref="Behavior,DeltaInfiltrationMission@TimedLifePassive,Duration"/></c> seconds. The drone grants vision over walls and can be destroyed by <c val="#TooltipNumbers"><d ref="Unit,DeltaInfiltrationMission@ScoutingDrone,LifeMax" player="0"/></c> Heroic Basic Attacks.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Participate in capturing Mercenary Camps.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After capturing <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroDeltaInfiltrationMissionConditionalEvent1$" /></c> Mercenary Camps, Scouting Drones' vision radius is increased by <c val="#TooltipNumbers"><d ref="100*(Effect,DeltaInfiltrationMission@ConditionalEvent1Modification,EffectArray[2].Value-1)"/>%</c> and take an additional Basic Attack to destroy.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After capturing <c val="#TooltipNumbers"><d ref="Behavior,DeltaInfiltrationMission@TokenCounter,Cost.Charge.CountMax"/></c> Mercenary Camps, gain a manually placeable Mini Scouting Drone with <c val="#TooltipNumbers"><d ref="100*Unit,DeltaInfiltrationMission@ScoutingDroneReducedVision,Sight/Unit,DeltaInfiltrationMission@ScoutingDrone,Sight" player="0"/>%</c> vision radius. It lasts <c val="#TooltipNumbers"><d ref="Behavior,DeltaInfiltrationMission@TimedLifeActive,Duration"/></c> seconds. Cooldown: <c val="#TooltipNumbers"><d ref="Abil,DeltaInfiltrationMission,Cost[0].Cooldown.TimeUse"/></c> seconds.
@@ -2579,12 +2579,12 @@ Button/Tooltip/DeltaShadowSleight=Fade resets the cooldown of Griffin's Arsenal.
 Button/Tooltip/DeltaSharpshooter=Increase Clean Shot's range by <c val="#TooltipNumbers"><d ref="100*((Effect,DeltaSharpshooter,EffectArray[0].Value/Actor,DeltaCleanShot@CursorGuide,Height)-1)" player="0"/>%</c>. Hitting a Hero with Clean Shot increases Delta's Basic Attack range by <c val="#TooltipNumbers"><d ref="Behavior,DeltaSharpshooter@AttackRangeBuff,Modification.WeaponRange" precision="2"/></c> for <c val="#TooltipNumbers"><d ref="Behavior,DeltaSharpshooter@AttackRangeBuff,Duration" precision="2"/></c> seconds.
 Button/Tooltip/DeltaSpecialOperations=For <c val="#TooltipNumbers"><d ref="Behavior,DeltaSpecialOperations@Buff,Duration"/></c> seconds after uncloaking from Fade, your weapon gains a bonus:<n/><n/>• Canister Rifle's damage bonus is increased to <c val="#TooltipNumbers"><d ref="Accumulator,DeltaSpecialOperations@SniperPercentDamageBonus,Amount"/>%</c>.<n/>• Plasma Coil's splash damage is increased to <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaSpecialOperations@PlasmaCoilAOEDamageMultiplier,Amount"/>%</c>.<n/>• Gauss Rifle Movespeed is increased to <c val="#TooltipNumbers"><d ref="100*Behavior,DeltaSpecialOperations@GaussBuff,Modification.UnifiedMoveSpeedFactor"/>%</c>.
 Button/Tooltip/DeltaSprint=Casting Fade next to an enemy Hero increases its Movement Speed bonus to <c val="#TooltipNumbers"><d ref="100*Behavior,DeltaSprint@Movespeed,Modification.UnifiedMoveSpeedFactor"/>%</c>.
-Button/Tooltip/DeltaTheGriffinsArsenal=Delta has <c val="#TooltipNumbers"><d ref="Unit,DeltaHero,EnergyMax" player="0"/></c> Ammunition. Activate to switch her weapon from the <c val="#ColorCreamYellow">current</c> to the <c val="#ColorViolet">next</c> and restore Ammunition. Delta always switches weapons in the same order.<n/><n/>• <c val="#ColorViolet" validator="DeltaWeaponSniper@TargetHasWeaponCarried"><c val="#ColorCreamYellow" validator="DeltaWeaponSniper@TargetHasWeaponEquipped">Canister Rifle</c></c> deals bonus damage equal to <c val="#TooltipNumbers"><d ref="Accumulator,DeltaWeaponSniper@PercentDamageAmount,Amount" player="0"/>%</c> of target's Maximum Health against Heroes.<n/>• <c val="#ColorViolet" validator="DeltaWeaponPlasmaCoil@TargetHasWeaponCarried"><c val="#ColorCreamYellow" validator="DeltaWeaponPlasmaCoil@TargetHasWeaponEquipped">Plasma Coil</c></c> deals <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaWeaponPlasmaCoil@AOEDamageMultiplier,Amount" player="0"/></c>% damage in a cone behind the target.<n/>• <c val="#ColorViolet" validator="DeltaWeaponGaussRifle@TargetHasWeaponCarried"><c val="#ColorCreamYellow" validator="DeltaWeaponGaussRifle@TargetHasWeaponEquipped">Gauss Rifle</c></c> attacks increase Delta's Movespeed by <c val="#TooltipNumbers"><d ref="100*Behavior,DeltaWeaponGaussRifle@Movespeed,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,DeltaWeaponGaussRifle@Movespeed,Duration" player="0" precision="2"/></c> seconds.
+Button/Tooltip/DeltaTheGriffinsArsenal=Delta has <c val="#TooltipNumbers"><d ref="Unit,DeltaHero,EnergyMax" player="0"/></c> Ammunition. Activate to switch her weapon from the <c val="#ColorCreamYellow">current</c> to the <c val="#ColorViolet">next</c> and restore Ammunition. Delta always switches weapons in the same order.<n/><n/>• <c val="#ColorViolet" validator="DeltaWeaponSniper@TargetHasWeaponCarried"><c val="#ColorCreamYellow" validator="DeltaWeaponSniper@TargetHasWeaponEquipped">Canister Rifle</c></c> deals bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Accumulator,DeltaWeaponSniper@PercentDamageAmount,Amount" player="0"/>%</c> of target's Maximum Health against Heroes.<n/>• <c val="#ColorViolet" validator="DeltaWeaponPlasmaCoil@TargetHasWeaponCarried"><c val="#ColorCreamYellow" validator="DeltaWeaponPlasmaCoil@TargetHasWeaponEquipped">Plasma Coil</c></c> deals <c val="#TooltipNumbers"><d ref="100*Accumulator,DeltaWeaponPlasmaCoil@AOEDamageMultiplier,Amount" player="0"/></c>% damage in a cone behind the target.<n/>• <c val="#ColorViolet" validator="DeltaWeaponGaussRifle@TargetHasWeaponCarried"><c val="#ColorCreamYellow" validator="DeltaWeaponGaussRifle@TargetHasWeaponEquipped">Gauss Rifle</c></c> attacks increase Delta's Movespeed by <c val="#TooltipNumbers"><d ref="100*Behavior,DeltaWeaponGaussRifle@Movespeed,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,DeltaWeaponGaussRifle@Movespeed,Duration" player="0" precision="2"/></c> seconds.
 Button/Tooltip/DeltaUltraGrenade=Set your Heroic Ability's cooldown to <c val="#TooltipNumbers"><d ref="Effect,DeltaUltraGrenade,EffectArray[0].Value"/></c> seconds. It combines both Flashbang and Exclusion Zone.
 Button/Tooltip/DiabloOverkillHeroSelect=Grab enemy and slam them behind Diablo, stunning and dealing damage.
 Button/Tooltip/ETCAggressiveShredding=E.T.C.'s Basic Attacks reduce the cooldown of Guitar Solo by <c val="#TooltipNumbers"><d ref="-Effect,ETCAggressiveShredding@ModifyCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> seconds.<n/><n/><c val="#AbilityPassive">Passive:</c> Casting Guitar Solo heals E.T.C. for <c val="#TooltipNumbers"><d ref="Effect,ETCAggressiveShredding@HealModifyUnit,VitalArray[0].Change" option="player"/></c> Health.
 Button/Tooltip/ETCBULLwark=Activate to give all nearby allied Heroes a Shield for <c val="#TooltipNumbers"><d ref="100*Behavior,ETCBULLwark@Shield,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]"/>%</c> of their max Health and <c val="#TooltipNumbers"><d ref="Accumulator,ETCBULLwark@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,ETCBULLwark@Shield,Duration"/></c> seconds
-Button/Tooltip/ETCBlockParty=Using a Basic or Heroic ability also gives nearby allied Heroes a stack of Block, granting <c val="#TooltipNumbers"><d ref="Accumulator,ETCBlockParty@PhysicalArmorBuffArithmetic,Parameters[0]"/></c> Physical Armor against the next Hero Basic Attack for <c val="#TooltipNumbers"><d ref="Behavior,ETCBlockParty@Block,Duration"/></c> seconds. Maximum <c val="#TooltipNumbers">2</c> stacks of Block.
+Button/Tooltip/ETCBlockParty=Using a Basic or Heroic ability also gives nearby allied Heroes a stack of Block, granting <c val="#TooltipNumbers"><d ref="Accumulator,ETCBlockParty@PhysicalArmorBuffArithmetic,Parameters[0]"/></c> Physical Armor against the next Hero Physical damage source for <c val="#TooltipNumbers"><d ref="Behavior,ETCBlockParty@Block,Duration"/></c> seconds. Maximum <c val="#TooltipNumbers">2</c> stacks of Block.
 Button/Tooltip/ETCCrowdPleaser=Stage Dive's impact area is <c val="#TooltipNumbers"><d ref="100*(Effect,ETCCrowdPleaser,EffectArray[0].Value-1)"/>%</c> bigger, and its Slow is increased by <c val="#TooltipNumbers"><d ref="-100*Effect,ETCCrowdPleaser,EffectArray[4].Value"/>%</c>.
 Button/Tooltip/ETCCrowdSurfer=Allows Powerslide to travel over walls and terrain. If no enemies are hit, reduce the cooldown by <c val="#TooltipNumbers"><d ref="-Effect,ETCCrowdSurfer@CooldownReduction,Cost[0].CooldownTimeUse" precision="2"/></c> seconds and refund the Mana cost.<n/><n/><c val="#AbilityPassive">Passive:</c> Reduce Powerslide's cooldown by <c val="#TooltipNumbers"><d ref="-Effect,ETCCrowdSurfer,EffectArray[0].Value" precision="2"/></c> seconds.
 Button/Tooltip/ETCDeathMetal=Upon dying, a ghost uses Mosh Pit at E.T.C's location.
@@ -2608,8 +2608,8 @@ Button/Tooltip/ETCSpeedMetal=Using a Basic or Heroic ability also gives nearby a
 Button/Tooltip/ETCStageDive=Leap to target location, landing after <c val="#TooltipNumbers">2.75</c> seconds, dealing <c val="#TooltipNumbers"><d ref="Effect,ETCStageDive@Damage,Amount" option="player"/></c> damage to enemies in the area, and slowing them by <c val="#TooltipNumbers"><d ref="-100*Behavior,ETCStageDive@Slow,Modification.UnifiedMoveSpeedFactor" player="0"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,ETCStageDive@Slow,Duration" player="0" precision="2"/></c> seconds.
 Button/Tooltip/ETCTourBus=Channeling Mosh Pit refreshes Powerslide's cooldown, and it can be cast to increase Mosh Pit's duration by <c val="#TooltipNumbers"><d ref="Behavior,ETCMoshPit@Channel,Duration"/></c> seconds.
 Button/Tooltip/FootmanMinion=Powerful melee warrior.<n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/GreymaneAlphaKiller=<c val="#ColorViolet">Worgen</c> Basic Attacks against Heroes deal bonus damage equal to <c val="#TooltipNumbers"><d ref="Effect,GreymaneAlphaKiller@Damage,Amount" precision="2"/>%</c> of the Hero's maximum Health.
-Button/Tooltip/GreymaneCursedBullet=Greymane shapeshifts into a <c val="#ColorCreamYellow">Human</c> and fires a bullet that hits the first enemy Hero in its path, dealing <c val="#TooltipNumbers"><d ref="Effect,GreymaneCursedBullet@PercentDamage,Amount" player="0"/>%</c> of their current Health in damage.<n/><n/>Does not affect Vehicles.
+Button/Tooltip/GreymaneAlphaKiller=<c val="#ColorViolet">Worgen</c> Basic Attacks against Heroes deal bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Effect,GreymaneAlphaKiller@Damage,Amount" precision="2"/>%</c> of the Hero's maximum Health.
+Button/Tooltip/GreymaneCursedBullet=Greymane shapeshifts into a <c val="#ColorCreamYellow">Human</c> and fires a bullet that hits the first enemy Hero in its path, dealing <c val="#TooltipNumbers"><d ref="Effect,GreymaneCursedBullet@PercentDamage,Amount" player="0"/>%</c> of their current Health in <c val="#TooltipDamagePure">Pure</c> damage.<n/><n/>Does not affect Vehicles.
 Button/Tooltip/GreymaneDarkflight=Shapeshift into a <c val="#ColorViolet">Worgen</c> and leap at an enemy dealing <c val="#TooltipNumbers"><d ref="Effect,GreymaneDarkflight@Damage,Amount" option="player"/></c> damage.<n/><n/><c val="#ColorViolet">Worgen: Disengage</c><n/>Roll away and shapeshift into a <c val="#ColorCreamYellow">Human</c>.</c>
 Button/Tooltip/GreymaneDisengage=Roll away and shapeshift into a <c val="#ColorCreamYellow">Human</c>.<n/><n/><c val="#ColorCreamYellow">Human: Darkflight</c><n/>Leap at an enemy and shapeshift into a <c val="#ColorViolet">Worgen</c>.
 Button/Tooltip/GreymaneEagerWolf=Increases the Attack Speed bonus of Inner Beast by an additional <c val="#TooltipNumbers"><d ref="100*Effect,GreymaneEagerWolf@ModifyPlayer,EffectArray[0].Value"/>% </c>after it has been active for <c val="#TooltipNumbers"><d ref="Behavior,GreymaneEagerWolf@Coolup,Duration"/></c> seconds.
@@ -2647,7 +2647,7 @@ Button/Tooltip/HeroAbathurEnvenomedNest=Toxic Nest deals <c val="#TooltipNumbers
 Button/Tooltip/HeroAbathurEnvenomedSpikes=Abathur's Symbiote's Spike Burst also Slows enemy Movement Speed by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroAbathurEnvenomedSpikes@Slow,Modification.UnifiedMoveSpeedFactor" player="0"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurEnvenomedSpikes@Slow,Duration" player="0"/></c> seconds.
 Button/Tooltip/HeroAbathurEvolutionComplete=Increase Monstrosity's Physical damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroAbathurEvolutionComplete@DamageIncreaser,Amount"/>%</c>. Reduce the cooldown of Evolve Monstrosity's Burrow from <c val="#TooltipNumbers"><d ref="Abil,HeroAbathurDeepTunnelMonstrosity,Cost[0].Cooldown.TimeUse" player="0"/></c> to <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurEvolutionComplete,EffectArray[0].Value"/></c> seconds.
 Button/Tooltip/HeroAbathurEvolutionaryLink=As long as the Ultimate Evolution is alive, the original target of the clone gains a Shield equal to <c val="#TooltipNumbers"><d ref="100*Behavior,HeroAbathurEvolutionaryLink@Shield,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]" precision="2"/>%</c> of their maximum Health. Refreshes every <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurUltimateEvolution@TimedLife,Period"/></c> seconds.<n/><n/><c val="#AbilityPassive">Passive:</c> Increase the duration of Ultimate Evolution by <c val="#TooltipNumbers"><d ref="100*(Effect,HeroAbathurEvolutionaryLink@Modification,EffectArray[0].Value-1)" player="0"/>%</c>.
-Button/Tooltip/HeroAbathurEvolveMonstrosity=Turn an allied Minion or Locust into a Monstrosity. The Monstrosity can be healed by Carapace and has the ability to Burrow to a visible location every <c val="#TooltipNumbers"><d ref="Abil,HeroAbathurDeepTunnelMonstrosity,Cost[0].Cooldown.TimeUse" player="0"/></c> seconds.<n/><n/>Using Symbiote on the Monstrosity allows Abathur to control it, in addition to Symbiote normal benefits.  This Ability can be reactivated to automatically cast Symbiote on his Monstrosity.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Repeatable Quest:</c> When enemy Minions near the Monstrosity die, it gains <c val="#TooltipNumbers"><d ref="100*Behavior,HeroAbathurEvolveMonstrosityStacks@Stack,Modification.VitalMaxFractionArray[Life]"/>%</c> Health and <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroAbathurEvolveMonstrosityStacks@DamageBonusAdditiveMultiply,Parameters[0]" player="0"/>%</c> Physical damage, stacking up to <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurEvolveMonstrosityStacks@TokenCounter,Cost.Charge.CountMax"/></c> times.
+Button/Tooltip/HeroAbathurEvolveMonstrosity=Turn an allied Minion or Locust into a Monstrosity. The Monstrosity can be healed by Carapace and has the ability to Burrow to a visible location every <c val="#TooltipNumbers"><d ref="Abil,HeroAbathurDeepTunnelMonstrosity,Cost[0].Cooldown.TimeUse" player="0"/></c> seconds.<n/><n/>Using Symbiote on the Monstrosity allows Abathur to control it, in addition to Symbiote normal benefits.  This Ability can be reactivated to automatically cast Symbiote on his Monstrosity.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Repeatable Quest:</c> When enemy Minions near the Monstrosity die, it gains <c val="#TooltipNumbers"><d ref="100*Behavior,HeroAbathurEvolveMonstrosityStacks@Stack,Modification.VitalMaxFractionArray[Life]"/>%</c> Health and <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroAbathurEvolveMonstrosityStacks@DamageBonusAdditiveMultiply,Parameters[0]" player="0"/>%</c> Basic Attack damage, stacking up to <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurEvolveMonstrosityStacks@TokenCounter,Cost.Charge.CountMax"/></c> times.
 Button/Tooltip/HeroAbathurEvolveMonstrosityActivate=Activate to cast Symbiote on Monstrosity.
 Button/Tooltip/HeroAbathurHivemind=Symbiote creates an additional Symbiote on a nearby allied Hero. This Symbiote mimics the commands of the first, but does <c val="#TooltipNumbers"><d ref="100*(Behavior,HeroAbathurCarapace@ShieldHivemind,DamageResponse.ModifyLimit)/(Behavior,HeroAbathurCarapace@Shield,DamageResponse.ModifyLimit)" player="0"/>%</c> damage and Shielding.
 Button/Tooltip/HeroAbathurLocustBrood=Activate to spawn <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurLocustBrood@CreatePersistent,PeriodCount"/></c> Locusts at a nearby location. Locusts spawned by Locust Brood have <c val="#TooltipNumbers"><d ref="100*Behavior,HeroAbathurLocustBrood@IncreasedHealth,Modification.VitalMaxFractionArray[Life]"/>%</c> increased life.
@@ -2668,7 +2668,7 @@ Button/Tooltip/HeroAbathurSymbiote=Spawn and attach a Symbiote to a target ally 
 Button/Tooltip/HeroAbathurToxicNest=Spawn a mine that becomes active after <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurToxicNest@ArmingBehavior,Duration" precision="2"/></c> seconds. Mines take <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurToxicNest@ExplosionBehavior,Duration" precision="2"/></c> seconds to explode. Deals <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurToxicNest@Damage,Amount" option="player"/></c> damage, increased by  <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroAbathurToxicNest@DamageBonusModifier,Amount"/>%</c> against Heroes, and reveals the enemy for <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurToxicNest@Reveal,Duration" player="0"/></c> seconds. Lasts for <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurToxicNest@TimedLife,Duration" player="0"/></c> seconds.<n/><n/>Stores up to <c val="#TooltipNumbers"><d ref="Abil,HeroAbathurToxicNest,Cost[0].Charge.CountMax" player="0"/></c> charges.
 Button/Tooltip/HeroAbathurUltimateEvolution=Clone target allied Hero and control it for <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurUltimateEvolution@ApplyTimedLife,Duration" player="0"/></c> seconds. Abathur has perfected the clone, granting it <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurUltimateEvolution@AddSpellDamageMultiplier,Amount" player="0"/>%</c> Spell Power, <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurUltimateEvolution@AddPhysicalDamageMultiplier,Amount"/>%</c> Physical damage, and <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurUltimateEvolution@Buff,Modification.UnifiedMoveSpeedFactor*100" player="0"/>%</c> Movement Speed. Cannot use their Heroic Ability.
 Button/Tooltip/HeroAbathurVileNest=Toxic Nest Slows enemy Movement Speed by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroAbathurVileNest@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurVileNest@Slow,Duration" precision="1"/></c> seconds.
-Button/Tooltip/HeroAbathurVolatileMutation=Ultimate Evolution clones and Monstrosities deal <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurVolatileMutation@Damage,Amount" option="player"/></c> damage to nearby enemies every <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurVolatileMutation,Period" precision="2"/></c> seconds and when they die. Enemy Heroes hit heal the clone or Monstrosity for <c val="#TooltipNumbers"><d ref="Accumulator,HeroAbathurVolatileMutation@LeechBonus,Amount"/>%</c> of the damage dealt.
+Button/Tooltip/HeroAbathurVolatileMutation=Ultimate Evolution clones and Monstrosities deal <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurVolatileMutation@Damage,Amount" option="player"/></c> damage to nearby enemies every <c val="#TooltipNumbers"><d ref="Behavior,HeroAbathurVolatileMutation,Period" precision="2"/></c> seconds and when they die. Enemy Heroes hit heal the clone or Monstrosity for <c val="#TooltipNumbers"><d ref="Effect,HeroAbathurVolatileMutation@DamageLocalLeech,Amount"/>%</c> of the damage dealt.
 Button/Tooltip/HeroArtanisAmateurOpponent=Twin Blades attacks deal <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroArtanisAmateurOpponent@DamageModifier,Amount"/>%</c> increased damage to non-Heroes.
 Button/Tooltip/HeroArtanisBladeDash=Dash forward and deal <c val="#TooltipNumbers"><d ref="Effect,HeroArtanisBladeDash@FirstDamage,Amount" option="player"/></c> damage to enemies, then return and deal <c val="#TooltipNumbers"><d ref="Effect,HeroArtanisBladeDash@SecondDamage,Amount"/></c> damage. Every enemy hit reduces the cooldown on Shield Overload by <c val="#TooltipNumbers"><d ref="-Effect,HeroArtanisShieldOverload@ReduceCooldownBladeDash,Cost[0].CooldownTimeUse"/></c> <lang rule="plural">second,seconds</lang>, and Heroes by <c val="#TooltipNumbers"><d ref="-Effect,HeroArtanisShieldOverload@ReduceCooldownBladeDashHero,Cost[0].CooldownTimeUse"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroArtanisBladesOfATemplar=Gain <c val="#TooltipNumbers"><d ref="100*Behavior,HeroArtanisBladesOfATemplar@AttackSpeedBuff,Modification.AdditiveAttackSpeedFactor"/>%</c> Attack Speed, increased to <c val="#TooltipNumbers"><d ref="100*(Behavior,HeroArtanisBladesOfATemplar@AttackSpeedBuff,Modification.AdditiveAttackSpeedFactor+Behavior,HeroArtanisBladesOfATemplar@AttackSpeedBuffSecondary,Modification.AdditiveAttackSpeedFactor)"/>%</c> while below <c val="#TooltipNumbers"><d ref="100*Validator,HeroArtanisBladesOfATemplar@LifeRequired,Value"/>%</c> Health. Basic Attacks Slow by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroArtanisBladesOfATemplar@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroArtanisBladesOfATemplar@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
@@ -2708,9 +2708,9 @@ Button/Tooltip/HeroArthasDeathCoil=Deal <c val="#TooltipNumbers"><d ref="Effect,
 Button/Tooltip/HeroArthasDeathlord=If Death Coil's target dies within <c val="#TooltipNumbers"><d ref="Behavior,HeroArthasDeathCoil@TargetDebuff,Duration" precision="2" player="0"/></c> <lang rule="plural">second,seconds</lang> of being hit, reduce its cooldown by <c val="#TooltipNumbers"><d ref="-100*Effect,HeroArthasDeathlord@TargetDebuffCooldownReduction,Cost[0].Fraction.Cooldown"/>%</c>.<n/><n/><c val="#AbilityPassive">Passive:</c> Increase the range of Death Coil by <c val="#TooltipNumbers"><d ref="100*(Effect,HeroArthasDeathlord,EffectArray[0].Value-1)"/>%</c> and its Healing by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroArthasDeathlord@HealingIncreaseModifier,Amount"/>%</c>.
 Button/Tooltip/HeroArthasDeathsAdvance=While an enemy Hero remains in Frozen Tempest, gain <c val="#TooltipNumbers"><d ref="100*Behavior,HeroArthasDeathsAdvance,Modification.UnifiedMoveSpeedFactor"/>%</c> Movement Speed.
 Button/Tooltip/HeroArthasEmbraceDeath=Death Coil now has <c val="#TooltipNumbers"><d ref="Effect,HeroArthasEmbraceDeath,EffectArray[0].Value"/></c> charges, has its mana cost reduced by <c val="#TooltipNumbers"><d ref="Effect,HeroArthasEmbraceDeath,EffectArray[3].Value"/></c> and heals Arthas even if the target doesn't die.
-Button/Tooltip/HeroArthasEndlessWinter=Increase Frozen Tempest Slow from <c val="#TooltipNumbers"><d ref="'-100*Behavior,HeroArthasFrozenTempest@Slow,Modification.UnifiedMoveSpeedFactor*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0"/>%</c> to <c val="#TooltipNumbers"><d ref="-100*Effect,HeroArthasEndlessWinter,EffectArray[0].Value*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0"/>%</c> per second and its maximum Slow from <c val="#TooltipNumbers"><d ref="'-100*Behavior,HeroArthasFrozenTempest@Slow,Modification.UnifiedMoveSpeedFactor*Behavior,HeroArthasFrozenTempest@Slow,MaxStackCountPerCaster" player="0"/>%</c> to <c val="#TooltipNumbers"><d ref="-100*Effect,HeroArthasEndlessWinter,EffectArray[0].Value*Behavior,HeroArthasFrozenTempest@Slow,MaxStackCountPerCaster" player="0"/>%</c>. Heroes fully Slowed by Frozen Tempest, take bonus damage equal to <c val="#TooltipNumbers"><d ref="Effect,HeroArthasEndlessWinter@Damage,Amount*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0" precision="2"/>%</c> of their maximum Health per second.
+Button/Tooltip/HeroArthasEndlessWinter=Increase Frozen Tempest Slow from <c val="#TooltipNumbers"><d ref="'-100*Behavior,HeroArthasFrozenTempest@Slow,Modification.UnifiedMoveSpeedFactor*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0"/>%</c> to <c val="#TooltipNumbers"><d ref="-100*Effect,HeroArthasEndlessWinter,EffectArray[0].Value*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0"/>%</c> per second and its maximum Slow from <c val="#TooltipNumbers"><d ref="'-100*Behavior,HeroArthasFrozenTempest@Slow,Modification.UnifiedMoveSpeedFactor*Behavior,HeroArthasFrozenTempest@Slow,MaxStackCountPerCaster" player="0"/>%</c> to <c val="#TooltipNumbers"><d ref="-100*Effect,HeroArthasEndlessWinter,EffectArray[0].Value*Behavior,HeroArthasFrozenTempest@Slow,MaxStackCountPerCaster" player="0"/>%</c>. Heroes fully Slowed by Frozen Tempest, take bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Effect,HeroArthasEndlessWinter@Damage,Amount*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0" precision="2"/>%</c> of their maximum Health per second.
 Button/Tooltip/HeroArthasFrostPresence=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Root enemy Heroes with Howling Blast.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After Rooting <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroArthasFrostPresenceConditinalEvent1$" /></c> <lang rule="plural">Hero,Heroes</lang>, Howling Blast's cooldown is reduced by <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrostPresence@ConditionalReward1,EffectArray[0].Value" precision="2"/></c> <lang rule="plural">second,seconds</lang>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After Rooting <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroArthasFrostPresenceConditinalEvent2$" /></c> <lang rule="plural">Hero,Heroes</lang>, Howling Blast's range is increased by <c val="#TooltipNumbers"><d ref="100*(Effect,HeroArthasFrostPresence@ConditionalReward2,EffectArray[0].Value-1)" precision="2"/>%</c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After Rooting <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroArthasFrostPresenceConditinalEvent3$" /></c> <lang rule="plural">Hero,Heroes</lang>, Howling Blast also Roots enemies in its path.
-Button/Tooltip/HeroArthasFrostmourneHungers=Activate to make Arthas's next Basic Attack strike immediately. Against Heroes, this attack deals bonus damage equal to <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrostmourneHungers@Damage,Amount,Amount" player="0"/>%</c> of their maximum Health and heals Arthas for <c val="#TooltipNumbers"><d ref="100*Effect,HeroArthasFrostmourneHungers@Heal,VitalArray[Life].Change" player="0"/>%</c> of the damage dealt and Slows them by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroArthasFrostmourneHungers@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroArthasFrostmourneHungers@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
+Button/Tooltip/HeroArthasFrostmourneHungers=Activate to make Arthas's next Basic Attack strike immediately.<n/>Against Heroes, this attack deals bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrostmourneHungers@Damage,Amount,Amount" player="0"/>%</c> of their maximum Health and heals Arthas for <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrostmourneHungers@DamageLeechLocal,Amount"/>%</c> of the damage dealt and Slows them by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroArthasFrostmourneHungers@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroArthasFrostmourneHungers@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroArthasFrozenOver=Increase Icebound Fortitude's Armor from <c val="#TooltipNumbers"><d ref="Accumulator,HeroArthasIceboundFortitude@ArmorBuffArithmetic,Parameters[0]"/></c> to <c val="#TooltipNumbers"><d ref="Accumulator,HeroArthasFrozenOver@ArmorBuffArithmetic,Parameters[0]"/></c> and its Stun, Root and Slow reduction from <c val="#TooltipNumbers"><d ref="Effect,HeroArthasIceboundFortitude@AddRelentless,Amount"/>%</c> to <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrozenOver@AddRelentless,Amount"/>%</c>.
 Button/Tooltip/HeroArthasFrozenTempest=Arthas is permanently surrounded by frozen winds, dealing <c val="#TooltipNumbers"><d ref="Effect,HeroArthasFrozenTempest@Damage,Amount*(1/Behavior,HeroArthasFrozenTempest,Period)" option="player"/></c> damage per second to nearby enemies and Slowing their Movement Speed by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroArthasFrozenTempest@Slow,Modification.UnifiedMoveSpeedFactor*(1/Behavior,HeroArthasFrozenTempest,Period)" player="0"/>%</c> per second, stacking up to <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroArthasFrozenTempest@Slow,Modification.UnifiedMoveSpeedFactor*Behavior,HeroArthasFrozenTempest@Slow,MaxStackCountPerCaster"/>%</c>. Frozen Tempest's effects last for <c val="#TooltipNumbers"><d ref="Behavior,HeroArthasFrozenTempest@Slow,Duration" player="0" precision="2"/></c> seconds.
 Button/Tooltip/HeroArthasHowlingBlast=Root enemies within the target area for <c val="#TooltipNumbers"><d ref="Effect,HeroArthasHowlingBlast@ApplyRoot,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang> and deals <c val="#TooltipNumbers"><d ref="Effect,HeroArthasHowlingBlast@Damage,Amount" option="player"/></c> damage.
@@ -2771,15 +2771,15 @@ Button/Tooltip/HeroDiabloDomination=Casting Overpower resets the cooldown of Sha
 Button/Tooltip/HeroDiabloDyingBreath=Apocalypse's cooldown is reduced by <c val="#TooltipNumbers"><d ref="-Effect,HeroDiabloDyingBreath@ModifyCooldown,Cost[0].CooldownTimeUse"/></c> <lang rule="plural">second,seconds</lang> for every enemy Hero hit (to a minimum of <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloDyingBreath@SetCooldown,Cost[0].CooldownTimeUse"/></c> <lang rule="plural">second,seconds</lang>) and is cast for free when Diablo dies.
 Button/Tooltip/HeroDiabloEternalFlames=When Diablo Stuns a Hero with Shadow Charge or Overpower, reset the cooldown of Fire Stomp and restore <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloEternalFlames@HeroStunImpactModifyUnit,VitalArray.Change"/></c> Mana.
 Button/Tooltip/HeroDiabloFeastOnFear=Stunning a Hero with Shadow Charge or Overpower heals Diablo for <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloFeastOnFear@Heal,VitalArray[Life].ChangeFraction*(Behavior,HeroDiabloFeastOnFear,Duration +1) *100"/>%</c> of his maximum Health over <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloFeastOnFear,Duration"/></c> <lang rule="plural">second,seconds</lang>.
-Button/Tooltip/HeroDiabloFireStomp=Unleashes fire waves toward the targeted area that deal <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloFireStomp@StartDamage,Amount"/></c> damage each. Once they reach maximum range they return, dealing an additional <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloFireStomp@ReturnDamage,Amount"/></c> damage. Diablo heals for <c val="#TooltipNumbers"><d ref="Accumulator,HeroDiabloFireStomp@LeechBonus,Amount"/>%</c> of the damage dealt to Heroes.
-Button/Tooltip/HeroDiabloHellfire=Each Hero hit by Fire Stomp grants <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloHellfire@StoreSpellPower,Amount"/>%</c> Spell Power for <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloHellfire@SpellPower,Duration"/></c> <lang rule="plural">second,seconds</lang>, up to <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloHellfire@SpellPower,MaxStackCount*Effect,HeroDiabloHellfire@StoreSpellPower,Amount"/>%</c>. While at maximum stacks, Diablo deals <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloHellfire@Damage,Amount" option="player"/></c> damage per second to nearby enemies.
+Button/Tooltip/HeroDiabloFireStomp=Unleashes fire waves toward the targeted area that deal <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloFireStomp@StartDamage,Amount"/></c> damage each. Once they reach maximum range they return, dealing an additional <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloFireStomp@ReturnDamage,Amount"/></c> damage. Diablo heals for <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloFireStomp@StartDamageLeechLocal,Amount" player="0"/>%</c> of the damage dealt to Heroes.
+Button/Tooltip/HeroDiabloHellfire=Each Hero hit by Fire Stomp grants <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloHellfire@StoreSpellPower,Amount"/>%</c> Spell Power for <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloHellfire@SpellPower,Duration"/></c> <lang rule="plural">second,seconds</lang>, up to <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloHellfire@SpellPower,MaxStackCount*Effect,HeroDiabloHellfire@StoreSpellPower,Amount"/>%</c>. While at maximum stacks, Diablo deals <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloHellfire@Damage,Amount" option="player"/></c> <c val="#TooltipDamageSpell">Spell</c> damage per second to nearby enemies.
 Button/Tooltip/HeroDiabloHellgate=Teleport and place a demonic rune at target location. After <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloApocalypse@CreatePersistent,ExpireDelay" precision="2"/></c> seconds the rune explodes dealing <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloApocalypse@Damage,Amount" option="player"/></c> damage and stunning enemies for <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloApocalypse@Stun,Duration" precision="2"/></c> seconds.
 Button/Tooltip/HeroDiabloHellstorm=Lightning Breath <c val="#TooltipNumbers"><d ref="100*(Effect,HeroDiabloHellstorm@Modification,EffectArray[0].Value-1)"/>%</c> longer.
 Button/Tooltip/HeroDiabloLifeLeech=Diablo gains <c val="#TooltipNumbers">1</c> Soul and heals for <c val="#TooltipNumbers"><d ref="100*Effect,HeroDiabloLifeLeech@HealModifyUnit,VitalArray[Life].ChangeFraction" precision="2"/>%</c> of his maximum Health when Basic Attacking a Hero. While at <c val="#TooltipNumbers">100</c> Souls, increase this healing to <c val="#TooltipNumbers"><d ref="100*Effect,HeroDiabloLifeLeech@HealModifyUnit,VitalArray[Life].ChangeFraction*Accumulator,HeroDiabloLifeLeech@Multiplier,Amount" precision="2"/>%</c> of his maximum Health. Every third Basic Attack against a Hero heals for triple the amount and grants <c val="#TooltipNumbers">3</c> Souls instead of <c val="#TooltipNumbers">1</c>.
 Button/Tooltip/HeroDiabloLightningBreath=After <c val="#TooltipNumbers"><d ref="Abil,HeroDiabloLightningBreath,CastIntroTime[0]" precision="2"/></c> <lang rule="plural">second,seconds</lang>, become Unstoppable and Channel for up to <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloLightningBreath,Duration"/></c> <lang rule="plural">second,seconds</lang>, dealing <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloLightningBreath@Damage,Amount" option="player"/></c> damage every <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloLightningBreath,Period" precision="2"/></c> <lang rule="plural">second,seconds</lang> to enemies in front of Diablo. Enemies affected are Slowed by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroDiabloLightningBreath@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloLightningBreath@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>, up to <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroDiabloLightningBreath@Slow,Modification.UnifiedMoveSpeedFactor*Behavior,HeroDiabloLightningBreath@Slow,MaxStackCount"/>%</c>.<n/><n/>Lightning Breath's direction changes with your mouse cursor position.
 Button/Tooltip/HeroDiabloLightningBreath@Cancel=Cancels the Lightning Breath ability.
-Button/Tooltip/HeroDiabloLordOfTerror=Activate to instantly steal <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloLordOfTerror@Damage,Amount" precision="2"/>%</c> plus an additional <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloLordOfTerror@DoTDamage,Amount*Behavior,HeroDiabloLordOfTerror@DoT,Duration*Behavior,HeroDiabloLordOfTerror@DoT,Period"/>%</c> over <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloLordOfTerror@DoT,Duration"/></c> seconds of the maximum Health of nearby enemy Heroes and gain <c val="#TooltipNumbers">10</c> Souls per Hero hit.
-Button/Tooltip/HeroDiabloMalevolence=Basic Abilities cause Diablo's next Basic Attack within <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloMalevolence,Duration"/></c> seconds to deal bonus <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloMalevolence@Damage,Amount" option="player"/></c> Spell Damage.
+Button/Tooltip/HeroDiabloLordOfTerror=Activate to instantly deal <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloLordOfTerror@Damage,Amount" precision="2"/>%</c> plus an additional <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloLordOfTerror@DoTDamage,Amount*Behavior,HeroDiabloLordOfTerror@DoT,Duration*Behavior,HeroDiabloLordOfTerror@DoT,Period"/>%</c> over <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloLordOfTerror@DoT,Duration"/></c> seconds of the maximum Health of nearby Heroes as <c val="#TooltipDamagePure">Pure</c> damage, gaining <c val="#TooltipNumbers">10</c> Souls per Hero hit upon activation.<n/><n/>Diablo heals for <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloLordOfTerror@DamageLeechLocal,Amount"/>%</c> of the damage dealt.
+Button/Tooltip/HeroDiabloMalevolence=Basic Abilities cause Diablo's next Basic Attack within <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloMalevolence,Duration"/></c> seconds to deal bonus <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloMalevolence@Damage,Amount" option="player"/></c> <c val="#TooltipDamageSpell">Spell</c> damage.
 Button/Tooltip/HeroDiabloOverpower=Grabs the target and slams it behind Diablo, dealing <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloOverpower@Damage,Amount"/></c> damage and Stunning for <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloOverpower@Stun,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroDiabloOverpoweringNightmare=Gain <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloOverpoweringNightmare,EffectArray[0].Value"/></c> additional charges of Overpower, with a <c val="#TooltipNumbers"><d ref="Abil,HeroDiabloOverpower,Cost[0].Cooldown.TimeUse"/></c> second cooldown between uses.
 Button/Tooltip/HeroDiabloSacrificialSoul=Stunning a Hero with Shadow Charge grants <c val="#TooltipNumbers"><d ref="Effect,HeroDiabloBlackSoulstone@IncreaseQuestToken10,Amount"/></c> Souls and <c val="#TooltipNumbers"><d ref="Accumulator,HeroDiabloSacrificialSoul@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,HeroDiabloSacrificialSoul@ArmorAdvanced,Duration"/></c> <lang rule="plural">second,seconds</lang>. While at <c val="#TooltipNumbers">100</c> Souls, increase this Armor to <c val="#TooltipNumbers"><d ref="Accumulator,HeroDiabloSacrificialSoul@ArmorBuffArithmetic,Parameters[1]"/></c>.
@@ -2816,7 +2816,7 @@ Button/Tooltip/HeroFalstadMightyGust=Push enemies away, and slow their Movement 
 Button/Tooltip/HeroFalstadSecretWeapon=Increases Hammerang's range by <c val="#TooltipNumbers"><d ref="100*((Effect,HeroFalstadSecretWeapon,EffectArray[1].Value/Actor,HeroFalstadHammerang@GuideVisual,Height)-1)" player="0"/>%</c> and Basic Attacks deal <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroFalstadSecretWeapon@Modifier,Amount"/>%</c> increased damage while Hammerang is in flight.
 Button/Tooltip/HeroFalstadSonicBoom=Barrel Roll deals <c val="#TooltipNumbers"><d ref="Effect,HeroFalstadSonicBoom@Damage,Amount" option="player"/></c> damage to enemies near its apex.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Collect Regeneration Globes to reduce Barrel Roll's mana cost by <c val="#TooltipNumbers"><d ref="-Effect,HeroFalstadSonicBoom@IncrementTokenCounterModification,EffectArray[0].Value"/></c>, up to <c val="#TooltipNumbers"><d ref="-Effect,HeroFalstadSonicBoom@IncrementTokenCounterModification,EffectArray[0].Value*Behavior,HeroFalstadSonicBoom@TokenCounter,Cost.Charge.CountMax"/></c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After collecting <c val="#TooltipNumbers"><d ref="Behavior,HeroFalstadSonicBoom@TokenCounter,Cost.Charge.CountMax"/></c> Regeneration Globes, reduce Barrel Roll's cooldown by <c val="#TooltipNumbers"><d ref="-Effect,HeroFalstadSonicBoom@RewardModificationMaxed,EffectArray[0].Value" precision="2"/></c> seconds.
 Button/Tooltip/HeroFalstadStaticShield=Lightning Rod strikes grant a Shield equal to <c val="#TooltipNumbers"><d ref="100*Behavior,HeroFalstadStaticShield@Shield,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]"/>%</c> of Falstad's maximum Health, up to <c val="#TooltipNumbers"><d ref="100*Behavior,HeroFalstadStaticShield@Shield,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]*Behavior,HeroFalstadStaticShield@Shield,MaxStackCount"/>%</c>, for <c val="#TooltipNumbers"><d ref="Behavior,HeroFalstadStaticShield@Shield,Duration"/></c> seconds.
-Button/Tooltip/HeroFalstadSustainedWinds=Basic Attacks against enemy Heroes deal bonus damage equal to <c val="#TooltipNumbers"><d ref="Effect,HeroFalstadSustainedWinds@Damage,Amount" precision="2"/>%</c> of the Hero's maximum Health, increased to <c val="#TooltipNumbers"><d ref="Effect,HeroFalstadSustainedWinds@DamageImproved,Amount" precision="2"/>%</c> while Tailwind is active.
+Button/Tooltip/HeroFalstadSustainedWinds=Basic Attacks against enemy Heroes deal bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Effect,HeroFalstadSustainedWinds@Damage,Amount" precision="2"/>%</c> of the Hero's maximum Health, increased to <c val="#TooltipNumbers"><d ref="Effect,HeroFalstadSustainedWinds@DamageImproved,Amount" precision="2"/>%</c> while Tailwind is active.
 Button/Tooltip/HeroFalstadSwiftwingsFrenzy=Increases Attack Speed by <c val="#TooltipNumbers"><d ref="100*Behavior,HeroFalstadSwiftwingsFrenzy@CarryBehavior1,Modification.AdditiveAttackSpeedFactor"/>%</c> and Attack Range by <c val="#TooltipNumbers"><d ref="Behavior,HeroFalstadSwiftwingsFrenzy@CarryBehavior1,Modification.WeaponRange" precision="2"/></c>. While Tailwind is active, double these bonuses
 Button/Tooltip/HeroFalstadTailwind=Gain <c val="#TooltipNumbers"><d ref="100*Behavior,HeroFalstadTailwind,Modification.UnifiedMoveSpeedFactor" player="0"/>%</c> increased Movement Speed after not taking damage for <c val="#TooltipNumbers"><d ref="Abil,HeroFalstadTailwind,Cost[0].Cooldown.TimeUse" player="0" precision="2"/></c> seconds.
 Button/Tooltip/HeroFalstadThunderstrikes=Increase Lightning Rod's range by <c val="#TooltipNumbers"><d ref="100*(Effect,HeroFalstadThunderstrikes,EffectArray[0].Value-1)"/>%</c>. Each Lightning Rod strike grants Tailwind for <c val="#TooltipNumbers"><d ref="Behavior,HeroFalstadThunderstrikes@DummyTailwind,Duration" precision="2"/></c> seconds
@@ -2833,7 +2833,7 @@ Button/Tooltip/HeroJainaConeOfCold=Deal <c val="#TooltipNumbers"><d ref="Effect,
 Button/Tooltip/HeroJainaDeepChill=Frostbite's Chill can now stack a second time, slowing targets up to <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroJainaDeepChill@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c>.
 Button/Tooltip/HeroJainaFingersOfFrost=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Gather Regeneration Globes to increase Jaina's Mana regeneration by <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFingersOfFrost@TokenCounter,Modification.VitalRegenArray" precision="2" player="0"/></c> per second, up to <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFingersOfFrost@TokenCounter,Cost.Charge.CountMax*Behavior,HeroJainaFingersOfFrost@TokenCounter,Modification.VitalRegenArray" precision="1" player="0"/></c> per second.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After gathering <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFingersOfFrost@TokenCounter,Cost.Charge.CountMax"/></c> Globes, the damage bonus from Frostbite is increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroJainaFingersOfFrost@FrostbiteDamageModifier,Amount"/>%</c>.
 Button/Tooltip/HeroJainaFrigidBolt=Frostbolt deals <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroJainaFrigidBolt@DamageModifier,Amount"/>%</c> increased damage to Chilled targets after traveling at least <c val="#TooltipNumbers"><d ref="100*Actor,HeroJainaFrigidBolt@Guide,Height/Effect,HeroJainaFrigidBolt,EffectArray[0].Value" player="0"/>%</c> of its range.<n/><n/><c val="#AbilityPassive">Passive:</c> Increase the range and travel speed of Frostbolt by <c val="#TooltipNumbers"><d ref="100*((Effect,HeroJainaFrigidBolt,EffectArray[0].Value/Actor,HeroJainaFrostbolt@Guide,Height)-1)" player="0"/>%</c>.
-Button/Tooltip/HeroJainaFrostArmor=Enemies that attack Jaina are Chilled. Additionally, every <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFrostArmor@ArmorStack,DamageResponse.Cost.Charge.TimeUse"/></c> seconds, Jaina gains <c val="#TooltipNumbers"><d ref="Accumulator,HeroJainaFrostArmor@PhysicalArmorBuffArithmetic,Parameters[0]"/></c> Physical Armor against the next enemy Hero Basic Attack.
+Button/Tooltip/HeroJainaFrostArmor=Enemies that attack Jaina are Chilled. Additionally, every <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFrostArmor@ArmorStack,DamageResponse.Cost.Charge.TimeUse"/></c> seconds, Jaina gains <c val="#TooltipNumbers"><d ref="Accumulator,HeroJainaFrostArmor@PhysicalArmorBuffArithmetic,Parameters[0]"/></c> Physical Armor against the next Hero Physical damage source.
 Button/Tooltip/HeroJainaFrostShards=Frostbolt will now pierce the first two targets.
 Button/Tooltip/HeroJainaFrostbite=Jaina's Abilities Chill targets, Slowing them by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroJainaFrostbite@ChilledSlow,Modification.UnifiedMoveSpeedFactor" player="0"/>%</c> and amplifying damage taken from her Abilities by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroJainaFrostbite@DamageModifier,Amount" player="0"/>%</c>. Lasts <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFrostbite@ChilledSlow,Duration" player="0"/></c> seconds.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Deal <c val="#TooltipNumbers"><d ref="Behavior,HeroJainaFrostbite@TokenCounter,Cost.Charge.CountMax"/></c> Spell damage to Chilled Heroes.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> Unlock the Improved Ice Block Ability, allowing Jaina to become temporarily Invulnerable.
 Button/Tooltip/HeroJainaFrostbolt=Shoot a bolt that deals <c val="#TooltipNumbers"><d ref="Effect,HeroJainaFrostbolt@Damage,Amount" option="player"/></c> damage to the first enemy hit.
@@ -2893,13 +2893,13 @@ Button/Tooltip/HeroRagnarosBlastWave=Ignite Ragnaros or an ally, granting <c val
 Button/Tooltip/HeroRagnarosBlisteringAttacks=Every <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosBlisteringAttacks@Cooldown,Duration"/></c> seconds, Ragnaros's next Basic Attack against a Hero deals <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroRagnarosBlisteringAttacks@DamageBuffModifier,Amount"/>%</c> increased damage. Hitting enemies with Basic Abilities reduces this cooldown by <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroRagnarosBlisteringAttacksCooldownReduction$" precision="2" /></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroRagnarosCatchingFire=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Gathering a Regeneration Globe increases Ragnaros' Health Regeneration by <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosCatchingFire@HealhRegenArithmetic,Parameters[0]" precision="2"/></c> per second, up to <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosCatchingFire@HealhRegenArithmetic,Parameters[0]*Behavior,HeroRagnarosCatchingFire@TokenCounter,Cost.Charge.CountMax" precision="2"/></c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After gathering <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosCatchingFire@TokenCounter,Cost.Charge.CountMax"/></c> Regeneration Globes, activate Catching Fire to gain <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosCatchingFire@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosCatchingFire@ArmorBuff,Duration" precision="2"/></c> seconds.
 Button/Tooltip/HeroRagnarosCatchingFire@Item=Activate to gain <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosCatchingFire@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosCatchingFire@ArmorBuff,Duration" precision="2"/></c> seconds.
-Button/Tooltip/HeroRagnarosCauterizeWounds=Empower Sulfuras heals for an additional <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosCauterizeWounds@AddHealDisplay,Amount"/>%</c> of damage dealt to Heroes over <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosCauterizeWounds@HoT,Duration"/></c> seconds.
-Button/Tooltip/HeroRagnarosEmpowerSulfuras=Ragnaros's next Basic Attack is instant, dealing <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosEmpowerSulfuras@Damage,Amount" option="player"/></c> Spell damage in an area, and heals for <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosEmpowerSulfuras@LeechModifier,Amount" player="0"/>%</c> of the damage dealt, increased to <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosEmpowerSulfuras@LeechHeroModifier,Amount" player="0"/>%</c> against Heroes.
+Button/Tooltip/HeroRagnarosCauterizeWounds=Empower Sulfuras heals for an additional <c val="#TooltipNumbers"><d ref="100*$GalaxyVar:libGDHL_gv_heroRagnarosCauterizeWoundsHealingCoefficient$" />%</c> of damage dealt to Heroes over <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosCauterizeWounds@HoT,Duration"/></c> seconds.
+Button/Tooltip/HeroRagnarosEmpowerSulfuras=Ragnaros's next Basic Attack is instant, dealing <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosEmpowerSulfuras@Damage,Amount" option="player"/></c> <c val="#TooltipDamageSpell">Spell</c> damage in an area, and heals for <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosEmpowerSulfuras@LeechModifier,Amount" player="0"/>%</c> of the damage dealt, increased to <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosEmpowerSulfuras@LeechHeroModifier,Amount" player="0"/>%</c> against Heroes.
 Button/Tooltip/HeroRagnarosEngulfingFlame=Increase Blast Wave's damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroRagnarosEngulfingFlame@DamageModifier,Amount"/>%</c> and its radius by <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosEngulfingFlame,EffectArray[0].Value"/>%</c>.
-Button/Tooltip/HeroRagnarosFireWard=When Living Meteor hits an enemy Hero, gain a <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosFireWard@SpellArmorBuffArithmetic,Parameters[0]"/></c> Spell Armor against the next enemy Spell damage.<n/><n/>Stores up to <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosFireWard@SpellArmor,MaxStackCount"/></c> charges.
+Button/Tooltip/HeroRagnarosFireWard=When Living Meteor hits an enemy Hero, gain a <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosFireWard@SpellArmorBuffArithmetic,Parameters[0]"/></c> Spell Armor against the next Spell damage source.<n/><n/>Stores up to <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosFireWard@SpellArmor,MaxStackCount"/></c> charges.
 Button/Tooltip/HeroRagnarosFirelordsFury=Each time Ragnaros hits a Hero with three Ability casts, create an Explosive Rune under them that deals <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosFirelordsFury@ExplosiveRuneDamage,Amount" option="player"/></c> damage to non-Structure enemies after <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosFirelordsFury@ExplosiveRuneCreatePersistent,PeriodicPeriodArray[0]" precision="2"/></c> <lang rule="plural">second,seconds</lang>.<n/><n/>Damage increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroRagnarosMoltenCore@DamageModifier,Amount"/>%</c> against Minions, Mercenaries, and Monsters.
 Button/Tooltip/HeroRagnarosFlamesOfSulfuron=Sulfuras Smash Slows enemies by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroRagnarosFlamesOfSulfuron@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosFlamesOfSulfuron@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>, and the Stun duration of enemies hit in the center is increased by <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosFlamesOfSulfuron,EffectArray[0].Value" precision="2"/></c> <lang rule="plural">second,seconds</lang>. Hero Takedowns set Sulfuras Smash's cooldown to <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosFlamesOfSulfuron@SetCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> seconds.
-Button/Tooltip/HeroRagnarosGiantScorcher=Empower Sulfuras burns enemy Heroes for <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosGiantScorcher@DoT,VitalFractionMax[Life]*Behavior,HeroRagnarosGiantScorcher@DoT,Duration"/>%</c> of their maximum Health over <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosGiantScorcher@DoT,Duration" /></c> seconds. This bonus damage does not heal Ragnaros.
+Button/Tooltip/HeroRagnarosGiantScorcher=Empower Sulfuras burns enemy Heroes for <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosGiantScorcher@DoT,Amount*Behavior,HeroRagnarosGiantScorcher@DoT,Duration"/>%</c> of their maximum Health over <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosGiantScorcher@DoT,Duration" /></c> seconds as <c val="#TooltipDamagePure">Pure</c> damage. This bonus damage does not heal Ragnaros.
 Button/Tooltip/HeroRagnarosHandOfRagnaros=If Empower Sulfuras hits at least <c val="#TooltipNumbers"><d ref="Validator,HeroRagnarosHandOfRagnaros@StoredHeroCountIsValid,Value"/></c> Heroes, refund <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosHandOfRagnaros@RestoreMana,VitalArray.Change"/></c> Mana and its cooldown recharges <c val="#TooltipNumbers"><d ref="-100*Effect,HeroRagnarosHandOfRagnaros@CDRModifyUnit,Cost[0].CooldownTimeUse/Behavior,HeroRagnarosHandOfRagnaros@CooldownBehavior,Period"/>%</c> faster for <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosHandOfRagnaros@CooldownBehavior,Duration" precision="2"/></c> seconds.
 Button/Tooltip/HeroRagnarosHeatwave=Each Hero hit by Empower Sulfuras increases the next Blast Wave's Movement Speed bonus by an additional <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosHeatwave@AddGeneralToken,Amount*100*Behavior,HeroRagnarosBlastWave@Sprint,Modification.UnifiedMoveSpeedFactor"/>%</c>, up to <c val="#TooltipNumbers"><d ref="100*Behavior,HeroRagnarosBlastWave@Sprint,Modification.UnifiedMoveSpeedFactor*Accumulator,HeroRagnarosHeatwave@StoredLocalToken,MaxAccumulation"/>%</c>.<n/><n/><c val="#AbilityPassive">Passive:</c> Blast Wave's Movement Speed bonus is increased to <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosHeatwave,EffectArray[0].Value*Behavior,HeroRagnarosBlastWave@Sprint,Modification.UnifiedMoveSpeedFactor"/>%</c>.
 Button/Tooltip/HeroRagnarosHeroicDifficulty=Molten Core has <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroRagnarosHeroicDifficulty@DamageModifier,Amount"/>%</c> increased Health and Damage, and its cooldown is reduced by <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosHeroicDifficulty,EffectArray[0].Value"/></c> seconds.
@@ -2915,7 +2915,7 @@ Button/Tooltip/HeroRagnarosMoltenCoreMoltenSwing=Swing Sulfuras in a wide arc, d
 Button/Tooltip/HeroRagnarosMoltenCoreReturn=Return to original form.
 Button/Tooltip/HeroRagnarosMoltenCoreReturn@Cancel=Cancel returning to original form.
 Button/Tooltip/HeroRagnarosMoltenPower=If Living Meteor hits enemy Heroes at least <c val="#TooltipNumbers"><d ref="Validator,HeroRagnarosMoltenPower@CasterHasMaxStacks,Value"/></c> times, reduce its cooldown by <c val="#TooltipNumbers"><d ref="-Effect,HeroRagnarosMoltenPower@CDRModifyUnit,Cost[0].CooldownTimeUse" precision="2"/></c> seconds, and refund <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosMoltenPower@CDRModifyUnit,VitalArray.Change"/></c> Mana.
-Button/Tooltip/HeroRagnarosMoltenReprieve=Entering Molten Core restores <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosMoltenReprieve@HealModifyUnit,VitalArray[Life].ChangeFraction"/>%</c> of Ragnaros's maximum Health and Mana. Molten Core gains <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosMoltenReprieve@Shield,DamageResponse.ModifyLimit" option="player"/></c> Shields.
+Button/Tooltip/HeroRagnarosMoltenReprieve=Entering Molten Core restores <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosMoltenReprieve@HealModifyUnit,VitalArray[Life].ChangeFraction"/>%</c> of Ragnaros's maximum Health and Mana.<n/><n/>Molten Core gains <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosMoltenReprieve@Shield,DamageResponse.ModifyLimit" option="player"/></c> Shields.
 Button/Tooltip/HeroRagnarosRaidTime=Minions kills reduce Molten Core's cooldown by <c val="#TooltipNumbers"><d ref="-100*Effect,HeroRagnarosRaidTime@ModifyUnit,Cost[0].Fraction.Cooldown" precision="2"/>%</c>. Molten Core's Abilities have <c val="#TooltipNumbers"><d ref="100*(Effect,HeroRagnarosRaidTime,EffectArray[0].Value-1)"/>%</c> increased range.
 Button/Tooltip/HeroRagnarosResilientFlame=When Ragnaros is Stunned, he gains <c val="#TooltipNumbers"><d ref="Accumulator,HeroRagnarosResilientFlame@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosResilientFlame@Armor,Duration" precision="2"/></c> seconds.<n/><n/>This effect has a <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosResilientFlame@ModifyPlayerCooldown,Cost.Cooldown.TimeUse"/></c> second cooldown.
 Button/Tooltip/HeroRagnarosShiftingMeteor=Each time an enemy is hit by the same Living Meteor, they take <c val="#TooltipNumbers"><d ref="100*Effect,HeroRagnarosShiftingMeteor@IncreaseDamageModifier,Amount"/>%</c> increased damage from it.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Hit <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosShiftingMeteor@TokenCounter,Cost.Charge.CountMax"/></c> Heroes with Living Meteor.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After hitting <c val="#TooltipNumbers"><d ref="Behavior,HeroRagnarosShiftingMeteor@TokenCounter,Cost.Charge.CountMax"/></c> Heroes with Living Meteor, its duration is increased to <c val="#TooltipNumbers"><d ref="Effect,HeroRagnarosShiftingMeteor@RewardModification,EffectArray[0].Value" precision="2"/></c> <lang rule="plural">second,seconds</lang>, and it can be reactivated to change its direction once per use.
@@ -2938,7 +2938,7 @@ Button/Tooltip/HeroSelendisForAiur=Executor's Guard also grants <c val="#Tooltip
 Button/Tooltip/HeroSelendisGoldenArmada=Call a Mothership to follow Selendis for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisGoldenArmada,Duration" precision="2" player="0"/></c> seconds and fire up to <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisGoldenArmada,Duration+1" precision="2" player="0"/></c> orbital strikes on the nearest enemy Hero. Orbital strikes take <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisGoldenArmada@DelayPersistent,InitialDelay" precision="1"/></c> seconds to land and deal <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisGoldenArmada@Damage,Amount" option="player"/></c> damage in a small area.<n/><n/><c val="ffff8a">Requires enemy Hero in range to cast.</c>
 Button/Tooltip/HeroSelendisJusticeIsDue=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Basic Attacks against Heroes increase Zealous Rush's damage by <c val="#TooltipNumbers"><d ref="Accumulator,HeroSelendisJusticeIsDue@DamageBonusArithmetic,Parameters[0]" precision="2"/>%</c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroSelendisJusticeIsDueQuestValue1$" /></c> Basic Attacks increase Zealous Rush's range by <c val="#TooltipNumbers"><d ref="100*Effect,HeroSelendisJusticeIsDue@RewardModification1,EffectArray[0].Value/Abil,HeroSelendisZealousRush,Range[0]" player="0"/>%</c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroSelendisJusticeIsDueQuestValue2$" /></c> Basic Attacks increase Zealous Rush's range by an additional <c val="#TooltipNumbers"><d ref="100*Effect,HeroSelendisJusticeIsDue@RewardModification2,EffectArray[0].Value/Abil,HeroSelendisZealousRush,Range[0]" player="0"/>%</c>.
 Button/Tooltip/HeroSelendisLastStand=Activate to gain <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisLastStand@ShieldUIOnly,DamageResponse.ModifyLimit" option="player"/></c> Shields for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisLastStand@ShieldUIOnly,Duration"/></c> seconds. This shield and its cooldown is increased by <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroSelendisLastStandBonusShieldPercent$*100" precision="2"/>%</c> for every <c val="#TooltipNumbers">1%</c> of health Selendis is missing.
-Button/Tooltip/HeroSelendisPeerlessCombatant=Casting Decisive Blow grants <c val="#TooltipNumbers"><d ref="100*Behavior,HeroSelendisPeerlessCombatant@AttackSpeed,Modification.AdditiveAttackSpeedFactor"/>%</c> Attack Speed. Lasts <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisPeerlessCombatant@AttackSpeed,Duration" precision="2"/></c> seconds.
+Button/Tooltip/HeroSelendisPeerlessCombatant=Casting Decisive Blow grants <c val="#TooltipNumbers"><d ref="100*Behavior,HeroSelendisPeerlessCombatant@AttackSpeed,Modification.AdditiveAttackSpeedFactor"/>%</c> Attack Speed for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisPeerlessCombatant@AttackSpeed,Duration" precision="2"/></c> seconds.
 Button/Tooltip/HeroSelendisPhaseAegis=Executor's Guard attacks against Heroes grants <c val="#TooltipNumbers"><d ref="Accumulator,HeroSelendisPhaseAegis@SpellArmorBuffArithmetic,Parameters[0]"/></c> Spell Armor against the next enemy Spell damage.<n/><n/>Stores up to <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisPhaseAegis@SpellArmor,MaxStackCount"/></c> charges.
 Button/Tooltip/HeroSelendisPsionicSurge=Become Unstoppable and channel for <c val="#TooltipNumbers"><d ref="Abil,HeroSelendisPsionicSurge,CastIntroTime[0]" precision="2"/></c> <lang rule="plural">second,seconds</lang>, then unleash a shockwave that knocks away enemies around Selendis and deals <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisPsionicSurge@Damage,Amount" option="player"/></c> damage. Enemies hit are Slowed by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroSelendisPsionicSurge@Slow,Modification.UnifiedMoveSpeedFactor" player="0"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisPsionicSurge@Slow,Duration" player="0" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroSelendisResurgence=While channeling, Psionic Surge grants Protected. Each Hero hit by Psionic Surge restores <c val="#TooltipNumbers"><d ref="100*Effect,HeroSelendisResurgence@Heal,VitalArray[Life].ChangeFraction"/>%</c> of Selendis's maximum Health.
@@ -2946,7 +2946,7 @@ Button/Tooltip/HeroSelendisSeveringSlash=Deal <c val="#TooltipNumbers"><d ref="E
 Button/Tooltip/HeroSelendisShieldDynamo=Zealous Rush's shields no longer expire and can stack up to <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisZealousRush@Shield,DamageResponse.ModifyLimit*Behavior,HeroSelendisZealousRush@Shield,MaxStackCount" option="player"/></c> Shields.
 Button/Tooltip/HeroSelendisSolarCharge=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Each Hero hit by Solar Lance permanently increases its damage by <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisSolarCharge@AddTokenCount,Amount"/></c>, up to <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisSolarCharge@TokenCounter,Cost.Charge.CountMax"/></c>. Heroes hit by both beams grant an additional <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisSolarCharge@AddDoubleHitTokenCount,Amount"/></c> damage.<n/><n/><c val="#AbilityPassive">Passive:</c> Reduce the cooldown of Solar Lance by <c val="#TooltipNumbers"><d ref="-Effect,HeroSelendisSolarCharge,EffectArray[0].Value" precision="2"/></c> seconds.
 Button/Tooltip/HeroSelendisSolarLance=Fire two crossing beams in the target location. Each beam deals <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisSolarLance@Damage,Amount" option="player"/></c> damage.
-Button/Tooltip/HeroSelendisTemplarsFury=Casting Zealous Rush increases Physical damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroSelendisTemplarsFury@DamageModifier,Amount"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisTemplarsFury,Duration"/></c> seconds.
+Button/Tooltip/HeroSelendisTemplarsFury=Casting Zealous Rush increases Basic Attack damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroSelendisTemplarsFury@DamageModifier,Amount"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisTemplarsFury,Duration"/></c> seconds.
 Button/Tooltip/HeroSelendisTractorBeam=Solar Lance Stuns enemies hit by both beams for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisTractorBeam@Stun,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>. Stunning a Hero reduces Solar Lance cooldown by <c val="#TooltipNumbers"><d ref="-Effect,HeroSelendisTractorBeam@ModifyUnitCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> seconds.
 Button/Tooltip/HeroSelendisTrialByFire=Enemies hit by Solar Lance beams burn for an additional <c val="#TooltipNumbers"><d ref="Effect,HeroSelendisTrialByFire@Damage,Amount*Behavior,HeroSelendisTrialByFire@DoT,Duration*Behavior,HeroSelendisTrialByFire@DoT,Period" option="player"/></c> damage over <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisTrialByFire@DoT,Duration"/></c> <lang rule="plural">second,seconds</lang>. This damage is increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroSelendisTrialByFire@HeroDamageModifier,Amount"/>%</c> against Heroes. Does not stack.
 Button/Tooltip/HeroSelendisUnwaveringResolve=Casting Zealous Rush grants Unstoppable for <c val="#TooltipNumbers"><d ref="Behavior,HeroSelendisUnwaveringResolve@Unstoppable,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
@@ -2958,7 +2958,7 @@ Button/Tooltip/HeroTalandarBattleArena=After <c val="#TooltipNumbers"><d ref="Be
 Button/Tooltip/HeroTalandarCauterizingBlast=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Hit Heroes with Solar Blast.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> Each Hero hit increases its damage by <c val="#TooltipNumbers"><d ref="Accumulator,HeroTalandarCauterizingBlast@DamageBonusModifierArithmetic,Parameters[0]"/></c>, up to <c val="#TooltipNumbers"><d ref="Accumulator,HeroTalandarCauterizingBlast@DamageBonusModifierArithmetic,Parameters[0]*Behavior,HeroTalandarCauterizingBlast@TokenCounter,Cost.Charge.CountMax"/></c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After hitting <c val="#TooltipNumbers"><d ref="$GalaxyVar:libGDHL_gv_heroTalandarCauterizingBlastConditionalEvent1$" /></c> Heroes, Heroes hit receive <c val="#TooltipNumbers"><d ref="-Effect,HeroTalandarCauterizingBlast@HealReductionStore,Amount"/>%</c> reduced healing for <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarCauterizingBlast@HealReduction,Duration" precision="2"/></c> seconds.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> After hitting <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarCauterizingBlast@TokenCounter,Cost.Charge.CountMax" /></c> Heroes, each Hero hit reduces Talandar's Heroic Ability cooldown by <c val="#TooltipNumbers"><d ref="-100*Effect,HeroTalandarCauterizingBlast@ModifyUnitCooldown,Cost[0].Fraction.Cooldown"/>%</c>.
 Button/Tooltip/HeroTalandarCommencingPurification=Increase Purification's Movement Speed by <c val="#TooltipNumbers"><d ref="100*(Effect,HeroTalandarCommencingPurification,EffectArray[0].Value-1)"/>%</c>. Talandar's drop deals <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroTalandarCommencingPurification@DamageModifier,Amount"/>%</c> increased damage, Stuns enemies hit by it for <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarCommencingPurification@Stun,Duration"/></c> second and has its radius increased by <c val="#TooltipNumbers"><d ref="100*(Effect,HeroTalandarCommencingPurification,EffectArray[4].Value-1)"/>%</c>.
 Button/Tooltip/HeroTalandarConductivePlating=While at <c val="#TooltipNumbers">3</c> <c val="#ColorOrange">Energy</c>, Talandar's Basic Ability cooldowns regenerate <c val="#TooltipNumbers"><d ref="-100*Effect,HeroTalandarConductivePlating@ModifyCooldown,Cost[0].CooldownTimeUse/Behavior,HeroTalandarConductivePlating@CarryBehavior,Period" player="0"/>%</c> faster.<n/><n/><c val="#AbilityPassive">Passive:</c> Talandar now regenerates Energy every <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarConductivePlating,EffectArray[0].Value"/></c> seconds.
-Button/Tooltip/HeroTalandarCuttingEdge=Whirlwind deals bonus damage to Heroes equals to <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarCuttingEdge@Damage,Amount" precision="2"/>%</c> of their maximum Health.
+Button/Tooltip/HeroTalandarCuttingEdge=Whirlwind deals bonus <c val="#TooltipDamagePure">Pure</c> damage to Heroes equals to <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarCuttingEdge@Damage,Amount" precision="2"/>%</c> of their maximum Health.
 Button/Tooltip/HeroTalandarCybrossVengeance=Upon dying, Purification is cast at Talandar's location. The beam can be controlled. Each time Purification hits a Hero, reduce Talandar's death timer by <c val="#TooltipNumbers"><d ref="100*$GalaxyVar:libGDHL_gv_heroTalandarCybrossVengeanceTimerReduction$" precision="2"/>%</c>.
 Button/Tooltip/HeroTalandarEndlessTempest=Hitting an enemy Hero with Whirlwind grants a charge of Whirlwind. Can only occur once every <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarEndlessTempest@Marker,Duration"/></c> seconds per Hero.<n/><n/><c val="#AbilityPassive">Passive:</c> Reduce Whirlwind's cooldown between uses from <c val="#TooltipNumbers"><d ref="Abil,HeroTalandarWhirlwind,Cost[0].Cooldown.TimeUse" player="0"  precision="2"/></c> to <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarEndlessTempest,EffectArray[0].Value" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroTalandarGigablast=Increase Solar Blast's range by <c val="#TooltipNumbers"><d ref="100*((Effect,HeroTalandarGigablast,EffectArray[2].Value-1)/(Effect,HeroTalandarSolarBlast@Search,AreaArray[0].Radius-1)-1)" player="0"/>%</c> but reduce its width by <c val="#TooltipNumbers"><d ref="100*(1-(Effect,HeroTalandarGigablast,EffectArray[3].Value/Effect,HeroTalandarSolarBlast@Search,AreaArray[0].Arc))" player="0"/>%</c>.
@@ -2971,7 +2971,7 @@ Button/Tooltip/HeroTalandarReconstruction=Talandar restores <c val="#TooltipNumb
 Button/Tooltip/HeroTalandarSelfRepair=Completing Recharge's channel heals Talandar for <c val="#TooltipNumbers"><d ref="100*Effect,HeroTalandarSelfRepair,EffectArray[1].Value"/>%</c> of his maximum Health.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Gathering a Regeneration Globes increases this heal amount by an additional <c val="#TooltipNumbers"><d ref="Accumulator,HeroTalandarSelfRepair@QuestArithmetic,Parameters[0]" precision="2"/>%</c>.
 Button/Tooltip/HeroTalandarShieldOvercharge=Gain a <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarShieldOvercharge@ShieldInstantUIDisplay,DamageResponse.ModifyLimit" option="player"/></c> Shield and an additional <c val="#TooltipNumbers"><d ref="16*Behavior,HeroTalandarShieldOvercharge@ShieldPeriodicUIDisplay,DamageResponse.ModifyLimit" option="player"/></c> Shield every second. Lasts for <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarShieldOvercharge@ApplyBehavior,Count*Behavior,HeroTalandarShieldOvercharge,Duration" player="0"/></c> <lang rule="plural">second,seconds</lang> or until the Shield is broken. Basic Attacks against Heroes increase the duration by <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarShieldOvercharge@ExtendShieldBasicAttack,Count*Behavior,HeroTalandarShieldOvercharge,Duration" precision="2" player="0"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroTalandarSolarBlast=Charge a blast in a direction. After <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarSolarBlast@Channel,Duration" player="0" precision="2"/></c> <lang rule="plural">second,seconds</lang>, deal <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarSolarBlast@Damage,Amount" option="player"/></c> damage to all enemies in a cone.<n/><n/><c val="#ColorOrange">Solarite Energy:</c> Increase the damage against Heroes, Mercenaries and Monsters by <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroTalandarSolarBlast@DamageModifier,Amount" player="0"/>%</c> per each <c val="#ColorOrange">Energy</c>.
-Button/Tooltip/HeroTalandarSolarRadiance=While channeling Recharge, deal damage to nearby Heroes equal to <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarSolarRadiance@Damage,Amount"/>%</c> of their maximum Health every <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarSolarRadiance@DamageBehavior,Period" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
+Button/Tooltip/HeroTalandarSolarRadiance=While channeling Recharge, deal <c val="#TooltipDamagePure">Pure</c> damage to nearby Heroes equal to <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarSolarRadiance@Damage,Amount"/>%</c> of their maximum Health every <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarSolarRadiance@DamageBehavior,Period" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/HeroTalandarSolariteCore=Basic Abilities gain additional effects for each <c val="#ColorOrange">Solarite Energy</c> Talandar has and consume <c val="#TooltipNumbers"><d ref="-Effect,HeroTalandarSolariteCore@ConsumeEnergy,VitalArray.Change" player="0"/></c> <c val="#ColorOrange">Energy</c> when cast.<n/><n/>Talandar has a maximum of <c val="#TooltipNumbers"><d ref="Unit,HeroTalandar,EnergyMax" player="0"/></c> <c val="#ColorOrange">Solarite Energy</c> and regenerates <c val="#TooltipNumbers"><d ref="Effect,HeroTalandarSolariteCore@RestoreEnergy,VitalArray.Change" player="0"/></c> <c val="#ColorOrange">Energy</c> every <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarSolariteCore@Cooldown,Duration" player="0"/></c> seconds.
 Button/Tooltip/HeroTalandarSubjugation=Increase Thunderous Charge's range by <c val="#TooltipNumbers"><d ref="100*((Effect,HeroTalandarSubjugation,EffectArray[0].Value/Actor,HeroTalandarThunderousCharge@CursorGuide,Height)-1)" player="0"/>%</c>. Thunderous Charge deals <c val="#TooltipNumbers"><d ref="100*Accumulator,HeroTalandarSubjugation@DamageModifier,Amount"/>%</c> increased damage to Minions, Mercenaries and Monsters.
 Button/Tooltip/HeroTalandarSuppressionProcedure=Thunderous Charge Slows Heroes hit by <c val="#TooltipNumbers"><d ref="-100*Behavior,HeroTalandarSuppressionProcedure@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,HeroTalandarSuppressionProcedure@Slow,Duration" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
@@ -3070,7 +3070,7 @@ Button/Tooltip/LiMingArchonPurePower@Cancel=Cancel Archon: Pure Power.
 Button/Tooltip/LiMingArchonPurePowerDisintegrate=Channel a powerful beam, dealing <c val="#TooltipNumbers"><d ref="Effect,LiMingDisintegrate@Damage,Amount*(16)" option="player"/></c> damage per second to enemies while they are in it. The direction of the beam changes with your mouse cursor position.<n/><n/>Heroes hit by this Disintegrate increases its damage by <c val="#TooltipNumbers"><d ref="Effect,LiMingArchonPurePowerDisintegrate@IncrementUserData,Amount"/>%</c>. After not hitting any Heroes for <c val="#TooltipNumbers">0.5</c> seconds, this bonus falls off by <c val="#TooltipNumbers"><d ref="Effect,LiMingArchonPurePowerDisintegrate@DecrementUserData,Amount*1/Behavior,LiMingArchonPurePowerDisintegrate@Decay,Period"/>%</c> per second.
 Button/Tooltip/LiMingArchonPurePowerDisintegrate@Cancel=Cancel Archon: Pure Power Disintegrate.
 Button/Tooltip/LiMingCalamity=Teleport does <c val="#TooltipNumbers"><d ref="Effect,LiMingCalamity@Damage,Amount" option="player"/></c> damage to enemy Heroes near the destination.
-Button/Tooltip/LiMingCannoneer=When Li-Ming uses an Ability, her next Basic Attack's damage is increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,LiMingCannoneer@SourceTrackerArithmetic,Parameters[0]"/>%</c>, gains <c val="#TooltipNumbers"><d precision="1" ref="Behavior,LiMingCannoneer@Tracker,Modification.WeaponRange"/></c> range and deals Spell damage instead of Physical. Stacks up to <c val="#TooltipNumbers"><d ref="Behavior,LiMingCannoneer@Tracker,MaxStackCount"/></c> times.
+Button/Tooltip/LiMingCannoneer=When Li-Ming uses an Ability, her next Basic Attack's damage is increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,LiMingCannoneer@SourceTrackerArithmetic,Parameters[0]"/>%</c>, gains <c val="#TooltipNumbers"><d precision="1" ref="Behavior,LiMingCannoneer@Tracker,Modification.WeaponRange"/></c> range and deals <c val="#TooltipDamageSpell">Spell</c> damage instead of Physical. Stacks up to <c val="#TooltipNumbers"><d ref="Behavior,LiMingCannoneer@Tracker,MaxStackCount"/></c> times.
 Button/Tooltip/LiMingChargedBlast=Basic Attacking a target recently hit by a Magic Missile does an additional <c val="#TooltipNumbers"><d ref="Effect,LiMingChargedBlast@Damage,Amount" option="player"/></c> damage and restores <c val="#TooltipNumbers"><d ref="Effect,LiMingChargedBlast@RestoreMana,VitalArray[Energy].Change"/></c> Mana.
 Button/Tooltip/LiMingCriticalMass=Getting a Takedown will refresh the cooldown on all of Li-Ming's Abilities.
 Button/Tooltip/LiMingDiamondSkin=Teleport grants a Shield equal to <c val="#TooltipNumbers"><d ref="Behavior,LiMingDiamondSkin@Buff,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]*100" precision="2"/>%</c> of Li-Ming's maximum Health. This Shield does not expire.
@@ -3079,7 +3079,7 @@ Button/Tooltip/LiMingDisintegrate@Cancel=Cancel Disintegrate.
 Button/Tooltip/LiMingDominance=Takedowns restore <c val="#TooltipNumbers"><d ref="100*Accumulator,LiMingDominance@MissingHealthAccumulator,Ratio"/>%</c> of Li-Ming's missing Health and increase Li-Ming's movement speed by <c val="#TooltipNumbers"><d ref="100*Behavior,LiMingDominance@MovementSpeedBuff,Modification.UnifiedMoveSpeedFactor"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,LiMingDominance@MovementSpeedBuff,Duration"/></c> seconds.
 Button/Tooltip/LiMingEssOfJohan=Enemies hit by Arcane Orb are pulled towards its center.
 Button/Tooltip/LiMingFireflies=Drastically increases Magic Missiles speed. Its cooldown is reduced by <c val="#TooltipNumbers"><d ref="-Effect,LiMingFireflies,EffectArray[0].Value"/></c> <lang rule="plural">second,seconds</lang>, and its Mana cost is reduced by <c val="#TooltipNumbers"><d ref="-Effect,LiMingFireflies,EffectArray[1].Value"/></c>.
-Button/Tooltip/LiMingForceArmor=When Magic Missiles damages an enemy Hero, gain <c val="#TooltipNumbers"><d ref="Accumulator,LiMingForceArmor@SpellArmorArithmetic,Parameters[0]"/></c> Spell Armor against next Spell damage. Gain <c val="#TooltipNumbers"><d ref="Effect,LiMingForceArmor@BlockApplyBehavior,Count"/></c> charge per cast and store up to <c val="#TooltipNumbers"><d ref="Behavior,LiMingForceArmor@Block,MaxStackCount"/></c> charges.<n/><n/><c val="#AbilityPassive">Passive:</c> Li-Ming's Mana regeneration is increased by <c val="#TooltipNumbers"><d ref="100*Behavior,LiMingForceArmor@ManaRegen,Modification.VitalRegenMultiplier" precision="2"/>%</c> while below <c val="#TooltipNumbers"><d ref="100*Validator,LiMingForceArmor@RequiredCasterEnergy,Value"/>%</c> Mana.
+Button/Tooltip/LiMingForceArmor=When Magic Missiles damages a Hero, gain <c val="#TooltipNumbers"><d ref="Accumulator,LiMingForceArmor@SpellArmorArithmetic,Parameters[0]"/></c> Spell Armor against next Spell damage source. Gain <c val="#TooltipNumbers"><d ref="Effect,LiMingForceArmor@BlockApplyBehavior,Count"/></c> charge per cast and store up to <c val="#TooltipNumbers"><d ref="Behavior,LiMingForceArmor@Block,MaxStackCount"/></c> charges.<n/><n/><c val="#AbilityPassive">Passive:</c> Li-Ming's Mana regeneration is increased by <c val="#TooltipNumbers"><d ref="100*Behavior,LiMingForceArmor@ManaRegen,Modification.VitalRegenMultiplier" precision="2"/>%</c> while below <c val="#TooltipNumbers"><d ref="100*Validator,LiMingForceArmor@RequiredCasterEnergy,Value"/>%</c> Mana.
 Button/Tooltip/LiMingGlassCannon=Increase Li-Ming's Spell Power by <c val="#TooltipNumbers"><d ref="Effect,LiMingGlassCannon@StoreSpellPower,Amount"/>%</c> and maximum Mana by <c val="#TooltipNumbers"><d ref="Behavior,LiMingGlassCannon@CarryBehavior,Modification.VitalMaxAdditiveMultiplierArray[Energy]*100"/>%</c>, but decrease her maximum Health by <c val="#TooltipNumbers"><d ref="Behavior,LiMingGlassCannon@CarryBehavior,Modification.VitalMaxFractionArray[Life]*100*(-1)"/>%</c>.
 Button/Tooltip/LiMingIllusionist=If Li-Ming loses more than <c val="#TooltipNumbers"><d ref="100*$GalaxyVar:libGDHL_gv_heroLiMingIllusionistThreshold_C$" />%</c> of her Health at once, its cooldown is instantly refreshed. <n/><n/>This effect has a <c val="#TooltipNumbers"><c val="#TooltipNumbers"><d ref="Effect,LiMingIllusionist@ModifyAbilityCooldown,Cost.Cooldown.TimeUse"/></c></c> second cooldown.<n/><n/><c val="#AbilityPassive">Passive:</c> Increases Teleport range by <c val="#TooltipNumbers"><d ref="100*Effect,LiMingIllusionist,EffectArray[0].Value/Abil,LiMingTeleport,Range[0]" player="0"/>%</c>
 Button/Tooltip/LiMingMagicMissiles=Fire three missiles toward an area, each dealing <c val="#TooltipNumbers"><d ref="Effect,LiMingMagicMissiles@Damage,Amount" option="plaer"/></c> damage to the first enemy hit. These missiles do <c val="#TooltipNumbers"><d ref="-100*Accumulator,LiMingMagicMissiles@StructureDamageModifier,Amount" player="0"/>%</c> decreased damage to Structures.
@@ -3102,8 +3102,8 @@ Button/Tooltip/MapMechanicAbilitySnowBrawl=Throws a snowball that damages and pu
 Button/Tooltip/MeleeMinion=Powerful melee warrior.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/MuradinAvatar=Transform for <c val="#TooltipNumbers"><d ref="Effect,MuradinAvatar@ApplyBehavior,Duration" player="0" precision="2"/></c> seconds, gaining <c val="#TooltipNumbers"><d ref="Behavior,MuradinAvatar,Modification.VitalMaxArray[0]" option="player"/></c> Health.<n/><n/><c val="#AbilityPassive">Passive:</c> During Avatar, Dwarf Toss grants Unstoppable while leaping.
 Button/Tooltip/MuradinBash=Every <c val="#TooltipNumbers"><d ref="Behavior,MuradinBash@Stack,MaxStackCount"/>rd</c> Basic Attack against the same enemy deals <c val="#TooltipNumbers"><d ref="100*Accumulator,MuradinBash@WeaponDamageBonusModifier,Amount[0]"Precision="2"/>%</c> increased damage and Stuns them for <c val="#TooltipNumbers"><d ref="Behavior,MuradinBash@Stun,Duration" player="0" precision="2"/></c> seconds.
-Button/Tooltip/MuradinBronzebeardRage=Deal <c val="#TooltipNumbers"><d ref="Effect,MuradinBronzebeardRage@Damage,Amount" option="player"/></c> damage per second to nearby enemies and heal for <c val="#TooltipNumbers"><d ref="100*Effect,MuradinBronzebeardRage@LeechMU,VitalArray[Life].Change"/>%</c> of the damage dealt. Hitting an enemy Hero with Storm Bolt increase this damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,MuradinBronzebeardRage@DamageBonusArithmetic,Parameters[0]"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,MuradinBronzebeardRage@DamageBoost,Duration"/></c> seconds.
-Button/Tooltip/MuradinDwarfBlock=Casting Dwarf Toss grants <c val="#TooltipNumbers"><d ref="Effect,MuradinDwarfBlock@ApplyBehavior,Count"/></c> charges of Block. Each Block charge grants <c val="#TooltipNumbers"><d ref="Accumulator,MuradinDwarfBlock@PhysicalArmorBuffArithmetic,Parameters[0]"/></c> Physical Armor against a single enemy Hero Basic Attack.
+Button/Tooltip/MuradinBronzebeardRage=Deal <c val="#TooltipNumbers"><d ref="Effect,MuradinBronzebeardRage@Damage,Amount" option="player"/></c> damage per second to nearby enemies and heal for <c val="#TooltipNumbers"><d ref="Effect,MuradinBronzebeardRage@DamageLeechLocal,Amount"/>%</c> of the damage dealt. Hitting an enemy Hero with Storm Bolt increase this damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,MuradinBronzebeardRage@DamageBonusArithmetic,Parameters[0]"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,MuradinBronzebeardRage@DamageBoost,Duration"/></c> seconds.
+Button/Tooltip/MuradinDwarfBlock=Casting Dwarf Toss grants <c val="#TooltipNumbers"><d ref="Effect,MuradinDwarfBlock@ApplyBehavior,Count"/></c> charges of Block. Each Block charge grants <c val="#TooltipNumbers"><d ref="Accumulator,MuradinDwarfBlock@PhysicalArmorBuffArithmetic,Parameters[0]"/></c> Physical Armor against a single Hero Physical damage source.
 Button/Tooltip/MuradinDwarfLaunch=Increase the range of Dwarf Toss by <c val="#TooltipNumbers"><d ref="100*(Effect,MuradinDwarfLaunch,EffectArray[0].Value-1)" player="0"/>%</c>. Hitting an enemy Hero with Dwarf Toss reduces its cooldown by <c val="#TooltipNumbers"><d ref="-Effect,MuradinDwarfLaunch@ModifyCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> seconds.
 Button/Tooltip/MuradinDwarfToss=Leap to target location, dealing <c val="#TooltipNumbers"><d ref="Effect,MuradinDwarfToss@Damage,Amount"/></c> damage to enemies on landing. Upon leaping, gain <c val="#TooltipNumbers"><d ref="Accumulator,MuradinDwarfToss@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,MuradinDwarfToss@Armor,Duration" player="0"/></c> seconds.
 Button/Tooltip/MuradinDwarvenCourage=Activate to gain <c val="#TooltipNumbers"><d ref="Accumulator,MuradinDwarvenCourage@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,MuradinDwarvenCourage,Duration" precision="2"/></c> seconds. Hitting a Hero with an ability refreshes its duration.
@@ -3190,7 +3190,7 @@ Button/Tooltip/TychusLaserDrill=Call down a Laser Drill to attack nearby enemies
 Button/Tooltip/TychusLaserDrill@IssueOrder=Order the Laser Drill to attack a new target.
 Button/Tooltip/TychusMasterAssassin=Increase Tychus's Attack Speed by <c val="#TooltipNumbers"><d ref="100*Behavior,TychusMasterAssassin@TokenCounter,Modification.AdditiveAttackSpeedFactor" precision="2"Player="0"/>%</c>.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Quest:</c> Participate in <c val="#TooltipNumbers"><d ref="Behavior,TychusMasterAssassin@TokenCounter,Cost.Charge.CountMax"/></c> Takedowns.<n/><n/><img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/><c val="#TooltipQuest">Reward:</c> Tychus's Attack Speed will be increased by an additional <c val="#TooltipNumbers"><d ref="100*Effect,TychusMasterAssassin@QuestMaxedModification,EffectArray[0].Value"/>%</c>.
 Button/Tooltip/TychusMeltingPoint=Enemies hit by Frag Grenade take an additional <c val="#TooltipNumbers"><d ref="(Behavior,TychusMeltingPoint@Debuff,Duration/Behavior,TychusMeltingPoint@Debuff,Period)*Effect,TychusMeltingPoint@Damage,Amount"/></c> damage over <c val="#TooltipNumbers"><d ref="Behavior,TychusMeltingPoint@Debuff,Duration"/></c> seconds. This damage is increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,TychusMeltingPoint@IncreasedDamageModifier,Amount"/>%</c> against Minions, Mercenaries, and Monsters.
-Button/Tooltip/TychusMinigun=Activate to have Basic Attacks against Heroes deal bonus damage equal to <c val="#TooltipNumbers"><d ref="Effect,TychusMinigun@Damage,Amount"precision="2"/>%</c> of their maximum Health. Lasts <c val="#TooltipNumbers"><d ref="Behavior,TychusMinigun@ActiveBuff,Duration" player="0"/></c> seconds.
+Button/Tooltip/TychusMinigun=Activate to have Basic Attacks against Heroes deal bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Effect,TychusMinigun@Damage,Amount"precision="2"/>%</c> of their maximum Health. Lasts <c val="#TooltipNumbers"><d ref="Behavior,TychusMinigun@ActiveBuff,Duration" player="0"/></c> seconds.
 Button/Tooltip/TychusNeosteelCoating=Activate to gain <c val="#TooltipNumbers"><d ref="Accumulator,TychusNeosteelCoating@SpellArmorBuffArithmetic,Parameters[0]"/></c> Spell Armor for <c val="#TooltipNumbers"><d ref="Behavior,TychusNeosteelCoating@SpellArmor,Duration"/></c> seconds.
 Button/Tooltip/TychusOdin=Call down an Odin to pilot. The Odin deals increased Damage, has <c val="#TooltipNumbers"><d ref="100*((Weapon,TychusOdinWeapon,Range/Weapon,TychusWeapon,Range)-1)" player="0"/>%</c> increased Basic Attack range, and uses different Abilities. The Odin has <c val="#TooltipNumbers"><d ref="Accumulator,TychusOdin@ArmorBuffArithmetic,Parameters[0]"/></c> Armor and lasts <c val="#TooltipNumbers"><d ref="Effect,TychusOdin@ApplyBehavior,Duration"/></c> seconds.
 Button/Tooltip/TychusOdinAnnihilate=Fire the Odin's cannons in a straight line, dealing <c val="#TooltipNumbers"><d ref="Effect,TychusOdinAnnihilate@Damage,Amount" option="player"/></c> damage to everything in the path.
@@ -3202,16 +3202,16 @@ Button/Tooltip/TychusPressTheAdvantage=Increase Tychus's Basic Attack range by <
 Button/Tooltip/TychusQuarterback=Increases Frag Grenade's damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,TychusQuarterback@DamageModifier,Amount"/>%</c> and its range by <c val="#TooltipNumbers"><d ref="100*(Effect,TychusQuarterback,EffectArray[0].Value-1)"/>%</c>.
 Button/Tooltip/TychusRelentlessSoldier=Being Stunned or Rooted grants <c val="#TooltipNumbers"><d ref="Accumulator,TychusRelentlessSoldier@ArmorBuffArithmetic,Parameters[0]"/></c> Armor for <c val="#TooltipNumbers"><d ref="Behavior,TychusRelentlessSoldier@ArmorBehavior,Duration"/></c> seconds.
 Button/Tooltip/TychusRunAndGun=Dash a short distance.
-Button/Tooltip/TychusSizzlinAttacks=Basic Attacks deal bonus damage to Heroes equal to <c val="#TooltipNumbers"><d ref="Effect,TychusSizzlinAttacks@Damage,Amount"/>%</c> of their maximum Health, increased to <c val="#TooltipNumbers"><d ref="Effect,TychusSizzlinAttacks@Damage,Amount*Accumulator,TychusSizzlinAttacks@DamageBuffMultiplier,Amount"/>%</c> while in bush. Stacks with Minigun.
+Button/Tooltip/TychusSizzlinAttacks=Basic Attacks deal bonus <c val="#TooltipDamagePure">Pure</c> damage to Heroes equal to <c val="#TooltipNumbers"><d ref="Effect,TychusSizzlinAttacks@Damage,Amount"/>%</c> of their maximum Health, increased to <c val="#TooltipNumbers"><d ref="Effect,TychusSizzlinAttacks@Damage,Amount*Accumulator,TychusSizzlinAttacks@DamageBuffMultiplier,Amount"/>%</c> while in bush. Stacks with Minigun.
 Button/Tooltip/TychusSprayNPray=Overkill Slows enemy Movement Speed by <c val="#TooltipNumbers"><d ref="-100*Behavior,TychusSprayNPray@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> and its range is increased by <c val="#TooltipNumbers"><d ref="100*(Effect,TychusSprayNPray,EffectArray[0].Value-1)"/>%</c>.
 Button/Tooltip/TychusThatsTheStuff=Minigun heals Tychus for <c val="#TooltipNumbers"><d ref="100*Accumulator,TychusThatsTheStuff@InstantHealMultiplier,Amount"/>%</c> of the bonus damage dealt instantly and an additional <c val="#TooltipNumbers"><d ref="100*Accumulator,TychusThatsTheStuff@HealMultiplier,Amount"/>%</c> of the bonus damage dealt after it expires.
 Button/Tooltip/TychusTheBiggerTheyAre=Increase the damage bonus to <c val="#TooltipNumbers"><d ref="Effect,TychusTheBiggerTheyAre@MinigunDamage,Amount" precision="2"/>%</c> while enemy Heroes are above <c val="#TooltipNumbers"><d ref="100*Validator,TychusTheBiggerTheyAre@TargetLifeIsValid,Value"/>%</c> Health.
-Button/Tooltip/TychusTitanGrenade=Frag Grenade deals bonus damage to Heroes equal to <c val="#TooltipNumbers"><d ref="Effect,TychusTitanGrenade@Damage,Amount"precision="2"/>%</c> of their maximum Health. Each enemy Hero hit by Frag Grenade reduces its cooldown by <c val="#TooltipNumbers"><d ref="-Effect,TychusTitanGrenade@ModifyCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
+Button/Tooltip/TychusTitanGrenade=Frag Grenade deals bonus <c val="#TooltipDamagePure">Pure</c> damage to Heroes equal to <c val="#TooltipNumbers"><d ref="Effect,TychusTitanGrenade@Damage,Amount"precision="2"/>%</c> of their maximum Health. Each enemy Hero hit by Frag Grenade reduces its cooldown by <c val="#TooltipNumbers"><d ref="-Effect,TychusTitanGrenade@ModifyCooldown,Cost[0].CooldownTimeUse" precision="2"/></c> <lang rule="plural">second,seconds</lang>.
 Button/Tooltip/TyrandeCelestialAttunement=Light of Elune removes Stuns, Silences, and Slows from its target.
 Button/Tooltip/TyrandeCelestialWrath=Increase the Slow of Starfall to <c val="#TooltipNumbers"><d ref="-100*Effect,TyrandeCelestialWrath,EffectArray[0].Value"/>%</c> and cause it to apply Hunter's Mark to enemy Heroes while inside of its area of effect.
 Button/Tooltip/TyrandeDarnassianArchery=Basic Attacks against Heroes increase Physical damage by <c val="#TooltipNumbers"><d ref="100*Accumulator,TyrandeDarnassianArchery@BasicAttackDamageBuffArithmetic,Parameters[0]"/>%</c> up to <c val="#TooltipNumbers"><d ref="100*Accumulator,TyrandeDarnassianArchery@BasicAttackDamageBuffArithmetic,Parameters[0]*Behavior,TyrandeDarnassianArchery@DamageBuff,MaxStackCount"/>%</c> for <c val="#TooltipNumbers"><d ref="Behavior,TyrandeDarnassianArchery@DamageBuff,Duration" precision="2"/></c> seconds.<n/><n/>At <c val="#TooltipNumbers"><d ref="100*Accumulator,TyrandeDarnassianArchery@BasicAttackDamageBuffArithmetic,Parameters[0]*Behavior,TyrandeDarnassianArchery@DamageBuff,MaxStackCount"/>%</c> damage bonus, primary Basic Attacks reduce the cooldown of Tyrande's Heroic Ability by <c val="#TooltipNumbers"><d ref="-100*Effect,TyrandeDarnassianArchery@CDR,Cost[0].Fraction.Cooldown"/>%</c>.
 Button/Tooltip/TyrandeElunesChosen=Activate to make Tyrande's Primary Basic Attacks heal target allied Hero for <c val="#TooltipNumbers"><d ref="100*Accumulator,TyrandeElunesChosen@HealingMultiplier,Amount"/>%</c> of the damage dealt. Lasts for <c val="#TooltipNumbers"><d ref="Behavior,TyrandeElunesChosen@AllyBuff,Duration" precision="2"/></c> seconds.
-Button/Tooltip/TyrandeEmpower=Reduce Sentinel's cooldown by <c val="#TooltipNumbers"><d ref="-Effect,TyrandeEmpower,EffectArray[0].Value" precision="2"/></c> seconds. Heroes hit by Sentinel takes bonus damage equal to <c val="#TooltipNumbers"><d ref="Effect,TyrandeEmpower@Damage,Amount" precision="2"/>%</c> of their maximum Health.
+Button/Tooltip/TyrandeEmpower=<ul indent="0" text="•"><li/>Heroes hit by Sentinel takes bonus <c val="#TooltipDamagePure">Pure</c> damage equal to <c val="#TooltipNumbers"><d ref="Effect,TyrandeEmpower@Damage,Amount" precision="2"/>%</c> of their maximum Health.</ul><ul indent="0" text="•"><li/>Reduce Sentinel's cooldown by <c val="#TooltipNumbers"><d ref="-Effect,TyrandeEmpower,EffectArray[0].Value" precision="2"/></c> seconds.</ul>
 Button/Tooltip/TyrandeEverlastingLight=Light of Elune gains an additional charge and replenishes all charges at the same time, but its cooldown is increased from <c val="#TooltipNumbers"><d ref="Abil,TyrandeLightOfElune,Cost[0].Charge.TimeUse" player="0"/></c> to <c val="#TooltipNumbers"><d ref="Effect,TyrandeEverlastingLight,EffectArray[2].Value"/></c> seconds.
 Button/Tooltip/TyrandeEyesOfTheHuntress=Shadowstalk reveals all enemy Heroes for <c val="#TooltipNumbers"><d ref="Behavior,TyrandeEyesOfTheHuntress@Revealer,Duration"/></c> seconds and its healing increased by <c val="#TooltipNumbers"><d ref="100*Accumulator,TyrandeEyesOfTheHuntress@HealIncreaseModifier,Amount"/>%</c>.
 Button/Tooltip/TyrandeHarshMoonlight=Sentinel Slows enemies hit by <c val="#TooltipNumbers"><d ref="-100*Behavior,TyrandeHarshMoonlight@Slow,Modification.UnifiedMoveSpeedFactor"/>%</c> and reduces their damage dealt by <c val="#TooltipNumbers"><d ref="-Effect,TyrandeHarshMoonlight@StoreDamageMultiplier,Amount"/></c> for <c val="#TooltipNumbers"><d ref="Behavior,TyrandeHarshMoonlight@DamageReduction,Duration" precision="2"/></c> seconds.
@@ -3786,7 +3786,6 @@ DataCollection/Name/HeroFalstadWeapon=Falstad - Weapon
 DataCollection/Name/HeroFalstadWindTunnel=Falstad - Wind Tunnel
 DataCollection/Name/HeroGenericCaptureMacGuffin=Hero Generic - Capture MacGuffin
 DataCollection/Name/HeroGenericCaptureMacGuffinTwo=Hero Generic - Capture MacGuffin Two
-DataCollection/Name/HeroGenericCollisionRadius=Hero Generic - Collision Radius
 DataCollection/Name/HeroGenericDisabler=Hero Generic - Disabler
 DataCollection/Name/HeroGenericExperience=Hero Generic - Experience
 DataCollection/Name/HeroGenericFountainDrink=Hero Generic - Fountain Drink
@@ -4295,6 +4294,7 @@ DataCollection/Name/TyrandeWeapon=Tyrande - Weapon
 DataCollection/Name/UnitStatsArmorPenetration=Unit Stats - Armor Penetration
 DataCollection/Name/UnitStatsPhysicalArmorModifiedDamage=Unit Stats - Physical Armor Modified Damage
 DataCollection/Name/UnitStatsPhysicalLeech=Unit Stats - Physical Leech
+DataCollection/Name/UnitStatsPureLeech=Unit Stats - Pure Leech
 DataCollection/Name/UnitStatsSpellArmorModifiedDamage=Unit Stats - Spell Armor Modified Damage
 DataCollection/Name/UnitStatsSpellLeech=Unit Stats - Spell Leech
 DataCollection/Name/UnitStatsVitalRegen=Unit Stats - Vital Regen
@@ -4326,6 +4326,8 @@ Effect/Name/AnduinCensure@ApplyStun=Apply Stun
 Effect/Name/AnduinChastise@ApplyRoot=Apply Root
 Effect/Name/AnduinChastise@CustomSearch=Custom Search
 Effect/Name/AnduinChastise@Damage=Damage
+Effect/Name/AnduinChastise@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/AnduinChastise@DamageSet=Damage (Set)
 Effect/Name/AnduinChastise@DummyDestroySet=Dummy Destroy Set
 Effect/Name/AnduinChastise@DummyGuideSearch=Dummy Guide Search
 Effect/Name/AnduinChastise@DummyLaunchMissile=Dummy Launch Missile
@@ -4391,6 +4393,7 @@ Effect/Name/AnduinFlashHeal@CancelDummy=Cancel Dummy
 Effect/Name/AnduinFlashHeal@CancelSet=Cancel Set
 Effect/Name/AnduinFlashHeal@CastSet=Cast Set
 Effect/Name/AnduinFlashHeal@HealCritStatusIncrement=Heal (Crit Status Increment)
+Effect/Name/AnduinFlashHeal@HealCritStatusLocal=Heal (Crit Status Local)
 Effect/Name/AnduinFlashHeal@HealDisplayerModifyUnit=Heal Displayer (Modify Unit)
 Effect/Name/AnduinFlashHeal@HealModifyUnit=Heal (Modify Unit)
 Effect/Name/AnduinFlashHeal@HealSet=Heal (Set)
@@ -4400,8 +4403,10 @@ Effect/Name/AnduinGlyphOfFaith=Modification
 Effect/Name/AnduinHero@HealResponseSet=Heal Response Set
 Effect/Name/AnduinHero@LevelScalingModification=Level Scaling Modification
 Effect/Name/AnduinHolyNova@Damage=Damage
+Effect/Name/AnduinHolyNova@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/AnduinHolyNova@DamageImpactSet=Damage Impact Set
 Effect/Name/AnduinHolyNova@DamageSearch=Damage Search
+Effect/Name/AnduinHolyNova@DamageSet=Damage (Set)
 Effect/Name/AnduinHolyNova@HealCritStatusIncrement=Heal (Crit Status Increment)
 Effect/Name/AnduinHolyNova@HealImpactSet=Heal Impact Set
 Effect/Name/AnduinHolyNova@HealModifyUnit=Heal (Modify Unit)
@@ -4537,6 +4542,8 @@ Effect/Name/AnubarakBedOfBarbs@ApplySlow=Apply Slow
 Effect/Name/AnubarakBedOfBarbs@ApplyStructureDebuff=Apply Structure Debuff
 Effect/Name/AnubarakBedOfBarbs@CreatePersistent=Create Persistent
 Effect/Name/AnubarakBedOfBarbs@PeriodicDamage=Periodic Damage
+Effect/Name/AnubarakBedOfBarbs@PeriodicDamageCritStatusIncrement=Periodic Damage (Crit Status Increment)
+Effect/Name/AnubarakBedOfBarbs@PeriodicDamageSet=Periodic Damage (Set)
 Effect/Name/AnubarakBedOfBarbs@PersistentDelay=Persistent Delay
 Effect/Name/AnubarakBedOfBarbs@SearchArea=Search Area
 Effect/Name/AnubarakBedOfBarbs@TargetSwitch=Target Switch
@@ -4549,7 +4556,6 @@ Effect/Name/AnubarakBeetleWeapon@Damage=Damage
 Effect/Name/AnubarakBeetleWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/AnubarakBeetleWeapon@DamageSet=Damage (Set)
 Effect/Name/AnubarakBeetleWeapon@ImpactSet=Impact Set
-Effect/Name/AnubarakBeetleWeapon@ImpactSwitch=Impact Switch
 Effect/Name/AnubarakBurningBeetles@Damage=Damage
 Effect/Name/AnubarakBurningBeetles@DamageBeetle=Damage Beetle
 Effect/Name/AnubarakBurningBeetles@DamageBeetleCritStatusIncrement=Damage Beetle (Crit Status Increment)
@@ -4621,9 +4627,11 @@ Effect/Name/AnubarakCryptweave@ApplyDamageStack=Apply Damage Stack
 Effect/Name/AnubarakCryptweave@ApplyDoTBehavior=Apply DoT Behavior
 Effect/Name/AnubarakCryptweave@CocoonHealing=Cocoon Healing
 Effect/Name/AnubarakCryptweave@DoTDamage=DoT Damage
+Effect/Name/AnubarakCryptweave@DoTDamageCritStatusIncrement=DoT Damage (Crit Status Increment)
 Effect/Name/AnubarakCryptweave@DoTDamageFinalSet=DoT Damage Final Set
 Effect/Name/AnubarakCryptweave@DoTDamageInitialSet=DoT Damage Initial Set
 Effect/Name/AnubarakCryptweave@DoTDamagePeriodicSet=DoT Damage Periodic Set
+Effect/Name/AnubarakCryptweave@DoTDamageSet=DoT Damage (Set)
 Effect/Name/AnubarakCryptweave@RangeIndicatorApplyBehavior=Range Indicator Apply Behavior
 Effect/Name/AnubarakCryptweave@RangeIndicatorRemoveBehavior=Range Indicator Remove Behavior
 Effect/Name/AnubarakCryptweave@RemoveDamageStack=Remove Damage Stack
@@ -4651,7 +4659,7 @@ Effect/Name/AnubarakHiveMaster@DamageCritStatusIncrement=Damage (Crit Status Inc
 Effect/Name/AnubarakHiveMaster@DamageSet=Damage (Set)
 Effect/Name/AnubarakHiveMaster@DisabledDestroyBugSearch=Disabled Destroy Bug Search
 Effect/Name/AnubarakHiveMaster@HealMU=Heal MU
-Effect/Name/AnubarakHiveMaster@HealSet=Heal Set
+Effect/Name/AnubarakHiveMaster@HealSet=Heal (Set)
 Effect/Name/AnubarakHiveMaster@ImpactSet=Impact Set
 Effect/Name/AnubarakHiveMaster@InitialSet=Initial Set
 Effect/Name/AnubarakHiveMaster@KillBugSet=Kill Bug Set
@@ -4681,7 +4689,7 @@ Effect/Name/AnubarakImpale@SetPersistents=Set Persistents
 Effect/Name/AnubarakImpale@SoundPersistent=Sound Persistent
 Effect/Name/AnubarakLeechingScarabs@HealMU=Heal MU
 Effect/Name/AnubarakLeechingScarabs@HealSearchArea=Heal Search Area
-Effect/Name/AnubarakLeechingScarabs@HealSet=Heal Set
+Effect/Name/AnubarakLeechingScarabs@HealSet=Heal (Set)
 Effect/Name/AnubarakLegionOfBeetles@ApplyDummyCooldownBehavior=Apply Dummy Cooldown Behavior
 Effect/Name/AnubarakLegionOfBeetles@InitialSet=Initial Set
 Effect/Name/AnubarakLegionOfBeetles@ModifyUnitCooldown=Modify Unit Cooldown
@@ -4703,8 +4711,9 @@ Effect/Name/AnubarakLocustSwarm@DamageCritStatusIncrement=Damage (Crit Status In
 Effect/Name/AnubarakLocustSwarm@DamageDummy=Damage Dummy
 Effect/Name/AnubarakLocustSwarm@DamageSet=Damage (Set)
 Effect/Name/AnubarakLocustSwarm@FinishedDestroyBugSearch=Finished Destroy Bug Search
+Effect/Name/AnubarakLocustSwarm@HealCritStatusIncrement=Heal (Crit Status Increment)
 Effect/Name/AnubarakLocustSwarm@HealMU=Heal MU
-Effect/Name/AnubarakLocustSwarm@HealSet=Heal Set
+Effect/Name/AnubarakLocustSwarm@HealSet=Heal (Set)
 Effect/Name/AnubarakLocustSwarm@ImpactSet=Impact Set
 Effect/Name/AnubarakLocustSwarm@KillBugSet=Kill Bug Set
 Effect/Name/AnubarakLocustSwarm@LaunchMissile=Launch Missile
@@ -4818,15 +4827,12 @@ Effect/Name/AzmodanCydaeasKiss@HealSet=Heal (Set)
 Effect/Name/AzmodanDemonGruntWeapon@Damage=Damage
 Effect/Name/AzmodanDemonGruntWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/AzmodanDemonGruntWeapon@DamageSet=Damage (Set)
-Effect/Name/AzmodanDemonGruntWeapon@Switch=Switch
 Effect/Name/AzmodanDemonLieutenant@PortalDummySet=Portal Dummy Set
 Effect/Name/AzmodanDemonLieutenantWeapon@Damage=Damage
 Effect/Name/AzmodanDemonLieutenantWeapon@ImpactSet=Impact Set
-Effect/Name/AzmodanDemonLieutenantWeapon@ImpactSwitch=Impact Switch
 Effect/Name/AzmodanDemonWarriorWeapon@Damage=Damage
 Effect/Name/AzmodanDemonWarriorWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/AzmodanDemonWarriorWeapon@DamageSet=Damage (Set)
-Effect/Name/AzmodanDemonWarriorWeapon@ImpactSwitch=Impact Switch
 Effect/Name/AzmodanDemonicInvasion@ApplyExplosionController=Apply Explosion Controller
 Effect/Name/AzmodanDemonicInvasion@CreateUnit=Create Unit
 Effect/Name/AzmodanDemonicInvasion@DamageDelayPersistent=Damage Delay Persistent
@@ -4946,10 +4952,10 @@ Effect/Name/AzmodanTrample@Search=Search
 Effect/Name/AzmodanTrample@SpeedBuffDelay=Speed Buff Delay
 Effect/Name/AzmodanWeapon@Damage=Damage
 Effect/Name/AzmodanWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/AzmodanWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/AzmodanWeapon@DamageSet=Damage (Set)
 Effect/Name/AzmodanWeapon@ImpactSet=Impact Set
 Effect/Name/AzmodanWeapon@ImpactSetNonHero=Impact Set
-Effect/Name/AzmodanWeapon@ImpactSwitch=Impact Switch
 Effect/Name/AzmodanWeapon@LaunchMissile=Launch Missile
 Effect/Name/AzmodanWeapon@LaunchMissileBombardment=Launch Missile (Bombardment)
 Effect/Name/AzmodanWeapon@LaunchMissileSet=Launch Missile Set
@@ -5023,6 +5029,7 @@ Effect/Name/BrightwingCalmingMist@RemoveBehavior=Remove Behavior
 Effect/Name/BrightwingCalmingMist@SearchArea=Search Area
 Effect/Name/BrightwingCalmingMist@SearchPersistent=Search Persistent
 Effect/Name/BrightwingCriticalMist@HealCritStatusIncrement=Heal (Crit Status Increment)
+Effect/Name/BrightwingCriticalMist@HealCritStatusLocal=Heal (Crit Status Local)
 Effect/Name/BrightwingCriticalMist@HealMU=Heal (MU)
 Effect/Name/BrightwingCriticalMist@HealSet=Heal (Set)
 Effect/Name/BrightwingCritterize@ApplyArmorReduction=Apply Armor Reduction
@@ -5142,6 +5149,8 @@ Effect/Name/BrightwingUnstableAnomaly=Modification
 Effect/Name/BrightwingUnstableAnomaly@Damage=Damage
 Effect/Name/BrightwingUnstableAnomaly@SearchArea=Search Area
 Effect/Name/BrightwingWeapon@Damage=Damage
+Effect/Name/BrightwingWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/BrightwingWeapon@DamageSet=Damage (Set)
 Effect/Name/BrightwingWeapon@ImpactSet=Impact Set
 Effect/Name/BrightwingWeapon@InitialSet=Initial Set
 Effect/Name/BrightwingWeapon@LaunchMissile=Launch Missile
@@ -5213,6 +5222,7 @@ Effect/Name/DeltaCleanShot@AnimationSwitch=Animation (Switch)
 Effect/Name/DeltaCleanShot@CreatePersistent=Create Persistent
 Effect/Name/DeltaCleanShot@Damage=Damage
 Effect/Name/DeltaCleanShot@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/DeltaCleanShot@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/DeltaCleanShot@DamageSet=Damage (Set)
 Effect/Name/DeltaCleanShot@GaussBonusCooldownMU=Gauss Bonus (Cooldown MU)
 Effect/Name/DeltaCleanShot@GaussBonusCooldownPersistent=Gauss Bonus (Cooldown Persitent)
@@ -5367,6 +5377,7 @@ Effect/Name/DeltaNuclearStrike@ApplySuccessBehavior=Apply Success Behavior
 Effect/Name/DeltaNuclearStrike@ChannelPersistent=Channel Persistent
 Effect/Name/DeltaNuclearStrike@Damage=Damage
 Effect/Name/DeltaNuclearStrike@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/DeltaNuclearStrike@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/DeltaNuclearStrike@DamageSet=Damage (Set)
 Effect/Name/DeltaNuclearStrike@ExpirePersistent=Expire Persistent
 Effect/Name/DeltaNuclearStrike@Search=Search
@@ -5615,6 +5626,8 @@ Effect/Name/ETCStageDive@ApplySlowBehavior=Apply Slow Behavior
 Effect/Name/ETCStageDive@ChannelApplyBehavior=Channel (Apply Behavior)
 Effect/Name/ETCStageDive@ChannelRemoveBehavior=Channel (Remove Behavior)
 Effect/Name/ETCStageDive@Damage=Damage
+Effect/Name/ETCStageDive@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/ETCStageDive@DamageSet=Damage (Set)
 Effect/Name/ETCStageDive@FinalSet=Final Set
 Effect/Name/ETCStageDive@ImpactSet=Impact Set
 Effect/Name/ETCStageDive@InitialSet=Initial Set
@@ -5631,12 +5644,10 @@ Effect/Name/ETCTourBus@RefreshChannelBar=Refresh Channel Bar
 Effect/Name/ETCTourBus@RemoveAbilityEnabler=Remove Ability Enabler
 Effect/Name/ETCWeapon@Damage=Damage
 Effect/Name/ETCWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
-Effect/Name/ETCWeapon@DamageInheritSet=Damage (Inherit Set)
+Effect/Name/ETCWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
+Effect/Name/ETCWeapon@DamageLeechLocal=Damage (Leech Local)
 Effect/Name/ETCWeapon@DamageSet=Damage (Set)
 Effect/Name/ETCWeapon@InitialSet=Initial Set
-Effect/Name/ETCWeapon@LeechCritStatusIncrement=Leech (Crit Status Increment)
-Effect/Name/ETCWeapon@LeechModifyUnit=Leech (Modify Unit)
-Effect/Name/ETCWeapon@LeechSet=Leech (Set)
 Effect/Name/ETCWeapon@TalentSet=Talent Set
 Effect/Name/EngulfingDarknessDamage=Engulfing Darkness Damage
 Effect/Name/ExperienceAcquiredMinions=Experience Acquired Minions
@@ -6034,7 +6045,7 @@ Effect/Name/HeroAbathurProlificDispersal@Modification=Modification
 Effect/Name/HeroAbathurReinforcedCarapace@Modification=Modification
 Effect/Name/HeroAbathurSomaTransference@CreateHealer=Create Healer
 Effect/Name/HeroAbathurSomaTransference@CreateHealerCritStatusIncrement=Create Healer (Crit Status Increment)
-Effect/Name/HeroAbathurSomaTransference@HealSet=Heal Set
+Effect/Name/HeroAbathurSomaTransference@HealSet=Heal (Set)
 Effect/Name/HeroAbathurSpatialEfficiency@Modification=Modification
 Effect/Name/HeroAbathurSpikeBurst@CastSearch=Cast Search
 Effect/Name/HeroAbathurSpikeBurst@Damage=Damage
@@ -6111,20 +6122,17 @@ Effect/Name/HeroAbathurVileNest@ApplySlowBehavior=Apply Slow Behavior
 Effect/Name/HeroAbathurVolatileMutation@ApplyVolatileMutation=Apply Volatile Mutation
 Effect/Name/HeroAbathurVolatileMutation@Damage=Damage
 Effect/Name/HeroAbathurVolatileMutation@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroAbathurVolatileMutation@DamageLocalLeech=Damage (Local Leech)
 Effect/Name/HeroAbathurVolatileMutation@DamageSet=Damage Set
 Effect/Name/HeroAbathurVolatileMutation@ExplosionSearch=Explosion Search
 Effect/Name/HeroAbathurVolatileMutation@FinalExplosionSearch=Final Explosion Search
-Effect/Name/HeroAbathurVolatileMutation@Leech=Leech
 Effect/Name/HeroAbathurWeapon@Damage=Damage
 Effect/Name/HeroAbathurWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
-Effect/Name/HeroAbathurWeapon@DamageSet=Damage Set
+Effect/Name/HeroAbathurWeapon@DamageSet=Damage (Set)
 Effect/Name/HeroAbathurWeaponEvolveMonstrosity@Damage=Damage
 Effect/Name/HeroAbathurWeaponEvolveMonstrosity@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/HeroAbathurWeaponEvolveMonstrosity@DamageSet=Damage (Set)
-Effect/Name/HeroAbathurWeaponEvolveMonstrosity@MeleeSwitch=Melee Switch
-Effect/Name/HeroAbathurWeaponEvolveMonstrosity@Switch=Switch
 Effect/Name/HeroAbathurWeaponLocustAssault@AttackSet=Attack Set
-Effect/Name/HeroAbathurWeaponLocustAssault@AttackSwitch=Attack Switch
 Effect/Name/HeroAbathurWeaponLocustAssault@CleaveDamage=Cleave Damage
 Effect/Name/HeroAbathurWeaponLocustAssault@CleaveDamageCritStatusIncrement=Cleave Damage (Crit Status Increment)
 Effect/Name/HeroAbathurWeaponLocustAssault@CleaveSearchArea=Cleave Search Area
@@ -6133,19 +6141,16 @@ Effect/Name/HeroAbathurWeaponLocustAssault@DamageCritStatusIncrement=Damage (Cri
 Effect/Name/HeroAbathurWeaponLocustBombard@CloseRangeDamage=Close Range Damage
 Effect/Name/HeroAbathurWeaponLocustBombard@CloseRangeDamageCritStatusIncrement=Close Range Damage (Crit Status Increment)
 Effect/Name/HeroAbathurWeaponLocustBombard@CloseRangeDamageSet=Close Range Damage (Set)
-Effect/Name/HeroAbathurWeaponLocustBombard@CloseRangeDamageSwitch=Close Range Damage Switch
 Effect/Name/HeroAbathurWeaponLocustBombard@CloseRangeLaunchMissile=Close Range Launch Missile
 Effect/Name/HeroAbathurWeaponLocustBombard@Damage=Damage
 Effect/Name/HeroAbathurWeaponLocustBombard@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/HeroAbathurWeaponLocustBombard@DamageSet=Damage (Set)
 Effect/Name/HeroAbathurWeaponLocustBombard@ImpactSearch=Impact Search
 Effect/Name/HeroAbathurWeaponLocustBombard@ImpactSet=Impact Set
-Effect/Name/HeroAbathurWeaponLocustBombard@ImpactSwitch=Impact Switch
 Effect/Name/HeroAbathurWeaponLocustBombard@LaunchMissile=Launch Missile
 Effect/Name/HeroAbathurWeaponLocustNormal@Damage=Damage
 Effect/Name/HeroAbathurWeaponLocustNormal@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/HeroAbathurWeaponLocustNormal@DamageSet=Damage (Set)
-Effect/Name/HeroAbathurWeaponLocustNormal@DamageSwitch=Damage Switch
 Effect/Name/HeroAbathurWeaponLocustNormal@LaunchMissile=Launch Missile
 Effect/Name/HeroArtanis@LevelScalingModification=Level Scaling Modification
 Effect/Name/HeroArtanisBladeDash@ApplyBetweenStrikesBehavior=Apply Between Strikes Behavior
@@ -6205,6 +6210,7 @@ Effect/Name/HeroArtanisPhasePrism@CancelOrder=Cancel Order
 Effect/Name/HeroArtanisPhasePrism@CasterArrivalSet=Caster Arrival Set
 Effect/Name/HeroArtanisPhasePrism@Damage=Damage
 Effect/Name/HeroArtanisPhasePrism@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroArtanisPhasePrism@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroArtanisPhasePrism@DamageImpactSet=Damage Impact Set
 Effect/Name/HeroArtanisPhasePrism@DamageSet=Damage (Set)
 Effect/Name/HeroArtanisPhasePrism@DestroyInitialPersistent=Destroy Initial Persistent
@@ -6236,6 +6242,8 @@ Effect/Name/HeroArtanisPhasePrism@TargetArrivalSetRooted=Target Arrival Set Root
 Effect/Name/HeroArtanisPhasePrism@TargetLaunchMissileSet=Target Launch Missile Set
 Effect/Name/HeroArtanisPhasePrism@TargetLaunchSet=Target Launch Set
 Effect/Name/HeroArtanisPlasmaBurn@Damage=Damage
+Effect/Name/HeroArtanisPlasmaBurn@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroArtanisPlasmaBurn@DamageSet=Damage (Set)
 Effect/Name/HeroArtanisPlasmaBurn@ExplosionDamage=Explosion (Damage)
 Effect/Name/HeroArtanisPlasmaBurn@ExplosionDamageCritStatusIncrement=Explosion (Damage Crit Status Increment)
 Effect/Name/HeroArtanisPlasmaBurn@ExplosionDamageSet=Explosion (Damage Set)
@@ -6339,6 +6347,7 @@ Effect/Name/HeroArtanisTwinBlades@RemoveButtonDummy=Remove Button Dummy
 Effect/Name/HeroArtanisTwinBlades@RemovePrimedBehavior=Remove Primed Behavior
 Effect/Name/HeroArtanisWeapon@Damage=Damage
 Effect/Name/HeroArtanisWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroArtanisWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroArtanisWeapon@DamageSet=Damage (Set)
 Effect/Name/HeroArtanisWeapon@ImpactSet=Impact Set
 Effect/Name/HeroArtanisWeapon@ImpactSwitch=Impact Switch
@@ -6382,6 +6391,8 @@ Effect/Name/HeroArthasDeathlord@TargetDebuffCooldownReduction=Target Debuff (Coo
 Effect/Name/HeroArthasEmbraceDeath=Modification
 Effect/Name/HeroArthasEndlessWinter=Modification
 Effect/Name/HeroArthasEndlessWinter@Damage=Damage
+Effect/Name/HeroArthasEndlessWinter@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroArthasEndlessWinter@DamageSet=Damage (Set)
 Effect/Name/HeroArthasFrostPresence@ConditionalReward1=Conditional Reward 1
 Effect/Name/HeroArthasFrostPresence@ConditionalReward2=Conditional Reward 2
 Effect/Name/HeroArthasFrostPresence@IncreaseToken=Increase Token
@@ -6392,10 +6403,10 @@ Effect/Name/HeroArthasFrostmourneHungers@ApplySlow=Apply Slow
 Effect/Name/HeroArthasFrostmourneHungers@AttackSet=Attack Set
 Effect/Name/HeroArthasFrostmourneHungers@ChangeIcon=Change Icon
 Effect/Name/HeroArthasFrostmourneHungers@Damage=Damage
-Effect/Name/HeroArthasFrostmourneHungers@Heal=Heal
-Effect/Name/HeroArthasFrostmourneHungers@HealSet=Heal Set
+Effect/Name/HeroArthasFrostmourneHungers@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroArthasFrostmourneHungers@DamageLeechLocal=Damage (Leech Local)
+Effect/Name/HeroArthasFrostmourneHungers@DamageSet=Damage (Set)
 Effect/Name/HeroArthasFrostmourneHungers@InitialSet=Initial Set
-Effect/Name/HeroArthasFrostmourneHungers@MissingImpactSet=Missing Impact Set
 Effect/Name/HeroArthasFrostmourneHungers@RemovePrimedBehavior=Remove Primed Behavior
 Effect/Name/HeroArthasFrostmourneHungers@SetCooldown=Set Cooldown
 Effect/Name/HeroArthasFrostmourneHungers@WeaponResetModifyUnit=Weapon Reset (Modify Unit)
@@ -6406,7 +6417,9 @@ Effect/Name/HeroArthasFrozenTempest@AddTrackedUnit=Add Tracked Unit
 Effect/Name/HeroArthasFrozenTempest@ApplySlow=Apply Slow
 Effect/Name/HeroArthasFrozenTempest@ApplyTargetDummyTimer=Apply Target Dummy Timer
 Effect/Name/HeroArthasFrozenTempest@Damage=Damage
-Effect/Name/HeroArthasFrozenTempest@DamageInheritSet=Damage Inherit Set
+Effect/Name/HeroArthasFrozenTempest@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroArthasFrozenTempest@DamageLeechLocal=Damage (Leech Local)
+Effect/Name/HeroArthasFrozenTempest@DamageSet=Damage (Set)
 Effect/Name/HeroArthasFrozenTempest@DummySet=Dummy Set
 Effect/Name/HeroArthasFrozenTempest@LeechHeal=Leech Heal
 Effect/Name/HeroArthasFrozenTempest@LeechHealSet=Leech Heal (Set)
@@ -6482,10 +6495,7 @@ Effect/Name/HeroArthasUnholyEndurance@ApplyShield=Apply Shield
 Effect/Name/HeroArthasWeapon@Damage=Damage
 Effect/Name/HeroArthasWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/HeroArthasWeapon@DamageSet=Damage (Set)
-Effect/Name/HeroArthasWeapon@DamageSwitch=Damage Switch
 Effect/Name/HeroArthasWeapon@ImpactSet=Impact Set
-Effect/Name/HeroAuriel@DamageVsHeroicTargetParent=Damage Vs Heroic Target Parent
-Effect/Name/HeroAuriel@DamageVsNonHeroicTargetParent=Damage Vs Non Heroic Target Parent
 Effect/Name/HeroAuriel@LevelScalingModification=Level Scaling Modification
 Effect/Name/HeroAurielAngelicFlight@CooldownReduction=Cooldown Reduction
 Effect/Name/HeroAurielAngelicFlight@ShortJumpApply=Short Jump Apply
@@ -6580,6 +6590,7 @@ Effect/Name/HeroAurielIncreasingClarity@ModifyQuestToken=Modify Quest Token
 Effect/Name/HeroAurielIncreasingClarity@QuestIncreaseModification=Quest Increase Modification
 Effect/Name/HeroAurielIncreasingClarity@QuestRewardModification=Quest Reward Modification
 Effect/Name/HeroAurielIncreasingClarity@TargetArtDummy=Target Art Dummy
+Effect/Name/HeroAurielInnerPeace@HealCritStatusIncrement=Heal (Crit Status Increment)
 Effect/Name/HeroAurielInnerPeace@HealModifyUnit=Heal (Modify Unit)
 Effect/Name/HeroAurielInnerPeace@HealSet=Heal (Set)
 Effect/Name/HeroAurielLightSpeed@ModifyCooldown=Modify Cooldown
@@ -6647,6 +6658,7 @@ Effect/Name/HeroAurielRighteousAssault@SearchPersistent=Search Persistent
 Effect/Name/HeroAurielSacredSweep@ApplyCasterCCMonitorBehavior=Apply Caster CC Monitor Behavior
 Effect/Name/HeroAurielSacredSweep@ApplyMarkerBehavior=Apply Marker Behavior
 Effect/Name/HeroAurielSacredSweep@CenterDamage=Center Damage
+Effect/Name/HeroAurielSacredSweep@CenterDamageCritStatusIncrement=Center Damage (Crit Status Increment)
 Effect/Name/HeroAurielSacredSweep@CenterDamageSet=Center Damage Set
 Effect/Name/HeroAurielSacredSweep@CenterImpactSet=Center Impact Set
 Effect/Name/HeroAurielSacredSweep@CenterSearch=Center Search
@@ -6759,9 +6771,9 @@ Effect/Name/HeroDiabloFireStomp@MissilePathFinishSet=Missile Path Finish Set
 Effect/Name/HeroDiabloFireStomp@ReturnApplySearchBehavior=Apply Search Behavior
 Effect/Name/HeroDiabloFireStomp@ReturnCreatePersistent=Return Create Persistent
 Effect/Name/HeroDiabloFireStomp@ReturnDamage=Return Damage
-Effect/Name/HeroDiabloFireStomp@ReturnDamageInheritSet=Return Damage (Inherit Set)
-Effect/Name/HeroDiabloFireStomp@ReturnDamageLeechHealSet=Return Damage Leech (Heal Set)
-Effect/Name/HeroDiabloFireStomp@ReturnDamageLeechModifyUnit=Return Damage Leech (Modify Unit)
+Effect/Name/HeroDiabloFireStomp@ReturnDamageCritStatus=Return Damage (Crit Status)
+Effect/Name/HeroDiabloFireStomp@ReturnDamageLeechLocal=Return Damage (Leech Local)
+Effect/Name/HeroDiabloFireStomp@ReturnDamageSet=Return Damage (Set)
 Effect/Name/HeroDiabloFireStomp@ReturnDummyFinishSet=Return Dummy Finish Set
 Effect/Name/HeroDiabloFireStomp@ReturnImpactSet=Return Impact Set
 Effect/Name/HeroDiabloFireStomp@ReturnLaunchMissile=Return Launch Missile
@@ -6769,10 +6781,9 @@ Effect/Name/HeroDiabloFireStomp@ReturnMissilePause=Return Missile Pause
 Effect/Name/HeroDiabloFireStomp@ReturnSearch=Return Search
 Effect/Name/HeroDiabloFireStomp@Search=Search
 Effect/Name/HeroDiabloFireStomp@StartDamage=Start Damage
-Effect/Name/HeroDiabloFireStomp@StartDamageInheritSet=Start Damage (Inherit Set)
-Effect/Name/HeroDiabloFireStomp@StartDamageLeechCritStatusIncrement=Start Damage Leech (Crit Status Increment)
-Effect/Name/HeroDiabloFireStomp@StartDamageLeechHealSet=Start Damage Leech (Heal Set)
-Effect/Name/HeroDiabloFireStomp@StartDamageLeechModifyUnit=Start Damage Leech (Modify Unit)
+Effect/Name/HeroDiabloFireStomp@StartDamageCritStatusIncrement=Start Damage (Crit Status Increment)
+Effect/Name/HeroDiabloFireStomp@StartDamageLeechLocal=Start Damage (Leech Local)
+Effect/Name/HeroDiabloFireStomp@StartDamageSet=Start Damage Set
 Effect/Name/HeroDiabloFireStomp@StartImpactSet=Start Impact Set
 Effect/Name/HeroDiabloFireStomp@StartMissileLaunch=Start Missile Launch
 Effect/Name/HeroDiabloFireStomp@TalentImpactSet=Talent Impact Set
@@ -6796,6 +6807,7 @@ Effect/Name/HeroDiabloHellgate@TeleportSet=Teleport Set
 Effect/Name/HeroDiabloHellstorm@Modification=Modification
 Effect/Name/HeroDiabloLifeLeech@ApplyStackCount=Apply Stack Count
 Effect/Name/HeroDiabloLifeLeech@HealCritStatusIncrement=Heal (Crit Status Increment)
+Effect/Name/HeroDiabloLifeLeech@HealCritStatusIncrementLocal=Heal (Crit Status Increment Local)
 Effect/Name/HeroDiabloLifeLeech@HealModifyUnit=Heal (Modify Unit)
 Effect/Name/HeroDiabloLifeLeech@HealSet=Heal (Set)
 Effect/Name/HeroDiabloLifeLeech@QuestTokenSwitch=Quest Token Switch
@@ -6816,14 +6828,13 @@ Effect/Name/HeroDiabloLightningBreath@SearchOffset=Search Offset
 Effect/Name/HeroDiabloLightningBreath@SetCancelCooldown=Set Cancel Cooldown
 Effect/Name/HeroDiabloLordOfTerror@ApplyDoT=Apply DoT
 Effect/Name/HeroDiabloLordOfTerror@Damage=Damage
+Effect/Name/HeroDiabloLordOfTerror@DamageLeechLocal=Damage (Leech Local)
+Effect/Name/HeroDiabloLordOfTerror@DamageSet=Damage (Set)
 Effect/Name/HeroDiabloLordOfTerror@DoTDamage=DoT Damage
+Effect/Name/HeroDiabloLordOfTerror@DoTDamageLeechLocal=DoT Damage (Leech Local)
+Effect/Name/HeroDiabloLordOfTerror@DoTDamageSet=DoT Damage (Set)
 Effect/Name/HeroDiabloLordOfTerror@DoTImpactSet=DoT Impact Set
-Effect/Name/HeroDiabloLordOfTerror@DoTLeechMU=DoT Leech MU
-Effect/Name/HeroDiabloLordOfTerror@DoTLeechSet=DoT Leech Set
 Effect/Name/HeroDiabloLordOfTerror@ImpactSet=Impact Set
-Effect/Name/HeroDiabloLordOfTerror@Leech=Leech
-Effect/Name/HeroDiabloLordOfTerror@LeechHealSet=Leech Heal Set
-Effect/Name/HeroDiabloLordOfTerror@PercentDamageInheritSet=Percent Damage Inherit Set
 Effect/Name/HeroDiabloLordOfTerror@Search=Search
 Effect/Name/HeroDiabloMalevolence@ApplyStack=Apply Stack
 Effect/Name/HeroDiabloMalevolence@BasicAttackSet=Basic Attack Set
@@ -6904,6 +6915,8 @@ Effect/Name/HeroDiabloShadowCharge@KnockbackPathingTerrainSetCheckBigHero=Knockb
 Effect/Name/HeroDiabloShadowCharge@KnockbackPathingTerrainSetCheckSmallHero=Knockback (Pathing Terrain Set Check Small Hero)
 Effect/Name/HeroDiabloShadowCharge@KnockbackRemoveTargetMovespeedBehavior=Knockback (Remove Target Movespeed Behavior)
 Effect/Name/HeroDiabloShadowCharge@KnockbackTerrainDamage=Knockback (Terrain Damage)
+Effect/Name/HeroDiabloShadowCharge@KnockbackTerrainDamageCritStatusIncrement=Knockback (Terrain Damage Crit Status Increment)
+Effect/Name/HeroDiabloShadowCharge@KnockbackTerrainDamageSet=Knockback (Terrain Damage Set)
 Effect/Name/HeroDiabloShadowCharge@KnockbackTerrainImpactSet=Knockback (Terrain Impact Set)
 Effect/Name/HeroDiabloShadowCharge@KnockbackTerrainTalentImpactSet=Knockback (Terrain Talent Impact Set)
 Effect/Name/HeroDiabloShadowCharge@LaunchDiablo=Launch Diablo
@@ -6930,6 +6943,8 @@ Effect/Name/HeroDiabloShadowCharge@StructureTargetLaunchMissileFinishSet=Structu
 Effect/Name/HeroDiabloShadowCharge@TargetImpactedApplyBehavior=Target Impacted Apply Behavior
 Effect/Name/HeroDiabloShadowCharge@TargetRedirectMissile=Target Redirect Missile
 Effect/Name/HeroDiabloShadowCharge@UnitImpactDamage=Unit Impact Damage
+Effect/Name/HeroDiabloShadowCharge@UnitImpactDamageCritStatusIncrement=Unit Impact Damage (Crit Status Increment)
+Effect/Name/HeroDiabloShadowCharge@UnitImpactDamageSet=Unit Impact Damage (Set)
 Effect/Name/HeroDiabloShadowCharge@UnitImpactSwitch=Unit Impact Switch
 Effect/Name/HeroDiabloShadowCharge@UnitStructureSwitch=Unit Structure Switch
 Effect/Name/HeroDiabloShadowCharge@UnpathableReLaunchDelayPersistent=Unpathable ReLaunch Delay Persistent
@@ -6990,6 +7005,7 @@ Effect/Name/HeroFalstadBOOMerang@ApplyControllerBehavior=Apply Controller Behavi
 Effect/Name/HeroFalstadBOOMerang@CreateExplosionPersistent=Create Explosion Persistent
 Effect/Name/HeroFalstadBOOMerang@Damage=Damage
 Effect/Name/HeroFalstadBOOMerang@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroFalstadBOOMerang@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroFalstadBOOMerang@DamageSet=Damage (Set)
 Effect/Name/HeroFalstadBOOMerang@ExplosionSearch=Explosion Search
 Effect/Name/HeroFalstadBOOMerang@ImpactSet=Impact Set
@@ -7156,14 +7172,11 @@ Effect/Name/HeroFalstadUpdraft=Modification
 Effect/Name/HeroFalstadUpdraft@ApplyShieldBehavior=Apply Shield Behavior
 Effect/Name/HeroFalstadWeapon@Damage=Damage
 Effect/Name/HeroFalstadWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroFalstadWeapon@DamageLeechLocal=Damage (Leech Local)
 Effect/Name/HeroFalstadWeapon@DamageSet=Damage (Set)
 Effect/Name/HeroFalstadWeapon@ImpactSet=Impact Set
-Effect/Name/HeroFalstadWeapon@InheritSet=Damage (Inherit Set)
 Effect/Name/HeroFalstadWeapon@LaunchMissile=Launch Missile
 Effect/Name/HeroFalstadWeapon@LaunchMissileSet=Launch Missile Set
-Effect/Name/HeroFalstadWeapon@LeechCritStatusIncrement=Leech (Crit Status Increment)
-Effect/Name/HeroFalstadWeapon@LeechHeal=Leech (Heal)
-Effect/Name/HeroFalstadWeapon@LeechSet=Leech (Set)
 Effect/Name/HeroFalstadWindTunnel=Modification
 Effect/Name/HeroFalstadWindTunnel@ApplyKnockbackBehavior=Apply Knockback Behavior
 Effect/Name/HeroFalstadWindTunnel@ApplyMissileScanDelay=Apply Missile Scan Delay
@@ -7200,25 +7213,20 @@ Effect/Name/HeroGenericCleanseRemoveCCBehaviorCategoriesExpandedCaster=Cleanse R
 Effect/Name/HeroGenericCleanseRemoveCCBehaviorCategoriesExpandedTarget=Cleanse Remove CC Behavior Categories Expanded Target
 Effect/Name/HeroGenericCleanseRemoveCCBehaviorCategoriesTarget=Cleanse Remove CC Behavior Categories Target
 Effect/Name/HeroGenericCloakUnrevealableInitialSet=Hero Generic - Cloak Unrevealable Initial Set
-Effect/Name/HeroGenericCollisionRadius@AddTrackedUnit=Add Tracked Unit
-Effect/Name/HeroGenericCollisionRadius@ApplyForce=Apply Force
-Effect/Name/HeroGenericCollisionRadius@ApplyForce2=Apply Force Copy
-Effect/Name/HeroGenericCollisionRadius@ApplyPushBehavior=Apply Push Behavior
-Effect/Name/HeroGenericCollisionRadius@ApplyPushSpeed=Apply Push Speed
-Effect/Name/HeroGenericCollisionRadius@DummySet=Dummy Set
-Effect/Name/HeroGenericCollisionRadius@EnumTrackedUnits=Enum Tracked Units
-Effect/Name/HeroGenericCollisionRadius@ImpactSet=Impact Set
-Effect/Name/HeroGenericCollisionRadius@InitialSet=Initial Set
-Effect/Name/HeroGenericCollisionRadius@Search=Search
 Effect/Name/HeroGenericCriticalController=Hero Generic - Critical Controller
 Effect/Name/HeroGenericCriticalIncrementParent=Hero Generic - Critical Increment Parent
 Effect/Name/HeroGenericCriticalIncrementer=Hero Generic - Critical Incrementer
 Effect/Name/HeroGenericCriticalStatusIncrementer2=Hero Generic - Critical Status Incrementer Copy
 Effect/Name/HeroGenericCriticalStatusIncrementerCaster=Storm - Critical Status Incrementer (Caster)
 Effect/Name/HeroGenericDamageInheritSetPhysical=Hero Generic - Damage Inherit Set (Physical)
-Effect/Name/HeroGenericDamageInheritSetPhysicalNoLeech=Hero Generic - Damage Inherit Set (Physical) No Leech
+Effect/Name/HeroGenericDamageInheritSetPhysicalBasicAttack=Hero Generic - Damage Inherit Set (Physical) Basic Attack
+Effect/Name/HeroGenericDamageInheritSetPhysicalDoT=Hero Generic - Damage Inherit Set (Physical) DoT
+Effect/Name/HeroGenericDamageInheritSetPure=Hero Generic - Damage Inherit Set (Pure)
+Effect/Name/HeroGenericDamageInheritSetPureBasicAttack=Hero Generic - Damage Inherit Set (Pure) Basic Attack
+Effect/Name/HeroGenericDamageInheritSetPureDoT=Hero Generic - Damage Inherit Set (Pure) DoT
 Effect/Name/HeroGenericDamageInheritSetSpell=Hero Generic - Damage Inherit Set (Spell)
-Effect/Name/HeroGenericDamageInheritSetSpellNoLeech=Hero Generic - Damage Inherit Set (Spell) No Leech
+Effect/Name/HeroGenericDamageInheritSetSpellBasicAttack=Hero Generic - Damage Inherit Set (Spell) Basic Attack
+Effect/Name/HeroGenericDamageInheritSetSpellDoT=Hero Generic - Damage Inherit Set (Spell) DoT
 Effect/Name/HeroGenericDisabler@DummyDamage=Dummy Damage
 Effect/Name/HeroGenericDummyAbilityImpactSet=Hero Generic - Dummy Ability Impact Set
 Effect/Name/HeroGenericDummyAbilityandWakeupImpactSet=Hero Generic - Dummy Ability and Wake up Impact Set
@@ -7259,6 +7267,12 @@ Effect/Name/HeroGenericHearthstone@Mana=Mana
 Effect/Name/HeroGenericHearthstone@PrepSet=Prep Set
 Effect/Name/HeroGenericHearthstone@SpecialCaseSwitch=Special Case Switch
 Effect/Name/HeroGenericHearthstone@TeleportSet=Teleport Set
+Effect/Name/HeroGenericLocalCritStatusAlwaysTrue=Hero Generic - Local Crit Status (Always True)
+Effect/Name/HeroGenericLocalCritStatusIncrementPhysical=Hero Generic - Local Crit Status (Increment Physical)
+Effect/Name/HeroGenericLocalCritStatusIncrementPure=Hero Generic - Local Crit Status (Increment Pure)
+Effect/Name/HeroGenericLocalCritStatusIncrementSpell=Hero Generic - Local Crit Status (Increment Spell)
+Effect/Name/HeroGenericLocalCritStatusReset=Hero Generic - Local Crit Status (Reset)
+Effect/Name/HeroGenericLocalLeechReset=Hero Generic - Local Leech (Reset)
 Effect/Name/HeroGenericMissileInterruptLaunchMissile=Missile Interrupt Launch Missile
 Effect/Name/HeroGenericMissileInterruptLaunchMissileDelay=Missile Interrupt Launch Missile Delay
 Effect/Name/HeroGenericMissileInterruptLaunchMissileDelaySource=Missile Interrupt Launch Missile Delay Source
@@ -7356,11 +7370,24 @@ Effect/Name/HeroGenericPhysicalLeechCreateHealerCasterParent=Hero Generic - Phys
 Effect/Name/HeroGenericPhysicalLeechCreateHealerCasterParent2=Hero Generic - Physical Leech (Create Healer Caster Parent) Copy
 Effect/Name/HeroGenericPhysicalLeechCreateHealerTargetParent=Hero Generic - Physical Leech (Create Healer Target Parent)
 Effect/Name/HeroGenericPhysicalLeechCritStatusIncrement=Hero Generic - Physical Leech (Crit Status Increment)
+Effect/Name/HeroGenericPhysicalLeechCritStatusIncrementSummoner=Hero Generic - Physical Leech (Crit Status Increment Summoner)
 Effect/Name/HeroGenericPhysicalLeechHeal=Hero Generic - Physical Leech (Heal)
+Effect/Name/HeroGenericPhysicalLeechHealGetSummonerUnit=Hero Generic - Physical Leech (Heal Get Summoner Unit)
 Effect/Name/HeroGenericPhysicalLeechHealSet=Hero Generic - Physical Leech (Heal Set)
+Effect/Name/HeroGenericPhysicalLeechHealSetSummoner=Hero Generic - Physical Leech (Heal Set Summoner)
+Effect/Name/HeroGenericPhysicalLeechHealSummoner=Hero Generic - Physical Leech (Heal Summoner)
+Effect/Name/HeroGenericPhysicalLeechHealSummonerSwitch=Hero Generic - Physical Leech (Heal Summoner Switch)
 Effect/Name/HeroGenericPostTeleportApplyImmuneToDisplacement=Hero Generic - Post Teleport (Apply Immune To Displacement)
 Effect/Name/HeroGenericPostTeleportSet=Hero Generic - Post Teleport (Set)
 Effect/Name/HeroGenericProtectHandledSet=Hero Generic - Protect Handled Set
+Effect/Name/HeroGenericPureLeechCritStatusIncrement=Hero Generic - Pure Leech (Crit Status Increment)
+Effect/Name/HeroGenericPureLeechCritStatusIncrementSummoner=Hero Generic - Pure Leech (Crit Status Increment Summoner)
+Effect/Name/HeroGenericPureLeechHeal=Hero Generic - Pure Leech (Heal)
+Effect/Name/HeroGenericPureLeechHealGetSummonerUnit=Hero Generic - Pure Leech (Heal Get Summoner Unit)
+Effect/Name/HeroGenericPureLeechHealSet=Hero Generic - Pure Leech (Heal Set)
+Effect/Name/HeroGenericPureLeechHealSetSummoner=Hero Generic - Pure Leech (Heal Set Summoner)
+Effect/Name/HeroGenericPureLeechHealSummoner=Hero Generic - Pure Leech (Heal Summoner)
+Effect/Name/HeroGenericPureLeechHealSummonerSwitch=Hero Generic - Pure Leech (Heal Summoner Switch)
 Effect/Name/HeroGenericRedirectMissileCaster=Hero Generic - Redirect Missile (Caster)
 Effect/Name/HeroGenericRedirectMissileSource=Hero Generic - Redirect Missile (Source)
 Effect/Name/HeroGenericRedirectMissileTarget=Hero Generic - Redirect Missile (Target)
@@ -7587,7 +7614,6 @@ Effect/Name/HeroJainaWaterElementalWeapon@DamageSwitch=Damage Switch
 Effect/Name/HeroJainaWaterElementalWeapon@ImpactSet=Impact Set
 Effect/Name/HeroJainaWaterElementalWeapon@ImpactSplashSearch=Impact Splash Search
 Effect/Name/HeroJainaWaterElementalWeapon@ImpactSplashSet=Impact Splash Set
-Effect/Name/HeroJainaWaterElementalWeapon@ImpactSwitch=Impact Switch
 Effect/Name/HeroJainaWaterElementalWeapon@LaunchMissile=Launch Missile
 Effect/Name/HeroJainaWaterElementalWeapon@SplashDamage=Splash Damage
 Effect/Name/HeroJainaWaterElementalWeapon@SplashDamageChilled=Splash Damage Chilled
@@ -7665,6 +7691,7 @@ Effect/Name/HeroMalfurionLunarShower@ModifyCooldown=Modify Cooldown
 Effect/Name/HeroMalfurionMoonfire@AreaRevealPersistent=Area Reveal Persistent
 Effect/Name/HeroMalfurionMoonfire@Damage=Damage
 Effect/Name/HeroMalfurionMoonfire@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroMalfurionMoonfire@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroMalfurionMoonfire@DamageSet=Damage (Set)
 Effect/Name/HeroMalfurionMoonfire@ImpactSet=Impact Set
 Effect/Name/HeroMalfurionMoonfire@InitialSet=Initial Set
@@ -7672,7 +7699,8 @@ Effect/Name/HeroMalfurionMoonfire@RegrowthEnumerateTrackedUnits=Regrowth Enumera
 Effect/Name/HeroMalfurionMoonfire@RegrowthEnumerateTrackedUnitsSet=Regrowth Enumerate Tracked Units Set
 Effect/Name/HeroMalfurionMoonfire@RegrowthImpactHeal=Regrowth Impact Heal
 Effect/Name/HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement=Regrowth Impact Heal (Crit Status Increment)
-Effect/Name/HeroMalfurionMoonfire@RegrowthImpactHealSet=Regrowth Impact Heal Set
+Effect/Name/HeroMalfurionMoonfire@RegrowthImpactHealCritStatusLocal=Regrowth Impact Heal (Crit Status Local)
+Effect/Name/HeroMalfurionMoonfire@RegrowthImpactHealSet=Regrowth Impact Heal (Set)
 Effect/Name/HeroMalfurionMoonfire@RevealBehavior=Reveal Behavior
 Effect/Name/HeroMalfurionMoonfire@Search=Search
 Effect/Name/HeroMalfurionNaturesBalance=Modification
@@ -7692,6 +7720,7 @@ Effect/Name/HeroMalfurionRegrowth@ApplyBehavior=Apply Behavior
 Effect/Name/HeroMalfurionRegrowth@BehaviorSwitch=Behavior Switch
 Effect/Name/HeroMalfurionRegrowth@Heal=Heal
 Effect/Name/HeroMalfurionRegrowth@HealCritStatusIncrement=Heal (Crit Status Increment)
+Effect/Name/HeroMalfurionRegrowth@HealCritStatusLocal=Heal (Crit Status Local)
 Effect/Name/HeroMalfurionRegrowth@HealDisplayer=Heal (Display)
 Effect/Name/HeroMalfurionRegrowth@HealSet=Heal Set
 Effect/Name/HeroMalfurionRegrowth@InitialHealCritStatusIncrement=Initial Heal (Crit Status Increment)
@@ -7737,7 +7766,6 @@ Effect/Name/HeroMalfurionTranquility@PeriodicSet=Periodic Set
 Effect/Name/HeroMalfurionTranquility@RemoveBehavior=Remove Behavior
 Effect/Name/HeroMalfurionTranquility@Search=Search
 Effect/Name/HeroMalfurionTranquility@SearchImpactSet=Search Impact Set
-Effect/Name/HeroMalfurionTreant@SummonedBasicAttackAbilityDamageMissCheck=Summoned Basic Attack Ability Damage Miss Check
 Effect/Name/HeroMalfurionTreant@WeaponDamage=Weapon Damage
 Effect/Name/HeroMalfurionTreant@WeaponDamageCritStatusIncrement=Weapon Damage (Crit Status Increment)
 Effect/Name/HeroMalfurionTreant@WeaponInitialSet=Initial Set
@@ -7780,22 +7808,13 @@ Effect/Name/HeroRagnarosBlisteringAttacks@CDRTriggerDummy=CDR Trigger Dummy
 Effect/Name/HeroRagnarosCatchingFire@ApplyArmorBehavior=Apply Armor Behavior
 Effect/Name/HeroRagnarosCatchingFire@DeltaEvent1Modification=Delta Event 1 Modification
 Effect/Name/HeroRagnarosCatchingFire@IncreaseToken=Increase Token
-Effect/Name/HeroRagnarosCauterizeWounds@AddHealDisplay=Add Heal Display
 Effect/Name/HeroRagnarosCauterizeWounds@ApplyBehavior=Apply Behavior
-Effect/Name/HeroRagnarosCauterizeWounds@ApplyHoTDisplay=Apply HoT Display
-Effect/Name/HeroRagnarosCauterizeWounds@CastSet=Cast Set 
-Effect/Name/HeroRagnarosCauterizeWounds@HealHoTDisplay=Heal (HoT Display)
 Effect/Name/HeroRagnarosCauterizeWounds@HealModifyUnit=Heal (Modify Unit)
-Effect/Name/HeroRagnarosCauterizeWounds@PeriodicSet=Periodic Set
-Effect/Name/HeroRagnarosCauterizeWounds@ResetHealDisplay=Reset Heal Display
-Effect/Name/HeroRagnarosCauterizeWounds@SubtractHealDisplay=Subtract Heal Display
 Effect/Name/HeroRagnarosEmpowerSulfuras@ApplyCasterBehavior=Apply Caster Behavior
 Effect/Name/HeroRagnarosEmpowerSulfuras@CasterBehaviorInitialSet=Caster Behavior Initial Set
 Effect/Name/HeroRagnarosEmpowerSulfuras@Damage=Damage
 Effect/Name/HeroRagnarosEmpowerSulfuras@DamageCritStatusIncrement=Damage (Crit Status Increment)
-Effect/Name/HeroRagnarosEmpowerSulfuras@DamageInheritSet=Damage (Inherit Set)
-Effect/Name/HeroRagnarosEmpowerSulfuras@DamageLeechModifyUnit=Damage Leech (Modify Unit)
-Effect/Name/HeroRagnarosEmpowerSulfuras@DamageLeechSet=Damage Leech (Set)
+Effect/Name/HeroRagnarosEmpowerSulfuras@DamageLocalLeech=Damage (Local Leech)
 Effect/Name/HeroRagnarosEmpowerSulfuras@DamageSet=Damage Set
 Effect/Name/HeroRagnarosEmpowerSulfuras@ImpactSet=Impact Set
 Effect/Name/HeroRagnarosEmpowerSulfuras@RemoveCasterBehavior=Remove Caster Behavior
@@ -7907,6 +7926,7 @@ Effect/Name/HeroRagnarosMeteorBomb@AddInnerRadiusTrackedUnit=Add Inner Radius Tr
 Effect/Name/HeroRagnarosMeteorBomb@ClearInnerRadiusTrackedUnits=Clear Inner Radius Tracked Units
 Effect/Name/HeroRagnarosMeteorBomb@Damage=Damage
 Effect/Name/HeroRagnarosMeteorBomb@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroRagnarosMeteorBomb@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroRagnarosMeteorBomb@DamageSet=Damage (Set)
 Effect/Name/HeroRagnarosMeteorBomb@ImpactSet=Impact Set
 Effect/Name/HeroRagnarosMeteorBomb@InitialSet=Initial Set
@@ -8026,6 +8046,7 @@ Effect/Name/HeroRagnarosSulfurasSmash@SearchSet=Search Set
 Effect/Name/HeroRagnarosSulfurasSmash@TargetPersistent=Target Persistent
 Effect/Name/HeroRagnarosTemperedFlame@ApplyShield=Apply Shield
 Effect/Name/HeroRagnarosWeapon@Damage=Damage
+Effect/Name/HeroRagnarosWeapon@DamageCritStatucLocal=Damage (Crit Status Local)
 Effect/Name/HeroRagnarosWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
 Effect/Name/HeroRagnarosWeapon@DamageSet=Damage (Set)
 Effect/Name/HeroRagnarosWeapon@DamageSwitch=Damage Switch
@@ -8063,6 +8084,7 @@ Effect/Name/HeroSelendisDecisiveBlow@ApplySlow=Apply Slow
 Effect/Name/HeroSelendisDecisiveBlow@Damage=Damage
 Effect/Name/HeroSelendisDecisiveBlow@Damage2=Damage
 Effect/Name/HeroSelendisDecisiveBlow@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroSelendisDecisiveBlow@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroSelendisDecisiveBlow@DamageSet=Damage (Set)
 Effect/Name/HeroSelendisDecisiveBlow@DecayPersistent=Decay Persistent
 Effect/Name/HeroSelendisDecisiveBlow@InitialSet=Initial Set
@@ -8165,12 +8187,14 @@ Effect/Name/HeroSelendisTractorBeam@UserDataLimiter=User Data Limiter
 Effect/Name/HeroSelendisTrialByFire@ApplyDoT=Apply DoT
 Effect/Name/HeroSelendisTrialByFire@Damage=Damage
 Effect/Name/HeroSelendisTrialByFire@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroSelendisTrialByFire@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroSelendisTrialByFire@DamageSet=Damage (Set)
 Effect/Name/HeroSelendisTrialByFire@ImpactSet=Impact Set
 Effect/Name/HeroSelendisUnwaveringResolve@ApplyUnstoppable=Apply Unstoppable
 Effect/Name/HeroSelendisVictoryAgainstAllOdds=Modification
 Effect/Name/HeroSelendisWeapon@Damage=Damage
 Effect/Name/HeroSelendisWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroSelendisWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroSelendisWeapon@DamageSet=Damage (Set)
 Effect/Name/HeroSelendisWeapon@ImpactSet=Impact Set
 Effect/Name/HeroSelendisWeapon@InitialSet=Initial Set
@@ -8328,6 +8352,7 @@ Effect/Name/HeroTalandarSolarBlast@ClearTrackedUnits=Clear Tracked Units
 Effect/Name/HeroTalandarSolarBlast@CreateAbilityDummyTargetUnit=Create Ability Dummy Target Unit
 Effect/Name/HeroTalandarSolarBlast@Damage=Damage
 Effect/Name/HeroTalandarSolarBlast@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroTalandarSolarBlast@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroTalandarSolarBlast@DamageSet=Damage (Set)
 Effect/Name/HeroTalandarSolarBlast@EnumTrackedUnits=Enum Tracked Units
 Effect/Name/HeroTalandarSolarBlast@ImpactSet=Impact Set
@@ -8375,6 +8400,7 @@ Effect/Name/HeroTalandarThunderousCharge@CastSet=Cast Set
 Effect/Name/HeroTalandarThunderousCharge@ClearOrder=Clear Order
 Effect/Name/HeroTalandarThunderousCharge@Damage=Damage
 Effect/Name/HeroTalandarThunderousCharge@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroTalandarThunderousCharge@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroTalandarThunderousCharge@DamageSet=Damage (Set)
 Effect/Name/HeroTalandarThunderousCharge@FinalSet=Final Set
 Effect/Name/HeroTalandarThunderousCharge@ImpactApplyForceLeft=Impact Apply Force Left
@@ -8399,6 +8425,7 @@ Effect/Name/HeroTalandarThunderousCharge@StoreEnergy=Store Energy
 Effect/Name/HeroTalandarUnconquered@ApplyProtected=Apply Protected
 Effect/Name/HeroTalandarWeapon@Damage=Damage
 Effect/Name/HeroTalandarWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/HeroTalandarWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/HeroTalandarWeapon@DamageSet=Damage (Set)
 Effect/Name/HeroTalandarWeapon@ImpactSet=Impact Set
 Effect/Name/HeroTalandarWeaponPraetor@Damage2=Damage
@@ -8515,6 +8542,7 @@ Effect/Name/JohannaCondemn@CasterNotCCedApplyBehavior=Caster Not CCed Apply Beha
 Effect/Name/JohannaCondemn@CreatePersistent=Create Persistent
 Effect/Name/JohannaCondemn@Damage=Damage
 Effect/Name/JohannaCondemn@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/JohannaCondemn@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/JohannaCondemn@DamageSet=Damage (Set)
 Effect/Name/JohannaCondemn@FinalSearchImpactSet=Final Search Impact Set
 Effect/Name/JohannaCondemn@ImpactSet=Impact Set
@@ -8581,6 +8609,7 @@ Effect/Name/JohannaHoldYourGround@ApplyShield=Apply Shield
 Effect/Name/JohannaHolyFury@ApplyStack=Apply Stack
 Effect/Name/JohannaHolyFury@Damage=Damage
 Effect/Name/JohannaHolyFury@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/JohannaHolyFury@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/JohannaHolyFury@DamageSet=Damage (Set)
 Effect/Name/JohannaHolyFury@ImpactSet=Impact Set
 Effect/Name/JohannaHolyFury@Search=Search
@@ -8610,6 +8639,7 @@ Effect/Name/JohannaPunish@ApplyStackingSlowController=Apply Stacking Slow Contro
 Effect/Name/JohannaPunish@ClearTrackedUnits=Clear Tracked Units
 Effect/Name/JohannaPunish@Damage=Damage
 Effect/Name/JohannaPunish@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/JohannaPunish@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/JohannaPunish@DamageSet=Damage (Set)
 Effect/Name/JohannaPunish@EnumTrackedUnits=Enum Tracked Units
 Effect/Name/JohannaPunish@FinalSet=Final Set
@@ -8719,6 +8749,7 @@ Effect/Name/KerriganHero@LevelScalingModification=Level Scaling Modification
 Effect/Name/KerriganImpalingBlades@ApplyStun=Apply Stun
 Effect/Name/KerriganImpalingBlades@Damage=Damage
 Effect/Name/KerriganImpalingBlades@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/KerriganImpalingBlades@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/KerriganImpalingBlades@DamageSet=Damage (Set)
 Effect/Name/KerriganImpalingBlades@ImpactSet=Impact Set
 Effect/Name/KerriganImpalingBlades@InitialCreatePersistent=Initial Create Persistent
@@ -8805,6 +8836,7 @@ Effect/Name/KerriganRavage@CameraShakeSet=Camera Shake Set
 Effect/Name/KerriganRavage@CreatePersistent=Create Persistent
 Effect/Name/KerriganRavage@Damage=Damage
 Effect/Name/KerriganRavage@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/KerriganRavage@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/KerriganRavage@DamageResponseFatalSet=Damage Response (Fatal Set)
 Effect/Name/KerriganRavage@DamageSet=Damage (Set)
 Effect/Name/KerriganRavage@ImpactCreatePersistent=Impact Create Persistent
@@ -8884,11 +8916,9 @@ Effect/Name/KerriganUltraliskWeapon@ImpactSet=Impact Set
 Effect/Name/KerriganUltraliskWeapon@ImpactTalentSet=Impact Talent Set
 Effect/Name/KerriganUltraliskWeapon@SplashDamageSearch=Splash Damage Search
 Effect/Name/KerriganUltraliskWeapon@SplashImpactSet=Splash Impact Set
-Effect/Name/KerriganUltraliskWeapon@SplashSwitch=Splash Switch
 Effect/Name/KerriganUltraliskWeapon@SplashSwitchDamage=Splash Switch Damage
 Effect/Name/KerriganUltraliskWeapon@SplashSwitchDamageCritStatusIncrement=Splash Switch Damage (Crit Status Increment)
 Effect/Name/KerriganUltraliskWeapon@SplashSwitchDamageSet=Splash Switch Damage (Set)
-Effect/Name/KerriganUltraliskWeapon@Switch=Switch
 Effect/Name/KerriganUltraliskWeapon@SwitchDamage=Switch Damage
 Effect/Name/KerriganUltraliskWeapon@SwitchDamageCritStatusIncrement=Switch Damage (Crit Status Increment)
 Effect/Name/KerriganUltraliskWeapon@SwitchDamageSet=Switch Damage (Set)
@@ -8926,6 +8956,7 @@ Effect/Name/KharazimBreathofHeaven@ApplyTargetWillHitMarker=Apply Target Will Hi
 Effect/Name/KharazimBreathofHeaven@CastSearch=Cast Search
 Effect/Name/KharazimBreathofHeaven@Heal=Heal (Modify Unit)
 Effect/Name/KharazimBreathofHeaven@HealCritStatusIncrementer=Heal (Crit Status Incrementer)
+Effect/Name/KharazimBreathofHeaven@HealCritStatusLocal=Heal (Crit Status Local)
 Effect/Name/KharazimBreathofHeaven@HealSet=Heal (Set)
 Effect/Name/KharazimBreathofHeaven@InitialSet=Initial Set
 Effect/Name/KharazimBreathofHeaven@ModifyAttackOnCast=Modify Attack on Cast
@@ -9075,6 +9106,7 @@ Effect/Name/KharazimWeapon@ComboPointsSwitch=Combo Points Switch
 Effect/Name/KharazimWeapon@ComboWeaponSet=Combo Weapon Set
 Effect/Name/KharazimWeapon@Damage=Damage
 Effect/Name/KharazimWeapon@DamageCritStatusEffect=Damage Crit Status Effect
+Effect/Name/KharazimWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/KharazimWeapon@DamageSet=Damage (Set)
 Effect/Name/KharazimWeapon@ImpactSet=Impact Set
 Effect/Name/KharazimWeapon@ModifyAttack=Modify Attack
@@ -9114,6 +9146,7 @@ Effect/Name/LiMingArcaneOrb@ApplyTimeStampBehavior=Apply Time Stamp Behavior
 Effect/Name/LiMingArcaneOrb@CreatePersistent=Create Persistent
 Effect/Name/LiMingArcaneOrb@Damage=Damage
 Effect/Name/LiMingArcaneOrb@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/LiMingArcaneOrb@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/LiMingArcaneOrb@DamageSet=Damage (Set)
 Effect/Name/LiMingArcaneOrb@DestroyScanPersistent=Destroy Scan Persistent
 Effect/Name/LiMingArcaneOrb@DummyGuide=Dummy Guide
@@ -9174,7 +9207,6 @@ Effect/Name/LiMingCannoneer@Damage=Damage
 Effect/Name/LiMingCannoneer@ImpactSet=Impact Set
 Effect/Name/LiMingCannoneer@LaunchMissile=Launch Missile
 Effect/Name/LiMingCannoneer@LaunchSet=Launch Set
-Effect/Name/LiMingCannoneer@MissSwitch=Miss Switch
 Effect/Name/LiMingCannoneer@TrackerAB=Tracker AB
 Effect/Name/LiMingCannoneer@TrackerRB=Tracker RB
 Effect/Name/LiMingCannoneer@TrackerSourceAB=Tracker Source AB
@@ -9487,11 +9519,9 @@ Effect/Name/MuradinBash@RemoveStacks=Remove Stacks
 Effect/Name/MuradinBronzebeardRage@ApplyDamageBoost=Apply Damage Boost
 Effect/Name/MuradinBronzebeardRage@Damage=Damage
 Effect/Name/MuradinBronzebeardRage@DamageCritStatusIncrement=Damage (Crit Status Increment)
-Effect/Name/MuradinBronzebeardRage@DamageInheritSet=Damage (Inherit Set)
+Effect/Name/MuradinBronzebeardRage@DamageCritStatusLocal=Damage (Crit Staus Local)
+Effect/Name/MuradinBronzebeardRage@DamageLeechLocal=Damage (Leech Local)
 Effect/Name/MuradinBronzebeardRage@DamageSet=Damage (Set)
-Effect/Name/MuradinBronzebeardRage@LeechCritStatusIncrement=Leech (Crit Status Increment)
-Effect/Name/MuradinBronzebeardRage@LeechMU=Leech (MU)
-Effect/Name/MuradinBronzebeardRage@LeechSet=Leech (Set)
 Effect/Name/MuradinBronzebeardRage@Search=Search
 Effect/Name/MuradinBronzebeardRage@SearchImpactSet=Search Impact Set
 Effect/Name/MuradinDwarfBlock@ApplyBehavior=Apply Behavior
@@ -9608,6 +9638,7 @@ Effect/Name/MuradinThunderBurn@ApplyUnitTracker=Apply Unit Tracker
 Effect/Name/MuradinThunderBurn@CreatePersistent=Create Persistent
 Effect/Name/MuradinThunderBurn@Damage=Damage
 Effect/Name/MuradinThunderBurn@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/MuradinThunderBurn@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/MuradinThunderBurn@DamageSet=Damage (Set)
 Effect/Name/MuradinThunderBurn@EnumImpactSet=Enum Impact Set
 Effect/Name/MuradinThunderBurn@EnumTrackedUnits=Enum Tracked Units
@@ -9620,6 +9651,7 @@ Effect/Name/MuradinThunderclap@ApplySlowBehavior=Apply Slow Behavior
 Effect/Name/MuradinThunderclap@ApplyUnitTracker=Apply Unit Tracker
 Effect/Name/MuradinThunderclap@Damage=Damage
 Effect/Name/MuradinThunderclap@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/MuradinThunderclap@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/MuradinThunderclap@DamageSet=Damage (Set)
 Effect/Name/MuradinThunderclap@EnumImpactSet=Enum Impact Set
 Effect/Name/MuradinThunderclap@EnumTrackedUnits=Enum Tracked Units
@@ -9635,6 +9667,7 @@ Effect/Name/MuradinUnstoppableForce@ApplyArmorBehavior=Apply Armor Behavior
 Effect/Name/MuradinUnstoppableForce@ModifyCooldowns=Modify Cooldowns
 Effect/Name/MuradinWeapon@Damage=Damage
 Effect/Name/MuradinWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/MuradinWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/MuradinWeapon@DamageSet=Damage (Set)
 Effect/Name/MuradinWeapon@ImpactSet=Impact Set
 Effect/Name/MuradinWeapon@SecondarySet=Secondary Set
@@ -9853,8 +9886,6 @@ Effect/Name/StormCriticalStatusIncrementer=Storm - Critical Status Incrementer
 Effect/Name/StormCriticalStatusIncrementerCaster=Storm - Critical Status Incrementer (Caster)
 Effect/Name/StormCustomDamageParent=Storm - Custom Damage Parent
 Effect/Name/StormDamage=Storm - Damage
-Effect/Name/StormDamageInheritSetPhysical=Storm - Damage Inherit Set (Physical)
-Effect/Name/StormDamageInheritSetSpell=Storm - Damage Inherit Set (Spell)
 Effect/Name/StormDamageNoModifiers=Storm - Damage (No Modifiers)
 Effect/Name/StormDamageParent2=Storm - Damage Parent Copy
 Effect/Name/StormDamageParentHeroWeapon=Storm - Damage Parent (Hero Weapon)
@@ -9888,13 +9919,19 @@ Effect/Name/StormLevelScalingModification=Storm - Level Scaling Modification
 Effect/Name/StormModifyGeneralData=Storm - Modify General Data
 Effect/Name/StormModifyHealCreatedMultiplier=Storm - Modify Heal Created Multiplier
 Effect/Name/StormModifyHealReceivedMultiplier=Storm - Modify Heal Received Multiplier
+Effect/Name/StormModifyLocalCritStatus=Storm - Modify Local Crit Status
+Effect/Name/StormModifyLocalCritStatusPhysical2=Storm - Modify Local Crit Status (Physical) Copy
+Effect/Name/StormModifyLocalCritStatusSpell2=Storm - Modify Local Crit Status (Spell) Copy
+Effect/Name/StormModifyLocalLeech=Storm - Modify Local Leech
 Effect/Name/StormModifyPhysicalDamageModifier=Storm - Modify Physical Damage Modifier
 Effect/Name/StormModifyPhysicalDamageMultiplier=Storm - Modify Physical Damage Multiplier
 Effect/Name/StormModifyPhysicalLeech=Storm - Modify Physical Leech
+Effect/Name/StormModifyPureLeech=Storm - Modify Pure Leech
 Effect/Name/StormModifyRelentless=Storm - Modify Relentless
 Effect/Name/StormModifySpellDamageModifier=Storm - Modify Spell Damage Modifier
 Effect/Name/StormModifySpellDamageMultiplier=Storm - Modify Spell Damage Multiplier
 Effect/Name/StormModifySpellLeech=Storm - Modify Spell Leech
+Effect/Name/StormModifySpellLeech2=Storm - Modify Spell Leech Copy
 Effect/Name/StormModifyTokenCount=Storm - Modify Token Count
 Effect/Name/StormModifyUnitHealing=Storm - Modify Unit Healing
 Effect/Name/StormModifyUnitHealing2=Storm - Modify Unit Healing
@@ -9906,12 +9943,16 @@ Effect/Name/StormModifyUnitHealingSelfIgnoreHealingDealt=Storm - Modify Unit Hea
 Effect/Name/StormModifyUnitHealingSpell=Storm - Modify Unit Healing Spell
 Effect/Name/StormModifyUnitLeechParent=Storm - Modify Unit Leech Parent
 Effect/Name/StormModifyUnitLeechPhysical=Storm - Modify Unit Leech Physical
+Effect/Name/StormModifyUnitLeechPure=Storm - Modify Unit Leech Pure
 Effect/Name/StormModifyUnitLeechSpell=Storm - Modify Unit Leech Spell
+Effect/Name/StormModifyUnitLeechSpell2=Storm - Modify Unit Leech Spell Copy
 Effect/Name/StormModifyUnitPercentHealing=Storm - Modify Unit Percent Healing
 Effect/Name/StormPercentDamage=Storm - Percent Damage
 Effect/Name/StormPercentDamageBasicAttack=Storm - Percent Damage (Basic Attack)
 Effect/Name/StormPercentDamageDoT=Storm - Percent Damage (DoT)
 Effect/Name/StormPhysical=Storm - Physical
+Effect/Name/StormPhysicalBasicAttack=Storm - Physical (Basic Attack)
+Effect/Name/StormPhysicalBasicAttackPercent=Storm - Physical (Basic Attack Percent)
 Effect/Name/StormPhysicalDamage=Storm - Physical Damage
 Effect/Name/StormPhysicalDamageDefault=Storm - Physical Damage (Default)
 Effect/Name/StormPhysicalDamageHero=Storm - Physical Damage (Hero)
@@ -9920,10 +9961,15 @@ Effect/Name/StormPhysicalDamageIsSpell=Storm - Physical Damage (Is Spell)
 Effect/Name/StormPhysicalDamageMymicSpell=Storm - Physical Damage (Mymic Spell)
 Effect/Name/StormPhysicalDamageNonHeroic=Storm - Physical Damage (Non-Heroic)
 Effect/Name/StormPhysicalDamageSummon=Storm - Physical Damage (Summon)
+Effect/Name/StormPhysicalDoT=Storm - Physical (DoT)
+Effect/Name/StormPhysicalDoTPercent=Storm - Physical (DoT Percent)
 Effect/Name/StormPhysicalLeechTargetHealParent=Storm - Physical Leech (Target Heal Parent)
+Effect/Name/StormPhysicalPercent=Storm - Physical (Percent)
 Effect/Name/StormPoisonDamageParent=Storm - Poison Damage Parent
 Effect/Name/StormPostTeleportSet=Storm - Post Teleport (Set)
 Effect/Name/StormPure=Storm - Pure
+Effect/Name/StormPureBasicAttack=Storm - Pure (Basic Attack)
+Effect/Name/StormPureBasicAttackPercent=Storm - Pure (Basic Attack Percent)
 Effect/Name/StormPureDamage2=Storm - Pure Damage Copy
 Effect/Name/StormPureDoT=Storm - Pure (DoT)
 Effect/Name/StormPureDoTPercent=Storm - Pure (DoT Percent)
@@ -9939,12 +9985,15 @@ Effect/Name/StormSlowApply=Storm - Slow Apply
 Effect/Name/StormSpell=Storm - Spell
 Effect/Name/StormSpell2=Storm - Spell Copy
 Effect/Name/StormSpellAbilityBasic2=Storm - Spell (Ability Basic) Copy
+Effect/Name/StormSpellBasicAttack=Storm - Spell (Basic Attack)
+Effect/Name/StormSpellBasicAttackPercent=Storm - Spell (Basic Attack Percent)
 Effect/Name/StormSpellDamage=Storm - Spell Damage
 Effect/Name/StormSpellDamageDoT=Storm - Spell Damage (DoT)
 Effect/Name/StormSpellDoT=Storm - Spell (DoT)
+Effect/Name/StormSpellDoTPercent=Storm - Spell (DoT Percent)
 Effect/Name/StormSpellDotPercentDamage=Storm - Spell (DoT Percent Damage)
 Effect/Name/StormSpellLeechHealerCasterParent=Storm - Spell Leech (Healer Caster Parent)
-Effect/Name/StormSpellNoModifiers=Storm - Spell (No Modifiers)
+Effect/Name/StormSpellPercent=Storm - Spell (Percent)
 Effect/Name/StormSpellPercentDamage=Storm - Spell (Percent Damage)
 Effect/Name/StormStasisIceBlockInitialSet=Storm - Stasis Ice Block Initial Set
 Effect/Name/StormStormWeapon=Storm Storm Damage
@@ -10391,6 +10440,7 @@ Effect/Name/TychusMasterAssassin@QuestMaxedModification=Quest Maxed Modification
 Effect/Name/TychusMeltingPoint@ApplyBehavior=Apply Behavior
 Effect/Name/TychusMeltingPoint@Damage=Damage
 Effect/Name/TychusMeltingPoint@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/TychusMeltingPoint@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/TychusMeltingPoint@DamageSet=Damage (Set)
 Effect/Name/TychusMeltingPoint@ImpactSet=Impact Set
 Effect/Name/TychusMinigun@ApplyActiveBuff=Apply Active Buff
@@ -10454,6 +10504,7 @@ Effect/Name/TychusOverkill@CreatePersistent=Create Persistent
 Effect/Name/TychusOverkill@Damage=Damage
 Effect/Name/TychusOverkill@DamageCheckSwitch=Damage Check Switch
 Effect/Name/TychusOverkill@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/TychusOverkill@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/TychusOverkill@DamageSet=Damage (Set)
 Effect/Name/TychusOverkill@DeadTargetRetargetSearch=Dead Target Retarget Search
 Effect/Name/TychusOverkill@DeadTargetRetargetSwitch=Dead Target Retarget Switch
@@ -10516,6 +10567,7 @@ Effect/Name/TychusTitanGrenade@ImpactSet=Impact Set
 Effect/Name/TychusTitanGrenade@ModifyCooldown=Modify Cooldown
 Effect/Name/TychusWeapon@Damage=Damage
 Effect/Name/TychusWeapon@DamageCritStatusIncrement=Damage (Crit Status Increment)
+Effect/Name/TychusWeapon@DamageCritStatusLocal=Damage (Crit Status Local)
 Effect/Name/TychusWeapon@DamageSet=Damage (Set)
 Effect/Name/TychusWeapon@ImpactSet=Impact Set
 Effect/Name/TychusWeapon@ImpactSetSecondary=Impact Set (Secondary)
@@ -11287,6 +11339,7 @@ Param/Expression/lib_UIUI_2813FF5E=<c val="33CC33">~A~</c>
 Param/Expression/lib_UIUI_285F47E8=Player ~A~ overlay queue full
 Param/Expression/lib_UIUI_289FB7DC=<c val="0055ff">~A~</c> asks for assistance!
 Param/Expression/lib_UIUI_28B0A77B=~A~ wants to attack ~B~
+Param/Expression/lib_UIUI_299A8D4A=<IMG path="Assets\Textures\storm_ui_ingame_fct_crit.dds" height="35" width="35" alignment="absolutemiddle" color="255,255,0"/>
 Param/Expression/lib_UIUI_2B46C8C4=~A~
 Param/Expression/lib_UIUI_2BCF1489=<c val="#PingAlly">~A~</c> <lang rule="plural" val="~A~">calls,call</lang> for retreat!
 Param/Expression/lib_UIUI_2D1FBCA2=Setting up talent ~A~ : [~B~] [~C~]
@@ -11332,6 +11385,7 @@ Param/Expression/lib_UIUI_5B203D84=+ ~A~%
 Param/Expression/lib_UIUI_5C41CC0F=~A~ | Time ~E~ | Abil ~B~ | EffectRoot ~D~ | EffectCurrent ~F~ | Amount ~C~
 Param/Expression/lib_UIUI_5C4FEBA6=Total XP: ~A~
 Param/Expression/lib_UIUI_60043785=Setting up tracker arrow for player [~A~] unit [~B~]
+Param/Expression/lib_UIUI_61C2A100=<IMG path="Assets\Textures\storm_ui_ingame_fct_crit_heal.dds" height="35" width="35" alignment="absolutemiddle"/>
 Param/Expression/lib_UIUI_61D7611D=~C~~A~</c> <lang rule="plural" val="~A~">wants,want</lang> to help ~D~~B~</c>
 Param/Expression/lib_UIUI_63192643=~A~~B~
 Param/Expression/lib_UIUI_639CEC10=~A~ wants to push ~B~
@@ -11358,6 +11412,7 @@ Param/Expression/lib_UIUI_8002416C=Invalid Meta XP value: ~A~
 Param/Expression/lib_UIUI_81F0DFCD=<c val="#PingAlly">~A~</c> <lang rule="plural" val="~A~">warns,warn</lang> this area is dangerous!
 Param/Expression/lib_UIUI_820DF91D=~A~ Remaining
 Param/Expression/lib_UIUI_824F7234=<c val="#PingAlly">~A~</c> <lang rule="plural" val="~A~">wants,want</lang> to defend!
+Param/Expression/lib_UIUI_8409415E=<IMG path="Assets\Textures\storm_ui_ingame_fct_crit.dds" height="35" width="35" alignment="absolutemiddle"/>
 Param/Expression/lib_UIUI_84C044F8=~A~ wants to free the ~B~
 Param/Expression/lib_UIUI_852AF192=<c val="#PingAlly">~A~</c> <lang rule="plural" val="~A~">wants,want</lang> to Hold this Watch Tower!
 Param/Expression/lib_UIUI_8571BA1A=<s val="Storm_BoldLarge"><c val="FFFF00">~A~</c></s> to Cast <c val="FFFF00">Inspire</c>
@@ -11391,6 +11446,7 @@ Param/Expression/lib_UIUI_A63FED56=~A~ ~B~
 Param/Expression/lib_UIUI_A7C61AE9=~A~~B~
 Param/Expression/lib_UIUI_AA7F1CED=No health reported for player [~A~]! No Death Recap Data available.
 Param/Expression/lib_UIUI_AC5F48D3=~A~ wants to defend ~B~
+Param/Expression/lib_UIUI_AE6BA05B=<IMG path="Assets\Textures\storm_ui_ingame_fct_crit_ability.dds" height="35" width="35" alignment="absolutemiddle"/>
 Param/Expression/lib_UIUI_AE9F97C8=~A~ wants to capture the <c val="ff0000">~B~</c>
 Param/Expression/lib_UIUI_B0489070=~C~~A~</c> <lang rule="plural" val="~A~">warns,warn</lang> that ~D~~B~</c> will respawn in <s val="PlayerAnnounceAbilityState">~E~s</s>
 Param/Expression/lib_UIUI_B1925A06=<c val="7d97e3">~A~</c>
@@ -11415,13 +11471,14 @@ Param/Expression/lib_UIUI_CA58C5B5=<s val="~A~">
 Param/Expression/lib_UIUI_CB29761A=Autoreturn to Lobby in ~A~ <lang rule="plural">second,seconds</lang>
 Param/Expression/lib_UIUI_CDC2DD0D=5% of target's max life: ~A~
 Param/Expression/lib_UIUI_CF1D937B=~C~~A~</c> <lang rule="plural" val="~A~">warns,warn</lang> that ~D~~B~</c> will respawn in <s val="PlayerAnnounceAbilityState">~E~s</s>
-Param/Expression/lib_UIUI_CFC0E931=~A~~B~
+Param/Expression/lib_UIUI_CFC0E931=~A~~C~~B~
 Param/Expression/lib_UIUI_CFF72C0A=Create FriendlyTargetHelperBeamPlayer~A~
 Param/Expression/lib_UIUI_D0428144=~A~x
 Param/Expression/lib_UIUI_D17ECC6C=~A~ wants to kill ~B~
 Param/Expression/lib_UIUI_D32F571B=current choice: ~B~ ~C~
 Param/Expression/lib_UIUI_D367A3EE=<c val="#PingAlly">~A~</c> <lang rule="plural" val="~A~">warns,warn</lang> this area is dangerous!
 Param/Expression/lib_UIUI_D46730AC=<c val="#PingAlly">~A~</c> <lang rule="plural" val="~A~">wants,want</lang> to Hold this Shrine!
+Param/Expression/lib_UIUI_D46ADC4D=~A~~B~
 Param/Expression/lib_UIUI_D59B1BC9=~A~~B~
 Param/Expression/lib_UIUI_D68B17FC=~A~ wants to capture the <c val="ff0000">~B~</c>
 Param/Expression/lib_UIUI_D7097D5E=-~A~
@@ -12257,6 +12314,7 @@ Param/Value/lib_UIUI_23050BC2= AI
 Param/Value/lib_UIUI_2356944A=<k val="CommandButton10"/>
 Param/Value/lib_UIUI_24C1C8C5=Kill Log: Out of free Kill Log Items!
 Param/Value/lib_UIUI_2633E070=Sorting Ally Map Mechanics By Player Slot
+Param/Value/lib_UIUI_26DD633F=MISSED!
 Param/Value/lib_UIUI_29A85930=Blue Team Cursed
 Param/Value/lib_UIUI_2C788E7E=~C~~A~</c> <lang rule="plural" val="~A~">wants,want</lang> to assist ~D~~B~</c>
 Param/Value/lib_UIUI_2CFBAC22=Enemy Terror ready to summon
@@ -12297,7 +12355,6 @@ Param/Value/lib_UIUI_52CD2B75=<k val="CommandButton00"/>
 Param/Value/lib_UIUI_52E43F99=Fury
 Param/Value/lib_UIUI_53C5EF39=Sorting Ally Deaths By Player Slot
 Param/Value/lib_UIUI_5439C8B1=Boss
-Param/Value/lib_UIUI_56E2E756=MISSED!
 Param/Value/lib_UIUI_574D7333=Talent Tier
 Param/Value/lib_UIUI_5875544C=BLOCKED!
 Param/Value/lib_UIUI_5AA13BBB=~C~~A~</c> <lang rule="plural" val="~A~">wants,want</lang> to capture ~D~~B~</c>
@@ -12343,7 +12400,6 @@ Param/Value/lib_UIUI_863E10D9= it stays rank
 Param/Value/lib_UIUI_8708F157=<s val="Storm_TieLabel_Observer">TIE!</s>
 Param/Value/lib_UIUI_88DA049B=---------------------------------------------------------
 Param/Value/lib_UIUI_8A789231=Bruiser Camp
-Param/Value/lib_UIUI_8A97B87A=MISSED!
 Param/Value/lib_UIUI_8BBD4899=Leashing
 Param/Value/lib_UIUI_8C1CF079=Play 2 Games to Unlock
 Param/Value/lib_UIUI_8C2428E4=Tributes Gathered
@@ -12761,6 +12817,7 @@ UI/AttributeDescription/Utility=<c val="#TooltipNumbers">Utility attribute</c><n
 UI/AutoSelect=Auto-Select
 UI/AutoSelectEnabled=Auto-Select Enabled
 UI/AutoSelectToastTitle=Skills Auto Selected
+UI/BattleLobbyPanel/ShufflePlayers=Shuffle Players
 UI/BeastFocusActive=<s val="StandardTooltipHeader">Inner Beast</s> <n/><n/>Your Attack Speed is increased by <c val="#TooltipNumbers"><d ref="100*Behavior,GreymaneInnerBeast,Modification.AdditiveAttackSpeedFactor"/>%</c>
 UI/BeastFocusInActive=<s val="StandardTooltipHeader">Inner Beast</s> <n/><n/>Activate Inner Beast to increase your Attack Speed by <c val="#TooltipNumbers"><d ref="100*Behavior,GreymaneInnerBeast,Modification.AdditiveAttackSpeedFactor"/>%</c>
 UI/Boosty=<img path="Assets\Textures\storm_ui_store_donation_boosty.dds" height="32" width="32" alignment="absolutemiddle"/> Boosty
@@ -13560,6 +13617,7 @@ Unit/Name/GreymaneHero=Greymane
 Unit/Name/GreymaneWeapon@AttackMissile=Attack Missile
 Unit/Name/GroundHole=Ground Hole
 Unit/Name/GroundHoleCamera=Ground Hole Camera
+Unit/Name/GroundHoleVision=Ground Hole Vision
 Unit/Name/HallOfStormsLocationUnit=Hall Of Storms (Location Unit)
 Unit/Name/HardPackSnowball=Hard Pack Snowball Missile
 Unit/Name/HealSign=Heal Sign
@@ -14456,4 +14514,3 @@ e_unitAttributeMechanical=Immune To AoE
 e_unitAttributePsionic=No Minion Agro
 e_unitAttributeRobotic=Mercenary
 e_unitAttributeUser1=Map Creature
-UI/BattleLobbyPanel/ShufflePlayers=Shuffle Players

@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="HeroDiabloLordOfTerror@DamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="100"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroDiabloLordOfTerror@DoTDamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="100"/>
+    </CEffectUserData>
+    <CEffectSet id="HeroDiabloLordOfTerror@DamageSet" parent="StormDamageSet" LocalLeechEffect="HeroDiabloLordOfTerror@DamageLeechLocal" DamageEffect="HeroDiabloLordOfTerror@Damage"/>
+    <CEffectSet id="HeroDiabloLordOfTerror@DoTDamageSet" parent="StormDamageSet" LocalLeechEffect="HeroDiabloLordOfTerror@DoTDamageLeechLocal" DamageEffect="HeroDiabloLordOfTerror@DoTDamage"/>
+    <CEffectUserData id="HeroDiabloFireStomp@ReturnDamageCritStatus" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloFireStomp@ReturnDamage"/>
+    <CEffectSet id="HeroDiabloFireStomp@ReturnDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusAlwaysTrue" CritStatusEffect="HeroDiabloFireStomp@ReturnDamageCritStatus" LocalLeechEffect="HeroDiabloFireStomp@ReturnDamageLeechLocal" DamageEffect="HeroDiabloFireStomp@ReturnDamage"/>
+    <CEffectUserData id="HeroDiabloFireStomp@ReturnDamageLeechLocal" parent="StormModifyLocalLeech">
+        <ValidatorArray value="TargetIsHero"/>
+        <Amount value="150">
+            <AccumulatorArray value="HeroDiabloSoulsToTheFlame@FireStompLeechArithmetic"/>
+        </Amount>
+    </CEffectUserData>
+    <CEffectUserData id="HeroDiabloFireStomp@StartDamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="150">
+            <AccumulatorArray value="HeroDiabloSoulsToTheFlame@FireStompLeechArithmetic"/>
+        </Amount>
+        <ValidatorArray value="TargetIsHero"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroDiabloShadowCharge@KnockbackTerrainDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloShadowCharge@KnockbackTerrainDamage"/>
+    <CEffectSet id="HeroDiabloShadowCharge@KnockbackTerrainDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloShadowCharge@KnockbackTerrainDamageCritStatusIncrement" DamageEffect="HeroDiabloShadowCharge@KnockbackTerrainDamage"/>
+    <CEffectDamage id="HeroDiabloCruelty@WeaponDamage" parent="StormPhysicalBasicAttack">
+        <Amount value="0">
+            <AccumulatorArray value="HeroDiabloWeapon@Damage"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectUserData id="HeroDiabloShadowCharge@UnitImpactDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloShadowCharge@UnitImpactDamage"/>
+    <CEffectDamage id="HeroDiabloWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="0">
+            <AccumulatorArray value="HeroDiabloWeapon@Damage"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectSet id="HeroDiabloShadowCharge@UnitImpactDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloShadowCharge@UnitImpactDamageCritStatusIncrement" DamageEffect="HeroDiabloShadowCharge@UnitImpactDamage"/>
+    <CEffectUserData id="HeroDiabloLifeLeech@HealCritStatusIncrementLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroDiabloLifeLeech@HealCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroDiabloFireStomp@StartDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloFireStomp@StartDamage"/>
+    <CEffectSet id="HeroDiabloFireStomp@StartDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloFireStomp@StartDamageCritStatusIncrement" LocalLeechEffect="HeroDiabloFireStomp@StartDamageLeechLocal" DamageEffect="HeroDiabloFireStomp@StartDamage"/>
     <CEffectDamage id="HeroDiabloLordOfTerror@Damage" parent="StormPurePercent">
         <Amount value="10"/>
-        <DamageInheritEffect value="HeroDiabloLordOfTerror@LeechHealSet"/>
     </CEffectDamage>
     <CEffectDamage id="HeroDiabloLordOfTerror@DoTDamage" parent="StormPureDoTPercent">
         <Amount value="2"/>
-        <DamageInheritEffect value="HeroDiabloLordOfTerror@DoTLeechSet"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroDiabloCruelty@WeaponDamage" parent="StormPhysical">
-        <Amount value="0">
-            <AccumulatorArray value="HeroDiabloWeapon@Damage"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectDamage id="HeroDiabloWeapon@Damage" parent="StormPhysical">
-        <Amount value="0">
-            <AccumulatorArray value="HeroDiabloWeapon@Damage"/>
-        </Amount>
     </CEffectDamage>
     <CEffectDamage id="HeroDiabloApocalypse@Damage" parent="StormSpell">
         <Visibility value="Hidden"/>
         <Amount value="137"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroDiabloApocalypse@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroDiabloApocalypse@Damage"/>
-    <CEffectSet id="HeroDiabloApocalypse@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloApocalypse@DamageCritStatusIncrement" DamageEffect="HeroDiabloApocalypse@Damage">
+    <CEffectUserData id="HeroDiabloApocalypse@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloApocalypse@Damage"/>
+    <CEffectSet id="HeroDiabloApocalypse@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloApocalypse@DamageCritStatusIncrement" DamageEffect="HeroDiabloApocalypse@Damage">
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
     </CEffectSet>
     <CEffectEnumTrackedUnits id="HeroDiabloApocalypse@EnumetateTrackedUnits">
@@ -67,20 +96,20 @@
         <Behavior value="HeroDiabloCruelty@WeaponBuff"/>
     </CEffectApplyBehavior>
     <CEffectModifyUnit id="HeroDiabloCruelty@ModifyUnitCooldown">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="TargetIsHero"/>
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
         <Cost Abil="HeroDiabloShadowCharge,Execute" CooldownOperation="Add" CooldownTimeUse="-1.5"/>
         <Cost Abil="HeroDiabloOverpower,Execute" ChargeTimeUse="-1.5" CooldownOperation="Add"/>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroDiabloCruelty@WeaponDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="HeroDiabloCruelty@WeaponDamage"/>
+    <CEffectUserData id="HeroDiabloCruelty@WeaponDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloCruelty@WeaponDamage"/>
     <CEffectSet id="HeroDiabloCruelty@WeaponImpactSet">
         <EffectArray value="HeroDiabloCruelty@WeaponDamageSet"/>
         <EffectArray value="HeroDiabloWeapon@TalentSet"/>
         <EffectArray value="HeroDiabloCruelty@ModifyUnitCooldown"/>
     </CEffectSet>
-    <CEffectSet id="HeroDiabloCruelty@WeaponDamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloCruelty@WeaponDamageCritStatusIncrement" DamageEffect="HeroDiabloCruelty@WeaponDamage"/>
+    <CEffectSet id="HeroDiabloCruelty@WeaponDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroDiabloCruelty@WeaponDamageCritStatusIncrement" DamageEffect="HeroDiabloCruelty@WeaponDamage"/>
     <CEffectLaunchMissile id="HeroDiabloCruelty@WeaponLaunchMissile">
         <ValidatorArray value="TargetNotDead"/>
         <ImpactEffect value="HeroDiabloCruelty@WeaponImpactSet"/>
@@ -203,18 +232,8 @@
         <EffectArray value="HeroDiabloLordOfTerror@DoTLeechMU"/>
         <EffectArray value="HeroDiabloSoulShield@ModifyPlayerCooldown"/>
     </CEffectSet>
-    <CEffectSet id="HeroDiabloLordOfTerror@LeechHealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroDiabloLordOfTerror@Leech"/>
-    <CEffectModifyUnit id="HeroDiabloLordOfTerror@DoTLeechMU" parent="StormModifyUnitHealingSelfIgnoreHealCreatedMultiplier">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="DamageInherited"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="HeroDiabloLordOfTerror@PercentDamageInheritSet"/>
-    <CEffectSet id="HeroDiabloLordOfTerror@DoTLeechSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroDiabloLordOfTerror@DoTLeechMU"/>
     <CEffectSet id="HeroDiabloMalevolence@BasicAttackSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
         <EffectArray value="HeroDiabloMalevolence@DamageSet"/>
         <EffectArray value="HeroDiabloSoulShield@ModifyPlayerCooldown"/>
@@ -252,7 +271,7 @@
         <ValidatorArray value="TargetNotHallucination"/>
         <Behavior value="HeroDiabloSoulDevourer@TargetDebuff"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroDiabloSoulDevourer@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroDiabloSoulDevourer@HealModifyUnit"/>
+    <CEffectUserData id="HeroDiabloSoulDevourer@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroDiabloSoulDevourer@HealModifyUnit"/>
     <CEffectModifyUnit id="HeroDiabloSoulDevourer@HealModifyUnit" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <ChangeFraction value="0.012">
@@ -264,35 +283,7 @@
     <CEffectSet id="HeroDiabloSoulDevourer@HealSet" parent="StormHealSetCaster" CritStatusEffect="HeroDiabloSoulDevourer@HealCritStatusIncrement" HealEffect="HeroDiabloSoulDevourer@HealModifyUnit"/>
     <CEffectDamage id="HeroDiabloFireStomp@ReturnDamage" parent="StormSpell">
         <Amount value="36"/>
-        <DamageInheritEffect value="HeroDiabloFireStomp@ReturnDamageInheritSet"/>
-        <TechAliasArray value="StormFlag Critical"/>
     </CEffectDamage>
-    <CEffectSet id="HeroDiabloFireStomp@ReturnDamageInheritSet" parent="StormDamageInheritSetSpell">
-        <EffectArray value="HeroDiabloFireStomp@ReturnDamageLeechHealSet"/>
-    </CEffectSet>
-    <CEffectSet id="HeroDiabloFireStomp@ReturnDamageLeechHealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroDiabloFireStomp@ReturnDamageLeechModifyUnit"/>
-    <CEffectUserData id="HeroDiabloFireStomp@StartDamageLeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroDiabloFireStomp@StartDamageLeechModifyUnit"/>
-    <CEffectModifyUnit id="HeroDiabloFireStomp@StartDamageLeechModifyUnit" parent="StormModifyUnitLeechSpell">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="HeroDiabloFireStomp@LeechSwitch"/>
-                <AccumulatorArray value="HeroDiabloSoulsToTheFlame@FireStompLeechSwitch"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="HeroDiabloFireStomp@StartDamageLeechHealSet" parent="StormHealSetCaster" CritStatusEffect="HeroDiabloFireStomp@StartDamageLeechCritStatusIncrement" HealEffect="HeroDiabloFireStomp@StartDamageLeechModifyUnit"/>
-    <CEffectSet id="HeroDiabloFireStomp@StartDamageInheritSet" parent="StormDamageInheritSetSpell">
-        <EffectArray value="HeroDiabloFireStomp@StartDamageLeechHealSet"/>
-    </CEffectSet>
-    <CEffectModifyUnit id="HeroDiabloFireStomp@ReturnDamageLeechModifyUnit" parent="StormModifyUnitLeechSpell">
-        <TechAliasArray value="StormFlag Critical"/>
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="HeroDiabloFireStomp@LeechSwitch"/>
-                <AccumulatorArray value="HeroDiabloSoulsToTheFlame@FireStompLeechSwitch"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
     <CEffectSet id="HeroDiabloFireStomp@TalentImpactSet">
         <EffectArray value="HeroDiabloSoulsToTheFlame@IncrementTokenCount"/>
         <EffectArray value="HeroDiabloHellfire@ApplySpellPowerBuff"/>
@@ -313,8 +304,8 @@
         </Amount>
         <BehaviorScope Value="Caster"/>
     </CEffectUserData>
-    <CEffectUserData id="HeroDiabloHellfire@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroDiabloHellfire@Damage"/>
-    <CEffectSet id="HeroDiabloHellfire@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloHellfire@DamageCritStatusIncrement" DamageEffect="HeroDiabloHellfire@Damage"/>
+    <CEffectUserData id="HeroDiabloHellfire@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloHellfire@Damage"/>
+    <CEffectSet id="HeroDiabloHellfire@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloHellfire@DamageCritStatusIncrement" DamageEffect="HeroDiabloHellfire@Damage"/>
     <CEffectUserData id="HeroDiabloHellfire@RemoveSpellDamageMultiplier" parent="StormModifySpellDamageMultiplier">
         <ValidatorArray value="HeroDiabloHellfire@StoredSpellPowerGT0"/>
         <Amount value="0">
@@ -354,7 +345,7 @@
         <EffectArray value="HeroDiabloHellfire@AddSpellDamageMultiplier"/>
         <EffectArray value="HeroDiabloHellfire@ApplyAuraBehavior"/>
     </CEffectSet>
-    <CEffectUserData id="HeroDiabloLifeLeech@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="HeroDiabloLifeLeech@HealCritStatusCombine" Effect="HeroDiabloLifeLeech@HealModifyUnit"/>
+    <CEffectUserData id="HeroDiabloLifeLeech@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroDiabloLifeLeech@HealModifyUnit"/>
     <CEffectModifyUnit id="HeroDiabloLifeLeech@HealModifyUnit" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <ChangeFraction value="0.02">
@@ -363,9 +354,9 @@
             </ChangeFraction>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroDiabloLifeLeech@HealSet" parent="StormHealSetCaster" CritStatusEffect="HeroDiabloLifeLeech@HealCritStatusIncrement" HealEffect="HeroDiabloLifeLeech@HealModifyUnit"/>
+    <CEffectSet id="HeroDiabloLifeLeech@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroDiabloLifeLeech@HealCritStatusIncrementLocal" CritStatusEffect="HeroDiabloLifeLeech@HealCritStatusIncrement" HealEffect="HeroDiabloLifeLeech@HealModifyUnit"/>
     <CEffectSet id="HeroDiabloLifeLeech@TalentSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="HeroDiabloLifeLeech"/>
         <ValidatorArray value="TargetIsHero"/>
         <EffectArray value="HeroDiabloLifeLeech@HealSet"/>
@@ -378,8 +369,8 @@
     <CEffectDamage id="HeroDiabloLightningBreath@Damage" parent="StormSpell">
         <Amount value="50"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroDiabloLightningBreath@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroDiabloLightningBreath@Damage"/>
-    <CEffectSet id="HeroDiabloLightningBreath@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloLightningBreath@DamageCritStatusIncrement" DamageEffect="HeroDiabloLightningBreath@Damage">
+    <CEffectUserData id="HeroDiabloLightningBreath@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloLightningBreath@Damage"/>
+    <CEffectSet id="HeroDiabloLightningBreath@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloLightningBreath@DamageCritStatusIncrement" DamageEffect="HeroDiabloLightningBreath@Damage">
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
     </CEffectSet>
     <CEffectModifyUnit id="HeroDiabloLightningBreath@SetCancelCooldown">
@@ -389,15 +380,15 @@
             <Fraction Cooldown="1"/>
         </Cost>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroDiabloMalevolence@CritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroDiabloMalevolence@Damage"/>
-    <CEffectSet id="HeroDiabloMalevolence@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloMalevolence@CritStatusIncrement" DamageEffect="HeroDiabloMalevolence@Damage"/>
+    <CEffectUserData id="HeroDiabloMalevolence@CritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloMalevolence@Damage"/>
+    <CEffectSet id="HeroDiabloMalevolence@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloMalevolence@CritStatusIncrement" DamageEffect="HeroDiabloMalevolence@Damage"/>
     <CEffectDamage id="HeroDiabloOverpower@Damage" parent="StormSpell">
         <Amount value="73">
             <AccumulatorArray value="HeroDiabloTantrum@OverpowerDamageBonusSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectUserData id="HeroDiabloOverpower@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroDiabloOverpower@Damage"/>
-    <CEffectSet id="HeroDiabloOverpower@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloOverpower@DamageCritStatusIncrement" DamageEffect="HeroDiabloOverpower@Damage">
+    <CEffectUserData id="HeroDiabloOverpower@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloOverpower@Damage"/>
+    <CEffectSet id="HeroDiabloOverpower@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloOverpower@DamageCritStatusIncrement" DamageEffect="HeroDiabloOverpower@Damage">
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
     </CEffectSet>
     <CEffectUserData id="HeroDiabloOverpower@IncrementCastAmount">
@@ -510,7 +501,6 @@
     <CEffectDamage id="HeroDiabloHellfire@Damage" parent="StormSpell">
         <LaunchLocation Value="CasterUnit"/>
         <Amount value="50"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
     </CEffectDamage>
     <CEffectDamage id="HeroDiabloMalevolence@Damage" parent="StormSpell">
         <Amount value="100"/>
@@ -526,8 +516,8 @@
     <CEffectDamage id="HeroDiabloTantrum@AOEDamage" parent="StormSpell">
         <Amount value="109.5"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroDiabloTantrum@AOEDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroDiabloTantrum@AOEDamage"/>
-    <CEffectSet id="HeroDiabloTantrum@AOEDamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloTantrum@AOEDamageCritStatusIncrement" DamageEffect="HeroDiabloTantrum@AOEDamage"/>
+    <CEffectUserData id="HeroDiabloTantrum@AOEDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloTantrum@AOEDamage"/>
+    <CEffectSet id="HeroDiabloTantrum@AOEDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroDiabloTantrum@AOEDamageCritStatusIncrement" DamageEffect="HeroDiabloTantrum@AOEDamage"/>
     <CEffectModifyPlayer id="HeroDiabloTantrum@IncrementSlamCount">
         <EffectArray Operation="Set" Reference="Effect,HeroDiabloOverpower@InitialChannelCreatePersistent,PeriodCount" Value="3"/>
     </CEffectModifyPlayer>
@@ -597,8 +587,8 @@
         <EffectArray value="AbilityImpactRevealDummyDamage"/>
         <EffectArray value="HeroDiabloTerrify@CreateOffsetPersistent"/>
     </CEffectSet>
-    <CEffectUserData id="HeroDiabloWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="HeroDiabloWeapon@Damage"/>
-    <CEffectSet id="HeroDiabloWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroDiabloWeapon@DamageCritStatusIncrement" DamageEffect="HeroDiabloWeapon@Damage"/>
+    <CEffectUserData id="HeroDiabloWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroDiabloWeapon@Damage"/>
+    <CEffectSet id="HeroDiabloWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroDiabloWeapon@DamageCritStatusIncrement" DamageEffect="HeroDiabloWeapon@Damage"/>
     <CEffectSet id="HeroDiabloWeapon@ImpactSet">
         <EffectArray value="HeroDiabloWeapon@DamageSet"/>
         <EffectArray value="HeroDiabloWeapon@TalentSet"/>
@@ -622,13 +612,6 @@
     <CEffectModifyPlayer id="HeroDiabloBlackSoulstone@TokenIncreaseModifyPlayer">
         <EffectArray Reference="Behavior,HeroDiabloBlackSoulstone,Modification.AttributeChangeArray[0].Points" Value="1"/>
     </CEffectModifyPlayer>
-    <CEffectModifyUnit id="HeroDiabloLordOfTerror@Leech" parent="StormModifyUnitLeechSpell">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="HeroDiabloLordOfTerror@LeechBonus"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
     <CEffectModifyUnit id="HeroDiabloShadowCharge@RestoreHeight">
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
@@ -666,7 +649,7 @@
         <ValidatorArray value="TargetWithin2point5RangeofCaster"/>
         <!--<ValidatorArray value="HeroDiabloShadowCharge@HasImpactedTargetUnitBehavior"/>-->
         <ValidatorArray value="CasterNotDeadOrStunnedOrRootedOrPolymorphedOrStasisOrDazedOrFearedExceptTimeStop"/>
-        <EffectArray value="HeroDiabloShadowCharge@UnitImpactDamage"/>
+        <EffectArray value="HeroDiabloShadowCharge@UnitImpactDamageSet"/>
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
         <EffectArray value="HeroDiabloShadowCharge@PostImpactCasterMovementSpeedApplyBehavior"/>
         <EffectArray value="CameraShakeMediumTauntingTotemSet"/>
@@ -769,7 +752,7 @@
         <BehaviorLink value="HeroDiabloShadowCharge@TerrainStun"/>
     </CEffectRemoveBehavior>
     <CEffectSet id="HeroDiabloShadowCharge@KnockbackTerrainImpactSet" parent="StormAbilityImpactSetEnemy">
-        <EffectArray value="HeroDiabloShadowCharge@KnockbackTerrainDamage"/>
+        <EffectArray value="HeroDiabloShadowCharge@KnockbackTerrainDamageSet"/>
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
         <EffectArray value="HeroDiabloShadowCharge@KnockbackRemoveTargetMovespeedBehavior"/>
         <EffectArray value="HeroDiabloShadowCharge@KnockbackTerrainTalentImpactSet"/>
@@ -817,7 +800,7 @@
         <Cost Abil="HeroDiabloShadowCharge,Execute" CooldownOperation="Add" CooldownTimeUse="-1.5"/>
         <Cost Abil="HeroDiabloOverpower,Execute" ChargeTimeUse="-1.5" CooldownOperation="Add"/>
         <ValidatorArray value="HeroDiabloDiabolicalMomentum"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectModifyUnit>
     <CEffectApplyBehavior id="HeroDiabloSoulShield@ApplySpellArmor">
         <Behavior value="HeroDiabloSoulShield@SpellArmor"/>
@@ -858,7 +841,7 @@
         <ExpireDelay value="1.75"/>
         <ExpireEffect value="HeroDiabloApocalypse@Search"/>
         <ValidatorArray value="HeroDiabloApocalypse@IsValidTargetCombine"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="HeroDiabloApocalypse@Revealer">
         <ExpireDelay value="5"/>
@@ -976,7 +959,7 @@
         <FinalEffect value="HeroGenericMissileInterruptLaunchMissile"/>
     </CEffectCreatePersistent>
     <CEffectSet id="HeroDiabloShadowCharge@StructureImpactSet" parent="StormAbilityImpactSetEnemy">
-        <EffectArray value="HeroDiabloShadowCharge@UnitImpactDamage"/>
+        <EffectArray value="HeroDiabloShadowCharge@UnitImpactDamageSet"/>
     </CEffectSet>
     <CEffectCreatePersistent id="HeroDiabloShadowCharge@KnockbackOffsetPersistent">
         <OffsetVectorStartLocation Effect="HeroDiabloShadowCharge@ApproachInitialSet" Value="OriginPoint"/>
@@ -1003,11 +986,10 @@
     </CEffectApplyBehavior>
     <CEffectDamage id="HeroDiabloFireStomp@StartDamage" parent="StormSpell">
         <Amount value="12"/>
-        <DamageInheritEffect value="HeroDiabloFireStomp@StartDamageInheritSet"/>
     </CEffectDamage>
     <CEffectSet id="HeroDiabloFireStomp@StartImpactSet" parent="StormAbilityImpactSetEnemy">
         <ValidatorArray value="noMarkers"/>
-        <EffectArray value="HeroDiabloFireStomp@StartDamage"/>
+        <EffectArray value="HeroDiabloFireStomp@StartDamageSet"/>
         <EffectArray value="HeroDiabloFireStomp@TalentImpactSet"/>
     </CEffectSet>
     <CEffectLaunchMissile id="HeroDiabloFireStomp@StartMissileLaunch">
@@ -1062,7 +1044,7 @@
     </CEffectApplyBehavior>
     <CEffectSet id="HeroDiabloFireStomp@ReturnImpactSet" parent="StormAbilityImpactSetEnemy">
         <ValidatorArray value="noMarkers"/>
-        <EffectArray value="HeroDiabloFireStomp@ReturnDamage"/>
+        <EffectArray value="HeroDiabloFireStomp@ReturnDamageSet"/>
         <EffectArray value="HeroDiabloFireStomp@TalentImpactSet"/>
     </CEffectSet>
     <CEffectEnumArea id="HeroDiabloFireStomp@ReturnSearch" parent="StormImpactSearchArea">
@@ -1074,7 +1056,7 @@
     </CEffectApplyBehavior>
     <CEffectSet id="HeroDiabloLordOfTerror@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
-        <EffectArray value="HeroDiabloLordOfTerror@Damage"/>
+        <EffectArray value="HeroDiabloLordOfTerror@DamageSet"/>
         <EffectArray value="HeroDiabloBlackSoulstone@IncreaseQuestToken10"/>
         <EffectArray value="HeroDiabloSoulShield@ModifyPlayerCooldown"/>
         <EffectArray value="HeroDiabloLordOfTerror@ApplyDoT"/>
@@ -1185,7 +1167,7 @@
         <ValidatorArray value="TargetWithin2point5RangeofCaster"/>
         <ValidatorArray value="CasterNotDeadOrStunnedOrRootedOrPolymorphedOrStasisOrDazedOrFearedExceptTimeStop"/>
         <EffectArray value="HeroDiabloSoulDevourer@ApplyTargetDebuff"/>
-        <EffectArray value="HeroDiabloShadowCharge@UnitImpactDamage"/>
+        <EffectArray value="HeroDiabloShadowCharge@UnitImpactDamageSet"/>
         <EffectArray value="HeroDiabloSoulShield@ModifyPlayerCooldown"/>
         <EffectArray value="HeroDiabloShadowCharge@PostImpactCasterMovementSpeedApplyBehavior"/>
         <EffectArray value="HeroDiabloShadowCharge@ImpactUnitKnockbackSwitch"/>
@@ -1457,7 +1439,7 @@
         <Abil value="stop"/>
     </CEffectIssueOrder>
     <CEffectSet id="HeroDiabloWeapon@TalentSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="HeroDiabloLifeLeech@TalentSet"/>
         <EffectArray value="HeroDiabloMalevolence@TalentSet"/>
         <EffectArray value="HeroDiabloDiabolicalMomentum@CDR"/>
@@ -1644,6 +1626,9 @@
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="HeroDiabloTantrum@Ability"/>
     </CAbilEffectInstant>
+    <CValidatorCombine id="HeroDiabloLifeLeech@HealCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroDiabloLifeLeech@CasterHasMaxStackCount"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareCooldown id="HeroDiabloApocalypse@CooldownLTE5">
         <WhichUnit Value="Caster"/>
         <Compare value="LE"/>
@@ -1675,10 +1660,6 @@
         <Value value="2"/>
         <Behavior value="HeroDiabloLifeLeech@StackCount"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroDiabloLifeLeech@HealCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroDiabloLifeLeech@CasterHasMaxStackCount"/>
-    </CValidatorCombine>
     <CValidatorEffectTreeUserData id="HeroDiabloShadowCharge@UserDataStunLimiterEq0">
         <Key value="StunLimiter"/>
     </CValidatorEffectTreeUserData>
@@ -4760,12 +4741,6 @@
     <CAccumulatorBehavior id="HeroDiabloBlackSoulstone@CurrentTokenCountMultiply" parent="HeroDiabloBlackSoulstone@CurrentSoulsCount">
         <ApplicationRule value="Multiply"/>
     </CAccumulatorBehavior>
-    <CAccumulatorConstant id="HeroDiabloFireStomp@LeechBonus" parent="BaseAccumulator">
-        <Amount value="150"/>
-    </CAccumulatorConstant>
-    <CAccumulatorSwitch id="HeroDiabloFireStomp@LeechSwitch">
-        <CaseArray Validator="TargetIsHero" Accumulator="HeroDiabloFireStomp@LeechBonus"/>
-    </CAccumulatorSwitch>
     <CAccumulatorArithmetic id="HeroDiabloDevastatingCharge@ArmorDebuffArithmetic">
         <Parameters value="-20">
             <AccumulatorArray value="HeroDiabloDevastatingCharge@ArmorDebuffStackCount"/>
@@ -6749,17 +6724,16 @@
         <DataRecord Entry="Actor,HeroDiabloLordOfTerror@ImpactSound"/>
         <DataRecord Entry="Behavior,HeroDiabloLordOfTerror@DoT"/>
         <DataRecord Entry="Button,HeroDiabloLordOfTerror"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@Search"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@LeechHealSet"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@Leech"/>
         <DataRecord Entry="Effect,HeroDiabloLordOfTerror@Damage"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@ImpactSet"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@ApplyDoT"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@PercentDamageInheritSet"/>
         <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DoTDamage"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DoTLeechMU"/>
-        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DoTLeechSet"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@ApplyDoT"/>
         <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DoTImpactSet"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@Search"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@ImpactSet"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DamageSet"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DamageLeechLocal"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DoTDamageSet"/>
+        <DataRecord Entry="Effect,HeroDiabloLordOfTerror@DoTDamageLeechLocal"/>
         <DataRecord Entry="Item,HeroDiabloLordOfTerror"/>
         <DataRecord Entry="Model,HeroDiabloLordOfTerror@ModelCast"/>
         <DataRecord Entry="Model,HeroDiabloLordOfTerror@AttackBeam"/>
@@ -6767,7 +6741,6 @@
         <DataRecord Entry="Sound,HeroDiabloLordOfTerror@ImpactSound"/>
         <DataRecord Entry="Talent,HeroDiabloLordOfTerror"/>
         <DataRecord Entry="Unit,HeroDiabloLordOfTerror"/>
-        <DataRecord Entry="Validator,HeroDiabloLordOfTerror@EnemyProximityValidator"/>
         <DataRecord Entry="Validator,HeroDiabloLordOfTerror"/>
         <DataRecord Entry="Accumulator,HeroDiabloLordOfTerror@LeechBonus"/>
     </CDataCollection>
@@ -7844,7 +7817,6 @@
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
         <RemoveValidatorArray value="CasterNotDazedOrDeadOrFearedOrPolymorphedOrRootedOrStasisOrStunnedExceptTimeStop"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroDiabloShadowCharge@CasterPostChargeSpeedBuff">
         <InfoIcon value="assets\textures\storm_ui_icon_diablo_shadowcharge_var1.dds"/>
@@ -7857,7 +7829,6 @@
         </Modification>
         <RemoveValidatorArray value="HeroDiabloShadowCharge@DiabloKnockbackValidator"/>
         <FinalEffect value="HeroDiabloShadowCharge@RemoveFullDurationBehavior"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroDiabloShadowCharge@SelfMovementSpeedBuff" parent="StormSprint">
         <Duration value="2"/>

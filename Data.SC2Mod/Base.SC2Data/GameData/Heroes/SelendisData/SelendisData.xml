@@ -4,6 +4,20 @@
         <Where Effect="HeroSelendisGoldenArmada@InitialSet"/>
         <Follow value="Position"/>
     </CKineticFollow>
+    <CEffectUserData id="HeroSelendisDecisiveBlow@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroSelendisDecisiveBlow@CritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroSelendisTrialByFire@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroSelendisTrialByFire@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroSelendisWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroSelendisWeapon@DamageCritStatusChecker"/>
+    </CEffectUserData>
+    <CEffectDamage id="HeroSelendisWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="116">
+            <AccumulatorArray value="HeroSelendisTemplarsFury@Switch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectUserData id="HeroSelendisZealousRush@StartCooldown" parent="StormModifyGeneralData">
         <TechAliasArray value="StormFlag OverridePlayerIndex"/>
         <Key value="HeroSelendisZealousRush_Player"/>
@@ -29,11 +43,6 @@
         <BehaviorLink value="HeroSelendisZealousRush@TargetCooldown"/>
         <RequireCasterUnit Value="Caster"/>
     </CEffectRemoveBehavior>
-    <CEffectDamage id="HeroSelendisWeapon@Damage" parent="StormPhysical">
-        <Amount value="116">
-            <AccumulatorArray value="HeroSelendisTemplarsFury@Switch"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectUserData id="HeroSelendisCripplingBlow@PhysicalDamageMultiplierApply" parent="StormModifyPhysicalDamageMultiplier">
         <Amount value="0">
             <AccumulatorArray value="HeroSelendisCripplingBlow@StoredDamageReduction"/>
@@ -79,15 +88,15 @@
     <CEffectDamage id="HeroSelendisCutThrough@Damage" parent="StormSpell">
         <Amount value="212"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroSelendisCutThrough@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisCutThrough@Damage"/>
-    <CEffectSet id="HeroSelendisCutThrough@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisCutThrough@DamageCritStatusIncrement" DamageEffect="HeroSelendisCutThrough@Damage">
+    <CEffectUserData id="HeroSelendisCutThrough@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisCutThrough@Damage"/>
+    <CEffectSet id="HeroSelendisCutThrough@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisCutThrough@DamageCritStatusIncrement" DamageEffect="HeroSelendisCutThrough@Damage">
         <ValidatorArray value="HeroSelendisZealousRush@TargetNotTracked"/>
         <ValidatorArray value="HeroSelendisCutThrough"/>
     </CEffectSet>
-    <CEffectUserData id="HeroSelendisDashingLight@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisDashingLight@Damage"/>
-    <CEffectSet id="HeroSelendisDashingLight@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisDashingLight@DamageCritStatusIncrement" DamageEffect="HeroSelendisDashingLight@Damage"/>
-    <CEffectUserData id="HeroSelendisDecisiveBlow@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroSelendisDecisiveBlow@CritStatusCombine" Effect="HeroSelendisDecisiveBlow@Damage"/>
-    <CEffectSet id="HeroSelendisDecisiveBlow@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisDecisiveBlow@DamageCritStatusIncrement" DamageEffect="HeroSelendisDecisiveBlow@Damage"/>
+    <CEffectUserData id="HeroSelendisDashingLight@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisDashingLight@Damage"/>
+    <CEffectSet id="HeroSelendisDashingLight@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisDashingLight@DamageCritStatusIncrement" DamageEffect="HeroSelendisDashingLight@Damage"/>
+    <CEffectUserData id="HeroSelendisDecisiveBlow@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisDecisiveBlow@Damage"/>
+    <CEffectSet id="HeroSelendisDecisiveBlow@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroSelendisDecisiveBlow@DamageCritStatusLocal" CritStatusEffect="HeroSelendisDecisiveBlow@DamageCritStatusIncrement" DamageEffect="HeroSelendisDecisiveBlow@Damage"/>
     <CEffectIssueOrder id="HeroSelendisDecisiveBlow@IssueAttackOrder">
         <ValidatorArray value="CasterNotDazed"/>
         <ValidatorArray value="CasterNotStasis"/>
@@ -110,7 +119,7 @@
     <CEffectApplyBehavior id="HeroSelendisAnanPokahl@DeathControllerApplyBehaviorExecutorsGuard">
         <ValidatorArray value="HeroSelendisAnanPokahl"/>
         <ValidatorArray value="HeroSelendisExecutorsGuard@CasterHasWeaponBuff"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <Behavior value="HeroSelendisAnanPokahl@DeathController"/>
     </CEffectApplyBehavior>
     <CEffectUserData id="HeroSelendisFaithBeforeFear@IncreaseTokenTakedown" parent="StormModifyTokenCount" TokenCounterBehavior="HeroSelendisFaithBeforeFear@TokenCounter">
@@ -120,12 +129,12 @@
     </CEffectUserData>
     <CEffectApplyBehavior id="HeroSelendisForAiur@ApplyArmor">
         <ValidatorArray value="TargetNotDeadAndNoSpecialDeathState"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <Behavior value="HeroSelendisForAiur@Armor"/>
     </CEffectApplyBehavior>
     <CEffectEnumArea id="HeroSelendisForAiur@Search">
         <ValidatorArray value="HeroSelendisForAiur"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <LaunchLocation Value="CasterUnit"/>
         <ImpactLocation Value="CasterUnit"/>
         <SearchFilters value="Heroic;Player,Neutral,Enemy,ImmuneToFriendlyAbilities,Stasis,Dead,Hidden"/>
@@ -138,8 +147,8 @@
     <CEffectApplyBehavior id="HeroSelendisGoldenArmada@ApplyTargetMarker">
         <Behavior value="HeroSelendisGoldenArmada@TargetMarker"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroSelendisGoldenArmada@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisGoldenArmada@Damage"/>
-    <CEffectSet id="HeroSelendisGoldenArmada@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisGoldenArmada@DamageCritStatusIncrement" DamageEffect="HeroSelendisGoldenArmada@Damage"/>
+    <CEffectUserData id="HeroSelendisGoldenArmada@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisGoldenArmada@Damage"/>
+    <CEffectSet id="HeroSelendisGoldenArmada@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisGoldenArmada@DamageCritStatusIncrement" DamageEffect="HeroSelendisGoldenArmada@Damage"/>
     <CEffectSet id="HeroSelendisGoldenArmada@LaunchSearchAreaImpactSet">
         <ValidatorArray value="HeroSelendisGoldenArmada@TargetHasNotMarker"/>
         <ValidatorArray value="HeroSelendisGoldenArmada@TargetHasNotMaxStacks"/>
@@ -169,15 +178,15 @@
     </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="HeroSelendisPhaseAegis@ApplySpellArmor">
         <ValidatorArray value="HeroSelendisPhaseAegis"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="TargetIsHero"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroSelendisPhaseAegis@SpellArmor"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroSelendisSeveringSlash@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisSeveringSlash@Damage"/>
-    <CEffectSet id="HeroSelendisSeveringSlash@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisSeveringSlash@DamageCritStatusIncrement" DamageEffect="HeroSelendisSeveringSlash@Damage"/>
-    <CEffectUserData id="HeroSelendisPsionicSurge@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisPsionicSurge@Damage"/>
-    <CEffectSet id="HeroSelendisPsionicSurge@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisPsionicSurge@DamageCritStatusIncrement" DamageEffect="HeroSelendisPsionicSurge@Damage"/>
+    <CEffectUserData id="HeroSelendisSeveringSlash@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisSeveringSlash@Damage"/>
+    <CEffectSet id="HeroSelendisSeveringSlash@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisSeveringSlash@DamageCritStatusIncrement" DamageEffect="HeroSelendisSeveringSlash@Damage"/>
+    <CEffectUserData id="HeroSelendisPsionicSurge@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisPsionicSurge@Damage"/>
+    <CEffectSet id="HeroSelendisPsionicSurge@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisPsionicSurge@DamageCritStatusIncrement" DamageEffect="HeroSelendisPsionicSurge@Damage"/>
     <CEffectSet id="HeroSelendisPsionicSurge@KnockbackSet">
         <ValidatorArray value="TargetNotUnstoppable"/>
         <ValidatorArray value="TargetNotDeadAndNoSpecialDeathState"/>
@@ -185,7 +194,7 @@
         <EffectArray value="HeroSelendisPsionicSurge@ApplyKnockbackBehavior"/>
         <EffectArray value="HeroSelendisPsionicSurge@KnockbackPersistent"/>
     </CEffectSet>
-    <CEffectUserData id="HeroSelendisResurgence@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroSelendisResurgence@Heal"/>
+    <CEffectUserData id="HeroSelendisResurgence@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroSelendisResurgence@Heal"/>
     <CEffectModifyPlayer id="HeroSelendisShieldDynamo">
         <EffectArray Operation="Set" Reference="Behavior,HeroSelendisZealousRush@Shield,Duration" Value="0.000000"/>
     </CEffectModifyPlayer>
@@ -197,8 +206,8 @@
         <TrackerUnit Effect="HeroSelendisSolarLance@DummyTargetUnitCreationSet" Value="Target"/>
         <TrackedUnit Value="Target"/>
     </CEffectAddTrackedUnit>
-    <CEffectUserData id="HeroSelendisSolarLance@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisSolarLance@Damage"/>
-    <CEffectSet id="HeroSelendisSolarLance@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisSolarLance@DamageCritStatusIncrement" DamageEffect="HeroSelendisSolarLance@Damage"/>
+    <CEffectUserData id="HeroSelendisSolarLance@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisSolarLance@Damage"/>
+    <CEffectSet id="HeroSelendisSolarLance@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisSolarLance@DamageCritStatusIncrement" DamageEffect="HeroSelendisSolarLance@Damage"/>
     <CEffectSet id="HeroSelendisSolarLance@TalentSet">
         <EffectArray value="HeroSelendisSolarCharge@AddTokenCount"/>
         <EffectArray value="HeroSelendisTrialByFire@ImpactSet"/>
@@ -244,15 +253,15 @@
     <CEffectDamage id="HeroSelendisSeveringSlash@Damage" parent="StormSpell">
         <Amount value="230"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroSelendisTrialByFire@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroSelendisTrialByFire@DamageCritStatusCombine" Effect="HeroSelendisTrialByFire@Damage"/>
-    <CEffectSet id="HeroSelendisTrialByFire@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisTrialByFire@DamageCritStatusIncrement" DamageEffect="HeroSelendisTrialByFire@Damage"/>
+    <CEffectUserData id="HeroSelendisTrialByFire@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisTrialByFire@Damage"/>
+    <CEffectSet id="HeroSelendisTrialByFire@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroSelendisTrialByFire@DamageCritStatusLocal" CritStatusEffect="HeroSelendisTrialByFire@DamageCritStatusIncrement" DamageEffect="HeroSelendisTrialByFire@Damage"/>
     <CEffectApplyBehavior id="HeroSelendisUnwaveringResolve@ApplyUnstoppable">
         <ValidatorArray value="HeroSelendisUnwaveringResolve"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroSelendisUnwaveringResolve@Unstoppable"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroSelendisWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroSelendisWeapon@DamageCritStatusChecker" Effect="HeroSelendisWeapon@Damage"/>
-    <CEffectSet id="HeroSelendisWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisWeapon@DamageCritStatusIncrement" DamageEffect="HeroSelendisWeapon@Damage"/>
+    <CEffectUserData id="HeroSelendisWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisWeapon@Damage"/>
+    <CEffectSet id="HeroSelendisWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroSelendisWeapon@DamageCritStatusLocal" CritStatusEffect="HeroSelendisWeapon@DamageCritStatusIncrement" DamageEffect="HeroSelendisWeapon@Damage"/>
     <CEffectSet id="HeroSelendisWeapon@InitialSetRanged">
         <ValidatorArray value="HeroSelendisExecutorsGuard@CasterHasWeaponBuff"/>
         <EffectArray value="HeroSelendisAnanPokahl@DeathControllerApplyBehaviorExecutorsGuard"/>
@@ -265,7 +274,7 @@
     <CEffectSet id="HeroSelendisWeapon@TalentSet">
         <EffectArray value="HeroSelendisPhaseAegis@ApplySpellArmor"/>
         <EffectArray value="HeroSelendisJusticeIsDue@AddTokenCount"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectSet>
     <CEffectDamage id="HeroSelendisDashingLight@Damage" parent="StormSpell">
         <Amount value="145"/>
@@ -291,7 +300,7 @@
             <AccumulatorArray value="HeroSelendisJusticeIsDue@DamageBonusArithmetic"/>
         </Amount>
     </CEffectDamage>
-    <CEffectSet id="HeroSelendisResurgence@HealSet" parent="StormHealSetCaster" CritStatusEffect="HeroSelendisResurgence@HealCritStatusIncrement" HealEffect="HeroSelendisResurgence@Heal">
+    <CEffectSet id="HeroSelendisResurgence@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisResurgence@HealCritStatusIncrement" HealEffect="HeroSelendisResurgence@Heal">
         <ValidatorArray value="HeroSelendisResurgence"/>
         <ValidatorArray value="TargetIsHero"/>
     </CEffectSet>
@@ -428,7 +437,7 @@
     <CEffectApplyBehavior id="HeroSelendisExecutorsGuard@ApplyArmorBuff">
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroSelendisExecutorsGuard@ArmorBuff"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="HeroSelendisExecutorsGuard@ApplyWeaponBuff">
         <WhichUnit Value="Caster"/>
@@ -682,8 +691,8 @@
         <Behavior value="HeroSelendisZealousRush@TargetCooldown"/>
         <OwningPlayer Value="Caster"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroSelendisZealousRush@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroSelendisZealousRush@Damage"/>
-    <CEffectSet id="HeroSelendisZealousRush@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroSelendisZealousRush@DamageCritStatusIncrement" DamageEffect="HeroSelendisZealousRush@Damage">
+    <CEffectUserData id="HeroSelendisZealousRush@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroSelendisZealousRush@Damage"/>
+    <CEffectSet id="HeroSelendisZealousRush@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroSelendisZealousRush@DamageCritStatusIncrement" DamageEffect="HeroSelendisZealousRush@Damage">
         <ValidatorArray value="HeroSelendisZealousRush@TargetIsTracked"/>
     </CEffectSet>
     <CEffectSet id="HeroSelendisZealousRush@DashImpactSet" parent="StormAbilityImpactSetEnemy">
@@ -931,6 +940,15 @@
         <Effect value="HeroSelendisZealousRush@ApproachSecondaryInitialSet"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HeroSelendisZealousRush"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="HeroSelendisDecisiveBlow@CritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="TargetLifeLT50Percent"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroSelendisTrialByFire@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="TargetIsHero"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroSelendisWeapon@DamageCritStatusChecker" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="HeroSelendisTemplarsFury@CasterHasBuff"/>
+    </CValidatorCombine>
     <CValidatorLocationCompareRange id="TargetWithin3RangeofSource2">
         <WhichLocation Effect="HeroSelendisZealousRush@InitialSet" Value="TargetUnit"/>
         <Compare value="LE"/>
@@ -941,10 +959,6 @@
         <Compare value="NE"/>
         <Key value="HeroSelendisCripplingBlow@StoredDamageReduction"/>
     </CValidatorEffectTreeUserData>
-    <CValidatorCombine id="HeroSelendisDecisiveBlow@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="TargetLifeLT50Percent"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroSelendisExecutorsGuard@CasterHasNotWeaponBuff" parent="CasterNotParent">
         <Behavior value="HeroSelendisExecutorsGuard@WeaponBuff"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -1024,10 +1038,6 @@
     <CValidatorEffectTreeUserData id="HeroSelendisTractorBeam@NoUserDataLimiter">
         <Key value="HeroSelendisTractorBeam"/>
     </CValidatorEffectTreeUserData>
-    <CValidatorCombine id="HeroSelendisTrialByFire@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="TargetIsHero"/>
-    </CValidatorCombine>
     <CValidatorIsUnitTracked id="HeroSelendisZealousRush@TargetIsTracked">
         <Find value="1"/>
         <BehaviorLink value="HeroSelendisZealousRush@UnitTracker"/>
@@ -1053,10 +1063,6 @@
         <Behavior value="HeroSelendisGoldenArmada"/>
         <RequireCasterUnit Value="Caster"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroSelendisWeapon@DamageCritStatusChecker">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="HeroSelendisTemplarsFury@CasterHasBuff"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroSelendisZealousRush@HasNoTargetCooldown">
         <Behavior value="HeroSelendisZealousRush@TargetCooldown"/>
         <RequireCasterUnit Value="Caster"/>
@@ -3100,7 +3106,6 @@
         <Modification MoveSpeedMaximum="19" MoveSpeedMinimum="19">
             <StateFlags index="LineMovement" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
         <InitialEffect value="HeroSelendisZealousRush@DisableCollision"/>
         <FinalEffect value="HeroSelendisZealousRush@FinishSet"/>
     </CBehaviorBuff>

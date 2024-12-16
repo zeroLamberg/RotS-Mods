@@ -386,7 +386,7 @@
     <CUnit id="TemplateTalentItem" parent="ITEM"/>
     <CBehaviorBuff id="TemplateDashAbility@RushingBehavior">
         <Alignment value="Positive"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
+        
         <Duration value="0.5"/>
         <Period value="0.0625"/>
         <Modification MoveSpeedMaximum="14" MoveSpeedMinimum="14">

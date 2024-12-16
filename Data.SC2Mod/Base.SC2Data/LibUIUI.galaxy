@@ -2674,6 +2674,7 @@ void libUIUI_gf_UIFloatingCombatTextCreateTextTagDirectional (unit lp_displayUni
     fixed lv_angle;
     fixed lv_speed;
     fixed lv_heightOffset;
+    text lv_critIcon;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -2696,7 +2697,20 @@ void libUIUI_gf_UIFloatingCombatTextCreateTextTagDirectional (unit lp_displayUni
     lv_heightOffset = (lp_heightOffset + RandomFixed(-0.5, 0.5));
     TextExpressionSetToken("Param/Expression/lib_UIUI_CA58C5B5", "A", StringToText(lp_style));
     lv_fontStyle = TextExpressionAssemble("Param/Expression/lib_UIUI_CA58C5B5");
+    if ((lp_style == "FCT_Spell_Crit")) {
+        lv_critIcon = TextExpressionAssemble("Param/Expression/lib_UIUI_AE6BA05B");
+    }
+    else if ((lp_style == "FCT_Heal_Crit")) {
+        lv_critIcon = TextExpressionAssemble("Param/Expression/lib_UIUI_61C2A100");
+    }
+    else if ((lp_style == "FCT_Physical_Crit")) {
+        lv_critIcon = TextExpressionAssemble("Param/Expression/lib_UIUI_8409415E");
+    }
+    else if ((lp_style == "FCT_Pure_Crit")) {
+        lv_critIcon = TextExpressionAssemble("Param/Expression/lib_UIUI_299A8D4A");
+    }
     TextExpressionSetToken("Param/Expression/lib_UIUI_CFC0E931", "A", lv_fontStyle);
+    TextExpressionSetToken("Param/Expression/lib_UIUI_CFC0E931", "C", lv_critIcon);
     TextExpressionSetToken("Param/Expression/lib_UIUI_CFC0E931", "B", lp_displayText);
     TextTagCreate(TextExpressionAssemble("Param/Expression/lib_UIUI_CFC0E931"), 15, Point((PointGetX(UnitGetPosition(lp_displayUnit)) + lp_horizontalOffset), PointGetY(UnitGetPosition(lp_displayUnit))), lv_heightOffset, true, false, lp_displayPlayers);
     TextTagSetVelocity(TextTagLastCreated(), lv_speed, lv_angle);
@@ -13195,7 +13209,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
     int autoEB0FFEE3_val;
 
     // Variable Initialization
-    lv_damageType = libCore_ge_StormDamagingEffectType_Any;
+    lv_damageType = libCore_ge_StormDamagingEffectKind_Any;
 
     // Conditions
     if (testConds) {
@@ -13227,9 +13241,9 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
     }
 
     lv_isCrit = libCore_gf_CombatCheckCritState(EventUnit(), UnitGetOwner(EventUnitDamageSourceUnit()), EventUnitDamageEffect());
-    lv_damageType = libCore_gf_CombatDamageTypeFromEffect(EventUnitDamageEffect());
+    lv_damageType = libCore_gf_CombatDamageKindFromEffect(EventUnitDamageEffect());
     autoEB0FFEE3_val = lv_damageType;
-    if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectType_Physical) {
+    if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectKind_Physical) {
         if ((lv_isCrit == false)) {
             lv_style = "FCT_Physical_Normal";
         }
@@ -13237,7 +13251,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
             lv_style = "FCT_Physical_Crit";
         }
     }
-    else if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectType_Spell) {
+    else if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectKind_Spell) {
         if ((lv_isCrit == false)) {
             lv_style = "FCT_Spell_Normal";
         }
@@ -13245,7 +13259,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
             lv_style = "FCT_Spell_Crit";
         }
     }
-    else if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectType_Pure) {
+    else if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectKind_Pure) {
         if ((lv_isCrit == false)) {
             lv_style = "FCT_Pure_Normal";
         }
@@ -13534,6 +13548,7 @@ bool libUIUI_gt_UICombatFloatingElementsMissing_Func (bool testConds, bool runAc
     playergroup lv_players;
     fixed lv_vertOffset;
     fixed lv_horizOffset;
+    unit lv_displayUnit;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -13545,24 +13560,29 @@ bool libUIUI_gt_UICombatFloatingElementsMissing_Func (bool testConds, bool runAc
     }
 
     if (((UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitSource)), c_unitAttributeHeroic) == true) || (UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitTarget)), c_unitAttributeHeroic) == true))) {
-        if ((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitTarget)) == false)) {
-            return true;
+        if ((EventPlayerEffectUsed() == "BlindMissedDummy")) {
+            if ((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitTarget)) == false)) {
+                return true;
+            }
+            else {
+                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
+                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerSource));
+                lv_displayUnit = EventPlayerEffectUsedUnit(c_effectUnitTarget);
+            }
         }
-
-        PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
-        PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerSource));
-        PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerTarget));
-        libUIUI_gf_UIFloatingCombatTextCreateTextTag(EventPlayerEffectUsedUnit(c_effectUnitTarget), StringExternal("Param/Value/lib_UIUI_8A97B87A"), lv_players, "FCT_Physical_Normal", libUIUI_gv_floatingCombatTextStandardDuration, libUIUI_gv_floatingCombatTextFadeDuration2, 0.0);
-    }
-    else {
-        if ((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitSource)) == false)) {
-            return true;
+        else {
+            if ((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitSource)) == false)) {
+                return true;
+            }
+            else {
+                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
+                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerTarget));
+                lv_displayUnit = EventPlayerEffectUsedUnit(c_effectUnitSource);
+            }
         }
-
-        PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerTarget));
-        PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
-        libUIUI_gf_UIFloatingCombatTextCreateTextTag(EventPlayerEffectUsedUnit(c_effectUnitSource), StringExternal("Param/Value/lib_UIUI_56E2E756"), lv_players, "FCT_Physical_Normal", libUIUI_gv_floatingCombatTextStandardDuration, libUIUI_gv_floatingCombatTextFadeDuration2, 0.0);
     }
+
+    libUIUI_gf_UIFloatingCombatTextCreateTextTag(lv_displayUnit, StringExternal("Param/Value/lib_UIUI_26DD633F"), lv_players, "FCT_Physical_Normal", libUIUI_gv_floatingCombatTextStandardDuration, libUIUI_gv_floatingCombatTextFadeDuration2, 0.0);
     return true;
 }
 

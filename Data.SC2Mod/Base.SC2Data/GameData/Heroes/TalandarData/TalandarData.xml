@@ -3,6 +3,20 @@
     <CKineticFollow id="HeroTalandarSolarBlast@Follow">
         <Follow value="Position"/>
     </CKineticFollow>
+    <CEffectUserData id="HeroTalandarSolarBlast@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroTalandarSolarBlast@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroTalandarThunderousCharge@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroTalandarThunderousCharge@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroTalandarWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroTalandarWeapon@DamageCritStatusIncrement"/>
+    </CEffectUserData>
+    <CEffectDamage id="HeroTalandarWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="139">
+            <AccumulatorArray value="HeroTalandarAdvancedCapacitors@Arithmetic"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectDamage id="HeroTalandarCuttingEdge@Damage" parent="StormPurePercent">
         <TechAliasArray value="StormFlag Critical"/>
         <Amount value="4"/>
@@ -12,11 +26,6 @@
     </CEffectDamage>
     <CEffectDamage id="HeroTalandarSolarRadiance@Damage" parent="StormPurePercent">
         <Amount value="6"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroTalandarWeapon@Damage" parent="StormPhysical">
-        <Amount value="139">
-            <AccumulatorArray value="HeroTalandarAdvancedCapacitors@Arithmetic"/>
-        </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="HeroTalandarAdvancedCapacitors@ApplyBasicAttackBuff">
         <ValidatorArray value="HeroTalandarAdvancedCapacitors"/>
@@ -59,7 +68,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroTalandarCuttingEdge@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroTalandarCuttingEdge@HealMU"/>
+    <CEffectSet id="HeroTalandarCuttingEdge@HealSet" parent="StormHealSetCaster" HealEffect="HeroTalandarCuttingEdge@HealMU"/>
     <CEffectModifyUnit id="HeroTalandarCybrossVengeance@ReduceDeathTimer">
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="HeroTalandarAvengingBeam@CasterIsAvengingBeam"/>
@@ -74,7 +83,7 @@
     <CEffectAddTrackedUnit id="HeroTalandarBattleArena@AddTrackedUnit">
         <BehaviorLink value="HeroTalandarBattleArena@UnitTracker"/>
         <TrackedUnit Value="Target"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="StormCategoryTargetNotImmunedToEnemyDisplacement"/>
     </CEffectAddTrackedUnit>
     <CEffectApplyBehavior id="HeroTalandarBattleArena@ApplyRingControllerBehavior">
@@ -91,7 +100,7 @@
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="HeroTalandarBattleArena@ApplyDummyTimer">
         <Behavior value="HeroTalandarBattleArena@DummyTimer"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="StormCategoryTargetNotImmunedToEnemyDisplacement"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="HeroTalandarBattleArena@ApplyKnockbackEnabler">
@@ -121,7 +130,7 @@
         <ValidatorArray value="HeroTalandarBattleArena@TargetHasNotDummyTimerCasterReq"/>
     </CEffectSet>
     <CEffectSet id="HeroTalandarBattleArena@InnerSearchImpactSet">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="StormCategoryTargetNotImmunedToEnemyDisplacement"/>
         <EffectArray value="HeroTalandarBattleArena@ApplyDummyTimer"/>
         <EffectArray value="HeroTalandarBattleArena@ApplySlow"/>
@@ -340,10 +349,10 @@
         <SpawnEffect value="HeroTalandarPurification@WarpOutSetFacing"/>
         <SpawnUnit value="HeroTalandarPurification@WarpOutUnit"/>
     </CEffectCreateUnit>
-    <CEffectUserData id="HeroTalandarPurification@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroTalandarPurification@Damage"/>
-    <CEffectSet id="HeroTalandarPurification@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroTalandarPurification@DamageCritStatusIncrement" DamageEffect="HeroTalandarPurification@Damage"/>
-    <CEffectUserData id="HeroTalandarPurification@LandingDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroTalandarPurification@LandingDamage"/>
-    <CEffectSet id="HeroTalandarPurification@LandingDamageSet" parent="StormDamageSet" CritStatusEffect="HeroTalandarPurification@LandingDamageCritStatusIncrement" DamageEffect="HeroTalandarPurification@LandingDamage"/>
+    <CEffectUserData id="HeroTalandarPurification@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroTalandarPurification@Damage"/>
+    <CEffectSet id="HeroTalandarPurification@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroTalandarPurification@DamageCritStatusIncrement" DamageEffect="HeroTalandarPurification@Damage"/>
+    <CEffectUserData id="HeroTalandarPurification@LandingDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroTalandarPurification@LandingDamage"/>
+    <CEffectSet id="HeroTalandarPurification@LandingDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroTalandarPurification@LandingDamageCritStatusIncrement" DamageEffect="HeroTalandarPurification@LandingDamage"/>
     <CEffectSet id="HeroTalandarPurification@LandingKnockbackInitialSet">
         <ValidatorArray value="StormTargetIsHero"/>
         <ValidatorArray value="TargetNotUnstoppable"/>
@@ -375,7 +384,7 @@
     <CEffectApplyBehavior id="HeroTalandarTheBladeOfArtanis@ApplyShield">
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroTalandarTheBladeOfArtanis@Shield"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectApplyBehavior>
     <CEffectSet id="HeroTalandarTheBladeOfArtanis@BehaviorRefreshSet"/>
     <CEffectSet id="HeroTalandarTheBladeOfArtanis@BehaviorInitialSet"/>
@@ -430,7 +439,7 @@
             </ChangeFraction>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroTalandarSelfRepair@HealSet" parent="StormHealSetTargetNoCrit" HealEffect="HeroTalandarSelfRepair@HealModifyUnit">
+    <CEffectSet id="HeroTalandarSelfRepair@HealSet" parent="StormHealSetTarget" HealEffect="HeroTalandarSelfRepair@HealModifyUnit">
         <ValidatorArray value="HeroTalandarSelfRepair"/>
     </CEffectSet>
     <CEffectModifyUnit id="HeroTalandarRecharge@RestoreEnergy">
@@ -443,12 +452,12 @@
         <ValidatorArray value="HeroTalandarShieldOvercharge"/>
         <ValidatorArray value="HeroTalandarShieldOvercharge@CasterHasBehavior"/>
         <ValidatorArray value="TargetIsHero"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroTalandarShieldOvercharge"/>
     </CEffectApplyBehavior>
     <CEffectAddTrackedUnit id="HeroTalandarSolarBlast@AddTrackedUnit">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <BehaviorLink value="HeroTalandarSolarBlast@TrackedUnitCount"/>
         <TrackedUnit Value="Target"/>
     </CEffectAddTrackedUnit>
@@ -483,8 +492,8 @@
             <AccumulatorArray value="HeroTalandarCauterizingBlast@DamageBonusModifierArithmetic"/>
         </Amount>
     </CEffectDamage>
-    <CEffectUserData id="HeroTalandarSolarBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroTalandarSolarBlast@DamageCritStatusCombine" Effect="HeroTalandarSolarBlast@Damage"/>
-    <CEffectSet id="HeroTalandarSolarBlast@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroTalandarSolarBlast@DamageCritStatusIncrement" DamageEffect="HeroTalandarSolarBlast@Damage"/>
+    <CEffectUserData id="HeroTalandarSolarBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroTalandarSolarBlast@Damage"/>
+    <CEffectSet id="HeroTalandarSolarBlast@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroTalandarSolarBlast@DamageCritStatusLocal" CritStatusEffect="HeroTalandarSolarBlast@DamageCritStatusIncrement" DamageEffect="HeroTalandarSolarBlast@Damage"/>
     <CEffectEnumTrackedUnits id="HeroTalandarSolarBlast@EnumTrackedUnits">
         <BehaviorLink value="HeroTalandarSolarBlast@TrackedUnitCount"/>
         <Effect value="HeroTalandarSolarBlast@ImpactSet"/>
@@ -555,7 +564,7 @@
         </Amount>
     </CEffectDamage>
     <CEffectSet id="HeroTalandarTheBladeOfArtanis@ApplySet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="HeroTalandarTheBladeOfArtanis@ApplyTimer"/>
         <EffectArray value="HeroTalandarTheBladeOfArtanis@ApplyStack"/>
     </CEffectSet>
@@ -598,10 +607,10 @@
         <LaunchUnit Value="Caster"/>
         <FacingLocation Value="CasterUnit"/>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroTalandarThunderousCharge@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroTalandarThunderousCharge@CritStatusCombine" Effect="HeroTalandarThunderousCharge@Damage"/>
-    <CEffectSet id="HeroTalandarThunderousCharge@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroTalandarThunderousCharge@DamageCritStatusIncrement" DamageEffect="HeroTalandarThunderousCharge@Damage"/>
-    <CEffectUserData id="HeroTalandarWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroTalandarWeapon@DamageCritStatusIncrement" Effect="HeroTalandarWeapon@Damage"/>
-    <CEffectSet id="HeroTalandarWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroTalandarWeapon@DamageCritStatusIncrement" DamageEffect="HeroTalandarWeapon@Damage"/>
+    <CEffectUserData id="HeroTalandarThunderousCharge@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroTalandarThunderousCharge@Damage"/>
+    <CEffectSet id="HeroTalandarThunderousCharge@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroTalandarThunderousCharge@DamageCritStatusLocal" CritStatusEffect="HeroTalandarThunderousCharge@DamageCritStatusIncrement" DamageEffect="HeroTalandarThunderousCharge@Damage"/>
+    <CEffectUserData id="HeroTalandarWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroTalandarWeapon@Damage"/>
+    <CEffectSet id="HeroTalandarWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroTalandarWeapon@DamageCritStatusLocal" CritStatusEffect="HeroTalandarWeapon@DamageCritStatusIncrement" DamageEffect="HeroTalandarWeapon@Damage"/>
     <CEffectSet id="HeroTalandarEndlessTempest@ChargeRestoreSet">
         <ValidatorArray value="HeroTalandarEndlessTempest@TargetHasNoMarkerCasterReq"/>
         <EffectArray value="HeroTalandarEndlessTempest@CooldownDelay"/>
@@ -609,7 +618,7 @@
     </CEffectSet>
     <CEffectAddTrackedUnit id="HeroTalandarWhirlwind@AddTrackedUnit">
         <ValidatorArray value="TargetNotDeadAndNoSpecialDeathState"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <BehaviorLink value="HeroTalandarWhirlwind@UnitTracker"/>
         <TrackedUnit Value="Target"/>
     </CEffectAddTrackedUnit>
@@ -620,11 +629,11 @@
         <EditorCategories value="StandardTypeCategory:HeroAbility"/>
         <Amount value="110"/>
     </CEffectDamage>
-    <CEffectSet id="HeroTalandarReconstruction@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroTalandarReconstruction@Heal">
+    <CEffectSet id="HeroTalandarReconstruction@HealSet" parent="StormHealSetCaster" HealEffect="HeroTalandarReconstruction@Heal">
         <ValidatorArray value="HeroTalandarReconstruction"/>
     </CEffectSet>
-    <CEffectUserData id="HeroTalandarWhirlwind@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroTalandarWhirlwind@Damage"/>
-    <CEffectSet id="HeroTalandarWhirlwind@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroTalandarWhirlwind@DamageCritStatusIncrement" DamageEffect="HeroTalandarWhirlwind@Damage"/>
+    <CEffectUserData id="HeroTalandarWhirlwind@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroTalandarWhirlwind@Damage"/>
+    <CEffectSet id="HeroTalandarWhirlwind@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroTalandarWhirlwind@DamageCritStatusIncrement" DamageEffect="HeroTalandarWhirlwind@Damage"/>
     <CEffectEnumTrackedUnits id="HeroTalandarWhirlwind@EnumTrackedUnits">
         <BehaviorLink value="HeroTalandarWhirlwind@UnitTracker"/>
         <Effect value="HeroTalandarWhirlwind@ImpactSet"/>
@@ -641,8 +650,8 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroTalandarWhirlwind@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroTalandarWhirlwind@Heal"/>
-    <CEffectSet id="HeroTalandarWhirlwind@HealSet" parent="StormHealSetCaster" CritStatusEffect="HeroTalandarWhirlwind@HealCritStatusIncrement" HealEffect="HeroTalandarWhirlwind@Heal"/>
+    <CEffectUserData id="HeroTalandarWhirlwind@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroTalandarWhirlwind@Heal"/>
+    <CEffectSet id="HeroTalandarWhirlwind@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroTalandarWhirlwind@HealCritStatusIncrement" HealEffect="HeroTalandarWhirlwind@Heal"/>
     <CEffectModifyPlayer id="HeroTalandar@LevelScalingModification">
         <EffectArray Operation="Multiply" Reference="Unit,HeroTalandar,LifeMax" Value="1.04"/>
         <EffectArray Operation="Multiply" Reference="Unit,HeroTalandar,LifeStart" Value="1.04"/>
@@ -1165,6 +1174,15 @@
         <Flags index="RangeUseCasterRadius" value="0"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HeroTalandarThunderousCharge"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="HeroTalandarSolarBlast@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroTalandarSolarBlast@CritKickerCombine"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroTalandarThunderousCharge@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroTalandarSubjugation@TargetCombine"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroTalandarWeapon@DamageCritStatusIncrement" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="HeroTalandarAdvancedCapacitors@CasterHasBuff"/>
+    </CValidatorCombine>
     <CValidatorCombine id="HeroTalandarConductivePlating@UIDisplay">
         <Type value="And"/>
         <CombineArray value="HeroTalandarConductivePlating"/>
@@ -1224,10 +1242,6 @@
     <CValidatorUnitCompareBehaviorCount id="HeroTalandarSolarBlast@CasterHasChannelBuff" parent="CasterIsParent">
         <Behavior value="HeroTalandarSolarBlast@Channel"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroTalandarSolarBlast@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroTalandarSolarBlast@CritKickerCombine"/>
-    </CValidatorCombine>
     <CValidatorCombine id="HeroTalandarSolarBlast@CritKickerCombine">
         <Type value="And"/>
         <CombineArray value="TargetIsHeroOrMercenaryOrMonster"/>
@@ -1249,10 +1263,6 @@
     <CValidatorUnitCompareBehaviorCount id="HeroTalandarSolariteCore@TargetHasNotCooldownBehavior">
         <Behavior value="HeroTalandarSolariteCore@Cooldown"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroTalandarThunderousCharge@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroTalandarSubjugation@TargetCombine"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroTalandarTheBladeOfArtanis@TargetHas2StacksCasterReq">
         <Value value="2"/>
         <Behavior value="HeroTalandarTheBladeOfArtanis@Stacks"/>
@@ -1272,10 +1282,6 @@
         <Key value="ThunderousChargeCDR"/>
         <Value value="1"/>
     </CValidatorEffectTreeUserData>
-    <CValidatorCombine id="HeroTalandarWeapon@DamageCritStatusIncrement">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="HeroTalandarAdvancedCapacitors@CasterHasBuff"/>
-    </CValidatorCombine>
     <CValidatorCombine id="HeroTalandarShieldOvercharge@TargetHasShield">
         <CombineArray value="HeroTalandarShieldOvercharge@TargetHasShieldInstant"/>
         <CombineArray value="HeroTalandarShieldOvercharge@TargetHasShieldPeriodic"/>
@@ -3623,7 +3629,7 @@
         <DataRecord Entry="Sound,HeroTalandarThunderousCharge@Loop"/>
         <DataRecord Entry="Sound,HeroTalandarThunderousCharge@Launch"/>
         <DataRecord Entry="Sound,HeroTalandarThunderousCharge@Impact"/>
-        <DataRecord Entry="Validator,HeroTalandarThunderousCharge@CritStatusCombine"/>
+        <DataRecord Entry="Validator,HeroTalandarThunderousCharge@DamageCritStatusCombine"/>
         <DataRecord Entry="Validator,HeroTalandarThunderousCharge@TargetPointNotWalkable"/>
         <DataRecord Entry="Validator,HeroTalandarThunderousCharge@CasterHasRushingBehavior"/>
         <DataRecord Entry="Validator,HeroTalandarThunderousCharge@HasOrderCombine"/>
@@ -4331,7 +4337,6 @@
             <StateFlags index="LineMovement" value="1"/>
             <AbilLinkDisableArray value="HoldFire"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroTalandarThunderousCharge@KnockbackBehavior" parent="StormPushPullParent">
         <Duration value="0.1875"/>

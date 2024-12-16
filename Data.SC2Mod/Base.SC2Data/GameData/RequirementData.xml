@@ -47,9 +47,6 @@
     <CRequirement id="StormCategoryRoot">
         <NodeArray index="Use" Link="GTCountBehaviorStormCategory RootCompleteOnlyAtUnit0"/>
     </CRequirement>
-    <CRequirement id="StormCategorySuppressCollision">
-        <NodeArray index="Use" Link="GTCountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit0"/>
-    </CRequirement>
     <CRequirement id="StormCategoryDebuffSpellPower">
         <NodeArray index="Use" Link="GTCountBehaviorStormCategory DebuffSpellPowerCompleteOnlyAtUnit0"/>
     </CRequirement>

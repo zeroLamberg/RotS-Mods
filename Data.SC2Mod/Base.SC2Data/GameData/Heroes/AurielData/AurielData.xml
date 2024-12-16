@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroAurielWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="HeroAurielInnerPeace@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroAurielInnerPeace@HealModifyUnit"/>
+    <CEffectUserData id="HeroAurielSacredSweep@CenterDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielSacredSweep@CenterDamage"/>
+    <CEffectDamage id="HeroAurielWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="64">
             <AccumulatorArray value="HeroAurielWrathOfHeaven@Switch"/>
         </Amount>
-    </CEffectDamage>
-    <CEffectDamage id="HeroAuriel@DamageVsHeroicTargetParent" parent="StormSpell">
-        <ValidatorArray value="TargetIsHero"/>
-        <LeechFraction index="Energy" value="0.6"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroAuriel@DamageVsNonHeroicTargetParent" parent="StormSpell">
-        <ValidatorArray value="TargetNotHero"/>
-        <LeechFraction index="Energy" value="0.2"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="HeroAurielAngelicFlight@CooldownReduction">
         <ValidatorArray value="HeroAurielAngelicFlight"/>
@@ -44,18 +38,18 @@
         <EffectArray value="HeroAurielCelestialGuard@ApplyBehaviorCaster"/>
         <EffectArray value="HeroAurielCelestialGuard@ApplyBehaviorTarget"/>
     </CEffectSet>
-    <CEffectUserData id="HeroAurielCrystalAegis@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAurielCrystalAegis@Damage"/>
+    <CEffectUserData id="HeroAurielCrystalAegis@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielCrystalAegis@Damage"/>
     <CEffectDestroyPersistent id="HeroAurielDetainmentStrike@DestroyKnockbackLargeHeroPlacementCheckPersistent">
         <WhichLocation Effect="HeroAurielDetainmentStrike@KnockbackLargeHeroPlacementCheckPersistent" Value="TargetPoint"/>
         <Effect value="HeroAurielDetainmentStrike@KnockbackLargeHeroPlacementCheckPersistent"/>
         <Count value="1"/>
         <Radius value="1"/>
     </CEffectDestroyPersistent>
-    <CEffectUserData id="HeroAurielDetainmentStrike@InitialDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAurielDetainmentStrike@InitialDamage"/>
+    <CEffectUserData id="HeroAurielDetainmentStrike@InitialDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielDetainmentStrike@InitialDamage"/>
     <CEffectRemoveBehavior id="HeroAurielDetainmentStrike@RemoveKnockbackBehavior">
         <BehaviorLink value="HeroAurielDetainmentStrike@Knockback"/>
     </CEffectRemoveBehavior>
-    <CEffectUserData id="HeroAurielDetainmentStrike@StunDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAurielDetainmentStrike@StunDamage"/>
+    <CEffectUserData id="HeroAurielDetainmentStrike@StunDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielDetainmentStrike@StunDamage"/>
     <CEffectUserData id="HeroAurielDetainmentStrike@UserDataHeroHitCountIncrement">
         <Key value="HeroHitCount"/>
         <SourceKey value="HeroHitCount"/>
@@ -67,7 +61,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroAurielInnerPeace@HealSet" parent="StormHealSetCasterNoCrit" HealEffect="HeroAurielInnerPeace@HealModifyUnit"/>
+    <CEffectSet id="HeroAurielInnerPeace@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielInnerPeace@HealCritStatusIncrement" HealEffect="HeroAurielInnerPeace@HealModifyUnit"/>
     <CEffectApplyBehavior id="HeroAurielRadiantAngel@ApplyAllyMovespeed">
         <Behavior value="HeroAurielRadiantAngel@AllyMovespeed"/>
     </CEffectApplyBehavior>
@@ -114,7 +108,7 @@
     <CEffectClearTrackedUnits id="HeroAurielRayOfHeaven@ClearTrackedUnits">
         <BehaviorLink value="HeroAurielRayOfHeaven@UnitTracker"/>
     </CEffectClearTrackedUnits>
-    <CEffectUserData id="HeroAurielRayOfHeaven@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAurielRayOfHeaven@HealModfyUnit"/>
+    <CEffectUserData id="HeroAurielRayOfHeaven@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielRayOfHeaven@HealModfyUnit"/>
     <CEffectSet id="HeroAurielRayOfHeaven@HighHealingStoredSearchImpactSet" parent="StormAbilityImpactSetAlly">
         <EffectArray value="HeroAurielRayOfHeaven@AddTrackedUnit"/>
         <EffectArray value="HeroAurielRayOfHeaven@HighHealingStoredSearchHealSet"/>
@@ -131,13 +125,13 @@
         <EffectArray value="HeroAurielRayOfHeaven@MaxHealingStoredGlazeDummy"/>
         <EffectArray value="HeroAurielRadiantAngel@UserDataTargetSwitch"/>
     </CEffectSet>
-    <CEffectUserData id="HeroAurielSacredSweep@DamageCritStatusIncremet" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAurielSacredSweep@Damage"/>
+    <CEffectUserData id="HeroAurielSacredSweep@DamageCritStatusIncremet" parent="StormCriticalStatusIncrementer" Effect="HeroAurielSacredSweep@Damage"/>
     <CEffectDamage id="HeroAurielSearingLight@Damage" parent="StormSpell">
         <LaunchLocation Effect="HeroAurielRayOfHeaven@CastDummy" Value="CasterUnit"/>
         <Amount value="130"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroAurielSearingLight@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAurielSearingLight@Damage"/>
-    <CEffectUserData id="HeroAurielWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="HeroAurielWeapon@Damage"/>
+    <CEffectUserData id="HeroAurielSearingLight@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielSearingLight@Damage"/>
+    <CEffectUserData id="HeroAurielWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAurielWeapon@Damage"/>
     <CEffectUserData id="HeroAurielWillOfHeaven@DecreaseHealCreatedMultiplier" parent="StormModifyHealCreatedMultiplier">
         <Amount value="20"/>
         <Operation value="Subtract"/>
@@ -196,7 +190,6 @@
         <Amount value="55"/>
     </CEffectDamage>
     <CEffectDamage id="HeroAurielDetainmentStrike@StunDamage" parent="StormSpell">
-        <TechAliasArray value="StormFlag Critical"/>
         <LaunchLocation Effect="HeroAurielDetainmentStrike@InitialSet" Value="CasterUnit"/>
         <ImpactLocation Effect="HeroAurielDetainmentStrike@MissileImpactSwitch" Value="TargetUnit"/>
         <Amount value="165">
@@ -204,7 +197,6 @@
         </Amount>
     </CEffectDamage>
     <CEffectDamage id="HeroAurielSacredSweep@CenterDamage" parent="StormSpell">
-        <TechAliasArray value="StormFlag Critical"/>
         <Amount value="160">
             <AccumulatorArray value="HeroAurielIncreasingClarity@DamageModifier"/>
         </Amount>
@@ -245,6 +237,10 @@
     </CEffectCreatePersistent>
     <CEffectSet id="HeroAurielDetainmentStrike@KnockbackFinalSet">
         <EffectArray value="HeroAurielDetainmentStrike@StunDamageSet"/>
+        <EffectArray value="HeroAurielRepeatedOffense@ModifyQuestToken"/>
+        <EffectArray value="HeroAurielWrathOfHeaven@ApplyArmorDebuff"/>
+        <EffectArray value="HeroAurielHeavyBurden@ApplyImprovedSlowBehavior"/>
+        <EffectArray value="HeroAurielAngelicFlight@CooldownReduction"/>
     </CEffectSet>
     <CEffectSet id="HeroAurielAngelicFlight@ApplyDeathForceSet">
         <Name value="Effect/Name/HeroAurielAngelicFlightApplyDeathForceSet"/>
@@ -276,14 +272,14 @@
         <AmmoUnit value="HeroAurielWeapon@Missile"/>
         <ImpactRange value="0.5"/>
     </CEffectLaunchMissile>
-    <CEffectSet id="HeroAurielWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAurielWeapon@DamageCritStatusIncrement" DamageEffect="HeroAurielWeapon@Damage"/>
+    <CEffectSet id="HeroAurielWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroAurielWeapon@DamageCritStatusIncrement" DamageEffect="HeroAurielWeapon@Damage"/>
     <CEffectSet id="HeroAurielWeapon@ImpactSet">
         <EffectArray value="HeroAurielWeapon@DamageSet"/>
     </CEffectSet>
     <CEffectSet id="HeroAurielWeapon@InitialSet">
         <EffectArray value="HeroAurielWeapon@LaunchMissile"/>
     </CEffectSet>
-    <CEffectSet id="HeroAurielRayOfHeaven@LowHealingStoredSearchHealSet" parent="StormHealSetTarget" CritStatusEffect="HeroAurielRayOfHeaven@HealCritStatusIncrement" HealEffect="HeroAurielRayOfHeaven@HealModfyUnit"/>
+    <CEffectSet id="HeroAurielRayOfHeaven@LowHealingStoredSearchHealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielRayOfHeaven@HealCritStatusIncrement" HealEffect="HeroAurielRayOfHeaven@HealModfyUnit"/>
     <CEffectApplyBehavior id="HeroAurielGlimmerOfHope@ApplyPrimedBehavior">
         <ValidatorArray value="HeroAurielGlimmerOfHope"/>
         <Behavior value="HeroAurielGlimmerOfHope@Primed"/>
@@ -349,12 +345,12 @@
         <SearchFilters value="Heroic;Neutral,Enemy,ImmuneToFriendlyAbilities,Missile,Stasis,Dead"/>
         <AreaArray Radius="3" Effect="HeroAurielRayOfHeaven@MaxHealingStoredSearchImpactSet"/>
     </CEffectEnumArea>
-    <CEffectSet id="HeroAurielSearingLight@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAurielSearingLight@DamageCritStatusIncrement" DamageEffect="HeroAurielSearingLight@Damage">
+    <CEffectSet id="HeroAurielSearingLight@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielSearingLight@DamageCritStatusIncrement" DamageEffect="HeroAurielSearingLight@Damage">
         <ValidatorArray value="noMarkers"/>
     </CEffectSet>
     <CEffectSet id="HeroAurielRayOfHeaven@DummyUIActivator"/>
-    <CEffectSet id="HeroAurielRayOfHeaven@MaxHealingStoredSearchHealSet" parent="StormHealSetTarget" CritStatusEffect="HeroAurielRayOfHeaven@HealCritStatusIncrement" HealEffect="HeroAurielRayOfHeaven@HealModfyUnit"/>
-    <CEffectSet id="HeroAurielRayOfHeaven@HighHealingStoredSearchHealSet" parent="StormHealSetTarget" CritStatusEffect="HeroAurielRayOfHeaven@HealCritStatusIncrement" HealEffect="HeroAurielRayOfHeaven@HealModfyUnit"/>
+    <CEffectSet id="HeroAurielRayOfHeaven@MaxHealingStoredSearchHealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielRayOfHeaven@HealCritStatusIncrement" HealEffect="HeroAurielRayOfHeaven@HealModfyUnit"/>
+    <CEffectSet id="HeroAurielRayOfHeaven@HighHealingStoredSearchHealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielRayOfHeaven@HealCritStatusIncrement" HealEffect="HeroAurielRayOfHeaven@HealModfyUnit"/>
     <CEffectCreatePersistent id="HeroAurielRayOfHeaven@RevealPersistent">
         <ExpireDelay value="0.75"/>
         <RevealRadius value="3.75"/>
@@ -379,10 +375,8 @@
     <CEffectApplyBehavior id="HeroAurielSacredSweep@ApplyMarkerBehavior">
         <Behavior value="HeroAurielSacredSweep@Marker"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="HeroAurielSacredSweep@CenterDamageSet">
-        <EffectArray value="HeroAurielSacredSweep@CenterDamage"/>
-    </CEffectSet>
-    <CEffectSet id="HeroAurielSacredSweep@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAurielSacredSweep@DamageCritStatusIncremet" DamageEffect="HeroAurielSacredSweep@Damage"/>
+    <CEffectSet id="HeroAurielSacredSweep@CenterDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusAlwaysTrue" CritStatusEffect="HeroAurielSacredSweep@CenterDamageCritStatusIncrement" DamageEffect="HeroAurielSacredSweep@CenterDamage"/>
+    <CEffectSet id="HeroAurielSacredSweep@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielSacredSweep@DamageCritStatusIncremet" DamageEffect="HeroAurielSacredSweep@Damage"/>
     <CEffectModifyUnit id="HeroAurielRighteousAssault@ModifyCooldown">
         <EditorCategories value="StormHero:Auriel"/>
         <ImpactUnit Value="Caster"/>
@@ -689,6 +683,7 @@
     <CEffectSet id="HeroAurielDetainmentStrike@MissileImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroAurielDetainmentStrike@UserDataHeroHitCountIncrement"/>
         <EffectArray value="HeroAurielDetainmentStrike@InitialDamageSet"/>
+        <EffectArray value="HeroAurielHeavyBurden@ApplySlowBehavior"/>
         <EffectArray value="HeroAurielDetainmentStrike@MissileImpactKnockbackInitialSet"/>
         <EffectArray value="HeroAurielDetainmentStrike@DestroyMissileScanPersistent"/>
         <EffectArray value="HeroAurielDetainmentStrike@DestroyOffsetPersistent"/>
@@ -768,20 +763,18 @@
     </CEffectSet>
     <CEffectSwitch id="HeroAurielDetainmentStrike@MissileImpactSwitch">
         <ValidatorArray value="noMarkers"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <CaseArray Validator="HeroAurielPiercingLash" Effect="HeroAurielPiercingLash@MissileImpactSet"/>
         <CaseDefault value="HeroAurielDetainmentStrike@MissileImpactSet"/>
     </CEffectSwitch>
-    <CEffectSet id="HeroAurielDetainmentStrike@StunDamageSet" parent="StormDamageSet" CritStatusEffect="HeroAurielDetainmentStrike@StunDamageCritStatusIncrement" DamageEffect="HeroAurielDetainmentStrike@StunDamage">
+    <CEffectSet id="HeroAurielDetainmentStrike@StunDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusAlwaysTrue" CritStatusEffect="HeroAurielDetainmentStrike@StunDamageCritStatusIncrement" DamageEffect="HeroAurielDetainmentStrike@StunDamage">
         <ValidatorArray value="HeroAurielDetainmentStrike@TargetHasStun"/>
         <EffectArray value="HeroAurielRepeatedOffense@ModifyQuestToken"/>
         <EffectArray value="HeroAurielWrathOfHeaven@ApplyArmorDebuff"/>
         <EffectArray value="HeroAurielHeavyBurden@ApplyImprovedSlowBehavior"/>
         <EffectArray value="HeroAurielAngelicFlight@CooldownReduction"/>
     </CEffectSet>
-    <CEffectSet id="HeroAurielDetainmentStrike@InitialDamageSet" parent="StormDamageSet" CritStatusEffect="HeroAurielDetainmentStrike@InitialDamageCritStatusIncrement" DamageEffect="HeroAurielDetainmentStrike@InitialDamage">
-        <EffectArray value="HeroAurielHeavyBurden@ApplySlowBehavior"/>
-    </CEffectSet>
+    <CEffectSet id="HeroAurielDetainmentStrike@InitialDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielDetainmentStrike@InitialDamageCritStatusIncrement" DamageEffect="HeroAurielDetainmentStrike@InitialDamage"/>
     <CEffectDestroyPersistent id="HeroAurielDetainmentStrike@DestroyKnockbackSmallHeroPlacementCheckPersistent">
         <WhichLocation Effect="HeroAurielDetainmentStrike@KnockbackSmallHeroPlacementCheckPersistent" Value="TargetPoint"/>
         <Effect value="HeroAurielDetainmentStrike@KnockbackSmallHeroPlacementCheckPersistent"/>
@@ -894,7 +887,7 @@
         <WhichUnit Effect="HeroAurielCrystalAegis@ApplyStasisBehavior"/>
         <Behavior value="HeroAurielDiamondResolve"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="HeroAurielCrystalAegis@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAurielCrystalAegis@DamageCritStatusIncrement" DamageEffect="HeroAurielCrystalAegis@Damage">
+    <CEffectSet id="HeroAurielCrystalAegis@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAurielCrystalAegis@DamageCritStatusIncrement" DamageEffect="HeroAurielCrystalAegis@Damage">
         <Name value="Effect/Name/HeroAurielCrystalAegisDamageSet"/>
     </CEffectSet>
     <CEffectApplyBehavior id="HeroAurielCrystalAegis@ApplyStasisBehavior">

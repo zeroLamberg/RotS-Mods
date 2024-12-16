@@ -186,30 +186,6 @@
         <DataRecord Entry="Validator,HeroGenericFountainDrink@CasterHasNotOrder"/>
         <DataRecord Entry="Validator,HeroGenericFountainDrink@HasNotOrder"/>
     </CDataCollectionAbil>
-    <CDataCollection id="HeroGenericCollisionRadius">
-        <DataRecord Entry="Behavior,HeroGenericCollisionRadius@UnitTracker"/>
-        <DataRecord Entry="Behavior,HeroGenericCollisionRadius"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@EnumTrackedUnits"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@AddTrackedUnit"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@ApplyForce"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@Search"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@CurrentOrderIsPushable"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@TargetHasController"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@TargetIsMovingAndHasPushableOrders"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@AllianceRangeCondition"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@EnemyRangeCheck"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@AllyRangeCheck"/>
-        <DataRecord Entry="Behavior,HeroGenericCollisionRadius@CollisionPush"/>
-        <DataRecord Entry="Behavior,HeroGenericCollisionRadius@PushSpeed"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@ApplyPushSpeed"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@ApplyForce2"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@ApplyPushBehavior"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@DummySet"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@ImpactSet"/>
-        <DataRecord Entry="Effect,HeroGenericCollisionRadius@InitialSet"/>
-        <DataRecord Entry="Validator,HeroGenericCollisionRadius@CurrentOrderIsPushableCaster"/>
-        <EditorCategories value="StormDataGroup:Other"/>
-    </CDataCollection>
     <CDataCollection id="SummonedUnitSpecialCaseInteraction">
         <DataRecord Entry="Abil,SummonedUnitSpecialCaseInteraction"/>
         <DataRecord Entry="Behavior,SummonedUnitSpecialCaseInteraction"/>

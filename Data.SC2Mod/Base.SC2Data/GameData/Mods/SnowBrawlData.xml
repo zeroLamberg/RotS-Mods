@@ -129,7 +129,6 @@
     </CEffectDestroyPersistent>
     <CEffectDamage id="HardPackSnowballDamage" parent="StormSpell">
         <Amount value="400"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
     </CEffectDamage>
     <CEffectDamage id="HardPackSnowballSuicide" parent="StormSuicideParent"/>
     <CEffectModifyUnit id="HardPackSnowballModifyFacing">
@@ -211,13 +210,11 @@
         <Amount value="430"/>
         <AttributeFactor index="Minion" value="1"/>
         <AttributeFactor index="Structure" value="1"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
     </CEffectDamage>
     <CEffectDamage id="WorldEnderSnowballDamage" parent="StormSpell">
         <AttributeFactor index="Minion" value="1"/>
         <AttributeFactor index="Structure" value="1"/>
         <Amount value="430"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="HeavySnowballAddSlowBehavior" parent="StormApplySlow">
         <Behavior value="HeavySnowballSlow"/>
@@ -261,7 +258,6 @@
     </CEffectDamage>
     <CEffectDamage id="SnowmanWeaponDamage" parent="StormSpell">
         <Amount value="200"/>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="SnowmanWeaponLaunchMissile">
         <ValidatorArray value="TargetNotDead"/>

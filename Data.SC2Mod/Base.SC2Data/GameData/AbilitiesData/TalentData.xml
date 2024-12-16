@@ -3,7 +3,7 @@
     <CEffectDamage id="TalentGiantKiller@Damage" parent="StormPurePercent">
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="TalentGiantKiller"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <Amount value="1.5"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="TalentEnrage@ApplyPhysicalDamageBuff">
@@ -74,16 +74,16 @@
         <Amount value="20"/>
         <Operation value="Subtract"/>
     </CEffectUserData>
+    <CEffectDamage id="TalentShieldBreaker@Damage" parent="StormPure">
+        <Flags index="Live" value="1"/>
+        <Flags index="NoVitalAbsorbLife" value="1"/>
+    </CEffectDamage>
     <CEffectSet id="TalentHardenedFocus@CDRProcSet">
         <ValidatorArray value="TalentHardenedFocus@ManaIsValidCDR"/>
     </CEffectSet>
     <CEffectSet id="TalentHardenedFocus@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
     </CEffectSet>
-    <CEffectDamage id="TalentShieldBreaker@Damage" parent="StormSpellNoModifiers">
-        <Flags index="Live" value="1"/>
-        <Flags index="NoVitalAbsorbLife" value="1"/>
-    </CEffectDamage>
     <CEffectSet id="TalentShieldBreaker@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
     </CEffectSet>
@@ -102,7 +102,7 @@
     </CEffectSet>
     <CEffectUserData id="TalentFocusedAttack@IncrementCooldownUD">
         <ValidatorArray value="TalentFocusedAttack@CasterHasNotCooldown"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <Key value="TalentFocusedAttackCooldown"/>
         <SourceKey value="TalentFocusedAttackCooldown"/>
     </CEffectUserData>
@@ -130,7 +130,7 @@
     </CEffectUserData>
     <CEffectUserData id="TalentFocusedAttack@IncrementDamageUD">
         <ValidatorArray value="TalentFocusedAttack@CasterHasNotCooldown"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <Key value="TalentFocusedAttack"/>
         <SourceKey value="TalentFocusedAttack"/>
     </CEffectUserData>
@@ -164,7 +164,7 @@
         <ValidatorArray value="TalentFocusedAttack@CasterHasItem"/>
         <ValidatorArray value="TalentFocusedAttack@UDCooldownEq0"/>
         <ValidatorArray value="TalentFocusedAttack@UDDamageEq0"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectSet>
     <CEffectSet id="TalentAmplifiedHealing@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
@@ -227,7 +227,7 @@
         <ValidatorArray value="TalentBlock@TargetHasItem"/>
         <ValidatorArray value="TalentBlock@TargetHasNotCooldown"/>
         <ValidatorArray value="CasterIsHero"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectSet>
     <CEffectSet id="TalentRelentless@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
@@ -382,7 +382,7 @@
         <Amount value="15"/>
         <Operation value="Subtract"/>
     </CEffectUserData>
-    <CEffectUserData id="TalentHealingWard@HealCritStattusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TalentHealingWard@HealMU"/>
+    <CEffectUserData id="TalentHealingWard@HealCritStattusIncrement" parent="StormCriticalStatusIncrementer" Effect="TalentHealingWard@HealMU"/>
     <CEffectModifyUnit id="TalentHealingWard@HealMU" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <ChangeFraction value="0.02"/>
@@ -400,7 +400,7 @@
         <Behavior value="TalentSprint@Speed"/>
     </CEffectApplyBehavior>
     <CEffectSet id="TalentFirstAid@HealSet" parent="StormHealSetTarget" CritStatusEffect="TalentFirstAid@HealCritStatusIncrement" HealEffect="TalentFirstAid@HealMU"/>
-    <CEffectUserData id="TalentFirstAid@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TalentFirstAid@HealMU"/>
+    <CEffectUserData id="TalentFirstAid@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TalentFirstAid@HealMU"/>
     <CEffectModifyUnit id="TalentFirstAid@HealMU" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <ChangeFraction value="0.05"/>
@@ -408,7 +408,7 @@
     </CEffectModifyUnit>
     <CEffectSet id="TalentBattleMomentum@DummyProcSet">
         <ValidatorArray value="TalentBattleMomentum@CasterHasItem"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectSet>
     <CEffectSet id="TalentExecutioner@ImpactSet">
         <ValidatorArray value="TalentExecutioner"/>
@@ -483,7 +483,7 @@
         <Behavior value="TalentSpellShield@Active"/>
     </CEffectApplyBehavior>
     <CEffectModifyUnit id="TalentBlock@ImpactDummy"/>
-    <CEffectUserData id="TalentBurningRage@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TalentBurningRage@Damage"/>
+    <CEffectUserData id="TalentBurningRage@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TalentBurningRage@Damage"/>
     <CEffectSet id="TalentBurningRage@DamageSet" parent="StormDamageSet" CritStatusEffect="TalentBurningRage@DamageCritStatusIncrement" DamageEffect="TalentBurningRage@Damage"/>
     <CEffectSet id="TalentBurningRage@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <ValidatorArray value="NoJungleBenignTarget"/>
@@ -495,16 +495,16 @@
         <AreaArray Radius="2.5" Effect="TalentBurningRage@ImpactSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
-    <CEffectUserData id="TalentFuryOfTheStorm@AoEDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TalentFuryOfTheStorm@AoEDamage"/>
+    <CEffectUserData id="TalentFuryOfTheStorm@AoEDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TalentFuryOfTheStorm@AoEDamage"/>
     <CEffectSet id="TalentFuryOfTheStorm@AoEDamageSet" parent="StormDamageSet" CritStatusEffect="TalentFuryOfTheStorm@AoEDamageCritStatusIncrement" DamageEffect="TalentFuryOfTheStorm@AoEDamage"/>
     <CEffectSet id="TalentFuryOfTheStorm@AoEImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="TalentFuryOfTheStorm@AoELaunchMissile"/>
         <ValidatorArray value="TargetIsLaneMinionOrMercenaryOrMonster"/>
     </CEffectSet>
-    <CEffectUserData id="TalentFuryOfTheStorm@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="TalentFuryOfTheStorm@Damage"/>
+    <CEffectUserData id="TalentFuryOfTheStorm@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="TalentFuryOfTheStorm@Damage"/>
     <CEffectSet id="TalentFuryOfTheStorm@DamageSet" parent="StormDamageSet" CritStatusEffect="TalentFuryOfTheStorm@DamageCritStatusIncrement" DamageEffect="TalentFuryOfTheStorm@Damage"/>
     <CEffectSet id="TalentFuryOfTheStorm@ImpactSetValidated">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="TalentFuryOfTheStorm@AoEPersistent"/>
         <EffectArray value="TalentFuryOfTheStorm@ImpactPersistent"/>
     </CEffectSet>
@@ -1502,7 +1502,7 @@
         <Type value="And"/>
         <CombineArray value="TalentBlock@TargetHasBehaviorCombine"/>
         <CombineArray value="CasterIsHero"/>
-        <CombineArray value="BasicAttackEffectTreeCheckCombine"/>
+        <CombineArray value="EffectTreeCheckCombineBasicAttack"/>
     </CValidatorCombine>
     <CValidatorCombine id="TalentBlock@TargetHasBehaviorCombine">
         <CombineArray value="TalentBlock@TargetHasPermanentBehavior"/>

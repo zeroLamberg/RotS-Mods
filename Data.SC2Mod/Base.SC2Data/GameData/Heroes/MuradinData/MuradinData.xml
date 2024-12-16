@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="MuradinWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="MuradinBronzebeardRage@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="MuradinBronzebeardRage@CritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="MuradinBronzebeardRage@DamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="75"/>
+    </CEffectUserData>
+    <CEffectUserData id="MuradinThunderBurn@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="MuradinThunderBurn@CritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="MuradinThunderclap@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="MuradinThunderclap@CritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="MuradinWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="MuradinWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="MuradinWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="91">
             <AccumulatorArray value="MuradinPerfectStorm@BasicAttackDamageArithmetic"/>
             <AccumulatorArray value="MuradinGiveEmTheAxe@WeaponDamageBuffSwitch"/>
@@ -34,23 +49,10 @@
         <Amount value="15">
             <AccumulatorArray value="MuradinBronzebeardRage@DamageBonusArithmetic"/>
         </Amount>
-        <DamageInheritEffect value="MuradinBronzebeardRage@DamageInheritSet"/>
         <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
     </CEffectDamage>
-    <CEffectUserData id="MuradinBronzebeardRage@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="MuradinBronzebeardRage@CritStatusCombine" Effect="MuradinBronzebeardRage@Damage"/>
-    <CEffectSet id="MuradinBronzebeardRage@DamageInheritSet" parent="StormDamageInheritSetSpell">
-        <EffectArray value="MuradinBronzebeardRage@LeechSet"/>
-    </CEffectSet>
-    <CEffectSet id="MuradinBronzebeardRage@DamageSet" parent="StormDamageSet" CritStatusEffect="MuradinBronzebeardRage@DamageCritStatusIncrement" DamageEffect="MuradinBronzebeardRage@Damage"/>
-    <CEffectUserData id="MuradinBronzebeardRage@LeechCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="MuradinBronzebeardRage@CritStatusCombine" Effect="MuradinBronzebeardRage@LeechMU"/>
-    <CEffectModifyUnit id="MuradinBronzebeardRage@LeechMU" parent="StormModifyUnitHealingSelfIgnoreHealCreatedMultiplier">
-        <VitalArray index="Life">
-            <Change value="0.75">
-                <AccumulatorArray value="DamageInheritedMultiply"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="MuradinBronzebeardRage@LeechSet" parent="StormHealSetCaster" CritStatusEffect="MuradinBronzebeardRage@LeechCritStatusIncrement" HealEffect="MuradinBronzebeardRage@LeechMU"/>
+    <CEffectUserData id="MuradinBronzebeardRage@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinBronzebeardRage@Damage"/>
+    <CEffectSet id="MuradinBronzebeardRage@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="MuradinBronzebeardRage@DamageCritStatusLocal" CritStatusEffect="MuradinBronzebeardRage@DamageCritStatusIncrement" LocalLeechEffect="MuradinBronzebeardRage@DamageLeechLocal" DamageEffect="MuradinBronzebeardRage@Damage"/>
     <CEffectRemoveBehavior id="MuradinDwarfBlock@RemoveBlock">
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="MuradinDwarfBlock@PhysicalArmor"/>
@@ -70,7 +72,7 @@
         <Behavior value="MuradinDwarfToss@Unstoppable"/>
     </CEffectApplyBehavior>
     <CEffectSet id="MuradinDwarfToss@DamageSet" parent="StormDamageSet" CritStatusEffect="MuradinDwarfToss@DamageCritStatusIncrement" DamageEffect="MuradinDwarfToss@Damage"/>
-    <CEffectUserData id="MuradinDwarfToss@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="MuradinDwarfToss@Damage"/>
+    <CEffectUserData id="MuradinDwarfToss@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinDwarfToss@Damage"/>
     <CEffectSet id="MuradinDwarfToss@FinishSet">
         <EffectArray value="MuradinDwarfToss@RemoveUnstoppableBehavior"/>
         <EffectArray value="HeroGenericMissileInterruptLaunchMissileSource"/>
@@ -87,9 +89,9 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="MuradinDwarvenCourage"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="MuradinHaymaker@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="MuradinHaymaker@Damage"/>
+    <CEffectUserData id="MuradinHaymaker@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinHaymaker@Damage"/>
     <CEffectSet id="MuradinHaymaker@DamageSet" parent="StormDamageSet" CritStatusEffect="MuradinHaymaker@DamageCritStatusIncrement" DamageEffect="MuradinHaymaker@Damage"/>
-    <CEffectUserData id="MuradinHaymaker@SecondaryImpactDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="MuradinHaymaker@SecondaryImpactDamage"/>
+    <CEffectUserData id="MuradinHaymaker@SecondaryImpactDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinHaymaker@SecondaryImpactDamage"/>
     <CEffectSet id="MuradinHaymaker@SecondaryImpactDamageSet" parent="StormDamageSet" CritStatusEffect="MuradinHaymaker@SecondaryImpactDamageCritStatusIncrement" DamageEffect="MuradinHaymaker@SecondaryImpactDamage"/>
     <CEffectModifyUnit id="MuradinHealingStatic@HealMU" parent="StormModifyUnitHealingSelf">
         <ValidatorArray value="TargetIsHero"/>
@@ -261,8 +263,8 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="MuradinThunderBurn@UnitTracker"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="MuradinThunderBurn@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="MuradinThunderBurn@CritStatusCombine" Effect="MuradinThunderBurn@Damage"/>
-    <CEffectSet id="MuradinThunderBurn@DamageSet" parent="StormDamageSet" CritStatusEffect="MuradinThunderBurn@DamageCritStatusIncrement" DamageEffect="MuradinThunderBurn@Damage"/>
+    <CEffectUserData id="MuradinThunderBurn@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinThunderBurn@Damage"/>
+    <CEffectSet id="MuradinThunderBurn@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="MuradinThunderBurn@DamageCritStatusLocal" CritStatusEffect="MuradinThunderBurn@DamageCritStatusIncrement" DamageEffect="MuradinThunderBurn@Damage"/>
     <CEffectEnumTrackedUnits id="MuradinThunderBurn@EnumTrackedUnits">
         <BehaviorLink value="MuradinThunderBurn@UnitTracker"/>
         <Effect value="MuradinThunderBurn@EnumImpactSet"/>
@@ -283,8 +285,8 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="MuradinThunderclap@UnitTracker"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="MuradinThunderclap@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="MuradinThunderclap@CritStatusCombine" Effect="MuradinThunderclap@Damage"/>
-    <CEffectSet id="MuradinThunderclap@DamageSet" parent="StormDamageSet" CritStatusEffect="MuradinThunderclap@DamageCritStatusIncrement" DamageEffect="MuradinThunderclap@Damage"/>
+    <CEffectUserData id="MuradinThunderclap@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinThunderclap@Damage"/>
+    <CEffectSet id="MuradinThunderclap@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="MuradinThunderclap@DamageCritStatusLocal" CritStatusEffect="MuradinThunderclap@DamageCritStatusIncrement" DamageEffect="MuradinThunderclap@Damage"/>
     <CEffectEnumTrackedUnits id="MuradinThunderclap@EnumTrackedUnits">
         <BehaviorLink value="MuradinThunderclap@UnitTracker"/>
         <Effect value="MuradinThunderclap@EnumImpactSet"/>
@@ -323,10 +325,10 @@
         <EffectArray value="MuradinHaymaker@ApplyStunTargetBehavior"/>
         <EffectArray value="MuradinHaymaker@MicroStunRemoveBehavior"/>
     </CEffectSet>
-    <CEffectUserData id="MuradinWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="MuradinWeapon@DamageCritStatusCombine" Effect="MuradinWeapon@Damage"/>
-    <CEffectSet id="MuradinWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="MuradinWeapon@DamageCritStatusIncrement" DamageEffect="MuradinWeapon@Damage"/>
+    <CEffectUserData id="MuradinWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MuradinWeapon@Damage"/>
+    <CEffectSet id="MuradinWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="MuradinWeapon@DamageCritStatusLocal" CritStatusEffect="MuradinWeapon@DamageCritStatusIncrement" DamageEffect="MuradinWeapon@Damage"/>
     <CEffectSet id="MuradinWeapon@SecondarySet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="MuradinStormbolt@ModifyCooldown"/>
         <EffectArray value="MuradinGiveEmTheAxe@DamageBonusApplyBehavior"/>
         <EffectArray value="MuradinUnstoppableForce@ModifyCooldowns"/>
@@ -558,12 +560,12 @@
         </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="MuradinBash@ApplyStackBehavior">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="MuradinBash"/>
         <Behavior value="MuradinBash@Stack"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="MuradinBash@ApplyStunBehavior" parent="StormApplyStun">
-        <ValidatorArray index="0" value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray index="0" value="EffectTreeCheckCombineBasicAttack"/>
         <Behavior value="MuradinBash@Stun"/>
     </CEffectApplyBehavior>
     <CEffectSet id="MuradinBash@ProcSet">
@@ -931,7 +933,7 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="MuradinThunderclap"/>
     </CAbilEffectInstant>
     <CValidatorCombine id="MuradinBronzebeardRage@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
+        <CombineArray value="CritAliasSpell"/>
         <CombineArray value="MuradinBronzebeardRage@CasterHasDamageBoost"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="MuradinDwarfBlock@CasterHasBlock" parent="CasterIsParent">
@@ -993,11 +995,11 @@
     </CValidatorEffectTreeUserData>
     <CValidatorUnitCompareChargeUsed id="MuradinStormbolt@QuestMaxed" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="MuradinStormbolt@TokenCounter"/>
     <CValidatorCombine id="MuradinThunderBurn@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
+        <CombineArray value="CritAliasSpell"/>
         <CombineArray value="MuradinThunderStrike@ThunderburnDamageBonusCombine"/>
     </CValidatorCombine>
     <CValidatorCombine id="MuradinThunderclap@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
+        <CombineArray value="CritAliasSpell"/>
         <CombineArray value="MuradinThunderStrike@DamageBonusCombine"/>
     </CValidatorCombine>
     <CValidatorCompareTrackedUnitsCount id="MuradinThunderBurn@TrackedHeroCountGT0">
@@ -1019,9 +1021,10 @@
         <BehaviorLink value="MuradinThunderBurn@UnitTracker"/>
     </CValidatorCompareTrackedUnitsCount>
     <CValidatorCombine id="MuradinWeapon@DamageCritStatusCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
+        <CombineArray value="CritAliasPhysical"/>
         <CombineArray value="MuradinGiveEmTheAxe@CasterHasDamageBuffBehavior"/>
         <CombineArray value="MuradinGiveEmTheAxe@TargetCombine"/>
+        <CombineArray value="MuradinBash@WeaponDamageBonusCombine"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="MuradinHaymaker@TargetHasNotMicroStun">
         <Behavior value="MuradinHaymaker@TargetBehaviorMicroStun"/>
@@ -5064,7 +5067,7 @@
             <RequireEffectArray value="MuradinThunderBurn@Damage"/>
             <RequireEffectArray value="MuradinHaymaker@Damage"/>
             <RequireEffectArray value="MuradinHaymaker@SecondaryImpactDamage"/>
-            <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+            <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>

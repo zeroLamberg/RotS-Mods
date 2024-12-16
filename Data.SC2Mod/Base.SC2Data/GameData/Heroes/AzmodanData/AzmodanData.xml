@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="AzmodanWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="AzmodanWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="AzmodanWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="85">
+            <AccumulatorArray value="AzmodanWrath@StoredWeaponBonusDamageSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectDamage id="AzmodanTotalAnnihilation@Damage" parent="StormPurePercent">
         <ValidatorArray value="AzmodanTotalAnnihilation"/>
         <ValidatorArray value="TargetIsHero"/>
         <Amount value="4"/>
-    </CEffectDamage>
-    <CEffectDamage id="AzmodanWeapon@Damage" parent="StormPhysical">
-        <Amount value="85">
-            <AccumulatorArray value="AzmodanWrath@StoredWeaponBonusDamageSwitch"/>
-        </Amount>
     </CEffectDamage>
     <CEffectSet id="AzmodanBombardment@WeaponInitialSet">
         <ValidatorArray value="AzmodanBombardment@CasterHasBuff"/>
         <EffectArray value="AzmodanBombardment@WeaponIncrementUD"/>
         <EffectArray value="AzmodanBombardment@WeaponSearch"/>
     </CEffectSet>
-    <CEffectUserData id="AzmodanBurningDemon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AzmodanBurningDemon@Damage"/>
+    <CEffectUserData id="AzmodanBurningDemon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanBurningDemon@Damage"/>
     <CEffectSet id="AzmodanBurningDemon@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanBurningDemon@DamageCritStatusIncrement" DamageEffect="AzmodanBurningDemon@Damage"/>
     <CEffectSet id="AzmodanMasterOfDestruction@InitialSet">
         <ValidatorArray value="AzmodanMasterOfDestruction"/>
         <EffectArray value="AzmodanGlobeOfAnnihilation@IncrementTokenCounterMasterOfDestruction"/>
         <EffectArray value="AzmodanMasterOfDestruction@ExplosionSearch"/>
     </CEffectSet>
-    <CEffectUserData id="AzmodanTrample@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AzmodanTrample@Damage"/>
-    <CEffectSet id="AzmodanTrample@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanTrample@DamageCritStatusIncrement" DamageEffect="AzmodanTrample@Damage"/>
+    <CEffectUserData id="AzmodanTrample@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanTrample@Damage"/>
+    <CEffectSet id="AzmodanTrample@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanTrample@DamageCritStatusIncrement" DamageEffect="AzmodanTrample@Damage"/>
     <CEffectSet id="AzmodanWrath@UITargetBehaviorRefreshDummySet"/>
     <CEffectSet id="AzmodanWrath@UITargetBehaviorInitialDummySet"/>
     <CEffectSet id="AzmodanWrath@UITargetBehaviorFinalDummySet"/>
-    <CEffectUserData id="AzmodanBlackPool@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AzmodanBlackPool@Damage"/>
-    <CEffectSet id="AzmodanBlackPool@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanBlackPool@DamageCritStatusIncrement" DamageEffect="AzmodanBlackPool@Damage"/>
+    <CEffectUserData id="AzmodanBlackPool@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanBlackPool@Damage"/>
+    <CEffectSet id="AzmodanBlackPool@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanBlackPool@DamageCritStatusIncrement" DamageEffect="AzmodanBlackPool@Damage"/>
     <CEffectSet id="AzmodanBlackPool@SearchImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="AzmodanBlackPool@DamageSet"/>
         <EffectArray value="AzmodanBlackPool@ApplyTimerDebuff"/>
@@ -43,13 +46,13 @@
         <EffectArray Reference="Behavior,AzmodanAllShallBurn@TargetDebuff,Duration" Value="-0.500000"/>
         <EffectArray Operation="Subtract" Reference="Effect,AzmodanMasterOfDestruction@AINotificationDummyPersistent,PeriodicPeriodArray[0]" Value="0.050000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="AzmodanCydaeasKiss@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AzmodanCydaeasKiss@HealMU"/>
+    <CEffectUserData id="AzmodanCydaeasKiss@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanCydaeasKiss@HealMU"/>
     <CEffectModifyUnit id="AzmodanCydaeasKiss@HealMU" parent="StormModifyUnitHealingSelf">
         <VitalArray index="Life">
             <ChangeFraction value="0.08"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="AzmodanCydaeasKiss@HealSet" parent="StormHealSetCaster" CritStatusEffect="AzmodanCydaeasKiss@HealCritStatusIncrement" HealEffect="AzmodanCydaeasKiss@HealMU">
+    <CEffectSet id="AzmodanCydaeasKiss@HealSet" parent="StormHealSetCaster" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanCydaeasKiss@HealCritStatusIncrement" HealEffect="AzmodanCydaeasKiss@HealMU">
         <ValidatorArray value="AzmodanCydaeasKiss"/>
         <ValidatorArray value="TargetIsHero"/>
     </CEffectSet>
@@ -69,7 +72,7 @@
         <ValidatorArray value="AzmodanTrample@CasterHasNotApproachOrder"/>
         <ValidatorArray value="AzmodanTrample@CasterTrampleBuff"/>
     </CEffectIssueOrder>
-    <CEffectUserData id="AzmodanDemonGruntWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AzmodanDemonGruntWeapon@Damage"/>
+    <CEffectUserData id="AzmodanDemonGruntWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanDemonGruntWeapon@Damage"/>
     <CEffectUserData id="AzmodanBombardment@WeaponIncrementUD">
         <Key value="AzmodanBombardment"/>
         <SourceKey value="AzmodanBombardment"/>
@@ -151,9 +154,9 @@
         <ValidatorArray value="AzmodanSinsGrasp"/>
         <Behavior value="AzmodanSinsGrasp@InitialSlow"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="AzmodanDemonWarriorWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="AzmodanDemonWarriorWeapon@Damage"/>
-    <CEffectUserData id="AzmodanGlobeOfAnnihilation@DamageCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Validator="AzmodanGlobeOfAnnihilation@DamageCritStatusCombine" Effect="AzmodanGlobeOfAnnihilation@Damage"/>
-    <CEffectSet id="AzmodanGlobeOfAnnihilation@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanGlobeOfAnnihilation@DamageCritStatusIncrementer" DamageEffect="AzmodanGlobeOfAnnihilation@Damage"/>
+    <CEffectUserData id="AzmodanDemonWarriorWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanDemonWarriorWeapon@Damage"/>
+    <CEffectUserData id="AzmodanGlobeOfAnnihilation@DamageCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Effect="AzmodanGlobeOfAnnihilation@Damage"/>
+    <CEffectSet id="AzmodanGlobeOfAnnihilation@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanGlobeOfAnnihilation@DamageCritStatusIncrementer" DamageEffect="AzmodanGlobeOfAnnihilation@Damage"/>
     <CEffectUserData id="AzmodanGlobeOfAnnihilation@IncrementTokenCounterWrath" parent="StormModifyTokenCount" TokenCounterBehavior="AzmodanGlobeOfAnnihilation@TokenCounter">
         <ValidatorArray value="AzmodanWrath"/>
         <ValidatorArray value="TargetIsHero"/>
@@ -354,8 +357,8 @@
         <EffectArray value="AzmodanDemonLieutenantDemonicSmiteModifyToken"/>
         <EffectArray value="AzmodanGlobeOfAnnihilationDeathModifyDisplayTokenMinion"/>
     </CEffectSet>
-    <CEffectUserData id="AzmodanWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="AzmodanWeapon@DamageCritStatusCombine" Effect="AzmodanWeapon@Damage"/>
-    <CEffectSet id="AzmodanWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanWeapon@Damage"/>
+    <CEffectUserData id="AzmodanWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanWeapon@Damage"/>
+    <CEffectSet id="AzmodanWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="AzmodanWeapon@DamageCritStatusLocal" CritStatusEffect="AzmodanWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanWeapon@Damage"/>
     <CEffectRemoveBehavior id="AzmodanWrath@RemoveMarker">
         <BehaviorLink value="AzmodanWrath@Marker"/>
         <Count value="1"/>
@@ -378,7 +381,7 @@
     </CEffectEnumArea>
     <CEffectModifyUnit id="AzmodanBattleborn@WeaponModifyCooldown">
         <ValidatorArray value="AzmodanBattleborn"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ImpactUnit Value="Caster"/>
         <Cost Abil="AzmodanSummonDemonWarrior,Execute" CooldownOperation="Add" CooldownTimeUse="-0.75"/>
         <Cost Abil="AzmodanSummonDemonLieutenant,Execute" CooldownOperation="Add" CooldownTimeUse="-1.5"/>
@@ -418,6 +421,11 @@
         <EffectArray value="AzmodanGreed@DemonWarriorSummonSet"/>
         <EffectArray value="Summon@CreationSwitch"/>
     </CEffectSet>
+    <CEffectDamage id="AzmodanDemonLieutenantWeapon@Damage" parent="StormSpellBasicAttack">
+        <Amount value="41">
+            <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectSwitch id="AzmodanWeapon@LaunchMissileSwitch">
         <CaseArray Validator="AzmodanWrath@TargetHasMarker" Effect="AzmodanWeapon@LaunchMissileWrath"/>
         <CaseDefault value="AzmodanWeapon@LaunchMissile"/>
@@ -493,14 +501,6 @@
         <AreaArray Radius="5" Effect="AzmodanSummonDemonLieutenant@InitialPersistent"/>
         <MaxCount value="1"/>
     </CEffectEnumArea>
-    <CEffectSwitch id="AzmodanWeapon@ImpactSwitch">
-        <CaseArray Validator="TargetNotHero" Effect="AzmodanHeroWeaponImpactSetNonHero"/>
-        <CaseArray Validator="CasterIsBlindedOrTargetIsEvading" Effect="AzmodanHeroWeaponImpactSetNonHero"/>
-        <CaseArray Validator="AzmodanTargetLTWrathThresholdAndSourceHasBombardmentMarker" Effect="AzmodanHeroWeaponImpactSetWrathProcPlusBombardmentProc"/>
-        <CaseArray Validator="AzmodanBombardment@WeaponSourceHasMissileMarker" Effect="AzmodanHeroWeaponImpactSetBombardmentProc"/>
-        <CaseArray Validator="AzmodanWrathTalentBasicAttackCombine" Effect="AzmodanHeroWeaponImpactSetWrathProc"/>
-        <CaseDefault value="AzmodanWeapon@ImpactSet"/>
-    </CEffectSwitch>
     <CEffectSet id="AzmodanHeroWeaponImpactSetNonHero">
         <EffectArray value="AzmodanBattleborn@WeaponModifyCooldown"/>
         <EffectArray value="AzmodanWeapon@Damage"/>
@@ -515,6 +515,12 @@
         <InitialEffect value="AzmodanTrample@OffsetPersistent"/>
         <InitialOffset value="0,-7,0"/>
     </CEffectCreatePersistent>
+    <CEffectDamage id="AzmodanDemonWarriorWeapon@Damage" parent="StormSpellBasicAttack">
+        <Amount value="35">
+            <AccumulatorArray value="AzmodanHellRift@DamageBonusSwitch"/>
+            <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectCreatePersistent id="AzmodanTrample@OffsetPersistent">
         <TimeScaleSource Value="Caster"/>
         <InitialEffect value="AzmodanTrample@ApplyCasterBuff"/>
@@ -653,17 +659,9 @@
         <EffectArray value="AzmodanDemonicSmite@ApplySearchController"/>
         <EffectArray value="Summon@CreationSwitch"/>
     </CEffectSet>
-    <CEffectSwitch id="AzmodanDemonLieutenantWeapon@ImpactSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="AzmodanDemonLieutenantWeapon@ImpactSet"/>
-    </CEffectSwitch>
     <CEffectSet id="AzmodanDemonLieutenantWeapon@ImpactSet">
         <EffectArray value="AzmodanDemonLieutenantWeapon@Damage"/>
     </CEffectSet>
-    <CEffectDamage id="AzmodanDemonLieutenantWeapon@Damage" parent="StormSpell">
-        <Amount value="41">
-            <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectEnumArea id="AzmodanMasterOfDestruction@ExplosionSearch" parent="StormImpactSearchArea">
         <ExcludeArray Effect="AzmodanAllShallBurn@CreatePersistent" Value="Target"/>
         <SearchFilters value="-;Player,Ally,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
@@ -723,7 +721,7 @@
         <EffectArray value="AzmodanBurningDemon@DamageSet"/>
         <EffectArray value="AzmodanBrutishVanguard@ApplySlow"/>
     </CEffectSet>
-    <CEffectSet id="AzmodanDemonWarriorWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanDemonWarriorWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanDemonWarriorWeapon@Damage"/>
+    <CEffectSet id="AzmodanDemonWarriorWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanDemonWarriorWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanDemonWarriorWeapon@Damage"/>
     <CEffectDamage id="AzmodanAllShallBurn@FinalExplosionDamage" parent="StormSpell">
         <Amount value="340"/>
     </CEffectDamage>
@@ -740,15 +738,6 @@
             <Fraction Cooldown="-0.5"/>
         </Cost>
     </CEffectModifyUnit>
-    <CEffectSwitch id="AzmodanDemonWarriorWeapon@ImpactSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="AzmodanDemonWarriorWeapon@DamageSet"/>
-    </CEffectSwitch>
-    <CEffectDamage id="AzmodanDemonWarriorWeapon@Damage" parent="StormSpell">
-        <Amount value="35">
-            <AccumulatorArray value="AzmodanHellRift@DamageBonusSwitch"/>
-            <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectSet id="AzmodanAllShallBurnSinsGraspTalentInitialSet">
         <EffectArray value="AzmodanAllShallBurn@ClearQueuedOrders"/>
         <EffectArray value="AzmodanAllShallBurnHellRiftTalentApplyCooldown"/>
@@ -881,6 +870,11 @@
     </CEffectModifyUnit>
     <CEffectDamage id="AzmodanAllShallBurn@Damage" parent="StormSpell">
         <Amount value="32"/>
+    </CEffectDamage>
+    <CEffectDamage id="AzmodanDemonGruntWeapon@Damage" parent="StormSpellBasicAttack">
+        <Amount value="39">
+            <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
+        </Amount>
     </CEffectDamage>
     <CEffectSet id="AzmodanAllShallBurn@PersistentFinalSet">
         <EffectArray value="AzmodanAllShallBurn@RemoveChannelBehavior"/>
@@ -1172,15 +1166,7 @@
             <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectSwitch id="AzmodanDemonGruntWeapon@Switch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="AzmodanDemonGruntWeapon@DamageSet"/>
-    </CEffectSwitch>
-    <CEffectSet id="AzmodanDemonGruntWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="AzmodanDemonGruntWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanDemonGruntWeapon@Damage"/>
-    <CEffectDamage id="AzmodanDemonGruntWeapon@Damage" parent="StormSpell">
-        <Amount value="39">
-            <AccumulatorArray value="AzmodanSiegebreaker@BonusDamageSwitch"/>
-        </Amount>
-    </CEffectDamage>
+    <CEffectSet id="AzmodanDemonGruntWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanDemonGruntWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanDemonGruntWeapon@Damage"/>
     <CEffectSet id="AzmodanSummonDemonLieutenant@CastSet">
         <ValidatorArray value="AzmodanSummonDemonLieutenant@ValidTargetsNearTargetPoint"/>
         <EffectArray value="AzmodanSummonDemonLieutenant@CastSearch"/>
@@ -1428,6 +1414,9 @@
         <Flags index="RangeUseCasterRadius" value="0"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="AzmodanTrample"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="AzmodanWeapon@DamageCritStatusCombine" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="AzmodanWrath@WeaponBonusDamageCombine"/>
+    </CValidatorCombine>
     <CValidatorCombine id="AzmodanAllShallBurn@RangeValidatorGreedCombine">
         <Type value="And"/>
         <CombineArray value="AzmodanGreed@QuestMaxed"/>
@@ -1458,9 +1447,6 @@
         <CombineArray value="StormTargetIsLaneMinion"/>
         <CombineArray value="TargetIsMercLanerAndNotBoss"/>
         <CombineArray value="IsSelfSummoned"/>
-    </CValidatorCombine>
-    <CValidatorCombine id="AzmodanGlobeOfAnnihilation@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
     </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed id="AzmodanGlobeOfAnnihilation@QuestNotMaxed" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="AzmodanGlobeOfAnnihilation@TokenCounter">
         <Value value="0"/>
@@ -1501,10 +1487,6 @@
         <AbilLink value="AzmodanTrample@Approach"/>
         <Find value="0"/>
     </CValidatorUnitOrderQueue>
-    <CValidatorCombine id="AzmodanWeapon@DamageCritStatusCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="AzmodanWrath@WeaponBonusDamageCombine"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareVital id="AzmodanWrath@LifeThreshold">
         <Compare value="LT"/>
         <Type value="Fraction"/>
@@ -3363,7 +3345,7 @@
         <Period value="1"/>
         <DamagePoint value="0.25"/>
         <Backswing value="0.0625"/>
-        <Effect value="AzmodanDemonLieutenantWeapon@ImpactSwitch"/>
+        <Effect value="AzmodanDemonLieutenantWeapon@DamageSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="AzmodanDemonWarriorWeapon">
         <Options index="Melee" value="1"/>
@@ -3376,7 +3358,7 @@
         <Period value="1"/>
         <DamagePoint value="0.3125"/>
         <Backswing value="0.0625"/>
-        <Effect value="AzmodanDemonWarriorWeapon@ImpactSwitch"/>
+        <Effect value="AzmodanDemonWarriorWeapon@DamageSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="AzmodanDemonGruntWeapon">
         <Options index="Melee" value="1"/>
@@ -3390,7 +3372,7 @@
         <Period value="1"/>
         <DamagePoint value="0.125"/>
         <Backswing value="0"/>
-        <Effect value="AzmodanDemonGruntWeapon@Switch"/>
+        <Effect value="AzmodanDemonGruntWeapon@DamageSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="AzmodanWeapon" parent="StormHeroWeapon">
         <DisplayEffect value="AzmodanWeapon@Damage"/>
@@ -6046,6 +6028,5 @@
             <AbilLinkEnableArray value="AzmodanTrample"/>
             <AbilLinkDisableArray value="HoldFire"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
 </Catalog>

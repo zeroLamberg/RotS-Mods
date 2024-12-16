@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroMalfurionWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroMalfurionRegrowth@HealCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroMalfurionRegrowth@HealCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroMalfurionMoonfire@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroMalfurionMoonfire@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="HeroMalfurionWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="52">
             <AccumulatorArray value="HeroMalfurionCelestialAlignment@Switch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectUserData id="HeroMalfurionEntanglingRoots@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroMalfurionEntanglingRoots@Damage"/>
-    <CEffectSet id="HeroMalfurionEntanglingRoots@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroMalfurionEntanglingRoots@DamageCritStatusIncrement" DamageEffect="HeroMalfurionEntanglingRoots@Damage"/>
+    <CEffectUserData id="HeroMalfurionEntanglingRoots@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionEntanglingRoots@Damage"/>
+    <CEffectSet id="HeroMalfurionEntanglingRoots@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroMalfurionEntanglingRoots@DamageCritStatusIncrement" DamageEffect="HeroMalfurionEntanglingRoots@Damage"/>
     <CEffectSet id="HeroMalfurionEntanglingRoots@SearchSetEnemy" parent="StormAbilityImpactSetEnemy">
         <ValidatorArray value="NotImmunetoAoE"/>
         <ValidatorArray value="TargetIsNotUnstoppable"/>
@@ -25,7 +34,7 @@
         <EffectArray value="MalfurionRestfulGlade@HealSet"/>
     </CEffectSet>
     <CEffectSwitch id="HeroMalfurionEntanglingRoots@SearchSetSwitch">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="TargetNotDeadAndNoSpecialDeathState"/>
         <ValidatorArray value="noMarkers"/>
         <CaseArray Validator="TargetIsAllyorPlayer" Effect="HeroMalfurionEntanglingRoots@SearchSetAlly"/>
@@ -40,7 +49,8 @@
         <Key value="HeroMalfurionLunarShower@CDR"/>
         <SourceKey value="HeroMalfurionLunarShower@CDR"/>
     </CEffectUserData>
-    <CEffectSet id="HeroMalfurionMoonfire@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroMalfurionMoonfire@DamageCritStatusIncrement" DamageEffect="HeroMalfurionMoonfire@Damage"/>
+    <CEffectSet id="HeroMalfurionMoonfire@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroMalfurionMoonfire@DamageCritStatusLocal" CritStatusEffect="HeroMalfurionMoonfire@DamageCritStatusIncrement" DamageEffect="HeroMalfurionMoonfire@Damage"/>
+    <CEffectSet id="HeroMalfurionMoonfire@RegrowthImpactHealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusLocal" CritStatusEffect="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement" HealEffect="HeroMalfurionMoonfire@RegrowthImpactHeal"/>
     <CEffectModifyUnit id="HeroMalfurionMoonfire@RegrowthImpactHeal" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="130">
@@ -49,8 +59,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement" Effect="HeroMalfurionMoonfire@RegrowthImpactHeal"/>
-    <CEffectSet id="HeroMalfurionMoonfire@RegrowthImpactHealSet" parent="StormHealSetTarget" CritStatusEffect="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement" HealEffect="HeroMalfurionMoonfire@RegrowthImpactHeal"/>
+    <CEffectUserData id="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionMoonfire@RegrowthImpactHeal"/>
     <CEffectApplyBehavior id="HeroMalfurionNaturesCure@ApplyUnstoppableBehavior">
         <Behavior value="HeroMalfurionNaturesCure@Unstoppable"/>
     </CEffectApplyBehavior>
@@ -67,13 +76,13 @@
             </Cooldown>
         </Cost>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroMalfurionNaturesCure@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroMalfurionNaturesCure@HealMU"/>
+    <CEffectUserData id="HeroMalfurionNaturesCure@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionNaturesCure@HealMU"/>
     <CEffectModifyUnit id="HeroMalfurionNaturesCure@HealMU" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="230"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroMalfurionNaturesCure@HealSet" parent="StormHealSetTarget" CritStatusEffect="HeroMalfurionNaturesCure@HealCritStatusIncrement" HealEffect="HeroMalfurionNaturesCure@HealMU">
+    <CEffectSet id="HeroMalfurionNaturesCure@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroMalfurionNaturesCure@HealCritStatusIncrement" HealEffect="HeroMalfurionNaturesCure@HealMU">
         <ValidatorArray value="TargetIsRootedOrStunned"/>
     </CEffectSet>
     <CEffectSet id="HeroMalfurionNaturesCure@ImpactSet" parent="StormAbilityImpactSetAlly">
@@ -155,17 +164,17 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroMalfurionRegrowth@HealSet" parent="StormHealSetTarget" CritStatusEffect="HeroMalfurionRegrowth@HealCritStatusIncrement" HealEffect="HeroMalfurionRegrowth@Heal"/>
-    <CEffectUserData id="HeroMalfurionLifebloom@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroMalfurionLifebloom@Heal"/>
+    <CEffectSet id="HeroMalfurionRegrowth@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroMalfurionRegrowth@HealCritStatusLocal" CritStatusEffect="HeroMalfurionRegrowth@HealCritStatusIncrement" HealEffect="HeroMalfurionRegrowth@Heal"/>
+    <CEffectUserData id="HeroMalfurionLifebloom@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionLifebloom@Heal"/>
     <CEffectModifyUnit id="HeroMalfurionLifebloom@Heal" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <ChangeFraction value="0.12"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroMalfurionLifebloom@HealSet" parent="StormHealSetTarget" CritStatusEffect="HeroMalfurionLifebloom@HealCritStatusIncrement" HealEffect="HeroMalfurionLifebloom@Heal">
+    <CEffectSet id="HeroMalfurionLifebloom@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroMalfurionLifebloom@HealCritStatusIncrement" HealEffect="HeroMalfurionLifebloom@Heal">
         <ValidatorArray value="HeroMalfurionLifebloom"/>
     </CEffectSet>
-    <CEffectUserData id="HeroMalfurionRegrowth@InitialHealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroMalfurionRegrowth@InitialHealModifyUnit"/>
+    <CEffectUserData id="HeroMalfurionRegrowth@InitialHealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionRegrowth@InitialHealModifyUnit"/>
     <CEffectModifyUnit id="HeroMalfurionRegrowth@InitialHealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="191">
@@ -173,7 +182,12 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroMalfurionRegrowth@InitialHealSet" parent="StormHealSetTarget" CritStatusEffect="HeroMalfurionRegrowth@InitialHealCritStatusIncrement" HealEffect="HeroMalfurionRegrowth@InitialHealModifyUnit"/>
+    <CEffectSet id="HeroMalfurionRegrowth@InitialHealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroMalfurionRegrowth@InitialHealCritStatusIncrement" HealEffect="HeroMalfurionRegrowth@InitialHealModifyUnit"/>
+    <CEffectDamage id="HeroMalfurionTreant@WeaponDamage" parent="StormSpellBasicAttack">
+        <Amount value="58">
+            <AccumulatorArray value="HeroMalfurionVengefulRoots@Damage"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectRemoveBehavior id="HeroMalfurionRegrowth@RemoveBehavior">
         <BehaviorLink value="HeroMalfurionRegrowth"/>
         <RequireCasterUnit Value="Caster"/>
@@ -194,15 +208,7 @@
         <SourceKey value="RejuvenationSelfHealMultiplier"/>
         <Operation value="Set"/>
     </CEffectUserData>
-    <CEffectSwitch id="HeroMalfurionTreant@SummonedBasicAttackAbilityDamageMissCheck" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroMalfurionTreant@WeaponDamage"/>
-    </CEffectSwitch>
-    <CEffectDamage id="HeroMalfurionTreant@WeaponDamage" parent="StormSpell">
-        <Amount value="58">
-            <AccumulatorArray value="HeroMalfurionVengefulRoots@Damage"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectSet id="HeroMalfurionTwilightDream@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroMalfurionTwilightDream@DamageCritStatusIncrement" DamageEffect="HeroMalfurionTwilightDream@Damage"/>
+    <CEffectSet id="HeroMalfurionTwilightDream@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroMalfurionTwilightDream@DamageCritStatusIncrement" DamageEffect="HeroMalfurionTwilightDream@Damage"/>
     <CEffectUserData id="HeroMalfurionDeepRoots@IncreaseToken" parent="StormModifyTokenCount" TokenCounterBehavior="HeroMalfurionDeepRoots@TokenCounter">
         <ValidatorArray value="HeroMalfurionDeepRoots"/>
         <ValidatorArray value="TargetIsHero"/>
@@ -220,7 +226,7 @@
     <CEffectModifyPlayer id="HeroMalfurionVengefulRoots@IncreaseTokenModification">
         <EffectArray Reference="Accumulator,HeroMalfurionVengefulRoots@Damage,Amount" Value="7"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroMalfurionTranquility@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroMalfurionRegrowth@HealCritStatus" Effect="HeroMalfurionTranquility@Heal"/>
+    <CEffectUserData id="HeroMalfurionTranquility@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionTranquility@Heal"/>
     <CEffectModifyUnit id="HeroMalfurionTranquility@Heal" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="40">
@@ -228,10 +234,10 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroMalfurionTranquility@HealSet" parent="StormHealSetTarget" CritStatusEffect="HeroMalfurionTranquility@HealCritStatusIncrement" HealEffect="HeroMalfurionTranquility@Heal"/>
-    <CEffectUserData id="HeroMalfurionTwilightDream@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroMalfurionTwilightDream@Damage"/>
-    <CEffectUserData id="HeroMalfurionTreant@WeaponDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroMalfurionTreant@WeaponDamage"/>
-    <CEffectUserData id="HeroMalfurionMoonfire@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroMalfurionMoonfire@CritStatusCombine" Effect="HeroMalfurionMoonfire@Damage"/>
+    <CEffectSet id="HeroMalfurionTranquility@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroMalfurionTranquility@HealCritStatusIncrement" HealEffect="HeroMalfurionTranquility@Heal"/>
+    <CEffectUserData id="HeroMalfurionTwilightDream@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionTwilightDream@Damage"/>
+    <CEffectUserData id="HeroMalfurionTreant@WeaponDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionTreant@WeaponDamage"/>
+    <CEffectUserData id="HeroMalfurionMoonfire@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionMoonfire@Damage"/>
     <CEffectCreatePersistent id="HeroMalfurionEntanglingRoots@CreateSearchPersistent1">
         <PeriodCount value="3"/>
         <PeriodicEffectArray value="HeroMalfurionEntanglingRoots@Search1"/>
@@ -282,7 +288,7 @@
         <Effect value="HeroMalfurionMoonfire@RegrowthEnumerateTrackedUnitsSet"/>
     </CEffectEnumTrackedUnits>
     <CEffectSet id="HeroMalfurionMoonfire@RegrowthEnumerateTrackedUnitsSet">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <EffectArray value="HeroMalfurionMoonfire@RegrowthImpactHealSet"/>
         <EffectArray value="HeroMalfurionWildGrowth@TriggerSet"/>
     </CEffectSet>
@@ -458,7 +464,7 @@
         <EffectArray value="HeroMalfurionTranquility@ApplyDummyBehavior"/>
         <EffectArray value="HeroMalfurionTranquility@HealSet"/>
         <EffectArray value="HeroMalfurionTranquility@ApplyArmorBehavior"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
     <CEffectApplyBehavior id="HeroMalfurionTranquility@ApplyArmorBehavior">
         <ValidatorArray value="HeroMalfurionRegrowth@TargetHasRegrowthCasterRequired"/>
@@ -559,7 +565,7 @@
         <EffectArray value="HeroMalfurionRejuvenation@DummyTriggerModifyUnit"/>
         <EffectArray value="HeroMalfurionLifebloom@HealSet"/>
         <EffectArray value="HeroMalfurionRegrowth@InitialHealSet"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
     <CEffectCreateUnit id="HeroMalfurionEntanglingRoots@CreateUnit">
         <WhichLocation Value="TargetPoint"/>
@@ -600,7 +606,7 @@
         <EffectArray value="HeroMalfurionTenaciousRoots@ModifyTalentCooldown"/>
     </CEffectSet>
     <CEffectSet id="HeroMalfurionTreant@WeaponInitialSet">
-        <EffectArray value="HeroMalfurionTreant@SummonedBasicAttackAbilityDamageMissCheck"/>
+        <EffectArray value="HeroMalfurionTreant@WeaponDamage"/>
     </CEffectSet>
     <CEffectApplyBehavior id="HeroMalfurionTranquility@ApplyTranquility">
         <WhichUnit Value="Caster"/>
@@ -671,14 +677,14 @@
         <AreaArray Radius="6.5" Effect="HeroMalfurionTranquility@SearchImpactSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
-    <CEffectUserData id="HeroMalfurionWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroMalfurionWeapon@DamageCritStatus" Effect="HeroMalfurionWeapon@Damage"/>
-    <CEffectUserData id="HeroMalfurionRegrowth@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroMalfurionRegrowth@HealCritStatus" Effect="HeroMalfurionRegrowth@Heal"/>
+    <CEffectUserData id="HeroMalfurionWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionWeapon@Damage"/>
+    <CEffectUserData id="HeroMalfurionRegrowth@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroMalfurionRegrowth@Heal"/>
     <CEffectLaunchMissile id="HeroMalfurionWeapon@LaunchMissile">
         <ImpactEffect value="HeroMalfurionWeapon@DamageSet"/>
         <AmmoUnit value="HeroMalfurionWeapon@Missile"/>
         <ImpactRange value="0.5"/>
     </CEffectLaunchMissile>
-    <CEffectSet id="HeroMalfurionWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroMalfurionWeapon@DamageCritStatusIncrement" DamageEffect="HeroMalfurionWeapon@Damage"/>
+    <CEffectSet id="HeroMalfurionWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroMalfurionWeapon@DamageCritStatusIncrement" DamageEffect="HeroMalfurionWeapon@Damage"/>
     <CEffectSet id="HeroMalfurionTwilightDream@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroMalfurionTwilightDream@ApplySilenceBehavior"/>
         <EffectArray value="HeroMalfurionTwilightDream@DamageSet"/>
@@ -782,7 +788,7 @@
         <Behavior value="HeroMalfurionWildshapeHare@MovespeedBuff"/>
     </CEffectApplyBehavior>
     <CEffectSet id="HeroMalfurionWildshapeHare@InitialSet">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="HeroMalfurionRegrowth@TargetHasRegrowthCasterRequired"/>
         <ValidatorArray value="TargetNotDeadAndNoSpecialDeathState"/>
         <EffectArray value="HeroMalfurionRegrowth@RemoveBehavior"/>
@@ -791,13 +797,13 @@
     <CEffectModifyPlayer id="HeroMalfurionYserasGift">
         <EffectArray Reference="Accumulator,HeroMalfurionRegrowth@MaxDurationNormal,Amount" Value="5"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="MalfurionRestfulGlade@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="MalfurionRestfulGlade@HealModifyUnit"/>
+    <CEffectUserData id="MalfurionRestfulGlade@HealCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="MalfurionRestfulGlade@HealModifyUnit"/>
     <CEffectModifyUnit id="MalfurionRestfulGlade@HealModifyUnit" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="312"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectSet id="MalfurionRestfulGlade@HealSet" parent="StormHealSetTarget" CritStatusEffect="MalfurionRestfulGlade@HealCritStatusIncrement" HealEffect="MalfurionRestfulGlade@HealModifyUnit">
+    <CEffectSet id="MalfurionRestfulGlade@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="MalfurionRestfulGlade@HealCritStatusIncrement" HealEffect="MalfurionRestfulGlade@HealModifyUnit">
         <ValidatorArray value="MalfurionRestfulGlade"/>
     </CEffectSet>
     <CAbilEffectInstant id="HeroMalfurionNaturesCure">
@@ -940,6 +946,16 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HeroMalfurionWildshapeHare"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroMalfurionMoonBeam@TargetCombine"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroMalfurionRegrowth@HealCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroMalfurionYserasGift@CasterLifeIsValidAndCasterHasYserasGift"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroMalfurionMoonfire@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroMalfurionLunarShower@CasterHasMaxStacks"/>
+        <CombineArray value="HeroMalfurionMoonBeam@TargetCombine"/>
+    </CValidatorCombine>
     <CValidatorCombine id="HeroMalfurionDeepRoots@TargetCombine">
         <Type value="And"/>
         <CombineArray value="TargetIsMinionOrMerc"/>
@@ -966,10 +982,6 @@
         <WhichUnit Effect="HeroMalfurionMoonfire@ImpactSet"/>
         <Filters value="Heroic;-"/>
     </CValidatorUnitFilters>
-    <CValidatorCombine id="HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroMalfurionMoonBeam@TargetCombine"/>
-    </CValidatorCombine>
     <CValidatorPlayerTalent id="HeroMalfurionStranglingVines" parent="PlayerTalent"/>
     <CValidatorUnitCompareVital id="HeroMalfurionYserasGift@CasterLifeIsValid" parent="CasterLifePercent">
         <Compare value="GT"/>
@@ -990,11 +1002,6 @@
         <Value value="3"/>
         <Behavior value="HeroMalfurionLunarShower@Stacks"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroMalfurionMoonfire@CritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroMalfurionLunarShower@CasterHasMaxStacks"/>
-        <CombineArray value="HeroMalfurionMoonBeam@TargetCombine"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroMalfurionMoonfire@TargetIsRevealedCasterReq" parent="TargetIsParent">
         <Behavior value="HeroMalfurionMoonfire@Reveal"/>
         <RequireCasterUnit Value="Caster"/>
@@ -1006,9 +1013,6 @@
             <AccumulatorArray value="HeroMalfurionRegrowth@TrackedHeroCount"/>
         </Value>
     </CValidatorEffectTreeUserData>
-    <CValidatorCombine id="HeroMalfurionRegrowth@HealCritStatus">
-        <CombineArray value="HeroMalfurionYserasGift@CasterLifeIsValidAndCasterHasYserasGift"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareCooldown id="HeroMalfurionTenaciousRoots@NotOnCooldown">
         <CooldownLink value="Abil/HeroMalfurionTenaciousRoots"/>
         <Location value="Unit"/>
@@ -1091,10 +1095,6 @@
         <Behavior value="HeroMalfurionTranquility@DummyBehavior"/>
         <RequireCasterUnit Value="Caster"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="HeroMalfurionWeapon@DamageCritStatus">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="HeroMalfurionCelestialAlignment@TargetCombine"/>
-    </CValidatorCombine>
     <CValidatorPlayerTalent id="HeroMalfurionMoonBeam" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="HeroMalfurionWildshapeHare" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="MalfurionRestfulGlade" parent="PlayerTalent"/>
@@ -4592,7 +4592,7 @@
         <DataRecord Entry="Sound,HeroMalfurionMoonfire@SoundImpact"/>
         <DataRecord Entry="Validator,HeroMalfurionMoonfire@TargetIsRevealedCasterReq"/>
         <DataRecord Entry="Validator,HeroMalfurionMoonfire@TargetIsRevealed"/>
-        <DataRecord Entry="Validator,HeroMalfurionMoonfire@CritStatusCombine"/>
+        <DataRecord Entry="Validator,HeroMalfurionMoonfire@DamageCritStatusCombine"/>
         <DataRecord Entry="Validator,HeroMalfurionMoonfire@RegrowthImpactHealCritStatusIncrement"/>
     </CDataCollectionAbil>
     <CDataCollection id="HeroMalfurionYserasGift">

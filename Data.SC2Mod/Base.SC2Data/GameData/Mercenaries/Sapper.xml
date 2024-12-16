@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="MercDefenderGoblinSapperDamage" parent="StormPhysical">
+    <CEffectDamage id="MercDefenderGoblinSapperDamage" parent="StormPhysicalBasicAttack">
         <ValidatorArray index="0" removed="1"/>
         <Amount value="50">
             <AccumulatorArray value="MercGoblinSapperDefenderWeaponDamageScaling"/>
@@ -10,7 +10,7 @@
         <AreaArray Radius="1" Fraction="0.75" Validator="TargetNotInvulnerable"/>
         <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectDamage>
-    <CEffectDamage id="MercLanerGoblinSapperDamage" parent="StormPhysical">
+    <CEffectDamage id="MercLanerGoblinSapperDamage" parent="StormPhysicalBasicAttack">
         <ValidatorArray index="0" removed="1"/>
         <Amount value="45">
             <AccumulatorArray value="MercGoblinSapperLanerWeaponDamageScaling"/>
@@ -43,6 +43,10 @@
         <EffectArray value="CoreImpactDamageRevealer"/>
         <EffectArray value="MercLanerGoblinSapperCoreMortarDamage"/>
     </CEffectSet>
+    <CEffectDamage id="MercLanerGoblinSapperCoreMortarDamage" parent="StormPure">
+        <ValidatorArray index="0" removed="1"/>
+        <Amount value="1"/>
+    </CEffectDamage>
     <CEffectSet id="MercLanerGoblinSapperCoreMortarInitialSet">
         <EffectArray value="MercLanerGoblinSapperCoreMortarCreatePersistent"/>
     </CEffectSet>
@@ -54,10 +58,6 @@
         <ImpactRange value="2"/>
         <Movers Link="GoblinSapperCoreMortarMissile" IfRangeLTE="500"/>
     </CEffectLaunchMissile>
-    <CEffectDamage id="MercLanerGoblinSapperCoreMortarDamage" parent="StormSpellNoModifiers">
-        <ValidatorArray index="0" removed="1"/>
-        <Amount value="1"/>
-    </CEffectDamage>
     <CEffectApplyBehavior id="MercLanerGoblinSapperSuicideApplyPreChargeBehavior">
         <WhichUnit Value="Caster"/>
         <Behavior value="MercGoblinSapperPreChargeBehavior"/>

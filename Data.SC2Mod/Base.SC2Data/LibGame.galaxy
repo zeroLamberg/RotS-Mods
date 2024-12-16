@@ -536,6 +536,10 @@ void libGame_gf_StormUniversalModifyCooldownPerUnitCDRAbility (int lp_ownerOfCas
     for (;; auto67650299_u -= 1) {
         lv_itUnit = UnitGroupUnitFromEnd(auto67650299_g, auto67650299_u);
         if (lv_itUnit == null) { break; }
+        if ((UnitIsValid(lv_itUnit) == false)) {
+            continue;
+        }
+
         lv_perUnitCooldownCurrent = libGame_gf_UnitStatsGetUserDataFromUnit(lv_key, lv_itUnit);
         if ((lv_perUnitCooldownCurrent > 0.0)) {
             lv_perUnitCooldownCurrent += lp_cooldownChange;
@@ -10729,15 +10733,6 @@ bool libGame_gt_InitializePlayers_Func (bool testConds, bool runActions) {
     for ( ; ( (auto0E316302_ai >= 0 && lv_itPlayer <= auto0E316302_ae) || (auto0E316302_ai < 0 && lv_itPlayer >= auto0E316302_ae) ) ; lv_itPlayer += auto0E316302_ai ) {
         MeleeSetOption(lv_itPlayer, c_meleeOptionSplitResources, false);
         libNtve_gf_SetUpgradeLevelForPlayer(lv_itPlayer, (("IsPlayer" + libCore_gf_ConvertIntegerToStringDigit(lv_itPlayer, 2))), 1);
-        PlayerAddResponse(lv_itPlayer, "HeroGenericDisabler@BasicAttack");
-        PlayerAddResponse(lv_itPlayer, "HeroGenericDisabler@SpellDamage");
-        PlayerAddResponse(lv_itPlayer, "HeroGenericDisabler@TrueDamage");
-        if ((PlayerGroupHasPlayer(libCore_gv_allHeroPlayers, lv_itPlayer) == true)) {
-            PlayerAddResponse(lv_itPlayer, "HeroGenericExperience@LastHitTimerResponseSpell");
-            PlayerAddResponse(lv_itPlayer, "HeroGenericExperience@LastHitTimerResponsePhysical");
-            PlayerAddResponse(lv_itPlayer, "HeroGenericExperience@LastHitTimerResponseTrue");
-        }
-
     }
     return true;
 }

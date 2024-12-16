@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroAbathurWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="HeroAbathurVolatileMutation@DamageLocalLeech" parent="StormModifyLocalLeech">
+        <ValidatorArray value="TargetIsHero"/>
+        <Amount value="100"/>
+    </CEffectUserData>
+    <CEffectDamage id="HeroAbathurWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="26"/>
     </CEffectDamage>
     <CEffectSwitch id="HeroAbathurBoltOfTheSwarm@CasterSwitch">
@@ -22,7 +26,7 @@
         <SourceLocation Value="SourceUnit"/>
         <TargetLocation Effect="HeroAbathurBoltOfTheSwarm@CasterSwitch" Value="TargetPoint"/>
     </CEffectTeleport>
-    <CEffectSet id="HeroAbathurEnvenomedNest@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurEnvenomedNest@DamageCritStatusIncrement" DamageEffect="HeroAbathurEnvenomedNest@Damage"/>
+    <CEffectSet id="HeroAbathurEnvenomedNest@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurEnvenomedNest@DamageCritStatusIncrement" DamageEffect="HeroAbathurEnvenomedNest@Damage"/>
     <CEffectModifyPlayer id="HeroAbathurEvolutionComplete">
         <EffectArray Operation="Set" Reference="Abil,HeroAbathurDeepTunnelMonstrosity,Cost[0].Cooldown.TimeUse" Value="35.000000"/>
     </CEffectModifyPlayer>
@@ -64,8 +68,8 @@
         <EffectArray value="HeroAbathurLocustStrain@LocustSwitch"/>
         <EffectArray value="HeroAbathurLocustNest@CooldownPersistent"/>
     </CEffectSet>
-    <CEffectSet id="HeroAbathurSpikeBurst@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurSpikeBurst@DamageCritStatusIncrement" DamageEffect="HeroAbathurSpikeBurst@Damage"/>
-    <CEffectSet id="HeroAbathurStab@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurStab@DamageCritStatusIncrement" DamageEffect="HeroAbathurStab@Damage"/>
+    <CEffectSet id="HeroAbathurSpikeBurst@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurSpikeBurst@DamageCritStatusIncrement" DamageEffect="HeroAbathurSpikeBurst@Damage"/>
+    <CEffectSet id="HeroAbathurStab@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurStab@DamageCritStatusIncrement" DamageEffect="HeroAbathurStab@Damage"/>
     <CEffectModifyPlayer id="HeroAbathurSurvivalInstinct">
         <EffectArray Operation="Multiply" Reference="Effect,HeroAbathurSymbiote@ModifyUnitCooldown,Cost[0].CooldownTimeUse" Value="2.250000"/>
     </CEffectModifyPlayer>
@@ -80,7 +84,7 @@
     <CEffectApplyBehavior id="HeroAbathurToxicNest@ApplyRevealerFromEnemy">
         <Behavior value="HeroAbathurToxicNest@RevealerFromEnemy"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="HeroAbathurToxicNest@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurToxicNest@DamageCritStatusIncrement" DamageEffect="HeroAbathurToxicNest@Damage"/>
+    <CEffectSet id="HeroAbathurToxicNest@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurToxicNest@DamageCritStatusIncrement" DamageEffect="HeroAbathurToxicNest@Damage"/>
     <CEffectSet id="HeroAbathurToxicNest@ExplosionSet">
         <EffectArray value="HeroAbathurToxicNest@SuicideSet"/>
         <EffectArray value="HeroAbathurToxicNest@SearchAreaImpact"/>
@@ -123,10 +127,10 @@
         <ImpactUnit Value="Caster"/>
         <Cost Abil="HeroAbathurUltimateEvolution,255" CooldownOperation="Set" CooldownTimeUse="10"/>
     </CEffectModifyUnit>
-    <CEffectSet id="HeroAbathurVolatileMutation@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurVolatileMutation@DamageCritStatusIncrement" DamageEffect="HeroAbathurVolatileMutation@Damage"/>
-    <CEffectSet id="HeroAbathurWeaponLocustBombard@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurWeaponLocustBombard@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponLocustBombard@Damage"/>
-    <CEffectSet id="HeroAbathurWeaponLocustBombard@CloseRangeDamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurWeaponLocustBombard@CloseRangeDamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponLocustBombard@CloseRangeDamage"/>
-    <CEffectSet id="HeroAbathurWeaponLocustNormal@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurWeaponLocustNormal@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponLocustNormal@Damage"/>
+    <CEffectSet id="HeroAbathurVolatileMutation@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurVolatileMutation@DamageCritStatusIncrement" LocalLeechEffect="HeroAbathurVolatileMutation@DamageLocalLeech" DamageEffect="HeroAbathurVolatileMutation@Damage"/>
+    <CEffectSet id="HeroAbathurWeaponLocustBombard@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurWeaponLocustBombard@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponLocustBombard@Damage"/>
+    <CEffectSet id="HeroAbathurWeaponLocustBombard@CloseRangeDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurWeaponLocustBombard@CloseRangeDamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponLocustBombard@CloseRangeDamage"/>
+    <CEffectSet id="HeroAbathurWeaponLocustNormal@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurWeaponLocustNormal@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponLocustNormal@Damage"/>
     <CEffectApplyBehavior id="UltimateEvolutionApplyInvalidTargetBehavior">
         <EditorCategories value="Race:Neutral"/>
         <Behavior value="HeroAbathurUltimateEvolution@InvalidTarget"/>
@@ -255,6 +259,11 @@
         <PlacementRange value="2"/>
         <TargetLocation Value="TargetPoint"/>
     </CEffectTeleport>
+    <CEffectSet id="HeroAbathurSomaTransference@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurSomaTransference@CreateHealerCritStatusIncrement" HealEffect="HeroAbathurSomaTransference@CreateHealer">
+        <ValidatorArray value="HeroAbathurSomaTransference"/>
+        <ValidatorArray value="HeroAbathurSomaTransference@SourceIsHero"/>
+        <ValidatorArray value="TargetIsHero"/>
+    </CEffectSet>
     <CEffectSet id="AssumingDirectControlDeathDummy"/>
     <CEffectEnumArea id="StabInitialMissileScan">
         <SearchFilters value="-;Player,Ally,Neutral,ImmuneToSkillshots,Structure,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
@@ -327,27 +336,15 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroAbathurCarapace@HealingCreateHealerCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurCarapace@HealingCreateHealer"/>
-    <CEffectSet id="HeroAbathurCarapace@HealingHealSet" parent="StormHealSetTarget" CritStatusEffect="HeroAbathurCarapace@HealingCreateHealerCritStatusIncrement" HealEffect="HeroAbathurCarapace@HealingCreateHealer">
+    <CEffectUserData id="HeroAbathurCarapace@HealingCreateHealerCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurCarapace@HealingCreateHealer"/>
+    <CEffectSet id="HeroAbathurCarapace@HealingHealSet" parent="StormHealSetTarget" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurCarapace@HealingCreateHealerCritStatusIncrement" HealEffect="HeroAbathurCarapace@HealingCreateHealer">
         <ValidatorArray value="HeroAbathurCarapace@TargetIsHeroOrMonstrosity"/>
     </CEffectSet>
-    <CEffectUserData id="HeroAbathurSpikeBurst@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurSpikeBurst@Damage"/>
-    <CEffectUserData id="HeroAbathurStab@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurStab@Damage"/>
-    <CEffectSet id="HeroAbathurSomaTransference@HealSet" parent="StormHealSetTarget" CritStatusEffect="HeroAbathurSomaTransference@CreateHealerCritStatusIncrement" HealEffect="HeroAbathurSomaTransference@CreateHealer">
-        <ValidatorArray value="HeroAbathurSomaTransference"/>
-        <ValidatorArray value="HeroAbathurSomaTransference@SourceIsHero"/>
-        <ValidatorArray value="TargetIsHero"/>
-    </CEffectSet>
-    <CEffectUserData id="HeroAbathurVolatileMutation@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurVolatileMutation@Damage"/>
-    <CEffectModifyUnit id="HeroAbathurVolatileMutation@Leech" parent="StormModifyUnitLeechSpell">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="HeroAbathurVolatileMutation@LeechBonus"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectUserData id="HeroAbathurToxicNest@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurToxicNest@Damage"/>
-    <CEffectUserData id="HeroAbathurSomaTransference@CreateHealerCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurSomaTransference@CreateHealer"/>
+    <CEffectUserData id="HeroAbathurSpikeBurst@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurSpikeBurst@Damage"/>
+    <CEffectUserData id="HeroAbathurStab@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurStab@Damage"/>
+    <CEffectUserData id="HeroAbathurVolatileMutation@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurVolatileMutation@Damage"/>
+    <CEffectUserData id="HeroAbathurToxicNest@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurToxicNest@Damage"/>
+    <CEffectUserData id="HeroAbathurSomaTransference@CreateHealerCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurSomaTransference@CreateHealer"/>
     <CEffectSet id="HeroAbathurDeepTunnel@DummyPing"/>
     <CEffectModifyPlayer id="HeroAbathurBombardStrain@Modification">
         <EffectArray Reference="Behavior,HeroAbathurLocust@TimedLife,Duration" Value="6.000000"/>
@@ -410,12 +407,12 @@
     <CEffectModifyPlayer id="HeroAbathurEvolutionaryLink@Modification">
         <EffectArray Operation="Multiply" Reference="Effect,HeroAbathurUltimateEvolution@ApplyTimedLife,Duration" Value="1.500000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroAbathurWeaponEvolveMonstrosity@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurWeaponEvolveMonstrosity@Damage"/>
-    <CEffectUserData id="HeroAbathurWeaponLocustAssault@CleaveDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurWeaponLocustAssault@CleaveDamage"/>
-    <CEffectUserData id="HeroAbathurWeaponLocustAssault@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurWeaponLocustAssault@Damage"/>
-    <CEffectUserData id="HeroAbathurWeaponLocustBombard@CloseRangeDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurWeaponLocustBombard@CloseRangeDamage"/>
-    <CEffectUserData id="HeroAbathurWeaponLocustBombard@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurWeaponLocustBombard@Damage"/>
-    <CEffectUserData id="HeroAbathurWeaponLocustNormal@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurWeaponLocustNormal@Damage"/>
+    <CEffectUserData id="HeroAbathurWeaponEvolveMonstrosity@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeaponEvolveMonstrosity@Damage"/>
+    <CEffectUserData id="HeroAbathurWeaponLocustAssault@CleaveDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeaponLocustAssault@CleaveDamage"/>
+    <CEffectUserData id="HeroAbathurWeaponLocustAssault@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeaponLocustAssault@Damage"/>
+    <CEffectUserData id="HeroAbathurWeaponLocustBombard@CloseRangeDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeaponLocustBombard@CloseRangeDamage"/>
+    <CEffectUserData id="HeroAbathurWeaponLocustBombard@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeaponLocustBombard@Damage"/>
+    <CEffectUserData id="HeroAbathurWeaponLocustNormal@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeaponLocustNormal@Damage"/>
     <CEffectLaunchMissile id="HeroAbathurWeaponLocustBombard@LaunchMissile">
         <EditorCategories value="Race:Neutral"/>
         <ImpactLocation Value="TargetUnitOrPoint"/>
@@ -524,6 +521,11 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="HeroAbathurDeepTunnel@TravelBehavior"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="HeroAbathurWeaponLocustAssault@CleaveDamage" parent="StormSpellBasicAttack">
+        <Amount value="17">
+            <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectDamage id="HeroAbathurUltimateEvolution@CleanupKill">
         <Flags index="Kill" value="1"/>
     </CEffectDamage>
@@ -532,14 +534,16 @@
         <ValidatorArray value="TargetIsHero"/>
         <Behavior value="HeroAbathurAdrenalOverload"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroAbathurWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="HeroAbathurWeapon@Damage"/>
-    <CEffectUserData id="HeroAbathurEnvenomedNest@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroAbathurEnvenomedNest@Damage"/>
+    <CEffectUserData id="HeroAbathurWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurWeapon@Damage"/>
+    <CEffectUserData id="HeroAbathurEnvenomedNest@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroAbathurEnvenomedNest@Damage"/>
     <CEffectRemoveBehavior id="HeroAbathurUltimateEvolution@RemoveInvalidTargetBehavior">
         <BehaviorLink value="HeroAbathurUltimateEvolution@InvalidTarget"/>
     </CEffectRemoveBehavior>
-    <CEffectSwitch id="HeroAbathurWeaponLocustAssault@AttackSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroAbathurWeaponLocustAssault@AttackSet"/>
-    </CEffectSwitch>
+    <CEffectDamage id="HeroAbathurWeaponLocustBombard@CloseRangeDamage" parent="StormSpellBasicAttack">
+        <Amount value="64">
+            <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectSet id="HeroAbathurWeaponLocustAssault@AttackSet">
         <EditorCategories value="Race:Neutral"/>
         <EffectArray value="HeroAbathurWeaponLocustAssault@Damage"/>
@@ -552,12 +556,19 @@
         <SearchFilters value="-;Self,Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Arc="180" Radius="1.25" Effect="HeroAbathurWeaponLocustAssault@CleaveDamage"/>
     </CEffectEnumArea>
-    <CEffectDamage id="HeroAbathurWeaponLocustAssault@CleaveDamage" parent="StormSpell">
-        <Amount value="17">
+    <CEffectDamage id="HeroAbathurWeaponLocustAssault@Damage" parent="StormSpellBasicAttack">
+        <Amount value="34"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroAbathurWeaponLocustBombard@Damage" parent="StormSpellBasicAttack">
+        <Amount value="64">
             <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
         </Amount>
-        <DamageInheritEffect value="HeroAbathurWeaponLocustAssault@CleaveDamageCritStatusIncrement"/>
     </CEffectDamage>
+    <CEffectEnumArea id="HeroAbathurWeaponLocustBombard@ImpactSearch" parent="StormImpactSearchAreaNoReveal">
+        <EditorCategories value="Race:Neutral"/>
+        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.4" Effect="HeroAbathurWeaponLocustBombard@ImpactSet"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="HeroAbathurEnvenomedNest@ApplyBehavior">
         <ValidatorArray value="HeroAbathurEnvenomedNest"/>
         <Behavior value="HeroAbathurEnvenomedNest"/>
@@ -575,43 +586,17 @@
         <InitialEffect value="HeroAbathurUltimateEvolution@CastSet"/>
     </CEffectCreatePersistent>
     <CEffectLaunchMissile id="HeroAbathurWeaponLocustBombard@CloseRangeLaunchMissile">
-        <ImpactEffect value="HeroAbathurWeaponLocustBombard@CloseRangeDamageSwitch"/>
+        <ImpactEffect value="HeroAbathurWeaponLocustBombard@CloseRangeDamageSet"/>
         <Flags index="ValidateWeapon" value="0"/>
         <AmmoUnit value="HeroAbathurWeaponLocustNormal@Missile"/>
     </CEffectLaunchMissile>
-    <CEffectSwitch id="HeroAbathurWeaponLocustBombard@CloseRangeDamageSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroAbathurWeaponLocustBombard@CloseRangeDamageSet"/>
-    </CEffectSwitch>
-    <CEffectDamage id="HeroAbathurWeaponLocustBombard@CloseRangeDamage" parent="StormSpell">
-        <Amount value="64">
-            <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectSet id="HeroAbathurDeepTunnel@FinalSet">
         <EffectArray value="HeroAbathurDeepTunnel@RemoveDisablerBehavior"/>
     </CEffectSet>
-    <CEffectDamage id="HeroAbathurWeaponLocustBombard@Damage" parent="StormSpell">
-        <Amount value="64">
-            <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
-        </Amount>
-        <DamageInheritEffect value="HeroAbathurWeaponLocustBombard@DamageCritStatusIncrement"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroAbathurWeaponLocustAssault@Damage" parent="StormSpell">
-        <Amount value="34"/>
-        <DamageInheritEffect value="HeroAbathurWeaponLocustAssault@DamageCritStatusIncrement"/>
-    </CEffectDamage>
-    <CEffectSwitch id="HeroAbathurWeaponLocustBombard@ImpactSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroAbathurWeaponLocustBombard@ImpactSet"/>
-    </CEffectSwitch>
     <CEffectSet id="HeroAbathurWeaponLocustBombard@ImpactSet">
         <EffectArray value="HeroAbathurWeaponLocustBombard@DamageSet"/>
         <TargetLocationType value="UnitOrPoint"/>
     </CEffectSet>
-    <CEffectEnumArea id="HeroAbathurWeaponLocustBombard@ImpactSearch">
-        <EditorCategories value="Race:Neutral"/>
-        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="0.4" Effect="HeroAbathurWeaponLocustBombard@ImpactSwitch"/>
-    </CEffectEnumArea>
     <CEffectIssueOrder id="HeroAbathurLocustStrain@IssueSpawnOrder">
         <EditorCategories value="Race:Neutral"/>
         <Abil value="HeroAbathurLocustStrain"/>
@@ -664,7 +649,7 @@
     </CEffectRemoveBehavior>
     <CEffectSet id="HeroAbathurToxicNest@TriggerSet">
         <EffectArray value="HeroAbathurToxicNest@ApplyExplosionBehavior"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
     <CEffectApplyBehavior id="HeroAbathurUltimateEvolution@ApplyHeroicDetector">
         <EditorCategories value="Race:Neutral"/>
@@ -749,6 +734,11 @@
         <EffectArray value="HeroAbathurSymbiote@ApplySuppressSuperStealthController"/>
         <TargetLocationType value="Point"/>
     </CEffectSet>
+    <CEffectDamage id="HeroAbathurWeaponLocustNormal@Damage" parent="StormSpellBasicAttack">
+        <Amount value="64">
+            <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectApplyBehavior id="HeroAbathurEnvenomedSpikes@ApplySlowBehavior" parent="StormApplySlow">
         <ValidatorArray value="HeroAbathurEnvenomedSpikes"/>
         <Behavior value="HeroAbathurEnvenomedSpikes@Slow"/>
@@ -788,14 +778,6 @@
         <RevealRadius value="4.5"/>
         <RevealFlags index="Unfog" value="1"/>
     </CEffectCreatePersistent>
-    <CEffectSwitch id="HeroAbathurWeaponLocustNormal@DamageSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroAbathurWeaponLocustNormal@Damage"/>
-    </CEffectSwitch>
-    <CEffectDamage id="HeroAbathurWeaponLocustNormal@Damage" parent="StormSpell">
-        <Amount value="64">
-            <AccumulatorArray value="HeroAbathurSurvivalInstinct@Switch"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectSet id="HeroAbathurAssumingDirectControl@BehaviorFinalSet">
         <EffectArray value="AssumingDirectControlUltimateEvolutionSearch"/>
         <EffectArray value="HeroAbathurAssumingDirectControl@ApplyFinalStun"/>
@@ -920,7 +902,7 @@
     <CEffectEnumArea id="HeroAbathurVolatileMutation@ExplosionSearch" parent="StormImpactSearchArea">
         <ValidatorArray value="HeroAbathurVolatileMutation"/>
         <SearchFilters value="-;Player,Ally,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="3" Effect="HeroAbathurVolatileMutation@Damage"/>
+        <AreaArray Radius="3" Effect="HeroAbathurVolatileMutation@DamageSet"/>
         <SearchFlags index="CenterAtLaunch" value="1"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
     </CEffectEnumArea>
@@ -928,7 +910,7 @@
         <ValidatorArray value="HeroAbathurVolatileMutation"/>
         <ImpactLocation Value="SourceUnitOrPoint"/>
         <SearchFilters value="-;Player,Ally,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="3" Effect="HeroAbathurVolatileMutation@Damage"/>
+        <AreaArray Radius="3" Effect="HeroAbathurVolatileMutation@DamageSet"/>
         <RevealerParams Duration="1">
             <RevealFlags index="Unfog" value="1"/>
         </RevealerParams>
@@ -1026,8 +1008,8 @@
             <AccumulatorArray value="HeroAbathurToxicNest@DamageBonusSwitch"/>
         </Amount>
         <LaunchLocation Value="CasterUnit"/>
-        <DamageInheritEffect value="HeroAbathurToxicNest@DamageCritStatusIncrement"/>
     </CEffectDamage>
+    <CEffectSet id="HeroAbathurWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroAbathurWeapon@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeapon@Damage"/>
     <CEffectSet id="HeroAbathurUltimateEvolution@CastSet">
         <ValidatorArray value="NotVehicle"/>
         <EditorCategories value="Race:Neutral"/>
@@ -1058,6 +1040,12 @@
         <EffectArray value="SymbioteCancelSearch"/>
         <EffectArray value="HeroAbathurUltimateEvolution@RemoveControlBehavior"/>
     </CEffectSet>
+    <CEffectDamage id="HeroAbathurWeaponEvolveMonstrosity@Damage" parent="StormSpellBasicAttack">
+        <Amount value="102">
+            <AccumulatorArray value="HeroAbathurEvolveMonstrosityStacks@DamageBonusAdditiveMultiply"/>
+            <AccumulatorArray value="HeroAbathurEvolutionComplete@Switch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectEnumArea id="HeroAbathurStab@MissileScan" parent="StormImpactSearchArea">
         <LaunchLocation Value="OriginPoint"/>
         <SearchFilters value="-;Player,Ally,Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
@@ -1127,20 +1115,7 @@
         <PlacementRange value="2"/>
         <TargetLocation Value="TargetPoint"/>
     </CEffectTeleport>
-    <CEffectSet id="HeroAbathurWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurWeapon@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeapon@Damage"/>
-    <CEffectSwitch id="HeroAbathurWeaponEvolveMonstrosity@Switch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroAbathurWeaponEvolveMonstrosity@DamageSet"/>
-    </CEffectSwitch>
-    <CEffectSet id="HeroAbathurWeaponEvolveMonstrosity@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroAbathurWeaponEvolveMonstrosity@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponEvolveMonstrosity@Damage"/>
-    <CEffectSwitch id="HeroAbathurWeaponEvolveMonstrosity@MeleeSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroAbathurWeaponEvolveMonstrosity@Damage"/>
-    </CEffectSwitch>
-    <CEffectDamage id="HeroAbathurWeaponEvolveMonstrosity@Damage" parent="StormSpell">
-        <Amount value="102">
-            <AccumulatorArray value="HeroAbathurEvolveMonstrosityStacks@DamageBonusAdditiveMultiply"/>
-            <AccumulatorArray value="HeroAbathurEvolutionComplete@Switch"/>
-        </Amount>
-    </CEffectDamage>
+    <CEffectSet id="HeroAbathurWeaponEvolveMonstrosity@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroAbathurWeaponEvolveMonstrosity@DamageCritStatusIncrement" DamageEffect="HeroAbathurWeaponEvolveMonstrosity@Damage"/>
     <CEffectApplyBehavior id="HeroAbathurEvolveMonstrosity@ApplyCollisionSuppresser">
         <Behavior value="HeroAbathurEvolveMonstrosity@TargetCollisionSuppresser"/>
     </CEffectApplyBehavior>
@@ -3919,7 +3894,7 @@
         <Period value="1"/>
         <DamagePoint value="0.125"/>
         <Backswing value="0"/>
-        <Effect value="HeroAbathurWeaponLocustAssault@AttackSwitch"/>
+        <Effect value="HeroAbathurWeaponLocustAssault@AttackSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="HeroAbathurWeaponLocustBombard">
         <EditorCategories value="Race:Neutral,StormHero:Abathur"/>
@@ -4077,9 +4052,6 @@
     <CAccumulatorSwitch id="HeroAbathurToxicNest@DamageBonusSwitch">
         <CaseArray Validator="TargetIsHero" Accumulator="HeroAbathurToxicNest@DamageBonusModifier"/>
     </CAccumulatorSwitch>
-    <CAccumulatorConstant id="HeroAbathurVolatileMutation@LeechBonus">
-        <Amount value="100"/>
-    </CAccumulatorConstant>
     <CTexture id="Storm_Abathur_Albino_Emis" parent="MainSlotTexture"/>
     <CTexture id="Storm_Abathur_Albino_Diff" parent="MainSlotTexture"/>
     <CTexture id="Storm_Abathur_Char_Emis" parent="MainSlotTexture"/>
@@ -6100,18 +6072,17 @@
         <DataRecord Entry="Actor,HeroAbathurVolatileMutation@Pulse"/>
         <DataRecord Entry="Behavior,HeroAbathurVolatileMutation"/>
         <DataRecord Entry="Button,HeroAbathurVolatileMutation"/>
-        <DataRecord Entry="Effect,HeroAbathurVolatileMutation@ExplosionSearch"/>
-        <DataRecord Entry="Effect,HeroAbathurVolatileMutation@FinalExplosionSearch"/>
         <DataRecord Entry="Effect,HeroAbathurVolatileMutation@Damage"/>
         <DataRecord Entry="Effect,HeroAbathurVolatileMutation@DamageSet"/>
         <DataRecord Entry="Effect,HeroAbathurVolatileMutation@DamageCritStatusIncrement"/>
-        <DataRecord Entry="Effect,HeroAbathurVolatileMutation@Leech"/>
+        <DataRecord Entry="Effect,HeroAbathurVolatileMutation@ExplosionSearch"/>
+        <DataRecord Entry="Effect,HeroAbathurVolatileMutation@FinalExplosionSearch"/>
         <DataRecord Entry="Effect,HeroAbathurVolatileMutation@ApplyVolatileMutation"/>
+        <DataRecord Entry="Effect,HeroAbathurVolatileMutation@DamageLocalLeech"/>
         <DataRecord Entry="Model,HeroAbathurVolatileMutation@Pulse"/>
         <DataRecord Entry="Sound,HeroAbathurVolatileMutation@ExplosionSFX"/>
         <DataRecord Entry="Talent,HeroAbathurVolatileMutation"/>
         <DataRecord Entry="Validator,HeroAbathurVolatileMutation"/>
-        <DataRecord Entry="Accumulator,HeroAbathurVolatileMutation@LeechBonus"/>
     </CDataCollection>
     <CDataCollectionAbil id="HeroAbathurUltimateEvolution">
         <EditorCategories value="StormDataGroup:Ability"/>
@@ -6615,7 +6586,6 @@
         <BehaviorArray Link="HeroicSummon"/>
         <BehaviorArray Link="SpecialCaseNPCTakedownParticipant"/>
         <BehaviorArray Link="HeroAbathurEvolveMonstrosity@Spawn"/>
-        <BehaviorArray Link="HeroGenericCollisionRadius"/>
         <BehaviorArray Link="HeroGenericIsFat"/>
         <BehaviorArray Link="HeroGenericHasNoStatusBar"/>
         <BehaviorArray Link="HeroGenericMapMechanicPickupDisallowed"/>
@@ -6638,7 +6608,6 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
         <AlliedPushPriority value="60"/>
-        <Collide index="Burrow" value="0"/>
         <Collide index="Ground" value="1"/>
         <EffectArray index="Death" value="HeroAbathurEvolveMonstrosityStacks@ResetTokenCounter"/>
     </CUnit>

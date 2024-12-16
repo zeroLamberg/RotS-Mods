@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="GreymaneWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="0">
+            <AccumulatorArray value="GreymaneWeapon@DamageAmount"/>
+            <AccumulatorArray value="GreymaneWizenedDuelist@Arithmetic"/>
+            <AccumulatorArray value="GreymaneExecutioner@DamageIncreaseSwitch"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="GreymaneWorgenWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="0">
+            <AccumulatorArray value="GreymaneWeapon@DamageAmount"/>
+            <AccumulatorArray value="GreymaneWorgenForm@BasicAttackDamageModifier"/>
+            <AccumulatorArray value="GreymaneWizenedDuelist@Arithmetic"/>
+            <AccumulatorArray value="GreymaneExecutioner@DamageIncreaseSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectDamage id="GreymaneAlphaKiller@Damage" parent="StormPurePercent">
         <ValidatorArray value="GreymaneAlphaKiller"/>
         <ValidatorArray value="TargetIsHero"/>
@@ -10,7 +25,7 @@
             <AccumulatorArray index="0" value="HeroGenericVitalFractionalCurrentDamageMultiply"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="GreymaneHuntersBlunderbuss@Damage" parent="StormPhysical">
+    <CEffectDamage id="GreymaneHuntersBlunderbuss@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="0">
             <AccumulatorArray value="GreymaneHuntersBlunderbuss@DamageMultiplier"/>
             <AccumulatorArray value="GreymaneWeapon@DamageAmount"/>
@@ -18,25 +33,10 @@
             <AccumulatorArray value="GreymaneExecutioner@DamageIncreaseSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="GreymaneToothAndClaw@Damage" parent="StormPhysical">
+    <CEffectDamage id="GreymaneToothAndClaw@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="0">
             <AccumulatorArray value="GreymaneWeapon@DamageAmount"/>
             <AccumulatorArray value="GreymaneToothAndClaw@WeaponDamageMultiplier"/>
-            <AccumulatorArray value="GreymaneWorgenForm@BasicAttackDamageModifier"/>
-            <AccumulatorArray value="GreymaneWizenedDuelist@Arithmetic"/>
-            <AccumulatorArray value="GreymaneExecutioner@DamageIncreaseSwitch"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectDamage id="GreymaneWeapon@Damage" parent="StormPhysical">
-        <Amount value="0">
-            <AccumulatorArray value="GreymaneWeapon@DamageAmount"/>
-            <AccumulatorArray value="GreymaneWizenedDuelist@Arithmetic"/>
-            <AccumulatorArray value="GreymaneExecutioner@DamageIncreaseSwitch"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectDamage id="GreymaneWorgenWeapon@Damage" parent="StormPhysical">
-        <Amount value="0">
-            <AccumulatorArray value="GreymaneWeapon@DamageAmount"/>
             <AccumulatorArray value="GreymaneWorgenForm@BasicAttackDamageModifier"/>
             <AccumulatorArray value="GreymaneWizenedDuelist@Arithmetic"/>
             <AccumulatorArray value="GreymaneExecutioner@DamageIncreaseSwitch"/>
@@ -46,31 +46,31 @@
         <ValidatorArray value="GreymaneExecutioner"/>
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="TargetIsRootedOrSlowedOrStunned"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="GreymaneExecutioner@DamageBuff"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="GreymaneGilneanCocktail@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower"/>
-    <CEffectSet id="GreymaneGilneanCocktail@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneGilneanCocktail@DamageCritStatusIncrement" DamageEffect="GreymaneGilneanCocktail@Damage"/>
+    <CEffectUserData id="GreymaneGilneanCocktail@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer"/>
+    <CEffectSet id="GreymaneGilneanCocktail@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="GreymaneGilneanCocktail@DamageCritStatusIncrement" DamageEffect="GreymaneGilneanCocktail@Damage"/>
     <CEffectUserData id="GreymaneGilneanCocktail@MissileImpactUD">
         <Key value="MissileImpactUD"/>
         <SourceKey value="MissileImpactUD"/>
     </CEffectUserData>
-    <CEffectUserData id="GreymaneGilneanCocktail@SpreadDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="GreymaneGilneanCocktail@SpreadDamage"/>
-    <CEffectSet id="GreymaneGilneanCocktail@SpreadDamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneGilneanCocktail@SpreadDamageCritStatusIncrement" DamageEffect="GreymaneGilneanCocktail@SpreadDamage"/>
+    <CEffectUserData id="GreymaneGilneanCocktail@SpreadDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneGilneanCocktail@SpreadDamage"/>
+    <CEffectSet id="GreymaneGilneanCocktail@SpreadDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="GreymaneGilneanCocktail@SpreadDamageCritStatusIncrement" DamageEffect="GreymaneGilneanCocktail@SpreadDamage"/>
     <CEffectModifyPlayer id="GreymaneGilneanRoulette">
         <EffectArray Reference="Abil,GreymaneCursedBullet,Cost[0].Cooldown.TimeUse" Value="-25"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="GreymaneGoForTheThroat@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="GreymaneGoForTheThroat@Damage"/>
-    <CEffectSet id="GreymaneGoForTheThroat@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneGoForTheThroat@DamageCritStatusIncrement" DamageEffect="GreymaneGoForTheThroat@Damage"/>
+    <CEffectUserData id="GreymaneGoForTheThroat@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneGoForTheThroat@Damage"/>
+    <CEffectSet id="GreymaneGoForTheThroat@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="GreymaneGoForTheThroat@DamageCritStatusIncrement" DamageEffect="GreymaneGoForTheThroat@Damage"/>
     <CEffectModifyUnit id="GreymaneGoForTheThroat@FreeCastModifyCarryBehaviorDuration">
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
     </CEffectModifyUnit>
-    <CEffectUserData id="GreymaneHuntersBlunderbuss@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="GreymaneHuntersBlunderbuss@Damage"/>
-    <CEffectSet id="GreymaneHuntersBlunderbuss@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneHuntersBlunderbuss@DamageCritStatusIncrement" DamageEffect="GreymaneHuntersBlunderbuss@Damage"/>
-    <CEffectUserData id="GreymaneRazorSwipe@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="GreymaneRazorSwipe@Damage"/>
-    <CEffectSet id="GreymaneRazorSwipe@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneRazorSwipe@DamageCritStatusIncrement" DamageEffect="GreymaneRazorSwipe@Damage"/>
+    <CEffectUserData id="GreymaneHuntersBlunderbuss@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneHuntersBlunderbuss@Damage"/>
+    <CEffectSet id="GreymaneHuntersBlunderbuss@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="GreymaneHuntersBlunderbuss@DamageCritStatusIncrement" DamageEffect="GreymaneHuntersBlunderbuss@Damage"/>
+    <CEffectUserData id="GreymaneRazorSwipe@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneRazorSwipe@Damage"/>
+    <CEffectSet id="GreymaneRazorSwipe@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="GreymaneRazorSwipe@DamageCritStatusIncrement" DamageEffect="GreymaneRazorSwipe@Damage"/>
     <CEffectModifyPlayer id="GreymaneRunningWild">
         <EffectArray Reference="Abil,GreymaneDarkflight,Cost[0].Cooldown.TimeUse" Value="-1.5"/>
         <EffectArray Reference="Abil,GreymaneDisengage,Cost[0].Cooldown.TimeUse" Value="-1.5"/>
@@ -81,18 +81,18 @@
         <EffectArray Reference="Behavior,GreymaneDisengage@Roll,Modification.MoveSpeedMinimum" Value="4.000000"/>
         <EffectArray Reference="Actor,GreymaneDisengage@Guide,Height" Value="2.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="GreymaneToothAndClaw@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="GreymaneToothAndClaw@Damage"/>
-    <CEffectSet id="GreymaneToothAndClaw@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneToothAndClaw@DamageCritStatusIncrement" DamageEffect="GreymaneToothAndClaw@Damage"/>
+    <CEffectUserData id="GreymaneToothAndClaw@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneToothAndClaw@Damage"/>
+    <CEffectSet id="GreymaneToothAndClaw@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="GreymaneToothAndClaw@DamageCritStatusIncrement" DamageEffect="GreymaneToothAndClaw@Damage"/>
     <CEffectModifyPlayer id="GreymaneUnfetteredAssault">
         <EffectArray Operation="Set" Reference="Effect,GreymaneRazorSwipe@Persistent,PeriodicOffsetArray[0]" Value="0,-4,0"/>
         <EffectArray Reference="Effect,GreymaneRazorSwipe@SquareSearchArea,AreaArray[0].RectangleHeight" Value="1"/>
         <EffectArray Reference="Behavior,GreymaneRazorSwipe@Dash,Modification.MoveSpeedMaximum" Value="9"/>
         <EffectArray Reference="Behavior,GreymaneRazorSwipe@Dash,Modification.MoveSpeedMinimum" Value="9"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="GreymaneWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="GreymaneWeapon@Damage"/>
-    <CEffectSet id="GreymaneWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneWeapon@DamageCritStatusIncrement" DamageEffect="GreymaneWeapon@Damage"/>
+    <CEffectUserData id="GreymaneWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneWeapon@Damage"/>
+    <CEffectSet id="GreymaneWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="GreymaneWeapon@DamageCritStatusIncrement" DamageEffect="GreymaneWeapon@Damage"/>
     <CEffectSet id="GreymaneWeapon@ImpactSetSecondary">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="GreymaneWizenedDuelist@IncrementProgressTokenCounterHuman"/>
         <EffectArray value="GreymaneHuntersBlunderbuss@ImpactSet"/>
     </CEffectSet>
@@ -114,7 +114,7 @@
     <CEffectSet id="GreymaneWorgenForm@DummySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
     </CEffectSet>
-    <CEffectUserData id="GreymaneDarkflight@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="GreymaneDarkflight@Damage"/>
+    <CEffectUserData id="GreymaneDarkflight@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneDarkflight@Damage"/>
     <CEffectIssueOrder id="GreymaneDisengage@IssueOrder">
         <WhichUnit Value="Caster"/>
         <Abil value="move"/>
@@ -138,7 +138,7 @@
         <EffectArray Operation="Multiply" Reference="Effect,GreymaneGoForTheThroat@Damage,Amount" Value="1.04"/>
         <EffectArray Operation="Multiply" Reference="Effect,GreymaneRazorSwipe@Damage,Amount" Value="1.04"/>
     </CEffectModifyPlayer>
-    <CEffectSet id="GreymaneDarkflight@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneDarkflight@DamageCritStatusIncrement" DamageEffect="GreymaneDarkflight@Damage">
+    <CEffectSet id="GreymaneDarkflight@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="GreymaneDarkflight@DamageCritStatusIncrement" DamageEffect="GreymaneDarkflight@Damage">
         <ValidatorArray value="GreymaneDarkflight@TargetDamageDistanceCheck"/>
     </CEffectSet>
     <CEffectModifyPlayer id="GreymaneIncendiaryElixir">
@@ -249,7 +249,7 @@
         <Behavior value="GreymaneGoForTheThroat@Unstoppable"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="GreymaneGilneanCocktail@ImpactSetPersistent">
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="GreymaneGilneanCocktail@MissileImpactUDIsValid"/>
         <WhichLocation Value="TargetUnit"/>
         <PeriodCount value="7"/>
@@ -477,10 +477,10 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="GreymaneWorgenForm"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="GreymaneWorgenWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="GreymaneWorgenWeapon@Damage"/>
-    <CEffectSet id="GreymaneWorgenWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="GreymaneWorgenWeapon@DamageCritStatusIncrement" DamageEffect="GreymaneWorgenWeapon@Damage"/>
+    <CEffectUserData id="GreymaneWorgenWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="GreymaneWorgenWeapon@Damage"/>
+    <CEffectSet id="GreymaneWorgenWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="GreymaneWorgenWeapon@DamageCritStatusIncrement" DamageEffect="GreymaneWorgenWeapon@Damage"/>
     <CEffectSet id="GreymaneWorgenWeapon@ImpactSecondarySet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="GreymaneToothAndClaw@SearchArea"/>
         <EffectArray value="GreymaneUnfetteredAssault@ModifyCooldown"/>
         <EffectArray value="GreymaneWizenedDuelist@IncrementProgressTokenCounterWorgen"/>
@@ -679,7 +679,7 @@
     </CEffectSet>
     <CEffectSet id="GreymaneInnerBeast@AttackProcSet">
         <ValidatorArray value="GreymaneInnerBeast@CasterHasBuff"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="GreymaneInnerBeast@ApplyBehavior"/>
         <EffectArray value="GreymaneInnerBeast@ModifyPlayerCooldownSwitch"/>
         <EffectArray value="GreymaneInnerBeast@ApplyComboCounter"/>

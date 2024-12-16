@@ -897,7 +897,7 @@ void libGDHL_gt_VisionReductionMultiHeroController_Init () {
 //--------------------------------------------------------------------------------------------------
 bool libGDHL_gt_VisionReductionApplyAllyVisionSupression_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    int lv_katarinaPlayer;
+    int lv_casterPlayer;
     unit lv_targetHero;
     int lv_targetPlayer;
     unitgroup lv_targetPlayerVisionGroup;
@@ -911,7 +911,7 @@ bool libGDHL_gt_VisionReductionApplyAllyVisionSupression_Func (bool testConds, b
     playergroup autoC6B5FDB8_g;
 
     // Variable Initialization
-    lv_katarinaPlayer = UnitBehaviorEffectPlayer(EventUnit(), EventUnitBehavior(), c_effectPlayerSource, 0);
+    lv_casterPlayer = UnitBehaviorEffectPlayer(EventUnit(), EventUnitBehavior(), c_effectPlayerSource, 0);
     lv_targetHero = EventUnit();
     lv_targetPlayer = UnitGetOwner(EventUnit());
     lv_targetPlayerVisionGroup = UnitGroupEmpty();
@@ -919,7 +919,7 @@ bool libGDHL_gt_VisionReductionApplyAllyVisionSupression_Func (bool testConds, b
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerIsHeroPlayer(lv_katarinaPlayer) == true))) {
+        if (!((libGame_gf_PlayerIsHeroPlayer(lv_casterPlayer) == true))) {
             return false;
         }
 
@@ -1403,6 +1403,7 @@ bool libGDHL_gt_HeroAbathurHeroCountIncrement_Func (bool testConds, bool runActi
         TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityKillInitialTarget, true);
         TriggerEnable(libGDHL_gt_HeroAbathurMonstrositySymbiotedMonstrositySymbioted, true);
         TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityCreated, true);
+        TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech, true);
         TriggerEnable(libGDHL_gt_HeroAbathurSymbioteHivemindSingleTarget, true);
         TriggerEnable(libGDHL_gt_HeroAbathurSymbioteHivemindStab, true);
         TriggerEnable(libGDHL_gt_HeroAbathurCarapaceShieldTalentsReset, true);
@@ -1452,6 +1453,7 @@ bool libGDHL_gt_HeroAbathurHeroCountDecrement_Func (bool testConds, bool runActi
         TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityKillInitialTarget, false);
         TriggerEnable(libGDHL_gt_HeroAbathurMonstrositySymbiotedMonstrositySymbioted, false);
         TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityCreated, false);
+        TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech, false);
         TriggerEnable(libGDHL_gt_HeroAbathurSymbioteHivemindSingleTarget, false);
         TriggerEnable(libGDHL_gt_HeroAbathurSymbioteHivemindStab, false);
         TriggerEnable(libGDHL_gt_HeroAbathurCarapaceShieldTalentsReset, false);
@@ -2257,6 +2259,43 @@ void libGDHL_gt_HeroAbathurMonstrosityCreated_Init () {
     libGDHL_gt_HeroAbathurMonstrosityCreated = TriggerCreate("libGDHL_gt_HeroAbathurMonstrosityCreated_Func");
     TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityCreated, false);
     TriggerAddEventPlayerEffectUsed(libGDHL_gt_HeroAbathurMonstrosityCreated, c_playerAny, "HeroAbathurEvolveMonstrosity@SpawnSet");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Hero - Abathur - Monstrosity - Volatile Mutation Leech
+//--------------------------------------------------------------------------------------------------
+bool libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((EventUnitDamageEffect() == "HeroAbathurVolatileMutation@Damage"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnitDamageSourceUnit()) == "HeroAbathurEvolveMonstrosity"))) {
+            return false;
+        }
+
+        if (!((UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitSetPropertyFixed(EventUnitDamageSourceUnit(), c_unitPropLife, (UnitGetPropertyFixed(EventUnitDamageSourceUnit(), c_unitPropLife, c_unitPropCurrent) + libCore_gf_CombatCalculateDamageAmount()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech_Init () {
+    libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech = TriggerCreate("libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech_Func");
+    TriggerEnable(libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech, false);
+    TriggerAddEventUnitDamaged(libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech, null, c_unitDamageTypeAny, c_unitDamageEither, "HeroAbathurVolatileMutation@Damage");
+    TriggerAddEventUnitDamageAbsorbed(libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech, null, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -9696,7 +9735,7 @@ bool libGDHL_gt_HeroRagnarosHeroCountIncrement_Func (bool testConds, bool runAct
         TriggerEnable(libGDHL_gt_HeroRagnarosLavaWavePointTarget, true);
         TriggerEnable(libGDHL_gt_HeroRagnarosCatchingFireHealthGlobePickup, true);
         TriggerEnable(libGDHL_gt_HeroRagnarosBlisteringAttacksCooldownReduction, true);
-        TriggerEnable(libGDHL_gt_HeroRagnarosCauterizeWounds, true);
+        TriggerEnable(libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger, true);
         TriggerEnable(libGDHL_gt_HeroRagnarosSubmergeFullscreenOverlayOn, true);
         TriggerEnable(libGDHL_gt_HeroRagnarosSubmergeFullscreenOverlayOff, true);
         TriggerEnable(libGDHL_gt_HeroRagnarosRaidTime, true);
@@ -9742,7 +9781,7 @@ bool libGDHL_gt_HeroRagnarosHeroCountDecrement_Func (bool testConds, bool runAct
         TriggerEnable(libGDHL_gt_HeroRagnarosLavaWavePointTarget, false);
         TriggerEnable(libGDHL_gt_HeroRagnarosCatchingFireHealthGlobePickup, false);
         TriggerEnable(libGDHL_gt_HeroRagnarosBlisteringAttacksCooldownReduction, false);
-        TriggerEnable(libGDHL_gt_HeroRagnarosCauterizeWounds, false);
+        TriggerEnable(libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger, false);
         TriggerEnable(libGDHL_gt_HeroRagnarosSubmergeFullscreenOverlayOn, false);
         TriggerEnable(libGDHL_gt_HeroRagnarosSubmergeFullscreenOverlayOff, false);
         TriggerEnable(libGDHL_gt_HeroRagnarosRaidTime, false);
@@ -10674,26 +10713,60 @@ void libGDHL_gt_HeroRagnarosBlisteringAttacksCooldownReduction_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Hero - Ragnaros - Cauterize Wounds
+// Trigger: Hero - Ragnaros - Cauterize Wounds Trigger
 //--------------------------------------------------------------------------------------------------
-bool libGDHL_gt_HeroRagnarosCauterizeWounds_Func (bool testConds, bool runActions) {
+bool libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_ragnaros;
+    int lv_owner;
+    fixed lv_damageAmount;
+    fixed lv_healingValue;
+    fixed lv_periodCount;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((EventUnitDamageEffect() == "HeroRagnarosEmpowerSulfuras@Damage"))) {
+            return false;
+        }
+
+        if (!((UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) == true))) {
+            return false;
+        }
+    }
+
     // Actions
     if (!runActions) {
         return true;
     }
 
-    libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogEffect, ("HeroRagnarosCauterizeWounds@HealHoTDisplay"), "VitalArray[" + IntToString(0) + "].Change", EventPlayer(), libGame_gf_UnitStatsGetUserDataFromUnit("HeroRagnarosCauterizeWounds@HealDisplay", EventPlayerEffectUsedUnit(c_effectUnitCaster)));
+    lv_ragnaros = EventUnitDamageSourceUnit();
+    if ((UnitIsAlive(lv_ragnaros) == false)) {
+        return true;
+    }
+
+    lv_owner = UnitGetOwner(lv_ragnaros);
+    if ((PlayerHasTalent(lv_owner, "HeroRagnarosCauterizeWounds") == false)) {
+        return true;
+    }
+
+    lv_healingValue = libCore_gf_CombatCalculateDamageAmount();
+    lv_periodCount = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogBehavior, ("HeroRagnarosCauterizeWounds@HoT"), "PeriodCount", lv_owner);
+    lv_healingValue *= libGDHL_gv_heroRagnarosCauterizeWoundsHealingCoefficient;
+    lv_healingValue /= lv_periodCount;
+    CatalogReferenceModify("Effect,HeroRagnarosCauterizeWounds@HealModifyUnit,VitalArray[Life].Change", lv_owner, FixedToString(lv_healingValue, c_fixedPrecisionAny), c_upgradeOperationSet);
+    UnitCreateEffectUnit(lv_ragnaros, "HeroRagnarosCauterizeWounds@ApplyBehavior", lv_ragnaros);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void libGDHL_gt_HeroRagnarosCauterizeWounds_Init () {
-    libGDHL_gt_HeroRagnarosCauterizeWounds = TriggerCreate("libGDHL_gt_HeroRagnarosCauterizeWounds_Func");
-    TriggerEnable(libGDHL_gt_HeroRagnarosCauterizeWounds, false);
-    TriggerAddEventPlayerEffectUsed(libGDHL_gt_HeroRagnarosCauterizeWounds, c_playerAny, "HeroRagnarosCauterizeWounds@AddHealDisplay");
-    TriggerAddEventPlayerEffectUsed(libGDHL_gt_HeroRagnarosCauterizeWounds, c_playerAny, "HeroRagnarosCauterizeWounds@SubtractHealDisplay");
-    TriggerAddEventPlayerEffectUsed(libGDHL_gt_HeroRagnarosCauterizeWounds, c_playerAny, "HeroRagnarosCauterizeWounds@ResetHealDisplay");
+void libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger_Init () {
+    libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger = TriggerCreate("libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger_Func");
+    TriggerEnable(libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger, false);
+    TriggerAddEventUnitDamaged(libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger, null, c_unitDamageTypeAny, c_unitDamageEither, "HeroRagnarosEmpowerSulfuras@Damage");
+    TriggerAddEventUnitDamageAbsorbed(libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger, null, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -11910,7 +11983,7 @@ bool libGDHL_gt_TalentShieldBreaker_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libCore_gf_CombatDamageTypeFromEffect(EventUnitDamageEffect()) == libCore_ge_StormDamagingEffectType_Physical))) {
+        if (!((libCore_gf_CombatDamageKindFromEffect(EventUnitDamageEffect()) == libCore_ge_StormDamagingEffectKind_Physical))) {
             return false;
         }
     }
@@ -12264,6 +12337,7 @@ void libGDHL_InitTriggers () {
     libGDHL_gt_HeroAbathurMonstrosityKillInitialTarget_Init();
     libGDHL_gt_HeroAbathurMonstrositySymbiotedMonstrositySymbioted_Init();
     libGDHL_gt_HeroAbathurMonstrosityCreated_Init();
+    libGDHL_gt_HeroAbathurMonstrosityVolatileMutationLeech_Init();
     libGDHL_gt_HeroAbathurUltimateEvolutionStartControl_Init();
     libGDHL_gt_HeroAbathurUltimateEvolutionStopControl_Init();
     libGDHL_gt_HeroAbathurUltimateEvolutionUnitDead_Init();
@@ -12476,7 +12550,7 @@ void libGDHL_InitTriggers () {
     libGDHL_gt_HeroRagnarosRaidTime_Init();
     libGDHL_gt_HeroRagnarosCatchingFireHealthGlobePickup_Init();
     libGDHL_gt_HeroRagnarosBlisteringAttacksCooldownReduction_Init();
-    libGDHL_gt_HeroRagnarosCauterizeWounds_Init();
+    libGDHL_gt_HeroRagnarosCauterizeWoundsTrigger_Init();
     libGDHL_gt_HeroRagnarosFlamesofSulfurion_Init();
     libGDHL_gt_HeroRagnarosSubmergeFullscreenOverlayOn_Init();
     libGDHL_gt_HeroRagnarosSubmergeFullscreenOverlayOff_Init();

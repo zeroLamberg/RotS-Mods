@@ -42,27 +42,22 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHasMapMechanicInstantAbilityCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HasMapMechanicInstantAbility" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbility2CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HasMapMechanicTargetAbility2" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbility2SnowBrawlCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HasMapMechanicTargetAbility2SnowBrawl" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbilityCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HasMapMechanicTargetAbility" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHasMapMechanicTargetAbilitySnowBrawlCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HasMapMechanicTargetAbilitySnowBrawl" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHeroGenericMount@MountedCompleteOnlyAtUnit">
@@ -156,7 +151,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="StormCategory MapMechanicAbility" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStormCategory MindControlCompleteOnlyAtUnit">
@@ -218,10 +212,6 @@
     <CRequirementCountBehavior id="CountBehaviorStormCategory StunCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="StormCategory Stun" State="CompleteOnlyAtUnit"/>
-    </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="StormCategory SuppressCollision" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -551,7 +541,6 @@
         <OperandArray index="1" value="0"/>
     </CRequirementGT>
     <CRequirementGT id="GTCountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
     </CRequirementGT>
@@ -615,10 +604,6 @@
         <OperandArray index="0" value="CountBehaviorStormCategory StunCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
     </CRequirementGT>
-    <CRequirementGT id="GTCountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit0">
-        <OperandArray index="0" value="CountBehaviorStormCategory SuppressCollisionCompleteOnlyAtUnit"/>
-        <OperandArray index="1" value="0"/>
-    </CRequirementGT>
     <CRequirementGT id="GTCountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorStormCategory SuppressInventoryCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
@@ -657,7 +642,6 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementLTE id="LTECountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
     </CRequirementLTE>

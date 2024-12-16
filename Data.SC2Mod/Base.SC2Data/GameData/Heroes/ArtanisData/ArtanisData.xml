@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroArtanisTitanKiller@Damage" parent="StormPurePercent">
-        <ValidatorArray value="HeroArtanisTitanKiller"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
-        <ValidatorArray value="TargetIsHero"/>
-        <Amount value="1">
-            <AccumulatorArray value="HeroArtanisTitanKiller@TwinBladesDamageSwitch"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectDamage id="HeroArtanisWeapon@Damage" parent="StormPhysical">
+    <CEffectUserData id="HeroArtanisPhasePrism@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroArtanisPhasePrism@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroArtanisWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroArtanisWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroArtanisPlasmaBurn@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisPlasmaBurn@Damage"/>
+    <CEffectSet id="HeroArtanisPlasmaBurn@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArtanisPlasmaBurn@DamageCritStatusIncrement" DamageEffect="HeroArtanisPlasmaBurn@Damage"/>
+    <CEffectDamage id="HeroArtanisWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="99">
             <AccumulatorArray value="HeroArtanisAmateurOpponent@DamageSwitch"/>
             <AccumulatorArray value="HeroArtanisProtectorOfAiur@DamageArithmetic"/>
             <AccumulatorArray value="HeroArtanisFinalCut@DamageSwitch"/>
         </Amount>
     </CEffectDamage>
-    <CEffectUserData id="HeroArtanisBladeDash@FirstDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArtanisBladeDash@FirstDamage"/>
-    <CEffectUserData id="HeroArtanisBladeDash@SecondDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArtanisBladeDash@SecondDamage"/>
-    <CEffectSet id="HeroArtanisBladeDash@FirstDamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisBladeDash@FirstDamageCritStatusIncrement" DamageEffect="HeroArtanisBladeDash@FirstDamage"/>
-    <CEffectSet id="HeroArtanisBladeDash@SecondDamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisBladeDash@SecondDamageCritStatusIncrement" DamageEffect="HeroArtanisBladeDash@SecondDamage"/>
+    <CEffectDamage id="HeroArtanisTitanKiller@Damage" parent="StormPurePercent">
+        <ValidatorArray value="HeroArtanisTitanKiller"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
+        <ValidatorArray value="TargetIsHero"/>
+        <Amount value="1">
+            <AccumulatorArray value="HeroArtanisTitanKiller@TwinBladesDamageSwitch"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectUserData id="HeroArtanisBladeDash@FirstDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisBladeDash@FirstDamage"/>
+    <CEffectUserData id="HeroArtanisBladeDash@SecondDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisBladeDash@SecondDamage"/>
+    <CEffectSet id="HeroArtanisBladeDash@FirstDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArtanisBladeDash@FirstDamageCritStatusIncrement" DamageEffect="HeroArtanisBladeDash@FirstDamage"/>
+    <CEffectSet id="HeroArtanisBladeDash@SecondDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArtanisBladeDash@SecondDamageCritStatusIncrement" DamageEffect="HeroArtanisBladeDash@SecondDamage"/>
     <CEffectApplyBehavior id="HeroArtanisBladesOfATemplar@ApplyAttackSpeedBuffSecondary">
         <ValidatorArray value="HeroArtanisBladesOfATemplar@LifeRequired"/>
         <ValidatorArray value="HeroArtanisBladesOfATemplar@CasterHasNotAttackSpeedBuffSecondary"/>
@@ -70,8 +78,8 @@
         <EffectArray value="HeroGenericRedirectMissileCaster"/>
         <EffectArray value="HeroArtanisPhasePrism@LaunchArtanis"/>
     </CEffectSet>
-    <CEffectUserData id="HeroArtanisPhasePrism@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroArtanisPhasePrism@DamageCritStatusCombine" Effect="HeroArtanisPhasePrism@Damage"/>
-    <CEffectSet id="HeroArtanisPhasePrism@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisPhasePrism@DamageCritStatusIncrement" DamageEffect="HeroArtanisPhasePrism@Damage"/>
+    <CEffectUserData id="HeroArtanisPhasePrism@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisPhasePrism@Damage"/>
+    <CEffectSet id="HeroArtanisPhasePrism@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroArtanisPhasePrism@DamageCritStatusLocal" CritStatusEffect="HeroArtanisPhasePrism@DamageCritStatusIncrement" DamageEffect="HeroArtanisPhasePrism@Damage"/>
     <CEffectUserData id="HeroArtanisPhasePrism@IncrementUsedData">
         <Key value="LaunchArtanis"/>
         <SourceKey value="LaunchArtanis"/>
@@ -99,11 +107,9 @@
         <EffectArray value="HeroRemovePushPullDebuffs"/>
         <EffectArray value="HeroArtanisPhasePrism@LaunchTargetSwitch"/>
     </CEffectSet>
-    <CEffectDamage id="HeroArtanisPlasmaBurn@Damage" parent="StormSpellNoModifiers">
-        <Amount value="60">
-            <AccumulatorArray value="UnitStatsSpellArmor"/>
-        </Amount>
-        <DamageInheritEffect value="HeroGenericDamageInheritSetSpellNoLeech"/>
+    <CEffectDamage id="HeroArtanisPlasmaBurn@Damage" parent="StormSpell">
+        <TechAliasArray value="StormFlag IgnoredByCallForHelp"/>
+        <Amount value="60"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="HeroArtanis@LevelScalingModification">
         <EffectArray Operation="Multiply" Reference="Unit,HeroArtanis,LifeMax" Value="1.04"/>
@@ -123,7 +129,7 @@
     </CEffectModifyPlayer>
     <CEffectApplyBehavior id="HeroArtanisBladesOfATemplar@ApplySlow" parent="StormApplySlow">
         <ValidatorArray value="HeroArtanisBladesOfATemplar"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <Behavior value="HeroArtanisBladesOfATemplar@Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="HeroArtanisFinalCut@ApplyBehavior">
@@ -163,8 +169,8 @@
     <CEffectDamage id="HeroArtanisPlasmaBurn@ExplosionDamage" parent="StormSpell">
         <Amount value="120"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroArtanisPlasmaBurn@ExplosionDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArtanisPlasmaBurn@ExplosionDamage"/>
-    <CEffectSet id="HeroArtanisPlasmaBurn@ExplosionDamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisPlasmaBurn@ExplosionDamageCritStatusIncrement" DamageEffect="HeroArtanisPlasmaBurn@ExplosionDamage"/>
+    <CEffectUserData id="HeroArtanisPlasmaBurn@ExplosionDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisPlasmaBurn@ExplosionDamage"/>
+    <CEffectSet id="HeroArtanisPlasmaBurn@ExplosionDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArtanisPlasmaBurn@ExplosionDamageCritStatusIncrement" DamageEffect="HeroArtanisPlasmaBurn@ExplosionDamage"/>
     <CEffectSet id="HeroArtanisPlasmaBurn@ExplosionImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroArtanisPlasmaBurn@ExplosionDamageSet"/>
     </CEffectSet>
@@ -198,7 +204,7 @@
     </CEffectEnumArea>
     <CEffectUserData id="HeroArtanisProtectorOfAiur@IncreaseToken" parent="StormModifyTokenCount" TokenCounterBehavior="HeroArtanisProtectorOfAiur">
         <ValidatorArray value="HeroArtanisProtectorOfAiur"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="TargetIsHero"/>
         <Amount value="1"/>
     </CEffectUserData>
@@ -265,8 +271,8 @@
         <ImpactUnit Value="Caster"/>
         <Cost Abil="HeroArtanisShieldOverload,Execute" CooldownOperation="Add" CooldownTimeUse="-8"/>
     </CEffectModifyUnit>
-    <CEffectUserData id="HeroArtanisPurifierBeam@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArtanisPurifierBeam@Damage"/>
-    <CEffectSet id="HeroArtanisPurifierBeam@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisPurifierBeam@DamageCritStatusIncrement" DamageEffect="HeroArtanisPurifierBeam@Damage"/>
+    <CEffectUserData id="HeroArtanisPurifierBeam@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisPurifierBeam@Damage"/>
+    <CEffectSet id="HeroArtanisPurifierBeam@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArtanisPurifierBeam@DamageCritStatusIncrement" DamageEffect="HeroArtanisPurifierBeam@Damage"/>
     <CEffectSet id="HeroArtanisPurifierBeam@FirstCastBehavior">
         <ValidatorArray value="TargetIsHero"/>
         <ValidatorArray value="TargetNotSpecialDeathState"/>
@@ -335,8 +341,8 @@
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
         <ValidatorArray value="HeroArtanisStrengthInUnity"/>
     </CEffectEnumArea>
-    <CEffectUserData id="HeroArtanisSuppressionPulse@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroArtanisSuppressionPulse@Damage"/>
-    <CEffectSet id="HeroArtanisSuppressionPulse@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisSuppressionPulse@DamageCritStatusIncrement" DamageEffect="HeroArtanisSuppressionPulse@Damage"/>
+    <CEffectUserData id="HeroArtanisSuppressionPulse@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisSuppressionPulse@Damage"/>
+    <CEffectSet id="HeroArtanisSuppressionPulse@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroArtanisSuppressionPulse@DamageCritStatusIncrement" DamageEffect="HeroArtanisSuppressionPulse@Damage"/>
     <CEffectModifyPlayer id="HeroArtanisTargetPurified">
         <EffectArray Reference="Unit,HeroArtanisPurifierBeam@InvisibleTrackingUnit,Speed" Value="0.480400"/>
     </CEffectModifyPlayer>
@@ -386,7 +392,7 @@
     <CEffectSet id="HeroArtanisTwinBlades@DamagePersistentSetTalents">
         <EffectArray value="HeroArtanisReactiveParry@ApplyBlock"/>
         <EffectArray value="HeroArtanisWeapon@TalentSet"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
     </CEffectSet>
     <CEffectModifyUnit id="HeroArtanisTripleStrike@ModifyCooldown">
         <ImpactUnit Value="Caster"/>
@@ -794,8 +800,8 @@
         <EffectArray value="HeroArtanisPurifierBeam@ApplyPrimedBehavior"/>
         <EffectArray value="Summon@CreationSwitch"/>
     </CEffectSet>
-    <CEffectUserData id="HeroArtanisWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroArtanisWeapon@DamageCriticalCombine" Effect="HeroArtanisWeapon@Damage"/>
-    <CEffectSet id="HeroArtanisWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroArtanisWeapon@DamageCritStatusIncrement" DamageEffect="HeroArtanisWeapon@Damage"/>
+    <CEffectUserData id="HeroArtanisWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroArtanisWeapon@Damage"/>
+    <CEffectSet id="HeroArtanisWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroArtanisWeapon@DamageCritStatusLocal" CritStatusEffect="HeroArtanisWeapon@DamageCritStatusIncrement" DamageEffect="HeroArtanisWeapon@Damage"/>
     <CEffectSwitch id="HeroArtanisWeapon@ImpactSwitch">
         <CaseArray Validator="HeroArtanisTwinBlades@CasterHasPrimedAndNotCharging" Effect="HeroArtanisTwinBlades@ProcSet"/>
         <CaseDefault value="HeroArtanisWeapon@ImpactSet"/>
@@ -992,7 +998,7 @@
     </CEffectRemoveBehavior>
     <CEffectModifyUnit id="HeroArtanisShieldOverload@ReduceCooldownWeapon">
         <ValidatorArray value="HeroArtanisShieldOverload@OnCooldown"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
         <Cost Abil="HeroArtanisShieldOverload,Execute" CooldownOperation="Add" CooldownTimeUse="-4"/>
@@ -1038,7 +1044,7 @@
         <MaxCount value="1"/>
     </CEffectEnumArea>
     <CEffectSet id="HeroArtanisWeapon@TalentSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="HeroArtanisShieldOverload@ReduceCooldownWeapon"/>
         <EffectArray value="HeroArtanisProtectorOfAiur@IncreaseToken"/>
         <EffectArray value="HeroArtanisFinalCut@RemoveBehavior"/>
@@ -1059,7 +1065,7 @@
     </CEffectEnumArea>
     <CEffectSet id="HeroArtanisPlasmaBurn@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <ValidatorArray value="NoJungleBenignTarget"/>
-        <EffectArray value="HeroArtanisPlasmaBurn@Damage"/>
+        <EffectArray value="HeroArtanisPlasmaBurn@DamageSet"/>
     </CEffectSet>
     <CAbilEffectInstant id="HeroArtanisTwinBlades">
         <Effect value="HeroArtanisTwinBlades@InitialSet"/>
@@ -1184,6 +1190,13 @@
             <Flags index="IgnoreUser" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
+    <CValidatorCombine id="HeroArtanisPhasePrism@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroArtanisGravitonVortex@CritDamageModifier"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HeroArtanisWeapon@DamageCritStatusCombine" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="HeroArtanisAmateurOpponent@TargetCombine"/>
+        <CombineArray value="HeroArtanisFinalCut@CasterHasBehavior"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroArtanisBladesOfATemplar@CasterHasNotAttackSpeedBuffSecondary" parent="CasterNotParent">
         <Behavior value="HeroArtanisBladesOfATemplar@AttackSpeedBuffSecondary"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -1208,10 +1221,6 @@
         <Type value="And"/>
         <CombineArray value="HeroArtanisPhasePrism@UserDataIsValid"/>
         <CombineArray value="CasterNotDead"/>
-    </CValidatorCombine>
-    <CValidatorCombine id="HeroArtanisPhasePrism@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroArtanisGravitonVortex@CritDamageModifier"/>
     </CValidatorCombine>
     <CValidatorCombine id="HeroArtanisPhasePrism@LaunchDelayPersistentCombine">
         <Type value="And"/>
@@ -1499,11 +1508,6 @@
         <CombineArray value="HeroArtanisShieldOverload@NotOnCooldown"/>
         <CombineArray value="HeroArtanisShieldOverload@LifeRequired"/>
         <CombineArray value="HeroArtanisShieldOverload@CasterHasNotDummyBuffBehavior"/>
-    </CValidatorCombine>
-    <CValidatorCombine id="HeroArtanisWeapon@DamageCriticalCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="HeroArtanisAmateurOpponent@TargetCombine"/>
-        <CombineArray value="HeroArtanisFinalCut@CasterHasBehavior"/>
     </CValidatorCombine>
     <CValidatorPlayerTalent id="HeroArtanisZealotCharge" parent="PlayerTalent"/>
     <CValidatorCombine id="HeroArtanisZealotCharge@ChargeCombine">

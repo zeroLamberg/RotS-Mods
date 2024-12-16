@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="UnitAttrOffImmuneToFriendlyAbilities" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffHover"/>
     <const id="UnitAttrOffNoMinionAggro" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffPsionic"/>
+    <const id="UnitAttrOffImmuneToFriendlyAbilities" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffHover"/>
     <const id="UnitAttrOnMerc" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnRobotic"/>
-    <const id="UnitAttrOnTower" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnArmored"/>
-    <const id="UnitAttrOffMerc" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffRobotic"/>
-    <const id="UnitAttrOffMinion" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffBiological"/>
     <const id="UnitAttrOffImmuneToAOE" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffMechanical"/>
-    <const id="UnitAttrOnImmuneToFriendlyAbilities" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnHover"/>
+    <const id="UnitAttrOffMinion" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffBiological"/>
+    <const id="UnitAttrOffMerc" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffRobotic"/>
+    <const id="UnitAttrOnTower" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnArmored"/>
     <const id="UnitAttrOffTower" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffArmored"/>
+    <const id="UnitAttrOnImmuneToFriendlyAbilities" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnHover"/>
     <const id="UnitAttrOnNoMinionAggro" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnPsionic"/>
     <const id="UnitAttrOnMinion" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnBiological"/>
-    <const id="UnitAttrOnImmuneToSkillshots" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnMassive"/>
     <const id="UnitAttrOnCreep" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnLight"/>
+    <const id="UnitAttrOnImmuneToSkillshots" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnMassive"/>
     <const id="UnitAttrOffImmuneToSkillshots" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffMassive"/>
     <const id="UnitAttrOnImmuneToAOE" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnMechanical"/>
     <const id="UnitAttrOffCreep" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffLight"/>
@@ -88,7 +88,6 @@
         <BehaviorCategories index="User5" value="1"/>
         <TechAliasArray value="StormCategory HideNameplate"/>
         <TechAliasArray value="StormCategory Eaten"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
         <Modification>
             <ModifyFlags index="DisableAbils" value="1"/>
             <StateFlags index="Benign" value="1"/>
@@ -125,6 +124,27 @@
             <Kind index="NoProc" value="0"/>
             <ProvideCategories index="Proc" value="1"/>
             <Chance value="1"/>
+            <DamageType index="Normal" value="0"/>
+            <DamageType index="Enhanced" value="0"/>
+            <DamageType index="Fire" value="0"/>
+            <DamageType index="Cold" value="0"/>
+            <DamageType index="Lightning" value="0"/>
+            <DamageType index="Poison" value="0"/>
+            <DamageType index="Disease" value="0"/>
+            <DamageType index="Divine" value="0"/>
+            <DamageType index="Magic" value="0"/>
+            <DamageType index="Sonic" value="0"/>
+            <DamageType index="Acid" value="0"/>
+            <DamageType index="Force" value="0"/>
+            <DamageType index="Death" value="0"/>
+            <DamageType index="Mind" value="0"/>
+            <DamageType index="Plant" value="0"/>
+            <DamageType index="Defensive" value="0"/>
+            <DamageType index="Demolition" value="0"/>
+            <DamageType index="SlowPoison" value="0"/>
+            <DamageType index="SpiritLink" value="0"/>
+            <DamageType index="ShadowStrike" value="0"/>
+            <DamageType index="None" value="0"/>
         </DamageResponse>
         <BehaviorCategories index="User1" value="1"/>
         <TechAliasArray value="StormCategory PhysicalArmor"/>
@@ -210,7 +230,6 @@
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormSpecialDeathState">
         <TechAliasArray value="StormCategory SpecialDeathState"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
         <TechAliasArray value="StormCategory SuppressInventory"/>
         <Modification>
             <StateFlags index="Invulnerable" value="1"/>
@@ -284,7 +303,6 @@
         <InitialEffect value="StormStasisIceBlockInitialSet"/>
         <TechAliasArray value="StormCategory Stasis"/>
         <TechAliasArray value="StormCategory SuppressInventory"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormStasisIceBlock" parent="StormStasis">
         <Modification>
@@ -297,7 +315,7 @@
             <StateFlags index="SuppressCollision" value="0"/>
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
         </Modification>
-        <TechAliasArray index="2" value=""/>
+        <TechAliasArray value=""/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormStasisRemoved" parent="StormStasisIceBlock">
         <Modification>
@@ -315,7 +333,6 @@
             <PlaneDelta index="Air" value="1"/>
         </Modification>
         <TechAliasArray value="StormCategory HideNameplate"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormHealReduction">
         <Alignment value="Negative"/>
@@ -357,7 +374,6 @@
             <StateFlags index="SuppressCollision" value="1"/>
             <StateFlags index="Untargetable" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormSilence">
         <Alignment value="Negative"/>
@@ -468,6 +484,27 @@
             <HandledValue value="Absorbed"/>
             <ModifyScoreArray Validator="TargetIsHero" Value="SelfHealing"/>
             <Chance value="1"/>
+            <DamageType index="Normal" value="0"/>
+            <DamageType index="Enhanced" value="0"/>
+            <DamageType index="Fire" value="0"/>
+            <DamageType index="Cold" value="0"/>
+            <DamageType index="Lightning" value="0"/>
+            <DamageType index="Poison" value="0"/>
+            <DamageType index="Disease" value="0"/>
+            <DamageType index="Divine" value="0"/>
+            <DamageType index="Magic" value="0"/>
+            <DamageType index="Sonic" value="0"/>
+            <DamageType index="Acid" value="0"/>
+            <DamageType index="Force" value="0"/>
+            <DamageType index="Death" value="0"/>
+            <DamageType index="Mind" value="0"/>
+            <DamageType index="Plant" value="0"/>
+            <DamageType index="Defensive" value="0"/>
+            <DamageType index="Demolition" value="0"/>
+            <DamageType index="SlowPoison" value="0"/>
+            <DamageType index="SpiritLink" value="0"/>
+            <DamageType index="ShadowStrike" value="0"/>
+            <DamageType index="None" value="0"/>
         </DamageResponse>
         <TechAliasArray value="StormCategory Protected"/>
     </CBehaviorBuff>
@@ -505,13 +542,30 @@
         <DisplayDuration index="Enemy" value="1"/>
         <BuffFlags index="RefreshStack" value="1"/>
         <BuffFlags index="UpdateDurationWhileDisabled" value="1"/>
-        <DamageResponse ModifyFraction="0" Priority="85">
-            <Kind index="Spell" value="0"/>
-            <Kind index="Melee" value="0"/>
-            <Kind index="Splash" value="0"/>
-            <Kind index="NoProc" value="0"/>
+        <DamageResponse Handled="BlindMissedDummyCaster" ModifyFraction="0" Priority="85">
             <ModifyScoreArray Validator="TargetIsHero" Value="SelfHealing"/>
             <Chance value="1"/>
+            <DamageType index="Normal" value="0"/>
+            <DamageType index="Enhanced" value="0"/>
+            <DamageType index="Fire" value="0"/>
+            <DamageType index="Cold" value="0"/>
+            <DamageType index="Lightning" value="0"/>
+            <DamageType index="Poison" value="0"/>
+            <DamageType index="Disease" value="0"/>
+            <DamageType index="Divine" value="0"/>
+            <DamageType index="Magic" value="0"/>
+            <DamageType index="Sonic" value="0"/>
+            <DamageType index="Acid" value="0"/>
+            <DamageType index="Force" value="0"/>
+            <DamageType index="Death" value="0"/>
+            <DamageType index="Mind" value="0"/>
+            <DamageType index="Plant" value="0"/>
+            <DamageType index="Defensive" value="0"/>
+            <DamageType index="Demolition" value="0"/>
+            <DamageType index="SlowPoison" value="0"/>
+            <DamageType index="SpiritLink" value="0"/>
+            <DamageType index="ShadowStrike" value="0"/>
+            <DamageType index="None" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormCloak">
@@ -525,7 +579,7 @@
         <InfoIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormParry" parent="StormEvasion">
-        <DamageResponse Priority="95"/>
+        <DamageResponse Handled="BlindMissedDummy" Priority="95"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormTempCloak" parent="StormCloak">
         <BehaviorCategories index="Cloak" value="1"/>
@@ -555,7 +609,6 @@
             <Chance value="1"/>
         </DamageResponse>
         <BehaviorCategories index="User13" value="1"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormPersistentCloakController">
         <BehaviorFlags index="Permanent" value="1"/>
@@ -625,7 +678,6 @@
         <Modification>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormAbsorbing">
         <Alignment value="Positive"/>
@@ -659,11 +711,28 @@
             <Location value="Attacker"/>
             <ModifyFraction value="0"/>
             <Priority value="85"/>
-            <Kind index="Spell" value="0"/>
-            <Kind index="Melee" value="0"/>
-            <Kind index="Splash" value="0"/>
-            <Kind index="NoProc" value="0"/>
             <Chance value="1"/>
+            <DamageType index="Normal" value="0"/>
+            <DamageType index="Enhanced" value="0"/>
+            <DamageType index="Fire" value="0"/>
+            <DamageType index="Cold" value="0"/>
+            <DamageType index="Lightning" value="0"/>
+            <DamageType index="Poison" value="0"/>
+            <DamageType index="Disease" value="0"/>
+            <DamageType index="Divine" value="0"/>
+            <DamageType index="Magic" value="0"/>
+            <DamageType index="Sonic" value="0"/>
+            <DamageType index="Acid" value="0"/>
+            <DamageType index="Force" value="0"/>
+            <DamageType index="Death" value="0"/>
+            <DamageType index="Mind" value="0"/>
+            <DamageType index="Plant" value="0"/>
+            <DamageType index="Defensive" value="0"/>
+            <DamageType index="Demolition" value="0"/>
+            <DamageType index="SlowPoison" value="0"/>
+            <DamageType index="SpiritLink" value="0"/>
+            <DamageType index="ShadowStrike" value="0"/>
+            <DamageType index="None" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff default="1" id="StormDamageReduction">
@@ -744,6 +813,7 @@
     </CBehaviorVeterancy>
     <CBehaviorBuff id="DummyCriticalSpellBehavior" parent="StormCarryBehaviorParent"/>
     <CBehaviorBuff id="DummyCriticalPhysicalBehavior" parent="StormCarryBehaviorParent"/>
+    <CBehaviorBuff id="DummyCriticalPureBehavior" parent="StormCarryBehaviorParent"/>
     <CBehaviorBuff id="HeroGenericChanneledWeapon">
         <BehaviorFlags index="Permanent" value="1"/>
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
@@ -752,20 +822,6 @@
         <BehaviorFlags index="Permanent" value="1"/>
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HeroGenericCollisionRadius@CollisionPush">
-        <BehaviorFlags index="Permanent" value="1"/>
-        <PeriodicEffect value="HeroGenericCollisionRadius@EnumTrackedUnits"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="HeroGenericCollisionRadius@PushSpeed">
-        <Duration value="0.0625"/>
-        <Modification MoveSpeedMaximum="1" MoveSpeedMinimum="1"/>
-    </CBehaviorBuff>
-    <CBehaviorUnitTracker id="HeroGenericCollisionRadius@UnitTracker">
-        <BehaviorFlags index="Permanent" value="1"/>
-        <BehaviorFlags index="EnabledWhileDead" value="1"/>
-        <UnitTrackerFlags index="UseSharedList" value="1"/>
-        <UnitTrackerFlags index="SharedListPersistsForever" value="1"/>
-    </CBehaviorUnitTracker>
     <CBehaviorBuff id="HeroGenericExperience@LastHitTimer">
         <BehaviorFlags index="Permanent" value="1"/>
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
@@ -1470,7 +1526,6 @@
         <TechAliasArray value="StormCategory Stun"/>
         <TechAliasArray value="StormCategory Stasis"/>
         <TechAliasArray value="StormCategory StasisAir"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
         <TechAliasArray value="StormCategory SuppressInventory"/>
         <TechAliasArray value="StormCategory SuppressUltimateCharge"/>
         <TechAliasArray value="StormCategory SuppressVisibility"/>
@@ -3556,18 +3611,6 @@
         <Range value="0.5"/>
         <Delay value="3.5"/>
     </CBehaviorWander>
-    <CBehaviorBuff id="HeroGenericCollisionRadius">
-        <BehaviorFlags index="Permanent" value="1"/>
-        <DisableValidatorArray value="TargetIsGroundMover"/>
-        <DisableValidatorArray value="StormCategoryTargetHasNotSuppressCollision"/>
-        <DisableValidatorArray value="HeroGenericCollisionRadius@CurrentOrderIsPushable"/>
-        <PeriodicEffect value="HeroGenericCollisionRadius@EnumTrackedUnits"/>
-        <Modification>
-            <StateFlags index="SuppressCollision" value="1"/>
-        </Modification>
-        <InitialEffect value="HeroGenericCollisionRadius@AddTrackedUnit"/>
-        <RemoveValidatorArray value="AlwaysReturnsFalse"/>
-    </CBehaviorBuff>
     <CBehaviorAttribute id="HeroGenericUserRecord">
         <BehaviorFlags index="Permanent" value="1"/>
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
@@ -3630,7 +3673,6 @@
             <StateFlags index="Unstoppable" value="1"/>
             <AbilLinkDisableArray value="HeroGenericHearthstone"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HallOfStormsKnockbackIgnoreFX">
         <TechAliasArray value="StormCategory HallOfStormsKnockbackIgnoreFX"/>
@@ -3758,7 +3800,6 @@
         <Modification>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SuppressGenericDeath">
         <BehaviorFlags index="Permanent" value="1"/>
@@ -3845,13 +3886,9 @@
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PermaInvulnerable" parent="StormInvulnerable"/>
-    <CBehaviorBuff id="PermaStasis" parent="StormStasis">
-        <TechAliasArray index="2" removed="1"/>
-    </CBehaviorBuff>
+    <CBehaviorBuff id="PermaStasis" parent="StormStasis"/>
     <CBehaviorBuff id="PermaSleep" parent="StormSleep"/>
-    <CBehaviorBuff id="PermaTimeStop" parent="StormTimeStopParent">
-        <TechAliasArray index="0" removed="1"/>
-    </CBehaviorBuff>
+    <CBehaviorBuff id="PermaTimeStop" parent="StormTimeStopParent"/>
     <CBehaviorBuff id="HeroicAbility1Surpressed"/>
     <CBehaviorBuff id="HeroicAbility2Surpressed"/>
     <CBehaviorBuff id="HeroGenericRecentlyTeleported">

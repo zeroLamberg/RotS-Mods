@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="HeroFalstadBOOMerang@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="HeroFalstadBOOMerang@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="HeroFalstadWeapon@DamageLeechLocal" parent="StormModifyLocalLeech">
+        <Amount value="0">
+            <AccumulatorArray value="HeroFalstadHammerGains@LeechSwitch"/>
+        </Amount>
+    </CEffectUserData>
+    <CEffectDamage id="HeroFalstadWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="104">
+            <AccumulatorArray value="HeroFalstadFrequentFlyer@DamageModifier"/>
+            <AccumulatorArray value="HeroFalstadSecretWeapon@Switch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectDamage id="HeroFalstadSustainedWinds@Damage" parent="StormPurePercent">
         <Amount value="1.5"/>
     </CEffectDamage>
     <CEffectDamage id="HeroFalstadSustainedWinds@DamageImproved" parent="StormPurePercent">
         <TechAliasArray value="StormFlag Critical"/>
         <Amount value="2"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroFalstadWeapon@Damage" parent="StormPhysical">
-        <Amount value="104">
-            <AccumulatorArray value="HeroFalstadFrequentFlyer@DamageModifier"/>
-            <AccumulatorArray value="HeroFalstadSecretWeapon@Switch"/>
-        </Amount>
-        <DamageInheritEffect value="HeroFalstadWeapon@InheritSet"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="HeroFalstad@LevelScalingModification">
         <EffectArray Operation="Multiply" Reference="Unit,HeroFalstad,LifeMax" Value="1.04"/>
@@ -59,7 +66,7 @@
         <PeriodicPeriodArray value="0.75"/>
         <PeriodicPeriodArray value="0.75"/>
     </CEffectCreatePersistent>
-    <CEffectSet id="HeroFalstadBOOMerang@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadBOOMerang@DamageCritStatusIncrement" DamageEffect="HeroFalstadBOOMerang@Damage"/>
+    <CEffectSet id="HeroFalstadBOOMerang@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroFalstadBOOMerang@DamageCritStatusLocal" CritStatusEffect="HeroFalstadBOOMerang@DamageCritStatusIncrement" DamageEffect="HeroFalstadBOOMerang@Damage"/>
     <CEffectLaunchMissile id="HeroFalstadBarrelRoll@LaunchMissile" parent="StormLaunchUnitTargetPointValidated">
         <LaunchEffect value="HeroFalstadBarrelRoll@MissileLaunchSet"/>
         <ImpactEffect value="HeroFalstadBarrelRoll@FinalSet"/>
@@ -126,15 +133,15 @@
     <CEffectModifyPlayer id="HeroFalstadGatheringStorm@DeltaModification">
         <EffectArray Reference="Accumulator,HeroFalstadGatheringStorm@DamageModifier,Amount" Value="0.5"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="HeroFalstadHammerang@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroFalstadHammerang@Damage"/>
-    <CEffectUserData id="HeroFalstadBOOMerang@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroFalstadBOOMerang@DamageCritStatusCombine" Effect="HeroFalstadBOOMerang@Damage"/>
+    <CEffectUserData id="HeroFalstadHammerang@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadHammerang@Damage"/>
+    <CEffectUserData id="HeroFalstadBOOMerang@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadBOOMerang@Damage"/>
     <CEffectCreatePersistent id="HeroFalstadHinterlandBlast@CooldownPersistent">
         <ValidatorArray value="TargetIsHero"/>
         <InitialDelay value="0.125"/>
         <InitialEffect value="HeroFalstadHinterlandBlast@ModifyCooldown"/>
     </CEffectCreatePersistent>
-    <CEffectUserData id="HeroFalstadHammerang@ReturnDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroFalstadHammerang@ReturnDamage"/>
-    <CEffectSet id="HeroFalstadHinterlandBlast@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadHinterlandBlast@DamageCritStatusIncrement" DamageEffect="HeroFalstadHinterlandBlast@Damage"/>
+    <CEffectUserData id="HeroFalstadHammerang@ReturnDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadHammerang@ReturnDamage"/>
+    <CEffectSet id="HeroFalstadHinterlandBlast@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroFalstadHinterlandBlast@DamageCritStatusIncrement" DamageEffect="HeroFalstadHinterlandBlast@Damage"/>
     <CEffectSet id="HeroFalstadLightningRod@ConfirmSet">
         <ValidatorArray value="HeroFalstadLightningRod@TargetHasConductor"/>
         <EffectArray value="FalstadLightningRodAddCasterConfirmDuration"/>
@@ -149,13 +156,13 @@
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
     </CEffectEnumArea>
-    <CEffectUserData id="HeroFalstadLightningRod@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroFalstadLightningRod@Damage"/>
-    <CEffectUserData id="HeroFalstadHinterlandBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroFalstadHinterlandBlast@Damage"/>
+    <CEffectUserData id="HeroFalstadLightningRod@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadLightningRod@Damage"/>
+    <CEffectUserData id="HeroFalstadHinterlandBlast@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadHinterlandBlast@Damage"/>
     <CEffectUserData id="HeroFalstadGatheringStorm@Add1TokenCount" parent="StormModifyTokenCount" TokenCounterBehavior="HeroFalstadGatheringStorm@TokenCounter">
         <Amount value="1"/>
     </CEffectUserData>
-    <CEffectSet id="HeroFalstadLightningRod@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadLightningRod@DamageCritStatusIncrement" DamageEffect="HeroFalstadLightningRod@Damage"/>
-    <CEffectSet id="HeroFalstadLightningRod@InitialDamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadLightningRod@InitialDamageCritStatusIncrement" DamageEffect="HeroFalstadLightningRod@InitialDamage"/>
+    <CEffectSet id="HeroFalstadLightningRod@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroFalstadLightningRod@DamageCritStatusIncrement" DamageEffect="HeroFalstadLightningRod@Damage"/>
+    <CEffectSet id="HeroFalstadLightningRod@InitialDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroFalstadLightningRod@InitialDamageCritStatusIncrement" DamageEffect="HeroFalstadLightningRod@InitialDamage"/>
     <CEffectModifyPlayer id="HeroFalstadSecretWeapon">
         <EffectArray Operation="Set" Reference="Effect,HeroFalstadHammerang@CreatePersistent,PeriodicOffsetArray[0]" Value="0.000000,-14.000000,0.000000"/>
         <EffectArray Operation="Set" Reference="Actor,HeroFalstadHammerang@GuideVisual,Height" Value="14.000000"/>
@@ -179,8 +186,8 @@
     <CEffectDamage id="HeroFalstadSonicBoom@Damage" parent="StormSpell">
         <Amount value="326"/>
     </CEffectDamage>
-    <CEffectUserData id="HeroFalstadSonicBoom@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroFalstadSonicBoom@Damage"/>
-    <CEffectSet id="HeroFalstadSonicBoom@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadSonicBoom@DamageCritStatusIncrement" DamageEffect="HeroFalstadSonicBoom@Damage"/>
+    <CEffectUserData id="HeroFalstadSonicBoom@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadSonicBoom@Damage"/>
+    <CEffectSet id="HeroFalstadSonicBoom@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroFalstadSonicBoom@DamageCritStatusIncrement" DamageEffect="HeroFalstadSonicBoom@Damage"/>
     <CEffectSet id="HeroFalstadSonicBoom@ImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="HeroFalstadSonicBoom@DamageSet"/>
     </CEffectSet>
@@ -280,11 +287,11 @@
         <EffectArray value="HeroFalstadHinterlandBlast@Persistent"/>
         <TargetLocationType value="Point"/>
     </CEffectSet>
-    <CEffectSet id="HeroFalstadHammerang@ReturnDamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadHammerang@ReturnDamageCritStatusIncrement" DamageEffect="HeroFalstadHammerang@ReturnDamage">
+    <CEffectSet id="HeroFalstadHammerang@ReturnDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroFalstadHammerang@ReturnDamageCritStatusIncrement" DamageEffect="HeroFalstadHammerang@ReturnDamage">
         <ValidatorArray index="0" removed="1"/>
         <ValidatorArray index="1" removed="1"/>
     </CEffectSet>
-    <CEffectSet id="HeroFalstadHammerang@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadHammerang@DamageCritStatusIncrement" DamageEffect="HeroFalstadHammerang@Damage">
+    <CEffectSet id="HeroFalstadHammerang@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroFalstadHammerang@DamageCritStatusIncrement" DamageEffect="HeroFalstadHammerang@Damage">
         <ValidatorArray index="0" removed="1"/>
         <ValidatorArray index="1" removed="1"/>
     </CEffectSet>
@@ -383,23 +390,11 @@
     <CEffectSwitch id="HeroFalstadSustainedWinds@Switch">
         <CaseArray Validator="HeroFalstadTailwind@NotOnCooldown" Effect="HeroFalstadSustainedWinds@DamageImproved"/>
         <CaseDefault value="HeroFalstadSustainedWinds@Damage"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="HeroFalstadSustainedWinds"/>
         <ValidatorArray value="TargetIsHero"/>
     </CEffectSwitch>
-    <CEffectUserData id="HeroFalstadWeapon@LeechCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasPhysicalPower" Effect="HeroFalstadWeapon@LeechHeal"/>
-    <CEffectModifyUnit id="HeroFalstadWeapon@LeechHeal" parent="StormModifyUnitLeechPhysical">
-        <VitalArray index="Life">
-            <Change value="0">
-                <AccumulatorArray value="HeroFalstadHammerGains@LeechSwitch"/>
-            </Change>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="HeroFalstadWeapon@LeechSet" parent="StormHealSetCaster" CritStatusEffect="HeroFalstadWeapon@LeechCritStatusIncrement" HealEffect="HeroFalstadWeapon@LeechHeal"/>
-    <CEffectSet id="HeroFalstadWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroFalstadWeapon@DamageCritStatusIncrement" DamageEffect="HeroFalstadWeapon@Damage"/>
-    <CEffectSet id="HeroFalstadWeapon@InheritSet" parent="StormDamageInheritSetPhysical">
-        <EffectArray value="HeroFalstadWeapon@LeechSet"/>
-    </CEffectSet>
+    <CEffectSet id="HeroFalstadWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroFalstadWeapon@DamageCritStatusIncrement" LocalLeechEffect="HeroFalstadWeapon@DamageLeechLocal" DamageEffect="HeroFalstadWeapon@Damage"/>
     <CEffectApplyBehavior id="HeroFalstadWindTunnel@ImpactSoundBehavior">
         <ValidatorArray value="HeroFalstadWindTunnel@DoesNotHaveSoundBehavior"/>
         <Behavior value="HeroFalstadMightyGust@ImpactSoundBehavior"/>
@@ -859,8 +854,8 @@
         <PeriodCount value="1"/>
         <PeriodicPeriodArray value="1"/>
     </CEffectCreatePersistent>
-    <CEffectUserData id="HeroFalstadWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="HeroFalstadWeapon@Damage"/>
-    <CEffectUserData id="HeroFalstadLightningRod@InitialDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroFalstadLightningRod@InitialDamage"/>
+    <CEffectUserData id="HeroFalstadWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadWeapon@Damage"/>
+    <CEffectUserData id="HeroFalstadLightningRod@InitialDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroFalstadLightningRod@InitialDamage"/>
     <CEffectSet id="HeroFalstadWeapon@ImpactSet">
         <EffectArray value="HeroFalstadWeapon@DamageSet"/>
         <EffectArray value="HeroFalstadSustainedWinds@Switch"/>
@@ -1192,6 +1187,9 @@
             <Flags index="AllowSelfCast" value="0"/>
         </CmdButtonArray>
     </CAbilEffectTarget>
+    <CValidatorCombine id="HeroFalstadBOOMerang@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="HeroFalstadBOOMerang"/>
+    </CValidatorCombine>
     <CValidatorPlayerRequirement id="FalstadSkinBaseVar1">
         <Find value="1"/>
         <Value value="FalstadSkinBaseVar1"/>
@@ -1231,10 +1229,6 @@
     <CValidatorUnitCompareChargeUsed id="HeroFalstadAroundTheWorld@QuestMaxedTarget" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="HeroFalstadAroundTheWorld@TokenCounter">
         <WhichUnit Value="Target"/>
     </CValidatorUnitCompareChargeUsed>
-    <CValidatorCombine id="HeroFalstadBOOMerang@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="HeroFalstadBOOMerang"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroFalstadBOOMerang@HasController">
         <Compare value="GT"/>
         <Behavior value="HeroFalstadBOOMerang@Controller"/>
@@ -5575,7 +5569,6 @@
         <Alignment value="Positive"/>
         <RemoveValidatorArray value="CasterNotFeared"/>
         <Duration value="1.5"/>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroFalstadHammerang@MissileScan">
         <Period value="0.0625"/>

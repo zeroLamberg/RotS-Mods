@@ -11,6 +11,9 @@
         <ApplicationRule value="Multiply"/>
         <Ratio value="1"/>
     </CAccumulatorVitals>
+    <CAccumulatorEffectAmount id="Damaged">
+        <Total value="1"/>
+    </CAccumulatorEffectAmount>
     <CAccumulatorConstant id="DamageModifierIncreasedDamageCreep100Modifier">
         <ApplicationRule value="AdditiveMultiply"/>
         <Amount value="1"/>
@@ -18,6 +21,10 @@
     <CAccumulatorSwitch id="DamageModifierIncreasedDamageCreep100">
         <CaseArray Validator="TargetIsCreep" Accumulator="DamageModifierIncreasedDamageCreep100Modifier"/>
     </CAccumulatorSwitch>
+    <CAccumulatorEffectAmount id="DamagedMultiply">
+        <ApplicationRule value="Multiply"/>
+        <Total value="1"/>
+    </CAccumulatorEffectAmount>
     <CAccumulatorVitals id="HeroGenericVitalFractionalDamageMultiply">
         <MinAccumulation value="0"/>
         <MaxAccumulation value="36.51"/>

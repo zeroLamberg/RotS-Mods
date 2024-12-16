@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="HeroJainaWeapon@Damage" parent="StormPhysical">
+    <CEffectDamage id="HeroJainaWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="66">
             <AccumulatorArray value="HeroJainaIcefuryWand@DamageSwitch"/>
         </Amount>
@@ -18,7 +18,7 @@
         <EffectArray value="HeroGenericPostTeleportSet"/>
         <EffectArray value="HeroJainaIceBlink@Search"/>
     </CEffectSet>
-    <CEffectUserData id="HeroJainaPerfectIceBlock@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="HeroJainaPerfectIceBlock@HealModifyUnit"/>
+    <CEffectUserData id="HeroJainaPerfectIceBlock@HealCritStatusIncrement" parent="StormCriticalStatusIncrementerCaster" Effect="HeroJainaPerfectIceBlock@HealModifyUnit"/>
     <CEffectModifyUnit id="HeroJainaPerfectIceBlock@HealModifyUnit" parent="StormModifyUnitHealingSelf"/>
     <CEffectSet id="HeroJainaPerfectIceBlock@HealSet" parent="StormHealSetCaster" CritStatusEffect="HeroJainaPerfectIceBlock@HealCritStatusIncrement" HealEffect="HeroJainaPerfectIceBlock@HealModifyUnit">
         <ValidatorArray value="HeroJainaPerfectIceBlock"/>
@@ -41,7 +41,7 @@
         <ValidatorArray value="HeroJainaBlizzard@TokenCountEq1"/>
         <Behavior value="HeroJainaSnowstorm@Slow"/>
     </CEffectApplyBehavior>
-    <CEffectUserData id="HeroJainaFrostbolt@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroJainaFrostbolt@Damage"/>
+    <CEffectUserData id="HeroJainaFrostbolt@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroJainaFrostbolt@Damage"/>
     <CEffectModifyPlayer id="HeroJainaFrostShards">
         <EffectArray Operation="Set" Reference="Effect,HeroJainaFrostbolt@MissileScan,AreaArray[0].MaxCount" Value="3"/>
     </CEffectModifyPlayer>
@@ -184,7 +184,7 @@
     <CEffectModifyUnit id="HeroJainaArcaneIntellect@ManaRestoreBasicAttack">
         <ValidatorArray value="HeroJainaArcaneIntellect"/>
         <ValidatorArray value="HeroJainaFrostbite@TargetIsChilled"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="EnergyNotFullCaster"/>
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
@@ -198,7 +198,7 @@
     <CEffectModifyUnit id="HeroJainaArcaneIntellect@ManaRestoreAbility">
         <ValidatorArray value="HeroJainaArcaneIntellect"/>
         <ValidatorArray value="HeroJainaFrostbite@TargetIsChilled"/>
-        <ValidatorArray value="SpellEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
         <ValidatorArray value="EnergyNotFullCaster"/>
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
@@ -223,7 +223,7 @@
     </CEffectSwitch>
     <CEffectSwitch id="HeroJainaIcefuryWand@ModifyBlizzardCooldownSwitch">
         <ValidatorArray value="HeroJainaIcefuryWand@TargetIsChilledAndCasterHasIcefuryWand"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <CaseArray Validator="TargetIsHero" Effect="HeroJainaIcefuryWand@ModifyBlizzardCooldownHeroTarget"/>
         <CaseDefault value="HeroJainaIcefuryWand@ModifyBlizzardCooldownNonHeroTarget"/>
     </CEffectSwitch>
@@ -312,12 +312,12 @@
         <EffectArray Reference="Effect,HeroJainaBlizzard@Search,AreaArray[0].Radius" Value="1.00"/>
         <EffectArray Reference="Effect,HeroJainaBlizzard@BasePersistent,RevealRadius" Value="1.00"/>
     </CEffectModifyPlayer>
-    <CEffectSet id="HeroJainaWaterElementalWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroJainaWaterElementalWeapon@DamageCritStatusIncrement" DamageEffect="HeroJainaWaterElementalWeapon@Damage"/>
-    <CEffectUserData id="HeroJainaWaterElementalWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroJainaWaterElementalWeapon@Damage"/>
-    <CEffectUserData id="HeroJainaWaterElementalWeapon@SplashDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="HeroJainaWaterElementalWeapon@SplashDamage"/>
-    <CEffectSet id="HeroJainaWaterElementalWeapon@SplashDamageSet" parent="StormDamageSet" CritStatusEffect="HeroJainaWaterElementalWeapon@SplashDamageCritStatusIncrement" DamageEffect="HeroJainaWaterElementalWeapon@SplashDamage"/>
-    <CEffectUserData id="HeroJainaWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="HeroJainaWeapon@DamageCritStatusCombine" Effect="HeroJainaWeapon@Damage"/>
-    <CEffectSet id="HeroJainaWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroJainaWeapon@DamageCritStatusIncrement" DamageEffect="HeroJainaWeapon@Damage"/>
+    <CEffectSet id="HeroJainaWaterElementalWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroJainaWaterElementalWeapon@DamageCritStatusIncrement" DamageEffect="HeroJainaWaterElementalWeapon@Damage"/>
+    <CEffectUserData id="HeroJainaWaterElementalWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroJainaWaterElementalWeapon@Damage"/>
+    <CEffectUserData id="HeroJainaWaterElementalWeapon@SplashDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroJainaWaterElementalWeapon@SplashDamage"/>
+    <CEffectSet id="HeroJainaWaterElementalWeapon@SplashDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroJainaWaterElementalWeapon@SplashDamageCritStatusIncrement" DamageEffect="HeroJainaWaterElementalWeapon@SplashDamage"/>
+    <CEffectUserData id="HeroJainaWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="HeroJainaWeapon@Damage"/>
+    <CEffectSet id="HeroJainaWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="HeroJainaWeapon@DamageCritStatusIncrement" DamageEffect="HeroJainaWeapon@Damage"/>
     <CEffectModifyPlayer id="HeroJainaWintermute">
         <EffectArray Operation="Multiply" Reference="Abil,HeroJainaWaterElementalSummon,Range[0]" Value="1.5"/>
         <EffectArray Reference="Actor,HeroJainaWaterElementalSummon@RangeSplat,Scale" Value="4.000000"/>
@@ -337,10 +337,21 @@
         <CaseDefault value="HeroJainaWaterElementalCommand@CreatePersistent"/>
         <TargetLocationType value="UnitOrPoint"/>
     </CEffectSwitch>
+    <CEffectDamage id="HeroJainaWaterElementalWeapon@Damage" parent="StormSpellBasicAttack">
+        <LaunchLocation Value="CasterUnit"/>
+        <Amount value="62"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="HeroJainaImprovedIceBlock@ApplyUsedCarry">
         <ValidatorArray value="JainaDoesNotHaveIceBlockUsed"/>
         <Behavior value="HeroJainaImprovedIceBlock@IceBlockUsedCarry"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="HeroJainaWaterElementalWeapon@DamageChilled" parent="StormSpellBasicAttack">
+        <TechAliasArray value="StormFlag Critical"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <Amount value="62">
+            <AccumulatorArray value="HeroJainaFrostbite@DamageSwitch"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectSet id="HeroJainaImprovedIceBlock@InitialSet">
         <EffectArray value="StormStasisIceBlockInitialSet"/>
         <EffectArray value="HeroJainaImprovedIceBlock@RemoveButtonFlash"/>
@@ -368,6 +379,20 @@
         <ImpactUnit Value="Caster"/>
         <Cost Abil="HeroJainaRingOfFrost,Execute" CooldownOperation="Add" CooldownTimeUse="-15"/>
     </CEffectModifyUnit>
+    <CEffectDamage id="HeroJainaWaterElementalWeapon@SplashDamageChilled" parent="StormSpellBasicAttack">
+        <TechAliasArray value="StormFlag Critical"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <Amount value="62">
+            <AccumulatorArray value="HeroJainaFrostbite@DamageSwitch"/>
+            <AccumulatorArray value="HeroJainaWaterElementalWeapon@SplashMultiplier"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="HeroJainaWaterElementalWeapon@SplashDamage" parent="StormSpellBasicAttack">
+        <LaunchLocation Value="CasterUnit"/>
+        <Amount value="62">
+            <AccumulatorArray value="HeroJainaWaterElementalWeapon@SplashMultiplier"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectApplyBehavior id="HeroJainaFrostArmor@ApplyArmor">
         <WhichUnit Value="Source"/>
         <Behavior value="HeroJainaFrostArmor@ArmorBehavior"/>
@@ -377,17 +402,6 @@
         <BehaviorLink value="HeroJainaFrostArmor@ArmorBehavior"/>
         <Count value="1"/>
     </CEffectRemoveBehavior>
-    <CEffectDamage id="HeroJainaWaterElementalWeapon@Damage" parent="StormSpell">
-        <Amount value="62"/>
-        <LaunchLocation Value="CasterUnit"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroJainaWaterElementalWeapon@DamageChilled" parent="StormSpell">
-        <Amount value="62">
-            <AccumulatorArray value="HeroJainaFrostbite@DamageSwitch"/>
-        </Amount>
-        <TechAliasArray value="StormFlag Critical"/>
-        <LaunchLocation Value="CasterUnit"/>
-    </CEffectDamage>
     <CEffectEnumArea id="HeroJainaIceBlink@Search" parent="StormImpactSearchArea">
         <SearchFilters value="-;Self,Player,Ally,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="3" Effect="HeroJainaIceBlink@SearchImpactSet"/>
@@ -408,20 +422,6 @@
         <CaseArray Validator="HeroJainaFrostbite@TargetIsChilled" Effect="HeroJainaWaterElementalWeapon@SplashDamageChilled"/>
         <CaseDefault value="HeroJainaWaterElementalWeapon@SplashDamageSet"/>
     </CEffectSwitch>
-    <CEffectDamage id="HeroJainaWaterElementalWeapon@SplashDamageChilled" parent="StormSpell">
-        <Amount value="62">
-            <AccumulatorArray value="HeroJainaFrostbite@DamageSwitch"/>
-            <AccumulatorArray value="HeroJainaWaterElementalWeapon@SplashMultiplier"/>
-        </Amount>
-        <TechAliasArray value="StormFlag Critical"/>
-        <LaunchLocation Value="CasterUnit"/>
-    </CEffectDamage>
-    <CEffectDamage id="HeroJainaWaterElementalWeapon@SplashDamage" parent="StormSpell">
-        <Amount value="62">
-            <AccumulatorArray value="HeroJainaWaterElementalWeapon@SplashMultiplier"/>
-        </Amount>
-        <LaunchLocation Value="CasterUnit"/>
-    </CEffectDamage>
     <CEffectSet id="HeroJainaRingOfFrost@EndingSoundDummy"/>
     <CEffectApplyBehavior id="HeroJainaFrostbite@ApplyCompletionCarry">
         <Behavior value="HeroJainaFrostbite@CompletionCarry"/>
@@ -631,7 +631,7 @@
         <EffectArray value="HeroJainaArcaneIntellect@ManaRestoreAbility"/>
         <EffectArray value="ApplyAbilityImpactReveal"/>
     </CEffectSet>
-    <CEffectSet id="HeroJainaFrostbolt@DamageSet" parent="StormDamageSet" CritStatusEffect="HeroJainaFrostbolt@DamageCritStatusIncrement" DamageEffect="HeroJainaFrostbolt@Damage"/>
+    <CEffectSet id="HeroJainaFrostbolt@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="HeroJainaFrostbolt@DamageCritStatusIncrement" DamageEffect="HeroJainaFrostbolt@Damage"/>
     <CEffectModifyUnit id="HeroJainaIceLance@ModifyUnit">
         <LaunchUnit Value="Caster"/>
         <ImpactUnit Value="Caster"/>
@@ -871,9 +871,6 @@
         <EffectArray value="HeroJainaWaterElementalWeapon@SplashDamageSwitch"/>
         <EffectArray value="HeroJainaFrostbite@ApplyChilledBehaviorSet"/>
     </CEffectSet>
-    <CEffectSwitch id="HeroJainaWaterElementalWeapon@ImpactSwitch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="HeroJainaWaterElementalWeapon@ImpactSet"/>
-    </CEffectSwitch>
     <CEffectSet id="HeroJainaWaterElementalWeapon@ImpactSet">
         <EffectArray value="HeroJainaWaterElementalWeapon@DamageSwitch"/>
         <EffectArray value="HeroJainaFrostbite@ApplyChilledBehaviorSet"/>
@@ -958,7 +955,7 @@
     </CEffectEnumArea>
     <CEffectLaunchMissile id="HeroJainaWaterElementalWeapon@LaunchMissile">
         <ValidatorArray value="TargetNotDead"/>
-        <ImpactEffect value="HeroJainaWaterElementalWeapon@ImpactSwitch"/>
+        <ImpactEffect value="HeroJainaWaterElementalWeapon@ImpactSet"/>
         <Flags index="TravelValidation" value="1"/>
         <Flags index="ValidateWeapon" value="0"/>
         <AmmoUnit value="HeroJainaWaterElementalWeapon@AttackMissile"/>
@@ -1316,10 +1313,6 @@
         <Value value="HeroJainaWaterElemental"/>
         <Find value="0"/>
     </CValidatorUnitType>
-    <CValidatorCombine id="HeroJainaWeapon@DamageCritStatusCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="HeroJainaIcefuryWand@TargetIsChilledAndCasterHasIcefuryWand"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HeroJainaFrostbite@HasCompletionCarry">
         <Compare value="GT"/>
         <Behavior value="HeroJainaFrostbite@QuestCompletionCarry"/>

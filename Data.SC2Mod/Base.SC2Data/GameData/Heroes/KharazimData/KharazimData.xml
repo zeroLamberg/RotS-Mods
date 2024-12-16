@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="KharazimWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="KharazimWeapon@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="KharazimBreathofHeaven@HealCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="KharazimBreathofHeaven@HealCritStatusCombine"/>
+    </CEffectUserData>
     <CEffectDamage id="KharazimSevenSidedStrike@Damage" parent="StormPurePercent">
         <Amount value="7"/>
     </CEffectDamage>
-    <CEffectDamage id="KharazimWayoftheHundredFists" parent="StormPhysical">
-        <Amount value="64"/>
-    </CEffectDamage>
-    <CEffectDamage id="KharazimWeapon@Damage" parent="StormPhysical">
+    <CEffectDamage id="KharazimWeapon@Damage" parent="StormPhysicalBasicAttack">
         <Amount value="64">
             <AccumulatorArray value="KharazimIronFists@DamageModifierSwitch"/>
             <AccumulatorArray value="KharazimWayoftheHundredFists@DamageModifierSwitch"/>
             <AccumulatorArray value="KharazimAirAlly@WeaponDamageBonusSwitch"/>
             <AccumulatorArray value="KharazimFistsofLegend@IronFistsPrimaryAttackDamageBonusSwitch"/>
         </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="KharazimWayoftheHundredFists" parent="StormPhysical">
+        <Amount value="64"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="KharazimBlazingFists">
         <EffectArray Operation="Multiply" Reference="Effect,KharazimDeadlyReach@ApplyAttackSpeed,Duration" Value="2"/>
@@ -90,7 +96,7 @@
         <Cost Abil="KharazimRadiantDash,Execute" ChargeTimeUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectSwitch id="KharazimInsight@ModifyUnitCooldownSwitch">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <CaseArray Validator="KharazimInsight@QuestCompleteCombine" Effect="KharazimInsight@ModifyUnit"/>
         <CaseArray Validator="KharazimInsight@ConditionalEvent1" Effect="KharazimInsight@ModifyUnitConditionalEvent1"/>
     </CEffectSwitch>
@@ -106,7 +112,7 @@
     </CEffectModifyUnit>
     <CEffectEnumArea id="KharazimInsight@SearchArea">
         <ValidatorArray value="KharazimInsight@HasTalentOrQuestCompletedDummyOrFistsOfLegend"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <SearchFilters value="Heroic;Self,Neutral,Enemy,Structure,ImmuneToFriendlyAbilities,Missile,Item,Stasis,Dead,Hidden"/>
         <TargetSorts>
             <SortArray value="TSEnergyFraction"/>
@@ -143,7 +149,7 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="KharazimBreathofHeaven@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Validator="KharazimBreathofHeaven@CritCheckCombine" Effect="KharazimBreathofHeaven@Heal"/>
+    <CEffectUserData id="KharazimBreathofHeaven@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Effect="KharazimBreathofHeaven@Heal"/>
     <CEffectModifyUnit id="KharazimDivinePalm@Heal" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="1200">
@@ -152,7 +158,7 @@
         </VitalArray>
         <ImpactUnit Value="Source"/>
     </CEffectModifyUnit>
-    <CEffectUserData id="KharazimDivinePalm@HealerCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KharazimDivinePalm@Heal"/>
+    <CEffectUserData id="KharazimDivinePalm@HealerCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Effect="KharazimDivinePalm@Heal"/>
     <CEffectModifyUnit id="KharazimEchoofHeaven@Heal" parent="StormModifyUnitHealingSpell">
         <VitalArray index="Life">
             <Change value="305">
@@ -162,8 +168,8 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="KharazimEchoofHeaven@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Validator="KharazimBreathofHeaven@CritCheckCombine" Effect="KharazimEchoofHeaven@Heal"/>
-    <CEffectSet id="KharazimEchoofHeaven@HealSet" parent="StormHealSetTarget" CritStatusEffect="KharazimEchoofHeaven@HealCritStatusIncrementer" HealEffect="KharazimEchoofHeaven@Heal"/>
+    <CEffectUserData id="KharazimEchoofHeaven@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Effect="KharazimEchoofHeaven@Heal"/>
+    <CEffectSet id="KharazimEchoofHeaven@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="KharazimBreathofHeaven@HealCritStatusLocal" CritStatusEffect="KharazimEchoofHeaven@HealCritStatusIncrementer" HealEffect="KharazimEchoofHeaven@Heal"/>
     <CEffectModifyPlayer id="KharazimElevenSidedStrike">
         <EffectArray Reference="Effect,KharazimSevenSidedStrike@InitialPersistent,PeriodCount" Value="4"/>
         <EffectArray Reference="Behavior,KharazimSevenSidedStrike@InvulnerableBehavior,Duration" Value="1.000000"/>
@@ -205,7 +211,7 @@
     </CEffectModifyPlayer>
     <CEffectModifyUnit id="KharazimFistsofLegend@InsightModifyUnit">
         <ValidatorArray value="KharazimFistsofLegend@HasInsightCarry"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ImpactUnit Value="Caster"/>
         <Cost Abil="KharazimBreathofHeaven,Execute" CooldownOperation="Add" CooldownTimeUse="-0.875"/>
         <Cost Abil="KharazimDeadlyReach,Execute" CooldownOperation="Add" CooldownTimeUse="-0.875"/>
@@ -224,7 +230,7 @@
         <ValidatorArray value="AlwaysReturnsFalse"/>
     </CEffectSet>
     <CEffectApplyBehavior id="KharazimWeapon@ApplyMoveSpeedBuff">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="KharazimWeapon@HasTraitTalentAndTwoComboPoints"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="KharazimWeapon@ComboMoveSpeed"/>
@@ -279,14 +285,14 @@
     <CEffectSet id="KharazimWeapon@BehaviorFinalSet"/>
     <CEffectSet id="KharazimWeapon@BehaviorRefreshSet"/>
     <CEffectSet id="KharazimWeapon@BehaviorInitialSet"/>
-    <CEffectUserData id="KharazimWeapon@DamageCritStatusEffect" parent="StormCriticalStatusIncrementer" Validator="KharazimWeapon@CritValidatorCombine" Effect="KharazimWeapon@Damage"/>
+    <CEffectUserData id="KharazimWeapon@DamageCritStatusEffect" parent="StormCriticalStatusIncrementer" Effect="KharazimWeapon@Damage"/>
     <CEffectUserData id="KharazimInsight@IncrementToken" parent="StormModifyTokenCount" TokenCounterBehavior="KharazimInsight">
         <ValidatorArray value="KharazimInsight"/>
         <ValidatorArray value="KharazimInsight@QuestNotMaxed"/>
         <Amount value="1"/>
     </CEffectUserData>
     <CEffectModifyUnit id="KharazimInsight@RestoreEnergy">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ValidatorArray value="EnergyNotFullCaster"/>
         <ImpactUnit Value="Caster"/>
         <VitalArray index="Energy">
@@ -314,7 +320,7 @@
         <SpawnEffect value="KharazimSpiritAlly@ApplyTimedLife"/>
         <SpawnUnit value="KharazimSpiritAlly@MysticAlly"/>
     </CEffectCreateUnit>
-    <CEffectUserData id="KharazimSpiritAlly@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementerCaster" Validator="CritAliasSpellPower" Effect="KharazimSpiritAlly@Heal"/>
+    <CEffectUserData id="KharazimSpiritAlly@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementerCaster" Effect="KharazimSpiritAlly@Heal"/>
     <CEffectSet id="KharazimSpiritAlly@HealSet" parent="StormHealSetTarget" CritStatusEffect="KharazimSpiritAlly@HealCritStatusIncrementer" HealEffect="KharazimSpiritAlly@Heal"/>
     <CEffectEnumArea id="KharazimSpiritAlly@SearchArea" parent="StormImpactSearchAreaNoReveal">
         <SearchFilters value="-;Neutral,Enemy,Structure,ImmuneToFriendlyAbilities,Missile,Item,Stasis,Dead,Hidden"/>
@@ -364,7 +370,7 @@
         <SearchFilters value="Heroic;Neutral,Enemy,ImmuneToAOE,ImmuneToFriendlyAbilities,Missile,Item,Stasis,Dead,Hidden"/>
         <AreaArray Radius="4.5" Effect="KharazimEchoofHeaven@HealSet"/>
     </CEffectEnumArea>
-    <CEffectSet id="KharazimBreathofHeaven@HealSet" parent="StormHealSetTarget" CritStatusEffect="KharazimBreathofHeaven@HealCritStatusIncrementer" HealEffect="KharazimBreathofHeaven@Heal"/>
+    <CEffectSet id="KharazimBreathofHeaven@HealSet" parent="StormHealSetTarget" LocalCritStatusEffect="KharazimBreathofHeaven@HealCritStatusLocal" CritStatusEffect="KharazimBreathofHeaven@HealCritStatusIncrementer" HealEffect="KharazimBreathofHeaven@Heal"/>
     <CEffectSet id="KharazimInsight@ImpactSet">
         <ValidatorArray value="KharazimInsight@HasTalentOrQuestCompletedDummyOrFistsOfLegend"/>
         <ValidatorArray value="DoesNotHavePregameSuppressionBehavior"/>
@@ -383,13 +389,13 @@
             </Change>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectUserData id="KharazimTranscendence@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KharazimTranscendence@Heal"/>
-    <CEffectUserData id="KharazimFistsofLegend@TranscendenceHealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KharazimFistsofLegend@TranscendenceHeal"/>
+    <CEffectUserData id="KharazimTranscendence@HealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Effect="KharazimTranscendence@Heal"/>
+    <CEffectUserData id="KharazimFistsofLegend@TranscendenceHealCritStatusIncrementer" parent="StormCriticalStatusIncrementer" Effect="KharazimFistsofLegend@TranscendenceHeal"/>
     <CEffectSet id="KharazimTranscendence@HealSet" parent="StormHealSetTarget" CritStatusEffect="KharazimTranscendence@HealCritStatusIncrementer" HealEffect="KharazimTranscendence@Heal"/>
     <CEffectSet id="KharazimFistsofLegend@TranscendenceHealSet" parent="StormHealSetTarget" CritStatusEffect="KharazimFistsofLegend@TranscendenceHealCritStatusIncrementer" HealEffect="KharazimFistsofLegend@TranscendenceHeal"/>
     <CEffectEnumArea id="KharazimTranscendence@SearchArea" parent="StormImpactSearchAreaNoReveal">
         <ValidatorArray value="KharazimTranscendence@HasTalentOrFistsofLegendTalent"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <ImpactLocation Value="CasterUnit"/>
         <SearchFilters value="Heroic;Neutral,Enemy,Structure,ImmuneToFriendlyAbilities,Missile,Item,Stasis,Dead,Hidden"/>
         <TargetSorts>
@@ -561,7 +567,7 @@
     </CEffectApplyBehavior>
     <CEffectSet id="KharazimDeadlyReach@ActivateSet">
         <ValidatorArray value="KharazimDeadlyReach@HasPrimedBehavior"/>
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="KharazimBlazingFists@RemoveAttackSpeedStacks"/>
         <EffectArray value="KharazimDeadlyReach@ApplyCasterBehavior"/>
         <EffectArray value="KharazimDeadlyReach@RemovePrimedBehavior"/>
@@ -784,7 +790,7 @@
         <WhichUnit Value="Caster"/>
         <TargetLocation Value="TargetUnit"/>
     </CEffectTeleport>
-    <CEffectSet id="KharazimWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="KharazimWeapon@DamageCritStatusEffect" DamageEffect="KharazimWeapon@Damage"/>
+    <CEffectSet id="KharazimWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="KharazimWeapon@DamageCritStatusLocal" CritStatusEffect="KharazimWeapon@DamageCritStatusEffect" DamageEffect="KharazimWeapon@Damage"/>
     <CEffectSwitch id="KharazimWeapon@ComboPointsSwitch">
         <CaseArray Validator="KharazimWeapon@HasTwoComboPoints" Effect="KharazimWeapon@ComboWeaponSet"/>
         <CaseDefault value="KharazimWeapon@ApplyComboPoint"/>
@@ -1031,6 +1037,14 @@
         <SetLastTarget value="Attack"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="KharazimRadiantDash"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="KharazimBreathofHeaven@HealCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="KharazimSpiritAlly@CasterHasSelfBuff"/>
+        <CombineArray value="KharazimHeavenlyZeal@TargetHasMarker"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="KharazimWeapon@DamageCritStatusCombine" parent="StormCritStatusCombinePhysical">
+        <CombineArray value="KharazimFistsofLegend@NoIronFistsAndTwoComboPoints"/>
+        <CombineArray value="KharazimIronFists@HasTwoComboPoints"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="KharazimAirAlly@CasterHasBuff" parent="CasterIsParent">
         <Behavior value="KharazimAirAlly@KharazimBuff"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -1067,11 +1081,6 @@
         <Find value="1"/>
         <Value value="KharazimSkinBaseVar4"/>
     </CValidatorPlayerRequirement>
-    <CValidatorCombine id="KharazimBreathofHeaven@CritCheckCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="KharazimSpiritAlly@CasterHasSelfBuff"/>
-        <CombineArray value="KharazimHeavenlyZeal@TargetHasMarker"/>
-    </CValidatorCombine>
     <CValidatorUnitType id="KharazimHero@TargetIsKharazim">
         <Value value="KharazimHero"/>
     </CValidatorUnitType>
@@ -1095,11 +1104,6 @@
     <CValidatorUnitCompareBehaviorCount id="KharazimSpiritAlly@CasterHasSelfBuff" parent="CasterIsParent">
         <Behavior value="KharazimSpiritAlly@KharazimBehavior"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="KharazimWeapon@CritValidatorCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="KharazimFistsofLegend@NoIronFistsAndTwoComboPoints"/>
-        <CombineArray value="KharazimIronFists@HasTwoComboPoints"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="KharazimInsight@HasQuestCompletedDummy" parent="CasterIsParent">
         <Behavior value="KharazimInsight@QuestFinshedMarker"/>
     </CValidatorUnitCompareBehaviorCount>

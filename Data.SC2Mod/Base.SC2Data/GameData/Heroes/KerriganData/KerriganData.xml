@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="KerriganImpalingBlades@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="KerriganImpalingBlades@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectUserData id="KerriganRavage@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
+        <ValidatorArray value="KerriganRavage@DamageCritStatusCombine"/>
+    </CEffectUserData>
+    <CEffectDamage id="KerriganWeapon@Damage" parent="StormPhysicalBasicAttack">
+        <Amount value="106"/>
+    </CEffectDamage>
     <CEffectDamage id="KerriganFuryOfTheSwarm@Damage" parent="StormPhysical">
         <Amount value="95.4"/>
-    </CEffectDamage>
-    <CEffectDamage id="KerriganWeapon@Damage" parent="StormPhysical">
-        <Amount value="106"/>
     </CEffectDamage>
     <CEffectSet id="KerriganAssimilation@DummyAbilitySet">
         <ValidatorArray value="AlwaysReturnsFalse"/>
@@ -61,7 +67,7 @@
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="KerriganChrysalis@Stasis"/>
     </CEffectRemoveBehavior>
-    <CEffectUserData id="KerriganFuryOfTheSwarm@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasPhysicalPower" Effect="KerriganFuryOfTheSwarm@Damage"/>
+    <CEffectUserData id="KerriganFuryOfTheSwarm@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganFuryOfTheSwarm@Damage"/>
     <CEffectSet id="KerriganFuryOfTheSwarm@InitialSet">
         <ValidatorArray value="KerriganFuryOfTheSwarm"/>
         <ValidatorArray value="KerriganFuryOfTheSwarm@CasterHasBuff"/>
@@ -69,7 +75,7 @@
         <EffectArray value="KerriganFuryOfTheSwarm@Search"/>
     </CEffectSet>
     <CEffectSet id="KerriganFuryOfTheSwarm@SearchImpactSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="KerriganFuryOfTheSwarm@DamageSet"/>
         <EffectArray value="KerriganAssimilationBlades@ApplyBehaviorCaster"/>
         <EffectArray value="KerriganPainfulSpikes@DamageResponseSet"/>
@@ -101,8 +107,8 @@
         <EffectArray Operation="Multiply" Reference="Effect,KerriganSiphoningImpact@DummyShieldHandle,Amount" Value="1.04"/>
         <EffectArray Operation="Multiply" Reference="Effect,KerriganSiphoningImpact@DummyShieldHandleHeroic,Amount" Value="1.04"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="KerriganImpalingBlades@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="KerriganImpalingBlades@DamageCritStatusCombine" Effect="KerriganImpalingBlades@Damage"/>
-    <CEffectSet id="KerriganImpalingBlades@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganImpalingBlades@DamageCritStatusIncrement" DamageEffect="KerriganImpalingBlades@Damage"/>
+    <CEffectUserData id="KerriganImpalingBlades@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganImpalingBlades@Damage"/>
+    <CEffectSet id="KerriganImpalingBlades@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="KerriganImpalingBlades@DamageCritStatusLocal" CritStatusEffect="KerriganImpalingBlades@DamageCritStatusIncrement" DamageEffect="KerriganImpalingBlades@Damage"/>
     <CEffectSet id="KerriganImpalingBlades@InitialSet">
         <EffectArray value="KerriganKineticFulmination@CastSet"/>
         <EffectArray value="KerriganImpalingBlades@InitialCreatePersistent"/>
@@ -124,7 +130,7 @@
         <SourceKey value="KineticFulminationDamageModifier"/>
         <Operation value="Set"/>
     </CEffectUserData>
-    <CEffectUserData id="KerriganMaelstrom@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganMaelstrom@Damage"/>
+    <CEffectUserData id="KerriganMaelstrom@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganMaelstrom@Damage"/>
     <CEffectSet id="KerriganMaelstrom@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganMaelstrom@DamageCritStatusIncrement" DamageEffect="KerriganMaelstrom@Damage"/>
     <CEffectUserData id="KerriganMountingPotency@DecreaseHealCreatedMultiplier" parent="StormModifyHealCreatedMultiplier">
         <Amount value="0">
@@ -184,20 +190,20 @@
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="KerriganOmegastorm@RangeController"/>
     </CEffectRemoveBehavior>
-    <CEffectUserData id="KerriganPainfulSpikes@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganPainfulSpikes@Damage"/>
-    <CEffectSet id="KerriganPainfulSpikes@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganPainfulSpikes@DamageCritStatusIncrement" DamageEffect="KerriganPainfulSpikes@Damage"/>
-    <CEffectUserData id="KerriganPrimalGrasp@ExplosionDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganPrimalGrasp@ExplosionDamage"/>
-    <CEffectSet id="KerriganPrimalGrasp@ExplosionDamageSet" parent="StormDamageSet" CritStatusEffect="KerriganPrimalGrasp@ExplosionDamageCritStatusIncrement" DamageEffect="KerriganPrimalGrasp@ExplosionDamage"/>
-    <CEffectUserData id="KerriganPrimalGrasp@PullDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganPrimalGrasp@PullDamage"/>
-    <CEffectSet id="KerriganPrimalGrasp@PullDamageSet" parent="StormDamageSet" CritStatusEffect="KerriganPrimalGrasp@PullDamageCritStatusIncrement" DamageEffect="KerriganPrimalGrasp@PullDamage"/>
+    <CEffectUserData id="KerriganPainfulSpikes@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganPainfulSpikes@Damage"/>
+    <CEffectSet id="KerriganPainfulSpikes@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganPainfulSpikes@DamageCritStatusIncrement" DamageEffect="KerriganPainfulSpikes@Damage"/>
+    <CEffectUserData id="KerriganPrimalGrasp@ExplosionDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganPrimalGrasp@ExplosionDamage"/>
+    <CEffectSet id="KerriganPrimalGrasp@ExplosionDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganPrimalGrasp@ExplosionDamageCritStatusIncrement" DamageEffect="KerriganPrimalGrasp@ExplosionDamage"/>
+    <CEffectUserData id="KerriganPrimalGrasp@PullDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganPrimalGrasp@PullDamage"/>
+    <CEffectSet id="KerriganPrimalGrasp@PullDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganPrimalGrasp@PullDamageCritStatusIncrement" DamageEffect="KerriganPrimalGrasp@PullDamage"/>
     <CEffectSet id="KerriganPsionicBarrier@InitialSet">
         <ValidatorArray value="KerriganPsionicBarrier"/>
         <ValidatorArray value="TargetIsHero"/>
         <EffectArray value="KerriganPsionicBarrier@MovementSpeedBuffApplyBehavior"/>
         <EffectArray value="KerriganPsionicBarrier@SpellArmorApplyBehavior"/>
     </CEffectSet>
-    <CEffectUserData id="KerriganPsionicShift@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganPsionicShift@Damage"/>
-    <CEffectSet id="KerriganPsionicShift@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganPsionicShift@DamageCritStatusIncrement" DamageEffect="KerriganPsionicShift@Damage"/>
+    <CEffectUserData id="KerriganPsionicShift@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganPsionicShift@Damage"/>
+    <CEffectSet id="KerriganPsionicShift@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganPsionicShift@DamageCritStatusIncrement" DamageEffect="KerriganPsionicShift@Damage"/>
     <CEffectSet id="KerriganPsionicShift@SearchImpactSet" parent="StormAbilityImpactSetEnemy">
         <EffectArray value="KerriganPsionicShift@DamageSet"/>
         <EffectArray value="KerriganPainfulSpikes@DamageResponseSet"/>
@@ -209,7 +215,7 @@
     <CEffectModifyPlayer id="KerriganQueenOfBlades">
         <EffectArray Reference="Abil,KerriganRavage,Cost[0].Charge.TimeUse" Value="-4.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="KerriganRavage@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="KerriganRavage@DamageCritStatusCombine" Effect="KerriganRavage@Damage"/>
+    <CEffectUserData id="KerriganRavage@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganRavage@Damage"/>
     <CEffectSet id="KerriganRavage@ImpactSetSecondary">
         <EffectArray value="KerriganMountingPotency@ApplyBehavior"/>
         <EffectArray value="KerriganAssimilationBlades@ApplyBehaviorCaster"/>
@@ -242,6 +248,11 @@
         <CaseArray Validator="TargetIsHero" Effect="KerriganSiphoningImpact@DummyShieldHandleHeroic"/>
         <CaseDefault value="KerriganSiphoningImpact@DummyShieldHandle"/>
     </CEffectSwitch>
+    <CEffectDamage id="KerriganUltraliskWeapon@SplashSwitchDamage" parent="StormSpellBasicAttack">
+        <Amount value="50">
+            <AccumulatorArray value="KerriganTorrasque@WeaponDamageBonusArithmetic"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectCreatePersistent id="KerriganSummonUltralisk@InitialPersistent">
         <WhichLocation Value="OriginPoint"/>
         <InitialEffect value="KerriganSummonUltralisk@InitialSet"/>
@@ -254,6 +265,11 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="KerriganPsionicBarrier@MovementSpeedBuff"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="KerriganUltraliskWeapon@SwitchDamage" parent="StormSpellBasicAttack">
+        <Amount value="100">
+            <AccumulatorArray value="KerriganTorrasque@WeaponDamageBonusArithmetic"/>
+        </Amount>
+    </CEffectDamage>
     <CEffectApplyBehavior id="KerriganChrysalis@TimeStopListenerApplyBehavior">
         <WhichUnit Value="Caster"/>
         <Behavior value="KerriganChrysalis@TimeStopListener"/>
@@ -267,8 +283,8 @@
         <EffectArray value="KerriganChrysalis@TimeStopListenerRemoveBehavior"/>
         <EffectArray value="KerriganChrysalis@RemoveCasterStasisBehavior"/>
     </CEffectSet>
-    <CEffectUserData id="KerriganUltraliskCharge@ExplosionImpactDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganUltraliskCharge@ExplosionImpactDamage"/>
-    <CEffectSet id="KerriganUltraliskCharge@ExplosionImpactDamageSet" parent="StormDamageSet" CritStatusEffect="KerriganUltraliskCharge@ExplosionImpactDamageCritStatusIncrement" DamageEffect="KerriganUltraliskCharge@ExplosionImpactDamage"/>
+    <CEffectUserData id="KerriganUltraliskCharge@ExplosionImpactDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganUltraliskCharge@ExplosionImpactDamage"/>
+    <CEffectSet id="KerriganUltraliskCharge@ExplosionImpactDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganUltraliskCharge@ExplosionImpactDamageCritStatusIncrement" DamageEffect="KerriganUltraliskCharge@ExplosionImpactDamage"/>
     <CEffectIssueOrder id="KerriganUltraliskCharge@IssueMoveOrder">
         <WhichUnit Value="Caster"/>
         <Abil value="move"/>
@@ -284,13 +300,10 @@
         <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2" Effect="KerriganUltraliskWeapon@SplashImpactSet"/>
     </CEffectEnumArea>
-    <CEffectSwitch id="KerriganUltraliskWeapon@SplashSwitch" parent="AbilDmgMissCheck">
-        <CaseDefault value="KerriganUltraliskWeapon@SplashSwitchDamageSet"/>
-    </CEffectSwitch>
     <CEffectSet id="KerriganUltraliskWeapon@SplashImpactSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="ApplyAbilityImpactReveal"/>
-        <EffectArray value="KerriganUltraliskWeapon@SplashSwitch"/>
+        <EffectArray value="KerriganUltraliskWeapon@SplashSwitchDamageSet"/>
     </CEffectSet>
     <CEffectSwitch id="KerriganSummonUltralisk@CreateUnitSwitch">
         <CaseArray Validator="KerriganSummonUltralisk@CasterHasUltraliskPathableAhead" Effect="KerriganSummonUltralisk@CreateUnit"/>
@@ -305,22 +318,12 @@
         <SpawnUnit value="KerriganUltralisk"/>
         <SpawnRange value="10"/>
     </CEffectCreateUnit>
-    <CEffectDamage id="KerriganUltraliskWeapon@SplashSwitchDamage" parent="StormSpell">
-        <Amount value="50">
-            <AccumulatorArray value="KerriganTorrasque@WeaponDamageBonusArithmetic"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectUserData id="KerriganUltraliskWeapon@SplashSwitchDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganUltraliskWeapon@SplashSwitchDamage"/>
-    <CEffectSet id="KerriganUltraliskWeapon@SplashSwitchDamageSet" parent="StormDamageSet" CritStatusEffect="KerriganUltraliskWeapon@SplashSwitchDamageCritStatusIncrement" DamageEffect="KerriganUltraliskWeapon@SplashSwitchDamage">
+    <CEffectUserData id="KerriganUltraliskWeapon@SplashSwitchDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganUltraliskWeapon@SplashSwitchDamage"/>
+    <CEffectSet id="KerriganUltraliskWeapon@SplashSwitchDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganUltraliskWeapon@SplashSwitchDamageCritStatusIncrement" DamageEffect="KerriganUltraliskWeapon@SplashSwitchDamage">
         <EffectArray value="KerriganUltraliskWeapon@ImpactTalentSet"/>
     </CEffectSet>
-    <CEffectDamage id="KerriganUltraliskWeapon@SwitchDamage" parent="StormSpell">
-        <Amount value="100">
-            <AccumulatorArray value="KerriganTorrasque@WeaponDamageBonusArithmetic"/>
-        </Amount>
-    </CEffectDamage>
-    <CEffectUserData id="KerriganUltraliskWeapon@SwitchDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="CritAliasSpellPower" Effect="KerriganUltraliskWeapon@SwitchDamage"/>
-    <CEffectSet id="KerriganUltraliskWeapon@SwitchDamageSet" parent="StormDamageSet" CritStatusEffect="KerriganUltraliskWeapon@SwitchDamageCritStatusIncrement" DamageEffect="KerriganUltraliskWeapon@SwitchDamage">
+    <CEffectUserData id="KerriganUltraliskWeapon@SwitchDamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganUltraliskWeapon@SwitchDamage"/>
+    <CEffectSet id="KerriganUltraliskWeapon@SwitchDamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganUltraliskWeapon@SwitchDamageCritStatusIncrement" DamageEffect="KerriganUltraliskWeapon@SwitchDamage">
         <EffectArray value="KerriganUltraliskWeapon@ImpactTalentSet"/>
     </CEffectSet>
     <CEffectModifyUnit id="KerriganUnbridledEnergy@BasicAbilityCooldownModifyUnit">
@@ -432,7 +435,7 @@
         <Behavior value="KerriganUnbridledEnergy@Buff"/>
     </CEffectApplyBehavior>
     <CEffectSet id="KerriganUltraliskWeapon@ImpactSet">
-        <EffectArray value="KerriganUltraliskWeapon@Switch"/>
+        <EffectArray value="KerriganUltraliskWeapon@SwitchDamageSet"/>
         <EffectArray value="KerriganUltraliskWeapon@SplashDamageSearch"/>
     </CEffectSet>
     <CEffectSet id="KerriganPainfulSpikes@DamageResponseSet">
@@ -553,9 +556,9 @@
     <CEffectModifyPlayer id="KerriganVolatilePower">
         <EffectArray Reference="Behavior,KerriganAssimilation@Shield,Duration" Value="-3.000000"/>
     </CEffectModifyPlayer>
-    <CEffectUserData id="KerriganWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Validator="KerriganWeapon@DamageCritStatusCombine" Effect="KerriganWeapon@Damage"/>
+    <CEffectUserData id="KerriganWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="KerriganWeapon@Damage"/>
     <CEffectSet id="KerriganWeapon@TalentSet">
-        <ValidatorArray value="BasicAttackEffectTreeCheckCombine"/>
+        <ValidatorArray value="EffectTreeCheckCombineBasicAttack"/>
         <EffectArray value="KerriganBladedMomentum@ModifyCooldowns"/>
         <EffectArray value="KerriganAssimilationBlades@ApplyBehaviorCaster"/>
         <EffectArray value="KerriganPainfulSpikes@DamageResponseSet"/>
@@ -922,7 +925,7 @@
         <EffectArray value="KerriganBoundlessFury@Set"/>
         <EffectArray value="KerriganRavage@ImpactSetSecondary"/>
     </CEffectSet>
-    <CEffectSet id="KerriganRavage@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganRavage@DamageCritStatusIncrement" DamageEffect="KerriganRavage@Damage"/>
+    <CEffectSet id="KerriganRavage@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="KerriganRavage@DamageCritStatusLocal" CritStatusEffect="KerriganRavage@DamageCritStatusIncrement" DamageEffect="KerriganRavage@Damage"/>
     <CEffectLaunchMissile id="KerriganRavage@LaunchMissile" parent="StormLaunchUnitTargetUnitValidated">
         <ImpactLocation Effect="KerriganRavage@CreatePersistent"/>
         <LaunchEffect value="KerriganRavage@ApplyBehavior"/>
@@ -950,9 +953,6 @@
         <EffectArray value="KerriganFuryOfTheSwarm@InitialSet"/>
         <EffectArray value="KerriganWeapon@TalentSet"/>
     </CEffectSet>
-    <CEffectSwitch id="KerriganUltraliskWeapon@Switch" parent="SummonedBasicAttackAbilityDamageMissCheck">
-        <CaseDefault value="KerriganUltraliskWeapon@SwitchDamageSet"/>
-    </CEffectSwitch>
     <CEffectSet id="KerriganMaelstrom@InitialSet">
         <EffectArray value="KerriganMaelstrom@ApplyBehavior"/>
         <EffectArray value="KerriganUnbridledEnergy@InitialSet"/>
@@ -978,13 +978,13 @@
     <CEffectDamage id="KerriganMaelstrom@Damage" parent="StormSpell">
         <Amount value="44"/>
     </CEffectDamage>
-    <CEffectSet id="KerriganWeapon@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganWeapon@DamageCritStatusIncrement" DamageEffect="KerriganWeapon@Damage"/>
+    <CEffectSet id="KerriganWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementPhysical" CritStatusEffect="KerriganWeapon@DamageCritStatusIncrement" DamageEffect="KerriganWeapon@Damage"/>
     <CEffectEnumArea id="KerriganFuryOfTheSwarm@Search" parent="StormImpactSearchAreaNoReveal">
         <ExcludeArray Value="Target"/>
         <SearchFilters value="-;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2.5" Effect="KerriganFuryOfTheSwarm@SearchImpactSet"/>
     </CEffectEnumArea>
-    <CEffectSet id="KerriganFuryOfTheSwarm@DamageSet" parent="StormDamageSet" CritStatusEffect="KerriganFuryOfTheSwarm@DamageCritStatusIncrement" DamageEffect="KerriganFuryOfTheSwarm@Damage"/>
+    <CEffectSet id="KerriganFuryOfTheSwarm@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="KerriganFuryOfTheSwarm@DamageCritStatusIncrement" DamageEffect="KerriganFuryOfTheSwarm@Damage"/>
     <CEffectCreatePersistent id="KerriganImpalingBlades@InitialCreatePersistent">
         <ExpireEffect value="KerriganImpalingBlades@SearchSet"/>
         <PeriodCount value="4"/>
@@ -1210,6 +1210,12 @@
         <CursorEffect value="KerriganImpalingBlades@Search"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="KerriganImpalingBlades"/>
     </CAbilEffectTarget>
+    <CValidatorCombine id="KerriganImpalingBlades@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="KerriganKineticFulmination@StoredDamageModifierGT0"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="KerriganRavage@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
+        <CombineArray value="KerriganQueenOfBlades@TargetCombine"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="KerriganAssimilationBlades@CasterHasMaxStackCount" parent="CasterIsParent">
         <Compare value="Eq"/>
         <Value value="20"/>
@@ -1224,10 +1230,6 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="KerriganChrysalis@Stasis"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="KerriganImpalingBlades@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="KerriganKineticFulmination@StoredDamageModifierGT0"/>
-    </CValidatorCombine>
     <CValidatorEffectTreeUserData id="KerriganKineticFulmination@StoredDamageModifierGT0">
         <Compare value="GT"/>
         <Key value="KineticFulminationDamageModifier"/>
@@ -1245,10 +1247,6 @@
     <CValidatorUnitType id="KerriganHero@TargetIsKerrigan">
         <Value value="KerriganHero"/>
     </CValidatorUnitType>
-    <CValidatorCombine id="KerriganRavage@DamageCritStatusCombine">
-        <CombineArray value="CritAliasSpellPower"/>
-        <CombineArray value="KerriganQueenOfBlades@TargetCombine"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed id="KerriganSharpenedBlades@QuestMaxed" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="KerriganSharpenedBlades@TokenCounter"/>
     <CValidatorUnitCompareChargeUsed id="KerriganSharpenedBlades@QuestNotMaxed" parent="StormTokenCounterPlayer_Maximum" TokenCounterBehavior="KerriganSharpenedBlades@TokenCounter">
         <Value value="0"/>
@@ -1283,10 +1281,6 @@
     </CValidatorEffectTreeUserData>
     <CValidatorPlayerTalent id="KerriganUnbridledEnergy" parent="PlayerTalent"/>
     <CValidatorPlayerTalent id="KerriganMountingPotency" parent="PlayerTalent"/>
-    <CValidatorCombine id="KerriganWeapon@DamageCritStatusCombine">
-        <CombineArray value="CritAliasPhysicalPower"/>
-        <CombineArray value="KerriganAssimilationBlades@CasterHasMaxStackCount"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="KerriganSummonUltralisk@CasterHasUltraliskPathableAhead">
         <WhichUnit Value="Caster"/>
         <Value value="1"/>
@@ -5626,7 +5620,6 @@
         <AbilArray Link="move"/>
         <AbilArray Link="HeroGenericSummonedUnitSpecialCaseInteraction"/>
         <AbilArray Link="KerriganUltraliskCharge"/>
-        <BehaviorArray Link="HeroGenericCollisionRadius"/>
         <BehaviorArray Link="ShrubProximityDetector"/>
         <BehaviorArray Link="HeroicSummon"/>
         <BehaviorArray Link="KerriganUltraliskCharge@SuppressCollision"/>
@@ -5646,6 +5639,7 @@
         <SubgroupPriority value="9"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
+        <Collide index="Ground" value="1"/>
     </CUnit>
     <CUnit id="KerriganHero" parent="StormHeroMounted">
         <Gender value="Female"/>
@@ -5750,7 +5744,6 @@
         <FinalEffect value="KerriganAssimilationBlades@RefreshSet"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KerriganUltraliskCharge@SuppressCollision">
-        <TechAliasArray value="StormCategory SuppressCollision"/>
         <Modification>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
@@ -5865,14 +5858,12 @@
         <Modification>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KerriganRavage@EndPause">
         <Duration value="0.25"/>
         <Modification>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KerriganAssimilation@Shield" parent="StormShield">
         <Face value="KerriganAssimilation"/>
@@ -5937,7 +5928,6 @@
             <StateFlags index="SuppressCollision" value="1"/>
             <StateFlags index="LineMovement" value="1"/>
         </Modification>
-        <TechAliasArray value="StormCategory SuppressCollision"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KerriganUltraliskCharge@Stun" parent="StormStun">
         <Duration value="0.5"/>
