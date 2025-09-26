@@ -2554,7 +2554,7 @@ bool libGDHL_gt_HeroAbathurCarapaceShieldTalentsReset_Func (bool testConds, bool
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(libGame_gf_PlayerTalentsResetPlayer()) == "Abathur"))) {
+        if (!((libGame_gf_PlayerHeroInstance(libGame_gf_PlayerTalentsResetPlayer()) == "Abathur"))) {
             return false;
         }
     }
@@ -3213,7 +3213,7 @@ bool libGDHL_gt_HeroArtanisPrismaticAlignmentTakedown_Func (bool testConds, bool
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_owner) == "Artanis"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_owner) == "Artanis"))) {
             return false;
         }
     }
@@ -5781,7 +5781,7 @@ bool libGDHL_gt_HeroBrightwingNPCTakedown_Func (bool testConds, bool runActions)
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_player) == "Brightwing"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_player) == "Brightwing"))) {
             return false;
         }
 
@@ -6015,7 +6015,7 @@ bool libGDHL_gt_HeroDeltaInfiltrationMissionCampCaptured_Func (bool testConds, b
     while (true) {
         lv_itPlayer = PlayerGroupNextPlayer(auto7CDE9A54_g, lv_itPlayer);
         if (lv_itPlayer < 0) { break; }
-        if ((libGame_gf_PlayerHero(lv_itPlayer) == "Delta") && (PlayerHasTalent(lv_itPlayer, "DeltaInfiltrationMission") == true)) {
+        if ((libGame_gf_PlayerHeroInstance(lv_itPlayer) == "Delta") && (PlayerHasTalent(lv_itPlayer, "DeltaInfiltrationMission") == true)) {
             UnitCreateEffectUnit(libGame_gv_players[lv_itPlayer].lv_heroUnit, "DeltaInfiltrationMission@IncrementTokenCounter", libGame_gv_players[lv_itPlayer].lv_heroUnit);
             if ((lv_droneHasBeenCreated == false)) {
                 UnitCreateEffectPoint(libGame_gv_players[lv_itPlayer].lv_heroUnit, "DeltaInfiltrationMission@CreateUnitPassive", libMapM_gv_jungleCreepCamps[libGame_gf_MercCampCapturedIndex()].lv_mapDataCampCaptainSpawnPoint);
@@ -6076,7 +6076,7 @@ bool libGDHL_gt_HeroDeltaEmpathicBond_Func (bool testConds, bool runActions) {
     while (true) {
         lv_itPlayer = PlayerGroupNextPlayer(autoF8FCBC74_g, lv_itPlayer);
         if (lv_itPlayer < 0) { break; }
-        if ((libGame_gf_PlayerHero(lv_itPlayer) == "Delta") && (PlayerHasTalent(lv_itPlayer, "DeltaEmpathicBond") == true)) {
+        if ((libGame_gf_PlayerHeroInstance(lv_itPlayer) == "Delta") && (PlayerHasTalent(lv_itPlayer, "DeltaEmpathicBond") == true)) {
             libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogEffect, ("DeltaEmpathicBond@HealMU"), "VitalArray[" + IntToString(0) + "].Change", lv_itPlayer, lv_damage);
             UnitCreateEffectUnit(libGame_gv_players[lv_itPlayer].lv_heroUnit, "DeltaEmpathicBond@HealSet", EventUnit());
         }
@@ -6503,7 +6503,7 @@ bool libGDHL_gt_HeroDiabloBlackSoulstoneHeroKill_Func (bool testConds, bool runA
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_localPlayer) == "Diablo"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_localPlayer) == "Diablo"))) {
             return false;
         }
     }
@@ -6558,7 +6558,7 @@ bool libGDHL_gt_HeroDiabloBlackSoulstoneMinionKill_Func (bool testConds, bool ru
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_localPlayer) == "Diablo"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_localPlayer) == "Diablo"))) {
             return false;
         }
     }
@@ -6969,7 +6969,7 @@ bool libGDHL_gt_HeroFalstadAroundTheWorldCampCaptured_Func (bool testConds, bool
     while (true) {
         lv_itPlayer = PlayerGroupNextPlayer(auto7EB222F0_g, lv_itPlayer);
         if (lv_itPlayer < 0) { break; }
-        if ((libGame_gf_PlayerHero(lv_itPlayer) == "Falstad")) {
+        if ((libGame_gf_PlayerHeroInstance(lv_itPlayer) == "Falstad")) {
             UnitCreateEffectUnit(libGame_gv_players[lv_itPlayer].lv_heroUnit, "HeroFalstadAroundTheWorld@IncrementTokenCounter", libGame_gv_players[lv_itPlayer].lv_heroUnit);
         }
 
@@ -7405,7 +7405,7 @@ bool libGDHL_gt_HeroJainaTalentReset_Func (bool testConds, bool runActions) {
     while (true) {
         lv_itPlayer = PlayerGroupNextPlayer(auto7DE1B8A0_g, lv_itPlayer);
         if (lv_itPlayer < 0) { break; }
-        if ((libGame_gf_PlayerHero(lv_itPlayer) == "Jaina")) {
+        if ((libGame_gf_PlayerHeroInstance(lv_itPlayer) == "Jaina")) {
             CatalogLinkReplace(lv_itPlayer, c_gameCatalogModel, ("HeroJainaWaterElemental@Unit"), ("HeroJainaWaterElemental@Unit"));
             CatalogLinkReplace(lv_itPlayer, c_gameCatalogModel, ("HeroJainaWaterElemental@UnitDeath"), ("HeroJainaWaterElemental@UnitDeath"));
         }
@@ -7498,7 +7498,7 @@ bool libGDHL_gt_HeroJainaFrostbiteChilledDamageResponse_Func (bool testConds, bo
             return false;
         }
 
-        if (!((libGame_gf_PlayerHero(UnitGetOwner(EventUnitDamageSourceUnit())) == "Jaina"))) {
+        if (!((libGame_gf_PlayerHeroInstance(UnitGetOwner(EventUnitDamageSourceUnit())) == "Jaina"))) {
             return false;
         }
     }
@@ -7685,7 +7685,7 @@ bool libGDHL_gt_HeroJainaWintermute_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libGame_gf_PlayerHero(lv_player) == "Jaina"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_player) == "Jaina"))) {
             return false;
         }
     }
@@ -8870,7 +8870,7 @@ bool libGDHL_gt_HeroLiMingDominance_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_player) == "LiMing"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_player) == "LiMing"))) {
             return false;
         }
 
@@ -9680,7 +9680,7 @@ bool libGDHL_gt_HeroMuradinStormBoltLevelUp_Func (bool testConds, bool runAction
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(libGame_gf_HeroLevelUpPlayer()) == "Muradin"))) {
+        if (!((libGame_gf_PlayerHeroInstance(libGame_gf_HeroLevelUpPlayer()) == "Muradin"))) {
             return false;
         }
 
@@ -10623,7 +10623,7 @@ bool libGDHL_gt_HeroRagnarosRaidTime_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libGame_gf_PlayerHero(lv_player) == "Ragnaros"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_player) == "Ragnaros"))) {
             return false;
         }
 
@@ -10782,7 +10782,7 @@ bool libGDHL_gt_HeroRagnarosFlamesofSulfurion_Func (bool testConds, bool runActi
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_localPlayer) == "Ragnaros"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_localPlayer) == "Ragnaros"))) {
             return false;
         }
 
@@ -11731,7 +11731,7 @@ bool libGDHL_gt_HeroTychusMasterAssassin_Func (bool testConds, bool runActions) 
 
     // Conditions
     if (testConds) {
-        if (!((libGame_gf_PlayerHero(lv_localPlayer) == "Tychus"))) {
+        if (!((libGame_gf_PlayerHeroInstance(lv_localPlayer) == "Tychus"))) {
             return false;
         }
 
@@ -11822,7 +11822,7 @@ bool libGDHL_gt_HeroTychusHeavensDevilCampCaptured_Func (bool testConds, bool ru
     while (true) {
         lv_itPlayer = PlayerGroupNextPlayer(auto01AE0BE4_g, lv_itPlayer);
         if (lv_itPlayer < 0) { break; }
-        if ((libGame_gf_PlayerHero(lv_itPlayer) == "Tychus")) {
+        if ((libGame_gf_PlayerHeroInstance(lv_itPlayer) == "Tychus")) {
             UnitCreateEffectUnit(libGame_gv_players[lv_itPlayer].lv_heroUnit, "TychusHeavensDevils@IncrementToken", libGame_gv_players[lv_itPlayer].lv_heroUnit);
         }
 

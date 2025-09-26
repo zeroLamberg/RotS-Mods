@@ -4366,6 +4366,185 @@ void libAIAI_gf_HeroAICleanupAllAIData () {
     }
 }
 
+bool libAIAI_gf_ArtanisPhasePrism (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    int lv_enemiesInArea;
+    int lv_alliesInArea;
+    unit lv_targetHero;
+    unitgroup lv_allyGroup;
+    order lv_spellOrd;
+    order lv_attackOrd;
+    fixed lv_currentHealthShield;
+    fixed lv_totalHealth;
+    libAIAI_gs_Storm_AI_TargetQueryOptions lv_query;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_allyGroup = UnitGroupEmpty();
+
+    // Implementation
+    if ((libCore_gf_IsAbilityOnCooldown(lp_aIUnit, "HeroArtanisShieldOverload") == true)) {
+        return false;
+    }
+
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "HeroArtanisPhasePrism", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_attackOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "attack", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_attackOrd) == false)) {
+        return false;
+    }
+
+    lv_enemiesInArea = libAIAI_gf_CountEnemiesInArea(lp_player, lp_scanGroup, UnitGetPosition(lp_aIUnit), 8.0, 1, 0);
+    if ((lv_enemiesInArea < 1)) {
+        return false;
+    }
+
+    lv_currentHealthShield = (UnitGetPropertyFixed(lp_aIUnit, c_unitPropLife, c_unitPropCurrent) + UnitGetPropertyFixed(lp_aIUnit, c_unitPropShields, c_unitPropCurrent));
+    lv_totalHealth = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifeMax, c_unitPropCurrent);
+    if ((((lv_currentHealthShield / lv_totalHealth) * 100.0) < libAIAI_gv_aIHeroes[lp_player].lv_startOffensiveHealth)) {
+        return false;
+    }
+
+    lv_query.lv_maxDistance = 7.0;
+    lv_query.lv_minDistance = 3.0;
+    lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroMediumHealthPercent;
+    lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
+    lv_query.lv_distanceFactor = libAIAI_gv_c_Storm_AI_PreferCloserTargets;
+    lv_query.lv_ignoreTargetsBehindGate = true;
+    lv_query.lv_ignoreTargetsBehindAlliedGate = true;
+    lv_targetHero = libAIAI_gf_FindBestHero(lp_scanGroup, lp_aIUnit, lv_query);
+    if ((UnitGetPropertyFixed(lv_targetHero, c_unitPropLifePercent, c_unitPropCurrent) < 10.0)) {
+        libAIAI_gf_HeroAIStartFocusHero(lp_player, lv_targetHero);
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetHero, null);
+    }
+
+    if ((libAIAI_gf_HeroAIIsPointInAOEDangerousToFaction(UnitGetPosition(lv_targetHero), libAIAI_gv_aIHeroAvoidAOEAvoidExtraDistance, libGame_gf_EnemyFactionOfPlayer(lp_player)) == true)) {
+        return false;
+    }
+
+    if (((libAIAI_gf_HeroAIIsPointInAOEDangerousToFaction(UnitGetPosition(lp_aIUnit), libAIAI_gv_aIHeroAvoidAOEAvoidExtraDistance, libGame_gv_players[lp_player].lv_faction) == true) || (libAIAI_gf_HeroAIIsPointInAOEDangerousToFaction(UnitGetPosition(lp_aIUnit), libAIAI_gv_aIHeroAvoidAOEAvoidExtraDistance, libGame_gf_EnemyFactionOfPlayer(lp_player)) == true))) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetHero, null);
+    }
+
+    lv_alliesInArea = UnitGroupCount(libAIAI_gv_aIHeroes[lp_player].lv_allyHeroes, c_unitCountAll);
+    if ((lv_alliesInArea < lv_enemiesInArea)) {
+        return false;
+    }
+
+    if (((libCore_gv_dataHeroesHeroData[libCore_gf_HeroIndexOfPlayerHero(lp_player)].lv_role == "Bruiser") || (libCore_gv_dataHeroesHeroData[libCore_gf_HeroIndexOfPlayerHero(lp_player)].lv_role == "Tank"))) {
+        return false;
+    }
+
+    libAIAI_gf_HeroAIStartFocusHero(lp_player, lv_targetHero);
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetHero, null);
+}
+
+bool libAIAI_gf_ArtanisTwinBlades (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    int lv_enemiesInArea;
+    unit lv_targetEnemy;
+    order lv_spellOrd;
+    libAIAI_gs_Storm_AI_TargetQueryOptions lv_query;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "HeroArtanisTwinBlades", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_query.lv_maxDistance = 5.0;
+    lv_query.lv_minDistance = 0.0;
+    lv_query.lv_maxHealthPercent = 100.0;
+    lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
+    lv_query.lv_distanceFactor = libAIAI_gv_c_Storm_AI_StronglyPreferCloserTargets;
+    lv_query.lv_ignoreTargetsBehindGate = true;
+    lv_targetEnemy = libAIAI_gf_FindBestHero(lp_scanGroup, lp_aIUnit, lv_query);
+    if ((UnitIsValid(lv_targetEnemy) == false)) {
+        lv_targetEnemy = libAIAI_gf_FindBestMinion(lp_scanGroup, lp_aIUnit, lv_query);
+        if ((UnitIsValid(lv_targetEnemy) == false)) {
+            lv_targetEnemy = libAIAI_gf_FindBestAggroCreep(lp_scanGroup, lp_aIUnit, lv_query);
+            if ((UnitIsValid(lv_targetEnemy) == false)) {
+                return false;
+            }
+
+        }
+
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+}
+
+bool libAIAI_gf_ArtanisBladeDash (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    unit lv_targetEnemy;
+    order lv_spellOrd;
+    libAIAI_gs_Storm_AI_TargetQueryOptions lv_query;
+    bool lv_shieldOnCD;
+    fixed lv_currentHealthShield;
+    fixed lv_totalHealth;
+    unitgroup lv_enemyGroup;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_enemyGroup = UnitGroupEmpty();
+
+    // Implementation
+    lv_shieldOnCD = libCore_gf_IsAbilityOnCooldown(lp_aIUnit, "HeroArtanisShieldOverload");
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "HeroArtanisBladeDash", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_query.lv_maxDistance = 7.0;
+    lv_query.lv_minDistance = 0.0;
+    lv_query.lv_maxHealthPercent = 5.0;
+    lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
+    lv_query.lv_distanceFactor = libAIAI_gv_c_Storm_AI_PreferDistantTargets;
+    lv_query.lv_ignoreTargetsBehindGate = true;
+    lv_targetEnemy = libAIAI_gf_FindBestHero(lp_scanGroup, lp_aIUnit, lv_query);
+    if ((UnitIsValid(lv_targetEnemy) == true)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, UnitGetPosition(lv_targetEnemy));
+    }
+
+    lv_currentHealthShield = (UnitGetPropertyFixed(lp_aIUnit, c_unitPropLife, c_unitPropCurrent) + UnitGetPropertyFixed(lp_aIUnit, c_unitPropShields, c_unitPropCurrent));
+    lv_totalHealth = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifeMax, c_unitPropCurrent);
+    if ((lv_shieldOnCD == true) && (((lv_currentHealthShield / lv_totalHealth) * 100.0) < libAIAI_gv_aIHeroes[lp_player].lv_startOffensiveHealth)) {
+        return false;
+    }
+
+    lv_query.lv_maxHealthPercent = 100.0;
+    lv_enemyGroup = libAIAI_gf_UnitGroupFilterHeroOrMinion(lp_player, lp_scanGroup);
+    if ((lv_shieldOnCD == false) && (UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent) >= libAIAI_gv_aIHeroLowEnergyPercent)) {
+        if ((libAIAI_gf_EnoughEnemiesInArea(lp_player, lv_enemyGroup, UnitGroupCenterOfGroup(lv_enemyGroup), 2.0, libAIAI_gv_c_Storm_AI_AtLeast2Heroes, libAIAI_gv_c_Storm_AI_AtLeast4Minion) == true)) {
+            lv_targetEnemy = libAIAI_gf_FindBestHero(lv_enemyGroup, lp_aIUnit, lv_query);
+            if ((UnitIsValid(lv_targetEnemy) == true) && (libAIAI_gf_HeroAIIsPointInAOEDangerousToFaction(UnitGetPosition(lv_targetEnemy), libAIAI_gv_aIHeroAvoidAOEAvoidExtraDistance, libGame_gv_players[lp_player].lv_faction) == false)) {
+                return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, UnitGetPosition(lv_targetEnemy));
+            }
+
+            lv_targetEnemy = libAIAI_gf_FindBestMinion(lv_enemyGroup, lp_aIUnit, lv_query);
+            if ((UnitIsValid(lv_targetEnemy) == true) && (libAIAI_gf_HeroAIIsPointInAOEDangerousToFaction(UnitGetPosition(lv_targetEnemy), libAIAI_gv_aIHeroAvoidAOEAvoidExtraDistance, libGame_gv_players[lp_player].lv_faction) == false)) {
+                return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, UnitGetPosition(lv_targetEnemy));
+            }
+
+        }
+        else {
+            lv_targetEnemy = libAIAI_gf_FindBestAggroCreep(lv_enemyGroup, lp_aIUnit, lv_query);
+            if ((UnitIsValid(lv_targetEnemy) == true) && (libAIAI_gf_HeroAIIsPointInAOEDangerousToFaction(UnitGetPosition(lv_targetEnemy), libAIAI_gv_aIHeroAvoidAOEAvoidExtraDistance, libGame_gv_players[lp_player].lv_faction) == false)) {
+                return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, UnitGetPosition(lv_targetEnemy));
+            }
+
+        }
+    }
+
+    return false;
+}
+
 bool libAIAI_gf_ETCPowerSlide (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     unit lv_targetEnemy;

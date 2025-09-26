@@ -8105,10 +8105,34 @@ int libGame_gf_GetPlayerIDfromTeamSlot (int lp_slot, int lp_team) {
     return 0;
 }
 
-string libGame_gf_PlayerHero (int lp_player) {
+string libGame_gf_PlayerHeroInstance (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
     return libCore_gv_dataHeroesHeroData[libGame_gv_players[lp_player].lv_heroIndex].lv_heroInstance;
+}
+
+int libGame_gf_GetOpossingFaction (int lp_faction) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_faction == libGame_ge_Faction_Order)) {
+        return libGame_ge_Faction_Chaos;
+    }
+    else if ((lp_faction == libGame_ge_Faction_Chaos)) {
+        return libGame_ge_Faction_Order;
+    }
+    return libGame_ge_Faction_Neutral;
+}
+
+int libGame_gf_EnemyFactionOfPlayer (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libGame_gv_players[lp_player].lv_faction == libGame_ge_Faction_Order)) {
+        return libGame_ge_Faction_Chaos;
+    }
+    else if ((libGame_gv_players[lp_player].lv_faction == libGame_ge_Faction_Chaos)) {
+        return libGame_ge_Faction_Order;
+    }
+    return libGame_ge_Faction_Neutral;
 }
 
 text libGame_gf_StormGetPlayerName (int lp_player) {
