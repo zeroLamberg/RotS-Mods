@@ -1,4 +1,5 @@
 include "TriggerLibs/NativeLib"
+include "LibAIAI_h"
 include "LibCore_h"
 include "LibGame_h"
 include "LibMapM_h"
@@ -12,6 +13,7 @@ include "LibSprt_h"
 // External Library Initialization
 void libSprt_InitLibraries () {
     libNtve_InitVariables();
+    libAIAI_InitVariables();
     libCore_InitVariables();
     libGame_InitVariables();
     libMapM_InitVariables();
@@ -45,7 +47,6 @@ void libSprt_InitVariables () {
 void libSprt_gf_DEBUGCleanUpHeroForPlayer (int lp_player) {
     // Variable Declarations
     unit lv_itUnit;
-    int lv_wasAI;
 
     // Automatic Variable Declarations
     unitgroup auto359F8C30_g;
@@ -56,6 +57,10 @@ void libSprt_gf_DEBUGCleanUpHeroForPlayer (int lp_player) {
     // Variable Initialization
 
     // Implementation
+    if ((libAIAI_gf_HeroAIIsAIEnabledForPlayer(lp_player) == true)) {
+        libAIAI_gf_HeroAIDisableAIForPlayer(lp_player);
+    }
+
     libGame_gf_StormResetHeroTalentsForPlayer(lp_player);
     libGame_gf_LevelUpResetHeroStats(libGame_gv_players[lp_player].lv_heroUnit);
     libUIUI_gf_FullscreenOverlaysShowHideDeathOverlay(false, lp_player);
@@ -140,13 +145,12 @@ bool auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_TriggerFunc (bool testConds, 
     int auto7D814270_var;
     const int autoFC61554C_ae = libGame_gv_moonwellMaxMoonwellCount;
     int autoFC61554C_var;
-    const int auto2D98ADA9_ae = libCore_gv_dataHeroesMaxTalentTiers;
-    int auto2D98ADA9_var;
 
     // Variable Initialization
     lv_cameraGroup = UnitGroupEmpty();
 
     // Implementation
+    lv_wasAI = libAIAI_gf_HeroAIIsAIEnabledForPlayer(lp_player);
     if ((libGame_gf_PlayerIsHeroPlayer(lp_debugMenuTriggeringPlayer) == true)) {
         lv_cameraCenter = CameraGetTarget(lp_debugMenuTriggeringPlayer);
     }
@@ -195,6 +199,7 @@ bool auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_TriggerFunc (bool testConds, 
     Wait(0.125, c_timeGame);
     libGame_gv_players[lp_player].lv_suppressLevelUpFXAndTeamXPTracking = false;
     if ((lv_wasAI == true)) {
+        libAIAI_gf_HeroAIEnableAIForPlayer(lp_player);
     }
     else {
         if (((TimerGetRemaining(libGame_gv_openTheGatesTimer) == 0.0))) {
@@ -204,19 +209,6 @@ bool auto_libSprt_gf_DEBUGSpawnorSwapHeroForPlayer_TriggerFunc (bool testConds, 
     }
     if ((libCore_gv_sYSIsSandbox == true)) {
         libUIUI_gf_UIPartyFrameTalentAdvantageUpdate();
-    }
-
-    if ((GameIsOnline() == false) && (PlayerType(lp_player) != c_playerTypeUser)) {
-        auto2D98ADA9_var = 1;
-        for ( ; auto2D98ADA9_var <= auto2D98ADA9_ae; auto2D98ADA9_var += 1 ) {
-            if ((libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lp_player, auto2D98ADA9_var) == true)) {
-                libGame_gf_TalentChoicesChooseTalentForPlayer(auto2D98ADA9_var, 1, lp_player);
-                Wait(0.5, c_timeGame);
-            }
-            else {
-                break;
-            }
-        }
     }
 
     return true;
@@ -330,6 +322,7 @@ void libSprt_InitLib () {
     libSprt_InitTriggers();
 }
 
+include "LibAIAI"
 include "LibCore"
 include "LibGame"
 include "LibMapM"

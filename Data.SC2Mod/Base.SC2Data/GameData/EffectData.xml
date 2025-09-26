@@ -2,7 +2,7 @@
 <Catalog>
     <const id="Merc" path="CEffectEnumArea.SearchFilters" value="Robotic"/>
     <const id="ImmuneToAOE" path="CEffectEnumArea.SearchFilters" value="Mechanical"/>
-    <const id="NoTowerAggro" path="CEffectEnumArea.SearchFilters" value="Armored"/>
+    <const id="Tower" path="CEffectEnumArea.SearchFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CEffectEnumArea.SearchFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CEffectEnumArea.SearchFilters" value="Massive"/>
     <const id="Minion" path="CEffectEnumArea.SearchFilters" value="Biological"/>
@@ -19,7 +19,7 @@
     <const id="Creep" path="CEffectDamage.AttributeFactor.index" value="Light"/>
     <const id="Merc" path="CEffectDamage.SearchFilters" value="Robotic"/>
     <const id="ImmuneToAOE" path="CEffectDamage.SearchFilters" value="Mechanical"/>
-    <const id="NoTowerAggro" path="CEffectDamage.SearchFilters" value="Armored"/>
+    <const id="Tower" path="CEffectDamage.SearchFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CEffectDamage.SearchFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CEffectDamage.SearchFilters" value="Massive"/>
     <const id="Minion" path="CEffectDamage.SearchFilters" value="Biological"/>

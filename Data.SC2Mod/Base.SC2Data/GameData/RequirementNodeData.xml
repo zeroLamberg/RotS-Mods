@@ -95,6 +95,7 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStormCategory DodgeCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="StormCategory Dodge" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStormCategory EatenCompleteOnlyAtUnit">
@@ -136,6 +137,10 @@
     <CRequirementCountBehavior id="CountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="StormCategory HostileStasisRemoved" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCategory IgnoredByTowerAICompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="StormCategory IgnoredByTowerAI" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStormCategory ImmunedToAllyDisplacementCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -236,6 +241,11 @@
     <CRequirementCountBehavior id="CountBehaviorStormCategory UnreducibleCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="StormCategory Unreducible" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorStormCrabWanderCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="StormCrabWander" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorUltimate1UnlockedCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -485,6 +495,7 @@
         <OperandArray index="1" value="0"/>
     </CRequirementGT>
     <CRequirementGT id="GTCountBehaviorStormCategory DodgeCompleteOnlyAtUnit0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorStormCategory DodgeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
     </CRequirementGT>
@@ -526,6 +537,10 @@
     </CRequirementGT>
     <CRequirementGT id="GTCountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorStormCategory HostileStasisRemovedCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorStormCategory IgnoredByTowerAICompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorStormCategory IgnoredByTowerAICompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
     </CRequirementGT>
     <CRequirementGT id="GTCountBehaviorStormCategory ImmunedToAllyDisplacementCompleteOnlyAtUnit0">

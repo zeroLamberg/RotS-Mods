@@ -1288,7 +1288,7 @@ bool libGDHL_gt_HeroPortBackToBase_Func (bool testConds, bool runActions) {
     lv_hero = EventPlayerEffectUsedUnit(c_effectUnitCaster);
     UnitSetPosition(lv_hero, libGame_gv_players[EventPlayer()].lv_spawnPoint, false);
     UnitIssueOrder(lv_hero, OrderTargetingPoint(AbilityCommand("move", 4), PointWithOffsetPolar(libGame_gv_players[EventPlayer()].lv_spawnPoint, 1.0, 0.0)), c_orderQueueAddToFront);
-    if ((UnitAbilityCheck(lv_hero, "HeroGenericMount", true) == true)) {
+    if ((UnitBehaviorCount(lv_hero, "TychusOdin") == 0) && (UnitBehaviorCount(lv_hero, "KerriganMaelstrom") == 0) && (UnitBehaviorCount(lv_hero, "HeroMalfurionTranquility") == 0) && (UnitAbilityCheck(lv_hero, "HeroGenericMount", true) == true)) {
         libGame_gf_ApplyMountBehaviorToHero(lv_hero);
     }
 

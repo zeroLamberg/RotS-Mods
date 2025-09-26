@@ -4265,6 +4265,7 @@
         <InnerRadius value="0.625"/>
         <AIEvalFactor value="1.3"/>
         <EditorCategories value="ObjectType:Hero"/>
+        <TacticalAIThink value="libAIAI_gf_AIThinkTyrande"/>
     </CUnit>
     <CUnit id="TyrandeTrueshotAura" parent="ITEM"/>
     <CUnit id="TyrandeWeapon@Missile" parent="MISSILE_INVULNERABLE">

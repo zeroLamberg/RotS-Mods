@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="UnitAttrOffNoMinionAggro" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffPsionic"/>
     <const id="UnitAttrOffImmuneToFriendlyAbilities" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffHover"/>
+    <const id="UnitAttrOffNoMinionAggro" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffPsionic"/>
     <const id="UnitAttrOnMerc" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnRobotic"/>
-    <const id="UnitAttrOffImmuneToAOE" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffMechanical"/>
-    <const id="UnitAttrOffMinion" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffBiological"/>
-    <const id="UnitAttrOffMerc" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffRobotic"/>
     <const id="UnitAttrOnTower" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnArmored"/>
-    <const id="UnitAttrOffTower" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffArmored"/>
+    <const id="UnitAttrOffMerc" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffRobotic"/>
+    <const id="UnitAttrOffMinion" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffBiological"/>
+    <const id="UnitAttrOffImmuneToAOE" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffMechanical"/>
     <const id="UnitAttrOnImmuneToFriendlyAbilities" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnHover"/>
+    <const id="UnitAttrOffTower" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffArmored"/>
     <const id="UnitAttrOnNoMinionAggro" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnPsionic"/>
     <const id="UnitAttrOnMinion" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnBiological"/>
-    <const id="UnitAttrOnCreep" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnLight"/>
     <const id="UnitAttrOnImmuneToSkillshots" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnMassive"/>
+    <const id="UnitAttrOnCreep" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnLight"/>
     <const id="UnitAttrOffImmuneToSkillshots" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffMassive"/>
     <const id="UnitAttrOnImmuneToAOE" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOnMechanical"/>
     <const id="UnitAttrOffCreep" path="CBehaviorBuff.Modification.StateFlags.index" value="UnitAttrOffLight"/>
@@ -905,7 +905,7 @@
         <BehaviorFlags index="Permanent" value="1"/>
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
         <TrackingValidatorArray value="TownDeadController@CasterNotDead"/>
-        <TrackingValidatorArray value="TargetNotIgnoredByTowers"/>
+        <TrackingValidatorArray value="StormCategoryTargetNotIgnoredByTowerAI"/>
         <TrackingValidatorArray value="TargetNotInvulnerable"/>
         <TrackingValidatorArray value="TargetNotHidden"/>
         <TrackingValidatorArray value="TargetNotDead"/>
@@ -1507,6 +1507,7 @@
         <TechAliasArray value="StormCategory HealReduction"/>
         <TechAliasArray value="StormCategory HideNameplate"/>
         <TechAliasArray value="StormCategory HostileStasisRemoved"/>
+        <TechAliasArray value="StormCategory IgnoredByTowerAI"/>
         <TechAliasArray value="StormCategory ImmunedToAllyDisplacement"/>
         <TechAliasArray value="StormCategory ImmunedToEnemyDisplacement"/>
         <TechAliasArray value="StormCategory InvisibleRing"/>
@@ -5249,4 +5250,10 @@
         <MaxStackCount value="100"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroGenericMapMechanicPickupDisallowed" parent="StormCarryBehaviorParent"/>
+    <CBehaviorBuff id="TemporarilyHoldFire">
+        <Duration value="1.5"/>
+        <Modification>
+            <StateFlags index="Passive" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
 </Catalog>

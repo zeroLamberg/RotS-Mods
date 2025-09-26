@@ -23,6 +23,9 @@
     <CRequirement id="CasterIsPlayer00">
         <NodeArray index="Use" Link="EqCountUpgradeIsPlayer00CompleteOnly1"/>
     </CRequirement>
+    <CRequirement id="StormCategoryIgnoredByTowerAI">
+        <NodeArray index="Use" Link="GTCountBehaviorStormCategory IgnoredByTowerAICompleteOnlyAtUnit0"/>
+    </CRequirement>
     <CRequirement id="StormCategoryMapMechanicAbility">
         <NodeArray index="Use" Link="GTCountBehaviorStormCategory MapMechanicAbilityCompleteOnlyAtUnit0"/>
     </CRequirement>

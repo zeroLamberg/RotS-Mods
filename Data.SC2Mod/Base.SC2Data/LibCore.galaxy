@@ -1,4 +1,5 @@
 include "TriggerLibs/NativeLib"
+include "LibAIAI_h"
 include "LibGame_h"
 include "LibSprt_h"
 include "LibMapM_h"
@@ -12,6 +13,7 @@ include "LibCore_h"
 // External Library Initialization
 void libCore_InitLibraries () {
     libNtve_InitVariables();
+    libAIAI_InitVariables();
     libGame_InitVariables();
     libSprt_InitVariables();
     libMapM_InitVariables();
@@ -599,6 +601,7 @@ void libCore_gf_DataInitializeHero (string lp_instance) {
     libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_universeIcon = UserDataGetImagePath("HeroUniverse", libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_universe, "Icon", 1);
     libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_isFlyer = libCore_gf_UserDataBoolean(UserDataGetUserInstance("Hero", lp_instance, "IsFlyer", 1));
     libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_isPaired = libCore_gf_UserDataBoolean(UserDataGetUserInstance("Hero", lp_instance, "IsPaired", 1));
+    libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_isMelee = libCore_gf_UserDataBoolean(UserDataGetUserInstance("Hero", lp_instance, "IsMelee", 1));
     libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_usesMount = libCore_gf_UserDataBoolean(UserDataGetUserInstance("Hero", lp_instance, "UsesMount", 1));
     libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentHeroicTier = UserDataGetInt("Hero", lp_instance, "TalentHeroicTier", 1);
     lv_itTalentTier = 1;
@@ -2296,34 +2299,6 @@ point libCore_gf_AdvancePointinDirection (point lp_point, point lp_dir, fixed lp
     return Point(lv_xVal, lv_yVal);
 }
 
-point libCore_gf_ProjectPointOntoLine (point lp_p1, point lp_p2, point lp_t) {
-    // Variable Declarations
-    fixed lv_diffX;
-    fixed lv_diffY;
-    fixed lv_length;
-    point lv_axis;
-    point lv_line;
-    fixed lv_projMag;
-    point lv_final;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    lv_diffX = (PointGetX(lp_p2) - PointGetX(lp_p1));
-    lv_diffY = (PointGetY(lp_p2) - PointGetY(lp_p1));
-    lv_length = SquareRoot(((lv_diffX*lv_diffX) + (lv_diffY*lv_diffY)));
-    if ((lv_length == 0.0)) {
-        return lp_p1;
-    }
-
-    lv_axis = Point((lv_diffX / lv_length), (lv_diffY / lv_length));
-    lv_line = Point((PointGetX(lp_t) - PointGetX(lp_p1)), (PointGetY(lp_t) - PointGetY(lp_p1)));
-    lv_projMag = ((PointGetX(lv_axis)*PointGetX(lv_line)) + (PointGetY(lv_axis)*PointGetY(lv_line)));
-    lv_final = Point((PointGetX(lp_p1) + PointGetX(lv_axis) * lv_projMag), (PointGetY(lp_p1) + PointGetY(lv_axis) * lv_projMag));
-    return lv_final;
-}
-
 fixed libCore_gf_GetTotalXPForLevel (int lp_level) {
     // Automatic Variable Declarations
     // Implementation
@@ -2333,6 +2308,95 @@ fixed libCore_gf_GetTotalXPForLevel (int lp_level) {
     else {
         return libCore_gv_dataXPLevelXPValues[lp_level];
     }
+}
+
+bool libCore_gf_TestLocationClosertoFactionSide (point lp_location, int lp_faction, fixed lp_modifier) {
+    // Variable Declarations
+    fixed lv_homeDist;
+    fixed lv_enemyDist;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if (((UnitIsValid(libGame_gv_teams[libGame_gv_teamOrderIndex_C].lv_core) == false) || (UnitIsValid(libGame_gv_teams[libGame_gv_teamChaosIndex_C].lv_core) == false))) {
+        return false;
+    }
+
+    if ((lp_faction == libGame_ge_Faction_Order)) {
+        lv_homeDist = DistanceBetweenPoints(UnitGetPosition(libGame_gv_teams[libGame_gv_teamOrderIndex_C].lv_core), lp_location);
+        lv_enemyDist = DistanceBetweenPoints(UnitGetPosition(libGame_gv_teams[libGame_gv_teamChaosIndex_C].lv_core), lp_location);
+    }
+    else {
+        lv_homeDist = DistanceBetweenPoints(UnitGetPosition(libGame_gv_teams[libGame_gv_teamChaosIndex_C].lv_core), lp_location);
+        lv_enemyDist = DistanceBetweenPoints(UnitGetPosition(libGame_gv_teams[libGame_gv_teamOrderIndex_C].lv_core), lp_location);
+    }
+    if (((lv_homeDist * 2.0) <= (lp_modifier * (lv_homeDist + lv_enemyDist)))) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+fixed libCore_gf_StandalizedAngle (fixed lp_angle) {
+    // Variable Declarations
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_result = ModF(lp_angle, 360.0);
+    if ((lv_result > 180.0)) {
+        lv_result = (lv_result - 360.0);
+    }
+    else {
+        if ((lv_result <= -180.0)) {
+            lv_result = (lv_result + 360.0);
+        }
+
+    }
+    return lv_result;
+}
+
+fixed libCore_gf_StandalizedAngleDifference (fixed lp_angle1, fixed lp_angle2) {
+    // Variable Declarations
+    fixed lv_diff;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_diff = ModF((lp_angle1 - lp_angle2), 360.0);
+    if ((lv_diff > 180.0)) {
+        lv_diff = AbsF((lv_diff - 360.0));
+    }
+
+    return lv_diff;
+}
+
+bool libCore_gf_UnitIsVisibleToPlayerGroup (unit lp_unit, playergroup lp_playerGroup) {
+    // Variable Declarations
+    int lv_itPlayer;
+
+    // Automatic Variable Declarations
+    playergroup auto1B445F38_g;
+
+    // Variable Initialization
+
+    // Implementation
+    auto1B445F38_g = lp_playerGroup;
+    lv_itPlayer = -1;
+    while (true) {
+        lv_itPlayer = PlayerGroupNextPlayer(auto1B445F38_g, lv_itPlayer);
+        if (lv_itPlayer < 0) { break; }
+        if ((libNtve_gf_UnitIsVisibleToPlayer(lp_unit, lv_itPlayer) == true)) {
+            return true;
+        }
+
+    }
+    return false;
 }
 
 void libCore_gf_WaitForConversationToFinish () {
@@ -3855,6 +3919,12 @@ bool libCore_gf_LoadoutElementIsNew (datetime lp_elementReleaseDateTime) {
     return false;
 }
 
+void libCore_gf_OrderSetPlayer (order lp_order, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    OrderSetPlayer(lp_order, lp_player);
+}
+
 void libCore_gf_CreateMinimapPingStorm (playergroup lp_players, string lp_pingData, point lp_position, color lp_color, fixed lp_duration) {
     // Automatic Variable Declarations
     // Implementation
@@ -4902,6 +4972,7 @@ bool libCore_gt_InitializeData_Func (bool testConds, bool runActions) {
     TriggerExecute(libCore_gt_DataInitializeAnnouncerVOData, true, true);
     TriggerExecute(libCore_gt_DataDeathTimes, true, true);
     TriggerExecute(libCore_gt_MapDataInitialize, true, true);
+    TriggerExecute(libAIAI_gt_HeroAIInitializeDifficultyLevelData, true, true);
     return true;
 }
 
@@ -6091,6 +6162,7 @@ void libCore_InitLib () {
     libCore_InitTriggers();
 }
 
+include "LibAIAI"
 include "LibGame"
 include "LibSprt"
 include "LibMapM"

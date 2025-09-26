@@ -4610,6 +4610,7 @@
         <Radius value="0.9375"/>
         <InnerRadius value="0.9375"/>
         <EditorCategories value="ObjectType:Hero"/>
+        <TacticalAIThink value="libAIAI_gf_AIThinkETC"/>
     </CUnit>
     <CUnit id="ETCBULLwark" parent="ITEM"/>
     <CBehaviorBuff id="ETCBULLwark@Armor">

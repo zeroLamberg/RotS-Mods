@@ -86,12 +86,7 @@
             <EditorColumn value="6"/>
         </Fields>
         <Fields Id="QuestDataButton" Type="GameLink" GameLinkType="Button"/>
-        <Fields>
-            <Id value="HeroUnit"/>
-            <Type value="GameLink"/>
-            <GameLinkType value="Unit"/>
-            <EditorColumn value="3"/>
-        </Fields>
+        <Fields Id="HeroUnit" Type="GameLink" GameLinkType="Unit"/>
         <Fields>
             <Id value="HeroUnit_Alternate"/>
             <Type value="GameLink"/>
@@ -105,6 +100,12 @@
         <Fields Id="Portrait_HeroSelectButton" Type="Image"/>
         <Fields Id="Portrait_DeathRecap" Type="Image"/>
         <Fields Id="Description" Type="Text"/>
+        <Fields>
+            <Id value="IsMelee"/>
+            <Type value="User"/>
+            <UserType value="GenericTrueFalse"/>
+            <EditorColumn value="3"/>
+        </Fields>
         <Instances Id="[Default]">
             <Fixed Fixed="-1">
                 <Field Id="Mount Scaling Override"/>
@@ -302,6 +303,9 @@
             </User>
             <User Type="Talent" Instance="AbathurRegenerativeMicrobes">
                 <Field Id="TalentTier2" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="Anduin">
@@ -577,6 +581,9 @@
             <User Type="Skin" Instance="AnubarakBase">
                 <Field Id="Skins"/>
             </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
+            </User>
         </Instances>
         <Instances Id="Artanis">
             <GameLink GameLink="HeroArtanis">
@@ -723,6 +730,9 @@
             <User Type="VOArray" Instance="Artanis">
                 <Field Id="VOArray"/>
             </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
+            </User>
         </Instances>
         <Instances Id="Arthas">
             <GameLink GameLink="HeroArthas@LevelScalingModification">
@@ -859,6 +869,9 @@
             </User>
             <User Type="VOArray" Instance="Arthas">
                 <Field Id="VOArray"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="Auriel">
@@ -1539,6 +1552,9 @@
             <User Type="VOArray" Instance="Diablo">
                 <Field Id="VOArray"/>
             </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
+            </User>
         </Instances>
         <Instances Id="ETC">
             <GameLink GameLink="ETCHero">
@@ -1678,6 +1694,9 @@
             </User>
             <User Type="Talent" Instance="ETCBULLwark">
                 <Field Id="TalentTier6" Index="3"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="Falstad">
@@ -2257,6 +2276,9 @@
             <User Type="MountMountCategory" Instance="Ridesurf">
                 <Field Id="Mount Category Array" Index="3"/>
             </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
+            </User>
         </Instances>
         <Instances Id="Kerrigan">
             <GameLink GameLink="KerriganHero">
@@ -2390,6 +2412,9 @@
             </User>
             <User Type="VOArray" Instance="Kerrigan">
                 <Field Id="VOArray"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="Kharazim">
@@ -2527,6 +2552,9 @@
             </User>
             <User Type="VOArray" Instance="Kharazim">
                 <Field Id="VOArray"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="LiMing">
@@ -2951,6 +2979,9 @@
             <User Type="Skin" Instance="MuradinBase">
                 <Field Id="Skins"/>
             </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
+            </User>
         </Instances>
         <Instances Id="Ragnaros">
             <GameLink GameLink="HeroRagnaros">
@@ -3121,6 +3152,9 @@
             <User Type="VOArray" Instance="Ragnaros">
                 <Field Id="VOArray"/>
             </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
+            </User>
         </Instances>
         <Instances Id="Selendis">
             <GameLink GameLink="HeroSelendis">
@@ -3248,6 +3282,9 @@
             </User>
             <User Type="VOArray" Instance="Selendis">
                 <Field Id="VOArray"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="Talandar">
@@ -3388,6 +3425,9 @@
             </User>
             <User Type="VOArray" Instance="Talandar">
                 <Field Id="VOArray"/>
+            </User>
+            <User Type="GenericTrueFalse" Instance="True">
+                <Field Id="IsMelee"/>
             </User>
         </Instances>
         <Instances Id="Tychus">

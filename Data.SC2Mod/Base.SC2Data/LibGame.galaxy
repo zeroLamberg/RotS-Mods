@@ -93,6 +93,7 @@ void libGame_InitVariables () {
     libGame_gv_eventParam_HeroWitnessedAlliedNPCDeath_NPC_C = "DeadUnit";
     libGame_gv_jungleWatchTowerStartTimer = TimerCreate();
     libGame_gv_gameTimer = TimerCreate();
+    libGame_gv_totalTime = TimerCreate();
     libGame_gv_openTheGatesTimer = TimerCreate();
     libGame_gv_minionSpawnStartTimer = TimerCreate();
     libGame_gv_heroDeathRespawnSetting = libGame_ge_HeroDeathRespawnOption_NormalRespawn;
@@ -220,6 +221,7 @@ string libGame_ge_StormBehaviorCategories_Ident (int lp_val) {
     else if (lp_val == libGame_ge_StormBehaviorCategories_HealReduction) { return "HealReduction"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_HideNameplate) { return "HideNameplate"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_HostileStasisRemoved) { return "HostileStasisRemoved"; }
+    else if (lp_val == libGame_ge_StormBehaviorCategories_IgnoredByTowerAI) { return "IgnoredByTowerAI"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_ImmunedToAllyDisplacement) { return "ImmunedToAllyDisplacement"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_ImmunedToEnemyDisplacement) { return "ImmunedToEnemyDisplacement"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_KnockedOut) { return "KnockedOut"; }
@@ -1323,6 +1325,9 @@ bool libGame_gf_StormUnitHasBehaviorFromCategory (int lp_category, unit lp_unit)
     }
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_HostileStasisRemoved) {
         lv_validator = "StormCategoryTargetHasHostileStasisRemoved";
+    }
+    else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_IgnoredByTowerAI) {
+        lv_validator = "StormCategoryTargetIsIgnoredByTowerAI";
     }
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_ImmunedToAllyDisplacement) {
         lv_validator = "StormCategoryTargetIsImmunedToAllyDisplacement";
@@ -2908,6 +2913,65 @@ void libGame_gf_SendEventGameOverEvent () {
     // Automatic Variable Declarations
     // Implementation
     TriggerSendEvent(libGame_gv_eventID_GameOverEvent_C);
+}
+
+void libGame_gf_HeroAIStartingCampAttack (trigger t) {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerAddEventGeneric(t, libGame_gv_eventID_HeroAIStartingCampAttack_C);
+}
+
+void libGame_gf_SendEventHeroAIStartingCampAttack (int lp_teamIndex, int lp_campIndex) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIStartingCampAttack_C, libGame_gv_eventParam_HeroAIStartingCampAttack_TeamIndex_C), lp_teamIndex);
+    DataTableSetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIStartingCampAttack_C, libGame_gv_eventParam_HeroAIStartingCampAttack_CampIndex_C), lp_campIndex);
+    TriggerSendEvent(libGame_gv_eventID_HeroAIStartingCampAttack_C);
+}
+
+int libGame_gf_HeroAIStartingCampAttackTeamIndex () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIStartingCampAttack_C, libGame_gv_eventParam_HeroAIStartingCampAttack_TeamIndex_C));
+}
+
+int libGame_gf_HeroAIStartingCampAttackCampIndex () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIStartingCampAttack_C, libGame_gv_eventParam_HeroAIStartingCampAttack_CampIndex_C));
+}
+
+void libGame_gf_HeroAIEndingCampAttack (trigger t) {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerAddEventGeneric(t, libGame_gv_eventID_HeroAIEndingCampAttack_C);
+}
+
+void libGame_gf_SendEventHeroAIEndingCampAttack (int lp_teamIndex, int lp_campIndex, bool lp_success) {
+    // Automatic Variable Declarations
+    // Implementation
+    DataTableSetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIEndingCampAttack_C, libGame_gv_eventParam_HeroAIEndingCampAttack_TeamIndex_C), lp_teamIndex);
+    DataTableSetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIEndingCampAttack_C, libGame_gv_eventParam_HeroAIEndingCampAttack_CampIndex_C), lp_campIndex);
+    DataTableSetBool(false, TriggerEventParamName(libGame_gv_eventID_HeroAIEndingCampAttack_C, libGame_gv_eventParam_HeroAIEndingCampAttack_Success_C), lp_success);
+    TriggerSendEvent(libGame_gv_eventID_HeroAIEndingCampAttack_C);
+}
+
+int libGame_gf_HeroAIEndingCampAttackTeamIndex () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIEndingCampAttack_C, libGame_gv_eventParam_HeroAIEndingCampAttack_TeamIndex_C));
+}
+
+int libGame_gf_HeroAIEndingCampAttackCampIndex () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetInt(false, TriggerEventParamName(libGame_gv_eventID_HeroAIEndingCampAttack_C, libGame_gv_eventParam_HeroAIEndingCampAttack_CampIndex_C));
+}
+
+bool libGame_gf_HeroAIEndingCampAttackSuccess () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetBool(false, TriggerEventParamName(libGame_gv_eventID_HeroAIEndingCampAttack_C, libGame_gv_eventParam_HeroAIEndingCampAttack_Success_C));
 }
 
 void libGame_gf_CheckUnitForAbilityRedirect (trigger t) {
@@ -6795,7 +6859,6 @@ void libGame_gf_MTMLSetGameOption (int lp_option, bool lp_enabled) {
     // Automatic Variable Declarations
     // Implementation
     libGame_gv_mTMLGameSetupData.lv_gameOptions[(lp_option)] = lp_enabled;
-    libGame_gv_mTMLGameSetupData.lv_gameOptions[(lp_option)] = lp_enabled;
 }
 
 void libGame_gf_MTMLSetHostPlayer (int lp_player) {
@@ -7785,7 +7848,7 @@ void libGame_gf_CreepDies (unit lp_creepUnit, int lp_killingPlayer, fixed lp_kil
 
     lv_defenderAIIndex = libAIAI_gf_DefenderAIIndexOfUnit(lp_creepUnit);
     if ((lv_defenderAIIndex != 0)) {
-        libAIAI_gf_DefenderAICreepDies(lv_defenderAIIndex, lp_creepUnit, 0);
+        libAIAI_gf_DefenderAICreepDies(lv_defenderAIIndex, lp_creepUnit, lp_killingPlayer);
     }
 
     UnitXPAddXP(libMapM_gv_jungleCreepCamps[lv_camp].lv_campOwnershipFlagUnit, null, lp_killXP);
@@ -8280,6 +8343,7 @@ bool auto_libGame_gf_SpawnHero_TriggerFunc (bool testConds, bool runActions) {
     libUIUI_gf_UIPartyFrameTeamLevelHookUpXPBarUnitForTeamAndShowTeamLevelLabel(libGame_gf_TeamNumberOfPlayer(lp_player), libGame_gv_players[lp_player].lv_heroUnit);
     libGame_gf_SendEventHeroSpawn(lp_player);
     libGame_gv_players[lp_player].lv_allowInput = true;
+    libUIUI_gf_UIUnitStatusFramesHookupUnitStatusFramesForPlayer(lp_player);
     return true;
 }
 
@@ -9077,6 +9141,18 @@ void libGame_gf_ActivateSkinForPlayer (int lp_skinIndex, int lp_player) {
     }
 }
 
+bool libGame_gf_TalentChoicesTierHasTalentsForPlayer (int lp_tier, int lp_player) {
+    // Variable Declarations
+    int lv_heroIndex;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_heroIndex = libGame_gv_players[lp_player].lv_heroIndex;
+
+    // Implementation
+    return (libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentCountPerTier[lp_tier] > 1);
+}
+
 int libGame_gf_TalentChoicesHeroicTalentTierOfHero (int lp_heroIndex) {
     // Automatic Variable Declarations
     // Implementation
@@ -9095,13 +9171,13 @@ int libGame_gf_TalentChoicesHeroicTalentIndexOfPlayer (int lp_player) {
     return libGame_gv_talentChoices[lp_player].lv_chosenTalentIndex[lv_heroicTier];
 }
 
-bool libGame_gf_TalentChoicesTierIsChosenForPlayer (int lp_player, int lp_tier) {
+bool libGame_gf_TalentChoicesTierIsChosenForPlayer (int lp_tier, int lp_player) {
     // Automatic Variable Declarations
     // Implementation
     return (libGame_gv_talentChoices[lp_player].lv_chosenTalentIndex[lp_tier] > 0);
 }
 
-bool libGame_gf_TalentChoicesPlayerHasTalent (int lp_player, int lp_talentIndex) {
+bool libGame_gf_TalentChoicesPlayerHasChosenTalent (int lp_player, int lp_talentIndex) {
     // Variable Declarations
     int lv_itTier;
 
@@ -9125,7 +9201,7 @@ bool libGame_gf_TalentChoicesPlayerHasTalent (int lp_player, int lp_talentIndex)
     return false;
 }
 
-bool libGame_gf_TalentChoicesPlayerHasTalentOnTier (int lp_player, int lp_talentIndex, int lp_tier) {
+bool libGame_gf_TalentChoicesPlayerHasChosenTalentOnTier (int lp_player, int lp_talentIndex, int lp_tier) {
     // Automatic Variable Declarations
     // Implementation
     if ((lp_talentIndex > 0)) {
@@ -9141,7 +9217,7 @@ bool libGame_gf_TalentChoicesPlayerHasTalentOnTier (int lp_player, int lp_talent
 bool libGame_gf_TalentChoicesPlayerCanPrepickTalentTier (int lp_player, int lp_tier) {
     // Automatic Variable Declarations
     // Implementation
-    if ((lp_tier > 1) && (libGame_gf_TalentChoicesCurrentSelectableTalentTierOfPlayer(lp_player) < lp_tier) && (libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lp_player, lp_tier) == false) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, lp_tier) == false)) {
+    if ((lp_tier > 1) && (libGame_gf_TalentChoicesCurrentSelectableTalentTierOfPlayer(lp_player) < lp_tier) && (libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lp_player, lp_tier) == false) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_tier, lp_player) == false)) {
         return true;
     }
 
@@ -9157,7 +9233,7 @@ bool libGame_gf_TalentChoicesPlayerCanChooseTalentTier (int lp_player, int lp_ti
     lv_heroIndex = libCore_gf_HeroIndexOfPlayerHero(lp_player);
 
     // Implementation
-    if ((lp_tier > 0) && (libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) >= libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lp_tier]) && (libGame_gv_talentChoices[lp_player].lv_chosenTalentIndex[lp_tier] == 0) && (libGame_gv_talentChoices[lp_player].lv_talentPoints > 0) && (libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer(lp_player, lp_tier) == true)) {
+    if ((lp_tier > 0) && (libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) >= libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lp_tier]) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_tier, lp_player) == false) && (libGame_gv_talentChoices[lp_player].lv_talentPoints > 0) && (libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer(lp_player, lp_tier) == true)) {
         return true;
     }
 
@@ -9167,7 +9243,7 @@ bool libGame_gf_TalentChoicesPlayerCanChooseTalentTier (int lp_player, int lp_ti
 bool libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer (int lp_player, int lp_currentTier) {
     // Automatic Variable Declarations
     // Implementation
-    if (((lp_currentTier == 1) || ((lp_currentTier > 1) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, (lp_currentTier - 1)) == true)))) {
+    if (((lp_currentTier == 1) || ((lp_currentTier > 1) && (libGame_gf_TalentChoicesTierIsChosenForPlayer((lp_currentTier - 1), lp_player) == true)))) {
         return true;
     }
 
@@ -9190,7 +9266,7 @@ bool libGame_gf_TalentChoicesPlayerCanChooseTalentFromTierAndColumn (int lp_play
             return true;
         }
         else {
-            if ((libGame_gf_TalentChoicesPlayerHasTalent(lp_player, libCore_gv_talentData[lv_talentIndex].lv_prerequisiteTalentIndex) == true)) {
+            if ((libGame_gf_TalentChoicesPlayerHasChosenTalent(lp_player, libCore_gv_talentData[lv_talentIndex].lv_prerequisiteTalentIndex) == true)) {
                 return true;
             }
             else {
@@ -9202,7 +9278,7 @@ bool libGame_gf_TalentChoicesPlayerCanChooseTalentFromTierAndColumn (int lp_play
     return false;
 }
 
-bool libGame_gf_TalentChoicesPlayerHasHeroicTalent (int lp_player) {
+bool libGame_gf_TalentChoicesPlayerHasChosenHeroicTalent (int lp_player) {
     // Variable Declarations
     int lv_heroIndex;
     int lv_heroicTier;
@@ -9240,7 +9316,7 @@ int libGame_gf_TalentChoicesCurrentTalentTierOfPlayer (int lp_player) {
     // Implementation
     lv_itTier = 1;
     for ( ; ( (auto55490D73_ai >= 0 && lv_itTier <= auto55490D73_ae) || (auto55490D73_ai < 0 && lv_itTier >= auto55490D73_ae) ) ; lv_itTier += auto55490D73_ai ) {
-        if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, lv_itTier) == true)) {
+        if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == true)) {
             lv_talentTier += 1;
         }
         else {
@@ -9266,7 +9342,7 @@ int libGame_gf_TalentChoicesCurrentSelectableTalentTierOfPlayer (int lp_player) 
     lv_itTier = 1;
     for ( ; ( (auto2D86D262_ai >= 0 && lv_itTier <= auto2D86D262_ae) || (auto2D86D262_ai < 0 && lv_itTier >= auto2D86D262_ae) ) ; lv_itTier += auto2D86D262_ai ) {
         if ((libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) == libCore_gv_dataHeroesHeroData[libGame_gv_players[lp_player].lv_heroIndex].lv_talentTierLevel[lv_itTier])) {
-            if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, lv_itTier) == true)) {
+            if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == true)) {
                 lv_talentTier += 1;
             }
             else {
@@ -9294,7 +9370,7 @@ int libGame_gf_TalentChoicesNextTierOfPlayer (int lp_player) {
     // Implementation
     lv_itTier = 1;
     for ( ; ( (auto56D29E3C_ai >= 0 && lv_itTier <= auto56D29E3C_ae) || (auto56D29E3C_ai < 0 && lv_itTier >= auto56D29E3C_ae) ) ; lv_itTier += auto56D29E3C_ai ) {
-        if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, lv_itTier) == false)) {
+        if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == false)) {
             return lv_itTier;
         }
 
@@ -9547,24 +9623,34 @@ void libGame_gf_TalentChoicesUpdateTalentPointsForPlayer (int lp_player) {
     int lv_allowedTalentPoints;
     int lv_spendTalentPoints;
     int lv_currentTalentPoints;
-    int lv_level;
+    int lv_playerLevel;
     int lv_itTier;
     int lv_heroIndex;
 
     // Automatic Variable Declarations
+    const int auto7363C7EE_ae = libCore_gv_dataHeroesMaxTalentTiers;
+    const int auto7363C7EE_ai = 1;
     const int autoB450C175_ae = libCore_gv_dataHeroesMaxTalentTiers;
     const int autoB450C175_ai = 1;
 
     // Variable Initialization
 
     // Implementation
-    lv_level = libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit);
+    lv_playerLevel = libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit);
     lv_heroIndex = libGame_gv_players[lp_player].lv_heroIndex;
     lv_itTier = 1;
+    for ( ; ( (auto7363C7EE_ai >= 0 && lv_itTier <= auto7363C7EE_ae) || (auto7363C7EE_ai < 0 && lv_itTier >= auto7363C7EE_ae) ) ; lv_itTier += auto7363C7EE_ai ) {
+        if ((libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lv_itTier] <= lv_playerLevel) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == false)) {
+            libGame_gv_talentChoices[lp_player].lv_activeChoiceTier = lv_itTier;
+            break;
+        }
+
+    }
+    lv_itTier = 1;
     for ( ; ( (autoB450C175_ai >= 0 && lv_itTier <= autoB450C175_ae) || (autoB450C175_ai < 0 && lv_itTier >= autoB450C175_ae) ) ; lv_itTier += autoB450C175_ai ) {
-        if ((libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lv_itTier] <= lv_level)) {
+        if ((libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lv_itTier] <= lv_playerLevel)) {
             lv_allowedTalentPoints += 1;
-            if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, lv_itTier) == true)) {
+            if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == true)) {
                 lv_spendTalentPoints += 1;
             }
 
@@ -12441,6 +12527,7 @@ bool libGame_gt_StartGame_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    TimerStart(libGame_gv_totalTime, c_timerDurationInfinite, false, c_timeGame);
     libSond_gf_SoundtrackPlayMapSoundtrackAsDefaultSoundtrackForAllPlayers();
     TriggerAddEventUnitRegion(libGame_gt_ConfineOtherStuffToBaseUntilCountdownEnds, null, libGame_gv_teams[1].lv_baseRegion, false);
     TriggerAddEventUnitRegion(libGame_gt_ConfineOtherStuffToBaseUntilCountdownEnds, null, libGame_gv_teams[2].lv_baseRegion, false);
@@ -14546,18 +14633,18 @@ bool libGame_gt_NPCUnitDies_Func (bool testConds, bool runActions) {
     lv_unitType = UnitGetType(lv_unit);
     lv_killingPlayer = libNtve_gf_KillingPlayer();
     lv_triggeringUnitKillXP = EventUnitDamageKillXP();
-    if ((UnitTypeTestAttribute(UnitGetType(lv_unit), c_unitAttributeLight) == true)) {
+    if ((UnitTypeTestAttribute(lv_unitType, c_unitAttributeLight) == true)) {
         libGame_gf_CreepDies(lv_unit, lv_killingPlayer, lv_triggeringUnitKillXP);
         return true;
     }
 
     lv_minionIndex = libAIAI_gf_MinionAIGetIndexForMinion(lv_unit);
     libAIAI_gf_MinionAIFreeMinionIndex(libAIAI_gf_MinionAIGetIndexForMinion(lv_unit));
-    if ((UnitTypeTestAttribute(UnitGetType(lv_unit), c_unitAttributeSummoned) == true)) {
+    if ((UnitTypeTestAttribute(lv_unitType, c_unitAttributeSummoned) == true)) {
         return true;
     }
 
-    if ((UnitTypeTestAttribute(UnitGetType(lv_unit), c_unitAttributeBiological) == true) && (libCore_gf_StormUnitIsHallucination(lv_unit) == false) && (libGame_gv_minionSystemStarted == true)) {
+    if ((UnitTypeTestAttribute(lv_unitType, c_unitAttributeBiological) == true) && (libCore_gf_StormUnitIsHallucination(lv_unit) == false) && (libGame_gv_minionSystemStarted == true)) {
         libGame_gf_MinionDies(lv_unit, lv_killingPlayer, lv_triggeringUnitKillXP);
         return true;
     }
@@ -16075,6 +16162,17 @@ void libGame_gt_PreloadingBlackListInitialize_Init () {
 //--------------------------------------------------------------------------------------------------
 bool libGame_gt_PreloadingFXStoreModels_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((libCore_gv_sYSPreloadingEnabled == true))) {
+            return false;
+        }
+
+        if (!(((GameIsOnline() == true) || (libGame_gv_preloadingPreloadDuringOfflineTest == true)))) {
+            return false;
+        }
+    }
+
     // Actions
     if (!runActions) {
         return true;

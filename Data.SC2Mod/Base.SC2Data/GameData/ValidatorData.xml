@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="Merc" path="CValidatorLocationEnumArea.SearchFilters" value="Robotic"/>
     <const id="ImmuneToAOE" path="CValidatorLocationEnumArea.SearchFilters" value="Mechanical"/>
-    <const id="NoTowerAggro" path="CValidatorLocationEnumArea.SearchFilters" value="Armored"/>
+    <const id="Merc" path="CValidatorLocationEnumArea.SearchFilters" value="Robotic"/>
+    <const id="Tower" path="CValidatorLocationEnumArea.SearchFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CValidatorLocationEnumArea.SearchFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CValidatorLocationEnumArea.SearchFilters" value="Massive"/>
     <const id="Minion" path="CValidatorLocationEnumArea.SearchFilters" value="Biological"/>
     <const id="MapCreature" path="CValidatorLocationEnumArea.SearchFilters" value="User1"/>
-    <const id="NoMinionAggro" path="CValidatorLocationEnumArea.SearchFilters" value="Psionic"/>
     <const id="Creep" path="CValidatorLocationEnumArea.SearchFilters" value="Light"/>
+    <const id="NoMinionAggro" path="CValidatorLocationEnumArea.SearchFilters" value="Psionic"/>
     <CValidatorEffectTreeUserData default="1">
         <CheckExistence value="0"/>
     </CValidatorEffectTreeUserData>
@@ -123,9 +123,22 @@
         <Find value="1"/>
         <Value value="StormCategoryMapMechanicAbility"/>
     </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="StormCategoryCasterIsIgnoredByTowerAI">
+        <Find value="1"/>
+        <Value value="StormCategoryIgnoredByTowerAI"/>
+    </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategorySourceHasMapMechanicAbility">
         <Find value="1"/>
         <Value value="StormCategoryMapMechanicAbility"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="StormCategorySourceIsIgnoredByTowerAI">
+        <Find value="1"/>
+        <Value value="StormCategoryIgnoredByTowerAI"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="StormCategorySourceNotIgnoredByTowerAI">
+        <Value value="StormCategoryIgnoredByTowerAI"/>
         <WhichUnit Value="Source"/>
     </CValidatorPlayerRequirement>
     <CValidatorPlayerRequirement id="StormCategoryTargetHasMapMechanicAbility">
@@ -154,6 +167,18 @@
         <Compare value="GT"/>
         <Behavior value="HeroGenericMultishotWeapon"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="StormCategoryTargetIsIgnoredByTowerAI">
+        <Find value="1"/>
+        <Value value="StormCategoryIgnoredByTowerAI"/>
+        <WhichUnit Value="Target"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="StormCategoryTargetNotIgnoredByTowerAI">
+        <Value value="StormCategoryIgnoredByTowerAI"/>
+        <WhichUnit Value="Target"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="StormCategoryCasterNotIgnoredByTowerAI">
+        <Value value="StormCategoryIgnoredByTowerAI"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitOrderQueue id="TargetIsNotTurning">
         <WhichUnit Value="Target"/>
         <AbilLink value="move"/>
@@ -511,9 +536,6 @@
         <WhichUnit Value="Caster"/>
         <Value value="Ground"/>
     </CValidatorUnitMover>
-    <CValidatorUnitFilters id="TargetIsNotIgnoredByTowers">
-        <Filters value="-;Armored"/>
-    </CValidatorUnitFilters>
     <CValidatorLocationCompareRange id="TargetLTE1point25RangeofCaster">
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LE"/>
@@ -2763,21 +2785,21 @@
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
         <SearchFlags index="OffsetByUnitRadius" value="1"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
-        <SearchFilters value="-;Self,Player,Ally,Neutral,NoTowerAggro,Missile,Dead,Hidden"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Missile,Dead,Hidden"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="TownTownHallWeaponRangeIndicatorAnyEnemyNearby">
         <AreaArray Compare="GT" Count="0" Radius="13"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
         <SearchFlags index="OffsetByUnitRadius" value="1"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
-        <SearchFilters value="-;Self,Player,Ally,Neutral,NoTowerAggro,Missile,Dead,Hidden"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Missile,Dead,Hidden"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="TownCoreWeaponRangeIndicatorAnyEnemyNearby">
         <AreaArray Compare="GT" Count="0" Radius="13"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
         <SearchFlags index="OffsetByUnitRadius" value="1"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
-        <SearchFilters value="-;Self,Player,Ally,Neutral,NoTowerAggro,Missile,Dead,Hidden"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Missile,Dead,Hidden"/>
     </CValidatorLocationEnumArea>
     <CValidatorUnitCompareBehaviorCount id="HallOfStormsTargetHasKnockbackDebuff">
         <Behavior value="HallOfStormsKnockbackDebuff"/>
@@ -5571,12 +5593,9 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="StructureAmmoDisabler"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorUnitFilters id="TargetNotIgnoredByTowers">
-        <Filters value="-;Armored"/>
-    </CValidatorUnitFilters>
     <CValidatorCombine id="TargetNotIgnoredByTowersCombine">
         <Type value="And"/>
-        <CombineArray value="TargetNotIgnoredByTowers"/>
+        <CombineArray value="StormCategoryTargetNotIgnoredByTowerAI"/>
         <!--<CombineArray value="FalstadDoesNotHaveFlightAscend" />-->
     </CValidatorCombine>
     <CValidatorCombine id="SourceIsHeroAndNotHallucinationAndNotVehicleAndNotStructureReplacement">

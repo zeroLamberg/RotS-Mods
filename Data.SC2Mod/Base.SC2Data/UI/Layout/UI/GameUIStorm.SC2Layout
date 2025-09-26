@@ -1486,19 +1486,19 @@
         <Frame type="Frame" name="MenuBarConsoleAnchor">
           <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
           <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-          <!--<Width val="240"/>
-          <Height val="55"/>-->
-          <Width val="1"/>
-          <Height val="1"/>
+          <Width val="240"/>
+          <Height val="55"/>
+          <!--<Width val="1"/>
+          <Height val="1"/>-->
         </Frame>
 
         <Frame type="Frame" name="MenuBarFullscreenAnchor">
           <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
           <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-          <!--<Width val="240"/>
-          <Height val="55"/>-->
-          <Width val="1"/>
-          <Height val="1"/>
+          <Width val="240"/>
+          <Height val="55"/>
+          <!--<Width val="1"/>
+          <Height val="1"/>-->
         </Frame>
 
         <Frame type="MenuBar" name="MenuBar">

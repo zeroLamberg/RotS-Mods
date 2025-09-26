@@ -46,7 +46,7 @@
         </Marker>
         <BehaviorLink value="AllHeroicUnitsTrackingBehavior"/>
         <Effect value="TowerCFHApplyDamageResponseSet"/>
-        <TrackedUnitFilters value="Heroic,Visible;Player,Ally,Neutral,Armored,Dead,Hidden,Invulnerable"/>
+        <TrackedUnitFilters value="Heroic,Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable"/>
     </CEffectEnumTrackedUnits>
     <CEffectSet id="TowerCFHApplyDamageResponseSet">
         <EffectArray value="TowerCFHApplyDamageResponse"/>
@@ -59,7 +59,7 @@
         <ValidatorArray value="TargetNotInvulnerable"/>
         <ValidatorArray value="TargetNotHidden"/>
         <ValidatorArray value="TargetNotDead"/>
-        <ValidatorArray value="TargetIsNotIgnoredByTowers"/>
+        <ValidatorArray value="StormCategoryTargetNotIgnoredByTowerAI"/>
         <EffectArray value="TowerCFHAddToFocusList"/>
     </CEffectSet>
     <CValidatorLocationCompareRange id="TowerCFHWithinRange">
@@ -248,7 +248,7 @@
         <TrackingValidatorArray value="TargetNotInvulnerable"/>
         <TrackingValidatorArray value="TargetNotHidden"/>
         <TrackingValidatorArray value="TargetNotDead"/>
-        <TrackingValidatorArray value="TargetIsNotIgnoredByTowers"/>
+        <TrackingValidatorArray value="StormCategoryTargetNotIgnoredByTowerAI"/>
         <TrackingValidatorArray value="BehaviorStateCasterHasNotSupppressAttack"/>
         <MaxTrackedUnits value="1"/>
     </CBehaviorUnitTracker>

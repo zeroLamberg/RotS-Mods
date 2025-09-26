@@ -41,10 +41,6 @@
         <Field value="Attributes[Summoned]"/>
         <Value value="0"/>
     </CTargetSortField>
-    <CTargetSortField id="TSNoTowerAggro">
-        <Field value="Attributes[Armored]"/>
-        <Value value="1"/>
-    </CTargetSortField>
     <CTargetSortField id="TSNotNoMinionAggro">
         <Field value="Attributes[Psionic]"/>
         <Value value="0"/>

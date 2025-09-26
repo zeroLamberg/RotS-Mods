@@ -389,6 +389,7 @@ struct libCore_gs_HeroData {
     string lv_func_HeroDecrement;
     bool lv_isFlyer;
     bool lv_isPaired;
+    bool lv_isMelee;
     bool lv_usesMount;
     string[libCore_gv_dataHeroesNumberOfPairedHeroesPerHero + 1] lv_portraitPaired;
     string lv_portraitHeroSelectScreenButton;
@@ -778,8 +779,11 @@ color libCore_gf_GetAllianceColorFromGameUIData (string lp_overrideColor, int lp
 fixed libCore_gf_GetWeaponDamageForUnit (unit lp_unit);
 string libCore_gf_GetTimeStamp (fixed lp_time);
 point libCore_gf_AdvancePointinDirection (point lp_point, point lp_dir, fixed lp_distance);
-point libCore_gf_ProjectPointOntoLine (point lp_p1, point lp_p2, point lp_t);
 fixed libCore_gf_GetTotalXPForLevel (int lp_level);
+bool libCore_gf_TestLocationClosertoFactionSide (point lp_location, int lp_faction, fixed lp_modifier);
+fixed libCore_gf_StandalizedAngle (fixed lp_angle);
+fixed libCore_gf_StandalizedAngleDifference (fixed lp_angle1, fixed lp_angle2);
+bool libCore_gf_UnitIsVisibleToPlayerGroup (unit lp_unit, playergroup lp_playerGroup);
 void libCore_gf_WaitForConversationToFinish ();
 bool libCore_gf_StormUnitIsHallucination (unit lp_unit);
 void libCore_gf_StormMapToMapLoad (int lp_map, playergroup lp_victoryPlayers, playergroup lp_defeatPlayers);
@@ -867,6 +871,7 @@ int libCore_gf_UnitInventoryItemPositionInInventoryOfUnit (string lp_inventoryIt
 unit libCore_gf_InventoryItemInInventoryPositionOfUnit (unit lp_unit, int lp_inventoryPosition);
 void libCore_gf_RemoveInventoryItemUnitTypeFromInventoryOfUnitGroup (unitgroup lp_unitGroup, string lp_item);
 bool libCore_gf_LoadoutElementIsNew (datetime lp_elementReleaseDateTime);
+void libCore_gf_OrderSetPlayer (order lp_order, int lp_player);
 void libCore_gf_CreateMinimapPingStorm (playergroup lp_players, string lp_pingData, point lp_position, color lp_color, fixed lp_duration);
 void libCore_gf_CreatePingFacingAngleWithType (playergroup lp_players, string lp_model, point lp_position, color lp_color, fixed lp_duration, fixed lp_angle, int lp_pingingPlayerID);
 void libCore_gf_PlayerApplySkinReplacingExistingUnit (int lp_player, string lp_skin, bool lp_activateDeactivate);

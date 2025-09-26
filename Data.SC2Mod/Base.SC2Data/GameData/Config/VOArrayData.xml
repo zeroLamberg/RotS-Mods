@@ -45,6 +45,7 @@
         <Fields Id="VOPing_OnMyWay" Type="GameLink" GameLinkType="Sound"/>
         <Fields Id="VOPing_Retreat" Type="GameLink" GameLinkType="Sound"/>
         <Fields Id="WorthIt" Type="GameLink" GameLinkType="Sound"/>
+        <Fields Id="AI_OnMyWay" Type="GameLink" GameLinkType="Sound"/>
         <Instances Id="[Default]">
             <GameLink GameLink="HeroID@AI_Attack">
                 <Field Id="AI_Attack"/>

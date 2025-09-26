@@ -6254,6 +6254,7 @@
         <Radius value="0.75"/>
         <InnerRadius value="0.75"/>
         <EditorCategories value="ObjectType:Hero"/>
+        <TacticalAIThink value="libAIAI_gf_AIThinkJohanna"/>
     </CUnit>
     <CUnit id="JohannaShieldGlare@Missile" parent="MISSILE_INVULNERABLE"/>
     <CUnit id="JohannaBlessedHammer@Hammer" parent="StormSummonFigment">

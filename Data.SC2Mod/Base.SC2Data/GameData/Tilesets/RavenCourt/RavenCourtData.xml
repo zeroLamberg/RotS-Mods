@@ -13,7 +13,7 @@
     <CEffectSet id="RavenLordsCurseDummyEffect"/>
     <CEffectEnumArea id="CursedHollowCoreCurse@InitialSearchRandom">
         <ImpactLocation Value="TargetPoint"/>
-        <SearchFilters value="Heroic;Player,Ally,Neutral,Creep,NoTowerAggro,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,Creep,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <TargetSorts RequestCount="1">
             <SortArray value="TSRandom"/>
         </TargetSorts>
@@ -32,7 +32,7 @@
     </CEffectSet>
     <CEffectEnumArea id="CursedHollowCoreCurse@Search">
         <ImpactLocation Value="TargetPoint"/>
-        <SearchFilters value="Heroic;Player,Ally,Neutral,Creep,NoTowerAggro,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,Creep,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2.5" Effect="CursedHollowCoreCurse@SearchImpactSet"/>
     </CEffectEnumArea>
     <CEffectSet id="CursedHollowCoreCurse@SearchImpactSet">
@@ -51,7 +51,7 @@
             <Cooldown Location="Unit" TimeUse="3"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="CursedHollowCoreCurse"/>
-        <TargetFilters value="Heroic;Player,Ally,Neutral,Creep,NoTowerAggro,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Heroic;Player,Ally,Neutral,Creep,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="8"/>
         <Arc value="360"/>
         <AutoCastFilters value="Heroic;Player,Ally,Neutral,Light,Armored,Mechanical,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>

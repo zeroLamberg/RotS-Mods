@@ -220,6 +220,7 @@ struct libMapM_gs_JungleMinimap {
     int lv_pathChaos;
     int lv_pathObserver;
     int lv_creepCampIndex;
+    int lv_laneIndex;
 };
 
 struct libMapM_gs_MapMechanicUsedTracker {

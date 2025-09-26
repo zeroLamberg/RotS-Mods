@@ -567,6 +567,7 @@ void libMapM_gf_JungleMinimapClearIndex (int lp_minimapIndex) {
     libMapM_gv_jungleMinimap[lp_minimapIndex].lv_isUsed = false;
     libMapM_gv_jungleMinimap[lp_minimapIndex].lv_iconGroup = UnitGroupEmpty();
     libMapM_gv_jungleMinimap[lp_minimapIndex].lv_leader = null;
+    libMapM_gv_jungleMinimap[lp_minimapIndex].lv_laneIndex = 0;
     libMapM_gv_jungleMinimap[lp_minimapIndex].lv_creepCampIndex = 0;
     PathDestroy(libMapM_gv_jungleMinimap[lp_minimapIndex].lv_pathOrder);
     PathDestroy(libMapM_gv_jungleMinimap[lp_minimapIndex].lv_pathChaos);
@@ -579,7 +580,7 @@ void libMapM_gf_JungleMinimapClearIndex (int lp_minimapIndex) {
 void libMapM_gf_JungleMinimapEditMercPath (unit lp_mercLeader, bool lp_newPath) {
     // Variable Declarations
     int lv_minimapIndex;
-    int lv_waveIndex;
+    int lv_minionIndex;
     int lv_currentLane;
     int lv_waypoint;
 
@@ -616,10 +617,10 @@ void libMapM_gf_JungleMinimapEditMercPath (unit lp_mercLeader, bool lp_newPath) 
         PathSetVisible(PathLastCreated(), c_pathLocationWorld, false);
         libMapM_gv_jungleMinimap[lv_minimapIndex].lv_pathObserver = PathLastCreated();
     }
-    lv_waveIndex = FixedToInt(UnitGetCustomValue(lp_mercLeader, libGame_gf_CustomValueIndex(libGame_ge_CustomValueIndexes_MinionIndex)));
-    lv_currentLane = libAIAI_gv_minionAIActiveMinions[lv_waveIndex].lv_lane;
-    lv_waypoint = libAIAI_gv_minionAIActiveMinions[lv_waveIndex].lv_nextWaypoint;
-    auto1E74E450_val = libAIAI_gv_minionAIActiveMinions[lv_waveIndex].lv_ownerPlayer;
+    lv_minionIndex = FixedToInt(UnitGetCustomValue(lp_mercLeader, libGame_gf_CustomValueIndex(libGame_ge_CustomValueIndexes_MinionIndex)));
+    lv_currentLane = libAIAI_gv_minionAIActiveMinions[lv_minionIndex].lv_lane;
+    lv_waypoint = libAIAI_gv_minionAIActiveMinions[lv_minionIndex].lv_nextWaypoint;
+    auto1E74E450_val = libAIAI_gv_minionAIActiveMinions[lv_minionIndex].lv_ownerPlayer;
     if (auto1E74E450_val == libCore_gv_cOMPUTER_TeamOrder) {
         PathSetColor(libMapM_gv_jungleMinimap[lv_minimapIndex].lv_pathOrder, c_pathLocationAll, ColorWithAlpha(0.00, 50.20, 100.00, 89.02));
         PathSetColor(libMapM_gv_jungleMinimap[lv_minimapIndex].lv_pathChaos, c_pathLocationAll, ColorWithAlpha(100.00, 24.71, 24.71, 89.02));
@@ -695,6 +696,7 @@ void libMapM_gf_JungleMinimapSetIconForMercMinions (int lp_campIndex, int lp_min
         if ((lv_mercLeaderBool == false)) {
             lv_mercLeaderBool = true;
             libMapM_gv_jungleMinimap[lp_minimapIndex].lv_leader = lv_itMerc;
+            libMapM_gv_jungleMinimap[lp_minimapIndex].lv_laneIndex = libAIAI_gv_minionAIActiveMinions[libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_MinionIndex, lv_itMerc)].lv_lane;
             UnitBehaviorAdd(lv_itMerc, "MinionDeathMonitor", lv_itMerc, 1);
             if (((libMapM_gv_jungleCreepCamps[lp_campIndex].lv_mapDataCampDefenderType == libMapM_ge_JungleCampDefenderTypes_SiegeGiants) || (libMapM_gv_jungleCreepCamps[lp_campIndex].lv_mapDataCampDefenderType == libMapM_ge_JungleCampDefenderTypes_Sappers) || (libMapM_gv_jungleCreepCamps[lp_campIndex].lv_mapDataCampDefenderType == libMapM_ge_JungleCampDefenderTypes_SiegeCamp1) || (libMapM_gv_jungleCreepCamps[lp_campIndex].lv_mapDataCampDefenderType == libMapM_ge_JungleCampDefenderTypes_SiegeCamp2) || (libMapM_gv_jungleCreepCamps[lp_campIndex].lv_mapDataCampDefenderType == libMapM_ge_JungleCampDefenderTypes_SiegeCamp3))) {
                 libNtve_gf_SendActorMessageToUnit(lv_minimapUnit, "MinimapIcon assets\\Textures\\UI_MinimapIcon_Merc_Unit_Easy.dds");

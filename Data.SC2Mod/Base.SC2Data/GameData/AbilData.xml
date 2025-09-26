@@ -2,7 +2,7 @@
 <Catalog>
     <const id="Merc" path="CAbilEffectTarget.TargetFilters" value="Robotic"/>
     <const id="ImmuneToAOE" path="CAbilEffectTarget.TargetFilters" value="Mechanical"/>
-    <const id="NoTowerAggro" path="CAbilEffectTarget.TargetFilters" value="Armored"/>
+    <const id="Tower" path="CAbilEffectTarget.TargetFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CAbilEffectTarget.TargetFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CAbilEffectTarget.TargetFilters" value="Massive"/>
     <const id="Minion" path="CAbilEffectTarget.TargetFilters" value="Biological"/>

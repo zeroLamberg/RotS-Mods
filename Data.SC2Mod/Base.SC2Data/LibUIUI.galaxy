@@ -1,4 +1,5 @@
 include "TriggerLibs/NativeLib"
+include "LibAIAI_h"
 include "LibCore_h"
 include "LibGame_h"
 include "LibSprt_h"
@@ -14,6 +15,7 @@ include "LibUIUI_h"
 // External Library Initialization
 void libUIUI_InitLibraries () {
     libNtve_InitVariables();
+    libAIAI_InitVariables();
     libCore_InitVariables();
     libGame_InitVariables();
     libSprt_InitVariables();
@@ -678,11 +680,15 @@ void libUIUI_InitVariables () {
         libUIUI_gv_hSUILoadoutPlayer[init_i].lv_laneControllerMountMaxLaneCount = 1;
         libUIUI_gv_hSUILoadoutPlayer[init_i].lv_laneControllerAnnouncerMaxLaneCount = 1;
     }
-    for (init_i = 0; init_i <= libCore_gv_bALMaxPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= libCore_gv_bALMaxEnginePlayerCount; init_i += 1) {
         libUIUI_gv_uIHeroStatusFrames[init_i].lv_playerNameLabel = c_invalidDialogControlId;
         libUIUI_gv_uIHeroStatusFrames[init_i].lv_heroNameLabel = c_invalidDialogControlId;
-        libUIUI_gv_uIHeroStatusFrames[init_i].lv_botDifficultyLabel = c_invalidDialogControlId;
-        libUIUI_gv_uIHeroStatusFrames[init_i].lv_botStatusLabel = c_invalidDialogControlId;
+        for (init_i1 = 0; init_i1 <= libUIUI_gv_uI_MaxHeroGroupStatusFrames; init_i1 += 1) {
+            libUIUI_gv_uIHeroStatusFrames[init_i].lv_botDifficultyLabel[init_i1] = c_invalidDialogControlId;
+        }
+        for (init_i1 = 0; init_i1 <= libUIUI_gv_uI_MaxHeroGroupStatusFrames; init_i1 += 1) {
+            libUIUI_gv_uIHeroStatusFrames[init_i].lv_botStatusLabel[init_i1] = c_invalidDialogControlId;
+        }
         libUIUI_gv_uIHeroStatusFrames[init_i].lv_mapMechanicFrame = c_invalidDialogControlId;
         libUIUI_gv_uIHeroStatusFrames[init_i].lv_mapMechanicIcon = c_invalidDialogControlId;
         libUIUI_gv_uIHeroStatusFrames[init_i].lv_mapMechanicCount = c_invalidDialogControlId;
@@ -4102,6 +4108,7 @@ int libUIUI_gf_HSUISelectRandomHeroForPlayer (int lp_player) {
     int lv_int_HeroDummyIndex;
     int lv_playerHeroIndex;
     bool lv_heroAllowed;
+    int[libCore_gv_bALMaxEnginePlayerCount + 1] lv_forcedHeroes;
 
     // Automatic Variable Declarations
     playergroup auto8030E913_g;
@@ -4149,6 +4156,15 @@ int libUIUI_gf_HSUISelectRandomHeroForPlayer (int lp_player) {
 
     }
     lv_playerHeroIndex = lv_allowedHeroesArray[RandomInt(1, lv_int_HeroDummyIndex)];
+    if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "ETC")] == false)) {
+        return libNtve_gf_UserDataInstanceGetIndex("Hero", "ETC");
+    }
+    else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Tyrande")] == false)) {
+        return libNtve_gf_UserDataInstanceGetIndex("Hero", "Tyrande");
+    }
+    else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Johanna")] == false)) {
+        return libNtve_gf_UserDataInstanceGetIndex("Hero", "Johanna");
+    }
     return lv_playerHeroIndex;
 }
 
@@ -7378,6 +7394,53 @@ void libUIUI_gf_UIUnitStatusFramesShowUnitNameLabelForUnit (unit lp_unit) {
     DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
 }
 
+void libUIUI_gf_UIUnitStatusFramesHookupUnitStatusFramesForPlayer (int lp_player) {
+    // Variable Declarations
+    unit lv_hero;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((libGame_gf_PlayerIsHeroPlayer(lp_player) == false)) {
+        return ;
+    }
+
+    lv_hero = libGame_gv_players[lp_player].lv_heroUnit;
+    DialogControlHookupUnitStatus(c_triggerControlTypeLabel, "HeroUnitStatusParentFrame/UnitNameLabel/Label", lv_hero);
+    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_playerNameLabel = DialogControlLastCreated();
+    DialogControlHookupUnitStatus(c_triggerControlTypeLabel, "HeroUnitStatusParentFrame/HeroNameLabel", lv_hero);
+    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UnitTypeGetName(UnitGetType(lv_hero)), PlayerGroupAll());
+    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_heroNameLabel = DialogControlLastCreated();
+    DialogControlHookupUnitStatus(c_triggerControlTypeLabel, "HeroUnitStatusParentFrame/BotDifficultyLabel", lv_hero);
+    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_botDifficultyLabel[1] = DialogControlLastCreated();
+    DialogControlHookupUnitStatus(c_triggerControlTypeLabel, "HeroUnitStatusParentFrame/BotStatusLabel", lv_hero);
+    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_botStatusLabel[1] = DialogControlLastCreated();
+    DialogControlHookupUnitStatus(c_triggerControlTypePanel, "HeroUnitStatusParentFrame/HeroMapMechanic", lv_hero);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_mapMechanicFrame = DialogControlLastCreated();
+    DialogControlHookupUnitStatus(c_triggerControlTypeImage, "HeroUnitStatusParentFrame/HeroMapMechanic/MapMechanicIcon", lv_hero);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_mapMechanicIcon = DialogControlLastCreated();
+    DialogControlHookupUnitStatus(c_triggerControlTypeLabel, "HeroUnitStatusParentFrame/HeroMapMechanic/MapMechanicCount", lv_hero);
+    libUIUI_gv_uIHeroStatusFrames[lp_player].lv_mapMechanicCount = DialogControlLastCreated();
+}
+
+void libUIUI_gf_UIUnitStatusFramesShowHideBotLabel (int lp_player, bool lp_showHide) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_showHide == true)) {
+        DialogControlSetVisible(libUIUI_gv_uIHeroStatusFrames[lp_player].lv_playerNameLabel, PlayerGroupAll(), false);
+        DialogControlSetVisible(libUIUI_gv_uIHeroStatusFrames[lp_player].lv_heroNameLabel, PlayerGroupAll(), true);
+    }
+    else {
+        DialogControlSetVisible(libUIUI_gv_uIHeroStatusFrames[lp_player].lv_heroNameLabel, PlayerGroupAll(), false);
+        DialogControlSetVisible(libUIUI_gv_uIHeroStatusFrames[lp_player].lv_playerNameLabel, PlayerGroupAll(), true);
+    }
+}
+
 void libUIUI_gf_UIHeroTrackerArrowShowHideForPlayer (bool lp_showHide, int lp_player) {
     // Variable Declarations
     unit lv_itHero;
@@ -10234,6 +10297,18 @@ void libUIUI_gf_UIPingPlayerPingsUnit (int lp_pingingPlayer, unit lp_targetUnit,
             libSond_gf_HeroVOPlayHeroLine(libUIUI_gv_pingPingTarget[lv_targetType].lv_heroVOLineEnemyTarget, lp_pingingPlayer, lp_pingPlayerGroup);
             libSond_gf_HeroVOPlayHeroLine(libUIUI_gv_pingPingTarget[lv_targetType].lv_heroVOLineHumanPingingPlayer, lp_pingingPlayer, lp_pingPlayerGroup);
         }
+        if ((libAIAI_gf_HeroAIIsPlayerActive(lp_pingingPlayer, 1) == true)) {
+            if ((libUIUI_gv_pingPingTarget[lv_targetType].lv_heroVOLineHumanPingingPlayer != "[Null]")) {
+                libSond_gf_HeroVOPlayHeroLine(libUIUI_gv_pingPingTarget[lv_targetType].lv_heroVOLineHumanPingingPlayer, lp_pingingPlayer, lp_pingPlayerGroup);
+            }
+
+        }
+        else {
+            if ((libUIUI_gv_pingPingTarget[lv_targetType].lv_heroVOLineAIPingingPlayer != "[Null]")) {
+                libSond_gf_HeroVOPlayHeroLine(libUIUI_gv_pingPingTarget[lv_targetType].lv_heroVOLineAIPingingPlayer, lp_pingingPlayer, lp_pingPlayerGroup);
+            }
+
+        }
     }
 
     if ((lv_targetFound == false) && (UnitTypeTestAttribute(UnitGetType(lp_targetUnit), c_unitAttributeHeroic) == true)) {
@@ -10926,28 +11001,6 @@ void libUIUI_gf_PingResetPingLockoutTimeandPingCount (int lp_player) {
     libNtve_gf_StopTimer(libUIUI_gv_pingLockoutTimer[lp_player]);
 }
 
-void libUIUI_gf_PingAIResponse (int lp_pingingPlayer, unit lp_targetUnit, playergroup lp_pingPlayerGroup) {
-    // Variable Declarations
-    int lv_targetIsAllied;
-    int lv_targetType;
-    int lv_townStructuretypeForUnit;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    lv_targetType = libUIUI_gf_PingDeterminePingTargetType(lp_targetUnit);
-    if ((lv_targetType != 0)) {
-        if ((libUIUI_gv_pingPingTarget[lv_targetType].lv_customPingResponseTrigger != null)) {
-            libUIUI_gv_pingPingCallbackPingingPlayer = lp_pingingPlayer;
-            libUIUI_gv_pingPingCallbackTargetUnit = lp_targetUnit;
-            TriggerExecute(libUIUI_gv_pingPingTarget[lv_targetType].lv_customPingResponseTrigger, true, false);
-        }
-
-    }
-
-}
-
 void libUIUI_gf_PingCreateNewPingTarget (string lp_unitType, bool lp_pingIsForOccupiedVehicle, text lp_pingTargetNameOverride, text lp_alliedTargetMessageText, text lp_enemyTargetMessageText, soundlink lp_alliedTargetPingSound, soundlink lp_enemyTargetPingSound) {
     // Automatic Variable Declarations
     // Implementation
@@ -11029,6 +11082,28 @@ void libUIUI_gf_PingSetCustomResponseTriggerForPingbyUnitType (string lp_pingUni
         }
 
     }
+}
+
+void libUIUI_gf_PingAIResponse (int lp_pingingPlayer, unit lp_targetUnit, playergroup lp_pingPlayerGroup) {
+    // Variable Declarations
+    int lv_targetIsAllied;
+    int lv_targetType;
+    int lv_townStructuretypeForUnit;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_targetType = libUIUI_gf_PingDeterminePingTargetType(lp_targetUnit);
+    if ((lv_targetType != 0)) {
+        if ((libUIUI_gv_pingPingTarget[lv_targetType].lv_customPingResponseTrigger != null)) {
+            libUIUI_gv_pingPingCallbackPingingPlayer = lp_pingingPlayer;
+            libUIUI_gv_pingPingCallbackTargetUnit = lp_targetUnit;
+            TriggerExecute(libUIUI_gv_pingPingTarget[lv_targetType].lv_customPingResponseTrigger, true, false);
+        }
+
+    }
+
 }
 
 void libUIUI_gf_PreloadPanelShowHideHeader (bool lp_showHide) {
@@ -11197,15 +11272,15 @@ void libUIUI_gf_UITalentChoicePanelUpdateTalentButtonsForPlayer (int lp_player) 
     // Implementation
     lv_itTier = 1;
     for ( ; ( (auto8C777F1D_ai >= 0 && lv_itTier <= auto8C777F1D_ae) || (auto8C777F1D_ai < 0 && lv_itTier >= auto8C777F1D_ae) ) ; lv_itTier += auto8C777F1D_ai ) {
-        lv_tierHasChosenTalent = libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_player, lv_itTier);
+        lv_tierHasChosenTalent = libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player);
         if ((lv_itTier <= libGame_gf_TalentChoicesCurrentTalentTierOfPlayer(lp_player))) {
             auto14B49325_ae = libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentCountPerTier[lv_itTier];
             lv_itColumn = 1;
             for ( ; ( (auto14B49325_ai >= 0 && lv_itColumn <= auto14B49325_ae) || (auto14B49325_ai < 0 && lv_itColumn >= auto14B49325_ae) ) ; lv_itColumn += auto14B49325_ai ) {
                 lv_talentIndex = libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentIndex[lv_itTier][lv_itColumn];
                 lv_buttonItem = libUIUI_gv_uITalentChoicePanel.lv_talentButton[lv_itTier][lv_itColumn];
-                if ((libGame_gf_TalentChoicesPlayerHasTalent(lp_player, lv_talentIndex) == true)) {
-                    if ((libGame_gf_TalentChoicesPlayerHasTalentOnTier(lp_player, lv_talentIndex, lv_itTier) == true)) {
+                if ((libGame_gf_TalentChoicesPlayerHasChosenTalent(lp_player, lv_talentIndex) == true)) {
+                    if ((libGame_gf_TalentChoicesPlayerHasChosenTalentOnTier(lp_player, lv_talentIndex, lv_itTier) == true)) {
                         libUIUI_gf_UITalentChoicePanelSetButtonStateForPlayer(lp_player, lv_buttonItem, "Selected");
                     }
                     else {
@@ -11229,7 +11304,7 @@ void libUIUI_gf_UITalentChoicePanelUpdateTalentButtonsForPlayer (int lp_player) 
                         }
                     }
                     else {
-                        if ((libGame_gf_TalentChoicesPlayerHasTalent(lp_player, lv_preresquiteTalentIndex) == true)) {
+                        if ((libGame_gf_TalentChoicesPlayerHasChosenTalent(lp_player, lv_preresquiteTalentIndex) == true)) {
                             if ((lv_tierHasChosenTalent == true)) {
                                 libUIUI_gf_UITalentChoicePanelSetButtonStateForPlayer(lp_player, lv_buttonItem, "Disabled");
                             }
@@ -12530,7 +12605,11 @@ bool libUIUI_gt_InitializeUI_Func (bool testConds, bool runActions) {
     UISetFrameVisible(PlayerGroupAll(), c_syncFrameTypeObjectivePanel, false);
     UIUnitColorStyleOverride(PlayerGroupAll(), c_unitColorStyleOverrideWorld);
     UIStatusBarOverride(PlayerGroupAll(), c_unitStatusGroupAll);
-    UISetFrameVisible(PlayerGroupAll(), c_syncFrameTypeMenuBar, false);
+    UISetBattleNetButtonOffset(PlayerGroupAll(), 280, 0);
+    if ((GameIsOnline() == true)) {
+        UISetFrameVisible(PlayerGroupAll(), c_syncFrameTypeMenuBar, false);
+    }
+
     if ((GameIsOnline() == true)) {
         UISetDragSelectEnabled(PlayerGroupAll(), false);
         UISetSelectionTypeEnabled(PlayerGroupAll(), c_localSelectionTypeUnknown, false);
@@ -14626,7 +14705,6 @@ void libUIUI_gt_UIHeroLeaderboardInitialize_Init () {
 //--------------------------------------------------------------------------------------------------
 bool libUIUI_gt_UIHeroLeaderboardSortingUpdate_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    int lv_itPlayer;
     int lv_itSort;
 
     // Automatic Variable Declarations
@@ -14655,7 +14733,7 @@ bool libUIUI_gt_UIHeroLeaderboardSortingUpdate_Func (bool testConds, bool runAct
 void libUIUI_gt_UIHeroLeaderboardSortingUpdate_Init () {
     libUIUI_gt_UIHeroLeaderboardSortingUpdate = TriggerCreate("libUIUI_gt_UIHeroLeaderboardSortingUpdate_Func");
     TriggerEnable(libUIUI_gt_UIHeroLeaderboardSortingUpdate, false);
-    TriggerAddEventTimePeriodic(libUIUI_gt_UIHeroLeaderboardSortingUpdate, 0.0625, c_timeGame);
+    TriggerAddEventTimePeriodic(libUIUI_gt_UIHeroLeaderboardSortingUpdate, 0.125, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -14988,12 +15066,35 @@ void libUIUI_gt_HSUIIngameFilterEditBox_Init () {
 //--------------------------------------------------------------------------------------------------
 bool libUIUI_gt_HSUIIngameShowHeroSelection_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    playergroup auto749DBAD9_g;
+    int auto749DBAD9_var;
+    playergroup auto1C1D782B_g;
+    int auto1C1D782B_var;
+
     // Actions
     if (!runActions) {
         return true;
     }
 
     libUIUI_gf_HSUIMuteUnmuteSoundChannelsNotUsedForHeroSelection(true);
+    auto749DBAD9_g = PlayerGroupAll();
+    auto749DBAD9_var = -1;
+    while (true) {
+        auto749DBAD9_var = PlayerGroupNextPlayer(auto749DBAD9_g, auto749DBAD9_var);
+        if (auto749DBAD9_var < 0) { break; }
+        libNtve_gf_SwooshCamera(auto749DBAD9_var, (CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance)), 256.0, RegionGetCenter(RegionEntireMap()), 0.0);
+    }
+    UISetWorldVisible(PlayerGroupAll(), true);
+    Wait(1.0, c_timeGame);
+    auto1C1D782B_g = PlayerGroupAll();
+    auto1C1D782B_var = -1;
+    while (true) {
+        auto1C1D782B_var = PlayerGroupNextPlayer(auto1C1D782B_g, auto1C1D782B_var);
+        if (auto1C1D782B_var < 0) { break; }
+        libGame_gf_CameraSetCameraDataForPlayer(auto1C1D782B_var, libGame_ge_CameraType_Default, 0.0);
+    }
+    UISetWorldVisible(PlayerGroupAll(), false);
+
     TriggerExecute(libGame_gt_PreloadingFXStoreModels, true, false);
     libSond_gf_SoundtrackApplyNewDefaultSoundtrackForPlayerGroup("MX_Heroes_Toys18", PlayerGroupAll());
     libGame_gf_SetStormMapLighting("StormLightMiniPortraitBase", PlayerGroupAll(), 0.0);
@@ -15031,6 +15132,7 @@ bool libUIUI_gt_HSUIIngameCountdownTimerExpires_Func (bool testConds, bool runAc
     int lv_itPlayer;
     int lv_crowdSound;
     int lv_itHero;
+    int lv_team;
 
     // Automatic Variable Declarations
     playergroup auto8A7ED393_g;
@@ -15050,17 +15152,21 @@ bool libUIUI_gt_HSUIIngameCountdownTimerExpires_Func (bool testConds, bool runAc
     while (true) {
         lv_itPlayer = PlayerGroupNextPlayer(auto8A7ED393_g, lv_itPlayer);
         if (lv_itPlayer < 0) { break; }
+        lv_team = libGame_gf_TeamNumberOfPlayer(lv_itPlayer);
         if ((libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_lockedIn == true)) {
             libGame_gv_players[lv_itPlayer].lv_heroIndex = libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero;
+            libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero] = true;
         }
         else {
             if ((libUIUI_gf_HSUIGoodToLockInForPlayer(lv_itPlayer) == true)) {
                 libGame_gv_players[lv_itPlayer].lv_heroIndex = libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero;
+                libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero] = true;
                 libUIUI_gf_HSUILockUnlockHeroChoise(lv_itPlayer, true);
             }
             else {
                 libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero = libUIUI_gf_HSUISelectRandomHeroForPlayer(lv_itPlayer);
                 libGame_gv_players[lv_itPlayer].lv_heroIndex = libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero;
+                libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libUIUI_gv_heroSelectionPlayer[lv_itPlayer].lv_selectedHero] = true;
                 libUIUI_gf_HSUILockUnlockHeroChoise(lv_itPlayer, true);
             }
         }
@@ -15070,6 +15176,7 @@ bool libUIUI_gt_HSUIIngameCountdownTimerExpires_Func (bool testConds, bool runAc
     libUIUI_gf_HSUIIngameUpdateTeamPanels();
     libUIUI_gf_HSUICountdownDisableAndHideStuff();
     TriggerExecute(libGame_gt_PreloadingForceHeroPreloadingOriginal, true, true);
+    libAIAI_gf_HeroAIGeneralPreInit();
     TriggerEnable(libUIUI_gt_HSUIIngameButtonUsed, false);
     TriggerEnable(libUIUI_gt_HSUIIngameFilterEditBox, false);
     SoundPlayForPlayer(SoundLink("UI_BNet_Draft_Countdown_Start", -1), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
@@ -16639,7 +16746,7 @@ bool libUIUI_gt_UIPartyFrameHeroRespawn_Func (bool testConds, bool runActions) {
         if (((libUIUI_gv_uIPartyFrame.lv_heroHeroicAbility[lv_rosterSlot] != null) || (libUIUI_gf_UIPartyFrameSpecialCaseHeroHasHeroicatStart(libGame_gv_players[lv_respawnPlayer].lv_heroUnit) == true))) {
             libUIUI_gf_UIPartyFrameShowHideHeroicAbility(true, lv_respawnPlayer);
         }
-        else if ((libGame_gf_TalentChoicesPlayerHasHeroicTalent(lv_respawnPlayer) == true)) {
+        else if ((libGame_gf_TalentChoicesPlayerHasChosenHeroicTalent(lv_respawnPlayer) == true)) {
             libUIUI_gf_UIPartyFrameHeroicAbilityIconUpdate(lv_respawnPlayer);
             libUIUI_gf_UIPartyFrameShowHideHeroicAbility(true, lv_respawnPlayer);
         }
@@ -16902,24 +17009,42 @@ bool libUIUI_gt_InitializeBaseModPingData_Func (bool testConds, bool runActions)
 
     libUIUI_gf_PingCreateNewPingTarget("XelNagaWatchTower", false, StringExternal("Param/Value/lib_UIUI_315C3636"), StringExternal("Param/Value/lib_UIUI_16D6D712"), StringExternal("Param/Value/lib_UIUI_D35EA115"), SoundLink("UI_Game_Ping_General", c_soundIndexAny), SoundLink("UI_Game_Ping_General", c_soundIndexAny));
     libUIUI_gf_PingSetAllyEnemyTargetHeroVOForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), "Ping_DefendWatchTower", "Ping_AttackWatchTower");
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsWatchTower);
     libUIUI_gf_PingCreateNewPingTarget("RegenGlobeGenerator", false, null, StringExternal("Param/Value/lib_UIUI_DD001862"), StringExternal("Param/Value/lib_UIUI_3EC2226D"), SoundLink("UI_Game_Ping_Help", c_soundIndexAny), SoundLink("UI_Game_Ping_Help", c_soundIndexAny));
     libUIUI_gf_PingCreateNewPingTarget("MercDefenderSiegeGiant", false, StringExternal("Param/Value/lib_UIUI_EFE0D805"), StringExternal("Param/Value/lib_UIUI_6B79E4BA"), StringExternal("Param/Value/lib_UIUI_93BA0005"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
     libUIUI_gf_PingSetHumanAISourceHeroVOForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), "Ping_AttackMercCamp", "[Null]");
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsMercCamp);
     libUIUI_gf_PingCreateNewPingTarget("MercLanerSiegeGiant", false, null, StringExternal("Param/Value/lib_UIUI_B00BE4E9"), StringExternal("Param/Value/lib_UIUI_F3FFC017"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsLanerMercs);
+
     libUIUI_gf_PingCreateNewPingTarget("MercDefenderMeleeKnight", false, StringExternal("Param/Value/lib_UIUI_8A789231"), StringExternal("Param/Value/lib_UIUI_CD0A03A2"), StringExternal("Param/Value/lib_UIUI_22399564"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
     libUIUI_gf_PingSetHumanAISourceHeroVOForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), "Ping_AttackMercCamp", "[Null]");
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsMercCamp);
     libUIUI_gf_PingCreateNewPingTarget("MercDefenderRangedMage", false, StringExternal("Param/Value/lib_UIUI_8F63B95A"), StringExternal("Param/Value/lib_UIUI_0AA140DA"), StringExternal("Param/Value/lib_UIUI_F5E9FC79"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
     libUIUI_gf_PingSetHumanAISourceHeroVOForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), "Ping_AttackMercCamp", "[Null]");
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsMercCamp);
     libUIUI_gf_PingCreateNewPingTarget("MercLanerMeleeKnight", false, null, StringExternal("Param/Value/lib_UIUI_2C788E7E"), StringExternal("Param/Value/lib_UIUI_351178F7"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsLanerMercs);
     libUIUI_gf_PingCreateNewPingTarget("MercLanerRangedMage", false, null, StringExternal("Param/Value/lib_UIUI_FCC1EC89"), StringExternal("Param/Value/lib_UIUI_7E74C7BF"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsLanerMercs);
+
     libUIUI_gf_PingCreateNewPingTarget("JungleGraveGolemDefender", false, StringExternal("Param/Value/lib_UIUI_7E840A13"), StringExternal("Param/Value/lib_UIUI_CE770C1E"), StringExternal("Param/Value/lib_UIUI_5AA13BBB"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
     libUIUI_gf_PingSetHumanAISourceHeroVOForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), "Ping_AttackMercCamp", "[Null]");
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsMercCamp);
     libUIUI_gf_PingCreateNewPingTarget("JungleGraveGolemLaner", false, StringExternal("Param/Value/lib_UIUI_5439C8B1"), StringExternal("Param/Value/lib_UIUI_6A5A2608"), StringExternal("Param/Value/lib_UIUI_DCD69DF9"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsLanerBossMinion);
+
     libUIUI_gf_PingCreateNewPingTarget("MercGoblinSapperDefender", false, StringExternal("Param/Value/lib_UIUI_EE7EF4E3"), StringExternal("Param/Value/lib_UIUI_2FD6E163"), StringExternal("Param/Value/lib_UIUI_0FE57DC1"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
     libUIUI_gf_PingSetHumanAISourceHeroVOForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), "Ping_AttackMercCamp", "[Null]");
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsMercCamp);
     libUIUI_gf_PingCreateNewPingTarget("MercGoblinSapperLaner", false, StringExternal("Param/Value/lib_UIUI_E6255FC7"), StringExternal("Param/Value/lib_UIUI_DC61720F"), StringExternal("Param/Value/lib_UIUI_EECCC1C3"), SoundLink("UI_Game_Ping_Attack", -1), SoundLink("UI_Game_Ping_Attack", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsLanerMercs);
+
     libUIUI_gf_PingCreateNewPingTarget("RavenLordTribute", false, null, StringExternal("Param/Value/lib_UIUI_9032471B"), StringExternal("Param/Value/lib_UIUI_B9154009"), SoundLink("UI_Game_Ping_General", -1), SoundLink("UI_Game_Ping_General", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsTribute);
     libUIUI_gf_PingCreateNewPingTarget("RavenLordTributeWarning", false, null, StringExternal("Param/Value/lib_UIUI_A22086C0"), StringExternal("Param/Value/lib_UIUI_F7D34CA1"), SoundLink("UI_Game_Ping_General", -1), SoundLink("UI_Game_Ping_General", -1));
+    libUIUI_gf_PingSetCustomResponseTriggerForPingTarget(libUIUI_gf_PingLastCreatedPingTarget(), libUIUI_gt_PingCallbackPlayerPingsTribute);
+
     return true;
 }
 
@@ -17024,6 +17149,120 @@ void libUIUI_gt_PingOnMyWayPathDisplayTimerExpires_Init () {
     TriggerAddEventTimer(libUIUI_gt_PingOnMyWayPathDisplayTimerExpires, libUIUI_gv_uIOnMyWayPingPathDisplayTimer[13]);
     TriggerAddEventTimer(libUIUI_gt_PingOnMyWayPathDisplayTimerExpires, libUIUI_gv_uIOnMyWayPingPathDisplayTimer[14]);
     TriggerAddEventTimer(libUIUI_gt_PingOnMyWayPathDisplayTimerExpires, libUIUI_gv_uIOnMyWayPingPathDisplayTimer[15]);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ping Callback Player Pings Merc Camp
+//--------------------------------------------------------------------------------------------------
+bool libUIUI_gt_PingCallbackPlayerPingsMercCamp_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAIAI_gf_HeroAIMinionCampPinged(libUIUI_gv_pingPingCallbackPingingPlayer, libUIUI_gv_pingPingCallbackTargetUnit);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libUIUI_gt_PingCallbackPlayerPingsMercCamp_Init () {
+    libUIUI_gt_PingCallbackPlayerPingsMercCamp = TriggerCreate("libUIUI_gt_PingCallbackPlayerPingsMercCamp_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ping Callback Player Pings Laner Mercs
+//--------------------------------------------------------------------------------------------------
+bool libUIUI_gt_PingCallbackPlayerPingsLanerMercs_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAIAI_gf_HeroAIPlayerPingsLanerMerc(libUIUI_gv_pingPingCallbackPingingPlayer, libUIUI_gv_pingPingCallbackTargetUnit, false, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libUIUI_gt_PingCallbackPlayerPingsLanerMercs_Init () {
+    libUIUI_gt_PingCallbackPlayerPingsLanerMercs = TriggerCreate("libUIUI_gt_PingCallbackPlayerPingsLanerMercs_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ping Callback Player Pings Laner Boss Minion
+//--------------------------------------------------------------------------------------------------
+bool libUIUI_gt_PingCallbackPlayerPingsLanerBossMinion_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAIAI_gf_HeroAIPlayerPingsLanerMerc(libUIUI_gv_pingPingCallbackPingingPlayer, libUIUI_gv_pingPingCallbackTargetUnit, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libUIUI_gt_PingCallbackPlayerPingsLanerBossMinion_Init () {
+    libUIUI_gt_PingCallbackPlayerPingsLanerBossMinion = TriggerCreate("libUIUI_gt_PingCallbackPlayerPingsLanerBossMinion_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ping Callback Player Pings Laner Boss Controlled
+//--------------------------------------------------------------------------------------------------
+bool libUIUI_gt_PingCallbackPlayerPingsLanerBossControlled_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAIAI_gf_HeroAIPlayerPingsLanerMerc(libUIUI_gv_pingPingCallbackPingingPlayer, libUIUI_gv_pingPingCallbackTargetUnit, true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libUIUI_gt_PingCallbackPlayerPingsLanerBossControlled_Init () {
+    libUIUI_gt_PingCallbackPlayerPingsLanerBossControlled = TriggerCreate("libUIUI_gt_PingCallbackPlayerPingsLanerBossControlled_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ping Callback Player Pings Watch Tower
+//--------------------------------------------------------------------------------------------------
+bool libUIUI_gt_PingCallbackPlayerPingsWatchTower_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAIAI_gf_HeroAIWatchTowerPinged(libUIUI_gv_pingPingCallbackPingingPlayer, libUIUI_gv_pingPingCallbackTargetUnit);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libUIUI_gt_PingCallbackPlayerPingsWatchTower_Init () {
+    libUIUI_gt_PingCallbackPlayerPingsWatchTower = TriggerCreate("libUIUI_gt_PingCallbackPlayerPingsWatchTower_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ping Callback Player Pings Tribute
+//--------------------------------------------------------------------------------------------------
+bool libUIUI_gt_PingCallbackPlayerPingsTribute_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libAIAI_gf_HeroAITearOfElunePinged(libUIUI_gv_pingPingCallbackPingingPlayer);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libUIUI_gt_PingCallbackPlayerPingsTribute_Init () {
+    libUIUI_gt_PingCallbackPlayerPingsTribute = TriggerCreate("libUIUI_gt_PingCallbackPlayerPingsTribute_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -17351,19 +17590,19 @@ void libUIUI_gt_UITargetInfoPanelInitialize_Init () {
 //--------------------------------------------------------------------------------------------------
 bool libUIUI_gt_UITargetInfoPanelUnitClicked_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    int lv_localPlayer;
+    int lv_trigPlayer;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_localPlayer = EventPlayer();
+    lv_trigPlayer = EventPlayer();
 
     // Conditions
     if (testConds) {
-        if (!((libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_suppressSpam == false))) {
+        if (!((libGame_gf_PlayerIsHeroPlayer(lv_trigPlayer) == true))) {
             return false;
         }
 
-        if (!((libGame_gf_PlayerIsHeroPlayer(lv_localPlayer) == true))) {
+        if (!((libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_suppressSpam == false))) {
             return false;
         }
     }
@@ -17373,23 +17612,23 @@ bool libUIUI_gt_UITargetInfoPanelUnitClicked_Func (bool testConds, bool runActio
         return true;
     }
 
-    libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_suppressSpam = true;
-    libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit = EventUnit();
+    libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_suppressSpam = true;
+    libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit = EventUnit();
     if (((CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(EventUnit()), "FogVisibility", c_playerAny) == "Visible") || (CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(EventUnit()), "FogVisibility", c_playerAny) == "Dimmed"))) {
-        libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unitIsVisibleInFoW = true;
+        libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unitIsVisibleInFoW = true;
     }
     else {
-        libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unitIsVisibleInFoW = false;
+        libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unitIsVisibleInFoW = false;
     }
-    if ((UnitIsValid(libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit) == true) && (libCore_gf_ExecuteValidatorOnUnit("TargetNotDeadAndNoSpecialDeathState", libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit, libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit) == true) && ((libNtve_gf_UnitIsVisibleToPlayer(libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit, lv_localPlayer) == true) || (libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unitIsVisibleInFoW == true))) {
+    if ((UnitIsValid(libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit) == true) && (libCore_gf_ExecuteValidatorOnUnit("TargetNotDeadAndNoSpecialDeathState", libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit, libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit) == true) && ((libNtve_gf_UnitIsVisibleToPlayer(libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit, lv_trigPlayer) == true) || (libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unitIsVisibleInFoW == true))) {
         libUIUI_gv_uITargetInfoPanelPlayer[EventPlayer()].lv_lastTimeClicked = GameGetMissionTime();
-        libNtve_gf_SetDialogItemUnit(libUIUI_gv_uITargetInfoPanel.lv_unitStatusFrame, libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit, libCore_gv_playerGroupFromPlayer[lv_localPlayer]);
-        libNtve_gf_SetDialogItemImage(libUIUI_gv_uITargetInfoPanel.lv_portraitImageHandler, libUIUI_gf_UITargetInfoPanelGetUnitIcon(libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_unit), libCore_gv_playerGroupFromPlayer[lv_localPlayer]);
-        DialogControlSetVisible(libUIUI_gv_uITargetInfoPanel.lv_mainPanel, libCore_gv_playerGroupFromPlayer[lv_localPlayer], true);
+        libNtve_gf_SetDialogItemUnit(libUIUI_gv_uITargetInfoPanel.lv_unitStatusFrame, libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit, libCore_gv_playerGroupFromPlayer[lv_trigPlayer]);
+        libNtve_gf_SetDialogItemImage(libUIUI_gv_uITargetInfoPanel.lv_portraitImageHandler, libUIUI_gf_UITargetInfoPanelGetUnitIcon(libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_unit), libCore_gv_playerGroupFromPlayer[lv_trigPlayer]);
+        DialogControlSetVisible(libUIUI_gv_uITargetInfoPanel.lv_mainPanel, libCore_gv_playerGroupFromPlayer[lv_trigPlayer], true);
     }
 
     Wait(0.0, c_timeGame);
-    libUIUI_gv_uITargetInfoPanelPlayer[lv_localPlayer].lv_suppressSpam = false;
+    libUIUI_gv_uITargetInfoPanelPlayer[lv_trigPlayer].lv_suppressSpam = false;
     return true;
 }
 
@@ -17594,6 +17833,12 @@ void libUIUI_InitTriggers () {
     libUIUI_gt_InitializeBaseModPingData_Init();
     libUIUI_gt_PingCountResetTimerExpires_Init();
     libUIUI_gt_PingOnMyWayPathDisplayTimerExpires_Init();
+    libUIUI_gt_PingCallbackPlayerPingsMercCamp_Init();
+    libUIUI_gt_PingCallbackPlayerPingsLanerMercs_Init();
+    libUIUI_gt_PingCallbackPlayerPingsLanerBossMinion_Init();
+    libUIUI_gt_PingCallbackPlayerPingsLanerBossControlled_Init();
+    libUIUI_gt_PingCallbackPlayerPingsWatchTower_Init();
+    libUIUI_gt_PingCallbackPlayerPingsTribute_Init();
     libUIUI_gt_PreloadPanelInitialization_Init();
     libUIUI_gt_UIInitializeTabScreenPanel_Init();
     libUIUI_gt_UIInitializeTalentChoicePanel_Init();
@@ -17622,6 +17867,7 @@ void libUIUI_InitLib () {
     libUIUI_InitTriggers();
 }
 
+include "LibAIAI"
 include "LibCore"
 include "LibGame"
 include "LibSprt"

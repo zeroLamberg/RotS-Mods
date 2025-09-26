@@ -1,4 +1,5 @@
 include "TriggerLibs/NativeLib"
+include "LibAIAI_h"
 include "LibCore_h"
 include "LibGame_h"
 
@@ -10,6 +11,7 @@ include "LibSond_h"
 // External Library Initialization
 void libSond_InitLibraries () {
     libNtve_InitVariables();
+    libAIAI_InitVariables();
     libCore_InitVariables();
     libGame_InitVariables();
 }
@@ -1491,7 +1493,7 @@ bool libSond_gt_HeroVOHeroGoHeal_Func (bool testConds, bool runActions) {
         lv_player = PlayerGroupNextPlayer(auto5DAD622D_g, lv_player);
         if (lv_player < 0) { break; }
         lv_heroUnit = libGame_gv_players[lv_player].lv_heroUnit;
-        if ((UnitIsAlive(lv_heroUnit) == true) && (UnitHasBehavior2(lv_heroUnit, "Dead") == false) && (libSond_gv_heroVO_HeroGoHealCalls[lv_player] <= 2) && (libGame_gv_encouragement_DeathTipData[lv_player].lv_inCombat == false) && (UnitHasBehavior2(lv_heroUnit, "HeroGenericFountainDrink@HealingFountainCooldown") == false) && (UnitHasBehavior2(lv_heroUnit, "HallOfStormsProtectionBuff") == false) && (TimerGetElapsed(libGame_gv_gameTimer) > (libSond_gv_heroVO_HeroGoHealLastTimePlayed[lv_player] + libSond_gv_heroVO_HeroGoHealCooldownTime_C)) && (UnitGetPropertyFixed(lv_heroUnit, c_unitPropLifeExpectedPercent, c_unitPropCurrent) <= libSond_gv_heroVO_HeroGoHealHPPercentThreshold_C)) {
+        if ((UnitIsAlive(lv_heroUnit) == true) && (UnitHasBehavior2(lv_heroUnit, "Dead") == false) && (libAIAI_gf_HeroAIIsAIEnabledForPlayer(lv_player) == false) && (libSond_gv_heroVO_HeroGoHealCalls[lv_player] <= 2) && (libGame_gv_encouragement_DeathTipData[lv_player].lv_inCombat == false) && (UnitHasBehavior2(lv_heroUnit, "HeroGenericFountainDrink@HealingFountainCooldown") == false) && (UnitHasBehavior2(lv_heroUnit, "HallOfStormsProtectionBuff") == false) && (TimerGetElapsed(libGame_gv_gameTimer) > (libSond_gv_heroVO_HeroGoHealLastTimePlayed[lv_player] + libSond_gv_heroVO_HeroGoHealCooldownTime_C)) && (UnitGetPropertyFixed(lv_heroUnit, c_unitPropLifeExpectedPercent, c_unitPropCurrent) <= libSond_gv_heroVO_HeroGoHealHPPercentThreshold_C)) {
             lv_nearbyAllyHeroes = UnitGroupAlliance(lv_player, c_unitAllianceAllyExcludeSelf, RegionCircle(UnitGetPosition(lv_heroUnit), 15.0), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             auto90A4880A_g = lv_nearbyAllyHeroes;
             auto90A4880A_u = UnitGroupCount(auto90A4880A_g, c_unitCountAll);
@@ -1577,6 +1579,7 @@ void libSond_InitLib () {
     libSond_InitTriggers();
 }
 
+include "LibAIAI"
 include "LibCore"
 include "LibGame"
 

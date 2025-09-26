@@ -1230,7 +1230,6 @@
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.5625"/>
         <BehaviorArray Link="WizardMinionScaling"/>
-        <BehaviorArray Link="MinionSprint"/>
     </CUnit>
     <CUnit id="WizardMinionMissile" parent="MISSILE_INVULNERABLE">
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
@@ -1246,7 +1245,7 @@
         <Radius value="0.6875"/>
         <BehaviorArray Link="MeleeMinionScaling"/>
         <BehaviorArray Link="ExperienceGlobeSpawn"/>
-        <BehaviorArray Link="MinionSprint"/>
+        <DeathTime value="0"/>
     </CUnit>
     <CUnit id="CatapultMinion" parent="StormMinionWalkable">
         <LifeStart value="550"/>
@@ -1257,7 +1256,6 @@
         <TurningRate value="149.9414"/>
         <Sight value="13"/>
         <BehaviorArray Link="CatapultMinionScaling"/>
-        <BehaviorArray Link="MinionSprint"/>
         <WeaponArray Link="CatapultMinion"/>
         <Radius value="1.125"/>
         <SeparationRadius value="0.375"/>
@@ -1600,6 +1598,7 @@
         <FlagArray index="TargetableWhileDead" value="1"/>
         <FlagArray index="TownStructureTownHall" value="1"/>
         <Response value="AcquireNoFlee"/>
+        <Attributes index="Tower" value="1"/>
         <Attributes index="NoMinionAggro" value="0"/>
         <LifeStart value="20050"/>
         <LifeMax value="20050"/>
@@ -1762,6 +1761,7 @@
         <FlagArray index="TargetableWhileDead" value="1"/>
         <FlagArray index="TownStructureTownHall" value="1"/>
         <Response value="AcquireNoFlee"/>
+        <Attributes index="Tower" value="1"/>
         <Attributes index="NoMinionAggro" value="0"/>
         <LifeStart value="15450"/>
         <LifeMax value="15450"/>
@@ -1961,7 +1961,6 @@
         <InnerRadius value="0.5"/>
         <BehaviorArray Link="RangedMinionScaling"/>
         <BehaviorArray Link="ExperienceGlobeSpawn"/>
-        <BehaviorArray Link="MinionSprint"/>
     </CUnit>
     <CUnit id="FlagBearerMinionMissile" parent="MISSILE_INVULNERABLE">
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
@@ -2873,6 +2872,7 @@
         <Radius value="1"/>
         <SeparationRadius value="0.9"/>
         <InnerRadius value="0.5"/>
+        <DeathTime value="0"/>
     </CUnit>
     <CUnit id="MercDefenderRangedMage" parent="StormMercDefenderParent">
         <LifeStart value="1500"/>
@@ -3163,6 +3163,7 @@
         <LeaderAlias value="MercDefenderMeleeKnight"/>
         <AcquireLeashRadius value="1"/>
         <AcquireLeashResetRadius value="1"/>
+        <DeathTime value="0"/>
     </CUnit>
     <CUnit id="UnderworldSummonedBossSiegeAttackMissile" parent="MISSILE_INVULNERABLE">
         <Mover value="MercLanerSiegeGiantGuidanceMissile"/>
