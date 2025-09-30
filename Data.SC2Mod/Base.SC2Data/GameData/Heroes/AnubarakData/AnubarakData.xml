@@ -7048,6 +7048,7 @@
         <Radius value="1.0625"/>
         <InnerRadius value="0.875"/>
         <EditorCategories value="ObjectType:Hero"/>
+        <TacticalAIThink value="libAIAI_gf_AIThinkAnubarak"/>
     </CUnit>
     <CUnit id="AnubarakBeetle" parent="StormSummonActive">
         <Response value="Acquire"/>

@@ -4366,6 +4366,204 @@ void libAIAI_gf_HeroAICleanupAllAIData () {
     }
 }
 
+bool libAIAI_gf_AnubarakImpale (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    order lv_attackOrd;
+    fixed lv_energy;
+    fixed lv_healthReq;
+    unit lv_targetEnemy;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakImpale", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_attackOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "attack", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_attackOrd) == false)) {
+        return false;
+    }
+
+    if ((lv_energy > libAIAI_gv_aIHeroHighEnergyPercent)) {
+        lv_healthReq = 100.0;
+    }
+    else {
+        lv_healthReq = 50.0;
+    }
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 0.0, 8.0, lv_healthReq, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == false)) {
+        if ((lv_energy < libAIAI_gv_aIHeroHighEnergyPercent)) {
+            return false;
+        }
+
+        lv_targetEnemy = libAIAI_gf_FindClosestWeakMinion(lp_scanGroup, lp_aIUnit, 0.0, 8.0, 100.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+        if ((UnitIsValid(lv_targetEnemy) == false)) {
+            return false;
+        }
+
+        if ((libAIAI_gf_CountEnemiesInArea(lp_player, lp_scanGroup, UnitGetPosition(lv_targetEnemy), 3.0, 2, 1) < 3)) {
+            return false;
+        }
+
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueReplace, lv_targetEnemy, null);
+}
+
+bool libAIAI_gf_AnubarakBurrowCharge (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    order lv_attackOrd;
+    unit lv_targetEnemy;
+    point lv_retreatPos;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakBurrowCharge", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    if ((libAIAI_gf_HaveBeenAttackedRecently(lp_aIUnit) == true) && (UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroes[lp_player].lv_returnToSpawnHealth)) {
+        lv_retreatPos = libAIAI_gf_HeroAIGetRetreatPosition(lp_player, 8.0, null);
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueReplace, null, lv_retreatPos);
+    }
+
+    if ((libAIAI_gf_CheckIfTooLowHealthOrNearbyTower(lp_aIUnit, lp_scanGroup, 75.0) == true)) {
+        return false;
+    }
+
+    lv_attackOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "attack", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_attackOrd) == false)) {
+        return false;
+    }
+
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 4.0, 8.0, 35.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == false)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueReplace, lv_targetEnemy, null);
+}
+
+bool libAIAI_gf_AnubarakHardenCarapace (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    fixed lv_energy;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakHardenCarapace", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    if (((lv_energy < libAIAI_gv_aIHeroLowEnergyPercent) || (libAIAI_gf_CountEnemiesInArea(lp_player, lp_scanGroup, UnitGetPosition(lp_aIUnit), 8.0, 3, 1) < 2))) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+}
+
+bool libAIAI_gf_AnubarakCarrionSwarm (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakImpale", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    if ((libAIAI_gf_CountEnemiesInArea(lp_player, lp_scanGroup, UnitGetPosition(lp_aIUnit), 5.5, 3, 1) < 8)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+}
+
+bool libAIAI_gf_AnubarakCocoon (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    order lv_attackOrd;
+    unit lv_targetHero;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakImpale", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_attackOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "attack", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_attackOrd) == false)) {
+        return false;
+    }
+
+    lv_targetHero = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 1.0, 8.0, 50.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetHero) == false)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueReplace, lv_targetHero, null);
+}
+
+void libAIAI_gf_AIThinkAnubarak (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libAIAI_gf_HeroSkipTactical(lp_player, lp_aIUnit) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_UseDefensiveItem(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroSkipOffensiveTactical(lp_player, lp_aIUnit) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AnubarakBurrowCharge(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AnubarakImpale(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AnubarakHardenCarapace(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_AnubarakCarrionSwarm(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_UseOffensiveItem(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_RevealCloakedEnemies(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+}
+
 bool libAIAI_gf_ArtanisPhasePrism (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     int lv_enemiesInArea;
