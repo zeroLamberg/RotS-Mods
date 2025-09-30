@@ -2356,6 +2356,14 @@ bool libAIAI_gf_HeroIssueOrder (int lp_player, unit lp_aIUnit, order lp_spellOrd
     return true;
 }
 
+void libAIAI_gf_HeroIssueOrder2 (int lp_player, unit lp_aIUnit, order lp_spellOrd, order lp_attackOrd, int lp_addToFront, unit lp_targetUnit, point lp_pos) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lp_spellOrd, lp_attackOrd, lp_addToFront, lp_targetUnit, lp_pos) == true)) {
+    }
+
+}
+
 point libAIAI_gf_MovePoint (point lp_point, fixed lp_distance, fixed lp_angle) {
     // Automatic Variable Declarations
     // Implementation
@@ -4475,7 +4483,7 @@ bool libAIAI_gf_AnubarakHardenCarapace (int lp_player, unit lp_aIUnit, unitgroup
     return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
 }
 
-bool libAIAI_gf_AnubarakCarrionSwarm (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+bool libAIAI_gf_AnubarakLocustSwarm (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     order lv_spellOrd;
 
@@ -4483,7 +4491,7 @@ bool libAIAI_gf_AnubarakCarrionSwarm (int lp_player, unit lp_aIUnit, unitgroup l
     // Variable Initialization
 
     // Implementation
-    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakImpale", 0);
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakLocustSwarm", 0);
     if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
         return false;
     }
@@ -4505,7 +4513,7 @@ bool libAIAI_gf_AnubarakCocoon (int lp_player, unit lp_aIUnit, unitgroup lp_scan
     // Variable Initialization
 
     // Implementation
-    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakImpale", 0);
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AnubarakCocoon", 0);
     if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
         return false;
     }
@@ -4550,7 +4558,7 @@ void libAIAI_gf_AIThinkAnubarak (int lp_player, unit lp_aIUnit, unitgroup lp_sca
         return ;
     }
 
-    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_AnubarakCarrionSwarm(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_AnubarakLocustSwarm(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
         return ;
     }
 
@@ -4852,6 +4860,259 @@ void libAIAI_gf_AIThinkArtanis (int lp_player, unit lp_aIUnit, unitgroup lp_scan
     }
 
     if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_ArtanisSuppressionPulse(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_UseOffensiveItem(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_RevealCloakedEnemies(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+}
+
+bool libAIAI_gf_AzmodanGlobeOfAnnihilation (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    unitgroup lv_nearbyEnemies;
+    point lv_center;
+    fixed lv_energy;
+    unit lv_targetEnemy;
+    int lv_minEnemyEval;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_nearbyEnemies = UnitGroupEmpty();
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+
+    // Implementation
+    if (((UnitHasBehavior2(lp_aIUnit, "AzmodanAllShallBurn@Channel") == true) || (UnitHasBehavior2(lp_aIUnit, "AzmodanAllShallBurn@ChanneledCoolup") == true))) {
+        return false;
+    }
+
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AzmodanGlobeOfAnnihilation", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 1.0, 8.0, 50.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == true)) {
+        if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_AzmodanTideOfSin(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+            return false;
+        }
+
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, UnitGetPosition(lv_targetEnemy));
+    }
+
+    if ((lv_energy > libAIAI_gv_aIHeroHighEnergyPercent)) {
+        lv_minEnemyEval = 3;
+    }
+    else if ((lv_energy > libAIAI_gv_aIHeroLowEnergyPercent)) {
+        lv_minEnemyEval = 5;
+    }
+    else if (true) {
+        lv_minEnemyEval = 7;
+    }
+    lv_nearbyEnemies = libAIAI_gf_EnemyUnitsInArea(lp_scanGroup, UnitGetPosition(lp_aIUnit), 15.0);
+    lv_center = UnitGroupCenterOfGroup(lv_nearbyEnemies);
+    if ((libAIAI_gf_CountEnemiesInArea(lp_player, lv_nearbyEnemies, lv_center, 4.0, 3, 1) < lv_minEnemyEval)) {
+        return false;
+    }
+
+    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_AzmodanTideOfSin(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, lv_center);
+}
+
+bool libAIAI_gf_AzmodanSummonDemonWarrior (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    unitgroup lv_nearbyEnemies;
+    point lv_center;
+    fixed lv_energy;
+    unit lv_targetEnemy;
+    int lv_minEnemyEval;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_nearbyEnemies = UnitGroupEmpty();
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AzmodanSummonDemonWarrior", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 0.0, 5.0, 40.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == true)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, UnitGetPosition(lv_targetEnemy));
+    }
+
+    if ((lv_energy > libAIAI_gv_aIHeroHighEnergyPercent)) {
+        lv_minEnemyEval = 2;
+    }
+    else if ((lv_energy > libAIAI_gv_aIHeroLowEnergyPercent)) {
+        lv_minEnemyEval = 3;
+    }
+    else if (true) {
+        lv_minEnemyEval = 5;
+    }
+    lv_nearbyEnemies = libAIAI_gf_EnemyUnitsInArea(lp_scanGroup, UnitGetPosition(lp_aIUnit), 7.0);
+    lv_center = UnitGroupCenterOfGroup(lv_nearbyEnemies);
+    if ((libAIAI_gf_CountEnemiesInArea(lp_player, lv_nearbyEnemies, lv_center, 4.0, 3, 1) < lv_minEnemyEval)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, lv_center);
+}
+
+bool libAIAI_gf_AzmodanGeneralOfHell (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    unitgroup lv_nearbyAllies;
+    unit lv_targetAlly;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_nearbyAllies = UnitGroupEmpty();
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AzmodanSummonDemonLieutenant", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_nearbyAllies = libAIAI_gf_AllyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), 7.0);
+    lv_targetAlly = libAIAI_gf_FindClosestWeakMinion(lv_nearbyAllies, lp_aIUnit, 0.0, 5.0, 100.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetAlly) == false)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetAlly, null);
+}
+
+bool libAIAI_gf_AzmodanAllShallBurn (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    unit lv_targetEnemy;
+    fixed lv_energy;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AzmodanAllShallBurn", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 0.0, 10.0, 40.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == true)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, null);
+    }
+
+    if ((lv_energy < libAIAI_gv_aIHeroLowEnergyPercent)) {
+        return false;
+    }
+
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakTower(lp_scanGroup, lp_aIUnit, 0.0, 8.0, 100.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == true)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, null);
+    }
+
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakMinion(lp_scanGroup, lp_aIUnit, 0.0, 10.0, 100.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    if ((UnitIsValid(lv_targetEnemy) == false)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, null);
+}
+
+bool libAIAI_gf_AzmodanTideOfSin (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    unitgroup lv_nearbyAllies;
+    int lv_allyCount;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_nearbyAllies = UnitGroupEmpty();
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AzmodanTideOfSin", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+}
+
+bool libAIAI_gf_AzmodanDemonicInvasion (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    point lv_center;
+    unitgroup lv_nearbyEnemies;
+    unitgroup lv_nearbyEnemyHeroes;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_nearbyEnemies = UnitGroupEmpty();
+    lv_nearbyEnemyHeroes = UnitGroupEmpty();
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "AzmodanDemonicInvasion", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_nearbyEnemies = libAIAI_gf_EnemyUnitsInArea(lp_scanGroup, UnitGetPosition(lp_aIUnit), 10.0);
+    lv_nearbyEnemyHeroes = libAIAI_gf_UnitGroupFilterHeroes(lv_nearbyEnemies);
+    if (((libAIAI_gf_CountAlliesInArea(lp_player, UnitGetPosition(lp_aIUnit), 10.0, 1, 0) < 2) || (UnitGroupCount(lv_nearbyEnemyHeroes, c_unitCountAll) < 2))) {
+        return false;
+    }
+
+    lv_center = AIBestTargetPoint(lv_nearbyEnemyHeroes, 1, 1, 1.0, 5.5, UnitGetPosition(lp_aIUnit), 20.0, c_unitAttributeNone);
+    if ((lv_center == null)) {
+        return false;
+    }
+
+    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, lv_center);
+}
+
+void libAIAI_gf_AIThinkAzmodan (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libAIAI_gf_UseDefensiveItem(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroSkipOffensiveTactical(lp_player, lp_aIUnit) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AzmodanGlobeOfAnnihilation(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AzmodanSummonDemonWarrior(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AzmodanGeneralOfHell(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_AzmodanAllShallBurn(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_AzmodanDemonicInvasion(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
         return ;
     }
 

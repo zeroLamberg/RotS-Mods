@@ -5676,6 +5676,7 @@
         <InnerRadius value="0.9375"/>
         <EditorCategories value="ObjectType:Hero"/>
         <AIEvalFactor value="1.1"/>
+        <TacticalAIThink value="libAIAI_gf_AIThinkAzmodan"/>
     </CUnit>
     <CUnit id="AzmodanTrample@Item" parent="ITEM"/>
     <CUnit id="AzmodanWeapon@AttackMissile" parent="MISSILE_INVULNERABLE">
