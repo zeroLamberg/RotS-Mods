@@ -4905,6 +4905,7 @@
         <BehaviorArray Link="HeroArtanisShieldOverload@HealthTrackingDummy"/>
         <BehaviorArray Link="HeroArtanisShieldOverload@Monitor"/>
         <EditorCategories value="ObjectType:Hero"/>
+        <TacticalAIThink value="libAIAI_gf_AIThinkArtanis"/>
     </CUnit>
     <CUnit id="HeroArtanisPhasePrism@Missile" parent="MISSILE_INVULNERABLE"/>
     <CBehaviorBuff id="HeroArtanisBladesOfATemplar@AttackSpeedBuff" parent="StormCarryBehaviorParent">

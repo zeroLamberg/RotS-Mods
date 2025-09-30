@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="ImmuneToAOE" path="CUnit.Attributes.index" value="Mechanical"/>
     <const id="Merc" path="CUnit.Attributes.index" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CUnit.Attributes.index" value="Mechanical"/>
     <const id="Tower" path="CUnit.Attributes.index" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CUnit.Attributes.index" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CUnit.Attributes.index" value="Massive"/>
     <const id="Minion" path="CUnit.Attributes.index" value="Biological"/>
     <const id="MapCreature" path="CUnit.Attributes.index" value="User1"/>
-    <const id="Creep" path="CUnit.Attributes.index" value="Light"/>
     <const id="NoMinionAggro" path="CUnit.Attributes.index" value="Psionic"/>
+    <const id="Creep" path="CUnit.Attributes.index" value="Light"/>
     <CUnit default="1">
         <Description value="Unit/Description/##id##"/>
         <TauntDoesntStopUnit index="Cheer" value="1"/>
@@ -1245,7 +1245,7 @@
         <Radius value="0.6875"/>
         <BehaviorArray Link="MeleeMinionScaling"/>
         <BehaviorArray Link="ExperienceGlobeSpawn"/>
-        <DeathTime value="0"/>
+        <DeathTime value="1"/>
     </CUnit>
     <CUnit id="CatapultMinion" parent="StormMinionWalkable">
         <LifeStart value="550"/>
@@ -2872,7 +2872,7 @@
         <Radius value="1"/>
         <SeparationRadius value="0.9"/>
         <InnerRadius value="0.5"/>
-        <DeathTime value="0"/>
+        <DeathTime value="1"/>
     </CUnit>
     <CUnit id="MercDefenderRangedMage" parent="StormMercDefenderParent">
         <LifeStart value="1500"/>
@@ -3163,7 +3163,7 @@
         <LeaderAlias value="MercDefenderMeleeKnight"/>
         <AcquireLeashRadius value="1"/>
         <AcquireLeashResetRadius value="1"/>
-        <DeathTime value="0"/>
+        <DeathTime value="1"/>
     </CUnit>
     <CUnit id="UnderworldSummonedBossSiegeAttackMissile" parent="MISSILE_INVULNERABLE">
         <Mover value="MercLanerSiegeGiantGuidanceMissile"/>

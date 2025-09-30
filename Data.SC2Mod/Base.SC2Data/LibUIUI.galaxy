@@ -4165,6 +4165,9 @@ int libUIUI_gf_HSUISelectRandomHeroForPlayer (int lp_player) {
     else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Johanna")] == false)) {
         return libNtve_gf_UserDataInstanceGetIndex("Hero", "Johanna");
     }
+    else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Artanis")] == false)) {
+        return libNtve_gf_UserDataInstanceGetIndex("Hero", "Artanis");
+    }
     return lv_playerHeroIndex;
 }
 
@@ -13638,29 +13641,26 @@ bool libUIUI_gt_UICombatFloatingElementsMissing_Func (bool testConds, bool runAc
         return true;
     }
 
-    if (((UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitSource)), c_unitAttributeHeroic) == true) || (UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitTarget)), c_unitAttributeHeroic) == true))) {
-        if ((EventPlayerEffectUsed() == "BlindMissedDummy")) {
-            if ((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitTarget)) == false)) {
-                return true;
-            }
-            else {
-                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
-                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerSource));
-                lv_displayUnit = EventPlayerEffectUsedUnit(c_effectUnitTarget);
-            }
+    if ((EventPlayerEffectUsed() == "BlindMissedDummy")) {
+        if (((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitTarget)) == false) || ((UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitSource)), c_unitAttributeHeroic) == false) && (UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitTarget)), c_unitAttributeHeroic) == false)))) {
+            return true;
         }
         else {
-            if ((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitSource)) == false)) {
-                return true;
-            }
-            else {
-                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
-                PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerTarget));
-                lv_displayUnit = EventPlayerEffectUsedUnit(c_effectUnitSource);
-            }
+            PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
+            PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerSource));
+            lv_displayUnit = EventPlayerEffectUsedUnit(c_effectUnitTarget);
         }
     }
-
+    else if ((EventPlayerEffectUsed() == "BlindMissedDummyCaster")) {
+        if (((UnitIsValid(EventPlayerEffectUsedUnit(c_effectUnitSource)) == false) || ((UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitSource)), c_unitAttributeHeroic) == false) && (UnitTypeTestAttribute(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitTarget)), c_unitAttributeHeroic) == false)))) {
+            return true;
+        }
+        else {
+            PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster));
+            PlayerGroupAdd(lv_players, EventPlayerEffectUsedUnitOwner(c_effectPlayerTarget));
+            lv_displayUnit = EventPlayerEffectUsedUnit(c_effectUnitSource);
+        }
+    }
     libUIUI_gf_UIFloatingCombatTextCreateTextTag(lv_displayUnit, StringExternal("Param/Value/lib_UIUI_26DD633F"), lv_players, "FCT_Physical_Normal", libUIUI_gv_floatingCombatTextStandardDuration, libUIUI_gv_floatingCombatTextFadeDuration2, 0.0);
     return true;
 }
@@ -15137,6 +15137,7 @@ bool libUIUI_gt_HSUIIngameCountdownTimerExpires_Func (bool testConds, bool runAc
     // Automatic Variable Declarations
     playergroup auto8A7ED393_g;
     playergroup autoCC0C4E70_g;
+    playergroup auto9ED1A6BF_g;
 
     // Variable Initialization
 
@@ -15199,6 +15200,16 @@ bool libUIUI_gt_HSUIIngameCountdownTimerExpires_Func (bool testConds, bool runAc
         libSond_gf_SoundtrackPlayMapSoundtrackAsDefaultSoundtrackForAllPlayers();
         TriggerExecute(libGame_gt_StartGame, true, false);
         UISetWorldVisible(PlayerGroupAll(), true);
+        auto9ED1A6BF_g = PlayerGroupAll();
+        lv_itPlayer = -1;
+        while (true) {
+            lv_itPlayer = PlayerGroupNextPlayer(auto9ED1A6BF_g, lv_itPlayer);
+            if (lv_itPlayer < 0) { break; }
+            if ((libGame_gf_PlayerIsHeroPlayer(lv_itPlayer) == false)) {
+                libNtve_gf_HideGameUI(true, libCore_gv_playerGroupFromPlayer[lv_itPlayer]);
+            }
+
+        }
         libGame_gf_SetStormMapLighting(libCore_gv_mAPMapLight, PlayerGroupActive(), 0.0);
         CinematicFade(true, 0.5, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
         libUIUI_gf_HSUIMuteUnmuteSoundChannelsNotUsedForHeroSelection(false);

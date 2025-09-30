@@ -4416,6 +4416,10 @@ bool libAIAI_gf_ArtanisPhasePrism (int lp_player, unit lp_aIUnit, unitgroup lp_s
     lv_query.lv_ignoreTargetsBehindGate = true;
     lv_query.lv_ignoreTargetsBehindAlliedGate = true;
     lv_targetHero = libAIAI_gf_FindBestHero(lp_scanGroup, lp_aIUnit, lv_query);
+    if ((UnitIsValid(lv_targetHero) == false)) {
+        return false;
+    }
+
     if ((UnitGetPropertyFixed(lv_targetHero, c_unitPropLifePercent, c_unitPropCurrent) < 10.0)) {
         libAIAI_gf_HeroAIStartFocusHero(lp_player, lv_targetHero);
         return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetHero, null);
@@ -4543,6 +4547,124 @@ bool libAIAI_gf_ArtanisBladeDash (int lp_player, unit lp_aIUnit, unitgroup lp_sc
     }
 
     return false;
+}
+
+bool libAIAI_gf_ArtanisPurifierBeam (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_ord;
+    unit lv_enemyHero;
+
+    // Automatic Variable Declarations
+    unitgroup autoE582F2FF_g;
+    int autoE582F2FF_u;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_ord = libAIAI_gf_StormHeroAICreateOrder(lp_player, "HeroArtanisPurifierBeam", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_ord) == false)) {
+        return false;
+    }
+
+    autoE582F2FF_g = libAIAI_gv_aIHeroes[lp_player].lv_visibleEnemyHeroes;
+    autoE582F2FF_u = UnitGroupCount(autoE582F2FF_g, c_unitCountAll);
+    for (;; autoE582F2FF_u -= 1) {
+        lv_enemyHero = UnitGroupUnitFromEnd(autoE582F2FF_g, autoE582F2FF_u);
+        if (lv_enemyHero == null) { break; }
+        if ((UnitGetPropertyFixed(lv_enemyHero, c_unitPropLifePercent, c_unitPropCurrent) <= libAIAI_gv_aIHeroLowHealthPercent)) {
+            return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueReplace, lv_enemyHero, null);
+        }
+
+    }
+    return false;
+}
+
+bool libAIAI_gf_ArtanisSuppressionPulse (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_ord;
+    int lv_numEnemyHeroes;
+    int lv_alliesInArea;
+    unit lv_enemyHero;
+    point lv_enemyPos;
+    fixed lv_webRadius;
+
+    // Automatic Variable Declarations
+    unitgroup autoE12130A3_g;
+    int autoE12130A3_u;
+
+    // Variable Initialization
+    lv_webRadius = 8.0;
+
+    // Implementation
+    lv_ord = libAIAI_gf_StormHeroAICreateOrder(lp_player, "HeroArtanisSuppressionPulse", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_ord) == false)) {
+        return false;
+    }
+
+    lv_numEnemyHeroes = libAIAI_gf_CountEnemiesInArea(lp_player, lp_scanGroup, UnitGetPosition(lp_aIUnit), lv_webRadius, 1, 0);
+    lv_alliesInArea = libAIAI_gf_CountAlliesInArea(lp_player, UnitGetPosition(lp_aIUnit), 10.0, 1, 0);
+    if ((lv_numEnemyHeroes >= 3) && (lv_alliesInArea >= 2)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueReplace, null, UnitGetPosition(lp_aIUnit));
+    }
+
+    autoE12130A3_g = libAIAI_gv_aIHeroes[lp_player].lv_visibleEnemyHeroes;
+    autoE12130A3_u = UnitGroupCount(autoE12130A3_g, c_unitCountAll);
+    for (;; autoE12130A3_u -= 1) {
+        lv_enemyHero = UnitGroupUnitFromEnd(autoE12130A3_g, autoE12130A3_u);
+        if (lv_enemyHero == null) { break; }
+        lv_enemyPos = UnitGetPosition(lv_enemyHero);
+        lv_numEnemyHeroes = libAIAI_gf_CountEnemiesInArea(lp_player, libAIAI_gv_aIHeroes[lp_player].lv_visibleEnemyHeroes, UnitGetPosition(lv_enemyHero), lv_webRadius, 1, 0);
+        lv_alliesInArea = libAIAI_gf_CountAlliesInArea(lp_player, UnitGetPosition(lv_enemyHero), lv_webRadius, 1, 0);
+        if ((lv_numEnemyHeroes >= 3) && (lv_alliesInArea >= 2)) {
+            return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueReplace, null, lv_enemyPos);
+        }
+
+    }
+    return false;
+}
+
+void libAIAI_gf_AIThinkArtanis (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libAIAI_gf_HeroSkipTactical(lp_player, lp_aIUnit) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_UseDefensiveItem(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroSkipOffensiveTactical(lp_player, lp_aIUnit) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_ArtanisTwinBlades(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+    }
+
+    if ((libAIAI_gf_ArtanisBladeDash(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_ArtanisPhasePrism(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_ArtanisPurifierBeam(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_HeroAIShouldUseUltimates(lp_player) == true) && (libAIAI_gf_ArtanisSuppressionPulse(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_UseOffensiveItem(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
+    if ((libAIAI_gf_RevealCloakedEnemies(lp_player, lp_aIUnit, lp_scanGroup) == true)) {
+        return ;
+    }
+
 }
 
 bool libAIAI_gf_ETCPowerSlide (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
@@ -10721,6 +10843,7 @@ void libAIAI_gf_HeroAITeamLogic (int lp_faction) {
         }
     }
     libAIAI_gf_HeroAILeashFollowers(lp_faction);
+    libAIAI_gf_HeroAIChooseTalents(lp_faction);
     libAIAI_gf_HeroAISwapLanesLogic(lp_faction);
     libAIAI_gf_HeroAIAbathurLogic(lp_faction);
     if ((lv_coreIsValid == true)) {
@@ -13387,6 +13510,76 @@ void libAIAI_gf_HeroAIUpdateNextSpellCheckTime (int lp_trigPlayer) {
     }
 }
 
+void libAIAI_gf_HeroAIPickTalent (int lp_trigPlayer, int lp_tier, int lp_buttonIndex) {
+    // Automatic Variable Declarations
+    // Implementation
+    libAIAI_gv_aIHeroes[lp_trigPlayer].lv_allowedToChooseTalentsTime = (TimerGetElapsed(libGame_gv_gameTimer) + libAIAI_gv_aIHeroChooseTalentDelayBetweenPicks);
+    libGame_gf_TalentChoicesChooseTalentForPlayer(lp_tier, lp_buttonIndex, lp_trigPlayer);
+}
+
+bool libAIAI_gf_HeroAIRandomlyPickAnyAvailableTalent (int lp_trigPlayer) {
+    // Variable Declarations
+    int lv_activeChoiceTier;
+    int lv_heroIndex;
+    int[libCore_gv_dataHeroesMaxTalentsPerTier + 1] lv_talentColumn;
+    int lv_idx;
+    int lv_itColumn;
+
+    // Automatic Variable Declarations
+    int autoB179646C_ae;
+    const int autoB179646C_ai = 1;
+
+    // Variable Initialization
+    lv_activeChoiceTier = libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer(lp_trigPlayer);
+
+    // Implementation
+    if ((lv_activeChoiceTier != 0) && (libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lp_trigPlayer, lv_activeChoiceTier) == true)) {
+        lv_heroIndex = libGame_gv_players[lp_trigPlayer].lv_heroIndex;
+        autoB179646C_ae = libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentCountPerTier[lv_activeChoiceTier];
+        lv_itColumn = 1;
+        for ( ; ( (autoB179646C_ai >= 0 && lv_itColumn <= autoB179646C_ae) || (autoB179646C_ai < 0 && lv_itColumn >= autoB179646C_ae) ) ; lv_itColumn += autoB179646C_ai ) {
+            if ((libGame_gf_TalentChoicesPlayerCanChooseTalentFromTierAndColumn(lp_trigPlayer, lv_activeChoiceTier, lv_itColumn) == true)) {
+                lv_idx += 1;
+                lv_talentColumn[lv_idx] = lv_itColumn;
+            }
+
+        }
+        if ((lv_idx > 0)) {
+            lv_idx = RandomInt(1, lv_idx);
+            libAIAI_gf_HeroAIPickTalent(lp_trigPlayer, lv_activeChoiceTier, lv_talentColumn[lv_idx]);
+            return true;
+        }
+
+    }
+
+    return false;
+}
+
+void libAIAI_gf_HeroAIChooseTalents (int lp_faction) {
+    // Variable Declarations
+    int lv_playerIndex;
+
+    // Automatic Variable Declarations
+    playergroup auto6D8E1788_g;
+
+    // Variable Initialization
+
+    // Implementation
+    auto6D8E1788_g = libAIAI_gv_heroAITeamPlayerData[libAIAI_gf_HeroAITeamIndexOfFaction(lp_faction)].lv_aIPlayers;
+    lv_playerIndex = -1;
+    while (true) {
+        lv_playerIndex = PlayerGroupNextPlayer(auto6D8E1788_g, lv_playerIndex);
+        if (lv_playerIndex < 0) { break; }
+        if ((libGame_gv_talentChoices[lv_playerIndex].lv_talentPoints > 0) && (libAIAI_gv_aIHeroes[lv_playerIndex].lv_allowedToChooseTalentsTime < TimerGetElapsed(libGame_gv_gameTimer)) && (libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lv_playerIndex, libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer(lv_playerIndex)) == true)) {
+            if ((libAIAI_gf_HeroAIRandomlyPickAnyAvailableTalent(lv_playerIndex) == true)) {
+                return ;
+            }
+
+        }
+
+    }
+}
+
 bool libAIAI_gf_HeroAIMoveTo (int lp_trigPlayer, unit lp_unit, point lp_point, fixed lp_minRange, fixed lp_maxRange, bool lp_disableTeleport) {
     // Variable Declarations
     point lv_destination;
@@ -14476,7 +14669,6 @@ bool libAIAI_gf_HeroAIIsNearbyLaneSafe (int lp_faction, point lp_testPoint, int 
 
 bool libAIAI_gf_HeroAIShouldRetreatLane (int lp_trigPlayer) {
     // Variable Declarations
-    int lv_behaviorIndex;
     unit lv_lastAttacker;
     order lv_attackerOrder;
     bool lv_attackerTargettingMe;
@@ -14485,9 +14677,6 @@ bool libAIAI_gf_HeroAIShouldRetreatLane (int lp_trigPlayer) {
     unitgroup lv_testUnits;
 
     // Automatic Variable Declarations
-    int autoFACC86F4_ae;
-    const int autoFACC86F4_ai = 1;
-
     // Variable Initialization
     lv_testUnits = UnitGroupEmpty();
 
@@ -14506,14 +14695,10 @@ bool libAIAI_gf_HeroAIShouldRetreatLane (int lp_trigPlayer) {
     }
 
     if ((libAIAI_gf_HeroAIHeroHasBeenAttackedRecently(lp_trigPlayer, 1.0) == true)) {
-        autoFACC86F4_ae = UnitBehaviorCountAll(libGame_gv_players[lp_trigPlayer].lv_heroUnit);
-        lv_behaviorIndex = 1;
-        for ( ; ( (autoFACC86F4_ai >= 0 && lv_behaviorIndex <= autoFACC86F4_ae) || (autoFACC86F4_ai < 0 && lv_behaviorIndex >= autoFACC86F4_ae) ) ; lv_behaviorIndex += autoFACC86F4_ai ) {
-            if ((UnitBehaviorHasFlag(UnitBehaviorGet(libGame_gv_players[lp_trigPlayer].lv_heroUnit, lv_behaviorIndex), c_unitBehaviorFlagUser8) == true)) {
-                return true;
-            }
-
+        if ((libCore_gf_UnitHasBehaviorWithFlag(libGame_gv_players[lp_trigPlayer].lv_heroUnit, c_unitBehaviorFlagUser8) == true)) {
+            return true;
         }
+
     }
 
     if ((libAIAI_gv_heroAITeamData[libAIAI_gf_HeroAIGetAllyTeamIndex(lp_trigPlayer)].lv_gameState != libAIAI_ge_HeroAIGameState_Act3)) {
@@ -15370,7 +15555,6 @@ bool libAIAI_gf_HeroAIDoesLaneWantHelpFromPlayer (int lp_trigPlayer, int lp_lane
             return true;
         }
 
-        lv_ourHeroIndex = libGame_gv_players[lp_trigPlayer].lv_heroIndex;
         if ((libAIAI_gv_heroAITeamData[lv_teamIndex].lv_laneData[lp_laneIndex].lv_numAllyHeroes == 1)) {
             lv_playerIndex = PlayerGroupPlayer(libAIAI_gv_heroAITeamData[lv_teamIndex].lv_laneData[lp_laneIndex].lv_allyHeroes, 1);
             lv_heroIndex = libGame_gv_players[lv_playerIndex].lv_heroIndex;
@@ -15382,6 +15566,7 @@ bool libAIAI_gf_HeroAIDoesLaneWantHelpFromPlayer (int lp_trigPlayer, int lp_lane
             }
         }
 
+        lv_ourHeroIndex = libGame_gv_players[lp_trigPlayer].lv_heroIndex;
         if (((libCore_gv_dataHeroesHeroData[lv_ourHeroIndex].lv_role == "Healer") || (libCore_gv_dataHeroesHeroData[lv_ourHeroIndex].lv_role == "Support")) && (libCore_gv_dataHeroesHeroData[lv_ourHeroIndex].lv_isMelee == false) && (libAIAI_gv_heroAITeamData[lv_teamIndex].lv_laneData[lp_laneIndex].lv_numAllyHeroes == 0) && (libAIAI_gv_heroAITeamData[lv_teamIndex].lv_laneData[lp_laneIndex].lv_numEnemyHeroes > 0)) {
             return true;
         }
@@ -22223,7 +22408,7 @@ bool libAIAI_gt_HeroAIInitializeDifficultyLevelData_Func (bool testConds, bool r
     libAIAI_gv_aIHeroChanceCaptureWatchTower[libAIAI_ge_HeroAIDifficulty_HeroAIEasyWithHumanAlly] = 25.0;
     libAIAI_gv_aIHeroChanceCaptureWatchTower[libAIAI_ge_HeroAIDifficulty_HeroAIMedium] = 25.0;
     libAIAI_gv_aIHeroChanceCaptureWatchTower[libAIAI_ge_HeroAIDifficulty_HeroAIVeryHard] = 50.0;
-    libAIAI_gv_aIHeroChanceCaptureWatchTower[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 50.0;
+    libAIAI_gv_aIHeroChanceCaptureWatchTower[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 80.0;
     libAIAI_gv_aIHeroRetreatWhenTargettedByHeroPercent[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Enemy] = 0.0;
     libAIAI_gv_aIHeroRetreatWhenTargettedByHeroPercent[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Ally] = 10.0;
     libAIAI_gv_aIHeroRetreatWhenTargettedByHeroPercent[libAIAI_ge_HeroAIDifficulty_HeroAITutorial2Enemy] = 25.0;

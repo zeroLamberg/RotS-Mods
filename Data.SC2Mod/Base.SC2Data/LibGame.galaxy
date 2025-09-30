@@ -9174,7 +9174,7 @@ bool libGame_gf_TalentChoicesTierHasTalentsForPlayer (int lp_tier, int lp_player
     lv_heroIndex = libGame_gv_players[lp_player].lv_heroIndex;
 
     // Implementation
-    return (libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentCountPerTier[lp_tier] > 1);
+    return (libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentCountPerTier[lp_tier] > 0);
 }
 
 int libGame_gf_TalentChoicesHeroicTalentTierOfHero (int lp_heroIndex) {
@@ -9241,7 +9241,7 @@ bool libGame_gf_TalentChoicesPlayerHasChosenTalentOnTier (int lp_player, int lp_
 bool libGame_gf_TalentChoicesPlayerCanPrepickTalentTier (int lp_player, int lp_tier) {
     // Automatic Variable Declarations
     // Implementation
-    if ((lp_tier > 1) && (libGame_gf_TalentChoicesCurrentSelectableTalentTierOfPlayer(lp_player) < lp_tier) && (libGame_gf_TalentChoicesPlayerCanChooseTalentTier(lp_player, lp_tier) == false) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_tier, lp_player) == false)) {
+    if ((libGame_gf_TalentChoicesLastChosenTalentTierOfPlayer(lp_player) < lp_tier) && (libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer(lp_player) < lp_tier)) {
         return true;
     }
 
@@ -9249,25 +9249,9 @@ bool libGame_gf_TalentChoicesPlayerCanPrepickTalentTier (int lp_player, int lp_t
 }
 
 bool libGame_gf_TalentChoicesPlayerCanChooseTalentTier (int lp_player, int lp_tier) {
-    // Variable Declarations
-    int lv_heroIndex;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_heroIndex = libCore_gf_HeroIndexOfPlayerHero(lp_player);
-
-    // Implementation
-    if ((lp_tier > 0) && (libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) >= libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lp_tier]) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_tier, lp_player) == false) && (libGame_gv_talentChoices[lp_player].lv_talentPoints > 0) && (libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer(lp_player, lp_tier) == true)) {
-        return true;
-    }
-
-    return false;
-}
-
-bool libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer (int lp_player, int lp_currentTier) {
     // Automatic Variable Declarations
     // Implementation
-    if (((lp_currentTier == 1) || ((lp_currentTier > 1) && (libGame_gf_TalentChoicesTierIsChosenForPlayer((lp_currentTier - 1), lp_player) == true)))) {
+    if ((libGame_gf_TalentChoicesTierHasTalentsForPlayer(lp_tier, lp_player) == true) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_tier, lp_player) == false) && (libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer(lp_player) == lp_tier)) {
         return true;
     }
 
@@ -9284,7 +9268,7 @@ bool libGame_gf_TalentChoicesPlayerCanChooseTalentFromTierAndColumn (int lp_play
     lv_heroIndex = libCore_gf_HeroIndexOfPlayerHero(lp_player);
 
     // Implementation
-    if ((libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) >= libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentTierLevel[lp_tier]) && (libGame_gv_talentChoices[lp_player].lv_chosenTalentIndex[lp_tier] == 0) && (libGame_gv_talentChoices[lp_player].lv_talentPoints > 0) && (libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer(lp_player, lp_tier) == true)) {
+    if ((libGame_gf_TalentChoicesTierHasTalentsForPlayer(lp_tier, lp_player) == true) && (libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer(lp_player) == lp_tier) && (libGame_gf_TalentChoicesTierIsChosenForPlayer(lp_tier, lp_player) == false) && ((lp_tier == 1) || (libGame_gf_TalentChoicesTierIsChosenForPlayer((lp_tier - 1), lp_player) == true))) {
         lv_talentIndex = libCore_gv_dataHeroesHeroData[lv_heroIndex].lv_talentIndex[lp_tier][lp_column];
         if ((libCore_gv_talentData[lv_talentIndex].lv_prerequisiteTalentIndex == 0)) {
             return true;
@@ -9351,36 +9335,6 @@ int libGame_gf_TalentChoicesCurrentTalentTierOfPlayer (int lp_player) {
     return lv_talentTier;
 }
 
-int libGame_gf_TalentChoicesCurrentSelectableTalentTierOfPlayer (int lp_player) {
-    // Variable Declarations
-    int lv_itTier;
-    int lv_talentTier;
-
-    // Automatic Variable Declarations
-    const int auto2D86D262_ae = libCore_gv_dataHeroesMaxTalentTiers;
-    const int auto2D86D262_ai = 1;
-
-    // Variable Initialization
-
-    // Implementation
-    lv_itTier = 1;
-    for ( ; ( (auto2D86D262_ai >= 0 && lv_itTier <= auto2D86D262_ae) || (auto2D86D262_ai < 0 && lv_itTier >= auto2D86D262_ae) ) ; lv_itTier += auto2D86D262_ai ) {
-        if ((libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) == libCore_gv_dataHeroesHeroData[libGame_gv_players[lp_player].lv_heroIndex].lv_talentTierLevel[lv_itTier])) {
-            if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == true)) {
-                lv_talentTier += 1;
-            }
-            else {
-                lv_talentTier += 1;
-                break;
-            }
-        }
-        else {
-            break;
-        }
-    }
-    return lv_talentTier;
-}
-
 int libGame_gf_TalentChoicesNextTierOfPlayer (int lp_player) {
     // Variable Declarations
     int lv_itTier;
@@ -9400,6 +9354,66 @@ int libGame_gf_TalentChoicesNextTierOfPlayer (int lp_player) {
 
     }
     return -1;
+}
+
+int libGame_gf_TalentChoicesLastChosenTalentTierOfPlayer (int lp_player) {
+    // Variable Declarations
+    int lv_itTier;
+    int lv_lastTalentTier;
+
+    // Automatic Variable Declarations
+    const int auto0B11DA7F_ae = libCore_gv_dataHeroesMaxTalentTiers;
+    const int auto0B11DA7F_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_itTier = 1;
+    for ( ; ( (auto0B11DA7F_ai >= 0 && lv_itTier <= auto0B11DA7F_ae) || (auto0B11DA7F_ai < 0 && lv_itTier >= auto0B11DA7F_ae) ) ; lv_itTier += auto0B11DA7F_ai ) {
+        if ((libGame_gf_CustomValueGetAsInteger(libGame_ge_CustomValueIndexes_HeroLevelIndex, libGame_gv_players[lp_player].lv_heroUnit) == libCore_gv_dataHeroesHeroData[libGame_gv_players[lp_player].lv_heroIndex].lv_talentTierLevel[lv_itTier])) {
+            if ((libGame_gf_TalentChoicesTierIsChosenForPlayer(lv_itTier, lp_player) == true)) {
+                lv_lastTalentTier += 1;
+            }
+            else {
+                break;
+            }
+        }
+        else {
+            break;
+        }
+    }
+    return lv_lastTalentTier;
+}
+
+int libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libGame_gv_talentChoices[lp_player].lv_activeChoiceTier;
+}
+
+int libGame_gf_TalentChoicesGetRandomChoiceableTalentOfTierForPlayer (int lp_tier, int lp_player) {
+    // Variable Declarations
+    int[libCore_gv_dataHeroesMaxTalentsPerTier + 1] lv_talentIndex;
+    int lv_idx;
+    int lv_itColumn;
+
+    // Automatic Variable Declarations
+    int auto61E7D979_ae;
+    const int auto61E7D979_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto61E7D979_ae = libCore_gv_dataHeroesHeroData[libGame_gv_players[lp_player].lv_heroIndex].lv_talentCountPerTier[lp_tier];
+    lv_itColumn = 1;
+    for ( ; ( (auto61E7D979_ai >= 0 && lv_itColumn <= auto61E7D979_ae) || (auto61E7D979_ai < 0 && lv_itColumn >= auto61E7D979_ae) ) ; lv_itColumn += auto61E7D979_ai ) {
+        if ((libGame_gf_TalentChoicesPlayerCanChooseTalentFromTierAndColumn(lp_player, lp_tier, lv_itColumn) == true)) {
+            lv_idx += 1;
+            lv_talentIndex[lv_idx] = libCore_gv_dataHeroesHeroData[libGame_gv_players[lp_player].lv_heroIndex].lv_talentIndex[lp_tier][lv_itColumn];
+        }
+
+    }
+    return lv_talentIndex[RandomInt(1, lv_idx)];
 }
 
 void libGame_gf_TalentChoicesUpdateChoicePanelForPlayer (int lp_player, int lp_updateEvent) {
@@ -10718,6 +10732,7 @@ bool libGame_gt_InitializePlayers_Func (bool testConds, bool runActions) {
     lv_itPlayer = 0;
     for ( ; ( (auto67479088_ai >= 0 && lv_itPlayer <= auto67479088_ae) || (auto67479088_ai < 0 && lv_itPlayer >= auto67479088_ae) ) ; lv_itPlayer += auto67479088_ai ) {
         PlayerSetState(lv_itPlayer, c_playerStateShowWorldTip, false);
+        VisExploreArea(lv_itPlayer, RegionEntireMap(), true, false);
         if ((PlayerType(lv_itPlayer) == c_playerTypeUser)) {
             libGame_gv_players[lv_itPlayer].lv_playerName = PlayerName(lv_itPlayer);
         }
@@ -10779,7 +10794,6 @@ bool libGame_gt_InitializePlayers_Func (bool testConds, bool runActions) {
             CameraPan(lv_itPlayer, Point(0.0, 0.0), 0.0625, -1, 0.0, false);
             CameraUseHeightDisplacement(lv_itPlayer, false);
             CameraLockInput(lv_itPlayer, true);
-            VisExploreArea(lv_itPlayer, RegionEntireMap(), true, false);
             libNtve_gf_SetAllSoundChannelVolumes(libNtve_ge_VolumeChannelMode_Game, libCore_gv_playerGroupFromPlayer[lv_itPlayer], 0.0);
         }
     }

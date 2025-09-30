@@ -1387,13 +1387,14 @@ bool libGame_gf_TalentChoicesPlayerHasChosenTalent (int lp_player, int lp_talent
 bool libGame_gf_TalentChoicesPlayerHasChosenTalentOnTier (int lp_player, int lp_talentIndex, int lp_tier);
 bool libGame_gf_TalentChoicesPlayerCanPrepickTalentTier (int lp_player, int lp_tier);
 bool libGame_gf_TalentChoicesPlayerCanChooseTalentTier (int lp_player, int lp_tier);
-bool libGame_gf_TalentChoicesPreviousTierofTierIsChoosenForPlayer (int lp_player, int lp_currentTier);
 bool libGame_gf_TalentChoicesPlayerCanChooseTalentFromTierAndColumn (int lp_player, int lp_tier, int lp_column);
 bool libGame_gf_TalentChoicesPlayerHasChosenHeroicTalent (int lp_player);
 bool libGame_gf_TalentChoicesTierIsHeroic (int lp_heroIndex, int lp_tier);
 int libGame_gf_TalentChoicesCurrentTalentTierOfPlayer (int lp_player);
-int libGame_gf_TalentChoicesCurrentSelectableTalentTierOfPlayer (int lp_player);
 int libGame_gf_TalentChoicesNextTierOfPlayer (int lp_player);
+int libGame_gf_TalentChoicesLastChosenTalentTierOfPlayer (int lp_player);
+int libGame_gf_TalentChoicesCurrentChoiceableTierOfPlayer (int lp_player);
+int libGame_gf_TalentChoicesGetRandomChoiceableTalentOfTierForPlayer (int lp_tier, int lp_player);
 void libGame_gf_TalentChoicesUpdateChoicePanelForPlayer (int lp_player, int lp_updateEvent);
 void libGame_gf_TalentChoicesChooseTalentForPlayer (int lp_tier, int lp_column, int lp_player);
 void libGame_gf_StormAddHeroTalentForPlayer (int lp_talentIndex, int lp_player, bool lp_includeTalentEntry);
