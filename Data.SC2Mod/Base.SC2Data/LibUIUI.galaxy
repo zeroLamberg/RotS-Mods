@@ -4138,15 +4138,19 @@ int libUIUI_gf_HSUISelectRandomHeroForPlayer (int lp_player) {
     auto44B4028C_ae = libCore_gv_dataHeroesNumberOfHeroes;
     lv_itHeroIndex = 1;
     for ( ; ( (auto44B4028C_ai >= 0 && lv_itHeroIndex <= auto44B4028C_ae) || (auto44B4028C_ai < 0 && lv_itHeroIndex >= auto44B4028C_ae) ) ; lv_itHeroIndex += auto44B4028C_ai ) {
-        lv_itPlayer = 1;
-        for ( ; ( (auto4F9A1D13_ai >= 0 && lv_itPlayer <= auto4F9A1D13_ae) || (auto4F9A1D13_ai < 0 && lv_itPlayer >= auto4F9A1D13_ae) ) ; lv_itPlayer += auto4F9A1D13_ai ) {
-            if ((lv_itHeroIndex == lv_lockedHero[lv_itPlayer])) {
-                lv_heroAllowed = false;
-                break;
+        lv_heroAllowed = true;
+        if ((CatalogFieldValueGet(c_gameCatalogUnit, libCore_gv_dataHeroesHeroData[lv_itHeroIndex].lv_heroUnitType, "TacticalAIThink", c_playerAny) != "")) {
+            lv_itPlayer = 1;
+            for ( ; ( (auto4F9A1D13_ai >= 0 && lv_itPlayer <= auto4F9A1D13_ae) || (auto4F9A1D13_ai < 0 && lv_itPlayer >= auto4F9A1D13_ae) ) ; lv_itPlayer += auto4F9A1D13_ai ) {
+                if ((lv_itHeroIndex == lv_lockedHero[lv_itPlayer])) {
+                    lv_heroAllowed = false;
+                    break;
+                }
+
             }
-            else {
-                lv_heroAllowed = true;
-            }
+        }
+        else {
+            lv_heroAllowed = false;
         }
         if ((lv_heroAllowed == true)) {
             lv_int_HeroDummyIndex += 1;
@@ -4156,18 +4160,6 @@ int libUIUI_gf_HSUISelectRandomHeroForPlayer (int lp_player) {
 
     }
     lv_playerHeroIndex = lv_allowedHeroesArray[RandomInt(1, lv_int_HeroDummyIndex)];
-    if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "ETC")] == false)) {
-        return libNtve_gf_UserDataInstanceGetIndex("Hero", "ETC");
-    }
-    else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Tyrande")] == false)) {
-        return libNtve_gf_UserDataInstanceGetIndex("Hero", "Tyrande");
-    }
-    else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Johanna")] == false)) {
-        return libNtve_gf_UserDataInstanceGetIndex("Hero", "Johanna");
-    }
-    else if ((libUIUI_gv_heroSelectionSetting.lv_heroPickedByTeam[lv_team][libNtve_gf_UserDataInstanceGetIndex("Hero", "Artanis")] == false)) {
-        return libNtve_gf_UserDataInstanceGetIndex("Hero", "Artanis");
-    }
     return lv_playerHeroIndex;
 }
 

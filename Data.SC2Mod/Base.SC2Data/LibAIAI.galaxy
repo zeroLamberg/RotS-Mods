@@ -5012,7 +5012,7 @@ bool libAIAI_gf_AzmodanAllShallBurn (int lp_player, unit lp_aIUnit, unitgroup lp
         return false;
     }
 
-    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 0.0, 10.0, 40.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 0.0, 10.0, 90.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
     if ((UnitIsValid(lv_targetEnemy) == true)) {
         return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, lv_targetEnemy, null);
     }
@@ -15054,8 +15054,6 @@ bool libAIAI_gf_HeroAIIsSideOfMapSafe (int lp_faction, fixed lp_modifier) {
 
     // Automatic Variable Declarations
     playergroup autoD2B3101A_g;
-    int autoA8947120_ae;
-    const int autoA8947120_ai = 1;
 
     // Variable Initialization
 
@@ -15076,15 +15074,6 @@ bool libAIAI_gf_HeroAIIsSideOfMapSafe (int lp_faction, fixed lp_modifier) {
         lv_playerIndex = PlayerGroupNextPlayer(autoD2B3101A_g, lv_playerIndex);
         if (lv_playerIndex < 0) { break; }
         if ((libGame_gv_players[lv_playerIndex].lv_faction != lp_faction) && (UnitIsAlive(libGame_gv_players[lv_playerIndex].lv_heroUnit) == true) && ((libAIAI_gv_heroAITeamData[lv_teamIndex].lv_heroTrackingData[lv_playerIndex].lv_lastSeenTime + libAIAI_gv_aIHeroMissingDelay) > TimerGetElapsed(libGame_gv_gameTimer)) && (libCore_gf_TestLocationClosertoFactionSide(libAIAI_gv_heroAITeamData[lv_teamIndex].lv_heroTrackingData[lv_playerIndex].lv_lastSeenLocation, lp_faction, lp_modifier) == true)) {
-            return false;
-        }
-
-    }
-    autoA8947120_ae = libGame_gv_laneCount;
-    lv_laneIndex = 1;
-    for ( ; ( (autoA8947120_ai >= 0 && lv_laneIndex <= autoA8947120_ae) || (autoA8947120_ai < 0 && lv_laneIndex >= autoA8947120_ae) ) ; lv_laneIndex += autoA8947120_ai ) {
-        lv_contentionPoint = libAIAI_gv_heroAITeamData[lv_teamIndex].lv_laneData[lv_laneIndex].lv_contentionPoint;
-        if ((libGame_gv_laneData[lv_laneIndex].lv_minionSpawningEnabled == true) && (libCore_gf_TestLocationClosertoFactionSide(lv_contentionPoint, lp_faction, lp_modifier) == true)) {
             return false;
         }
 
@@ -18819,7 +18808,7 @@ bool libAIAI_gf_HeroAIShouldCaptureTearOfElune (int lp_trigPlayer, bool lp_playe
         return false;
     }
 
-    if (((libAIAI_gf_HeroAIIsHigherPriority(lp_trigPlayer, libAIAI_ge_HeroAIPriority_CaptureTearOfEluneHeadingToTribute) == false) || (UnitGetPropertyFixed(libGame_gv_players[lp_trigPlayer].lv_heroUnit, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroes[lp_trigPlayer].lv_startOffensiveHealth) || (DistanceBetweenPoints(UnitGetPosition(libGame_gv_players[lp_trigPlayer].lv_heroUnit), libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition) > libAIAI_gv_aIHeroTearOfEluneRecruitDistance) || ((libAIAI_gf_HeroAIHeroHasBeenAttackedRecently(lp_trigPlayer, 2.0) == true) && (UnitTypeTestAttribute(UnitGetType(libAIAI_gv_heroAIDamageTracking[lp_trigPlayer].lv_lastAttacker), c_unitAttributeHeroic) == true)))) {
+    if (((libAIAI_gf_HeroAIIsHigherPriority(lp_trigPlayer, libAIAI_ge_HeroAIPriority_CaptureTearOfEluneHeadingToTribute) == false) || (UnitGetPropertyFixed(libGame_gv_players[lp_trigPlayer].lv_heroUnit, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroes[lp_trigPlayer].lv_startOffensiveHealth) || ((libAIAI_gf_HeroAIHeroHasBeenAttackedRecently(lp_trigPlayer, 2.0) == true) && (UnitTypeTestAttribute(UnitGetType(libAIAI_gv_heroAIDamageTracking[lp_trigPlayer].lv_lastAttacker), c_unitAttributeHeroic) == true)))) {
         return false;
     }
 
@@ -18829,7 +18818,7 @@ bool libAIAI_gf_HeroAIShouldCaptureTearOfElune (int lp_trigPlayer, bool lp_playe
 
     lv_enemies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceEnemy, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroFarFromTearOfEluneDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
     lv_enemyHeroes = UnitGroupFilter(null, c_playerAny, lv_enemies, UnitFilter((1 << c_targetFilterHeroic), 0, 0, 0), 0);
-    lv_allies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceAlly, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroFarFromTearOfEluneDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
+    lv_allies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceAlly, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroTearOfEluneRecruitDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
     lv_allyHeroes = UnitGroupFilter(null, c_playerAny, lv_allies, UnitFilter((1 << c_targetFilterHeroic), 0, 0, 0), 0);
     if ((UnitGroupCount(lv_enemyHeroes, c_unitCountAlive) >= (UnitGroupCount(lv_allyHeroes, c_unitCountAlive) + 2))) {
         return false;
@@ -18859,7 +18848,7 @@ bool libAIAI_gf_HeroAIShouldGiveUpOnTearOfElune (int lp_trigPlayer) {
 
     lv_enemies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceEnemy, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroFarFromTearOfEluneDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
     lv_enemyHeroes = UnitGroupFilter(null, c_playerAny, lv_enemies, UnitFilter((1 << c_targetFilterHeroic), 0, 0, 0), 0);
-    lv_allies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceAlly, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, (libAIAI_gv_aIHeroFarFromTearOfEluneDistance * 2.0)), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
+    lv_allies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceAlly, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroTearOfEluneRecruitDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
     lv_allyHeroes = UnitGroupFilter(null, c_playerAny, lv_allies, UnitFilter((1 << c_targetFilterHeroic), 0, 0, 0), 0);
     if ((UnitGroupCount(lv_enemyHeroes, c_unitCountAlive) >= (UnitGroupCount(lv_allyHeroes, c_unitCountAlive) + 2))) {
         return true;
@@ -18894,7 +18883,7 @@ bool libAIAI_gf_HeroAIShouldDefendTearOfElune (int lp_trigPlayer) {
         return false;
     }
 
-    lv_allies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceAlly, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroFarFromTearOfEluneDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
+    lv_allies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceAlly, RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroTearOfEluneRecruitDistance), UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterStunned - 32))), 0);
     lv_allyHeroes = UnitGroupFilter(null, c_playerAny, lv_allies, UnitFilter((1 << c_targetFilterHeroic), 0, 0, 0), 0);
     lv_areaAroundTear = RegionCircle(libAIAI_gv_heroAIRavenLordTributeStatus.lv_tributeWarningPosition, libAIAI_gv_aIHeroCloseToTearOfEluneDistance);
     lv_enemies = UnitGroupAlliance(lp_trigPlayer, c_unitAllianceEnemy, lv_areaAroundTear, UnitFilter(0, 0, (1 << c_targetFilterLight) | (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0);
@@ -22789,7 +22778,7 @@ bool libAIAI_gt_HeroAIInitializeDifficultyLevelData_Func (bool testConds, bool r
     libAIAI_gv_aIHeroChanceNearbyMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIEasyWithHumanAlly] = 20.0;
     libAIAI_gv_aIHeroChanceNearbyMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIMedium] = 30.0;
     libAIAI_gv_aIHeroChanceNearbyMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIVeryHard] = 60.0;
-    libAIAI_gv_aIHeroChanceNearbyMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 60.0;
+    libAIAI_gv_aIHeroChanceNearbyMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 100.0;
     libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Enemy] = 0.0;
     libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Ally] = 0.0;
     libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAITutorial2Enemy] = 0.0;
@@ -22802,7 +22791,7 @@ bool libAIAI_gt_HeroAIInitializeDifficultyLevelData_Func (bool testConds, bool r
     libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIEasyWithHumanAlly] = 30.0;
     libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIMedium] = 60.0;
     libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIVeryHard] = 80.0;
-    libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 80.0;
+    libAIAI_gv_aIHeroChanceMiddleMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 100.0;
     libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Enemy] = 0.0;
     libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Ally] = 0.0;
     libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAITutorial2Enemy] = 0.0;
@@ -22815,7 +22804,7 @@ bool libAIAI_gt_HeroAIInitializeDifficultyLevelData_Func (bool testConds, bool r
     libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIEasyWithHumanAlly] = 0.0;
     libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIMedium] = 30.0;
     libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIVeryHard] = 80.0;
-    libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 80.0;
+    libAIAI_gv_aIHeroChanceFarMinionCamp[libAIAI_ge_HeroAIDifficulty_HeroAIElite] = 100.0;
     libAIAI_gv_aIHeroAlwaysWaitAtCampForHumanPlayer[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Enemy] = false;
     libAIAI_gv_aIHeroAlwaysWaitAtCampForHumanPlayer[libAIAI_ge_HeroAIDifficulty_HeroAITutorial1Ally] = false;
     libAIAI_gv_aIHeroAlwaysWaitAtCampForHumanPlayer[libAIAI_ge_HeroAIDifficulty_HeroAITutorial2Enemy] = false;
