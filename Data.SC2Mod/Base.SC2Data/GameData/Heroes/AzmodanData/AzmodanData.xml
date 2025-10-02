@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectUserData id="AzmodanDemonLieutenantWeapon@DamageCritStatusIncrement" parent="StormCriticalStatusIncrementer" Effect="AzmodanDemonLieutenantWeapon@Damage"/>
+    <CEffectSet id="AzmodanDemonLieutenantWeapon@DamageSet" parent="StormDamageSet" LocalCritStatusEffect="HeroGenericLocalCritStatusIncrementSpell" CritStatusEffect="AzmodanDemonLieutenantWeapon@DamageCritStatusIncrement" DamageEffect="AzmodanDemonLieutenantWeapon@Damage"/>
     <CEffectUserData id="AzmodanWeapon@DamageCritStatusLocal" parent="StormModifyLocalCritStatus">
         <ValidatorArray value="AzmodanWeapon@DamageCritStatusCombine"/>
     </CEffectUserData>
@@ -5188,9 +5190,10 @@
         <EditorCategories value="StormDataGroup:Weapon"/>
         <DataRecord Entry="Actor,AzmodanDemonLieutenantWeapon@BuffFX"/>
         <DataRecord Entry="Actor,AzmodanDemonLieutenantWeapon@Attack"/>
-        <DataRecord Entry="Effect,AzmodanDemonLieutenantWeapon@ImpactSwitch"/>
         <DataRecord Entry="Effect,AzmodanDemonLieutenantWeapon@Damage"/>
         <DataRecord Entry="Effect,AzmodanDemonLieutenantWeapon@ImpactSet"/>
+        <DataRecord Entry="Effect,AzmodanDemonLieutenantWeapon@DamageSet"/>
+        <DataRecord Entry="Effect,AzmodanDemonLieutenantWeapon@DamageCritStatusIncrement"/>
         <DataRecord Entry="Model,AzmodanDemonLieutenantWeapon@Buff"/>
         <DataRecord Entry="Weapon,AzmodanDemonLieutenantWeapon"/>
         <Button value="AzmodanSummonDemonLieutenant"/>
