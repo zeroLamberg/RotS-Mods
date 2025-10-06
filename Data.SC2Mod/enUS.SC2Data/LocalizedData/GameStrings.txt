@@ -13649,7 +13649,6 @@ Unit/Name/GreymaneHero=Greymane
 Unit/Name/GreymaneWeapon@AttackMissile=Attack Missile
 Unit/Name/GroundHole=Ground Hole
 Unit/Name/GroundHoleCamera=Ground Hole Camera
-Unit/Name/GroundHoleVision=Ground Hole Vision
 Unit/Name/HallOfStormsLocationUnit=Hall Of Storms (Location Unit)
 Unit/Name/HardPackSnowball=Hard Pack Snowball Missile
 Unit/Name/HealSign=Heal Sign

@@ -19152,6 +19152,7 @@ Unit/Name/CoreSummonInvulnerable=Summon Invulnerable
 Unit/Name/CoreSummonInvulnerable2=Summon Invulnerable Copy
 Unit/Name/CoreSummonPassive=Summon Passive
 Unit/Name/CoreUnitInactiveInvulnerable=Unit Incative Invulnerable
+Unit/Name/GroundHoleVision=Ground Hole Vision
 Unit/Name/HeroAbathurLocust@Parent=Abathur - Locust @ Locust Parent
 Unit/Name/HeroMalfurionEntanglingRoots=Unit
 Unit/Name/HeroSelendisGoldenArmada@MothershipShadow=Mothership Shadow

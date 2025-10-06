@@ -281,19 +281,19 @@ string libCore_ge_SegregationTriggerTypes_Ident (int lp_val) {
     return null;
 }
 
-string libCore_ge_StormDamagingEffectKind_Ident (int lp_val) {
-         if (lp_val == libCore_ge_StormDamagingEffectKind_Any) { return "Any"; }
-    else if (lp_val == libCore_ge_StormDamagingEffectKind_Physical) { return "Physical"; }
-    else if (lp_val == libCore_ge_StormDamagingEffectKind_Spell) { return "Spell"; }
-    else if (lp_val == libCore_ge_StormDamagingEffectKind_Pure) { return "Pure"; }
+string libCore_ge_DamagingEffectKindStorm_Ident (int lp_val) {
+         if (lp_val == libCore_ge_DamagingEffectKindStorm_Any) { return "Any"; }
+    else if (lp_val == libCore_ge_DamagingEffectKindStorm_Physical) { return "Physical"; }
+    else if (lp_val == libCore_ge_DamagingEffectKindStorm_Spell) { return "Spell"; }
+    else if (lp_val == libCore_ge_DamagingEffectKindStorm_Pure) { return "Pure"; }
     return null;
 }
 
-string libCore_ge_StormDamagingEffectType_Ident (int lp_val) {
-         if (lp_val == libCore_ge_StormDamagingEffectType_Any) { return "Any"; }
-    else if (lp_val == libCore_ge_StormDamagingEffectType_BasicAttack) { return "BasicAttack"; }
-    else if (lp_val == libCore_ge_StormDamagingEffectType_DoT) { return "DoT"; }
-    else if (lp_val == libCore_ge_StormDamagingEffectType_Normal) { return "Normal"; }
+string libCore_ge_DamagingEffectTypeStorm_Ident (int lp_val) {
+         if (lp_val == libCore_ge_DamagingEffectTypeStorm_Any) { return "Any"; }
+    else if (lp_val == libCore_ge_DamagingEffectTypeStorm_BasicAttack) { return "BasicAttack"; }
+    else if (lp_val == libCore_ge_DamagingEffectTypeStorm_DoT) { return "DoT"; }
+    else if (lp_val == libCore_ge_DamagingEffectTypeStorm_Normal) { return "Normal"; }
     return null;
 }
 
@@ -2697,20 +2697,20 @@ int libCore_gf_CombatDamageKindFromEffect (string lp_effect) {
     // Implementation
     auto21780E8F_val = CatalogFieldValueGet(c_gameCatalogEffect, lp_effect, "Kind", c_playerAny);
     if (auto21780E8F_val == "Ranged") {
-        return libCore_ge_StormDamagingEffectKind_Physical;
+        return libCore_ge_DamagingEffectKindStorm_Physical;
     }
     else if (auto21780E8F_val == "Melee") {
-        return libCore_ge_StormDamagingEffectKind_Physical;
+        return libCore_ge_DamagingEffectKindStorm_Physical;
     }
     else if (auto21780E8F_val == "Splash") {
-        return libCore_ge_StormDamagingEffectKind_Pure;
+        return libCore_ge_DamagingEffectKindStorm_Pure;
     }
     else if (auto21780E8F_val == "Spell") {
-        return libCore_ge_StormDamagingEffectKind_Spell;
+        return libCore_ge_DamagingEffectKindStorm_Spell;
     }
     else {
     }
-    return libCore_ge_StormDamagingEffectKind_Any;
+    return libCore_ge_DamagingEffectKindStorm_Any;
 }
 
 int libCore_gf_CombatDamageTypeFromEffect (string lp_effect) {
@@ -2720,17 +2720,17 @@ int libCore_gf_CombatDamageTypeFromEffect (string lp_effect) {
     // Implementation
     autoDD3F777E_val = CatalogFieldValueGet(c_gameCatalogEffect, lp_effect, "Type", c_playerAny);
     if (autoDD3F777E_val == "Normal") {
-        return libCore_ge_StormDamagingEffectType_Normal;
+        return libCore_ge_DamagingEffectTypeStorm_Normal;
     }
     else if (autoDD3F777E_val == "Poison") {
-        return libCore_ge_StormDamagingEffectType_DoT;
+        return libCore_ge_DamagingEffectTypeStorm_DoT;
     }
     else if (autoDD3F777E_val == "Universal") {
-        return libCore_ge_StormDamagingEffectType_BasicAttack;
+        return libCore_ge_DamagingEffectTypeStorm_BasicAttack;
     }
     else {
     }
-    return libCore_ge_StormDamagingEffectKind_Any;
+    return libCore_ge_DamagingEffectKindStorm_Any;
 }
 
 fixed libCore_gf_CombatCalculateDamageAmount () {
@@ -2748,7 +2748,7 @@ fixed libCore_gf_CombatCalculateDamageAmount () {
         if ((libCore_gf_TechAliasExist(c_gameCatalogBehavior, EventUnitBehavior(), "StormFlag AbsorbFatalDamage") == true)) {
             lv_damageTaken = EventUnitDamageAbsorbed();
         }
-        else if ((libCore_gf_CombatDamageTypeFromEffect(EventUnitDamageEffect()) == libCore_ge_StormDamagingEffectType_BasicAttack) && (UnitBehaviorHasFlag(EventUnitBehavior(), c_unitBehaviorFlagUser3) == true)) {
+        else if ((libCore_gf_CombatDamageTypeFromEffect(EventUnitDamageEffect()) == libCore_ge_DamagingEffectTypeStorm_BasicAttack) && (UnitBehaviorHasFlag(EventUnitBehavior(), c_unitBehaviorFlagUser3) == true)) {
             lv_damageTaken = 0.0;
         }
     }
@@ -4371,6 +4371,12 @@ int libCore_gf_UnitTagIndex (unit lp_unit) {
     // Automatic Variable Declarations
     // Implementation
     return (UnitGetTag(lp_unit) >> 18) & 0x00003fff;
+}
+
+bool libCore_gf_AttributeListTest (int lp_attributeList, int lp_attributeToTest) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ( (lp_attributeList & lp_attributeToTest) == lp_attributeToTest ) { return true; } else { return false; }
 }
 
 string libCore_gf_GetWeaponDamageForUnit2 (unit lp_unit) {

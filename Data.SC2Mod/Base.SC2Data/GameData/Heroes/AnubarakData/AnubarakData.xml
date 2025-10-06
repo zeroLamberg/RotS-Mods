@@ -7140,7 +7140,6 @@
     </CUnit>
     <CUnit id="AnubarakCocoon@Normal" parent="StormSummonPassive">
         <PushPriority value="0"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="0"/>
         <LifeStart value="28"/>
         <LifeMax value="28"/>

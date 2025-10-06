@@ -13283,7 +13283,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
     int autoEB0FFEE3_val;
 
     // Variable Initialization
-    lv_damageType = libCore_ge_StormDamagingEffectKind_Any;
+    lv_damageType = libCore_ge_DamagingEffectKindStorm_Any;
 
     // Conditions
     if (testConds) {
@@ -13317,7 +13317,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
     lv_isCrit = libCore_gf_CombatCheckCritState(EventUnit(), UnitGetOwner(EventUnitDamageSourceUnit()), EventUnitDamageEffect());
     lv_damageType = libCore_gf_CombatDamageKindFromEffect(EventUnitDamageEffect());
     autoEB0FFEE3_val = lv_damageType;
-    if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectKind_Physical) {
+    if (autoEB0FFEE3_val == libCore_ge_DamagingEffectKindStorm_Physical) {
         if ((lv_isCrit == false)) {
             lv_style = "FCT_Physical_Normal";
         }
@@ -13325,7 +13325,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
             lv_style = "FCT_Physical_Crit";
         }
     }
-    else if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectKind_Spell) {
+    else if (autoEB0FFEE3_val == libCore_ge_DamagingEffectKindStorm_Spell) {
         if ((lv_isCrit == false)) {
             lv_style = "FCT_Spell_Normal";
         }
@@ -13333,7 +13333,7 @@ bool libUIUI_gt_UICombatFloatingElementsDamage_Func (bool testConds, bool runAct
             lv_style = "FCT_Spell_Crit";
         }
     }
-    else if (autoEB0FFEE3_val == libCore_ge_StormDamagingEffectKind_Pure) {
+    else if (autoEB0FFEE3_val == libCore_ge_DamagingEffectKindStorm_Pure) {
         if ((lv_isCrit == false)) {
             lv_style = "FCT_Pure_Normal";
         }

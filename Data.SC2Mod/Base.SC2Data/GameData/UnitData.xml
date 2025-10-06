@@ -34,7 +34,6 @@
         <FlagArray index="Unstoppable" value="1"/>
         <FlagArray index="PlayerRevivable" value="0"/>
         <FlagArray index="CameraFollow" value="0"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="ImmuneToAOE" value="1"/>
         <Attributes index="NoMinionAggro" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="1"/>
@@ -62,7 +61,6 @@
         <FlagArray index="Unstoppable" value="1"/>
         <FlagArray index="PlayerRevivable" value="0"/>
         <FlagArray index="CameraFollow" value="0"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="ImmuneToAOE" value="1"/>
         <Attributes index="NoMinionAggro" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="1"/>
@@ -123,7 +121,6 @@
         <FlagArray index="VisionTestCenterOnly" value="1"/>
         <FlagArray index="Unstoppable" value="1"/>
         <Response value="Nothing"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="ImmuneToAOE" value="1"/>
         <Attributes index="NoMinionAggro" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="1"/>
@@ -143,7 +140,6 @@
         <FlagArray index="VisionTestCenterOnly" value="1"/>
         <FlagArray index="Unstoppable" value="1"/>
         <Response value="Nothing"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="ImmuneToAOE" value="1"/>
         <Attributes index="NoMinionAggro" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="1"/>
@@ -978,7 +974,6 @@
         <FlagArray index="Unstoppable" value="1"/>
         <PlaneArray index="Air" value="1"/>
         <Collide index="ForceField" value="1"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="NoMinionAggro" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="1"/>
         <Attributes index="Summoned" value="1"/>
@@ -1038,7 +1033,6 @@
         <Mover value=""/>
         <SeparationRadius value="0"/>
         <MinimapRadius value="0"/>
-        <Attributes index="Tower" value="1"/>
         <Attributes index="ImmuneToAOE" value="1"/>
         <Attributes index="NoMinionAggro" value="1"/>
         <Attributes index="ImmuneToSkillshots" value="1"/>

@@ -11983,7 +11983,7 @@ bool libGDHL_gt_TalentShieldBreaker_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libCore_gf_CombatDamageKindFromEffect(EventUnitDamageEffect()) == libCore_ge_StormDamagingEffectKind_Physical))) {
+        if (!((libCore_gf_CombatDamageKindFromEffect(EventUnitDamageEffect()) == libCore_ge_DamagingEffectKindStorm_Physical))) {
             return false;
         }
     }
