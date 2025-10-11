@@ -880,6 +880,8 @@ int libCore_gf_RandomPlayerFromPlayerGroup (playergroup lp_playerGroup);
 playergroup libCore_gf_PlayerGroupMuting (int lp_muteType, int lp_player, bool lp_muted);
 playergroup PlayerGroupExceptOfPlayerGroup (playergroup lp_playerGroup, playergroup lp_playerGroupExclude);
 point libCore_gf_PointFromPositionAndAngle (point lp_point, fixed lp_angle);
+point libCore_gf_CenterPointBetweenUnits (unit lp_unit1, unit lp_unit2);
+region libCore_gf_RegionCircleBetweenUnits (unit lp_unit1, unit lp_unit2);
 bool libCore_gf_TechAliasExist (int lp_catalog, string lp_catalogEntry, string lp_techAlias);
 string libCore_gf_TechAliasToString (string lp_techAlias);
 void libCore_gf_TechAliasSuppressHealResponseEffectOverride (string lp_effect);

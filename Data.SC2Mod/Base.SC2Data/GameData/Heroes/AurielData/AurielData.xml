@@ -5194,7 +5194,6 @@
             <StateFlags index="UnitAttrOnImmuneToAOE" value="1"/>
             <StateFlags index="UnitAttrOnImmuneToSkillshots" value="1"/>
             <StateFlags index="Unstoppable" value="1"/>
-            <StateFlags index="Untargetable" value="1"/>
             <AbilLinkDisableArray value="HeroGenericHearthstone"/>
             <AbilLinkDisableArray value="HeroGenericCaptureMacGuffin"/>
             <AbilLinkDisableArray value="HeroGenericCaptureMacGuffinTwo"/>

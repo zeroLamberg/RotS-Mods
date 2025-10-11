@@ -947,13 +947,8 @@
     <CEffectEnumArea id="JohannaBlessedShield@MissileScan" parent="StormImpactSearchArea">
         <LaunchLocation Effect="JohannaBlessedShield@CreatePersistent" Value="OriginPoint"/>
         <ImpactLocation Value="SourceUnit"/>
-        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToSkillshots,Missile,Item,Stasis,Dead,Hidden"/>
-        <AreaArray>
-            <MaxCount value="1"/>
-            <RectangleWidth value="2"/>
-            <RectangleHeight value="1.75"/>
-            <Effect value="JohannaBlessedShield@ImpactSet"/>
-        </AreaArray>
+        <SearchFilters value="-;Player,Ally,Neutral,ImmuneToSkillshots,Worker,Missile,Item,Stasis,Dead,Hidden"/>
+        <AreaArray RectangleWidth="2" RectangleHeight="1.75" Effect="JohannaBlessedShield@ImpactSet"/>
         <AreaRelativeOffset value="0,-0.5"/>
         <RevealerParams Duration="0.5"/>
         <MaxCount value="1"/>
@@ -1346,12 +1341,13 @@
         <PrepEffect value="DismountDecloakCasterSet"/>
         <Effect value="JohannaBlessedShield@CastSet"/>
         <Flags index="ClearLastMoveTarget" value="1"/>
+        <Flags index="RangeUseCasterRadius" value="0"/>
         <Flags index="RequireTargetVision" value="0"/>
         <Cost>
             <Vital index="Energy" value="90"/>
             <Cooldown Location="Unit" TimeUse="60"/>
         </Cost>
-        <Range value="500"/>
+        <Range value="11"/>
         <Arc value="360"/>
         <CastIntroTime value="0.1"/>
         <UninterruptibleArray index="Cast" value="1"/>
@@ -1359,6 +1355,7 @@
         <UninterruptibleArray index="Finish" value="1"/>
         <CursorEffect value="JohannaBlessedShield@MissileScan"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="JohannaBlessedShield" Requirements="Ultimate2Unlocked"/>
+        <CursorRangeMode value="ForceToMax"/>
     </CAbilEffectTarget>
     <CValidatorCombine id="JohannaCondemn@DamageCritStatusCombine" parent="StormCritStatusCombineSpell">
         <CombineArray value="TargetIsLaneMinionOrMercenary"/>

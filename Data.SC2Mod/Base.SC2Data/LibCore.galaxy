@@ -4115,6 +4115,36 @@ point libCore_gf_PointFromPositionAndAngle (point lp_point, fixed lp_angle) {
     return lv_pointWithFacing;
 }
 
+point libCore_gf_CenterPointBetweenUnits (unit lp_unit1, unit lp_unit2) {
+    // Variable Declarations
+    unitgroup lv_unitGroup;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unitGroup = UnitGroupEmpty();
+
+    // Implementation
+    UnitGroupAdd(lv_unitGroup, lp_unit1);
+    UnitGroupAdd(lv_unitGroup, lp_unit2);
+    return UnitGroupCenterOfGroup(lv_unitGroup);
+}
+
+region libCore_gf_RegionCircleBetweenUnits (unit lp_unit1, unit lp_unit2) {
+    // Variable Declarations
+    unitgroup lv_unitGroup;
+    point lv_centerPoint;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unitGroup = UnitGroupEmpty();
+
+    // Implementation
+    UnitGroupAdd(lv_unitGroup, lp_unit1);
+    UnitGroupAdd(lv_unitGroup, lp_unit2);
+    lv_centerPoint = UnitGroupCenterOfGroup(lv_unitGroup);
+    return RegionCircle(lv_centerPoint, (DistanceBetweenPoints(UnitGetPosition(lp_unit1), UnitGetPosition(lp_unit2)) * 0.5));
+}
+
 bool libCore_gf_TechAliasExist (int lp_catalog, string lp_catalogEntry, string lp_techAlias) {
     // Variable Declarations
     string lv_name;

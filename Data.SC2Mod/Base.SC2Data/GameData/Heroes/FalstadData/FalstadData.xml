@@ -5456,7 +5456,6 @@
         <FinalEffect value="HeroFalstadFlight@DestroySearchPersistent"/>
         <Modification>
             <StateFlags index="Unstoppable" value="1"/>
-            <StateFlags index="Untargetable" value="1"/>
             <AbilLinkDisableArray value="Hearthstone"/>
             <AbilLinkDisableArray value="CaptureMacGuffin"/>
             <AbilLinkDisableArray value="CaptureMacGuffinTwo"/>

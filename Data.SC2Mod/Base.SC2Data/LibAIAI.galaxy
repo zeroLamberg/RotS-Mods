@@ -69,6 +69,7 @@ void libAIAI_InitVariables () {
         libAIAI_gv_defenderAI[init_i].lv_debugLabel = c_invalidDialogControlId;
     }
     libAIAI_gv_defenderAILastCreatedDefenderAIIndex = "DefenderAILastCreatedDefenderAI";
+    libAIAI_gv_stormAIValidUnitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterStasis - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
     libAIAI_gv_heroAITeamMapLogicFaction = libGame_ge_Faction_Order;
     for (init_i = 0; init_i <= libMapM_gv_jungleMaxCamps; init_i += 1) {
         libAIAI_gv_heroAIOrderMercCampList[init_i] = -1;
@@ -2692,6 +2693,264 @@ unitgroup libAIAI_gf_UnitGroupFilterAttribute2 (unitgroup lp_group, int lp_attri
     return lv_returnGroup;
 }
 
+unitgroup libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer (int lp_player, unitgroup lp_group, int lp_attribute, int lp_alliance) {
+    // Variable Declarations
+    unitgroup lv_returnGroup;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_returnGroup = UnitGroupEmpty();
+
+    // Implementation
+    lv_returnGroup = libAIAI_gf_UnitGroupFilterAttribute2(lp_group, lp_attribute);
+    lv_returnGroup = UnitGroupFilterAlliance(lv_returnGroup, lp_player, lp_alliance, 0);
+    return lv_returnGroup;
+}
+
+unitgroup libAIAI_gf_UnitGroupFilterByHealthPercent (unitgroup lp_unitGroup, fixed lp_healthPercentMin, fixed lp_healthPercentMax) {
+    // Variable Declarations
+    unit lv_itUnit;
+    unitgroup lv_returnUnitGroup;
+
+    // Automatic Variable Declarations
+    unitgroup autoDF2F9E06_g;
+    int autoDF2F9E06_u;
+
+    // Variable Initialization
+    lv_returnUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    autoDF2F9E06_g = lp_unitGroup;
+    autoDF2F9E06_u = UnitGroupCount(autoDF2F9E06_g, c_unitCountAll);
+    for (;; autoDF2F9E06_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(autoDF2F9E06_g, autoDF2F9E06_u);
+        if (lv_itUnit == null) { break; }
+        if ((UnitGetPropertyFixed(lv_itUnit, c_unitPropLifePercent, c_unitPropCurrent) >= lp_healthPercentMin) && (UnitGetPropertyFixed(lv_itUnit, c_unitPropLifePercent, c_unitPropCurrent) <= lp_healthPercentMax)) {
+            UnitGroupAdd(lv_returnUnitGroup, lv_itUnit);
+        }
+
+    }
+    return lv_returnUnitGroup;
+}
+
+unitgroup libAIAI_gf_UnitGroupFilterByBehavior (unitgroup lp_unitGroup, string lp_behavior) {
+    // Variable Declarations
+    unit lv_itUnit;
+    unitgroup lv_returnUnitGroup;
+
+    // Automatic Variable Declarations
+    unitgroup auto75855BA3_g;
+    int auto75855BA3_u;
+
+    // Variable Initialization
+    lv_returnUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    auto75855BA3_g = lp_unitGroup;
+    auto75855BA3_u = UnitGroupCount(auto75855BA3_g, c_unitCountAll);
+    for (;; auto75855BA3_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(auto75855BA3_g, auto75855BA3_u);
+        if (lv_itUnit == null) { break; }
+        if ((UnitHasBehavior2(lv_itUnit, lp_behavior) == true)) {
+            UnitGroupAdd(lv_returnUnitGroup, lv_itUnit);
+        }
+
+    }
+    return lv_returnUnitGroup;
+}
+
+unitgroup libAIAI_gf_UnitGroupFilterByDistanceFromUnit (unit lp_unit, unitgroup lp_unitGroup, fixed lp_distance, bool lp_considerUnitRadiuses, fixed lp_minDistance, fixed lp_maxDistance) {
+    // Variable Declarations
+    unit lv_itUnit;
+    unitgroup lv_returnUnitGroup;
+    fixed lv_testDistance;
+
+    // Automatic Variable Declarations
+    unitgroup autoF9374487_g;
+    int autoF9374487_u;
+
+    // Variable Initialization
+    lv_returnUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    autoF9374487_g = lp_unitGroup;
+    autoF9374487_u = UnitGroupCount(autoF9374487_g, c_unitCountAll);
+    for (;; autoF9374487_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(autoF9374487_g, autoF9374487_u);
+        if (lv_itUnit == null) { break; }
+        lv_testDistance = DistanceBetweenPoints(UnitGetPosition(lp_unit), UnitGetPosition(lv_itUnit));
+        if ((lp_considerUnitRadiuses == true)) {
+            lv_testDistance -= UnitGetPropertyFixed(lp_unit, c_unitPropRadius, c_unitPropCurrent);
+            lv_testDistance -= UnitGetPropertyFixed(lv_itUnit, c_unitPropRadius, c_unitPropCurrent);
+        }
+
+        if ((lv_testDistance <= lp_distance) && (lv_testDistance >= lp_minDistance) && (lv_testDistance <= lp_maxDistance)) {
+            UnitGroupAdd(lv_returnUnitGroup, lv_itUnit);
+        }
+
+    }
+    return lv_returnUnitGroup;
+}
+
+unitgroup libAIAI_gf_UnitGroupFilterByAcrossGatePosition (unit lp_unit, unitgroup lp_unitGroup, int lp_alliance) {
+    // Variable Declarations
+    unit lv_itUnit;
+    unitgroup lv_returnUnitGroup;
+
+    // Automatic Variable Declarations
+    unitgroup autoB388238D_g;
+    int autoB388238D_u;
+
+    // Variable Initialization
+    lv_returnUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    autoB388238D_g = lp_unitGroup;
+    autoB388238D_u = UnitGroupCount(autoB388238D_g, c_unitCountAll);
+    for (;; autoB388238D_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(autoB388238D_g, autoB388238D_u);
+        if (lv_itUnit == null) { break; }
+        if ((libAIAI_gf_IsTargetAcrossGate2(UnitGetOwner(lp_unit), lp_unit, lv_itUnit, lp_alliance) == true)) {
+            UnitGroupAdd(lv_returnUnitGroup, lv_itUnit);
+        }
+
+    }
+    return lv_returnUnitGroup;
+}
+
+unitgroup libAIAI_gf_UnitGroupFilterUnitGroupNearUnitInRange (unit lp_unit, unitgroup lp_unitGroup, fixed lp_minRange, fixed lp_maxRange, bool lp_considerRadius) {
+    // Variable Declarations
+    unit lv_itUnit;
+    unitgroup lv_returnUnitGroup;
+    fixed lv_distance;
+
+    // Automatic Variable Declarations
+    unitgroup autoC89C44A0_g;
+    int autoC89C44A0_u;
+
+    // Variable Initialization
+    lv_returnUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    autoC89C44A0_g = lp_unitGroup;
+    autoC89C44A0_u = UnitGroupCount(autoC89C44A0_g, c_unitCountAll);
+    for (;; autoC89C44A0_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(autoC89C44A0_g, autoC89C44A0_u);
+        if (lv_itUnit == null) { break; }
+        lv_distance = DistanceBetweenPoints(UnitGetPosition(lp_unit), UnitGetPosition(lv_itUnit));
+        if ((lp_considerRadius == true)) {
+            lv_distance -= UnitGetPropertyFixed(lp_unit, c_unitPropRadius, c_unitPropCurrent);
+            lv_distance -= UnitGetPropertyFixed(lv_itUnit, c_unitPropRadius, c_unitPropCurrent);
+        }
+
+        if ((lv_distance >= lp_minRange) && (lv_distance <= lp_maxRange)) {
+            UnitGroupAdd(lv_returnUnitGroup, lv_itUnit);
+        }
+
+    }
+    return lv_returnUnitGroup;
+}
+
+unitgroup libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius (unitgroup lp_unitGroup, fixed lp_radius) {
+    // Variable Declarations
+    unitgroup lv_bestUnitGroup;
+    unitgroup lv_testUnitGroup;
+    unit lv_itUnit;
+    unit lv_innerUnit;
+    fixed lv_distance;
+
+    // Automatic Variable Declarations
+    unitgroup auto6183FD51_g;
+    int auto6183FD51_u;
+    unitgroup autoFDFFF999_g;
+    int autoFDFFF999_u;
+
+    // Variable Initialization
+    lv_bestUnitGroup = UnitGroupEmpty();
+    lv_testUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    auto6183FD51_g = lp_unitGroup;
+    auto6183FD51_u = UnitGroupCount(auto6183FD51_g, c_unitCountAll);
+    for (;; auto6183FD51_u -= 1) {
+        lv_itUnit = UnitGroupUnitFromEnd(auto6183FD51_g, auto6183FD51_u);
+        if (lv_itUnit == null) { break; }
+        lv_testUnitGroup = UnitGroupFilterRegion(lp_unitGroup, RegionCircle(UnitGetPosition(lv_itUnit), (lp_radius + 8.0)), 0);
+        if ((lv_bestUnitGroup == UnitGroupEmpty())) {
+            lv_bestUnitGroup = lv_testUnitGroup;
+        }
+        else {
+            autoFDFFF999_g = lv_testUnitGroup;
+            autoFDFFF999_u = UnitGroupCount(autoFDFFF999_g, c_unitCountAll);
+            for (;; autoFDFFF999_u -= 1) {
+                lv_innerUnit = UnitGroupUnitFromEnd(autoFDFFF999_g, autoFDFFF999_u);
+                if (lv_innerUnit == null) { break; }
+                if ((lv_itUnit != lv_innerUnit)) {
+                    lv_distance = DistanceBetweenPoints(UnitGetPosition(lv_itUnit), UnitGetPosition(lv_innerUnit));
+                    lv_distance -= UnitGetPropertyFixed(lv_itUnit, c_unitPropRadius, c_unitPropCurrent);
+                    lv_distance -= UnitGetPropertyFixed(lv_innerUnit, c_unitPropRadius, c_unitPropCurrent);
+                    if ((lv_distance > lp_radius)) {
+                        UnitGroupRemove(lv_testUnitGroup, lv_innerUnit);
+                    }
+
+                }
+
+            }
+            if ((UnitGroupCount(lv_testUnitGroup, c_unitCountAll) > UnitGroupCount(lv_bestUnitGroup, c_unitCountAll))) {
+                lv_bestUnitGroup = lv_testUnitGroup;
+            }
+
+        }
+    }
+    return lv_bestUnitGroup;
+}
+
+bool libAIAI_gf_UnitIsBlockedByClearShot (unit lp_unit, unit lp_targetUnit, unitgroup lp_unitGroup) {
+    // Variable Declarations
+    unit lv_blockingUnitToCheck;
+    bool lv_blocked;
+    point lv_unitPosition;
+    point lv_targetPosition;
+
+    // Automatic Variable Declarations
+    unitgroup auto7120E246_g;
+    int auto7120E246_u;
+    unitgroup autoACA456DD_g;
+    int autoACA456DD_u;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((libAIAI_gv_aIHeroLineUpClearShotForSkillShots[libAIAI_gv_aIHeroes[UnitGetOwner(lp_unit)].lv_difficulty] == false)) {
+        return false;
+    }
+
+    lv_unitPosition = UnitGetPosition(lp_unit);
+    lv_targetPosition = UnitGetPosition(lp_targetUnit);
+    auto7120E246_g = lp_unitGroup;
+    auto7120E246_u = UnitGroupCount(auto7120E246_g, c_unitCountAll);
+    for (;; auto7120E246_u -= 1) {
+        lv_blockingUnitToCheck = UnitGroupUnitFromEnd(auto7120E246_g, auto7120E246_u);
+        if (lv_blockingUnitToCheck == null) { break; }
+        lv_blocked = false;
+        autoACA456DD_g = lp_unitGroup;
+        autoACA456DD_u = UnitGroupCount(autoACA456DD_g, c_unitCountAll);
+        for (;; autoACA456DD_u -= 1) {
+            lv_blockingUnitToCheck = UnitGroupUnitFromEnd(autoACA456DD_g, autoACA456DD_u);
+            if (lv_blockingUnitToCheck == null) { break; }
+            if (((lp_unit == lv_blockingUnitToCheck) || (lp_targetUnit == lv_blockingUnitToCheck))) {
+                continue;
+            }
+
+            if ((libAIAI_gf_LineSegmentCollide(lv_unitPosition, lv_targetPosition, UnitGetPosition(lv_blockingUnitToCheck), 1.5) == true)) {
+                return true;
+            }
+
+        }
+    }
+    return false;
+}
+
 unitgroup libAIAI_gf_UnitGroupFilterHeroes (unitgroup lp_unitGroup) {
     // Automatic Variable Declarations
     // Implementation
@@ -2769,6 +3028,7 @@ unit libAIAI_gf_GetNearbyTower (unit lp_aIUnit, unitgroup lp_unitGroup) {
     // Variable Declarations
     unit lv_unitToCheck;
     const int lv_towerNearbyDist = 12;
+    fixed lv_distance;
 
     // Automatic Variable Declarations
     unitgroup autoDDFC9D81_g;
@@ -2782,8 +3042,8 @@ unit libAIAI_gf_GetNearbyTower (unit lp_aIUnit, unitgroup lp_unitGroup) {
     for (;; autoDDFC9D81_u -= 1) {
         lv_unitToCheck = UnitGroupUnitFromEnd(autoDDFC9D81_g, autoDDFC9D81_u);
         if (lv_unitToCheck == null) { break; }
-        if ((UnitTypeTestAttribute(UnitGetType(lv_unitToCheck), c_unitAttributeStructure) == true) && (UnitTypeTestAttribute(UnitGetType(lv_unitToCheck), c_unitAttributeArmored) == true) && (UnitIsAlive(lv_unitToCheck) == true) && (libGame_gf_StormUnitHasBehaviorFromCategory(libGame_ge_StormBehaviorCategories_SpecialDeathState, lv_unitToCheck) == false)) {
-            if ((DistanceBetweenPoints(UnitGetPosition(lp_aIUnit), UnitGetPosition(lv_unitToCheck)) <= lv_towerNearbyDist)) {
+        if ((UnitTypeTestAttribute(UnitGetType(lv_unitToCheck), c_unitAttributeArmored) == true) && (UnitTypeTestAttribute(UnitGetType(lv_unitToCheck), c_unitAttributeStructure) == true) && (UnitIsAlive(lv_unitToCheck) == true) && (libGame_gf_StormUnitHasBehaviorFromCategory(libGame_ge_StormBehaviorCategories_SpecialDeathState, lv_unitToCheck) == false)) {
+            if ((UnitInRangeAndAbleToAttackTarget(lv_unitToCheck, lp_aIUnit) == true)) {
                 return lv_unitToCheck;
             }
 
@@ -2881,6 +3141,75 @@ bool libAIAI_gf_IsTargetAcrossGate (unit lp_aIUnit, unit lp_target, unitgroup lp
     return lv_blocked;
 }
 
+bool libAIAI_gf_IsTargetAcrossGate2 (int lp_player, unit lp_aIUnit, unit lp_target, int lp_alliance) {
+    // Variable Declarations
+    int lv_blockingIndex;
+    unit lv_blockingUnitToCheck;
+    point lv_blockingUnitToCheckPosition;
+    fixed lv_blockingUnitToCheckFacing;
+    fixed lv_gateCrossSelf;
+    point lv_gateFacingVector;
+    point lv_gateAxis;
+    point lv_gateToSelf;
+    point lv_gateToTarget;
+    fixed lv_gateCrossTarget;
+    point lv_aIUnitPosition;
+    point lv_targetPosition;
+    bool lv_blocked;
+    unitgroup lv_gatesUnitGroup;
+    fixed lv_radius;
+    point lv_centerPoint;
+
+    // Automatic Variable Declarations
+    unitgroup autoE036B72C_g;
+    int autoE036B72C_u;
+
+    // Variable Initialization
+    lv_gatesUnitGroup = UnitGroupEmpty();
+
+    // Implementation
+    lv_aIUnitPosition = UnitGetPosition(lp_aIUnit);
+    lv_targetPosition = UnitGetPosition(lp_target);
+    lv_radius = (DistanceBetweenPoints(lv_aIUnitPosition, lv_targetPosition) * 0.5);
+    lv_centerPoint = libAIAI_gf_CenterPointBetweenPoints(lv_aIUnitPosition, lv_targetPosition);
+    lv_gatesUnitGroup = UnitGroupAlliance(lp_player, lp_alliance, RegionCircle(lv_centerPoint, lv_radius), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoE036B72C_g = lv_gatesUnitGroup;
+    autoE036B72C_u = UnitGroupCount(autoE036B72C_g, c_unitCountAll);
+    for (;; autoE036B72C_u -= 1) {
+        lv_blockingUnitToCheck = UnitGroupUnitFromEnd(autoE036B72C_g, autoE036B72C_u);
+        if (lv_blockingUnitToCheck == null) { break; }
+        if (((lp_target == lv_blockingUnitToCheck) || (UnitIsAlive(lv_blockingUnitToCheck) == false))) {
+            continue;
+        }
+
+        if ((UnitTypeTestFlag(UnitGetType(lv_blockingUnitToCheck), c_unitFlagTownStructureGate) == false)) {
+            continue;
+        }
+
+        lv_blockingUnitToCheckPosition = UnitGetPosition(lv_blockingUnitToCheck);
+        lv_blockingUnitToCheckFacing = UnitGetFacing(lv_blockingUnitToCheck);
+        lv_gateFacingVector = Point(Cos(lv_blockingUnitToCheckFacing), Sin(lv_blockingUnitToCheckFacing));
+        lv_gateAxis = Point((-PointGetY(lv_gateFacingVector)), (-PointGetX(lv_gateFacingVector)));
+        lv_gateToSelf = Point((PointGetX(lv_aIUnitPosition) - PointGetX(lv_blockingUnitToCheckPosition)), (PointGetY(lv_aIUnitPosition) - PointGetY(lv_blockingUnitToCheckPosition)));
+        lv_gateCrossSelf = (PointGetX(lv_gateAxis) * PointGetY(lv_gateToSelf) - PointGetY(lv_gateAxis) * PointGetX(lv_gateToSelf));
+        if ((((PointGetX(lv_gateFacingVector) * PointGetX(lv_gateToSelf)) + (PointGetY(lv_gateFacingVector) * PointGetY(lv_gateToSelf))) > 0.0)) {
+            lv_gateFacingVector = Point((-1* PointGetX(lv_gateFacingVector) * 2), (-1* PointGetY(lv_gateFacingVector) * 2));
+        }
+        else {
+            lv_gateFacingVector = Point((PointGetX(lv_gateFacingVector) * 2), (PointGetY(lv_gateFacingVector) * 2));
+        }
+        lv_targetPosition = Point((PointGetX(lv_targetPosition) + PointGetX(lv_gateFacingVector)), (PointGetY(lv_targetPosition) + PointGetY(lv_gateFacingVector)));
+        lv_gateToTarget = Point((PointGetX(lv_targetPosition) - PointGetX(lv_blockingUnitToCheckPosition)), (PointGetY(lv_targetPosition) - PointGetY(lv_blockingUnitToCheckPosition)));
+        lv_gateCrossTarget = (PointGetX(lv_gateAxis) * PointGetY(lv_gateToTarget) - PointGetY(lv_gateAxis) * PointGetX(lv_gateToTarget));
+        if (((lv_gateCrossSelf * lv_gateCrossTarget) < 0.0)) {
+            lv_blocked = true;
+            break;
+        }
+
+    }
+    return lv_blocked;
+}
+
 bool libAIAI_gf_IsTargetPointAcrossGate (point lp_originalPoint, point lp_targetPoint) {
     // Variable Declarations
     int lv_blockingIndex;
@@ -2949,12 +3278,6 @@ bool libAIAI_gf_IsTargetPointAcrossGate (point lp_originalPoint, point lp_target
 unit libAIAI_gf_FindBestUnit (unitgroup lp_testGroup, unitgroup lp_scanGroup, unit lp_aIUnit, structref<libAIAI_gs_Storm_AI_TargetQueryOptions> lp_options) {
     // Variable Declarations
     point lv_unitPosition;
-    unit lv_nearestUnit;
-    fixed lv_nearesHeroDistance;
-    point lv_inFrontOfUnit;
-    region lv_inFrontRegion;
-    unitgroup lv_unitsInTheWayGroup;
-    unitgroup lv_minionsInTheWayGroup;
     unit lv_target;
     fixed lv_targetHealthPercent;
     point lv_targetPosition;
@@ -2974,8 +3297,6 @@ unit libAIAI_gf_FindBestUnit (unitgroup lp_testGroup, unitgroup lp_scanGroup, un
     int auto34A692D5_u;
 
     // Variable Initialization
-    lv_unitsInTheWayGroup = UnitGroupEmpty();
-    lv_minionsInTheWayGroup = UnitGroupEmpty();
     lv_structureFilter = UnitFilter(0, 0, 0, 0);
 
     // Implementation
@@ -3060,6 +3381,164 @@ unit libAIAI_gf_FindBestUnit (unitgroup lp_testGroup, unitgroup lp_scanGroup, un
         }
 
         if ((lp_options.lv_ignoreTargetsBehindGate == true) && (libAIAI_gf_IsTargetAcrossGate(lp_aIUnit, lv_target, lp_scanGroup, lp_options) == true)) {
+            continue;
+        }
+
+        lv_bestUnit = lv_target;
+        lv_bestScore = lv_targetScore;
+    }
+    return lv_bestUnit;
+}
+
+unit libAIAI_gf_StormAIFindBestUnit (unit lp_aIUnit, unitgroup lp_testGroup, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_options) {
+    // Variable Declarations
+    point lv_unitPosition;
+    unit lv_target;
+    fixed lv_targetHealthPercent;
+    point lv_targetPosition;
+    fixed lv_targetDistance;
+    fixed lv_targetScore;
+    fixed lv_inverseHealthRange;
+    unit lv_bestUnit;
+    fixed lv_bestScore;
+
+    // Automatic Variable Declarations
+    unitgroup auto1E0A54CD_g;
+    int auto1E0A54CD_u;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_bestScore = -9999.0;
+    lv_unitPosition = UnitGetPosition(lp_aIUnit);
+    lv_inverseHealthRange = 0.0;
+    if ((lp_options.lv_healthMaxPercent > lp_options.lv_healthMinPercent)) {
+        lv_inverseHealthRange = (1 /(lp_options.lv_healthMinPercent -100));
+    }
+
+    auto1E0A54CD_g = lp_testGroup;
+    auto1E0A54CD_u = UnitGroupCount(auto1E0A54CD_g, c_unitCountAll);
+    for (;; auto1E0A54CD_u -= 1) {
+        lv_target = UnitGroupUnitFromEnd(auto1E0A54CD_g, auto1E0A54CD_u);
+        if (lv_target == null) { break; }
+        if ((UnitIsAlive(lv_target) == false)) {
+            continue;
+        }
+
+        lv_targetHealthPercent = UnitGetPropertyFixed(lv_target, c_unitPropLifePercent, c_unitPropCurrent);
+        if (((lv_targetHealthPercent < lp_options.lv_healthMinPercent) || ((lp_options.lv_healthMaxPercent > 0.0) && (lv_targetHealthPercent > lp_options.lv_healthMaxPercent)))) {
+            continue;
+        }
+
+        lv_targetPosition = UnitGetPosition(lv_target);
+        lv_targetDistance = DistanceBetweenPoints(lv_unitPosition, lv_targetPosition);
+        if ((lp_options.lv_considerUnitRadius == true)) {
+            lv_targetDistance -= UnitGetPropertyFixed(lp_aIUnit, c_unitPropRadius, c_unitPropCurrent);
+            lv_targetDistance -= UnitGetPropertyFixed(lv_target, c_unitPropRadius, c_unitPropCurrent);
+        }
+
+        if (((lv_targetDistance < lp_options.lv_distanceMin) || ((lp_options.lv_distanceMax > 0.0) && (lv_targetDistance > lp_options.lv_distanceMax)))) {
+            continue;
+        }
+
+        lv_targetScore = (libAIAI_gv_c_Storm_AI_FullHeroScore * UnitGetPropertyFixed(lv_target, c_unitPropAIEvaluationFactor, c_unitPropCurrent));
+        if ((lp_options.lv_distanceMax > 0.0) && (lp_options.lv_distanceMax > lp_options.lv_distanceMin)) {
+            if ((lp_options.lv_distanceFactor > 0.0)) {
+                lv_targetScore = (lv_targetScore+ lp_options.lv_distanceFactor * (lp_options.lv_distanceMax - lv_targetDistance) / (lp_options.lv_distanceMax - lp_options.lv_distanceMin));
+            }
+            else if ((lp_options.lv_distanceFactor < 0.0)) {
+                lv_targetScore = (lv_targetScore - lp_options.lv_distanceFactor * (lv_targetDistance - lp_options.lv_distanceMin) / (lp_options.lv_distanceMax - lp_options.lv_distanceMin));
+            }
+        }
+
+        if ((lp_options.lv_healthFactor > 0.0)) {
+            lv_targetScore = (lv_targetScore + lp_options.lv_healthFactor * (lp_options.lv_healthMaxPercent - lv_targetHealthPercent) * lv_inverseHealthRange);
+        }
+        else if ((lp_options.lv_healthFactor < 0.0)) {
+            lv_targetScore = (lv_targetScore - lp_options.lv_healthFactor * (lv_targetHealthPercent - lp_options.lv_healthMinPercent) * lv_inverseHealthRange);
+        }
+        if (((lv_targetScore < lv_bestScore) || ((lv_targetScore == lv_bestScore) && (lv_bestUnit != null)))) {
+            continue;
+        }
+
+        lv_bestUnit = lv_target;
+        lv_bestScore = lv_targetScore;
+    }
+    return lv_bestUnit;
+}
+
+unit libAIAI_gf_StormAIFindBestUnit2usethis (unit lp_aIUnit, unitgroup lp_testGroup, bool lp_considerUnitRadiuses, fixed lp_distanceMin, fixed lp_distanceMax, fixed lp_distanceFactor, fixed lp_healthMinPercent, fixed lp_healthMaxPercent, fixed lp_healthFactor, bool lp_clearShot, unitgroup lp_clearShotUnitGroup) {
+    // Variable Declarations
+    point lv_aIUnitPosition;
+    unit lv_target;
+    fixed lv_targetHealthPercent;
+    point lv_targetPosition;
+    fixed lv_targetDistance;
+    fixed lv_targetScore;
+    fixed lv_inverseHealthRange;
+    unit lv_bestUnit;
+    fixed lv_bestScore;
+
+    // Automatic Variable Declarations
+    unitgroup auto5E1AEBD7_g;
+    int auto5E1AEBD7_u;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_bestScore = -9999.0;
+    lv_aIUnitPosition = UnitGetPosition(lp_aIUnit);
+    lv_inverseHealthRange = 0.0;
+    if ((lp_healthMaxPercent > lp_healthMinPercent)) {
+        lv_inverseHealthRange = (1 /(lp_healthMinPercent -100));
+    }
+
+    auto5E1AEBD7_g = lp_testGroup;
+    auto5E1AEBD7_u = UnitGroupCount(auto5E1AEBD7_g, c_unitCountAll);
+    for (;; auto5E1AEBD7_u -= 1) {
+        lv_target = UnitGroupUnitFromEnd(auto5E1AEBD7_g, auto5E1AEBD7_u);
+        if (lv_target == null) { break; }
+        if ((UnitIsAlive(lv_target) == false)) {
+            continue;
+        }
+
+        lv_targetHealthPercent = UnitGetPropertyFixed(lv_target, c_unitPropLifePercent, c_unitPropCurrent);
+        if (((lv_targetHealthPercent < lp_healthMinPercent) || ((lp_healthMaxPercent > 0.0) && (lv_targetHealthPercent > lp_healthMaxPercent)))) {
+            continue;
+        }
+
+        lv_targetPosition = UnitGetPosition(lv_target);
+        lv_targetDistance = DistanceBetweenPoints(lv_aIUnitPosition, lv_targetPosition);
+        if ((lp_considerUnitRadiuses == true)) {
+            lv_targetDistance -= UnitGetPropertyFixed(lp_aIUnit, c_unitPropRadius, c_unitPropCurrent);
+            lv_targetDistance -= UnitGetPropertyFixed(lv_target, c_unitPropRadius, c_unitPropCurrent);
+        }
+
+        if (((lv_targetDistance < lp_distanceMin) || ((lp_distanceMax > 0.0) && (lv_targetDistance > lp_distanceMax)))) {
+            continue;
+        }
+
+        lv_targetScore = (libAIAI_gv_c_Storm_AI_FullHeroScore * UnitGetPropertyFixed(lv_target, c_unitPropAIEvaluationFactor, c_unitPropCurrent));
+        if ((lp_distanceMax > 0.0) && (lp_distanceMax > lp_distanceMin)) {
+            if (((lp_distanceFactor) > 0.0)) {
+                lv_targetScore = (lv_targetScore+ lp_distanceFactor * (lp_distanceMax - lv_targetDistance) / (lp_distanceMax - lp_distanceMin));
+            }
+            else if (((lp_distanceFactor) < 0.0)) {
+                lv_targetScore = (lv_targetScore - lp_distanceFactor * (lv_targetDistance - lp_distanceMin) / (lp_distanceMax - lp_distanceMin));
+            }
+        }
+
+        if (((lp_healthFactor) > 0.0)) {
+            lv_targetScore = (lv_targetScore + lp_healthFactor * (lp_healthMaxPercent - lv_targetHealthPercent) * lv_inverseHealthRange);
+        }
+        else if (((lp_healthFactor) < 0.0)) {
+            lv_targetScore = (lv_targetScore - lp_healthFactor * (lv_targetHealthPercent - lp_healthMinPercent) * lv_inverseHealthRange);
+        }
+        if (((lv_targetScore < lv_bestScore) || ((lv_targetScore == lv_bestScore) && (lv_bestUnit != null)))) {
+            continue;
+        }
+
+        if ((lp_clearShot == true) && (libAIAI_gf_UnitIsBlockedByClearShot(lp_aIUnit, lv_target, lp_clearShotUnitGroup) == true)) {
             continue;
         }
 
@@ -3626,60 +4105,109 @@ void libAIAI_gf_StormAIUnitsInAreaResetOptions (structref<libAIAI_gs_Storm_AI_Un
     // Automatic Variable Declarations
     // Implementation
     lp_options.lv_considerUnitRadius = false;
-    lp_options.lv_behavior = null;
-    lp_options.lv_filterAttribute = -1;
-    lp_options.lv_filterTargetsBehindGate = false;
-    lp_options.lv_maxDistance = -1.0;
-    lp_options.lv_minDistance = -1.0;
-    lp_options.lv_maxLifePercent = -1.0;
-    lp_options.lv_minLifePercent = -1.0;
-    lp_options.lv_unitFilter = UnitFilter(0, 0, 0, 0);
-    lp_options.lv_unitTracker = null;
     lp_options.lv_unitType = null;
+    lp_options.lv_unitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+    lp_options.lv_attributeType = -1;
+    lp_options.lv_ignoreTargetsBehindEnemyGate = false;
+    lp_options.lv_ignoreTargetsBehindAllyGate = false;
+    lp_options.lv_clearShotUse = false;
+    lp_options.lv_clearShotUnitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+    lp_options.lv_clearShotAttribute = -1;
+    lp_options.lv_distanceFactor = -1.0;
+    lp_options.lv_distanceMax = 500.0;
+    lp_options.lv_distanceMin = 0.0;
+    lp_options.lv_healthFactor = -1.0;
+    lp_options.lv_healthMaxPercent = 100.0;
+    lp_options.lv_healthMinPercent = 0.0;
+    lp_options.lv_behavior = null;
 }
 
-unitgroup libAIAI_gf_StormAIUnitsInArea (int lp_player, unit lp_aIUnit, point lp_center, fixed lp_radius, int lp_alliance, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_options) {
+void libAIAI_gf_StormAIUnitsInAreaCopyOptions (structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_copyFromOptions, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_copyToOptions) {
+    // Automatic Variable Declarations
+    // Implementation
+    lp_copyToOptions.lv_considerUnitRadius = lp_copyFromOptions.lv_considerUnitRadius;
+    lp_copyToOptions.lv_unitType = lp_copyFromOptions.lv_unitType;
+    lp_copyToOptions.lv_unitFilter = lp_copyFromOptions.lv_unitFilter;
+    lp_copyToOptions.lv_attributeType = lp_copyFromOptions.lv_attributeType;
+    lp_copyToOptions.lv_ignoreTargetsBehindEnemyGate = lp_copyFromOptions.lv_ignoreTargetsBehindEnemyGate;
+    lp_copyToOptions.lv_ignoreTargetsBehindAllyGate = lp_copyFromOptions.lv_ignoreTargetsBehindAllyGate;
+    lp_copyToOptions.lv_clearShotUse = lp_copyFromOptions.lv_clearShotUse;
+    lp_copyToOptions.lv_clearShotAttribute = lp_copyFromOptions.lv_clearShotAttribute;
+    lp_copyToOptions.lv_clearShotUnitFilter = lp_copyFromOptions.lv_clearShotUnitFilter;
+    lp_copyToOptions.lv_distanceFactor = lp_copyFromOptions.lv_distanceFactor;
+    lp_copyToOptions.lv_distanceMax = lp_copyFromOptions.lv_distanceMax;
+    lp_copyToOptions.lv_distanceMin = lp_copyFromOptions.lv_distanceMin;
+    lp_copyToOptions.lv_healthFactor = lp_copyFromOptions.lv_healthFactor;
+    lp_copyToOptions.lv_healthMaxPercent = lp_copyFromOptions.lv_healthMaxPercent;
+    lp_copyToOptions.lv_healthMinPercent = lp_copyFromOptions.lv_healthMinPercent;
+    lp_copyToOptions.lv_behavior = lp_copyFromOptions.lv_behavior;
+}
+
+unitgroup libAIAI_gf_StormAIUnitsInArea (int lp_player, unit lp_aIUnit, region lp_region, unitgroup lp_targetGroup, int lp_alliance, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_options) {
     // Variable Declarations
-    region lv_region;
+    region lv_regionToWork;
     unitgroup lv_unitGroup;
-    unitgroup lv_unitGroup2;
+    unitgroup lv_unitGroupClearShot;
     unit lv_targetUnit;
     fixed lv_distance;
     fixed lv_aIUnitRadius;
     point lv_aIUnitPosition;
+    unit lv_blockingUnitToCheck;
+    bool lv_blocked;
+    libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions lv_localOptions;
 
     // Automatic Variable Declarations
     unitgroup autoE4C73321_g;
     int autoE4C73321_u;
+    unitgroup auto3FD2820C_g;
+    int auto3FD2820C_u;
 
     // Variable Initialization
     lv_unitGroup = UnitGroupEmpty();
-    lv_unitGroup2 = UnitGroupEmpty();
+    lv_unitGroupClearShot = UnitGroupEmpty();
+    lv_localOptions.lv_unitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+    lv_localOptions.lv_attributeType = -1;
+    lv_localOptions.lv_clearShotUnitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+    lv_localOptions.lv_clearShotAttribute = -1;
+    lv_localOptions.lv_distanceMax = 500.0;
+    lv_localOptions.lv_healthMaxPercent = 100.0;
 
     // Implementation
-    if ((lp_options.lv_considerUnitRadius == false)) {
-        lv_region = RegionCircle(lp_center, lp_radius);
+    libAIAI_gf_StormAIUnitsInAreaCopyOptions(lp_options, lv_localOptions);
+    libAIAI_gf_StormAIUnitsInAreaResetOptions(lp_options);
+    if ((lp_region != null)) {
+        if ((lv_localOptions.lv_considerUnitRadius == false)) {
+            lv_regionToWork = lp_region;
+        }
+        else {
+            lv_regionToWork = RegionCircle(RegionGetCenter(lp_region), (libNtve_gf_HeightOfRegion(lp_region) + 6.0));
+        }
     }
-    else {
-        lv_region = RegionCircle(lp_center, (lp_radius + 6.0));
+
+    if ((lp_region != null) && (lp_targetGroup != null)) {
+        lv_unitGroup = UnitGroupFilter(null, c_playerAny, lp_targetGroup, lv_localOptions.lv_unitFilter, 0);
+        lv_unitGroup = UnitGroupFilterAlliance(lv_unitGroup, lp_player, lp_alliance, 0);
+        lv_unitGroup = UnitGroupFilterRegion(lv_unitGroup, lv_regionToWork, 0);
     }
-    lv_unitGroup = UnitGroupAlliance(lp_player, lp_alliance, lv_region, lp_options.lv_unitFilter, 0);
-    if ((lp_options.lv_unitType != null)) {
-        lv_unitGroup = UnitGroupFilter(lp_options.lv_unitType, c_playerAny, lv_unitGroup, UnitFilter(0, 0, 0, 0), 0);
+    else if ((lp_region != null)) {
+        lv_unitGroup = UnitGroup(null, c_playerAny, lv_regionToWork, lv_localOptions.lv_unitFilter, 0);
+        lv_unitGroup = UnitGroupFilterAlliance(lv_unitGroup, lp_player, lp_alliance, 0);
+    }
+    else if ((lp_targetGroup != null)) {
+        lv_unitGroup = UnitGroupFilter(null, c_playerAny, lp_targetGroup, lv_localOptions.lv_unitFilter, 0);
+        lv_unitGroup = UnitGroupFilterAlliance(lv_unitGroup, lp_player, lp_alliance, 0);
+    }
+    if ((lv_localOptions.lv_unitType != null)) {
+        lv_unitGroup = UnitGroupFilter(lv_localOptions.lv_unitType, c_playerAny, lv_unitGroup, UnitFilter(0, 0, 0, 0), 0);
     }
 
     lv_unitGroup = libAIAI_gf_FilterBadHeroTargets(lv_unitGroup, lp_player);
-    if ((lp_options.lv_filterAttribute != -1)) {
-        lv_unitGroup = libAIAI_gf_UnitGroupFilterAttribute2(lv_unitGroup, lp_options.lv_filterAttribute);
+    if ((lv_localOptions.lv_attributeType != -1)) {
+        lv_unitGroup = libAIAI_gf_UnitGroupFilterAttribute2(lv_unitGroup, lv_localOptions.lv_attributeType);
     }
 
     if ((UnitGroupCount(lv_unitGroup, c_unitCountAll) <= 0)) {
         return lv_unitGroup;
-    }
-
-    if ((lp_options.lv_unitTracker != null)) {
-        lv_unitGroup2 = UnitGroupCopy(lv_unitGroup);
-        lv_unitGroup = UnitGetTrackedUnitGroup(lp_aIUnit, lp_options.lv_unitTracker);
     }
 
     lv_aIUnitRadius = UnitGetPropertyFixed(lp_aIUnit, c_unitPropRadius, c_unitPropCurrent);
@@ -3690,51 +4218,147 @@ unitgroup libAIAI_gf_StormAIUnitsInArea (int lp_player, unit lp_aIUnit, point lp
         lv_targetUnit = UnitGroupUnitFromEnd(autoE4C73321_g, autoE4C73321_u);
         if (lv_targetUnit == null) { break; }
         lv_distance = DistanceBetweenPoints(lv_aIUnitPosition, UnitGetPosition(lv_targetUnit));
-        if ((lp_options.lv_considerUnitRadius == true)) {
+        if ((lv_localOptions.lv_considerUnitRadius == true)) {
             lv_distance -= lv_aIUnitRadius;
             lv_distance -= UnitGetPropertyFixed(lv_targetUnit, c_unitPropRadius, c_unitPropCurrent);
         }
 
-        if ((lp_options.lv_unitTracker != null)) {
-            if ((UnitGroupHasUnit(lv_unitGroup2, lv_targetUnit) == false)) {
+        if ((((UnitFilterGetState(lv_localOptions.lv_unitFilter, c_targetFilterDead) == c_unitFilterExcluded) && (libGame_gf_StormUnitHasBehaviorFromCategory(libGame_ge_StormBehaviorCategories_SpecialDeathState, lv_targetUnit) == true)) || ((UnitFilterGetState(lv_localOptions.lv_unitFilter, c_targetFilterDead) == c_unitFilterRequired) && (libGame_gf_StormUnitHasBehaviorFromCategory(libGame_ge_StormBehaviorCategories_SpecialDeathState, lv_targetUnit) == false)))) {
+            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+            continue;
+        }
+
+        if ((lv_localOptions.lv_behavior != null) && (UnitHasBehavior2(lv_targetUnit, lv_localOptions.lv_behavior) == false)) {
+            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+            continue;
+        }
+
+        if ((lv_distance < lv_localOptions.lv_distanceMin)) {
+            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+            continue;
+        }
+
+        if ((lv_distance > lv_localOptions.lv_distanceMax)) {
+            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+            continue;
+        }
+
+        if ((UnitGetPropertyFixed(lv_targetUnit, c_unitPropLifePercent, c_unitPropCurrent) > lv_localOptions.lv_healthMaxPercent)) {
+            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+            continue;
+        }
+
+        if ((UnitGetPropertyFixed(lv_targetUnit, c_unitPropLifePercent, c_unitPropCurrent) < lv_localOptions.lv_healthMinPercent)) {
+            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+            continue;
+        }
+
+        if ((lv_localOptions.lv_ignoreTargetsBehindEnemyGate == true) && (lv_localOptions.lv_ignoreTargetsBehindAllyGate == true)) {
+            if ((libAIAI_gf_IsTargetAcrossGate2(lp_player, lp_aIUnit, lv_targetUnit, c_unitAllianceAny) == true)) {
+                UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+                continue;
+            }
+
+        }
+        else {
+            if ((lv_localOptions.lv_ignoreTargetsBehindEnemyGate == true)) {
+                if ((libAIAI_gf_IsTargetAcrossGate2(lp_player, lp_aIUnit, lv_targetUnit, c_unitAllianceEnemy) == true)) {
+                    UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+                    continue;
+                }
+
+            }
+
+            if ((lv_localOptions.lv_ignoreTargetsBehindAllyGate == true)) {
+                if ((libAIAI_gf_IsTargetAcrossGate2(lp_player, lp_aIUnit, lv_targetUnit, c_unitAllianceAlly) == true)) {
+                    UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+                    continue;
+                }
+
+            }
+
+        }
+        if ((lv_localOptions.lv_clearShotUse == true) && (libAIAI_gv_aIHeroLineUpClearShotForSkillShots[libAIAI_gv_aIHeroes[UnitGetOwner(lp_aIUnit)].lv_difficulty] == true)) {
+            lv_unitGroupClearShot = UnitGroup(null, c_playerAny, libCore_gf_RegionCircleBetweenUnits(lp_aIUnit, lv_targetUnit), lv_localOptions.lv_clearShotUnitFilter, 0);
+            lv_unitGroupClearShot = libAIAI_gf_UnitGroupFilterAttribute2(lv_unitGroupClearShot, lv_localOptions.lv_clearShotAttribute);
+            lv_blocked = false;
+            auto3FD2820C_g = lv_unitGroupClearShot;
+            auto3FD2820C_u = UnitGroupCount(auto3FD2820C_g, c_unitCountAll);
+            for (;; auto3FD2820C_u -= 1) {
+                lv_blockingUnitToCheck = UnitGroupUnitFromEnd(auto3FD2820C_g, auto3FD2820C_u);
+                if (lv_blockingUnitToCheck == null) { break; }
+                if ((lv_targetUnit == lv_blockingUnitToCheck)) {
+                    continue;
+                }
+
+                if ((libAIAI_gf_LineSegmentCollide(lv_aIUnitPosition, UnitGetPosition(lv_targetUnit), UnitGetPosition(lv_blockingUnitToCheck), 1.5) == true)) {
+                    lv_blocked = true;
+                    break;
+                }
+
+            }
+            if ((lv_blocked == true)) {
                 UnitGroupRemove(lv_unitGroup, lv_targetUnit);
                 continue;
             }
 
         }
 
-        if ((lp_options.lv_behavior != null) && (UnitHasBehavior2(lv_targetUnit, lp_options.lv_behavior) == false)) {
-            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
-            continue;
-        }
+    }
+    return lv_unitGroup;
+}
 
-        if ((lp_options.lv_minDistance > 0.0) && (lv_distance < lp_options.lv_minDistance)) {
-            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
-            continue;
-        }
+unitgroup libAIAI_gf_StormAIUnitsInArea2 (unit lp_aIUnit, bool lp_considerUnitRadiuses, region lp_region, unitgroup lp_targetGroup, int lp_alliance, unitfilter lp_unitFilter) {
+    // Variable Declarations
+    int lv_player;
+    region lv_regionToWork;
+    unit lv_targetUnit;
+    unitgroup lv_returnUnitGroup;
 
-        if ((lp_options.lv_maxDistance > 0.0) && (lv_distance > lp_options.lv_maxDistance)) {
-            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
-            continue;
-        }
+    // Automatic Variable Declarations
+    unitgroup auto45827DFB_g;
+    int auto45827DFB_u;
 
-        if ((lp_options.lv_maxLifePercent > 0.0) && (UnitGetPropertyFixed(lv_targetUnit, c_unitPropLifePercent, c_unitPropCurrent) > lp_options.lv_maxLifePercent)) {
-            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
-            continue;
-        }
+    // Variable Initialization
+    lv_returnUnitGroup = UnitGroupEmpty();
 
-        if ((lp_options.lv_minLifePercent > 0.0) && (UnitGetPropertyFixed(lv_targetUnit, c_unitPropLifePercent, c_unitPropCurrent) < lp_options.lv_minLifePercent)) {
-            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
-            continue;
+    // Implementation
+    lv_player = UnitGetOwner(lp_aIUnit);
+    if ((lp_region != null)) {
+        if ((lp_considerUnitRadiuses == false)) {
+            lv_regionToWork = lp_region;
         }
+        else {
+            lv_regionToWork = RegionCircle(RegionGetCenter(lp_region), (libNtve_gf_HeightOfRegion(lp_region) + 8.0));
+        }
+    }
 
-        if ((lp_options.lv_filterTargetsBehindGate == true) && (libAIAI_gf_IsTargetPointAcrossGate(UnitGetPosition(lp_aIUnit), UnitGetPosition(lv_targetUnit)) == true)) {
-            UnitGroupRemove(lv_unitGroup, lv_targetUnit);
+    if ((lp_region != null) && (lp_targetGroup != null)) {
+        lv_returnUnitGroup = UnitGroupFilter(null, c_playerAny, lp_targetGroup, lp_unitFilter, 0);
+        lv_returnUnitGroup = UnitGroupFilterAlliance(lv_returnUnitGroup, lv_player, lp_alliance, 0);
+        lv_returnUnitGroup = UnitGroupFilterRegion(lv_returnUnitGroup, lv_regionToWork, 0);
+    }
+    else if ((lp_region != null)) {
+        lv_returnUnitGroup = UnitGroup(null, c_playerAny, lv_regionToWork, lp_unitFilter, 0);
+        lv_returnUnitGroup = UnitGroupFilterAlliance(lv_returnUnitGroup, lv_player, lp_alliance, 0);
+    }
+    else if ((lp_targetGroup != null)) {
+        lv_returnUnitGroup = UnitGroupFilter(null, c_playerAny, lp_targetGroup, lp_unitFilter, 0);
+        lv_returnUnitGroup = UnitGroupFilterAlliance(lv_returnUnitGroup, lv_player, lp_alliance, 0);
+    }
+    lv_returnUnitGroup = libAIAI_gf_FilterBadHeroTargets(lv_returnUnitGroup, lv_player);
+    auto45827DFB_g = lv_returnUnitGroup;
+    auto45827DFB_u = UnitGroupCount(auto45827DFB_g, c_unitCountAll);
+    for (;; auto45827DFB_u -= 1) {
+        lv_targetUnit = UnitGroupUnitFromEnd(auto45827DFB_g, auto45827DFB_u);
+        if (lv_targetUnit == null) { break; }
+        if ((UnitTestState(lv_targetUnit, c_unitStateTargetable) == false)) {
+            UnitGroupRemove(lv_returnUnitGroup, lv_targetUnit);
             continue;
         }
 
     }
-    return lv_unitGroup;
+    return lv_returnUnitGroup;
 }
 
 unit libAIAI_gf_FindClosestAllyMinion (int lp_player, point lp_center, fixed lp_maxDist) {
@@ -4223,7 +4847,7 @@ bool libAIAI_gf_UseDefensiveItem (int lp_player, unit lp_aIUnit, unitgroup lp_sc
             return true;
         }
         else if ((lv_itemType == "TalentProtectiveShield@Item")) {
-            lv_target = libAIAI_gf_FindWeakestNearbyAllyHero(lp_player, lp_aIUnit, 7.0, libAIAI_gv_aIHeroHighHealthPercent, -1.0, true);
+            lv_target = libAIAI_gf_FindWeakestNearbyAllyHero(lp_player, lp_aIUnit, 7.0, libAIAI_gv_aIHeroHealthPercentHigh, -1.0, true);
             if ((UnitIsValid(lv_target) == false)) {
                 continue;
             }
@@ -4451,7 +5075,7 @@ bool libAIAI_gf_UseOffensiveItem (int lp_player, unit lp_aIUnit, unitgroup lp_sc
         else if ((lv_itemType == "TalentEnvenom@Item")) {
             libAIAI_gf_ResetTargetQueryOptions(lv_query);
             lv_query.lv_maxDistance = 5.0;
-            lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroMediumHealthPercent;
+            lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroHealthPercentMedium;
             lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
             lv_query.lv_minScore = libAIAI_gv_c_Storm_AI_FullHeroScore;
             lv_target = libAIAI_gf_FindBestHero(lp_scanGroup, lp_aIUnit, lv_query);
@@ -4467,7 +5091,7 @@ bool libAIAI_gf_UseOffensiveItem (int lp_player, unit lp_aIUnit, unitgroup lp_sc
                 lv_query.lv_maxHealthPercent = 100.0;
             }
             else {
-                lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroMediumHealthPercent;
+                lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroHealthPercentMedium;
             }
             lv_query.lv_maxDistance = 6.0;
             lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
@@ -4482,7 +5106,7 @@ bool libAIAI_gf_UseOffensiveItem (int lp_player, unit lp_aIUnit, unitgroup lp_sc
         else if ((lv_itemType == "AzmodanSinsGraspItem")) {
             libAIAI_gf_ResetTargetQueryOptions(lv_query);
             lv_query.lv_maxDistance = 8.0;
-            lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroMediumHealthPercent;
+            lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroHealthPercentMedium;
             lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
             lv_target = libAIAI_gf_FindBestHero(lp_scanGroup, lp_aIUnit, lv_query);
             if ((UnitIsValid(lv_target) == false)) {
@@ -5106,7 +5730,7 @@ bool libAIAI_gf_ArtanisPhasePrism (int lp_player, unit lp_aIUnit, unitgroup lp_s
 
     lv_query.lv_maxDistance = 7.0;
     lv_query.lv_minDistance = 3.0;
-    lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroMediumHealthPercent;
+    lv_query.lv_maxHealthPercent = libAIAI_gv_aIHeroHealthPercentMedium;
     lv_query.lv_healthFactor = libAIAI_gv_c_Storm_AI_PreferUnhealthyTargets;
     lv_query.lv_distanceFactor = libAIAI_gv_c_Storm_AI_PreferCloserTargets;
     lv_query.lv_ignoreTargetsBehindGate = true;
@@ -5267,7 +5891,7 @@ bool libAIAI_gf_ArtanisPurifierBeam (int lp_player, unit lp_aIUnit, unitgroup lp
     for (;; autoE582F2FF_u -= 1) {
         lv_enemyHero = UnitGroupUnitFromEnd(autoE582F2FF_g, autoE582F2FF_u);
         if (lv_enemyHero == null) { break; }
-        if ((UnitGetPropertyFixed(lv_enemyHero, c_unitPropLifePercent, c_unitPropCurrent) <= libAIAI_gv_aIHeroLowHealthPercent)) {
+        if ((UnitGetPropertyFixed(lv_enemyHero, c_unitPropLifePercent, c_unitPropCurrent) <= libAIAI_gv_aIHeroHealthPercentLow)) {
             return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueReplace, lv_enemyHero, null);
         }
 
@@ -5619,45 +6243,25 @@ void libAIAI_gf_AIThinkAzmodan (int lp_player, unit lp_aIUnit, unitgroup lp_scan
 bool libAIAI_gf_ETCPowerSlide (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     unit lv_targetEnemy;
-    unit lv_targetEnemy2;
     unit lv_targetAlly;
     point lv_targetPoint;
-    unitgroup lv_allyUnitGroup;
-    unitgroup lv_enemyUnitGroup;
-    unitgroup lv_enemyUnitGroup2;
-    point lv_retreatPos;
+    unitgroup lv_allyHeroGroup;
+    unitgroup lv_enemyHeroGroup;
     order lv_spellOrd;
     order lv_attackOrd;
     fixed lv_energy;
     fixed lv_health;
     fixed lv_powerSlideRange;
     fixed lv_moshPitRadius;
-    int lv_heroCount;
+    unitgroup lv_originalUnitGroup;
+    region lv_searchRegion;
+    point lv_betterMoshPitPoint;
 
     // Automatic Variable Declarations
-    unitgroup auto7AE290B8_g;
-    int auto7AE290B8_u;
-    unitgroup autoD47EBC23_g;
-    int autoD47EBC23_u;
-    unitgroup autoD730DCC4_g;
-    int autoD730DCC4_u;
-    unitgroup auto62A20FFB_g;
-    int auto62A20FFB_u;
-    unitgroup auto6CD6DF34_g;
-    int auto6CD6DF34_u;
-    unitgroup autoC0478DAA_g;
-    int autoC0478DAA_u;
-    unitgroup auto676A34CD_g;
-    int auto676A34CD_u;
-    unitgroup auto03C4C7EC_g;
-    int auto03C4C7EC_u;
-    unitgroup auto0AFA2CF1_g;
-    int auto0AFA2CF1_u;
-
     // Variable Initialization
-    lv_allyUnitGroup = UnitGroupEmpty();
-    lv_enemyUnitGroup = UnitGroupEmpty();
-    lv_enemyUnitGroup2 = UnitGroupEmpty();
+    lv_allyHeroGroup = UnitGroupEmpty();
+    lv_enemyHeroGroup = UnitGroupEmpty();
+    lv_originalUnitGroup = UnitGroupEmpty();
 
     // Implementation
     lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "ETCPowerslide", 0);
@@ -5670,27 +6274,35 @@ bool libAIAI_gf_ETCPowerSlide (int lp_player, unit lp_aIUnit, unitgroup lp_scanG
         return false;
     }
 
-    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
     lv_health = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent);
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
     lv_powerSlideRange = 8.0;
-    if ((UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroes[lp_player].lv_returnToSpawnHealth) && ((libAIAI_gf_HeroAINumberofEnemyHeroesNearLocation(lp_player, UnitGetPosition(lp_aIUnit), (UnitGetPropertyFixed(lp_aIUnit, c_unitPropRadius, c_unitPropCurrent) + 8.0)) > 0) || (libAIAI_gf_HaveBeenAttackedRecently(lp_aIUnit) == true))) {
-        lv_retreatPos = libAIAI_gf_HeroAIGetRetreatPosition(lp_player, lv_powerSlideRange, null);
-        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueReplace, null, lv_retreatPos);
+    lv_searchRegion = RegionCircle(UnitGetPosition(lp_aIUnit), lv_powerSlideRange);
+    lv_originalUnitGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, lv_searchRegion, null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+    lv_originalUnitGroup = libAIAI_gf_UnitGroupFilterByAcrossGatePosition(lp_aIUnit, lv_originalUnitGroup, c_unitAllianceEnemy);
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+    if ((UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroHealthPercentReturnToSpawn) && ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) > 0) || (libAIAI_gf_HaveBeenAttackedRecently(lp_aIUnit) == true))) {
+        lv_targetPoint = libAIAI_gf_HeroAIGetRetreatPosition(lp_player, lv_powerSlideRange, null);
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueReplace, null, lv_targetPoint);
     }
 
     if ((UnitHasBehavior2(lp_aIUnit, "ETCTourBus@AbilityEnabler") == false)) {
         if ((lv_health > 75.0)) {
-            lv_enemyUnitGroup = libAIAI_gf_EnemyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), 4.0);
-            if ((libAIAI_gf_CountHeroesInGroup(lv_enemyUnitGroup) > 1) && (libAIAI_gf_CountAlliesInArea(lp_player, UnitGetPosition(lp_aIUnit), 7.0, 1, 0) > 1)) {
-                lv_targetPoint = UnitGroupCenterOfGroup(lv_enemyUnitGroup);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius(lv_enemyHeroGroup, 4.0);
+            lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceAllyExcludeSelf);
+            lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_allyHeroGroup, libAIAI_gv_aIHeroHealthPercentReturnToSpawn, 100.0);
+            if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) > 1) && (UnitGroupCount(lv_allyHeroGroup, c_unitCountAll) > 1)) {
+                lv_targetPoint = UnitGroupCenterOfGroup(lv_enemyHeroGroup);
                 return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
             }
 
         }
         else if ((lv_energy > libAIAI_gv_aIHeroHighEnergyPercent)) {
-            lv_enemyUnitGroup = libAIAI_gf_EnemyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), 8.0);
-            if ((lv_health > 60.0) && (UnitGroupCount(lv_enemyUnitGroup, c_unitCountAlive) > 1)) {
-                lv_targetEnemy = libAIAI_gf_FindClosestWeakHero(lv_enemyUnitGroup, lp_aIUnit, 1.0, lv_powerSlideRange, 80.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 80.0);
+            if ((lv_health > 60.0) && (UnitGroupCount(lv_enemyHeroGroup, c_unitCountAlive) > 1)) {
+                lv_targetEnemy = libAIAI_gf_StormAIFindBestUnit2usethis(lp_aIUnit, lv_enemyHeroGroup, true, 0.0, lv_powerSlideRange, 0.25, 0.0, 100.0, 0.25, false, null);
                 if ((UnitIsValid(lv_targetEnemy) == true)) {
                     return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetEnemy, null);
                 }
@@ -5698,42 +6310,31 @@ bool libAIAI_gf_ETCPowerSlide (int lp_player, unit lp_aIUnit, unitgroup lp_scanG
             }
 
             if ((lv_health > 75.0)) {
-                lv_enemyUnitGroup2 = UnitGroupCopy(lv_enemyUnitGroup);
-                autoD47EBC23_g = lv_enemyUnitGroup;
-                autoD47EBC23_u = UnitGroupCount(autoD47EBC23_g, c_unitCountAll);
-                for (;; autoD47EBC23_u -= 1) {
-                    lv_targetEnemy = UnitGroupUnitFromEnd(autoD47EBC23_g, autoD47EBC23_u);
-                    if (lv_targetEnemy == null) { break; }
-                    if ((libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy, lp_aIUnit) == true)) {
-                        UnitGroupRemove(lv_enemyUnitGroup2, lv_targetEnemy);
-                        continue;
-                    }
-
-                    autoD730DCC4_g = lv_enemyUnitGroup2;
-                    autoD730DCC4_u = UnitGroupCount(autoD730DCC4_g, c_unitCountAll);
-                    for (;; autoD730DCC4_u -= 1) {
-                        lv_targetEnemy2 = UnitGroupUnitFromEnd(autoD730DCC4_g, autoD730DCC4_u);
-                        if (lv_targetEnemy2 == null) { break; }
-                        if ((lv_targetEnemy != lv_targetEnemy2) && (DistanceBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2)) <= 1.0) && (libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy2, lp_aIUnit) == false)) {
-                            lv_targetPoint = libAIAI_gf_CenterPointBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2));
-                            return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
-                        }
-
-                    }
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius(lv_enemyHeroGroup, 1.0);
+                if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAlive) > 1)) {
+                    lv_targetPoint = UnitGroupCenterOfGroup(lv_enemyHeroGroup);
+                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
                 }
+
             }
 
         }
         else if ((lv_energy > libAIAI_gv_aIHeroMediumEnergyPercent)) {
-            lv_enemyUnitGroup = libAIAI_gf_EnemyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), lv_powerSlideRange);
-            lv_allyUnitGroup = libAIAI_gf_AllyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), lv_powerSlideRange);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
             if ((lv_health > 40.0)) {
-                lv_targetEnemy = libAIAI_gf_FindClosestWeakHero2(lv_enemyUnitGroup, lp_aIUnit, 1.0, lv_powerSlideRange, 100.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional, true);
-                if ((UnitIsValid(lv_targetEnemy) == true) && ((UnitGroupCount(libAIAI_gf_AllyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), 6.0), c_unitCountAlive) > 1) || (UnitGroupCount(libAIAI_gf_AllyUnitsInArea(lp_player, UnitGetPosition(lv_targetEnemy), lv_powerSlideRange), c_unitCountAlive) > 1))) {
+                lv_targetEnemy = libAIAI_gf_StormAIFindBestUnit2usethis(lp_aIUnit, lv_enemyHeroGroup, true, 0.0, lv_powerSlideRange, 0.25, 0.0, 100.0, 0.25, false, null);
+                lv_searchRegion = null;
+                RegionAddCircle(lv_searchRegion, true, UnitGetPosition(lv_targetEnemy), lv_powerSlideRange);
+                RegionAddCircle(lv_searchRegion, true, UnitGetPosition(lp_aIUnit), lv_powerSlideRange);
+                lv_allyHeroGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, lv_searchRegion, null, c_unitAllianceAllyExcludeSelf, libAIAI_gv_stormAIValidUnitFilter);
+                lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_allyHeroGroup, c_unitAttributeHeroic, c_unitAllianceAllyExcludeSelf);
+                lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_allyHeroGroup, libAIAI_gv_aIHeroHealthPercentReturnToSpawn, 100.0);
+                if ((UnitIsValid(lv_targetEnemy) == true) && (UnitGroupCount(lv_allyHeroGroup, c_unitCountAll) > 1)) {
                     return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetEnemy, null);
                 }
                 else {
-                    lv_targetEnemy = libAIAI_gf_FindClosestWeakHero2(lv_enemyUnitGroup, lp_aIUnit, 1.0, lv_powerSlideRange, 60.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional, true);
+                    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 60.0);
+                    lv_targetEnemy = libAIAI_gf_StormAIFindBestUnit2usethis(lp_aIUnit, lv_enemyHeroGroup, true, 0.0, lv_powerSlideRange, 0.25, 0.0, 100.0, 0.25, false, null);
                     if ((UnitIsValid(lv_targetEnemy) == true)) {
                         return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetEnemy, null);
                     }
@@ -5742,138 +6343,85 @@ bool libAIAI_gf_ETCPowerSlide (int lp_player, unit lp_aIUnit, unitgroup lp_scanG
             }
 
             if ((lv_health > 60.0)) {
-                lv_enemyUnitGroup2 = UnitGroupCopy(lv_enemyUnitGroup);
-                auto62A20FFB_g = lv_enemyUnitGroup;
-                auto62A20FFB_u = UnitGroupCount(auto62A20FFB_g, c_unitCountAll);
-                for (;; auto62A20FFB_u -= 1) {
-                    lv_targetEnemy = UnitGroupUnitFromEnd(auto62A20FFB_g, auto62A20FFB_u);
-                    if (lv_targetEnemy == null) { break; }
-                    if (((libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy, lp_aIUnit) == true) || (UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) > 80.0))) {
-                        UnitGroupRemove(lv_enemyUnitGroup2, lv_targetEnemy);
-                        continue;
-                    }
-
-                    auto6CD6DF34_g = lv_enemyUnitGroup2;
-                    auto6CD6DF34_u = UnitGroupCount(auto6CD6DF34_g, c_unitCountAll);
-                    for (;; auto6CD6DF34_u -= 1) {
-                        lv_targetEnemy2 = UnitGroupUnitFromEnd(auto6CD6DF34_g, auto6CD6DF34_u);
-                        if (lv_targetEnemy2 == null) { break; }
-                        if ((lv_targetEnemy != lv_targetEnemy2) && (DistanceBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2)) <= 1.0) && (libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy2, lp_aIUnit) == false)) {
-                            lv_targetPoint = libAIAI_gf_CenterPointBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2));
-                            return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
-                        }
-
-                    }
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 80.0);
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius(lv_enemyHeroGroup, 1.0);
+                if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAlive) > 1)) {
+                    lv_targetPoint = UnitGroupCenterOfGroup(lv_enemyHeroGroup);
+                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
                 }
+
             }
 
         }
         else if ((lv_energy > libAIAI_gv_aIHeroLowEnergyPercent)) {
-            lv_enemyUnitGroup = libAIAI_gf_EnemyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), 8.0);
             if ((lv_health > 40.0)) {
-                lv_targetEnemy = libAIAI_gf_FindClosestWeakHero2(lv_enemyUnitGroup, lp_aIUnit, 1.0, lv_powerSlideRange, 40.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional, true);
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 40.0);
+                lv_targetEnemy = libAIAI_gf_StormAIFindBestUnit2usethis(lp_aIUnit, lv_enemyHeroGroup, true, 0.0, lv_powerSlideRange, 0.25, 0.0, 100.0, 0.25, false, null);
                 if ((UnitIsValid(lv_targetEnemy) == true)) {
                     return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetEnemy, null);
                 }
                 else {
-                    lv_enemyUnitGroup2 = UnitGroupCopy(lv_enemyUnitGroup);
-                    autoC0478DAA_g = lv_enemyUnitGroup;
-                    autoC0478DAA_u = UnitGroupCount(autoC0478DAA_g, c_unitCountAll);
-                    for (;; autoC0478DAA_u -= 1) {
-                        lv_targetEnemy = UnitGroupUnitFromEnd(autoC0478DAA_g, autoC0478DAA_u);
-                        if (lv_targetEnemy == null) { break; }
-                        if (((libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy, lp_aIUnit) == true) || (UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) > 60.0))) {
-                            UnitGroupRemove(lv_enemyUnitGroup2, lv_targetEnemy);
-                            continue;
-                        }
-
-                        auto676A34CD_g = lv_enemyUnitGroup2;
-                        auto676A34CD_u = UnitGroupCount(auto676A34CD_g, c_unitCountAll);
-                        for (;; auto676A34CD_u -= 1) {
-                            lv_targetEnemy2 = UnitGroupUnitFromEnd(auto676A34CD_g, auto676A34CD_u);
-                            if (lv_targetEnemy2 == null) { break; }
-                            if ((lv_targetEnemy != lv_targetEnemy2) && (DistanceBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2)) <= 1.0) && (libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy2, lp_aIUnit) == false)) {
-                                lv_targetPoint = libAIAI_gf_CenterPointBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2));
-                                return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
-                            }
-
-                        }
+                    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_originalUnitGroup, 0.0, 60.0);
+                    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius(lv_enemyHeroGroup, 1.0);
+                    if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) > 1)) {
+                        lv_targetPoint = UnitGroupCenterOfGroup(lv_enemyHeroGroup);
+                        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
                     }
+
                 }
             }
 
         }
         else if (true) {
-            lv_enemyUnitGroup = libAIAI_gf_EnemyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), 8.0);
-            lv_targetEnemy = libAIAI_gf_FindClosestWeakHero2(lv_enemyUnitGroup, lp_aIUnit, 1.0, lv_powerSlideRange, 25.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Optional, true);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+            lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 25.0);
+            lv_targetEnemy = libAIAI_gf_StormAIFindBestUnit2usethis(lp_aIUnit, lv_originalUnitGroup, true, 0.0, lv_powerSlideRange, 0.25, 0.0, 100.0, 0.25, false, null);
             if ((UnitIsValid(lv_targetEnemy) == true)) {
                 return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, lv_targetEnemy, null);
             }
             else {
-                lv_enemyUnitGroup2 = UnitGroupCopy(lv_enemyUnitGroup);
-                auto03C4C7EC_g = lv_enemyUnitGroup;
-                auto03C4C7EC_u = UnitGroupCount(auto03C4C7EC_g, c_unitCountAll);
-                for (;; auto03C4C7EC_u -= 1) {
-                    lv_targetEnemy = UnitGroupUnitFromEnd(auto03C4C7EC_g, auto03C4C7EC_u);
-                    if (lv_targetEnemy == null) { break; }
-                    if (((libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy, lp_aIUnit) == true) || (UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) > 40.0))) {
-                        UnitGroupRemove(lv_enemyUnitGroup2, lv_targetEnemy);
-                        continue;
-                    }
-
-                    auto0AFA2CF1_g = lv_enemyUnitGroup2;
-                    auto0AFA2CF1_u = UnitGroupCount(auto0AFA2CF1_g, c_unitCountAll);
-                    for (;; auto0AFA2CF1_u -= 1) {
-                        lv_targetEnemy2 = UnitGroupUnitFromEnd(auto0AFA2CF1_g, auto0AFA2CF1_u);
-                        if (lv_targetEnemy2 == null) { break; }
-                        if ((lv_targetEnemy != lv_targetEnemy2) && (DistanceBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2)) <= 1.0) && (libAIAI_gf_HeroAIIsTargetBehindGateRelativeToAttacker(lv_targetEnemy2, lp_aIUnit) == false)) {
-                            lv_targetPoint = libAIAI_gf_CenterPointBetweenPoints(UnitGetPosition(lv_targetEnemy), UnitGetPosition(lv_targetEnemy2));
-                            return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
-                        }
-
-                    }
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_originalUnitGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 40.0);
+                lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius(lv_enemyHeroGroup, 1.0);
+                if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAlive) > 1)) {
+                    lv_targetPoint = UnitGroupCenterOfGroup(lv_enemyHeroGroup);
+                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, lv_attackOrd, c_orderQueueAddToFront, null, lv_targetPoint);
                 }
+
             }
         }
     }
     else {
         lv_moshPitRadius = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogEffect, ("ETCMoshPit@SearchArea"), "AreaArray[" + IntToString(0) + "].Radius", lp_player);
-        lv_enemyUnitGroup = libAIAI_gf_EnemyUnitsInArea(lp_player, UnitGetPosition(lp_aIUnit), lv_moshPitRadius);
-        auto7AE290B8_g = lv_enemyUnitGroup;
-        auto7AE290B8_u = UnitGroupCount(auto7AE290B8_g, c_unitCountAll);
-        for (;; auto7AE290B8_u -= 1) {
-            lv_targetEnemy = UnitGroupUnitFromEnd(auto7AE290B8_g, auto7AE290B8_u);
-            if (lv_targetEnemy == null) { break; }
-            if ((UnitTypeTestAttribute(UnitGetType(lv_targetEnemy), c_unitAttributeHeroic) == true) && (UnitHasBehavior2(lv_targetEnemy, "ETCMoshPit@Stun") == true)) {
-                lv_heroCount += 1;
-            }
+        lv_searchRegion = RegionCircle(UnitGetPosition(lp_aIUnit), lv_moshPitRadius);
+        lv_enemyHeroGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, lv_searchRegion, null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+        if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) == 0)) {
+        }
 
+        if (((true))) {
         }
-        if (true) {
-        }
+
     }
-
     return false;
 }
 
 bool libAIAI_gf_ETCFaceMelt (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     order lv_spellOrd;
-    fixed lv_energy;
-    int lv_minEnemyEval;
-    unit lv_nearbyHero;
     fixed lv_radius;
-    int lv_heroCount;
-    int lv_anyUnitCount;
-    unit lv_targetEnemy;
+    unitgroup lv_originalUnitGroup;
     unitgroup lv_enemyGroup;
+    unitgroup lv_enemyHeroGroup;
+    region lv_searchRegion;
+    fixed lv_life;
+    fixed lv_energy;
 
     // Automatic Variable Declarations
-    unitgroup auto1BCE212B_g;
-    int auto1BCE212B_u;
-
     // Variable Initialization
+    lv_originalUnitGroup = UnitGroupEmpty();
     lv_enemyGroup = UnitGroupEmpty();
+    lv_enemyHeroGroup = UnitGroupEmpty();
 
     // Implementation
     lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "ETCFaceMelt", 0);
@@ -5882,58 +6430,27 @@ bool libAIAI_gf_ETCFaceMelt (int lp_player, unit lp_aIUnit, unitgroup lp_scanGro
     }
 
     lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+    lv_life = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent);
     lv_radius = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogEffect, ("ETCFaceMelt@Search"), "AreaArray[" + IntToString(0) + "].Radius", c_playerAny);
-    lv_enemyGroup = UnitGroupSearch(null, lp_player, UnitGetPosition(lp_aIUnit), lv_radius, UnitFilter(0, 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterBenign - 32))), 0);
-    auto1BCE212B_g = lv_enemyGroup;
-    auto1BCE212B_u = UnitGroupCount(auto1BCE212B_g, c_unitCountAll);
-    for (;; auto1BCE212B_u -= 1) {
-        lv_targetEnemy = UnitGroupUnitFromEnd(auto1BCE212B_g, auto1BCE212B_u);
-        if (lv_targetEnemy == null) { break; }
-        lv_anyUnitCount += 1;
-        if ((UnitTypeTestAttribute(UnitGetType(lv_targetEnemy), c_unitAttributeHeroic) == true)) {
-            lv_heroCount += 1;
-            if ((UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent) <= libAIAI_gv_aIHeroes[lp_player].lv_returnToSpawnHealth) && (lv_heroCount == 1)) {
-                return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
-            }
+    lv_searchRegion = RegionCircle(UnitGetPosition(lp_aIUnit), lv_radius);
+    lv_originalUnitGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, lv_searchRegion, null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+    lv_enemyGroup = UnitGroupFilterAlliance(lv_originalUnitGroup, lp_player, c_unitAllianceEnemy, 0);
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttribute2(lv_enemyGroup, c_unitAttributeHeroic);
+    if ((lv_life <= libAIAI_gv_aIHeroHealthPercentReturnToSpawn) && (UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) >= 1)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+    }
 
-            if ((lv_energy > libAIAI_gv_aIHeroHighEnergyPercent)) {
-                if (((UnitHasBehavior2(lv_targetEnemy, "ETCPowerslide@Stun") == true) || (UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) <= 80.0) || (lv_heroCount == 2) || (lv_anyUnitCount == 3))) {
-                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
-                }
-
-            }
-            else if ((lv_energy > libAIAI_gv_aIHeroMediumEnergyPercent)) {
-                if ((UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) > 80.0)) {
-                    lv_heroCount -= 1;
-                }
-
-                if (((UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) <= 60.0) || (lv_heroCount == 2) || (lv_anyUnitCount == 5))) {
-                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
-                }
-
-            }
-            else if ((lv_energy > libAIAI_gv_aIHeroLowEnergyPercent)) {
-                if ((UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) > 60.0)) {
-                    lv_heroCount -= 1;
-                }
-
-                if (((UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) <= 40.0) || (lv_heroCount == 2))) {
-                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
-                }
-
-            }
-            else if (true) {
-                if ((UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) > 40.0)) {
-                    lv_heroCount -= 1;
-                }
-
-                if (((UnitGetPropertyFixed(lv_targetEnemy, c_unitPropLifePercent, c_unitPropCurrent) <= 25.0) || (lv_heroCount == 2))) {
-                    return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
-                }
-
-            }
-        }
-
+    if ((lv_energy > 70.0) && ((UnitGroupCount(libAIAI_gf_UnitGroupFilterByBehavior(lv_enemyHeroGroup, "ETCPowerslide@Stun"), c_unitCountAll) >= 1) || (UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 80.0), c_unitCountAll) >= 1) || (UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) >= 2) || (UnitGroupCount(lv_enemyGroup, c_unitCountAll) >= 3))) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+    }
+    else if ((lv_energy > 50.0) && ((UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 60.0), c_unitCountAll) >= 1) || (UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 80.0), c_unitCountAll) >= 2) || (UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) >= 5))) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+    }
+    else if ((lv_energy > 30.0) && ((UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 40.0), c_unitCountAll) >= 1) || (UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 60.0), c_unitCountAll) >= 2))) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+    }
+    else if (((UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 25.0), c_unitCountAll) >= 1) || (UnitGroupCount(libAIAI_gf_UnitGroupFilterByHealthPercent(lv_enemyHeroGroup, 0.0, 40.0), c_unitCountAll) >= 2))) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
     }
     return false;
 }
@@ -5941,8 +6458,7 @@ bool libAIAI_gf_ETCFaceMelt (int lp_player, unit lp_aIUnit, unitgroup lp_scanGro
 bool libAIAI_gf_ETCGuitarSolo (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     order lv_ord;
-    unit lv_targetUnit;
-    int lv_value;
+    fixed lv_life;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -5953,8 +6469,9 @@ bool libAIAI_gf_ETCGuitarSolo (int lp_player, unit lp_aIUnit, unitgroup lp_scanG
         return false;
     }
 
-    if ((UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent) > 70.0)) {
-        return false;
+    lv_life = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent);
+    if ((lv_life <= 85.0)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueAddToFront, null, null);
     }
 
     return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueAddToFront, null, null);
@@ -6013,6 +6530,59 @@ bool libAIAI_gf_ETCStageDive (int lp_player, unit lp_aIUnit, unitgroup lp_scanGr
     return false;
 }
 
+bool libAIAI_gf_ETCStageDiveNEW (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_ord;
+    fixed lv_life;
+    fixed lv_energy;
+    unitgroup lv_originalUnitGroup;
+    unitgroup lv_enemyGroup;
+    unitgroup lv_enemyHeroGroup;
+    unitgroup lv_allyHeroGroup;
+    fixed lv_minimumDistance;
+    fixed lv_stageDiveRadius;
+    fixed lv_stageDiveFriendlyRadius;
+    point lv_stageDiveTargetPoint;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_originalUnitGroup = UnitGroupEmpty();
+    lv_enemyGroup = UnitGroupEmpty();
+    lv_enemyHeroGroup = UnitGroupEmpty();
+    lv_allyHeroGroup = UnitGroupEmpty();
+
+    // Implementation
+    lv_ord = libAIAI_gf_StormHeroAICreateOrder(lp_player, "ETCStageDive", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_ord) == false)) {
+        return false;
+    }
+
+    lv_energy = UnitGetPropertyFixed(lp_aIUnit, c_unitPropEnergyPercent, c_unitPropCurrent);
+    lv_life = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent);
+    lv_originalUnitGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, RegionCircle(UnitGetPosition(lp_aIUnit), 6.0), null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+    lv_enemyGroup = UnitGroupFilterAlliance(lv_originalUnitGroup, lp_player, c_unitAllianceEnemy, 0);
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttribute2(lv_enemyGroup, c_unitAttributeHeroic);
+    lv_minimumDistance = 12.0;
+    lv_stageDiveRadius = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogEffect, ("ETCStageDive@Search"), "AreaArray[" + IntToString(0) + "].Radius", lp_player);
+    lv_stageDiveFriendlyRadius = 10.0;
+    lv_enemyHeroGroup = UnitGetTrackedUnitGroup(lp_aIUnit, "AllHeroicUnitsTrackingBehavior");
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_enemyHeroGroup, c_unitAttributeHeroic, c_unitAllianceEnemy);
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupNearUnitInRange(lp_aIUnit, lv_enemyHeroGroup, lv_minimumDistance, 500.0, true);
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius(lv_enemyHeroGroup, lv_stageDiveRadius);
+    if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) > 0)) {
+        lv_stageDiveTargetPoint = UnitGroupCenterOfGroup(lv_enemyHeroGroup);
+        lv_allyHeroGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, RegionCircle(lv_stageDiveTargetPoint, lv_stageDiveFriendlyRadius), null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+        lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer(lp_player, lv_allyHeroGroup, c_unitAttributeHeroic, c_unitAllianceAllyExcludeSelf);
+        lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_allyHeroGroup, 50.0, 100.0);
+        if ((UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) > 2) && (UnitGroupCount(lv_allyHeroGroup, c_unitCountAll) > 2)) {
+            return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_ord, null, c_orderQueueReplace, null, lv_stageDiveTargetPoint);
+        }
+
+    }
+
+    return false;
+}
+
 bool libAIAI_gf_ETCMoshPit (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
     // Variable Declarations
     order lv_spellOrd;
@@ -6031,6 +6601,46 @@ bool libAIAI_gf_ETCMoshPit (int lp_player, unit lp_aIUnit, unitgroup lp_scanGrou
     }
 
     return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+}
+
+bool libAIAI_gf_ETCMoshPitNEW (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
+    // Variable Declarations
+    order lv_spellOrd;
+    fixed lv_moshPitRange;
+    fixed lv_life;
+    unitgroup lv_enemyHeroGroup;
+    unitgroup lv_allyHeroGroup;
+    fixed lv_allyCheckRange;
+    region lv_region;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_enemyHeroGroup = UnitGroupEmpty();
+    lv_allyHeroGroup = UnitGroupEmpty();
+
+    // Implementation
+    lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "ETCFaceMelt", 0);
+    if ((UnitOrderIsValid(lp_aIUnit, lv_spellOrd) == false)) {
+        return false;
+    }
+
+    lv_moshPitRange = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogEffect, ("ETCMoshPit@SearchArea"), "AreaArray[" + IntToString(0) + "].Radius", c_playerAny);
+    lv_allyCheckRange = (lv_moshPitRange + 3.0);
+    lv_life = UnitGetPropertyFixed(lp_aIUnit, c_unitPropLifePercent, c_unitPropCurrent);
+    lv_region = RegionCircle(UnitGetPosition(lp_aIUnit), lv_moshPitRange);
+    lv_enemyHeroGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, lv_region, null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+    lv_enemyHeroGroup = UnitGroupFilterAlliance(lv_enemyHeroGroup, lp_player, c_unitAllianceEnemy, 0);
+    lv_enemyHeroGroup = libAIAI_gf_UnitGroupFilterAttribute2(lv_enemyHeroGroup, c_unitAttributeHeroic);
+    lv_region = RegionCircle(UnitGetPosition(lp_aIUnit), lv_allyCheckRange);
+    lv_allyHeroGroup = libAIAI_gf_StormAIUnitsInArea2(lp_aIUnit, true, lv_region, null, c_unitAllianceAny, libAIAI_gv_stormAIValidUnitFilter);
+    lv_allyHeroGroup = UnitGroupFilterAlliance(lv_allyHeroGroup, lp_player, c_unitAllianceAllyExcludeSelf, 0);
+    lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterAttribute2(lv_allyHeroGroup, c_unitAttributeHeroic);
+    lv_allyHeroGroup = libAIAI_gf_UnitGroupFilterByHealthPercent(lv_allyHeroGroup, libAIAI_gv_aIHeroHealthPercentReturnToSpawn, 100.0);
+    if ((lv_life > 50.0) && (UnitGroupCount(lv_enemyHeroGroup, c_unitCountAll) >= 2) && (UnitGroupCount(lv_allyHeroGroup, c_unitCountAll) >= 2)) {
+        return libAIAI_gf_HeroIssueOrder(lp_player, lp_aIUnit, lv_spellOrd, null, c_orderQueueAddToFront, null, null);
+    }
+
+    return false;
 }
 
 void libAIAI_gf_AIThinkETC (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup) {
@@ -6271,9 +6881,19 @@ bool libAIAI_gf_JohannaBlessedShield (int lp_player, unit lp_aIUnit, unitgroup l
     order lv_attackOrd;
     unit lv_targetHero;
     fixed lv_range;
+    fixed lv_radius;
+    libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions lv_options;
+    unitgroup lv_targetGroup;
 
     // Automatic Variable Declarations
     // Variable Initialization
+    lv_options.lv_unitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+    lv_options.lv_attributeType = -1;
+    lv_options.lv_clearShotUnitFilter = UnitFilter(0, 0, (1 << c_targetFilterWorker) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)));
+    lv_options.lv_clearShotAttribute = -1;
+    lv_options.lv_distanceMax = 500.0;
+    lv_options.lv_healthMaxPercent = 100.0;
+    lv_targetGroup = UnitGroupEmpty();
 
     // Implementation
     lv_spellOrd = libAIAI_gf_StormHeroAICreateOrder(lp_player, "JohannaBlessedShield", 0);
@@ -6286,8 +6906,16 @@ bool libAIAI_gf_JohannaBlessedShield (int lp_player, unit lp_aIUnit, unitgroup l
         return false;
     }
 
-    lv_range = 11.0;
-    lv_targetHero = libAIAI_gf_FindClosestWeakHero(lp_scanGroup, lp_aIUnit, 1.5, lv_range, 70.0, -1.0, -1.0, libAIAI_gv_c_Storm_AI_LOS_Required);
+    lv_range = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogAbil, ("JohannaBlessedShield"), "Range[" + IntToString(0) + "]", lp_player);
+    lv_radius = libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogEffect, ("JohannaBlessedShield@MissileScan"), "AreaArray[" + IntToString(0) + "].RectangleWidth", lp_player);
+    lv_options.lv_healthMaxPercent = 70.0;
+    lv_options.lv_distanceMax = lv_range;
+    lv_options.lv_attributeType = c_unitAttributeHeroic;
+    lv_options.lv_clearShotUse = true;
+    lv_options.lv_clearShotUnitFilter = libNtve_gf_ConvertTargetFilterStringToUnitFilter(CatalogFieldValueGet(c_gameCatalogEffect, ("JohannaBlessedShield@MissileScan"), "SearchFilters", lp_player));
+    lv_options.lv_ignoreTargetsBehindEnemyGate = true;
+    lv_targetGroup = libAIAI_gf_StormAIUnitsInArea(lp_player, lp_aIUnit, null, lp_scanGroup, c_unitAllianceEnemy, lv_options);
+    lv_targetHero = libAIAI_gf_StormAIFindBestUnit(lp_aIUnit, lv_targetGroup, lv_options);
     if ((UnitIsValid(lv_targetHero) == false)) {
         return false;
     }
@@ -19092,7 +19720,7 @@ void libAIAI_gf_HeroAIDefendCoreLogic (int lp_faction) {
         lv_heroesWantedToDefend += 1;
     }
 
-    if ((UnitGetPropertyFixed(lv_core, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroHighHealthPercent)) {
+    if ((UnitGetPropertyFixed(lv_core, c_unitPropLifePercent, c_unitPropCurrent) < libAIAI_gv_aIHeroHealthPercentHigh)) {
         lv_heroesWantedToDefend += 2;
     }
 
