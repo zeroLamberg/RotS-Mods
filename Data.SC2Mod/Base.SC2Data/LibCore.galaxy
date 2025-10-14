@@ -4409,6 +4409,36 @@ bool libCore_gf_AttributeListTest (int lp_attributeList, int lp_attributeToTest)
     if ( (lp_attributeList & lp_attributeToTest) == lp_attributeToTest ) { return true; } else { return false; }
 }
 
+bool libCore_gf_UnitIsWithinArcAngleOfUnit (fixed lp_arcAngle, unit lp_sourceUnit, unit lp_targetUnit) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((libCore_gf_ArcAngleBetweenUnits(lp_sourceUnit, lp_targetUnit) <= (lp_arcAngle / 2.0))) {
+        return true;
+    }
+
+    return false;
+}
+
+fixed libCore_gf_ArcAngleBetweenUnits (unit lp_sourceUnit, unit lp_targetUnit) {
+    // Variable Declarations
+    fixed lv_angle;
+    fixed lv_diff;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_angle = AngleBetweenPoints(UnitGetPosition(lp_sourceUnit), UnitGetPosition(lp_targetUnit));
+    lv_diff = (lv_angle - UnitGetFacing(lp_sourceUnit));
+    if ((lv_diff > 180.0)) {
+        lv_diff -= 360.0;
+    }
+    else if ((lv_diff < -180.0)) {
+        lv_diff += 360.0;
+    }
+    return AbsF(lv_diff);
+}
+
 string libCore_gf_GetWeaponDamageForUnit2 (unit lp_unit) {
     // Variable Declarations
     int lv_itWeapon;

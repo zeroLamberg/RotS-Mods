@@ -897,6 +897,8 @@ string libCore_gf_UnitTagUI (unit lp_unit);
 int libCore_gf_UnitTagRecycle (unit lp_unit);
 int libCore_gf_UnitTagIndex (unit lp_unit);
 bool libCore_gf_AttributeListTest (int lp_attributeList, int lp_attributeToTest);
+bool libCore_gf_UnitIsWithinArcAngleOfUnit (fixed lp_arcAngle, unit lp_sourceUnit, unit lp_targetUnit);
+fixed libCore_gf_ArcAngleBetweenUnits (unit lp_sourceUnit, unit lp_targetUnit);
 string libCore_gf_GetWeaponDamageForUnit2 (unit lp_unit);
 string libCore_gf_GetWeaponDamageForUnit3 (unit lp_unit);
 bool libCore_gf_UserDataBoolean (string lp_userDataInstance);

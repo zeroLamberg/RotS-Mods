@@ -260,7 +260,7 @@
         <InitialEffect value="ETCCrowdSurfer@PersistentInitialSet"/>
         <PeriodCount value="1"/>
         <PeriodicEffectArray value="ETCCrowdSurfer@OffsetPersistent"/>
-        <PeriodicOffsetArray value="0,-8.125,0"/>
+        <PeriodicOffsetArray value="0,-8.25,0"/>
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="ETCCrowdSurfer@OffsetPersistent">
         <TimeScaleSource Value="Caster"/>
@@ -648,7 +648,7 @@
         <WhichLocation Value="CasterPoint"/>
         <PeriodCount value="1"/>
         <InitialEffect value="ETCPowerslide@CastSet"/>
-        <InitialOffset value="0,-8,0"/>
+        <InitialOffset value="0,-8.25,0"/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="ETCPowerslide@ApplyRushingBehavior">
         <Marker>
@@ -4813,7 +4813,7 @@
         <Period value="0.0625"/>
         <PeriodicEffect value="ETCPowerslide@PeriodicSet"/>
         <FinalEffect value="ETCPowerslide@RushingBehaviorFinalSet"/>
-        <Modification MoveSpeedMaximum="12.8007" MoveSpeedMinimum="12.8007">
+        <Modification MoveSpeedMaximum="12" MoveSpeedMinimum="12">
             <ModifyFlags index="Movement" value="1"/>
             <ModifyFlags index="OrdersUninterruptible" value="1"/>
             <StateFlags index="SuppressCollision" value="1"/>

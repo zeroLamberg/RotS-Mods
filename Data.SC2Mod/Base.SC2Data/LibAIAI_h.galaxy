@@ -563,6 +563,13 @@ struct libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions {
     string lv_behavior;
 };
 
+struct libAIAI_gs_StormAIUseItem {
+    string lv_item;
+    order lv_ord;
+    order lv_ordTarget;
+    order lv_ordTogOn;
+};
+
 struct libAIAI_gs_HeroAIDamageTracking {
     unit lv_lastAttacker;
     fixed lv_lastTimeAttacked;
@@ -1040,8 +1047,10 @@ int libAIAI_gv_defenderAIDefenderAIUpperBound;
 string libAIAI_gv_defenderAILastCreatedDefenderAIIndex;
 bool libAIAI_gv_defenderAIDisplayAIStatus;
 unitfilter libAIAI_gv_stormAIValidUnitFilter;
+unitfilter libAIAI_gv_stormAIValidUnitFilterNoVision;
 unit[libCore_gv_bALMaxEnginePlayerCount + 1] libAIAI_gv_abathurSymbioteUnit;
 unit[libCore_gv_bALMaxEnginePlayerCount + 1] libAIAI_gv_abathurUltimateEvolutionUnit;
+libAIAI_gs_StormAIUseItem[libCore_gv_bALMaxEnginePlayerCount + 1] libAIAI_gv_stormAIUseItem;
 bool libAIAI_gv_heroAIActive;
 libAIAI_gs_HeroAIDamageTracking[libCore_gv_bALMaxEnginePlayerCount + 1] libAIAI_gv_heroAIDamageTracking;
 int libAIAI_gv_heroAITriggerCurrentPlayer;
@@ -1167,9 +1176,10 @@ unitgroup libAIAI_gf_UnitGroupFilterAttribute (unitgroup lp_group, int lp_attrib
 unitgroup libAIAI_gf_UnitGroupFilterAttribute2 (unitgroup lp_group, int lp_attribute);
 unitgroup libAIAI_gf_UnitGroupFilterAttributeWithAllianceForPlayer (int lp_player, unitgroup lp_group, int lp_attribute, int lp_alliance);
 unitgroup libAIAI_gf_UnitGroupFilterByHealthPercent (unitgroup lp_unitGroup, fixed lp_healthPercentMin, fixed lp_healthPercentMax);
-unitgroup libAIAI_gf_UnitGroupFilterByBehavior (unitgroup lp_unitGroup, string lp_behavior);
+unitgroup libAIAI_gf_UnitGroupFilterByBehavior (unitgroup lp_unitGroup, string lp_behavior, bool lp_haveBehavior);
 unitgroup libAIAI_gf_UnitGroupFilterByDistanceFromUnit (unit lp_unit, unitgroup lp_unitGroup, fixed lp_distance, bool lp_considerUnitRadiuses, fixed lp_minDistance, fixed lp_maxDistance);
 unitgroup libAIAI_gf_UnitGroupFilterByAcrossGatePosition (unit lp_unit, unitgroup lp_unitGroup, int lp_alliance);
+unitgroup libAIAI_gf_UnitGroupFilterByArcAngle (unit lp_unit, unitgroup lp_unitGroup, fixed lp_arcAngle);
 unitgroup libAIAI_gf_UnitGroupFilterUnitGroupNearUnitInRange (unit lp_unit, unitgroup lp_unitGroup, fixed lp_minRange, fixed lp_maxRange, bool lp_considerRadius);
 unitgroup libAIAI_gf_UnitGroupFilterUnitGroupWithinRadius (unitgroup lp_unitGroup, fixed lp_radius);
 bool libAIAI_gf_UnitIsBlockedByClearShot (unit lp_unit, unit lp_targetUnit, unitgroup lp_unitGroup);
@@ -1187,7 +1197,7 @@ bool libAIAI_gf_IsTargetAcrossGate2 (int lp_player, unit lp_aIUnit, unit lp_targ
 bool libAIAI_gf_IsTargetPointAcrossGate (point lp_originalPoint, point lp_targetPoint);
 unit libAIAI_gf_FindBestUnit (unitgroup lp_testGroup, unitgroup lp_scanGroup, unit lp_aIUnit, structref<libAIAI_gs_Storm_AI_TargetQueryOptions> lp_options);
 unit libAIAI_gf_StormAIFindBestUnit (unit lp_aIUnit, unitgroup lp_testGroup, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_options);
-unit libAIAI_gf_StormAIFindBestUnit2usethis (unit lp_aIUnit, unitgroup lp_testGroup, bool lp_considerUnitRadiuses, fixed lp_distanceMin, fixed lp_distanceMax, fixed lp_distanceFactor, fixed lp_healthMinPercent, fixed lp_healthMaxPercent, fixed lp_healthFactor, bool lp_clearShot, unitgroup lp_clearShotUnitGroup);
+unit libAIAI_gf_StormAIFindBestUnit2usethis (unit lp_aIUnit, unitgroup lp_testGroup, bool lp_considerUnitRadiuses, fixed lp_distanceMin, fixed lp_distanceMax, fixed lp_distanceFactor, fixed lp_healthMinPercent, fixed lp_healthMaxPercent, fixed lp_healthFactor, bool lp_clearShot, unitgroup lp_clearShotTestUnitGroup);
 unitgroup libAIAI_gf_FilterBadHeroTargets (unitgroup lp_scanGroup, int lp_player);
 unit libAIAI_gf_FindBestHero (unitgroup lp_scanGroup, unit lp_aIUnit, structref<libAIAI_gs_Storm_AI_TargetQueryOptions> lp_options);
 unit libAIAI_gf_FindBestMinion (unitgroup lp_scanGroup, unit lp_aIUnit, structref<libAIAI_gs_Storm_AI_TargetQueryOptions> lp_options);
@@ -1215,7 +1225,8 @@ unitgroup libAIAI_gf_EnemyUnitsInArea (int lp_player, point lp_center, fixed lp_
 void libAIAI_gf_StormAIUnitsInAreaResetOptions (structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_options);
 void libAIAI_gf_StormAIUnitsInAreaCopyOptions (structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_copyFromOptions, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_copyToOptions);
 unitgroup libAIAI_gf_StormAIUnitsInArea (int lp_player, unit lp_aIUnit, region lp_region, unitgroup lp_targetGroup, int lp_alliance, structref<libAIAI_gs_Storm_AI_UnitsInAreaQueryOptions> lp_options);
-unitgroup libAIAI_gf_StormAIUnitsInArea2 (unit lp_aIUnit, bool lp_considerUnitRadiuses, region lp_region, unitgroup lp_targetGroup, int lp_alliance, unitfilter lp_unitFilter);
+unitgroup libAIAI_gf_StormAIUnitsInArea2 (unit lp_aIUnit, bool lp_considerUnitRadiuses, bool lp_pathingCostRequired, region lp_region, unitgroup lp_targetGroup, int lp_alliance, unitfilter lp_unitFilter);
+unitgroup libAIAI_gf_StormAIUnitsInArea3 (unit lp_aIUnit, point lp_searchCenter, fixed lp_maxTargetDistance, unit lp_addUnitRadiusToMaxTargetDistance, bool lp_pathingCostRequired, int lp_alliance, unitfilter lp_unitFilter);
 unit libAIAI_gf_FindClosestAllyMinion (int lp_player, point lp_center, fixed lp_maxDist);
 int libAIAI_gf_CountHeroesInGroup (unitgroup lp_group);
 int libAIAI_gf_CountMinionsInGroup (int lp_player, unitgroup lp_group);
@@ -1229,6 +1240,7 @@ unit libAIAI_gf_GetAllyToCleanse (int lp_player, unit lp_aIUnit);
 int libAIAI_gf_GetAbilitiesOnCooldown (int lp_player);
 bool libAIAI_gf_UseDefensiveItem (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_UseOffensiveItem (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
+void libAIAI_gf_StormAIUseItemPrepare (int lp_player, unit lp_aIUnit, string lp_inventoryItemToCheck);
 bool libAIAI_gf_RevealCloakedEnemies (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_HeroSkipTactical (int lp_player, unit lp_aIUnit);
 bool libAIAI_gf_HeroSkipOffensiveTactical (int lp_player, unit lp_aIUnit);
@@ -1263,8 +1275,12 @@ bool libAIAI_gf_ETCStageDive (int lp_player, unit lp_aIUnit, unitgroup lp_scanGr
 bool libAIAI_gf_ETCStageDiveNEW (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_ETCMoshPit (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_ETCMoshPitNEW (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
+bool libAIAI_gf_ETCMoshPitCancel (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
+bool libAIAI_gf_ETCBULLWark (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
+bool libAIAI_gf_ETCBoltOfTheStorm (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
+bool libAIAI_gf_ETCImposingPresence (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 void libAIAI_gf_AIThinkETC (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
-bool libAIAI_gf_JohannaPunish (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
+bool libAIAI_gf_JohannaPunishOffensive (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_JohannaCondemn (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_JohannaShieldGlare (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
 bool libAIAI_gf_JohannaIronSkin (int lp_player, unit lp_aIUnit, unitgroup lp_scanGroup);
