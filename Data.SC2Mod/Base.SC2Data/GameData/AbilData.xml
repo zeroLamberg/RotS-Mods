@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="Merc" path="CAbilEffectTarget.TargetFilters" value="Robotic"/>
     <const id="ImmuneToAOE" path="CAbilEffectTarget.TargetFilters" value="Mechanical"/>
+    <const id="Merc" path="CAbilEffectTarget.TargetFilters" value="Robotic"/>
     <const id="Tower" path="CAbilEffectTarget.TargetFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CAbilEffectTarget.TargetFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CAbilEffectTarget.TargetFilters" value="Massive"/>
     <const id="Minion" path="CAbilEffectTarget.TargetFilters" value="Biological"/>
     <const id="MapCreature" path="CAbilEffectTarget.TargetFilters" value="User1"/>
-    <const id="NoMinionAggro" path="CAbilEffectTarget.TargetFilters" value="Psionic"/>
     <const id="Creep" path="CAbilEffectTarget.TargetFilters" value="Light"/>
+    <const id="NoMinionAggro" path="CAbilEffectTarget.TargetFilters" value="Psionic"/>
     <CAbilArmMagazine default="1">
         <EditorCategories value=""/>
         <SharedFlags index="TargetCursorVisibleInBlackMask" value="1"/>
@@ -270,6 +270,7 @@
         </Cost>
         <CastIntroTime value="6"/>
         <ShowProgressArray index="Cast" value="1"/>
+        <ShowProgressArray index="Channel" value="1"/>
         <PreemptableArray index="Approach" value="0"/>
         <PreemptableArray index="Prep" value="0"/>
         <PreemptableArray index="Cast" value="0"/>

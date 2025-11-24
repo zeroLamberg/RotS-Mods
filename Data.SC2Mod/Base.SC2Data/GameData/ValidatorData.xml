@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <const id="ImmuneToAOE" path="CValidatorLocationEnumArea.SearchFilters" value="Mechanical"/>
     <const id="Merc" path="CValidatorLocationEnumArea.SearchFilters" value="Robotic"/>
+    <const id="ImmuneToAOE" path="CValidatorLocationEnumArea.SearchFilters" value="Mechanical"/>
     <const id="Tower" path="CValidatorLocationEnumArea.SearchFilters" value="Armored"/>
     <const id="ImmuneToFriendlyAbilities" path="CValidatorLocationEnumArea.SearchFilters" value="Hover"/>
     <const id="ImmuneToSkillshots" path="CValidatorLocationEnumArea.SearchFilters" value="Massive"/>
     <const id="Minion" path="CValidatorLocationEnumArea.SearchFilters" value="Biological"/>
     <const id="MapCreature" path="CValidatorLocationEnumArea.SearchFilters" value="User1"/>
-    <const id="Creep" path="CValidatorLocationEnumArea.SearchFilters" value="Light"/>
     <const id="NoMinionAggro" path="CValidatorLocationEnumArea.SearchFilters" value="Psionic"/>
+    <const id="Creep" path="CValidatorLocationEnumArea.SearchFilters" value="Light"/>
     <CValidatorEffectTreeUserData default="1">
         <CheckExistence value="0"/>
     </CValidatorEffectTreeUserData>

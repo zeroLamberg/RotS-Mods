@@ -226,6 +226,7 @@ string libGame_ge_StormBehaviorCategories_Ident (int lp_val) {
     else if (lp_val == libGame_ge_StormBehaviorCategories_ImmunedToEnemyDisplacement) { return "ImmunedToEnemyDisplacement"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_KnockedOut) { return "KnockedOut"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_MindControl) { return "MindControl"; }
+    else if (lp_val == libGame_ge_StormBehaviorCategories_Mount) { return "Mount"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_PermanentMaxHealth) { return "PermanentMaxHealth"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_PhysicalArmor) { return "PhysicalArmor"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_Polymorph) { return "Polymorph"; }
@@ -240,12 +241,13 @@ string libGame_ge_StormBehaviorCategories_Ident (int lp_val) {
     else if (lp_val == libGame_ge_StormBehaviorCategories_Stasis) { return "Stasis"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_StasisAir) { return "StasisAir"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_Stun) { return "Stun"; }
-    else if (lp_val == libGame_ge_StormBehaviorCategories_SuppressCollision) { return "SuppressCollision"; }
+    else if (lp_val == -1) { return "SuppressCollision"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_SuppressUltimateCharge) { return "SuppressUltimateCharge"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_SuppressVisibility) { return "SuppressVisibility"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_Taunt) { return "Taunt"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_TipableKnockback) { return "TipableKnockback"; }
     else if (lp_val == libGame_ge_StormBehaviorCategories_Unreducible) { return "Unreducible"; }
+    else if (lp_val == libGame_ge_StormBehaviorCategories_Unstoppable) { return "Unstoppable"; }
     return null;
 }
 
@@ -1341,6 +1343,9 @@ bool libGame_gf_StormUnitHasBehaviorFromCategory (int lp_category, unit lp_unit)
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_MindControl) {
         lv_validator = "StormCategoryTargetIsMindControlled";
     }
+    else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_Mount) {
+        lv_validator = "StormCategoryTargetIsMounted";
+    }
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_PermanentMaxHealth) {
         lv_validator = "StormCategoryTargetHasPermanentMaxHealth";
     }
@@ -1383,9 +1388,6 @@ bool libGame_gf_StormUnitHasBehaviorFromCategory (int lp_category, unit lp_unit)
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_Stun) {
         lv_validator = "StormCategoryTargetHasStun";
     }
-    else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_SuppressCollision) {
-        lv_validator = "StormCategoryTargetHasSuppressCollision";
-    }
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_SuppressUltimateCharge) {
         lv_validator = "StormCategoryTargetHasSuppressUltimateCharge";
     }
@@ -1401,6 +1403,9 @@ bool libGame_gf_StormUnitHasBehaviorFromCategory (int lp_category, unit lp_unit)
     else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_Unreducible) {
         lv_validator = "StormCategoryTargetIsUnreducible";
     }
+    else if (auto65E882BF_val == libGame_ge_StormBehaviorCategories_Unstoppable) {
+        lv_validator = "TargetIsUnstoppableCategory";
+    }
     else {
         return false;
     }
@@ -1409,7 +1414,18 @@ bool libGame_gf_StormUnitHasBehaviorFromCategory (int lp_category, unit lp_unit)
 
 bool libGame_gf_StormBehaviorHasCategory (string lp_behavior, int lp_category) {
     // Automatic Variable Declarations
+    int autoFCF0B2FB_val;
+
     // Implementation
+    autoFCF0B2FB_val = lp_category;
+    if (autoFCF0B2FB_val == libGame_ge_StormBehaviorCategories_Mount) {
+        return (UnitBehaviorHasFlag(lp_behavior, c_unitBehaviorFlagUser9) == true);
+    }
+    else if (autoFCF0B2FB_val == libGame_ge_StormBehaviorCategories_Unstoppable) {
+        return (UnitBehaviorHasFlag(lp_behavior, c_unitBehaviorFlagUser12) == true);
+    }
+    else {
+    }
     return (libCore_gf_TechAliasExist(c_gameCatalogBehavior, lp_behavior, libGame_gf_StormBehaviorCategoryAsString(lp_category)) == true);
 }
 

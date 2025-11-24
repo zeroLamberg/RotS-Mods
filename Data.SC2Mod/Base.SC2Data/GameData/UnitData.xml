@@ -923,7 +923,6 @@
         <EditorFlags index="NoPlacement" value="1"/>
         <EditorFlags index="BlockStructures" value="0"/>
         <Response value="Nothing"/>
-        <Attributes index="Heroic" value="1"/>
         <Mover value=""/>
         <Radius value="0"/>
         <SeparationRadius value="0"/>
@@ -965,7 +964,6 @@
         <MinimapRadius value="0"/>
         <LeaderAlias value=""/>
         <HotkeyAlias value=""/>
-        <Attributes index="Heroic" value="1"/>
     </CUnit>
     <CUnit id="MercCoweringDefenderOrientDummy">
         <FlagArray index="Untargetable" value="1"/>
@@ -3933,6 +3931,5 @@
             <LayoutButtons Face="PlayerInteraction@Ability" Type="AbilCmd" AbilCmd="PlayerInteraction@Ability,Execute" Row="0" Column="2"/>
         </CardLayouts>
         <MinimapRadius value="0"/>
-        <Attributes index="Heroic" value="1"/>
     </CUnit>
 </Catalog>

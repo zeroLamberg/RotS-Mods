@@ -652,7 +652,6 @@
         <ValidatorArray value="EffectTreeCheckCombineNonBasicAttack"/>
     </CEffectSet>
     <CEffectApplyBehavior id="HeroAbathurUltimateEvolution@ApplyHeroicDetector">
-        <EditorCategories value="Race:Neutral"/>
         <Behavior value="HeroAbathurUltimateEvolution@HeroicAbilityDetector"/>
     </CEffectApplyBehavior>
     <CEffectRemoveBehavior id="HeroAbathurUltimateEvolution@RemovePostDeathEffect">

@@ -811,6 +811,7 @@
         <BehaviorFlags index="Permanent" value="1"/>
         <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorVeterancy>
+    <CBehaviorBuff id="AIGoalFollowBehavior"/>
     <CBehaviorBuff id="DummyCriticalSpellBehavior" parent="StormCarryBehaviorParent"/>
     <CBehaviorBuff id="DummyCriticalPhysicalBehavior" parent="StormCarryBehaviorParent"/>
     <CBehaviorBuff id="DummyCriticalPureBehavior" parent="StormCarryBehaviorParent"/>
@@ -870,6 +871,9 @@
     <CBehaviorBuff id="Summon@RefreshModifiers" parent="StormCarryBehaviorParent">
         <Period value="0.125"/>
         <PeriodicEffect value="Summon@RefreshModifiersEnumSummonedUnits"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TowerTargetingLaserTargetIsTracked">
+        <RemoveValidatorArray value="TowerTargetingLaserUnitTracked"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="UnbribableMerc"/>
     <CBehaviorBuff id="ThreeQuarterValueHero" parent="StormCarryBehaviorParent"/>

@@ -18,6 +18,7 @@
         <TriggerLibs Id="UIUI"/>
         <TriggerLibs Id="Glue"/>
         <TriggerLibs Id="Meta"/>
+        <TriggerLibs Id="BAIT"/>
         <SmartCommandContinuous value="1"/>
         <PathingConfig index="InvulnerableBuildingAsBlocker" value="1"/>
         <AttackRevealTime value="0"/>

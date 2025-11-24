@@ -1228,6 +1228,13 @@
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
         <PeriodicPeriodArray value="0.5"/>
     </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="TowerTargetingLaserApplyTargetIsTracked">
+        <Behavior value="TowerTargetingLaserTargetIsTracked"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="TowerTargetingLaserInitialSet">
+        <EffectArray value="TowerTargetingLaserAddTrackedUnit"/>
+        <EffectArray value="TowerTargetingLaserApplyTargetIsTracked"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="TownHallAttackApplyArmorReduction">
         <ValidatorArray value="IsHeroAndNotVehicle"/>
         <ValidatorArray value="TargetNotInvulnerable"/>
@@ -1981,7 +1988,7 @@
     </CEffectDamage>
     <CEffectCreatePersistent id="GuardTowerL1WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="GuardTowerL1WeaponLaunchSet"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
@@ -1989,7 +1996,7 @@
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="TownHallL1WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="TownHallL1WeaponLaunchSet"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
@@ -1997,7 +2004,7 @@
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="GuardTowerL2WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="GuardTowerL2WeaponLaunchSet"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
@@ -2005,7 +2012,7 @@
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="GuardTowerL3WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="GuardTowerL3WeaponLaunchSet"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
@@ -2013,7 +2020,7 @@
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="TownHallL2WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="TownHallL2WeaponLaunchSet"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
@@ -2021,7 +2028,7 @@
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="TownHallL3WeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="TownHallL3WeaponLaunchSet"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>
@@ -3230,7 +3237,7 @@
     <CEffectModifyUnit id="KingsCoreWeaponImpactDummyModifyUnit"/>
     <CEffectCreatePersistent id="KingsCoreWeaponCreatePersistent">
         <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="TowerTargetingLaserAddTrackedUnit"/>
+        <InitialEffect value="TowerTargetingLaserInitialSet"/>
         <ExpireEffect value="KingsCoreWeaponImpactPersistent"/>
         <PeriodCount value="8"/>
         <PeriodicValidator value="TowerTargetingLaserUnitTracked"/>

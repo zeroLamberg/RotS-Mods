@@ -523,6 +523,7 @@ Behavior/Name/TalentExecutioner@DamageBuff=Damage Buff
 Behavior/Name/TalentGatheringPower@TokenCounter=Gathering Power
 Behavior/Name/TalentRegenerationMaster@TokenCounter=Regeneration Master
 Behavior/Name/TalentSeasonedMarksman@TokenCounter=Token Counter
+Behavior/Name/TowerCFHFocusedTarget=Focused Target
 Behavior/Name/TychusABadBadMan@DamageStack=Damage Stack
 Behavior/Name/TychusHeavensDevils@TokenCounter=Heaven's Devils
 Behavior/Name/TychusInTheRhythm=In the Rhythm
@@ -10326,9 +10327,11 @@ Effect/Name/TowerSpawnCreatePushPersistent=Tower Spawn (Create Push Persistent)
 Effect/Name/TowerSpawnPushbackTargetSearch=Tower Spawn (Pushback Target Search)
 Effect/Name/TowerSpawnPushbackTargetSwitch=Tower Spawn (Pushback Target Switch)
 Effect/Name/TowerTargetingLaserAddTrackedUnit=Tower Targeting Laser (Add Tracked Unit)
+Effect/Name/TowerTargetingLaserApplyTargetIsTracked=Tower Targeting Laser (Apply Target Is Tracked)
 Effect/Name/TowerTargetingLaserCreatePersistent=Tower Targeting Laser (Create Persistent)
 Effect/Name/TowerTargetingLaserDestroyPersistent=Tower Targeting Laser (Destroy Persistent)
 Effect/Name/TowerTargetingLaserHeroCreatePersistent=Tower Targeting Laser Hero (Create Persistent)
+Effect/Name/TowerTargetingLaserInitialSet=Tower Targeting Laser (Initial Set)
 Effect/Name/TowerTargetingLaserRemoveTrackedUnit=Tower Targeting Laser (Remove Tracked Unit)
 Effect/Name/TowerTargetingMarkerApplyBehavior=Tower Targeting Marker Apply Behavior
 Effect/Name/TownBuildingRevealApplyBehavior=Town Building Reveal (Apply Behavior)
@@ -10885,6 +10888,67 @@ Param/Expression/lib_AIAI_DD35347A=<c val="0550ff">~A~ AI</c> is no longer follo
 Param/Expression/lib_AIAI_F4649221=Error hero [~A~] exceeds number of talent builds limit [~B~]. Please increase the script constant "HeroAI - Max Number of Talent Builds" or review the hero data to ensure it is correct.
 Param/Expression/lib_AIAI_F73B08C2=Unable to add ~A~ to HeroAI tier ~B~?
 Param/Expression/lib_AIAI_FD188F17=~A~ Yes
+Param/Expression/lib_BAIT_01BE695A=<c val="FF0000">BT - Variable [~A~] references to an invalid Ability.</c>
+Param/Expression/lib_BAIT_023A54F4=Catalog field name of scope at index ~A~: ~B~
+Param/Expression/lib_BAIT_07C81607=Cooldown active, skip until: ~A~
+Param/Expression/lib_BAIT_07F8F300=SCope: ~A~
+Param/Expression/lib_BAIT_0C697BF1=Distance between points: ~A~
+Param/Expression/lib_BAIT_0EF73DA2=Catalog field name of scope at index ~A~: ~B~
+Param/Expression/lib_BAIT_1A16A348=<c val="FF0000">BT - Variable [~A~] is not Boolean type.</c>
+Param/Expression/lib_BAIT_1A494E02=<c val="FF0000">BT - Variable [~A~] is not Behavior  type.</c>
+Param/Expression/lib_BAIT_1C8B8F63=<c val="FF0000">Cannot insert Child to FUNCTION node. Parent name [~A~], Child name [~B~]</c>
+Param/Expression/lib_BAIT_1F6886C9=Catalog field name of scope at index ~A~: ~B~
+Param/Expression/lib_BAIT_1FA082BB=<c val="FF0000">BT - Variable [~A~] doesn't exist. Register variable first before query it.</c>
+Param/Expression/lib_BAIT_286DA027=Triggering Unit: ~A~
+Param/Expression/lib_BAIT_29C45B32=Catalog field name of scope at index ~A~: ~B~
+Param/Expression/lib_BAIT_29D64363=<c val="FF0000">Evaluate FUNCTION - no function for node type [~A~]</c>
+Param/Expression/lib_BAIT_2A1458BC=Ability ~A~ is usable ~B~
+Param/Expression/lib_BAIT_34590EDA=<c val="FF0000">Variable [~A~] can not have spaces in name.</c>
+Param/Expression/lib_BAIT_36D0D95A=Effect: ~A~
+Param/Expression/lib_BAIT_373D6C1E=Distance Between Self And Pref: ~A~
+Param/Expression/lib_BAIT_3C62B52E=<c val="FF0000">BT - Variable [~A~] references to an invalid Validator.</c>
+Param/Expression/lib_BAIT_3F2A2B1F=Resetting node: ~A~ (type ~B~)
+Param/Expression/lib_BAIT_486B05EF=<c val="FF0000">Variable [~A~] can not have symbols in name.</c>
+Param/Expression/lib_BAIT_48713592=Fight Range: ~A~
+Param/Expression/lib_BAIT_4D7FAA5D=<c val="FF0000">BT - Variable [~A~] is not Behavior  type.</c>
+Param/Expression/lib_BAIT_52C893D5=Cur [~A~] Start [~B~] Stop [~C~]
+Param/Expression/lib_BAIT_5C8AD2B3=<c val="FF0000">BT - Variable [~A~] is not Unit type.</c>
+Param/Expression/lib_BAIT_6194C38C=Pathing Cost: ~A~
+Param/Expression/lib_BAIT_667505BD=Catalog field value at index~A~: ~B~
+Param/Expression/lib_BAIT_6719FD80=Entry: ~A~<n/>Scope: ~B~<n/>Field: ~C~<n/>Field Value: ~D~
+Param/Expression/lib_BAIT_6792644E=<c val="FF0000">BT - Variable [~A~] references to an invalid Behavior.</c>
+Param/Expression/lib_BAIT_68B75C2B=Finished with status ~A~
+Param/Expression/lib_BAIT_6ACDDE7B=Node №~B~ [~A~] {~C~}: 
+Param/Expression/lib_BAIT_6ADA0500=<c val="FF0000">Variable [~A~] already exists.</c>
+Param/Expression/lib_BAIT_6FC55269=<c val="FF0000">BT - Variable [~A~] references to an invalid Unit type.</c>
+Param/Expression/lib_BAIT_75558431=Catalog field name of scope at index ~A~: ~B~
+Param/Expression/lib_BAIT_755E0F4B=<c val="FF0000">BT - Variable [~A~] is not Integer type.</c>
+Param/Expression/lib_BAIT_783E4DD3=Entry: ~A~<n/>Scope: ~B~<n/>Field: ~C~<n/>Field Value: ~D~
+Param/Expression/lib_BAIT_7E70431E=Distance Between Target And Pref: ~A~
+Param/Expression/lib_BAIT_7F50FCD8=<s val="Storm_DebugAIStatusLabel">~A~</s>
+Param/Expression/lib_BAIT_8564B402=<c val="FF0000">BT - Variable [~A~] is not Unit type.</c>
+Param/Expression/lib_BAIT_8787631C=<c val="FF0000">BT - Variable [~A~] is not Point type.</c>
+Param/Expression/lib_BAIT_9E9E7669=SCope: ~A~
+Param/Expression/lib_BAIT_9F33EC8E=[~A~] --- [~B~]
+Param/Expression/lib_BAIT_A311C00D=AI Pathing Cost Unit: ~A~ - Ignore Enemy Buildings
+Param/Expression/lib_BAIT_A74CF8EC=AI Pathing Cost Unit: ~A~ - Include All Buildings
+Param/Expression/lib_BAIT_A99A4D35=<c val="FF0000">BT - Variable [~A~] is not Timer type.</c>
+Param/Expression/lib_BAIT_AF8CFCAE=Original: ~A~
+Param/Expression/lib_BAIT_B64C4B4A=<c val="FF0000">BT - Variable [~A~] is not Validator  type.</c>
+Param/Expression/lib_BAIT_C3EF4AC4=Resetting node: ~A~ (type ~B~)
+Param/Expression/lib_BAIT_C5D6EAE5=SCope: ~A~
+Param/Expression/lib_BAIT_D2F46F6C=Damage: ~A~ ~B~ ~C~
+Param/Expression/lib_BAIT_D5F70EDE=Catalog field name of scope at index ~A~: ~B~
+Param/Expression/lib_BAIT_DCC2CC66=<c val="FF0000">Cannot insert Child to IF-ELSE node. Parent name [~A~], Child name [~B~]</c>
+Param/Expression/lib_BAIT_DFC6EA8A=AI Pathing Cost Map: ~A~
+Param/Expression/lib_BAIT_DFEA895B=Order Progress: ~A~ ~B~ ~C~
+Param/Expression/lib_BAIT_E017B7BE=Created Unit: ~A~
+Param/Expression/lib_BAIT_E1A3A56C=<c val="FF0000">Cannot insert Child to NOT node. Parent name [~A~], Child name [~B~]</c>
+Param/Expression/lib_BAIT_E60CCA0C=<c val="FF0000">BT - Variable [~A~] is not Real type.</c>
+Param/Expression/lib_BAIT_E7C45EF0=<c val="FF0000">Evaluate FUNCTION - no function for node type [~A~]</c>
+Param/Expression/lib_BAIT_EE641E15=Target: ~A~
+Param/Expression/lib_BAIT_F1A0C6CC=SCope: ~A~
+Param/Expression/lib_BAIT_F9559884=Catalog field value at index~A~: ~B~
 Param/Expression/lib_Core_05F16B54=<s val="~Style~">~A~</s>
 Param/Expression/lib_Core_0AA166E0=[PH] ~A~
 Param/Expression/lib_Core_0BF0EEE9=<s val="Kill_Message">Your team's ~A~ lane is vulnerable!<n/>Enemy <s val="Enemy_Team">Bruiser Minions</s> now spawn in the ~A~ lane
@@ -11607,6 +11671,15 @@ Param/Value/lib_AIAI_F84235F3=Exceeded max number of Defender AI groups.
 Param/Value/lib_AIAI_F94BE010=Beginner
 Param/Value/lib_AIAI_FA486718=weakest lane
 Param/Value/lib_AIAI_FC206E81=Hook AI
+Param/Value/lib_BAIT_12A6F2BB=Reset node state before run
+Param/Value/lib_BAIT_6A90697C=no point
+Param/Value/lib_BAIT_7B42CE2F=<c val="FF0000">Node count exceed maximum count [Node - Maximum Count]</c>
+Param/Value/lib_BAIT_82C2FF50=Start
+Param/Value/lib_BAIT_9168372D=<c val="FF0000">Variable name is empty.</c>
+Param/Value/lib_BAIT_CAD9CD0E= [Skipped: Cooldown active]
+Param/Value/lib_BAIT_CEA93754=point exists
+Param/Value/lib_BAIT_CED718A1=<c val="FF0000">Node count exceed maximum count [Node - Maximum Count]</c>
+Param/Value/lib_BAIT_D10BEE3A= [Skipped: DoNotThrottle]
 Param/Value/lib_Core_06B1D619=
 Param/Value/lib_Core_07F7F697=Passive
 Param/Value/lib_Core_0926F6A8=Have lots of health and CC!

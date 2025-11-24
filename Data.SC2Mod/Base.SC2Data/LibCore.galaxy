@@ -4409,17 +4409,17 @@ bool libCore_gf_AttributeListTest (int lp_attributeList, int lp_attributeToTest)
     if ( (lp_attributeList & lp_attributeToTest) == lp_attributeToTest ) { return true; } else { return false; }
 }
 
-bool libCore_gf_UnitIsWithinArcAngleOfUnit (fixed lp_arcAngle, unit lp_sourceUnit, unit lp_targetUnit) {
+bool libCore_gf_UnitIsWithinFacingArcAngleOfUnit (fixed lp_arcAngle, unit lp_sourceUnit, unit lp_targetUnit) {
     // Automatic Variable Declarations
     // Implementation
-    if ((libCore_gf_ArcAngleBetweenUnits(lp_sourceUnit, lp_targetUnit) <= (lp_arcAngle / 2.0))) {
+    if ((libCore_gf_FacingArcAngleBetweenUnits(lp_sourceUnit, lp_targetUnit) <= (lp_arcAngle / 2.0))) {
         return true;
     }
 
     return false;
 }
 
-fixed libCore_gf_ArcAngleBetweenUnits (unit lp_sourceUnit, unit lp_targetUnit) {
+fixed libCore_gf_FacingArcAngleBetweenUnits (unit lp_sourceUnit, unit lp_targetUnit) {
     // Variable Declarations
     fixed lv_angle;
     fixed lv_diff;
@@ -4471,6 +4471,281 @@ string libCore_gf_GetWeaponDamageForUnit3 (unit lp_unit) {
     // Implementation
     lv_effect = (CatalogFieldValueGet(c_gameCatalogWeapon, libCore_gf_GetWeaponDamageForUnit2(lp_unit), "DisplayEffect", UnitGetOwner(lp_unit)));
     return lv_effect;
+}
+
+unitgroup libCore_gf_UnitTypeFilterByPlayer (unitgroup lp_group, int lp_unitTypeFilter, bool lp_requiredExcluded, int lp_player) {
+    // Variable Declarations
+    unitgroup lv_returnGroup;
+    unitgroup lv_hardCheckUnitGroup;
+    unitgroup lv_unitGroupToWork;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_returnGroup = UnitGroupEmpty();
+    lv_hardCheckUnitGroup = UnitGroupEmpty();
+    lv_unitGroupToWork = UnitGroupEmpty();
+
+    // Implementation
+    if ((((lp_requiredExcluded == true) && (lp_unitTypeFilter == libCore_gv_unitTypeFilterFallback)) || ((lp_requiredExcluded == false) && (lp_unitTypeFilter == 0)))) {
+        return lp_group;
+    }
+
+    if ((lp_requiredExcluded == false)) {
+        lv_hardCheckUnitGroup = UnitGroupCopy(lp_group);
+    }
+
+    if ((lp_player == c_playerAny)) {
+        lv_hardCheckUnitGroup = UnitGroupCopy(lp_group);
+    }
+    else {
+        if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Ally) == true)) {
+            lv_unitGroupToWork = UnitGroupFilterAlliance(lp_group, lp_player, c_unitAllianceAlly, 0);
+            UnitGroupRemoveUnitGroup(lv_unitGroupToWork, UnitGroupFilterPlayer(lv_unitGroupToWork, lp_player, 0));
+            if ((lp_requiredExcluded == true)) {
+                UnitGroupAddUnitGroup(lv_hardCheckUnitGroup, lv_unitGroupToWork);
+            }
+            else {
+                UnitGroupRemoveUnitGroup(lv_hardCheckUnitGroup, lv_unitGroupToWork);
+            }
+        }
+
+        if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Enemy) == true)) {
+            lv_unitGroupToWork = UnitGroupFilterAlliance(lp_group, lp_player, c_unitAllianceEnemy, 0);
+            if ((lp_requiredExcluded == true)) {
+                UnitGroupAddUnitGroup(lv_hardCheckUnitGroup, lv_unitGroupToWork);
+            }
+            else {
+                UnitGroupRemoveUnitGroup(lv_hardCheckUnitGroup, lv_unitGroupToWork);
+            }
+        }
+
+        if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_SelfPlayer) == true)) {
+            lv_unitGroupToWork = UnitGroupFilterPlayer(lp_group, lp_player, 0);
+            if ((lp_requiredExcluded == true)) {
+                UnitGroupAddUnitGroup(lv_hardCheckUnitGroup, lv_unitGroupToWork);
+            }
+            else {
+                UnitGroupRemoveUnitGroup(lv_hardCheckUnitGroup, lv_unitGroupToWork);
+            }
+        }
+
+    }
+    if ((lp_requiredExcluded == false)) {
+        lv_returnGroup = UnitGroupCopy(lv_hardCheckUnitGroup);
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_AITargetableStructure) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterPreventDefeat), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Benign) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter(0, (1 << (c_targetFilterBenign - 32)), 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Creep) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterLight), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Hallucination) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter(0, (1 << (c_targetFilterResistant - 32)), 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Heroic) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterHeroic), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_ImmuneToAOE) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterMechanical), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_ImmuneToFriendlyAbilities) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterHover), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_ImmuneToSkillshots) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterMassive), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_MapBoss) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter(0, (1 << (c_targetFilterMapBoss - 32)), 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_MapObject) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterUser1), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Mercenary) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterRobotic), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Minion) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterBiological), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_NoMinionAggro) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterPsionic), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Structure) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterStructure), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Summoned) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter(0, (1 << (c_targetFilterSummoned - 32)), 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Tower) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterArmored), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Dead) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter(0, (1 << (c_targetFilterDead - 32)), 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Hidden) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter(0, (1 << (c_targetFilterHidden - 32)), 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Missile) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterMissile), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    if ((libCore_gf_UnitTypeFilterListTest(lp_unitTypeFilter, libCore_ge_UnitTypeFilter_Visible) == true)) {
+        lv_unitGroupToWork = UnitGroupFilter(null, c_playerAny, lv_hardCheckUnitGroup, UnitFilter((1 << c_targetFilterVisible), 0, 0, 0), 0);
+        if ((lp_requiredExcluded == true)) {
+            UnitGroupAddUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+        else {
+            UnitGroupRemoveUnitGroup(lv_returnGroup, lv_unitGroupToWork);
+        }
+    }
+
+    return lv_returnGroup;
+}
+
+bool libCore_gf_UnitTypeFilterListTest (int lp_unitTypeFilterList, int lp_unitTypeFilterToTest) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (((lp_unitTypeFilterList & lp_unitTypeFilterToTest) == lp_unitTypeFilterToTest)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 bool libCore_gf_UserDataBoolean (string lp_userDataInstance) {

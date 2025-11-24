@@ -242,6 +242,7 @@
         <RemoveValidatorArray value="TowerCFHFocusedUnitTrackedSource"/>
         <MaxStackCountPerCaster value="1"/>
         <FinalEffect value="TowerCFHFocusedTargetRemovedDummyEffect"/>
+        <InfoFlags index="Hidden" value="0"/>
     </CBehaviorBuff>
     <CBehaviorUnitTracker id="TowerCFHFocusedTargetTracker">
         <TrackingValidatorArray value="TargetInWeaponRange"/>
